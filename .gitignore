@@ -1,0 +1,17 @@
+# Quarto output
+/_freeze/
+/docs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# R / RStudio (just in case)
+.Rproj.user
+.Rhistory
+.RData

@@ -1,0 +1,190 @@
+/* @font-face definitions to load the local files */
+@font-face {
+    font-family: "Latin Modern Roman";
+    src: url("./latex_fonts/lmroman10-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin Modern Roman";
+    src: url("./latex_fonts/lmroman10-bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin Modern Roman";
+    src: url("./latex_fonts/lmroman10-italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin Modern Roman";
+    src: url("./latex_fonts/lmroman10-bolditalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin Modern Sans";
+    src: url("./latex_fonts/lmsans10-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin Modern Mono";
+    src: url("./latex_fonts/lmmono10-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("./latex_fonts/NewCM10-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("./latex_fonts/NewCM10-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* * Core Variables from LaTeX Theme
+ */
+:root {
+    --bg-color: #ffffff; /* */
+    --surface-color: #ffffff; /* */
+    --text-color: #000000; /* */
+    --muted-text-color: #4d4d4d; /* */
+    --link-color: #183a63; /* */
+    --link-hover-color: #0f2745; /* */
+    --inline-code-bg-color: #f7f4ee; /* */
+    --code-bg-color: #fbfaf7; /* */
+    --code-border-color: rgba(0, 0, 0, 0.18); /* */
+    --quote-bg-color: #faf7f0; /* */
+    --quote-border-color: rgba(0, 0, 0, 0.28); /* */
+
+    /* Typography Fallbacks */
+    --font-family: "Backtick Serif Fix", "New Computer Modern", "Latin Modern Roman", "Times New Roman", serif; /* */
+    --monospace: "Latin Modern Mono", "Courier New", monospace; /* */
+    --sans-font: "Latin Modern Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; /* */
+}
+
+/* * Global Body & Slide Styles
+ */
+body, .reveal {
+    background-color: var(--bg-color); /* */
+    color: var(--text-color); /* */
+    font-family: var(--font-family); /* */
+    line-height: 1.45; /* */
+    text-rendering: optimizeLegibility; /* */
+}
+
+/* * Headers 
+ */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color); /* */
+    page-break-after: avoid; /* */
+}
+
+h1 {
+    font-size: 1.8em; /* */
+    font-weight: normal; /* */
+    text-align: center; /* */
+    margin-top: 1.5em; /* */
+    margin-bottom: 2em; /* */
+    line-height: 1.2; /* */
+}
+
+h2 {
+    font-size: 1.4em; /* */
+    font-weight: bold; /* */
+    margin-top: 2.5em; /* */
+    margin-bottom: 1em; /* */
+}
+
+h3 {
+    font-size: 1.2em; /* */
+    font-weight: bold; /* */
+    margin-top: 2em; /* */
+}
+
+/* * Links (ADA Compliant)
+ */
+a {
+    color: var(--link-color); /* */
+    text-decoration: none; /* */
+    border-bottom: 1px solid currentColor; /* */
+    text-underline-offset: 0.12em; /* */
+}
+
+a:hover {
+    color: var(--link-hover-color); /* */
+}
+
+/* * Blockquotes
+ */
+blockquote {
+    margin: 1.5em 2em; /* */
+    padding: 0.9em 1.2em 0.9em 1.4em; /* */
+    border-left: 2px solid var(--quote-border-color); /* */
+    background-color: var(--quote-bg-color); /* */
+    border-radius: 0 2px 2px 0; /* */
+    color: var(--muted-text-color); /* */
+    font-size: 0.95em; /* */
+}
+
+/* * Code Blocks
+ */
+code, tt {
+    font-family: var(--monospace); /* */
+    font-size: 0.95em; /* */
+    background-color: var(--inline-code-bg-color); /* */
+    padding: 0.08em 0.35em; /* */
+    border-radius: 2px; /* */
+}
+
+pre {
+    background-color: var(--code-bg-color); /* */
+    border: 1px solid var(--code-border-color); /* */
+    padding: 1em 1.2em; /* */
+    border-radius: 2px; /* */
+}
+
+/* * Tables
+ */
+table {
+    width: 100%; /* */
+    margin: 2em auto; /* */
+    border-collapse: collapse; /* */
+    border-top: 2px solid var(--text-color); /* */
+    border-bottom: 2px solid var(--text-color); /* */
+    background-color: var(--surface-color); /* */
+}
+
+thead tr {
+    border-bottom: 1px solid var(--text-color); /* */
+}
+
+th, td {
+    padding: 0.5em 1.5em; /* */
+}
+
+th {
+    font-weight: bold; /* */
+    text-align: center; /* */
+}

@@ -1,0 +1,501 @@
+Year,Gender,Age,Hand,Height,Foot,Armspan,Languages,GetToSchool,TravelTime,ReactionTime,MemoryScore,Activity,Music,BirthMonth,Season,Allergies,Vegetarian,FavFood,FavDrink,FavSubject,Sleep1,Sleep2,Occupants,Communicate,TextsSent,HangHours,HWHours,VideoGameHours,ComputerHours,TVHours,WorkHours,SchoolPressure,Superpower,Preference
+2024,Male,16,Right,170,24,170.5,3,Car,5,0.404,55,Walking/Hiking,Rock and roll,July,Fall,Yes,No,Rice/Noodle dishes,Tea,Art,7,9,4,In person,2,1,4,3,9,3,0,Some,Fly,Happy
+2024,Male,17,Right,173,25,180,2,Car,15,0.335,38,Other,Other,August,Fall,Yes,No,Rice/Noodle dishes,Water,Science,8,7,4,Social Media,2,4,8,8,20,2,0,Some,Freeze time,Happy
+2024,Female,17,Right,160,22.5,160,1,Car,4,0.374,52,Dancing,Country,July,Summer,No,No,Fruit,Water,English,6,8,4,Text messaging,176,35,8,6,15,9,15,A lot,Invisibility,Healthy
+2024,Male,17,Right,177,27.5,181,1,Car,9,0.307,26,Swimming,Rhythm and blues (R&B),March,Winter,No,No,Seafood,Water,Mathematics and statistics,7,9,5,Text messaging,27,6,3,15,25,10,25,Some,Freeze time,Rich
+2024,Female,17,Right,159,22,150,1,Car,8,0.399,43,Swimming,Pop,April,Fall,Yes,No,Rice/Noodle dishes,Water,History,7,10,6,Text messaging,20,24,6,3,30,0,20,A lot,Freeze time,Rich
+2024,Male,17,Right,181,26,182,2,Car,7,0.383,22,Swimming,Rap/Hip hop,March,Fall,No,No,Meat,Water,Mathematics and statistics,7,9,4,Text messaging,40,2,5,7,14,1,8,Some,Super strength,Rich
+2024,Male,17,Right,167.6,24.1,165.1,1,Car,20,0.335,76,Walking/Hiking,Rhythm and blues (R&B),May,Fall,No,No,Poultry,Water,Physical education,6,10.5,6,Text messaging,12,0,0,10,0,0,12,Very little,Super strength,Healthy
+2024,Female,18,Right,170,30.5,168,1,Car,10,0.335,33,Running/Jogging,Punk rock,November,Spring,No,No,Seafood,Water,Mathematics and statistics,8,8,5,Internet Chat/Message,30,0,3,0,0,0,25,Some,Fly,Happy
+2024,Female,17,Right,163,25,169,1,Car,12,0.315,30,Other,Other,July,Summer,No,No,Desserts,Water,Music,6,12,7,In person,8,6,15,10,50,2,0,Some,Freeze time,Happy
+2024,Male,18,Right,181,27,150,2,Car,40,0.298,38,Baseball/Softball,Rock and roll,January,Fall,Yes,No,Meat,Water,Art,7.5,8,3,In person,20,4,10,0,3,15,4,Some,Fly,Happy
+2024,Male,17,Right,175,27,173,2,Car,13,0.362,43,Rowing,Country,June,Winter,No,No,Pizza/Pasta,Water,Mathematics and statistics,7,7,4,Internet Chat/Message,23,4,12,1,64,3,0,Some,Fly,Healthy
+2024,Female,18,Right,157,20,152,1,Car,10,0.331,41,Walking/Hiking,Rock and roll,January,Fall,Yes,No,Seafood,Water,Music,5,9,4,Text messaging,7,4,5,2,4,2,0,A lot,Freeze time,Happy
+2024,Female,17,Right,162,21,153,2,Car,5,0.559,44,Gymnastics,Pop,April,Summer,No,No,Pizza/Pasta,Water,Mathematics and statistics,7,10,4,In person,15,10,5,0,5,5,10,Some,Freeze time,Happy
+2024,Male,17,Right,182,28.2,186,1,Car,9,0.191,38,Baseball/Softball,Rap/Hip hop,May,Winter,Yes,No,Rice/Noodle dishes,Water,Science,7.5,8,5,Internet Chat/Message,10,30,10,42,80,0,50,Some,Freeze time,Healthy
+2024,Male,17,Right,167.6,24.1,152.4,2,Bus,29,0.553,37,None,Pop,September,Winter,No,No,Pizza/Pasta,Soft drink (caffeinated),Mathematics and statistics,6,4,5,Text messaging,200,5,0.5,1,13,2,0,None,Fly,Happy
+2024,Female,17,Right,178,25,177.8,1,Car,17,0.447,32,Walking/Hiking,Other,July,Summer,No,No,Fruit,Water,Art,5,10,4,Text messaging,100,12,8,5,8,0,0,Some,Fly,Happy
+2024,Male,17,Right,179,25,183,2,Car,9,0.284,42,Football (American),Rap/Hip hop,March,Winter,Yes,No,No favorite,Water,Mathematics and statistics,6,10,4,Social Media,5,10,1,3,2,1,15,Very little,Telepathy,Happy
+2024,Male,18,Right,177.8,25.6,182.6,2,Car,28,0.305,45,Other,Rock and roll,July,Summer,No,No,Meat,Water,Science,6.5,8.5,4,Text messaging,8,7.5,5,3,2,1,0,Some,Fly,Rich
+2024,Female,17,Right,165.1,21,177,1,Car,7,0.541,39,Table Tennis,Rhythm and blues (R&B),February,Fall,Yes,No,Meat,Soft drink (caffeinated),History,8,13,3,Text messaging,20,5,1,5,6,10,12,A lot,Telepathy,Rich
+2024,Female,18,Right,163,25,160,1,Car,6,0.418,50,Basketball,Rap/Hip hop,December,Spring,Yes,No,Poultry,Water,Mathematics and statistics,7,10,3,Social Media,30,10,5,0,70,2,10,Some,Fly,Happy
+2024,Female,17,Right,157,23,164,1,Car,7,0.484,52,Other,Pop,August,Summer,No,No,Meat,Water,English,6,11,4,Text messaging,4,12,2,0,20,10,15,Some,Freeze time,Happy
+2024,Male,18,Right,171,28.3,175.2,4,Car,3,0.31,46,Basketball,Pop,March,Summer,No,Yes,Pizza/Pasta,Water,Science,7,9,4,Text messaging,100,45,10,2,4,1,0,Some,Fly,Rich
+2024,Female,17,Right,160,24,175,1,Car,10,0.311,44,Swimming,Other,June,Spring,Yes,No,Breads/Sandwiches,Water,History,7,10,2,Text messaging,10,12,3,0,10,14,20,Some,Freeze time,Happy
+2024,Male,18,Both,182.8,30.5,203.2,1,Bus,15,0.411,53,Basketball,Rap/Hip hop,April,Spring,No,No,Seafood,Water,Physical education,6,9,4,Cell phone,56,10,1,10,20,5,0,Very little,Freeze time,Rich
+2024,Male,17,Right,185.4,31.8,185.4,2,Car,7,0.348,50,Soccer,Rap/Hip hop,January,Fall,Yes,No,Fruit,Water,Music,5,7,3,Text messaging,300,12,5,6,28,0,0,Some,Invisibility,Healthy
+2024,Male,18,Right,175.2,27.9,165.1,1,Car,15,0.367,30,Basketball,Rap/Hip hop,December,Spring,Yes,No,Rice/Noodle dishes,Water,History,9,10,3,Text messaging,20,1,1.5,0,2,1.5,0,Very little,Fly,Happy
+2024,Male,17,Right,170,25,182,1,Bus,90,0.402,48,Athletics,Techno/Electronic,May,Winter,Yes,No,Pizza/Pasta,Coffee,Science,7,9,10,Internet Chat/Message,3,30,5,30,30,0,0,Some,Freeze time,Happy
+2024,Male,17,Right,179,25,164,2,Car,15,0.392,33,Swimming,Other,October,Fall,No,No,No favorite,Water,History,6,8,3,Internet Chat/Message,5,5,25,4,50,0,15,A lot,Freeze time,Rich
+2024,Male,17,Right,172.7,27.3,177.8,2,Bus,20,0.27,28,Basketball,Rap/Hip hop,April,Winter,No,No,Rice/Noodle dishes,Water,Other,6.5,9.5,8,Internet Chat/Message,90,0,1,2,3,2,0,Some,Fly,Rich
+2024,Male,17,Right,176,25,182,1,Car,10,0.314,30,Other,Other,June,Summer,No,No,Meat,Water,Science,6,6,4,In person,20,20,1,8,8,0,18,None,Freeze time,Rich
+2024,Male,17,Right,180,25,180,3,Car,15,0.335,53,Baseball/Softball,Rap/Hip hop,September,Summer,No,No,Seafood,Water,Other,8.7,10,3,Other,5,0,1,10,40,4,0,Very little,Fly,Happy
+2024,Male,18,Right,180,27,185,2,Car,5,0.281,40,Football (American),Rap/Hip hop,August,Summer,No,No,Meat,Water,Physical education,7,8,3,Text messaging,20,6,1,3,6,0,15,Very little,Super strength,Happy
+2024,Male,18,Right,185.4,27.8,180.3,1,Car,10,0.473,47,Basketball,Rap/Hip hop,July,Summer,Yes,No,Meat,Sports drink,Social studies,7,9,4,Cell phone,45,8,2,4,5,1,3,Some,Telepathy,Rich
+2024,Male,17,Right,190.5,25.4,196.8,1,Car,18,0.284,36,Athletics,Rhythm and blues (R&B),February,Summer,Yes,No,Pizza/Pasta,Sports drink,Physical education,7,9,4,Text messaging,300,10,2,42,168,3,24,Some,Freeze time,Rich
+2024,Male,18,Right,177,22,170,1,Car,7,0.276,23,Other,Pop,December,Fall,No,No,Meat,Water,Mathematics and statistics,6,8,3,Text messaging,20,4,1,2,72,1,0,A lot,Invisibility,Happy
+2024,Female,17,Right,170,23.5,167,1,Car,9,0.365,44,Dancing,Pop,May,Fall,No,No,Pizza/Pasta,Water,Science,7,9,2,Text messaging,7,10,2,0,10,0,10,A lot,Invisibility,Rich
+2024,Female,17,Both,163.8,24,168,2,Bus,20,0.36,31,Tennis,Rhythm and blues (R&B),September,Spring,No,No,Fruit,Juice,English,8.5,11.5,4,In person,30,10,5,2,120,12,10,Some,Telepathy,Happy
+2024,Male,18,Right,185,29,180,1,Car,30,0.239,59,Basketball,Rock and roll,September,Summer,No,No,Pizza/Pasta,Juice,Science,5,8,3,Text messaging,10,50,5,3,30,0,0,Some,Freeze time,Rich
+2024,Male,17,Right,179,26,183,1,Car,6,0.36,41,Soccer,Pop,August,Summer,Yes,No,Rice/Noodle dishes,Water,Physical education,7,9,5,Text messaging,25,22,1,10,20,5,8,Very little,Telepathy,Famous
+2024,Female,17,Left,158.5,20,151,2,Car,8,0.441,41,Running/Jogging,Pop,June,Summer,Yes,No,Fruit,Water,Other,5,9,6,Text messaging,400,55,6,0,6,6,0,Some,Invisibility,Happy
+2024,Female,17,Right,154.9,24,154,1,Car,7,0.451,48,Hockey (Field),Rap/Hip hop,June,Fall,No,No,Breads/Sandwiches,Water,History,7,6,5,Cell phone,30,54,1,0,3,15,15,Some,Telepathy,Happy
+2024,Female,17,Right,174,25.2,,2,Car,15,0.34,91,Other,Pop,May,Fall,No,No,Soups,Tea,English,9,10,4,Text messaging,1,2,4,1,8,3,6,Some,Invisibility,Healthy
+2024,Male,17,Right,190,26,185,1,Car,15,0.253,60,Football (American),Other,February,Winter,Yes,No,Meat,Milk,Mathematics and statistics,6,9,4,In person,20,21,0.5,1,30,5,11,Very little,Freeze time,Healthy
+2024,Male,18,Right,178,27,179,1,Car,10,0.196,35,Football (American),Rap/Hip hop,March,Spring,Yes,No,Poultry,Water,Mathematics and statistics,6,8,3,Text messaging,2,4,2,2,12,4,0,Very little,Fly,Healthy
+2024,Female,17,Right,157.5,20.3,,1,Car,17,0.586,38,Athletics,Pop,February,Summer,No,No,Rice/Noodle dishes,Water,Science,7,9,4,Text messaging,159,3,4,2,5,1,8,A lot,Telepathy,Happy
+2024,Female,18,Right,153,21,150,2,Car,7,0.5,41,Rowing,Other,September,Spring,No,No,Rice/Noodle dishes,Water,Art,7,6,5,Social Media,150,15,10,7,100,0,0,Some,Invisibility,Rich
+2024,Male,17,Right,168,26,,1,Bus,25,0.3,60,Baseball/Softball,Rhythm and blues (R&B),April,Fall,No,No,Meat,Water,Physical education,4,10,4,Cell phone,40,10,1,10,8,6,0,Some,Invisibility,Rich
+2024,Female,17,Right,163,24,169,1,Car,15,0.403,43,Other,Rap/Hip hop,March,Spring,No,No,Pizza/Pasta,Water,Science,5,10,3,Text messaging,300,25,7,0.5,5,0.5,20,Some,Fly,Rich
+2024,Female,18,Left,168,23,183,1,Car,25,0.45,28,None,Heavy metal,November,Fall,Yes,No,Fruit,Water,Science,8,12,5,Internet Chat/Message,56,24,3,20,30,0,0,Very little,Freeze time,Rich
+2024,Female,16,Right,157.4,21.6,147.3,1,Bus,10,0.681,38,Other,Jazz,May,Spring,No,No,Desserts,Water,Art,6,7,5,In person,60,49,0,0,49,7,0,Some,Freeze time,Happy
+2024,Male,17,Right,184,30,186,1,Car,10,0.33,30,Rowing,Jazz,July,Summer,No,No,Meat,Water,Art,9,11,4,Text messaging,4,3,14,2,7,0,0,Some,Freeze time,Happy
+2024,Male,18,Right,182.8,24.1,187,1,Car,8,0.27,34,Football (American),Country,July,Fall,No,No,Meat,Water,Science,8,8,5,Internet Chat/Message,5,10,4,9,7,0,0,A lot,Telepathy,Rich
+2024,Male,17,Right,188,29,195,1,Car,5,0.328,45,Walking/Hiking,Heavy metal,September,Fall,No,No,Meat,Water,Mathematics and statistics,7,9,4,Internet Chat/Message,17,10,1,20,7,0,0,Some,Freeze time,Happy
+2024,Male,17,Right,157,25,160,1,Bus,17,0.47,38,Skateboarding/Rollerblading,Punk rock,July,Fall,Yes,No,Fruit,Water,Art,6,10,4,Internet Chat/Message,8,10,3,3,3,3,0,Some,Freeze time,Happy
+2024,Male,18,Right,184,29,,1,Car,10,0.3,34,Basketball,Rap/Hip hop,February,Summer,Yes,No,Meat,Water,Mathematics and statistics,3,9,3,Text messaging,75,12,5,12,40,6,0,None,Telepathy,Rich
+2024,Male,16,Right,166,25,162,1,Car,5,0.442,26,Swimming,Pop,August,Summer,No,No,Pizza/Pasta,Water,Mathematics and statistics,7.5,10,4,Text messaging,20,5,3,6,0.5,3,15,A lot,Super strength,Happy
+2024,Female,17,Right,163,24.5,162,2,Car,10,0.44,49,Tennis,Jazz,August,Spring,No,No,Pizza/Pasta,Water,Science,6,10,5,Other,15,10,35,1,70,7,4,Some,Telepathy,Rich
+2024,Female,17,Right,154.9,23,150,2,Car,3,0.474,35,Dancing,Pop,January,Winter,No,No,Rice/Noodle dishes,Water,Other,7,10,5,Text messaging,15,9,4,0,8,10,16,Some,Telepathy,Happy
+2024,Male,17,Right,179,27,183,1,Car,2,0.387,49,Basketball,Rap/Hip hop,February,Winter,No,No,Pizza/Pasta,Water,Mathematics and statistics,7.5,10,4,Social Media,10,6,1,10,15,3,12,Very little,Telepathy,Happy
+2024,Female,17,Left,152,21.5,155,2,Car,7,0.43,46,Hockey (Field),Pop,July,Summer,Yes,No,Seafood,Water,English,8,7,6,In person,15,18,5,0,7,3,6,A lot,Invisibility,Happy
+2024,Female,17,Right,170,25,152,1,Car,5,0.639,86,Dancing,Pop,October,Fall,No,No,Pizza/Pasta,Water,Science,7.5,9,5,Text messaging,15,2,5,0,50,4,4,Some,Telepathy,Healthy
+2024,Female,17,Right,170,24,171,2,Car,15,0.36,42,Soccer,Other,March,Spring,No,No,Pizza/Pasta,Water,Science,7,10,1,In person,21,4,10,0,8,4,0,A lot,Telepathy,Healthy
+2024,Male,18,Right,188,27,197,1,Car,3,0.322,37,Lacrosse,Rap/Hip hop,October,Summer,Yes,No,Meat,Water,Mathematics and statistics,8,8,1,In person,100,5,1,10,5,0,10,Some,Telepathy,Rich
+2024,Male,17,Right,175.5,26,180,1,Car,10,0.398,38,Soccer,Rap/Hip hop,September,Summer,Yes,No,Meat,Water,Mathematics and statistics,9.5,8.5,5,Text messaging,25,3.5,2.5,3.5,8,5.5,2,Very little,Telepathy,Happy
+2024,Female,17,Right,181,24,167,1,Car,4,0.399,33,Other,Pop,October,Fall,No,No,Desserts,Water,Science,7,11,4,Text messaging,10,15,2,0,8,7,6,Some,Fly,Healthy
+2024,Female,16,Right,167,25,136,1,Car,8,0.591,39,Other,Rap/Hip hop,November,Summer,Yes,No,Pizza/Pasta,Water,Art,7,8,5,Text messaging,350,10,5,1,8,14,0,Some,Fly,Happy
+2024,Male,17,Right,177.8,28,181,1,Car,4,0.454,40,Football (American),Country,September,Fall,Yes,No,Poultry,Water,Mathematics and statistics,8,8,4,Social Media,6,5,2,3,14,3,8,Very little,Fly,Happy
+2024,Female,17,Right,152.4,22,149.9,1,Car,5,0.402,44,Skateboarding/Rollerblading,Other,March,Fall,No,No,Pizza/Pasta,Water,Art,7,7,5,Text messaging,50,10,7,8,10,5,0,Some,Freeze time,Happy
+2024,Female,17,Right,165.1,25,165,1,Car,5,0.453,57,Lacrosse,Pop,July,Summer,No,No,Fruit,Soft drink (caffeinated),Science,7,9,4,Social Media,30,4,6,0,4,0,4,A lot,Telepathy,Healthy
+2024,Male,18,Left,179.1,27,186,1,Car,5,0.299,44,Baseball/Softball,Rap/Hip hop,July,Summer,No,No,Meat,Water,Mathematics and statistics,7.5,10.5,6,Cell phone,4,6,3,4,6,8,8,Very little,Super strength,Rich
+2024,Male,18,Right,178,32,189,1,Car,5,0.286,28,Football (American),Rock and roll,March,Fall,No,No,Meat,Water,Science,8,10,3,Text messaging,2,10,3,24,24,4,0,Some,Super strength,Happy
+2024,Male,17,Right,180.3,27.8,180,1,Car,8,0.404,42,Basketball,Rap/Hip hop,August,Summer,Yes,No,Meat,Water,Physical education,8,9,4,Cell phone,25,10,1,16,40,10,0,Very little,Freeze time,Healthy
+2024,Female,17,Right,161,24,157,1,Car,6,1.7,49,Dancing,Pop,February,Summer,No,No,Rice/Noodle dishes,Water,English,7,9,5,In person,20,10,3,0,35,0,0,Very little,Telepathy,Happy
+2024,Male,17,Right,165,25.4,162,1,Car,18,0.27,55,Walking/Hiking,Heavy metal,April,Summer,Yes,No,Poultry,Water,Physical education,7,9,4,In person,10,9,8,9,2,1,25,Very little,Super strength,Rich
+2024,Male,17,Right,181,26,180,2,Car,7,0.3,53,Lacrosse,Heavy metal,April,Summer,No,No,Meat,Water,History,8,9,5,In person,30,20,5,1,1,2,8,Some,Super strength,Rich
+2024,Female,17,Right,164,29,162,1,Car,5,0.371,39,Soccer,Rap/Hip hop,September,Summer,No,No,Pizza/Pasta,Water,English,9,9,4,Text messaging,100,15,0,0,10,10,0,Very little,Fly,Rich
+2024,Male,18,Both,179,28,180,3,Car,10,0.323,42,Soccer,Rap/Hip hop,August,Spring,No,No,Pizza/Pasta,Water,Mathematics and statistics,7,9,3,Text messaging,300,27,3,9,40,0,30,Very little,Invisibility,Rich
+2024,Female,17,Right,157,23,154,1,Car,3,0.444,63,Other,Country,April,Summer,Yes,No,No favorite,Water,Science,5,9,4,Cell phone,5,12,8,1,3,24,15,Some,Freeze time,Happy
+2024,Male,18,Right,175.2,27,203,1,Car,25,0.276,40,Football (American),Rap/Hip hop,October,Fall,No,No,Seafood,Water,Physical education,7,9,2,Text messaging,25,8,2,10,1,1,28,Some,Invisibility,Rich
+2024,Female,17,Right,164,23,154,1,Car,10,0.443,39,Walking/Hiking,Country,April,Fall,Yes,No,Fruit,Water,Science,8,9,4,Text messaging,150,20,5,1,5,10,15,Some,Telepathy,Happy
+2024,Female,18,Right,164,24,,1,Car,10,0.435,61,Soccer,Other,August,Summer,No,No,Poultry,Water,English,6,8,5,Internet Chat/Message,25,8,7,2,5,4,23,Some,Freeze time,Happy
+2024,Female,17,Right,160,20.3,135.8,1,Car,25,0.35,40,Soccer,Rap/Hip hop,January,Fall,Yes,No,Meat,Water,History,5,8,3,In person,50,10,1,1,20,0,40,Some,Invisibility,Happy
+2024,Female,16,Right,175,28,183,1,Car,10,0.376,32,Other,Pop,October,Fall,No,No,Fruit,Water,Science,7,8,4,Internet Chat/Message,100,8,5,3,10,2,8,A lot,Telepathy,Happy
+2024,Male,17,Right,180,27.8,181,1,Car,8,0.371,46,Athletics,Pop,March,Fall,No,No,Meat,Energy drink,Mathematics and statistics,9,9,4,In person,10,15,5,14,21,10,8,Some,Invisibility,Happy
+2024,Male,15,Right,178,26,190,1,Car,7,0.332,38,Lacrosse,Country,December,Fall,Yes,No,Poultry,Water,Mathematics and statistics,8,9,3,Text messaging,45,5,4,5,6,12,12,Some,Freeze time,Rich
+2024,Female,17,Right,165,22,140,1,Car,15,0.45,54,Dancing,Pop,October,Fall,No,No,Meat,Water,English,7,8,5,Cell phone,60,6,1,1,5,5,5,Some,Freeze time,Happy
+2024,Male,17,Right,178,25,176,1,Walk,7,0.375,32,Soccer,Rap/Hip hop,March,Summer,Yes,No,Meat,Water,Mathematics and statistics,8,9,5,Text messaging,30,6,15,1,20,5,0,A lot,Super strength,Happy
+2024,Female,17,Right,160,24,157,1,Car,10,0.398,48,Soccer,Country,February,Summer,No,No,Pizza/Pasta,Water,Mathematics and statistics,7,9,4,Internet Chat/Message,7,18,3,1,3,8,13,Some,Telepathy,Happy
+2024,Male,17,Left,185.9,28,181,1,Car,5,0.232,33,Lacrosse,Country,May,Fall,No,No,Poultry,Water,History,6,8,6,In person,50,17,0,8,5,2,12,Very little,Fly,Happy
+2024,Female,18,Right,164,24,,1,Car,10,0.435,61,Soccer,Other,August,Summer,No,No,Poultry,Water,English,6,8,5,Internet Chat/Message,25,8,7,2,5,4,23,Some,Freeze time,Happy
+2024,Male,18,Right,179.8,26,173,1,Car,8,0.384,31,Football (American),Rock and roll,July,Fall,No,No,Pizza/Pasta,Water,Science,7,8,5,Text messaging,20,5,1,4,12,12,11,Some,Telepathy,Happy
+2024,Male,17,Right,195.5,30,194,1,Car,7,0.394,45,Football (American),Other,November,Summer,No,No,Meat,Water,Mathematics and statistics,7,9,4,Text messaging,23,4,1.5,3,1,6,12,Very little,Freeze time,Rich
+2024,Female,17,Right,167,23,172,2,Car,8,0.468,31,Soccer,Country,February,Summer,No,No,Meat,Water,Physical education,9,8,4,Social Media,0,4,0,0,100,0,0,None,Telepathy,Happy
+2024,Male,18,Right,178,28.7,186,1,Car,5,0.36,79,Baseball/Softball,Country,July,Summer,No,No,Meat,Water,Mathematics and statistics,7,6,5,Internet Chat/Message,20,8,2,0,3,7,5,None,Super strength,Happy
+2024,Male,17,Right,190,26,185,1,Car,15,0.253,60,Football (American),Other,February,Winter,Yes,No,Meat,Milk,Mathematics and statistics,6,9,4,In person,20,21,0.5,1,30,5,11,Very little,Freeze time,Healthy
+2024,Male,17,Right,180.3,25.9,185.4,1,Car,15,0.3,43,Soccer,Country,February,Spring,No,No,Meat,Water,Other,8,10,2,Text messaging,30,12,7,4,2,5,0,Some,Super strength,Rich
+2024,Female,16,Left,153,22,155,2,Car,10,0.373,54,Dancing,Reggae,July,Fall,No,Yes,Vegetables,Water,Mathematics and statistics,7,10,3,Text messaging,50,4,25,0,5,1,0,Some,Telepathy,Rich
+2024,Female,18,Right,162.6,23.5,162,1,Car,7,0.391,36,Dancing,Pop,March,Summer,Yes,No,Rice/Noodle dishes,Water,Science,8,8,4,In person,30,20,6,0,100,20,8,Some,Telepathy,Rich
+2024,Male,17,Right,173,22.5,,2,Car,12,0.412,51,Tennis,Rap/Hip hop,March,Spring,No,No,Rice/Noodle dishes,Energy drink,Mathematics and statistics,4,7,3,Text messaging,35,2,8,1,1,4,0,A lot,Telepathy,Rich
+2024,Female,18,Right,162.6,23.5,162,1,Car,7,0.391,36,Dancing,Pop,March,Summer,Yes,No,Rice/Noodle dishes,Water,Science,8,8,4,In person,30,20,6,0,100,20,8,Some,Telepathy,Rich
+2024,Female,17,Right,165,25,152,2,Car,15,0.5,39,Soccer,Rhythm and blues (R&B),January,Spring,No,No,Pizza/Pasta,Water,Art,9,10,5,Cell phone,15,2,4,1,5,2,0,A lot,Fly,Happy
+2024,Female,16,Right,160,22,161,2,Bus,20,0.354,39,Skateboarding/Rollerblading,Other,September,Winter,No,No,Seafood,Water,Science,6,9,5,Text messaging,100,0,10,25,100,6,8,A lot,Freeze time,Healthy
+2024,Female,17,Right,160,21,150,1,Car,6,0.27,32,Running/Jogging,Pop,July,Summer,No,No,Rice/Noodle dishes,Water,Science,6,8,7,Text messaging,25,15,7,0.5,15,3,24,Some,Freeze time,Happy
+2024,Male,17,Right,168,22,,2,Car,15,0.44,43,Skateboarding/Rollerblading,Techno/Electronic,December,Winter,No,No,Rice/Noodle dishes,Soft drink (caffeinated),Music,7,9,5,Text messaging,18,17,15,3,14,0,6,Very little,Freeze time,Happy
+2024,Male,17,Right,177,24,176,1,Car,20,0.27,27,Hockey (Ice),Rap/Hip hop,August,Summer,No,No,No favorite,Water,History,7.5,9.5,3,Text messaging,6,40,8,3,20,5,0,Very little,Freeze time,Healthy
+2024,Female,17,Right,165.1,20.3,157.4,2,Car,25,0.3,30,Swimming,Country,December,Fall,Yes,No,Meat,Water,English,5,7,5,Cell phone,35,20,0,0,15,8,0,Some,Invisibility,Happy
+2024,Female,18,Right,170,25,168,1,Car,5,0.397,49,Swimming,Pop,May,Fall,No,No,Breads/Sandwiches,Water,Art,8,9,7,Text messaging,40,20,5,0,8,2,0,Some,Invisibility,Happy
+2024,Female,17,Right,170,25,167,1,Car,4,0.3,34,Other,Pop,November,Summer,No,No,Poultry,Soft drink (non-caffeinated),English,7,9,4,Other,6,10,5,2,20,4,8,Some,Fly,Healthy
+2024,Male,17,Right,190,26,185,1,Car,15,0.253,60,Football (American),Other,February,Winter,Yes,No,Meat,Milk,Mathematics and statistics,6,9,4,In person,20,21,0.5,1,30,5,11,Very little,Freeze time,Healthy
+2024,Female,16,Right,157,24,157,2,Bus,48,0.275,38,Tennis,Pop,May,Spring,Yes,No,Poultry,Water,Science,8,9,6,Text messaging,100,0,3,7,40,1,0,Some,Freeze time,Happy
+2024,Male,18,Right,172,26,170,1,Car,8,0.28,38,Martial Arts,Pop,July,Summer,Yes,No,Meat,Water,Mathematics and statistics,8,12,5,Social Media,5,7,1,1,1,3,12,Some,Telepathy,Rich
+2024,Female,17,Right,152,20,137,1,Car,25,0.318,25,None,Pop,May,Spring,Yes,No,Desserts,Water,Social studies,7,7,3,In person,15,15,10,10,70,10,0,A lot,Fly,Happy
+2024,Female,17,Right,160,24,154,1,Car,9,0.565,29,Swimming,Pop,March,Spring,Yes,Yes,Breads/Sandwiches,Water,Science,7,9,4,Text messaging,20,5,4,2,50,14,10,Some,Invisibility,Happy
+2024,Male,17,Right,180,24,180,2,Car,10,0.296,31,Athletics,Pop,July,Summer,No,No,Meat,Water,Mathematics and statistics,7,9,4,Text messaging,10,16,14,0,1,0,0,Some,Freeze time,Happy
+2024,Female,17,Right,152.4,22,133,1,Car,5,0.36,34,Walking/Hiking,Rap/Hip hop,December,Fall,Yes,No,Pizza/Pasta,Water,Science,7,9,6,Text messaging,20,5,10,0,5,5,20,A lot,Fly,Happy
+2024,Female,17,Right,165.1,21,177,1,Car,7,0.541,39,Table Tennis,Rhythm and blues (R&B),February,Fall,Yes,No,Meat,Soft drink (caffeinated),History,8,13,3,Text messaging,20,5,1,5,6,10,12,A lot,Telepathy,Rich
+2024,Female,17,Right,173,25,160,1,Car,8,0.444,40,Hockey (Field),Rap/Hip hop,August,Summer,Yes,No,Seafood,Water,Mathematics and statistics,7,11,5,Text messaging,50,20,6,2,8,20,9,Some,Telepathy,Rich
+2024,Male,17,Right,168,26,180,1,Car,10,0.459,64,Athletics,Classical,October,Fall,Yes,No,Meat,Water,Mathematics and statistics,9,9,4,In person,10,8,2,20,10,10,8,A lot,Telepathy,Happy
+2024,Female,18,Left,168,24,160,2,Car,7,0.374,56,Dancing,Pop,February,Fall,No,No,No favorite,Water,Science,7,7,3,Text messaging,100,7,8,0,20,1,10,A lot,Invisibility,Happy
+2024,Female,18,Right,178,28,170,1,Car,6,0.331,30,Bowling,Rap/Hip hop,December,Fall,No,No,Breads/Sandwiches,Water,Physical education,8,10,4,Text messaging,20,12,7,0,56,0,18,Some,Invisibility,Rich
+2024,Female,17,Left,147,21,150,1,Car,8,0.435,40,Other,Techno/Electronic,April,Spring,No,No,Breads/Sandwiches,Juice,Art,6.5,9,2,Text messaging,200,6,20,10,70,28,8,Some,Fly,Happy
+2024,Male,17,Right,172,25.4,181,2,Bus,10,0.381,41,Soccer,Pop,September,Summer,No,No,Meat,Water,Physical education,6,11,6,Cell phone,50,10,1,2,30,10,8,A lot,Freeze time,Rich
+2024,Female,18,Right,170,24,150,1,Car,10,0.472,51,Swimming,Pop,October,Fall,Yes,No,Seafood,Coffee,Mathematics and statistics,6,8,3,Social Media,50,10,1,0,7,10,25,Some,Freeze time,Happy
+2024,Male,17,Left,177,30,181,1,Car,10,0.358,39,Walking/Hiking,Other,January,Fall,Yes,No,Seafood,Milk,History,7,10,4,Text messaging,30,15,1,30,15,2,0,Very little,Freeze time,Rich
+2024,Male,18,Left,181,30.5,210,2,Car,20,0.301,44,Swimming,Rap/Hip hop,May,Spring,No,No,Poultry,Water,Art,6,8,3,Text messaging,50,10,10,8,4,1,2,Some,Fly,Happy
+2024,Male,17,Right,174,25,188,1,Car,5,0.317,53,Baseball/Softball,Rap/Hip hop,May,Summer,Yes,No,Meat,Water,Mathematics and statistics,8,10,4,Text messaging,25,6,2,5,4,7,0,Some,Invisibility,Happy
+2024,Female,17,Right,155,22,157,1,Car,8,0.386,37,Cycling,Pop,November,Fall,Yes,No,Seafood,Soft drink (caffeinated),English,8.3,11,8,Text messaging,20,14,0,3,16,50,8,None,Fly,Rich
+2024,Female,17,Right,157,26,145,1,Car,10,0.331,31,Other,Pop,April,Winter,No,Yes,Pizza/Pasta,Water,English,8,8,3,Text messaging,20,1,4,3,10,0,5,Very little,Fly,Happy
+2024,Male,17,Right,171,24,173,1,Car,2,0.68,58,Golf,Pop,November,Fall,Yes,No,Pizza/Pasta,Water,Mathematics and statistics,8,9,4,In person,20,10,4,1,2,6,2,Some,Telepathy,Happy
+2024,Female,17,Right,165,26,147,1,Car,6,0.364,43,None,Pop,June,Summer,Yes,No,Meat,Sports drink,Music,6,10,3,Text messaging,25,10,10,2,10,10,0,Some,Fly,Healthy
+2024,Male,17,Right,189,27,182,1,Car,12,0.317,41,Other,Rap/Hip hop,December,Summer,No,No,Pizza/Pasta,Milk,Science,6,9,4,Text messaging,30,10,10,19,50,4,8,Some,Telepathy,Rich
+2024,Male,17,Right,167.6,25,,2,Bus,25,0.355,31,Football (American),Other,December,Fall,Yes,No,No favorite,Water,Art,8.5,10,7,Internet Chat/Message,200,9,4,0,10,3,0,Some,Freeze time,Rich
+2024,Male,18,Right,180,27,180,1,Car,15,0.523,52,Lacrosse,Reggae,September,Winter,Yes,No,Meat,Water,Mathematics and statistics,8,12,4,Social Media,10,20,4,0,4,3,0,Some,Freeze time,Rich
+2024,Female,16,Right,168,21,167,1,Bus,15,0.407,53,Other,Rap/Hip hop,January,Fall,No,No,Pizza/Pasta,Water,Social studies,8,10,4,Text messaging,2,48,4,0,0,6,16,Some,Invisibility,Famous
+2024,Female,17,Right,180,27,174,1,Car,4,0.433,41,Other,Other,April,Fall,Yes,No,No favorite,Water,Music,6,8,4,Text messaging,69,18.4,0,3,2,6,6.4,Very little,Fly,Rich
+2024,Male,17,Right,179,27,175,1,Car,8,0.41,44,Football (American),Rap/Hip hop,December,Winter,No,No,Meat,Water,Languages,7,8,7,Text messaging,15,5,1,0,20,40,16,Very little,Telepathy,Rich
+2024,Female,18,Right,163,28.3,152,1,Car,5,0.493,43,Tennis,Rap/Hip hop,January,Summer,No,Yes,Pizza/Pasta,Coffee,English,8,10,4,Social Media,50,15,5,0,12,12,10,A lot,Fly,Happy
+2024,Male,18,Right,172,26,175,1,Car,7,0.321,40,Hockey (Ice),Rap/Hip hop,August,Fall,Yes,No,Meat,Water,Physical education,8,9,4,In person,125,7,0,3,3,7,0,Very little,Super strength,Rich
+2024,Female,17,Right,165.1,22.5,167,1,Car,5,0.353,34,Athletics,Pop,May,Fall,Yes,No,Seafood,Water,Other,7,9,3,Cell phone,26,15,5,0,40,10,8,Some,Fly,Happy
+2024,Female,17,Right,157,24,157,2,Bus,30,0.266,49,Soccer,Other,November,Summer,No,No,Seafood,Water,Other,6,10,4,Internet Chat/Message,100,0,3,0,25,0,0,Some,Freeze time,Happy
+2024,Male,17,Right,183,27,187,1,Car,7,0.349,35,Bowling,Punk rock,January,Winter,Yes,No,Meat,Milk,History,7,10,4,In person,6,3,1,7,8,3,6,Very little,Freeze time,Rich
+2024,Female,17,Right,158,23,150,1,Car,7,0.413,40,Dancing,Pop,December,Winter,No,No,Pizza/Pasta,Water,Science,7,12,3,Text messaging,30,6,14,0,35,2,12,Some,Telepathy,Happy
+2024,Male,16,Right,170,26,178,1,Car,7,0.293,25,Football (American),Rock and roll,August,Summer,No,No,Pizza/Pasta,Milk,Science,8,10,4,Other,9,12,4,11,30,6,2,Some,Freeze time,Happy
+2024,Female,17,Right,165,23,160,1,Car,6,0.467,31,Soccer,Pop,October,Fall,No,No,Meat,Water,Science,7,8,6,Text messaging,15,20,5,2,30,20,15,Some,Fly,Happy
+2024,Female,17,Right,160,25,150,1,Car,7,0.505,43,Walking/Hiking,Rap/Hip hop,October,Fall,Yes,No,Other,Water,History,8.5,9,5,Text messaging,5,20,2,0,7,9,20,Some,Freeze time,Happy
+2024,Female,17,Both,157.4,21.5,165,4,Bus,60,0.361,34,Other,Punk rock,June,Fall,Yes,No,Pizza/Pasta,Juice,Music,9,7,4,Text messaging,0,5,8,4,8,4.5,5,Some,Telepathy,Happy
+2024,Male,17,Right,179,26,183,1,Car,6,0.36,41,Soccer,Pop,August,Summer,Yes,No,Rice/Noodle dishes,Water,Physical education,7,9,5,Text messaging,25,22,1,10,20,5,8,Very little,Telepathy,Famous
+2024,Female,17,Right,160,24,154,1,Car,20,0.407,36,Dancing,Other,February,Fall,No,No,No favorite,Water,English,7,10,4,In person,65,7,8,0,10,1,0,Some,Fly,Happy
+2024,Female,17,Right,161,23,160,1,Car,5,0.422,44,Basketball,Rap/Hip hop,November,Fall,No,No,Fruit,Water,Mathematics and statistics,8,10,4,Social Media,50,15,5,0,30,10,20,Some,Telepathy,Rich
+2024,Female,17,Left,168,24,165,1,Car,7,0.553,44,Soccer,Other,January,Fall,No,No,Seafood,Water,English,8,10,5,Text messaging,50,20,3,5,1,20,10,Some,Freeze time,Happy
+2024,Male,17,Both,177,27,177,1,Car,4,0.307,64,Cycling,Country,October,Fall,No,No,Meat,Water,Mathematics and statistics,8,9,5,Cell phone,8,10,1,2,12,6,6,None,Freeze time,Rich
+2024,Male,17,Right,182,30,152,1,Car,5,0.25,18,Tennis,Pop,November,Fall,No,No,Meat,Water,History,7,10,3,Text messaging,100,1,5,2,50,0,10,A lot,Freeze time,Rich
+2024,Male,18,Right,180.4,25.4,167,1,Car,7,0.334,47,Baseball/Softball,Rap/Hip hop,August,Summer,Yes,No,Meat,Water,History,7,9,4,In person,6,5,0,4,3,2,6,Some,Freeze time,Rich
+2024,Female,18,Right,152,21.5,150,1,Car,9,0.449,33,Running/Jogging,Classical,February,Fall,Yes,No,Rice/Noodle dishes,Water,English,9,7,4,In person,9,24.5,20,0,20,3,0,A lot,Freeze time,Happy
+2024,Female,17,Left,172.7,25.5,170,1,Car,8,0.39,41,Other,Other,March,Summer,No,No,Pizza/Pasta,Energy drink,Science,7,7,4,Social Media,80,10,7,0,30,1,12,Some,Telepathy,Happy
+2024,Female,18,Left,157,19,165,1,Car,10,0.488,33,Hockey (Ice),Rhythm and blues (R&B),December,Fall,Yes,No,Pizza/Pasta,Water,English,6,8,4,Internet Chat/Message,160,6,5,21,50,4,0,Some,Fly,Healthy
+2024,Female,16,Right,161,24,161,1,Car,7,0.574,43,None,Pop,October,Fall,No,No,Fruit,Soft drink (non-caffeinated),Mathematics and statistics,7,10,5,Text messaging,20,3,5,0,3,4,0,Some,Freeze time,Happy
+2024,Male,18,Right,184,29,,1,Car,10,0.3,34,Other,Rap/Hip hop,February,Summer,Yes,No,Meat,Milk,Mathematics and statistics,3,9,3,In person,50,12,5,12,40,6,0,Some,Freeze time,Rich
+2024,Female,17,Right,150,22,150,1,Car,20,0.371,38,Dancing,Rap/Hip hop,August,Fall,Yes,No,Fruit,Water,English,7,9,4,Text messaging,10,2,0,0,5,2,8,Some,Freeze time,Healthy
+2024,Male,18,Right,183,27,195,1,Car,6,0.291,43,Basketball,Pop,June,Summer,No,No,Breads/Sandwiches,Water,Mathematics and statistics,7,9,5,In person,37,12,2,1,30,18,0,None,Freeze time,Happy
+2024,Male,18,Right,178,27,179,1,Car,10,0.196,35,Football (American),Rap/Hip hop,March,Spring,Yes,No,Poultry,Water,Mathematics and statistics,6,8,3,Text messaging,2,4,2,2,12,4,0,Very little,Fly,Healthy
+2024,Female,17,Right,167.6,24,,1,Walk,7,0.37,42,Soccer,Heavy metal,July,Spring,Yes,No,Seafood,Water,Science,3,6,3,Text messaging,150,0,5,0,35,2,0,A lot,Fly,Happy
+2024,Female,17,Right,170,25,169,1,Car,10,0.475,41,Walking/Hiking,Pop,August,Spring,No,No,Salads,Water,Science,8,8,3,Text messaging,30,4,5,0,5,0,10,A lot,Telepathy,Healthy
+2024,Male,18,Right,168,24,178,1,Car,8,0.406,45,Golf,Punk rock,July,Summer,Yes,No,Poultry,Water,History,7,9,5,Text messaging,16,5,2,14,2,8,16,Some,Fly,Happy
+2024,Male,17,Right,183,30,190,1,Car,20,0.32,35,Soccer,Rap/Hip hop,May,Summer,Yes,No,Meat,Water,Mathematics and statistics,6,10,4,Social Media,10,10,12,4,6,5,0,Some,Fly,Rich
+2024,Female,17,Right,170,24,160,1,Car,7,0.342,37,Basketball,Other,July,Fall,No,No,Poultry,Water,English,6,5,3,Text messaging,20,10,4,0,5,2,10,Some,Freeze time,Happy
+2024,Male,17,Right,186,28,193,1,Car,5,0.33,47,Football (American),Techno/Electronic,June,Winter,No,No,Meat,Water,Mathematics and statistics,8,10,5,Social Media,20,35,10,3,40,7,5,A lot,Telepathy,Rich
+2024,Male,17,Right,182,26,178,2,Car,14,0.249,54,Other,Heavy metal,October,Winter,No,No,Meat,Water,Science,8,8,4,In person,2,1,7,5,10,3,0,Some,Telepathy,Happy
+2024,Male,17,Right,182,28,170,1,Car,10,0.352,42,Football (American),Rap/Hip hop,September,Winter,No,No,Meat,Water,Mathematics and statistics,7,9,4,Text messaging,22,25,2,4,6,5,6,Very little,Freeze time,Happy
+2024,Female,17,Right,170,25,164,1,Car,5,0.437,60,Hockey (Field),Pop,December,Summer,No,No,Pizza/Pasta,Coffee,Other,8,9,3,Cell phone,32,9,4,0,35,2,0,Very little,Fly,Happy
+2024,Female,17,Right,167,25.4,150,1,Car,8,0.506,68,Dancing,Pop,November,Summer,No,No,Pizza/Pasta,Water,Mathematics and statistics,6,8,4,Text messaging,10,6,2,0,2,10,15,Some,Invisibility,Happy
+2024,Female,17,Right,164,23,157,1,Car,6,0.718,39,Hockey (Field),Country,December,Summer,No,No,Fruit,Water,Mathematics and statistics,8,9,4,Text messaging,50,6,5,0,20,10,12,Some,Fly,Rich
+2024,Male,17,Left,175,26,175,1,Car,8,0.379,63,Skateboarding/Rollerblading,Country,December,Summer,No,No,Poultry,Water,Mathematics and statistics,7,9,4,Internet Chat/Message,200,15,6,0,4,10,0,Very little,Telepathy,Happy
+2024,Male,17,Right,168,24,,1,Car,25,0.378,41,Golf,Country,December,Summer,No,No,Meat,Water,Computers and technology,6,9,4,Social Media,30,5,5,2,10,4,2,Some,Freeze time,Happy
+2024,Female,18,Right,180,22,152,1,Car,5,1.348,43,Walking/Hiking,Rhythm and blues (R&B),November,Summer,Yes,No,No favorite,Water,History,9.5,8,7,Text messaging,0,0,2,0,15,15,9,A lot,Telepathy,Rich
+2024,Female,17,Both,158,25,164,2,Car,8,0.515,61,Other,Country,July,Fall,Yes,No,Fruit,Water,Science,7.5,7.5,3,Cell phone,10,49,16,0,30,12,10,A lot,Fly,Healthy
+2024,Female,17,Right,158,20.5,163,2,Bus,12,0.459,32,Walking/Hiking,Pop,March,Fall,No,Yes,Rice/Noodle dishes,Water,English,5,10,2,In person,30,10,12,0,5,0,0,Some,Fly,Happy
+2024,Female,17,Left,167,22,164,1,Car,4,0.397,38,Lacrosse,Country,December,Fall,Yes,No,Seafood,Water,Science,7,8,5,Cell phone,52,2,6,2,20,3,10,Some,Freeze time,Healthy
+2024,Male,18,Right,178,27,185,1,Car,7,0.3,35,Baseball/Softball,Other,July,Spring,No,No,Pizza/Pasta,Water,Mathematics and statistics,9,10,4,In person,4,4,10,2,10,8,2,Very little,Super strength,Rich
+2024,Female,17,Right,155,24,150,1,Car,8,0.319,36,Soccer,Country,July,Summer,No,No,Pizza/Pasta,Water,Science,5,10,3,Internet Chat/Message,90,10,15,1,20,5,0,Some,Telepathy,Happy
+2024,Male,17,Right,182.2,22.9,180.3,1,Car,20,0.2,40,Soccer,Country,January,Summer,No,No,Rice/Noodle dishes,Milk,History,8,12,3,In person,10,5,6,1,1,2,3,Some,Fly,Healthy
+2024,Female,18,Right,162.6,23.5,162,1,Car,7,0.391,36,Dancing,Pop,March,Summer,Yes,No,Rice/Noodle dishes,Water,Science,8,8,4,In person,30,20,6,0,100,20,8,Some,Telepathy,Rich
+2024,Male,17,Right,182.9,26.7,182.9,2,Bus,15,0.362,53,Basketball,Rap/Hip hop,July,Summer,No,No,Poultry,Water,English,8,7,6,Cell phone,100,0,1,8,100,0,5,A lot,Invisibility,Happy
+2024,Female,17,Right,154,23,154,1,Car,10,0.366,42,Swimming,Pop,October,Fall,Yes,No,Poultry,Water,Art,6,5,4,Social Media,100,10,3,0,9,2,13,A lot,Telepathy,Rich
+2024,Female,17,Right,163,22,163,2,Car,3,1.038,50,Swimming,Pop,February,Winter,No,No,Rice/Noodle dishes,Water,Mathematics and statistics,8,12,7,Text messaging,16,2,5,0,40,5,0,A lot,Invisibility,Happy
+2024,Female,17,Right,164,24,165,1,Car,7,0.595,45,Walking/Hiking,Rock and roll,September,Fall,No,No,Pizza/Pasta,Water,Science,7.5,9,4,Telephone,20,5,7,5,50,20,0,A lot,Freeze time,Rich
+2024,Male,17,Right,185,27.8,183,1,Car,10,0.3,52,Basketball,Rap/Hip hop,May,Spring,Yes,No,Meat,Water,Science,7,10,3,In person,8,15,0,5,5,5,0,None,Fly,Happy
+2024,Female,17,Right,165,25,150,1,Bus,15,0.49,49,Soccer,Pop,December,Fall,No,No,Pizza/Pasta,Water,Geography,6,8,4,Text messaging,20,10,7,0,25,10,0,Some,Fly,Happy
+2024,Female,18,Right,160,22,152,2,Bus,42,0.7,37,Skateboarding/Rollerblading,Heavy metal,August,Winter,No,No,Seafood,Water,Art,5,12,8,In person,52,10,10,5,40,0,0,A lot,Telepathy,Happy
+2024,Female,17,Right,165.1,23,173,1,Bus,20,0.384,45,Dancing,Rap/Hip hop,October,Fall,Yes,No,Other,Water,Mathematics and statistics,7,9,5,Text messaging,100,2,0.5,3,45,0,18,Very little,Fly,Happy
+2024,Male,17,Left,185,21,180,1,Car,15,0.4,53,Baseball/Softball,Rock and roll,May,Spring,No,No,Poultry,Water,Mathematics and statistics,7,9,5,Internet Chat/Message,30,3,10,5,5,1,8,Some,Super strength,Happy
+2024,Male,16,Right,178,24,175,2,Bus,60,0.259,34,Athletics,Rap/Hip hop,March,Winter,No,No,Poultry,Water,Other,7,7,5,Internet Chat/Message,50,40,0,24,24,20,0,Very little,Freeze time,Rich
+2024,Female,17,Right,171,26,170,1,Car,6,0.27,40,Swimming,Country,June,Summer,No,No,No favorite,Water,Science,6,8,4,Social Media,90,30,2,0,2,1,12,Very little,Telepathy,Healthy
+2024,Male,16,Right,164,26,168,1,Car,5,0.349,32,Baseball/Softball,Rock and roll,August,Summer,Yes,No,Pizza/Pasta,Water,History,7,10,4,In person,14,10,5,20,5,3,15,Very little,Invisibility,Rich
+2024,Female,17,Right,154.9,24,157,1,Car,6,0.563,56,Tennis,Rap/Hip hop,February,Summer,No,No,Pizza/Pasta,Water,History,6,9,6,Social Media,4,9,1,3,2,3,8,A lot,Freeze time,Rich
+2024,Male,17,Both,172,27,175,2,Car,10,0.32,33,Soccer,Other,September,Winter,Yes,No,Meat,Water,Science,5,10,6,Text messaging,50,15,0,10,15,4,20,A lot,Fly,Happy
+2024,Female,17,Right,165,24,164,1,Car,8,0.42,48,Tennis,Pop,September,Summer,No,No,Fruit,Water,English,6,8,4,Social Media,10,20,3,0,8,3,4,Some,Telepathy,Rich
+2024,Female,17,Right,157,23,154,1,Car,3,0.444,63,Other,Country,April,Summer,Yes,No,No favorite,Water,Science,5,9,4,Cell phone,5,12,8,1,3,24,15,Some,Freeze time,Happy
+2024,Male,16,Right,163,22,170,3,Car,10,0.2,40,Tennis,Pop,February,Spring,No,No,Breads/Sandwiches,Water,Computers and technology,7.5,10,3,In person,10,2,3,30,10,10,6,Some,Invisibility,Rich
+2024,Female,17,Right,167.4,24.5,168,1,Car,2,0.329,56,Athletics,Pop,February,Fall,Yes,No,Meat,Water,English,7,10,6,Text messaging,10,2,1,2,1,0,24,Very little,Telepathy,Healthy
+2024,Male,17,Right,172,26,181,1,Car,7,0.342,38,Soccer,Rap/Hip hop,May,Summer,No,No,Meat,Water,Physical education,7,9,4,In person,25,4,7,1,3,9,4,Some,Fly,Happy
+2024,Male,17,Right,182,27.5,178,1,Car,7,0.394,56,Dancing,Pop,May,Fall,Yes,No,Meat,Water,Languages,8,11,5,Text messaging,10,3,0,2,100,5,15,Very little,Fly,Rich
+2024,Male,17,Both,171,27,183,1,Car,10,0.351,41,Soccer,Rap/Hip hop,February,Summer,Yes,No,Meat,Water,History,7,9,4,Social Media,5,14,0,2,3,0,14,Very little,Fly,Happy
+2024,Male,17,Right,188,26,187,2,Bus,10,0.265,33,Basketball,Rap/Hip hop,April,Spring,Yes,No,Poultry,Water,Social studies,7,9,2,Cell phone,100,5,1,20,80,20,32,Very little,Telepathy,Rich
+2024,Female,17,Right,171,25,167,2,Car,23,0.367,32,Dancing,Rock and roll,May,Fall,No,No,Seafood,Water,English,8,11,4,In person,25,5,19,3,22,5,0,Some,Freeze time,Happy
+2024,Female,17,Left,150,20,137,2,Car,13,0.664,38,Walking/Hiking,Rap/Hip hop,February,Summer,No,No,Rice/Noodle dishes,Water,Languages,8,9,5,Text messaging,34,8,10,0,15,1,2,Some,Freeze time,Healthy
+2024,Female,17,Right,157,23,154,1,Car,3,0.444,63,Other,Country,April,Summer,Yes,No,No favorite,Water,Science,5,9,4,Cell phone,5,12,8,1,3,24,15,Some,Freeze time,Happy
+2024,Female,17,Right,170.2,20.3,154.9,2,Car,25,0.321,40,Baseball/Softball,Rap/Hip hop,July,Winter,Yes,No,Poultry,Coffee,Science,7,10,4,Text messaging,20,5,5,0,10,5,6,A lot,Invisibility,Happy
+2024,Male,17,Both,177,25,177,2,Car,5,0.2,40,Running/Jogging,Rap/Hip hop,November,Fall,No,No,Rice/Noodle dishes,Water,History,5,9,4,Cell phone,4,60,10,10,10,10,1,Some,Fly,Healthy
+2024,Male,17,Both,180.9,27.3,180.3,2,Car,20,0.122,34,Basketball,Rap/Hip hop,November,Summer,No,No,Meat,Water,Geography,7,10,3,Cell phone,30,20,0,1,10,1,25,A lot,Invisibility,Happy
+2024,Female,17,Left,180,24,175,2,Car,9,0.35,33,Dancing,Rap/Hip hop,July,Spring,No,No,Fruit,Coffee,Science,5,9,4,Text messaging,70,16,6,1,7,9,8,Some,Telepathy,Rich
+2023,Female,16,Right,175,26,177.8,1,Car,15,0.317,39,Tennis,Rap/Hip hop,April,Summer,Yes,No,Pizza/Pasta,Tea,Mathematics and statistics,5,10,3,Internet Chat/Message,4,4,3,6,14,1,0,A lot,Freeze time,Happy
+2023,Female,18,Right,170.5,24,,1,Car,6,0.38,46,Running/Jogging,Rap/Hip hop,May,Summer,No,No,Meat,Water,Music,7,9,5,Text messaging,2,5,0,0,2,7,20,None,Freeze time,Rich
+2023,Female,18,Right,164.5,22.5,163,1,Car,9,0.773,43,Hockey (Field),Rap/Hip hop,January,Spring,No,No,Pizza/Pasta,Water,Social studies,6.5,9,4,In person,17,3,4,0,20,0,0,A lot,Invisibility,Happy
+2023,Female,17,Right,162,21,161,1,Car,13,0.408,39,Other,Country,June,Fall,No,No,No favorite,Water,Science,6,8,4,Cell phone,4,8,6,0,3,7,25,Some,Invisibility,Happy
+2023,Female,16,Right,173,27,168,1,Car,20,0.342,28,Baseball/Softball,Rap/Hip hop,May,Spring,No,No,Seafood,Water,Mathematics and statistics,4,12,4,Text messaging,230,100,2,0,0,21,0,Very little,Telepathy,Happy
+2023,Male,17,Right,190.5,27,,2,Car,20,0.347,47,Golf,Pop,December,Winter,No,No,Pizza/Pasta,Sports drink,Languages,5,9,3,Text messaging,200,10,11,5,21,18,3,Some,Invisibility,Rich
+2023,Female,17,Right,171,23,168,1,Car,4,0.413,31,Tennis,Country,February,Summer,No,No,Meat,Water,Mathematics and statistics,7,9,3,Social Media,50,10,5,0,12,8,10,A lot,Invisibility,Happy
+2023,Male,17,Right,173,26,160,2,Bus,15,0.567,36,Basketball,Other,January,Winter,Yes,No,Pizza/Pasta,Water,Physical education,7,9,2,Social Media,5,5,0,20,100,4,15,None,Fly,Rich
+2023,Male,17,Right,168,30,152,1,Bus,20,0.311,32,Skateboarding/Rollerblading,Heavy metal,December,Spring,Yes,No,Pizza/Pasta,Energy drink,Music,3,5,3,Internet Chat/Message,1,30,2,50,100,5,0,Very little,Telepathy,Famous
+2023,Male,16,Right,175,24,173,1,Car,15,0.365,40,Athletics,Country,July,Summer,No,No,Rice/Noodle dishes,Water,Mathematics and statistics,7,8,6,Text messaging,35,5,5,6,10,6,15,A lot,Freeze time,Happy
+2023,Male,16,Right,167,24,168,1,Car,7,0.331,33,Soccer,Pop,February,Summer,Yes,No,Pizza/Pasta,Water,Science,7,8,3,Text messaging,150,10,1,14,2,15,4,Very little,Telepathy,Happy
+2023,Male,18,Right,170,26,167,2,Bus,20,0.427,45,Basketball,Rap/Hip hop,September,Winter,No,No,No favorite,Water,Mathematics and statistics,8,8,5,Text messaging,50,4,0,20,150,4,8,Very little,Fly,Rich
+2023,Female,17,Left,170.2,26.7,165.1,1,Car,7,0.396,45,Tennis,Pop,February,Summer,Yes,No,No favorite,Water,Science,7,8.5,4,Cell phone,17,10,6,0,0,0,15,Some,Telepathy,Happy
+2023,Female,17,Right,175.2,26,182,1,Car,10,0.534,48,None,Rhythm and blues (R&B),November,Fall,Yes,No,Pizza/Pasta,Water,Science,6,8,5,Text messaging,100,1,15,0,100,10,15,A lot,Fly,Rich
+2023,Female,17,Right,171,24,169,1,Car,5,0.447,45,Basketball,Pop,March,Summer,Yes,No,Seafood,Water,English,7,8,4,Text messaging,25,10,5,0,21,14,9,Some,Fly,Happy
+2023,Male,17,Right,178,27,178,1,Car,7,0.26,36,Tennis,Rap/Hip hop,December,Fall,Yes,No,Meat,Water,Mathematics and statistics,8,6,4,Text messaging,15,10,10,0,20,0,20,Some,Invisibility,Happy
+2023,Female,17,Right,190,23,183,1,Car,3,0.423,30,Athletics,Pop,June,Summer,No,No,Other,Water,History,7,7,4,In person,267,10,5,0,150,0,6,Some,Freeze time,Happy
+2023,Female,17,Left,163,22,150,1,Car,3,0.361,35,Walking/Hiking,Pop,July,Spring,No,No,Meat,Water,Science,7,9,4,Text messaging,200,6,25,0,14,7,18,Some,Invisibility,Rich
+2023,Male,18,Right,180,24,186,2,Car,5,0.387,38,Football (American),Other,April,Summer,No,No,No favorite,Water,Other,6,9,5,Internet Chat/Message,150,70,2,6,100,10,15,Some,Fly,Happy
+2023,Female,17,Right,162,23,160,1,Car,15,0.349,47,Soccer,Pop,August,Fall,Yes,No,Pizza/Pasta,Water,Art,7,9,4,Text messaging,55,4,6,0,8,4,15,A lot,Fly,Healthy
+2023,Female,17,Right,168,22,,1,Car,15,0.427,40,Gymnastics,Rap/Hip hop,November,Fall,No,No,Fruit,Soft drink (caffeinated),History,6,8,6,Text messaging,120,12,3,12,5,12,13,Some,Fly,Rich
+2023,Male,16,Right,189,27,178,1,Bus,19,0.337,39,Tennis,Rap/Hip hop,September,Fall,No,No,Pizza/Pasta,Water,Mathematics and statistics,7,9,4,Text messaging,9,3,6,4,16,1,18,Very little,Fly,Healthy
+2023,Male,18,Right,175.5,28,169,1,Car,5,0.303,41,Tennis,Punk rock,March,Fall,Yes,No,Poultry,Water,Music,8,11,4,Text messaging,15,40,3,10,20,6,2.5,A lot,Freeze time,Famous
+2023,Female,17,Right,160,25,161,1,Car,5,0.545,49,Running/Jogging,Pop,October,Fall,No,No,Desserts,Water,Physical education,7,9,3,Text messaging,100,12,5,0,10,10,10,Very little,Telepathy,Happy
+2023,Male,17,Right,188.9,28,,1,Car,30,0.346,38,Tennis,Rap/Hip hop,September,Winter,Yes,Yes,Pizza/Pasta,Water,History,7,9,4,Text messaging,20,8,12,20,20,5,2,Some,Telepathy,Rich
+2023,Male,17,Right,175,27,,1,Car,12,0.382,42,Athletics,Rap/Hip hop,November,Summer,No,No,Meat,Juice,Social studies,6,6,3,Text messaging,13,21,8,2,48,6,18,Very little,Telepathy,Rich
+2023,Male,17,Right,188,26,184,1,Car,3,0.388,46,Baseball/Softball,Country,August,Winter,No,No,Meat,Water,History,7,7,3,Internet Chat/Message,30,8,2,20,25,2,15,Some,Super strength,Happy
+2023,Female,17,Right,161,23,166,2,Car,25,0.373,39,Walking/Hiking,Pop,January,Fall,Yes,No,Desserts,Water,English,6,9,6,Internet Chat/Message,2,1,12,0,50,9,0,A lot,Freeze time,Healthy
+2023,Female,17,Right,167,23.4,170,1,Car,10,0.92,45,Soccer,Rhythm and blues (R&B),November,Summer,No,No,Fruit,Water,Music,7.5,9,4,Text messaging,5,1,7,0,10,2,0,A lot,Telepathy,Happy
+2023,Female,17,Right,163,26,160,1,Car,3,0.459,38,Soccer,Pop,November,Fall,Yes,No,Pizza/Pasta,Water,English,6,8.5,4,Text messaging,25,8,20,0,25,3,5,A lot,Freeze time,Rich
+2023,Male,17,Right,160,22,161,1,Car,15,0.392,48,Football (American),Rock and roll,October,Winter,Yes,No,Meat,Water,Other,6.5,8.5,4,Internet Chat/Message,5,4,20,2,15,20,8,Some,Freeze time,Rich
+2023,Male,18,Right,176,25,181,1,Car,5,0.348,30,Football (American),Rap/Hip hop,November,Fall,Yes,No,Meat,Water,Geography,6,10,5,In person,2,10,0,18,20,2,15,Very little,Super strength,Famous
+2023,Male,17,Right,180,27,184,2,Car,5,0.386,34,Soccer,Punk rock,January,Spring,No,No,Meat,Water,Science,6,7,5,Text messaging,57,0,0,8,12,12,16,None,Fly,Rich
+2023,Male,17,Right,178,28,180,1,Car,50,0.387,39,Cycling,Other,October,Fall,No,No,Desserts,Water,Science,7,7,3,In person,6,5,3,1,35,0.25,0,Some,Invisibility,Healthy
+2023,Female,16,Right,160,20,157,2,Car,5,0.434,33,Cycling,Pop,November,Summer,No,No,Rice/Noodle dishes,Water,Science,7,9,4,Text messaging,30,2,7,6,40,0,0,Some,Freeze time,Healthy
+2023,Female,17,Right,165,21.5,170,1,Car,7,0.19,36,Other,Other,June,Summer,No,No,Desserts,Water,English,7,10,4,Internet Chat/Message,50,20,4,15,120,14,20,Very little,Telepathy,Happy
+2023,Female,18,Right,150,21,152,2,Car,7,0.353,36,Dancing,Rhythm and blues (R&B),April,Summer,No,No,Rice/Noodle dishes,Water,Music,4,8,6,In person,40,15,10,0,20,7,0,A lot,Telepathy,Rich
+2023,Female,19,Right,149.8,21,148,1,Car,6,0.447,44,Running/Jogging,Pop,May,Fall,No,No,Poultry,Coffee,Music,7,12,4,Internet Chat/Message,25,10,1,0,1,0,15,A lot,Fly,Happy
+2023,Male,17,Right,181,27,196.5,1,Car,4,0.22,36,Lacrosse,Rap/Hip hop,May,Winter,No,No,Pizza/Pasta,Juice,History,7,9,5,Cell phone,5,20,5,6,7,7,10,A lot,Fly,Rich
+2023,Male,17,Left,170,25,172,1,Bus,15,0.361,37,Tennis,Rock and roll,August,Fall,No,No,Pizza/Pasta,Water,History,6,8,6,In person,25,15,2,2,5,0,0,Some,Super strength,Happy
+2023,Male,17,Right,180,25,170,1,Car,15,0.369,29,Baseball/Softball,Rap/Hip hop,August,Spring,Yes,No,Poultry,Water,Mathematics and statistics,6,10,4,In person,50,4,1,8,5,2,20,Very little,Fly,Rich
+2023,Female,17,Right,162,25,155,1,Car,12,0.391,48,Lacrosse,Rap/Hip hop,April,Summer,Yes,No,Poultry,Soft drink (caffeinated),Science,5,8,4,Internet Chat/Message,20,4,2,0,8,0,4,A lot,Freeze time,Happy
+2023,Female,17,Right,153,22,150,1,Car,10,0.38,36,None,Country,March,Fall,Yes,No,Pizza/Pasta,Water,Mathematics and statistics,6,8,5,Social Media,400,7,5,1,3,3,20,A lot,Telepathy,Happy
+2023,Male,17,Right,182.8,27,186,1,Car,10,0.37,56,Football (American),Rap/Hip hop,March,Winter,Yes,No,Meat,Water,Mathematics and statistics,8,10,7,Text messaging,15,4,1,0.5,4,3,8,Some,Invisibility,Rich
+2023,Female,17,Right,173,23,173,1,Car,8,0.286,44,Martial Arts,Other,May,Spring,No,No,Pizza/Pasta,Coffee,Mathematics and statistics,3,5,4,Internet Chat/Message,131,2.5,21,70,70,70,0,A lot,Freeze time,Rich
+2023,Male,18,Right,173,24.5,172,1,Bus,10,0.433,61,Other,Rock and roll,August,Winter,No,No,Meat,Water,Science,7,10,3,Internet Chat/Message,10,3,1,15,3,1,6,Very little,Freeze time,Happy
+2023,Female,18,Right,168,24,158,1,Car,24,0.47,40,Swimming,Country,August,Summer,No,No,Desserts,Water,Social studies,7,10,4,Social Media,14,5,1,2,8,1,12,Some,Fly,Rich
+2023,Female,17,Right,170,25,167,1,Car,5,0.35,34,Walking/Hiking,Pop,September,Fall,No,No,Pizza/Pasta,Water,English,5,10,5,Text messaging,50,5,2,0,20,15,0,Very little,Invisibility,Happy
+2023,Female,15,Right,150,26,146,2,Car,9,0.498,48,Running/Jogging,Other,November,Fall,No,No,Rice/Noodle dishes,Soft drink (caffeinated),Science,6,9,4,In person,15,1,28,0,126,1,0,A lot,Freeze time,Rich
+2023,Female,17,Right,165,24,165,1,Car,7,0.488,85,Walking/Hiking,Pop,July,Fall,No,No,Pizza/Pasta,Water,English,8,10,3,Text messaging,40,10,6,0,6,10,15,Some,Telepathy,Happy
+2023,Male,18,Right,183,28,184,1,Car,3,0.279,34,Football (American),Rap/Hip hop,March,Summer,No,No,Seafood,Water,Mathematics and statistics,5.5,10,3,Cell phone,4,10,12,2,3,6,0,A lot,Invisibility,Rich
+2023,Female,17,Right,155,24,154,1,Car,15,0.379,38,Tennis,Pop,October,Summer,No,No,Rice/Noodle dishes,Water,English,8,10,4,Text messaging,10,6,6,0,2,6,15,Some,Telepathy,Happy
+2023,Male,17,Right,175,24,168,1,Bus,20,0.542,53,None,Rap/Hip hop,June,Winter,No,No,Rice/Noodle dishes,Water,Physical education,6,6,5,Social Media,100,0,3,40,60,0,22,A lot,Fly,Healthy
+2023,Female,18,Right,173,21.5,177,2,Car,7,0.398,69,Running/Jogging,Rap/Hip hop,September,Summer,No,Yes,Pizza/Pasta,Water,Computers and technology,5,10,4,Text messaging,200,15,4,0,20,9,0,Some,Freeze time,Rich
+2023,Male,18,Right,179,26,183,1,Car,7,0.308,58,Baseball/Softball,Rap/Hip hop,October,Winter,No,No,No favorite,Water,Science,6,8,2,Text messaging,5,10,3.5,3,8,7,0,Some,Telepathy,Happy
+2023,Female,17,Right,185,23.5,178,1,Car,7,0.709,49,Swimming,Pop,March,Summer,Yes,No,Fruit,Water,History,8,10,3,Social Media,267,5,6,0,0,5,10,Some,Fly,Happy
+2023,Male,17,Left,175,28.5,180,1,Car,20,0.28,32,Other,Other,July,Fall,No,No,Salads,Water,History,7.5,7.5,5,Text messaging,40,21,3,2,90,5,0,Very little,Super strength,Happy
+2023,Female,18,Right,163,21.5,155,1,Car,10,0.726,44,Baseball/Softball,Rock and roll,October,Summer,Yes,No,Salads,Water,Art,8,9,4,Text messaging,80,15,2,2,2,1,15,Some,Fly,Happy
+2023,Female,17,Right,164,24,159,1,Bus,30,0.379,41,Baseball/Softball,Other,February,Summer,Yes,No,Meat,Tea,History,7.5,10,4,Text messaging,54,7,6,0,21,5,0,Some,Invisibility,Rich
+2023,Female,17,Right,168.9,26,169,1,Car,5,0.393,37,Basketball,Pop,January,Summer,Yes,No,Pizza/Pasta,Sports drink,Physical education,6,9,5,In person,300,6,2,0,30,20,20,Very little,Freeze time,Healthy
+2023,Female,17,Right,175,26,165,1,Car,11,0.459,50,Other,Pop,October,Summer,No,No,Fruit,Water,English,7,10,4,Text messaging,70,12,20,1,6,12,0,Some,Fly,Happy
+2023,Male,17,Left,186,27,190,1,Car,15,0.295,40,Swimming,Rap/Hip hop,November,Fall,Yes,No,Meat,Water,Science,7,10,3,Text messaging,30,3,4,10,20,2,20,Very little,Freeze time,Healthy
+2023,Male,18,Left,173,25,183,1,Car,7,0.397,28,Running/Jogging,Rap/Hip hop,January,Summer,No,No,Pizza/Pasta,Water,Art,8,9,4,Social Media,5,8,1,0,1,4,0,Very little,Invisibility,Happy
+2023,Female,18,Right,164.5,22.5,163,1,Car,9,0.773,43,Hockey (Field),Rap/Hip hop,January,Spring,No,No,Pizza/Pasta,Water,Social studies,6.5,9,4,In person,17,3,4,0,20,0,0,A lot,Invisibility,Happy
+2023,Female,18,Right,176,25,180,1,Car,8,0.469,35,Baseball/Softball,Rock and roll,December,Summer,No,No,Poultry,Water,Science,8,10,3,In person,10,5,20,0,7,2,0,A lot,Telepathy,Happy
+2023,Female,17,Right,170,25,168,1,Car,6,0.835,63,Tennis,Pop,June,Spring,No,No,Fruit,Water,Mathematics and statistics,8,10,3,Social Media,9,5,0,0,8,5,25,None,Super strength,Happy
+2023,Female,17,Right,160,22.5,,1,Car,8,0.434,42,Hockey (Ice),Rap/Hip hop,October,Fall,No,No,Fruit,Water,English,6.5,5,4,Internet Chat/Message,100,30,0,0,20,20,30,Some,Fly,Rich
+2023,Female,17,Right,163,23,155,1,Car,4,0.382,33,Lacrosse,Pop,December,Summer,No,No,Meat,Water,Science,6,9,4,Social Media,75,10,5,7,21,7,11,A lot,Freeze time,Rich
+2023,Male,17,Left,165,25,160,1,Car,10,0.562,43,Swimming,Pop,April,Spring,No,No,Poultry,Water,Mathematics and statistics,6,8,3,Text messaging,35,7,4,0,80,1,10,Some,Fly,Happy
+2023,Female,18,Right,172,24,170,1,Walk,15,0.397,49,Other,Other,February,Summer,No,No,Pizza/Pasta,Juice,English,7.5,9,5,Text messaging,100,4,6,2,10,3,15,Very little,Telepathy,Rich
+2023,Male,17,Right,182,30.5,183,2,Bus,30,0.356,34,Hockey (Ice),Jazz,January,Winter,No,No,Rice/Noodle dishes,Water,Science,8,10,4,In person,0,0,5,15,20,5,20,Some,Telepathy,Happy
+2023,Male,17,Left,175.2,24,200.6,1,Car,15,0.316,36,Basketball,Rap/Hip hop,December,Spring,Yes,No,Poultry,Water,Physical education,6.5,7.5,6,Internet Chat/Message,100,21,3,10,30,11,20,Some,Freeze time,Rich
+2023,Male,18,Left,187,27,190,1,Car,5,0.194,64,Lacrosse,Country,May,Fall,No,No,Meat,Water,History,9,9,5,In person,6,7,1,6,12,6,5,Very little,Fly,Famous
+2023,Male,18,Right,185,27,188,1,Car,10,0.34,44,Baseball/Softball,Rap/Hip hop,December,Summer,No,No,Meat,Water,Mathematics and statistics,8,9,5,In person,25,12,1,3,5,9,10,Very little,Invisibility,Happy
+2023,Female,17,Left,168,23,162,1,Car,4,0.406,33,Athletics,Pop,September,Fall,No,No,Seafood,Water,Science,6,8,6,Text messaging,303,5,12,0,7,6,15,A lot,Freeze time,Rich
+2023,Male,18,Right,183,27,187,1,Car,8,0.374,46,Basketball,Rap/Hip hop,July,Summer,Yes,No,Meat,Water,Science,7.5,8,3,Text messaging,50,35,15,16,20,1,31,Very little,Freeze time,Happy
+2023,Male,17,Right,164,25,163,1,Car,10,0.429,59,Tennis,Rap/Hip hop,January,Summer,No,No,Meat,Water,Physical education,7,9,4,Text messaging,20,3,14,0,40,2,8,A lot,Telepathy,Healthy
+2023,Female,16,Right,173,25,160,1,Car,9,0.339,28,Hockey (Field),Rap/Hip hop,August,Fall,Yes,No,Pizza/Pasta,Water,Mathematics and statistics,8,10,5,Text messaging,50,20,6,2,8,20,9,Some,Fly,Rich
+2023,Male,17,Right,193,27,187,1,Car,15,0.506,50,Swimming,Techno/Electronic,May,Winter,Yes,No,Meat,Water,Other,8,10,3,Internet Chat/Message,3,2,4,4,6,6,0,Some,Invisibility,Rich
+2023,Female,17,Right,170,25,168,1,Car,6,0.835,63,Tennis,Pop,June,Spring,No,No,Fruit,Water,Mathematics and statistics,8,10,3,Social Media,9,5,0,0,8,5,25,None,Super strength,Happy
+2023,Male,17,Right,165,26,172,1,Car,7,0.314,36,Bowling,Pop,August,Winter,No,No,Meat,Water,Mathematics and statistics,7,8,4,Text messaging,20,7,12,2,20,1,0,A lot,Super strength,Rich
+2023,Female,18,Right,162,24.8,158,1,Car,10,0.721,49,Walking/Hiking,Pop,October,Summer,No,No,Rice/Noodle dishes,Water,History,7,9,5,In person,12,5,5,5,6,5,9,A lot,Invisibility,Happy
+2023,Male,17,Right,176,33,172,2,Car,6,0.376,46,Golf,Rock and roll,November,Spring,Yes,No,Meat,Milk,History,5,5,6,In person,10,5,4,8,21,6,15,Some,Invisibility,Rich
+2023,Female,16,Right,152,24,158,2,Car,5,0.432,38,Walking/Hiking,Pop,October,Summer,No,No,Rice/Noodle dishes,Water,Science,6,9,4,Social Media,5,5,15,0,50,1,0,Some,Telepathy,Happy
+2023,Female,18,Right,155,19,152,1,Car,8,0.396,32,Baseball/Softball,Country,November,Fall,Yes,No,Breads/Sandwiches,Water,Science,6,8,2,Text messaging,20,6,4,0,10,2,0,A lot,Telepathy,Happy
+2023,Male,18,Right,175.5,28,169,1,Car,5,0.303,41,Tennis,Punk rock,March,Fall,Yes,No,Poultry,Water,Music,8,11,4,Text messaging,15,40,3,10,20,6,2.5,A lot,Freeze time,Famous
+2023,Female,17,Left,174,19,167,1,Car,5,0.35,37,Running/Jogging,Pop,March,Fall,No,No,Pizza/Pasta,Coffee,History,6,8,2,Text messaging,350,30,2,2,7,1,0,Some,Telepathy,Famous
+2023,Female,17,Right,167,25,,1,Car,15,0.5,38,Gymnastics,Rhythm and blues (R&B),June,Winter,No,No,Breads/Sandwiches,Water,History,4,10,7,Internet Chat/Message,100,4,5,0,20,0,30,Some,Fly,Rich
+2023,Female,18,Right,158,22,150,1,Car,10,0.38,62,Athletics,Country,October,Spring,Yes,No,Desserts,Tea,Social studies,6,8,3,Text messaging,50,20,3,0,15,30,16,Some,Telepathy,Healthy
+2023,Female,17,Right,172,25.4,174,1,Car,6,0.345,74,Walking/Hiking,Country,April,Fall,No,No,Fruit,Water,Science,8,9,4,In person,15,7,4,0,14,14,12,A lot,Fly,Rich
+2023,Female,17,Right,160,23.5,162,1,Car,8,0.305,43,Dancing,Pop,April,Fall,Yes,No,Seafood,Water,Other,5,8,4,Text messaging,25,0,10,0,48,10,0,A lot,Freeze time,Happy
+2023,Male,17,Right,180,27,188,1,Car,6,0.297,34,Baseball/Softball,Other,June,Winter,Yes,No,Meat,Water,Science,7,10,5,In person,2,6,0.5,2,10,3,0,Some,Freeze time,Rich
+2023,Female,18,Right,165,23,175,1,Car,7,0.372,32,Soccer,Other,March,Summer,Yes,No,Poultry,Water,Science,7,9,4,Internet Chat/Message,100,5,3,0,1,0,0,Some,Invisibility,Happy
+2023,Female,17,Right,178,27,181,1,Car,12,0.377,37,Swimming,Pop,January,Summer,No,No,Pizza/Pasta,Water,Science,6.5,8,2,Text messaging,180,10,6,0,30,1,3,A lot,Invisibility,Happy
+2023,Female,17,Right,157,23,157,1,Car,10,0.4,50,Swimming,Pop,July,Fall,Yes,No,Desserts,Tea,English,7,8,4,Text messaging,15,3,5,0,10,4,10,A lot,Freeze time,Happy
+2023,Male,18,Right,170.2,24,164,2,Bus,15,0.39,70,Swimming,Rap/Hip hop,September,Winter,No,No,Meat,Tea,Mathematics and statistics,7,8,6,Social Media,2,7,2,15,2,7,3,Very little,Freeze time,Happy
+2023,Female,17,Right,160,22,163,2,Car,10,0.527,35,Lacrosse,Punk rock,December,Summer,Yes,No,Pizza/Pasta,Water,Science,6,10,4,Social Media,6,12,4,3,120,0,0,Very little,Freeze time,Happy
+2023,Female,18,Right,154.9,18,149,2,Bus,20,0.26,37,Tennis,Pop,July,Fall,No,No,Desserts,Water,English,7,7,4,Text messaging,15,40,48,75,50,8,4,A lot,Invisibility,Famous
+2023,Female,17,Right,163,24,168,1,Car,6,2.111,37,Dancing,Pop,December,Fall,No,No,Fruit,Soft drink (non-caffeinated),Other,7,8,5,In person,4,2,2,0,3,4,6,Very little,Telepathy,Happy
+2023,Female,18,Right,172,25,164,1,Car,10,0.368,40,Lacrosse,Pop,August,Fall,No,No,Seafood,Water,Music,7,10,3,Cell phone,30,4,3,1,10,3,8,Very little,Fly,Healthy
+2023,Male,18,Right,183,31,185,1,Car,6,0.281,35,Lacrosse,Gospel,January,Summer,Yes,No,Poultry,Water,Mathematics and statistics,7,10,4,In person,20,8,8,0,10,2,0,Very little,Super strength,Happy
+2023,Male,17,Right,178,24.5,177.5,1,Walk,25,0.36,58,Other,Other,February,Winter,Yes,No,Pizza/Pasta,Milk,Social studies,7.5,10,3,Internet Chat/Message,50,7,7.5,12,14,5,0,A lot,Invisibility,Happy
+2023,Male,18,Right,177.8,26.2,,1,Car,7,0.287,25,Other,Rock and roll,December,Winter,Yes,No,Pizza/Pasta,Tea,History,6,12,4,Text messaging,50,20,0,26,30,6,32,None,Freeze time,Rich
+2023,Female,18,Right,176,25,167,2,Car,15,0.656,45,Other,Pop,April,Spring,No,Yes,Fruit,Coffee,Science,8,10,3,Text messaging,25,16,6,6,10,8,0,None,Fly,Famous
+2023,Male,17,Right,180,26,177,1,Car,18,0.27,29,Basketball,Rap/Hip hop,June,Summer,Yes,No,Meat,Water,Physical education,7,10,5,Text messaging,80,11,4,10,6,1,20,Some,Super strength,Happy
+2023,Male,18,Right,193,29,199,1,Car,8,0.359,42,Basketball,Rap/Hip hop,September,Fall,Yes,No,Meat,Water,Science,6,7,4,Social Media,30,10,8,2,8,8,15,Some,Freeze time,Happy
+2023,Female,17,Right,156,21,158,1,Car,8,0.39,38,Dancing,Pop,August,Summer,Yes,No,Fruit,Water,English,6,10,3,Text messaging,75,4,5,1,10,5,0,Some,Telepathy,Famous
+2023,Male,17,Right,170,24.7,155,3,Car,13,0.22,35,Other,Techno/Electronic,September,Winter,Yes,No,Pizza/Pasta,Tea,Computers and technology,5,8,4,Social Media,1000,6,0,0,20,0,10,None,Invisibility,Healthy
+2023,Female,18,Left,157,24,160,2,Car,5,0.621,44,Walking/Hiking,Rap/Hip hop,October,Summer,No,No,Rice/Noodle dishes,Water,Social studies,6,8,5,Internet Chat/Message,30,12,9,0,24,1,17,Some,Telepathy,Rich
+2023,Male,19,Left,180,24,180,1,Car,5,0.343,40,Soccer,Pop,May,Spring,No,No,Pizza/Pasta,Water,Science,6.5,9,3,Cell phone,50,10,10,2,10,1,10,Some,Invisibility,Happy
+2023,Male,18,Right,173,24,178,2,Car,7,0.299,40,Soccer,Rock and roll,April,Fall,No,No,Meat,Water,History,6,8,4,Text messaging,100,24,3,16,18,3,12,Very little,Telepathy,Happy
+2023,Male,16,Right,177,27,179,3,Car,4,0.352,34,Other,Pop,March,Fall,Yes,Yes,Desserts,Water,Mathematics and statistics,4,6,4,Text messaging,137,4,10,1,40,5,0,A lot,Telepathy,Happy
+2023,Female,18,Right,164.5,22.5,163,1,Car,9,0.773,43,Hockey (Field),Rap/Hip hop,January,Spring,No,No,Pizza/Pasta,Water,Social studies,6.5,9,4,In person,17,3,4,0,20,0,0,A lot,Invisibility,Happy
+2023,Male,17,Right,176,29,165,2,Car,17,0.35,42,Basketball,Rap/Hip hop,June,Summer,No,No,Poultry,Water,Physical education,7,9,4,Text messaging,55,10,10,8,12,5,20,Some,Invisibility,Happy
+2023,Male,18,Right,177,25,181,1,Car,10,0.359,46,Other,Rock and roll,September,Winter,Yes,No,Soups,Soft drink (caffeinated),Computers and technology,7,8,3,Internet Chat/Message,13,2,6,10,26,1,0,Very little,Freeze time,Happy
+2023,Male,18,Right,179,25,179,1,Walk,18,0.258,34,Athletics,Pop,January,Summer,No,No,Rice/Noodle dishes,Water,Mathematics and statistics,8,8,7,Text messaging,90,21,18,14,20,5,0,Some,Freeze time,Healthy
+2023,Female,17,Right,153,26,165,2,Car,11,0.329,61,Athletics,Rap/Hip hop,September,Fall,No,No,Seafood,Energy drink,Mathematics and statistics,5,8,3,Cell phone,20,50,20,3,20,0,25,Some,Telepathy,Happy
+2023,Male,18,Right,174,25,164,1,Car,10,0.357,46,Football (American),Rap/Hip hop,April,Summer,Yes,No,Meat,Water,Mathematics and statistics,7,8,3,In person,20,1,4,1,2,1,0,None,Fly,Healthy
+2023,Male,18,Both,190,30,194,1,Car,7,0.124,53,Hockey (Field),Rap/Hip hop,September,Summer,No,No,Meat,Water,Art,8,8,8,Telephone,356,10,10,3,20,0,3.5,A lot,Fly,Happy
+2023,Female,18,Right,161,23,163,1,Car,8,0.286,29,Basketball,Pop,April,Summer,No,No,Other,Water,Music,5,8,7,Text messaging,50,8,9,0,1,0,0,Some,Invisibility,Healthy
+2023,Male,17,Right,173,27,166,2,Car,5,0.293,31,Basketball,Rap/Hip hop,April,Summer,No,No,Meat,Soft drink (non-caffeinated),Science,6,10,4,Text messaging,70,12,9,3,33,3,13,A lot,Telepathy,Rich
+2023,Female,17,Right,175,26,171,1,Car,6,0.621,54,Other,Pop,August,Fall,No,No,Fruit,Water,History,7,9,6,Text messaging,100,5,10,0,50,4,20,A lot,Freeze time,Happy
+2023,Male,17,Right,198.1,27,206,1,Car,4,0.558,39,Basketball,Rap/Hip hop,February,Summer,No,No,Meat,Water,Physical education,6,10,4,Social Media,3,13,0,35,4,5,15,A lot,Invisibility,Rich
+2023,Female,17,Right,172,26,172,1,Car,10,0.485,48,Hockey (Field),Pop,May,Summer,No,No,Meat,Water,English,7,9,4,Text messaging,50,6,10,0,8,1,5,Some,Fly,Rich
+2023,Male,18,Right,183,27,190,1,Car,5,0.303,44,Baseball/Softball,Rap/Hip hop,January,Summer,No,No,Meat,Water,History,7,10,3,Internet Chat/Message,17,10,1,14,4,5,0,None,Fly,Rich
+2023,Male,17,Right,185,25,185,1,Car,2,0.333,35,Football (American),Rap/Hip hop,September,Fall,No,No,Meat,Milk,History,7,9,5,Text messaging,40,10,1,12,50,2,32,None,Freeze time,Rich
+2023,Male,17,Left,180.3,30,171,2,Car,14,0.324,47,Soccer,Country,June,Fall,No,No,Pizza/Pasta,Tea,History,6,10,4,In person,400,9,6,0,4,3,0,Some,Telepathy,Happy
+2023,Male,18,Left,180,26,182,1,Car,21,0.385,31,Skateboarding/Rollerblading,Punk rock,January,Summer,Yes,No,Poultry,Water,Music,7,10,3,Social Media,12,10,2,6,8,5,0,Some,Invisibility,Healthy
+2023,Female,17,Left,149.8,22,148,1,Car,7,0.596,36,Other,Pop,August,Summer,No,No,Fruit,Water,Other,7,9,3,In person,68,18,12,0,14,14,12,A lot,Telepathy,Happy
+2023,Male,18,Right,183,26,183,1,Car,13,0.336,46,Athletics,Rhythm and blues (R&B),January,Winter,No,No,Pizza/Pasta,Water,Science,7.5,10,4,In person,28,22,2,25,41,0,5,Very little,Freeze time,Happy
+2023,Male,17,Right,178,26,172,1,Car,10,0.38,38,Baseball/Softball,Rap/Hip hop,March,Fall,Yes,No,Pizza/Pasta,Water,Mathematics and statistics,7,10,3,Text messaging,70,8,8,10,70,3,10,Some,Freeze time,Rich
+2023,Male,17,Right,183,26.7,,2,Bus,20,0.421,64,Swimming,Rock and roll,January,Spring,Yes,No,Meat,Tea,Mathematics and statistics,6,10,3,Social Media,42,7,42,10,24,3,0,A lot,Telepathy,Happy
+2023,Male,17,Right,165,23,,1,Bus,15,0.303,38,Athletics,Rock and roll,December,Fall,No,No,Meat,Water,Art,5,3,3,In person,1,8,2,26,18,0,0,Very little,Fly,Happy
+2023,Male,17,Right,174,26,184,1,Bus,25,0.343,29,Walking/Hiking,Rock and roll,October,Fall,No,No,Seafood,Water,Computers and technology,8,9.5,4,Text messaging,16,2,10,10,45,9,0,A lot,Freeze time,Happy
+2023,Female,17,Left,157,22,158,1,Car,10,0.435,42,Soccer,Rap/Hip hop,July,Spring,Yes,No,Pizza/Pasta,Soft drink (caffeinated),Science,8,13,3,Social Media,40,48,10,68,100,6,20,Some,Fly,Rich
+2023,Female,17,Right,168,22,,1,Car,15,0.427,40,Gymnastics,Rap/Hip hop,November,Fall,No,No,Fruit,Soft drink (caffeinated),History,6,8,6,Text messaging,120,12,3,12,5,12,13,Some,Fly,Rich
+2023,Female,17,Right,162,22,155,2,Car,15,0.466,35,Skateboarding/Rollerblading,Heavy metal,March,Summer,No,Yes,Desserts,Water,Science,7,7,4,In person,4,2,5,1,1,0,30,Some,Super strength,Happy
+2023,Female,16,Right,167,22,167,1,Car,7,0.527,38,Soccer,Country,March,Fall,No,No,Seafood,Water,Mathematics and statistics,7,10,3,Text messaging,15,15,1,8,8,5,25,A lot,Invisibility,Rich
+2023,Female,16,Right,164,25,161,2,Car,5,0.456,42,Swimming,Rhythm and blues (R&B),September,Spring,No,No,Rice/Noodle dishes,Water,History,6,8,6,Text messaging,15,4,8,1,5,2,10,A lot,Freeze time,Rich
+2023,Male,17,Right,178,23.5,175,1,Bus,10,0.28,29,Running/Jogging,Rap/Hip hop,October,Fall,No,No,Meat,Water,History,7,8,3,In person,0,3,3,10,12,0,10,None,Freeze time,Rich
+2023,Male,16,Right,183,25,179,1,Bus,23,0.343,32,Football (American),Rap/Hip hop,April,Fall,No,No,Meat,Water,Mathematics and statistics,7,8,4,In person,12,5,5,3,15,5,15,Very little,Fly,Happy
+2023,Female,18,Right,152.4,25,152.4,1,Car,8,0.331,43,Swimming,Pop,August,Summer,No,No,Seafood,Water,English,8,12,4,Text messaging,100,10,0,8,3,0,16,Very little,Telepathy,Rich
+2023,Male,17,Right,188,33,176,1,Car,3,0.31,34,Baseball/Softball,Rock and roll,November,Fall,Yes,No,Poultry,Water,History,6,4,3,Text messaging,3,8,4,5,7,5,5,A lot,Freeze time,Rich
+2023,Female,17,Right,172,25,152.4,1,Car,10,0.376,46,Walking/Hiking,Pop,March,Winter,No,No,Poultry,Water,Science,8,10,3,Text messaging,2,10,10,0,2,10,22,Some,Invisibility,Happy
+2023,Male,18,Right,178,26,182,1,Car,8,0.292,32,Swimming,Rap/Hip hop,August,Fall,No,No,Seafood,Water,Science,6,8,4,Text messaging,90,8,3,2,20,3,0,A lot,Fly,Happy
+2023,Female,17,Right,160,22.3,,1,Car,12,0.344,49,Other,Rap/Hip hop,October,Fall,Yes,No,Rice/Noodle dishes,Tea,English,6,4,4,Text messaging,60,8,11,0,11,6,8,A lot,Invisibility,Happy
+2023,Female,17,Right,160,20,159,1,Car,7,0.363,50,Dancing,Other,November,Fall,No,No,Breads/Sandwiches,Milk,Science,4,10,4,In person,25,10,20,0,70,2,16,Some,Invisibility,Healthy
+2023,Female,17,Left,168,23.5,167,1,Car,5,0.907,26,Walking/Hiking,Country,August,Fall,No,No,Meat,Water,English,7,10,4,Text messaging,85,21,2,0,38,6,12,Some,Fly,Famous
+2023,Male,17,Right,180,25,200,1,Car,10,0.309,50,Basketball,Rap/Hip hop,March,Summer,No,No,Meat,Water,Other,7,9,8,Text messaging,5,10,5,2,12,2,0,Very little,Fly,Rich
+2023,Male,17,Right,176,25,175,1,Car,10,0.429,34,Athletics,Pop,October,Winter,Yes,No,Rice/Noodle dishes,Water,Mathematics and statistics,7,10,4,Text messaging,100,6,5,5,20,10,7,Very little,Telepathy,Rich
+2023,Female,18,Right,160,24,160,1,Bus,29,0.401,31,Other,Rap/Hip hop,September,Fall,No,No,Desserts,Coffee,English,5,9,6,In person,20,7,3,0,140,15,0,Some,Fly,Happy
+2023,Male,17,Right,180.3,26.7,179.1,1,Bus,20,0.348,43,Walking/Hiking,Other,August,Spring,No,No,Poultry,Water,Languages,7.5,13,4,In person,0,3,1,4,0,5,0,A lot,Super strength,Happy
+2023,Female,18,Right,169,22,164,1,Car,10,0.53,40,Dancing,Pop,November,Summer,Yes,No,Pizza/Pasta,Water,Social studies,6,10,5,Cell phone,200,6,4,0,30,5,6,Some,Telepathy,Happy
+2023,Male,15,Right,183,30,,1,Bus,30,0.29,44,Swimming,Rap/Hip hop,December,Winter,No,No,Breads/Sandwiches,Water,Physical education,6,11,5,Cell phone,0,7,0,15,30,5,15,Very little,Fly,Rich
+2023,Female,17,Right,165,24,162,1,Car,7,0.238,38,Walking/Hiking,Pop,March,Fall,Yes,No,Desserts,Water,Other,6,11,3,Text messaging,75,40,15,8,50,50,0,Some,Telepathy,Rich
+2023,Male,18,Right,175.5,28,169,1,Car,5,0.303,41,Tennis,Punk rock,March,Fall,Yes,No,Poultry,Water,Music,8,11,4,Text messaging,15,40,3,10,20,6,2.5,A lot,Freeze time,Famous
+2023,Female,17,Left,168,23.8,162,1,Car,8,0.418,50,Baseball/Softball,Rap/Hip hop,June,Fall,Yes,No,Pizza/Pasta,Energy drink,English,8,10,5,Cell phone,20,15,2,20,20,3,5,A lot,Telepathy,Happy
+2023,Male,17,Right,181,28,169,1,Car,4,0.39,47,Walking/Hiking,Techno/Electronic,September,Summer,Yes,No,Pizza/Pasta,Soft drink (non-caffeinated),Mathematics and statistics,7,8.5,4,Cell phone,10,0,5,25,30,7,0,Some,Fly,Rich
+2023,Male,17,Right,183,28,190,2,Car,13,0.646,48,Bowling,Pop,February,Winter,No,No,Breads/Sandwiches,Water,Science,7,10,3,Text messaging,10,3,20,0,24,0,0,Some,Freeze time,Happy
+2023,Female,17,Right,175.2,22.9,155,1,Car,5,0.46,59,Walking/Hiking,Pop,June,Fall,No,No,Rice/Noodle dishes,Water,Other,9,9,5,Text messaging,4,4,1,1,5,1,0,Very little,Invisibility,Healthy
+2023,Female,18,Right,163,21.5,163,1,Car,5,0.339,43,Other,Rock and roll,September,Fall,Yes,No,Seafood,Water,Social studies,7,8,4,In person,50,5,10,1,4,7,15,Some,Fly,Healthy
+2023,Female,16,Right,160,25,158,1,Car,9,0.392,42,Baseball/Softball,Country,March,Summer,Yes,No,Pizza/Pasta,Water,Mathematics and statistics,7,8,4,Text messaging,200,15,1,0,84,1,0,A lot,Telepathy,Rich
+2023,Male,17,Left,166,25,166,1,Car,5,0.343,42,Lacrosse,Rap/Hip hop,September,Fall,No,No,No favorite,Water,Mathematics and statistics,7,9,7,Text messaging,100,6,10,25,10,7,15,Some,Invisibility,Happy
+2023,Female,17,Right,172,25,157,1,Car,10,0.386,41,Other,Country,April,Fall,No,No,Salads,Water,Art,6,8,4,In person,40,12,6,0,2,4,5,A lot,Telepathy,Happy
+2023,Female,16,Right,154,21,158,1,Car,7,0.473,63,Walking/Hiking,Pop,September,Fall,Yes,No,Poultry,Water,English,6,4,6,Text messaging,100,3,5,3,10,2,0,Some,Fly,Rich
+2023,Female,18,Right,169,22,164,1,Car,10,0.53,40,Dancing,Pop,November,Summer,Yes,No,Pizza/Pasta,Water,Social studies,6,10,5,Cell phone,200,6,4,0,30,5,6,Some,Telepathy,Happy
+2023,Male,17,Right,186.6,27,193,1,Car,5,0.498,35,Other,Country,December,Winter,No,No,Meat,Water,Computers and technology,5,7,4,Social Media,100,6,8,3,40,10,16,Some,Freeze time,Happy
+2023,Female,17,Right,165,25,180,1,Car,12,0.627,29,Dancing,Rhythm and blues (R&B),December,Winter,No,No,Pizza/Pasta,Water,Mathematics and statistics,8,5,8,Cell phone,4,3,3,0,12,1,4,Some,Freeze time,Rich
+2023,Male,18,Right,180,25.4,170,1,Car,30,0.345,41,Running/Jogging,Classical,October,Fall,Yes,No,Salads,Water,Science,7,10,4,In person,3,4,8,3,10,0,0,A lot,Invisibility,Happy
+2023,Male,17,Left,176,29,170,1,Car,7,0.256,35,Baseball/Softball,Rap/Hip hop,December,Fall,No,No,Pizza/Pasta,Juice,Mathematics and statistics,5,10,6,Cell phone,26,20,6,15,20,5,20,A lot,Fly,Rich
+2023,Male,17,Right,177,27,177,1,Car,2,0.322,36,Soccer,Country,January,Fall,No,No,Poultry,Water,Mathematics and statistics,6,8,3,Social Media,50,20,1,3,1,8,12,None,Telepathy,Happy
+2023,Female,17,Left,160,23.5,160,1,Bus,20,0.57,79,Lacrosse,Other,May,Summer,Yes,No,Pizza/Pasta,Water,Science,7,10,4,Text messaging,52,20,15,0,35,7,0,Some,Fly,Rich
+2023,Male,16,Right,179.8,25,176,1,Car,6,1.513,32,Running/Jogging,Pop,July,Summer,No,Yes,Rice/Noodle dishes,Water,Science,5,6,4,Cell phone,100,10,10,0,10,10,0,Some,Telepathy,Healthy
+2023,Female,17,Right,171,23,168,1,Car,4,0.413,31,Tennis,Country,February,Summer,No,No,Meat,Water,Mathematics and statistics,7,9,3,Social Media,50,10,5,0,12,8,10,A lot,Invisibility,Happy
+2023,Male,18,Right,194,31,198,1,Car,10,0.328,40,Running/Jogging,Heavy metal,November,Summer,No,No,Meat,Soft drink (caffeinated),History,5,10,4,Social Media,40,5,5,10,5,5,0,Very little,Telepathy,Rich
+2023,Male,17,Right,188,29.4,194,1,Car,5,0.387,41,Martial Arts,Punk rock,September,Fall,No,No,Meat,Water,Computers and technology,7,9,4,Internet Chat/Message,17,10,1,30,7,0,0,Very little,Freeze time,Happy
+2023,Female,18,Right,160,23,158,1,Car,10,0.355,36,Athletics,Pop,December,Summer,No,No,Fruit,Water,Art,6,8,4,Text messaging,30,10,10,2,20,1,15,A lot,Invisibility,Happy
+2023,Female,18,Right,163,21.5,155,1,Car,10,0.726,44,Baseball/Softball,Rock and roll,October,Summer,Yes,No,Salads,Water,Art,8,9,4,Text messaging,80,15,2,2,2,1,15,Some,Fly,Happy
+2023,Female,18,Right,158,23,152,1,Car,15,0.476,36,Swimming,Other,December,Winter,No,No,No favorite,Water,English,7,9,4,Text messaging,10,4,8,0,80,7,24,A lot,Telepathy,Healthy
+2023,Male,18,Left,185.4,28.5,190,1,Car,10,0.668,65,Basketball,Rap/Hip hop,March,Summer,No,No,Seafood,Water,Science,6,8,4,Social Media,8,10,7,6,8,6,14,Very little,Super strength,Rich
+2023,Male,18,Right,173,28,173,2,Car,25,0.288,39,Other,Rap/Hip hop,January,Summer,No,No,Poultry,Water,Computers and technology,8,7,4,Social Media,0,2,7,0,50,0,20,A lot,Freeze time,Happy
+2023,Female,18,Right,157,25,166,1,Car,35,0.589,57,Athletics,Other,August,Winter,Yes,No,Rice/Noodle dishes,Water,English,6,8,3,Text messaging,20,30,4,1,60,10,15,Some,Freeze time,Happy
+2023,Male,17,Right,180,28,183,1,Car,10,0.241,53,Soccer,Rock and roll,December,Summer,No,No,Pizza/Pasta,Water,Computers and technology,6,8,4,In person,12,10,4,1,8,5,16,Very little,Fly,Rich
+2023,Male,18,Right,178,27,186,1,Car,8,0.3,40,Swimming,Heavy metal,March,Summer,No,No,Meat,Water,Mathematics and statistics,6.5,9,4,Internet Chat/Message,10,10,8,0,15,0,0,Some,Fly,Happy
+2023,Male,18,Right,170.6,21.6,,1,Car,7,0.352,40,Golf,Rap/Hip hop,December,Winter,Yes,No,Poultry,Water,Mathematics and statistics,6,7,4,Social Media,20,24,2,2,10,10,8,Some,Freeze time,Healthy
+2023,Male,17,Right,178,29,180,2,Car,7,0.652,60,Basketball,Other,June,Summer,No,No,Pizza/Pasta,Water,English,7,9,6,In person,100,49,3,30,30,6,20,Some,Freeze time,Happy
+2023,Male,17,Left,172.7,23,,1,Car,5,0.509,35,Lacrosse,Pop,May,Fall,No,No,Meat,Tea,Science,7,9,4,Text messaging,12,6,2,8,14,5,8,Some,Invisibility,Rich
+2023,Female,18,Right,152.4,21,163,1,Car,4,0.538,50,Swimming,Pop,August,Summer,Yes,No,Pizza/Pasta,Water,Science,8.5,12,5,Internet Chat/Message,45,70,55,0,80,36,72,Some,Telepathy,Happy
+2023,Female,17,Left,172,26,178,1,Car,8,0.364,55,Other,Rap/Hip hop,August,Spring,Yes,No,Poultry,Water,Science,6,9,1,Internet Chat/Message,100,10,6,2,20,5,15,Some,Fly,Happy
+2023,Male,18,Right,185,25.5,189,1,Car,15,0.312,31,Hockey (Ice),Rock and roll,March,Winter,Yes,No,Pizza/Pasta,Water,Social studies,7,10,5,Internet Chat/Message,5,15,2,3,20,5,2,Very little,Freeze time,Happy
+2023,Female,17,Right,151,21,153,1,Bus,7,0.372,45,Dancing,Pop,January,Spring,No,No,Poultry,Tea,Art,6,4,5,Text messaging,70,4,3,1,7,4,1,Some,Fly,Happy
+2023,Female,17,Right,163,25,163,1,Car,10,0.54,41,Swimming,Rock and roll,July,Fall,No,No,Rice/Noodle dishes,Coffee,Art,7,9.5,3,Text messaging,515,18,3,5,35,25,14,Some,Invisibility,Happy
+2023,Female,17,Right,163,23.5,163,2,Car,5,0.499,39,Tennis,Country,July,Fall,Yes,No,Rice/Noodle dishes,Energy drink,Music,5.5,9,3,Cell phone,500,25,15,2,2,2,0,Some,Fly,Happy
+2023,Female,16,Right,169,25,168,2,Car,13,0.4,35,Other,Pop,November,Fall,Yes,No,Fruit,Water,Mathematics and statistics,5,10,4,Social Media,50,30,20,1,60,3,0,A lot,Freeze time,Rich
+2023,Female,17,Right,164,22,170,1,Car,10,0.393,47,Baseball/Softball,Country,September,Fall,Yes,No,Fruit,Water,Science,8,8,3,Text messaging,15,4,5,0,1,0,0,Some,Telepathy,Happy
+2023,Male,18,Left,187,27,190,1,Car,5,0.194,64,Lacrosse,Country,May,Fall,No,No,Meat,Water,History,9,9,5,In person,6,7,1,6,12,6,5,Very little,Fly,Famous
+2023,Male,16,Right,185,26,178,1,Car,15,0.273,32,Soccer,Other,April,Spring,Yes,No,Poultry,Water,Mathematics and statistics,6,12,2,In person,15,5,0,40,15,9,5,Very little,Freeze time,Rich
+2023,Female,17,Right,167,24,167,1,Walk,4,0.39,48,Dancing,Pop,January,Summer,No,No,Fruit,Water,Science,6.5,8,3,Social Media,20,9,4,0,12,0,5,Some,Freeze time,Rich
+2023,Male,17,Left,185,25,178,1,Car,4,0.346,65,Hockey (Ice),Rap/Hip hop,June,Winter,Yes,No,Pizza/Pasta,Coffee,Physical education,8,8,2,Social Media,30,5,5,1,23,8,0,A lot,Super strength,Happy
+2023,Male,18,Left,185.4,28.5,190,1,Car,10,0.668,65,Basketball,Rap/Hip hop,March,Summer,No,No,Seafood,Water,Science,6,8,4,Social Media,8,10,7,6,8,6,14,Very little,Super strength,Rich
+2023,Female,17,Right,180,26,170,1,Car,3,0.38,32,Tennis,Rock and roll,April,Fall,No,No,Rice/Noodle dishes,Coffee,English,5,8,3,Text messaging,40,20,15,5,8,8,0,A lot,Telepathy,Happy
+2023,Female,16,Right,165.1,24,167,2,Car,8,0.697,44,Dancing,Country,April,Fall,Yes,No,Pizza/Pasta,Water,English,8,10,6,Text messaging,6,8,2,1,25,1,10,Some,Invisibility,Happy
+2023,Female,17,Right,168,23,165,1,Car,4,0.47,29,Walking/Hiking,Pop,July,Spring,No,No,Rice/Noodle dishes,Soft drink (caffeinated),English,7,10,5,Text messaging,200,14,25,0,42,5,14,A lot,Telepathy,Rich
+2023,Female,16,Right,163,25,164,1,Car,12,0.351,30,Other,Other,July,Summer,No,No,Meat,Water,Music,6,14,7,Text messaging,120,5,20,2,60,2,0,A lot,Freeze time,Happy
+2023,Male,18,Right,183,27,183,3,Car,8,0.307,32,Other,Pop,June,Summer,No,No,Meat,Water,Mathematics and statistics,7.5,8,4,In person,0,15,6,3,30,0,15,Some,Telepathy,Happy
+2023,Female,17,Right,150,22.5,151,1,Car,10,0.461,41,Other,Pop,December,Summer,Yes,No,No favorite,Soft drink (caffeinated),Other,7,10,6,Social Media,80,30,17,0,60,15,12,Some,Invisibility,Happy
+2023,Male,17,Right,175,26,177,1,Car,18,0.339,55,Soccer,Classical,March,Fall,Yes,No,Desserts,Water,History,5.5,8.5,4,Social Media,25,10,2,10,9,1,6,Some,Freeze time,Happy
+2023,Male,16,Right,175,28,188,1,Car,20,0.416,34,Other,Jazz,June,Spring,No,No,Meat,Water,Computers and technology,14,6,5,Internet Chat/Message,70,15,0,2,35,6,25,None,Freeze time,Happy
+2023,Female,18,Right,159,22,158,1,Car,10,0.415,36,Dancing,Pop,November,Winter,No,No,Rice/Noodle dishes,Milk,Art,6,10,3,Text messaging,13,5,16,0,8,6,0,Some,Invisibility,Rich
+2023,Male,17,Right,175,25,174,1,Bus,40,0.366,48,Soccer,Pop,July,Winter,No,No,Poultry,Soft drink (caffeinated),Computers and technology,7,5,4,Text messaging,5,5,2,10,15,0,0,Some,Telepathy,Happy
+2023,Female,18,Right,154,22,156,1,Car,10,0.42,37,Walking/Hiking,Country,March,Spring,No,No,Fruit,Water,Music,5,7,3,Text messaging,250,20,5,5,45,20,0,Some,Fly,Happy
+2023,Male,17,Left,174,25,168,1,Car,10,0.33,36,Basketball,Pop,May,Summer,Yes,No,Poultry,Water,Social studies,7,8.5,3,Internet Chat/Message,30,60,3,10,24,15,0,Some,Fly,Happy
+2023,Male,18,Right,183,26,164,1,Car,8,0.418,40,None,Other,September,Fall,No,No,Desserts,Water,Other,6,8,4,Text messaging,70,1,0,10,3,1,16,None,Freeze time,Rich
+2023,Male,16,Right,169,23,165,1,Car,10,0.3,24,Table Tennis,Reggae,September,Winter,No,No,Meat,Water,Mathematics and statistics,8,10,5,Text messaging,138,40,6,1,40,7,12,Some,Freeze time,Happy
+2023,Male,18,Right,180,28,189.5,1,Car,10,0.472,50,Soccer,Rap/Hip hop,October,Fall,No,No,Meat,Water,Science,7,8,6,Social Media,5,30,12,3,30,10,15,Some,Fly,Happy
+2023,Male,17,Left,184,28,195,1,Car,5,0.453,36,Hockey (Ice),Rap/Hip hop,August,Winter,Yes,No,Pizza/Pasta,Juice,History,7,6,5,Cell phone,50,6,0,20,50,3,0,Very little,Freeze time,Rich
+2023,Female,17,Right,162,23,166,1,Car,5,0.4,38,Other,Reggae,December,Summer,No,No,Pizza/Pasta,Water,Science,6,8,4,Internet Chat/Message,10,30,3,5,20,2,16,A lot,Invisibility,Happy
+2023,Female,17,Right,170,25,157,1,Bus,40,0.376,40,None,Pop,July,Fall,No,No,Salads,Water,Art,5,8,3,Text messaging,10,5,2,5,10,5,0,Some,Freeze time,Happy
+2023,Male,17,Left,175,26.5,178.5,1,Car,5,0.263,44,Soccer,Country,March,Summer,No,No,Meat,Water,Physical education,7,7,5,Text messaging,36,15,1,3,7,4,10,Very little,Invisibility,Rich
+2023,Male,18,Right,178,25,176,1,Car,5,0.761,58,Lacrosse,Pop,December,Summer,Yes,No,Poultry,Water,Mathematics and statistics,6,8,5,In person,10,15,5,3,1,2,5,Some,Invisibility,Happy
+2023,Female,17,Right,167,22,164,1,Car,5,0.373,58,Soccer,Country,November,Summer,Yes,No,Fruit,Water,Mathematics and statistics,6,9,4,Cell phone,20,6,3,9,9,6,10,A lot,Fly,Happy
+2023,Male,17,Left,170,26,155,2,Car,15,0.27,48,Golf,Rap/Hip hop,July,Fall,No,No,Rice/Noodle dishes,Water,History,9,11,5,Text messaging,5,5,2,3,4,6,20,Some,Super strength,Happy
+2023,Female,17,Right,167,22,159,2,Car,6,0.366,24,Other,Punk rock,December,Spring,Yes,No,Poultry,Soft drink (caffeinated),Mathematics and statistics,6,9,5,In person,10,5,17,35,40,10,25,A lot,Freeze time,Rich
+2023,Female,17,Right,170.2,25,171,1,Car,5,0.474,38,Other,Rhythm and blues (R&B),May,Fall,Yes,No,Rice/Noodle dishes,Water,Social studies,7,8,5,Text messaging,30,8,3,0,5,0,20,Some,Fly,Happy
+2023,Male,17,Right,173,28,172,1,Car,5,0.354,48,Tennis,Pop,October,Fall,Yes,Yes,Pizza/Pasta,Water,Social studies,7,9,4,Text messaging,30,14,5,3,22,8,8,Some,Fly,Healthy
+2023,Male,18,Both,178,27,,1,Car,6,0.533,41,Dancing,Other,October,Fall,Yes,No,Meat,Soft drink (caffeinated),English,5,10,3,In person,100,10,2,12,20,5,12,Some,Fly,Happy
+2023,Female,17,Left,158,24,169,2,Car,9,0.49,37,Tennis,Rhythm and blues (R&B),January,Fall,No,No,Rice/Noodle dishes,Water,Languages,7,8,5,Cell phone,10,12,2,2,2,4,6,Some,Fly,Happy
+2023,Female,18,Right,154.9,21,156,1,Car,10,0.35,43,Baseball/Softball,Other,September,Fall,Yes,No,No favorite,Water,Science,7,8,3,Social Media,10,45,7,3,56,7,15,Some,Freeze time,Rich
+2023,Male,18,Right,182,22,155,1,Car,15,0.367,33,Cycling,Other,November,Fall,Yes,No,Desserts,Water,Science,8,10,4,Internet Chat/Message,6,5,2,5,2,2,0,Some,Freeze time,Rich
+2023,Female,18,Right,176,25,188,2,Car,7,0.377,41,Dancing,Reggae,July,Summer,No,No,Fruit,Water,Music,6.5,9,3,In person,118,15,14,1,20,5,0,A lot,Fly,Happy
+2023,Female,17,Right,160,26,165,1,Car,15,0.218,41,Swimming,Rhythm and blues (R&B),November,Fall,No,No,Pizza/Pasta,Water,Social studies,6,8,3,Text messaging,100,20,6,7,60,15,20,A lot,Freeze time,Rich
+2023,Female,18,Right,162,24.8,158,1,Car,10,0.721,49,Walking/Hiking,Pop,October,Summer,No,No,Rice/Noodle dishes,Water,History,7,9,5,In person,12,5,5,5,6,5,9,A lot,Invisibility,Happy
+2023,Female,17,Right,166,23,161,3,Bus,12,0.456,36,Other,Other,October,Fall,No,No,Rice/Noodle dishes,Water,Languages,8,10,3,Text messaging,20,50,7,2,40,7,3,Some,Fly,Healthy
+2023,Female,18,Right,176,25,180,1,Car,8,0.469,35,Baseball/Softball,Rock and roll,December,Summer,No,No,Poultry,Water,Science,8,10,3,In person,10,5,20,0,7,2,0,A lot,Telepathy,Happy
+2023,Male,17,Right,182,24,180,2,Bus,50,0.26,40,Soccer,Rap/Hip hop,July,Fall,No,No,Rice/Noodle dishes,Water,Science,6,7,4,Text messaging,211,2,16,10,30,2,0,Some,Super strength,Happy
+2023,Male,16,Left,180,28,178,1,Car,15,0.183,32,Hockey (Ice),Country,May,Winter,No,No,Seafood,Water,Mathematics and statistics,6,5,5,Social Media,30,38,2,10,80,30,0,Very little,Freeze time,Famous
+2023,Male,17,Right,187,31,185,1,Car,15,0.295,36,Baseball/Softball,Rap/Hip hop,August,Summer,No,No,Meat,Water,Physical education,7,9,4,In person,30,20,50,20,30,2,30,A lot,Super strength,Rich
+2023,Female,18,Right,174,25,173,1,Car,8,0.371,39,Other,Other,August,Spring,Yes,No,Desserts,Milk,Mathematics and statistics,7,9,4,Text messaging,130,5,2,6,20,8,8,Some,Fly,Happy
+2023,Female,18,Right,169,24,168,1,Car,10,0.66,38,Walking/Hiking,Rock and roll,November,Spring,No,No,Pizza/Pasta,Water,Art,6,10,3,In person,50,20,5,5,10,0,0,Some,Super strength,Happy
+2023,Female,18,Left,160,25,160,1,Bus,10,0.58,44,Athletics,Country,June,Winter,Yes,No,Pizza/Pasta,Energy drink,Science,8,6,3,Text messaging,44,10,7,0,16,13,0,Some,Freeze time,Famous
+2023,Female,18,Right,157,27,,1,Car,7,0.451,79,Other,Pop,September,Fall,No,No,Pizza/Pasta,Water,English,6.5,9.5,4,Cell phone,10,15,1,0,10,5,4,Some,Invisibility,Happy
+2023,Male,16,Right,190.5,33,198.1,2,Bus,40,0.38,43,Football (American),Rap/Hip hop,October,Fall,No,No,Meat,Water,Science,7,8,3,Internet Chat/Message,20,11,2,3,25,5,20,Some,Freeze time,Happy
+2023,Male,18,Right,186,27,198,2,Car,15,0.327,38,Soccer,Rap/Hip hop,October,Summer,No,No,Meat,Tea,Mathematics and statistics,6,10,3,Text messaging,23,6,8,10,6,3,26,Some,Telepathy,Healthy
+2023,Female,18,Right,172,24,170,1,Walk,15,0.397,49,Other,Other,February,Summer,No,No,Pizza/Pasta,Juice,English,7.5,9,5,Text messaging,100,4,6,2,10,3,15,Very little,Telepathy,Rich
+2023,Male,17,Right,185,26,182,2,Car,11,0.834,127,Soccer,Rap/Hip hop,September,Winter,No,No,Meat,Water,History,6,9,3,Text messaging,25,3,10,0,10,0,20,None,Telepathy,Healthy
+2023,Female,17,Left,162,23,170,2,Car,30,0.511,42,Tennis,Other,April,Fall,No,No,Desserts,Water,English,7,9,4,Text messaging,10,20,12,3,20,10,0,Some,Invisibility,Rich
+2023,Male,18,Right,183,28,180,1,Car,7,0.343,38,Basketball,Rap/Hip hop,September,Fall,Yes,No,Meat,Water,History,7,9,5,Cell phone,2,16,2,4,20,16,20,Some,Freeze time,Rich
+2023,Female,18,Right,160,18,,1,Car,6,0.669,43,Running/Jogging,Rap/Hip hop,December,Summer,No,No,Seafood,Water,Other,6,9,3,Cell phone,40,30,2,0,1,0,10,A lot,Telepathy,Famous
+2023,Female,17,Right,169,22,160,1,Car,6,0.43,36,Athletics,Pop,October,Summer,No,No,Fruit,Juice,Science,7,8,4,Social Media,40,5,5,4,12,10,12,Some,Telepathy,Happy
+2023,Female,17,Right,176,25,,1,Car,8,0.397,51,Other,Rap/Hip hop,January,Fall,No,No,Pizza/Pasta,Water,History,6,8,4,Text messaging,100,30,6,0,8,0,10,A lot,Fly,Rich
+2023,Female,17,Right,158,22,154,1,Car,8,0.453,43,Gymnastics,Other,May,Summer,No,No,Desserts,Coffee,Science,7.5,9,5,Text messaging,35,10,5,0,5,8,10,Some,Fly,Happy
+2023,Female,17,Right,171,23,168,1,Car,4,0.413,31,Tennis,Country,February,Summer,No,No,Meat,Water,Mathematics and statistics,7,9,3,Social Media,50,10,5,0,12,8,10,A lot,Invisibility,Happy
+2023,Male,18,Right,180,25,192,1,Car,7,0.271,37,Lacrosse,Country,November,Spring,No,No,Meat,Water,Science,8,8,2,Social Media,3,72,2,4,30,10,6,A lot,Freeze time,Rich
+2023,Male,17,Right,180,28,,2,Car,15,0.285,37,Martial Arts,Pop,December,Fall,Yes,No,Meat,Water,Languages,6,6,2,Text messaging,19,6,8,4,50,15,0,A lot,Invisibility,Happy
+2023,Male,17,Right,172.7,28,171.5,3,Car,7,0.402,70,None,Pop,July,Fall,No,No,Meat,Water,English,7,10,5,Text messaging,50,16,5,0.5,6,3,0,A lot,Telepathy,Happy
+2023,Female,17,Right,165,22,168,1,Car,7,0.339,48,Dancing,Rhythm and blues (R&B),June,Winter,Yes,No,Rice/Noodle dishes,Water,Art,5,10,3,Text messaging,75,7,13,0,30,8,0,Some,Invisibility,Happy
+2023,Female,17,Right,157.4,24,154,2,Car,7,0.396,53,Other,Classical,April,Summer,Yes,No,Rice/Noodle dishes,Juice,History,8,10,8,Text messaging,11,12,0,0,78,0,0,None,Invisibility,Happy
+2023,Male,16,Right,178,20,147.3,1,Bus,40,0.331,39,Football (American),Gospel,December,Spring,No,No,Meat,Water,History,9,11,4,In person,5,0,6,3,49,7,0,A lot,Super strength,Healthy
+2023,Female,16,Left,168,25,156,1,Car,7,0.381,40,Lacrosse,Country,February,Summer,No,No,Pizza/Pasta,Water,History,6,8,3,Internet Chat/Message,7,6,6,0,50,8,5,A lot,Telepathy,Rich
+2023,Male,17,Right,198.1,27,206,1,Car,4,0.558,39,Basketball,Rap/Hip hop,February,Summer,No,No,Meat,Water,Physical education,6,10,4,Social Media,3,13,0,35,4,5,15,A lot,Invisibility,Rich
+2023,Female,17,Right,167.6,29,168,2,Car,8,0.382,71,Walking/Hiking,Punk rock,April,Fall,Yes,Yes,No favorite,Soft drink (caffeinated),Social studies,8,8,3,Internet Chat/Message,5,5,23,21,30,10,11,A lot,Telepathy,Happy
+2023,Female,17,Left,168,23,162,1,Car,4,0.406,33,Athletics,Pop,September,Fall,No,No,Seafood,Water,Science,6,8,6,Text messaging,303,5,12,0,7,6,15,A lot,Freeze time,Rich
+2023,Female,18,Left,167.6,23.4,161,1,Car,6,0.453,53,Other,Other,September,Fall,Yes,No,Meat,Water,Art,7,9,3,Text messaging,7,46,3,0,15,20,13,A lot,Telepathy,Happy
+2023,Male,17,Right,183,29,192,2,Bus,37,0.337,39,Walking/Hiking,Other,January,Fall,Yes,No,Pizza/Pasta,Water,Art,6,10,3,In person,0,3,24,13,48,5,0,Some,Freeze time,Happy
+2023,Female,17,Left,172,23,166,1,Car,15,1.813,60,Other,Pop,January,Winter,No,No,Poultry,Coffee,English,4,12,5,Text messaging,150,30,20,0,20,0,20,Very little,Freeze time,Famous
+2023,Male,17,Right,175,27,,1,Car,12,0.382,42,Athletics,Rap/Hip hop,November,Summer,No,No,Meat,Juice,Social studies,6,6,3,Text messaging,13,21,8,2,48,6,18,Very little,Telepathy,Rich
+2023,Female,18,Right,176,23,172,1,Car,15,0.387,34,Dancing,Other,January,Spring,No,Yes,No favorite,Tea,Science,6.5,7.5,3,In person,7,4,3,4,5,6,12,A lot,Fly,Happy
+2023,Female,17,Right,147,20,141,2,Bus,25,0.4,37,Baseball/Softball,Other,October,Fall,Yes,No,Meat,Soft drink (caffeinated),Art,6.5,9,4,Text messaging,60,5,10,4,23,2,12,Some,Fly,Healthy
+2023,Male,17,Right,176,26,176,1,Car,6,0.329,37,Basketball,Rap/Hip hop,May,Winter,Yes,No,Poultry,Water,Mathematics and statistics,7,8.5,4,Internet Chat/Message,7,10,4,6,10,0,30,Some,Fly,Happy
+2023,Male,18,Right,168,24.5,172,1,Bus,10,0.433,61,Other,Rock and roll,August,Winter,No,No,Meat,Water,Science,7,10,3,Internet Chat/Message,10,3,1,15,3,1,6,Very little,Freeze time,Happy
+2023,Male,18,Right,175.5,28,169,1,Car,5,0.303,41,Tennis,Punk rock,March,Fall,Yes,No,Poultry,Water,Music,8,11,4,Text messaging,15,40,3,10,20,6,2.5,A lot,Freeze time,Famous
+2023,Male,18,Right,173,24.5,172,1,Bus,10,0.433,61,Other,Rock and roll,August,Winter,No,No,Meat,Water,Science,7,10,3,Internet Chat/Message,10,3,1,15,3,1,6,Very little,Freeze time,Happy
+2023,Male,17,Right,170,27,175,1,Car,10,0.369,56,Athletics,Rock and roll,February,Summer,Yes,No,Poultry,Water,History,6,8,6,Text messaging,30,10,5,5,10,3,20,Some,Telepathy,Happy
+2023,Male,17,Right,173,23,,1,Car,12,0.384,31,Other,Other,January,Fall,Yes,No,Seafood,Water,Science,7,12,5,Internet Chat/Message,12,6,0,24,30,0,0,Very little,Freeze time,Happy
+2023,Female,17,Right,186,23.5,178,1,Car,7,0.709,49,Swimming,Pop,March,Summer,Yes,No,Fruit,Water,History,8,10,3,Social Media,267,5,6,0,0,5,10,Some,Fly,Happy
+2023,Female,18,Right,161,23,153,1,Car,5,0.632,54,Swimming,Pop,December,Winter,No,No,Soups,Water,Science,7,12,6,Internet Chat/Message,5,6,2,0,20,4,14,A lot,Fly,Happy
+2023,Female,17,Right,173,25,172,1,Car,5,0.515,42,Running/Jogging,Rap/Hip hop,August,Summer,No,No,Desserts,Water,Science,7,9,4,Text messaging,40,15,7,0,7,0,8,Some,Telepathy,Happy
+2023,Male,17,Right,181,27,180,1,Car,12,0.301,36,Baseball/Softball,Rap/Hip hop,October,Summer,No,No,Poultry,Soft drink (caffeinated),Physical education,6,10,3,Text messaging,90,20,10,15,5,10,25,Very little,Super strength,Rich
+2023,Female,17,Right,150,23,150,2,Car,30,0.35,40,Dancing,Rhythm and blues (R&B),September,Spring,Yes,No,Poultry,Tea,Music,6,8,4,Text messaging,13,5,15,3,20,4,0,A lot,Telepathy,Happy
+2023,Male,16,Right,178,31,170,1,Car,6,0.365,51,Hockey (Ice),Rap/Hip hop,April,Fall,Yes,No,Meat,Water,History,6,9,7,Social Media,20,5,1,10,3,50,20,A lot,Freeze time,Rich
+2023,Female,17,Right,160,27,153,1,Car,10,0.308,40,Dancing,Rhythm and blues (R&B),October,Fall,No,No,Seafood,Water,English,6,6,5,Text messaging,20,6,3,4,8,6,18,Very little,Invisibility,Rich
+2023,Male,16,Right,184,26,176,1,Bus,25,0.45,35,Athletics,Rap/Hip hop,February,Summer,Yes,No,Meat,Water,Physical education,7,9,4,Text messaging,200,10,2,5,6,5,20,Some,Super strength,Happy
+2023,Female,17,Right,157,25,164,1,Car,11,0.368,33,Other,Pop,August,Fall,No,No,Rice/Noodle dishes,Soft drink (caffeinated),English,6,8,3,In person,80,40,6,0,70,30,20,Some,Telepathy,Happy
+2023,Female,17,Right,170.2,25,171,1,Car,5,0.474,38,Other,Rhythm and blues (R&B),May,Fall,Yes,No,Rice/Noodle dishes,Water,Social studies,7,8,5,Text messaging,30,8,3,0,5,0,20,Some,Fly,Happy
+2023,Male,17,Right,163,22,165,2,Car,10,0.324,35,Other,Pop,July,Spring,No,No,Rice/Noodle dishes,Water,Mathematics and statistics,6,10,7,Social Media,60,10,14,10,14,0,28,A lot,Freeze time,Rich
+2023,Female,17,Both,165,26.5,171,1,Car,7,0.325,36,Other,Punk rock,March,Fall,Yes,No,Desserts,Soft drink (caffeinated),Music,8,10,5,In person,3,14,3,15,35,14,0,Very little,Invisibility,Happy
+2023,Male,17,Right,173,26,175,1,Car,6,0.368,36,Other,Rap/Hip hop,May,Winter,No,No,Breads/Sandwiches,Water,Music,7,9,4,Text messaging,42,3,25,10,50,2,16,A lot,Telepathy,Rich
+2023,Female,18,Left,157,24,157,1,Car,7,0.403,52,Running/Jogging,Pop,October,Fall,Yes,No,Fruit,Water,Science,7,8,3,Text messaging,20,1,3,1,20,7,10,A lot,Telepathy,Happy
+2023,Female,18,Right,170,25,173,3,Car,10,0.365,21,Tennis,Punk rock,April,Fall,No,Yes,Pizza/Pasta,Water,Mathematics and statistics,8,12,4,Text messaging,30,1,5,20,10,0,0,Some,Freeze time,Happy
