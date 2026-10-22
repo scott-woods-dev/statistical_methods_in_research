@@ -57,6 +57,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | continuous variable | A numerical variable that can take any value within a range, limited only by measurement precision (e.g., height, weight, time). |
 | control | The practice of holding outside variables constant in an experiment so they do not interfere with the results. |
 | control for | To mathematically hold a variable constant in a model so that the unique effect of another predictor can be isolated. |
+| control group | The group in an experiment that does not receive the treatment being tested, used as a baseline for comparison with the treatment group. |
 | Cook's Distance | A measure of how much a regression model changes when one data point is removed (also called Cook's D); values above 1.0 are generally treated as highly influential. |
 | correlation matrix | A table showing the correlation coefficient between every pair of variables in a set. |
 | covariate | A continuous background variable included in a model to adjust for its effect, such as a baseline score. |

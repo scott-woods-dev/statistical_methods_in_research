@@ -428,12 +428,19 @@ local function contains_link(inlines)
   return false
 end
 
-local function try_link(strong, glossary)
+local function try_link(strong, glossary, suffix)
   if contains_link(strong.content) then
     return nil
   end
 
-  local entry = glossary.lookup(pandoc.utils.stringify(strong))
+  local term_text = pandoc.utils.stringify(strong)
+  local entry = glossary.lookup(term_text)
+  if suffix and suffix ~= '' then
+    local combined = glossary.lookup(term_text .. ' ' .. suffix)
+    if combined then
+      entry = combined
+    end
+  end
   if not entry then
     return nil
   end
@@ -528,7 +535,7 @@ local function process_inlines(inlines, glossary)
         inline.content = process_inlines(inline.content, glossary)
         output:insert(inline)
       else
-        local linked = try_link(inline, glossary)
+        local linked = try_link(inline, glossary, following_word(inlines, index))
         if linked then
           if linked.t then
             output:insert(linked)
