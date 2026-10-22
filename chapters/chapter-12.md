@@ -205,7 +205,7 @@ As you go out and build your own time series plots and prediction models, keep t
 | $t-1$      | "t minus one"            | The time period immediately preceding the current observation. This is used to create a "lag" to measure autocorrelation (e.g., "last week"). |
 | $t+1$      | "t plus one"             | The time period immediately following the current observation (e.g., "next week" or a forecasted step). |
 
-## 12.6 Exercises
+## 12.8 Exercises
 
 ### Interpretation
 

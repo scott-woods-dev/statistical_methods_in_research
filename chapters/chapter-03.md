@@ -69,6 +69,9 @@ In the social sciences, the standard convention is to set $\alpha = .05$. This m
 
 Recall that we set up our competing hypotheses in such a way that rejecting the null hypothesis means the same thing as supporting the alternative hypothesis. In other words, if we reject the claim that the diet has no effect on depression (our null hypothesis), that is the same as supporting the claim that the diet has an effect on depression (our alternative hypothesis).
 
+
+Whenever we make a decision about the null hypothesis, we can be wrong in one of two ways. A **Type I error** is a false alarm (a false positive): we reject the null hypothesis when it is actually true. The significance level sets this risk: at $\alpha = .05$, we accept a 5% chance of a false alarm. A **Type II error** is a missed signal (a false negative): we fail to reject the null hypothesis when a real effect exists. Section 3.9 covers statistical power, which is the tool for keeping this error rare.
+
 ## 3.3 Foundations of the *t* - Test
 
 We understand that a p-value helps us weigh evidence. However, to calculate that p-value, we need a reliable mathematical tool. For comparing averages, our primary tool is the **t-test**.
@@ -511,7 +514,7 @@ Throughout this chapter, we have analyzed data that was already collected. But w
 
 ### The Concept of Statistical Power
 
-To understand power, we have to revisit the concept of decision-making errors from Section 3.2. Remember that a Type II error occurs when an intervention actually works in the real world, but your specific study fails to find enough mathematical evidence to prove it. In other words, you missed a true signal.
+To understand power, we have to revisit the Type II error. A Type II error occurs when an intervention actually works in the real world, but your specific study fails to find enough mathematical evidence to prove it. In other words, you missed a true signal.
 
 
 

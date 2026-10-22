@@ -56,7 +56,27 @@ The OkCupid researchers operated outside of strict data governance, and they com
 
 Before we can calculate a single mean or build a regression model, we must establish a strong foundation of governance and stewardship. In the academic and medical communities, the primary mechanism for enforcing this infrastructure is a specialized committee designed specifically to evaluate research risk and protect human subjects.   
 
+## 13.3 The Institutional Review Board
 
+In 2014, researchers published the results of a massive experiment conducted on nearly 700,000 Facebook users. Without asking for permission or informing anyone they were part of a study, the company intentionally manipulated users' news feeds. Some users were shown mostly positive posts, while others were flooded with negative and sad content. The goal was to see if emotions were contagious online. When the paper was published, the academic community and the public were horrified (Meyer, 2014). Because Facebook was operating as a private tech company rather than an academic institution, they had bypassed the strict ethical review processes that universities rely on to protect people.
+
+
+
+To prevent these kinds of ethical bypasses, universities, hospitals, and research institutions rely on an **Institutional Review Board** (IRB). An IRB is a formal, independent committee composed of scientists, non-scientists, and community members. Their primary job is to review, approve, and monitor research plans before a single piece of data is ever collected.   
+
+
+
+Many student researchers assume the IRB is simply a bureaucratic hurdle designed to slow down their timeline. In reality, the board acts as an ethical safety net. When you want to conduct research, you cannot just start handing out surveys. You must first submit a **protocol**, a comprehensive document detailing exactly what your research question is, who you will recruit, how you will secure their consent, and how you will protect their data. The board evaluates this protocol to ensure the potential benefits of the study justify the methods being used.   
+
+
+
+When an IRB evaluates a protocol, they are specifically looking at three major concepts:
+
+- **Human Subjects:** The IRB is only concerned with research involving **human subjects**. This means the researcher is either interacting directly with living individuals (like conducting an interview or a diet intervention) or analyzing identifiable private information (like looking at identifiable student academic records). If you are analyzing a public dataset where all identities have been stripped away, like the global economic data from Chapter 4, the IRB generally does not need to intervene.
+- **Minimal Risk:** The board's job is to protect participants from harm. The baseline they use is called **minimal risk**, which means the probability and magnitude of harm in the study are no greater than what a person would encounter in their normal, everyday life. An anonymous survey about favorite study habits is minimal risk. A study tracking illegal drug use or a clinical trial for depression medication exceeds minimal risk, requiring the IRB to demand much stricter safety and data stewardship protocols.
+- **Vulnerable Populations:** The foundation of ethical research is voluntary informed consent. However, some groups have a compromised ability to freely say "no." The IRB strictly protects **vulnerable populations**, which legally include children, prisoners, pregnant women, and individuals with cognitive impairments. In a college setting, even students can be considered vulnerable if they feel pressured to participate in a professor's study out of fear that refusing might impact their grades.
+
+A behind-the-curtain look at an IRB reveals that they are not looking to block research; they are looking to calibrate safety. If you submit a protocol for an anonymous, harmless survey, the IRB might quickly issue an "exempt determination," allowing you to proceed with your work right away. But if your research touches on sensitive topics or vulnerable people, the board will step in to help you redesign your study so that the humans behind the numbers are treated with the respect they deserve.
 
 ## 13.4 Data Security and Privacy
 

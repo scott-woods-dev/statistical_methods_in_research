@@ -223,28 +223,6 @@ However, chopping a highly precise number like age into broad, arbitrary categor
 >
 > So, what do researchers do when their data refuses to cooperate? Often, they reach for a tool you learned back in Chapter 4: **data transformation**. By applying a logarithmic transformation to the blood pressure variable, researchers can pull the right-skewed data closer to a normal bell curve. Once the transformed data passes the diagnostic checks, they can safely run the Two-Way ANOVA. For now, simply recognize that real-world data is messy, and checking your assumptions is what keeps your science honest.
 
-### 7.6 The ANCOVA: Introducing Continuous Covariates
-
-In the previous sections, we used a Two-Way ANOVA to control for age by chopping the maids into two distinct blocks: "Under 40" and "40+". While this helped us identify age as a significant source of noise, blocking has a major mathematical flaw.
-
-
-
-Imagine two maids in our "Under 40" block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are very different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a highly precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision. To solve this, statisticians use an **ANCOVA** (Analysis of Covariance).
-
-
-
-An ANCOVA is a hybrid tool. It mathematically blends the categorical group comparisons of an ANOVA with the continuous tracking power of multiple regression. Instead of forcing our nuisance variable into arbitrary blocks, an ANCOVA allows us to plug the exact, continuous numbers directly into the model. We call this continuous background variable a **covariate**.
-
-
-
-Let's look at our mindset intervention again. We want to know if the experimental condition (`Cond`) impacted the maids' post-intervention systolic blood pressure (`Syst2`). We know that a maid's blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.
-
-
-
-Instead of organizing the maids into "high baseline" and "low baseline" categories, an ANCOVA uses their exact baseline blood pressure (`Syst`) as a continuous covariate. The mathematics of the ANCOVA will use that baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the exact same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA gives us an incredibly clear look at the true effect of our psychological intervention.
-
-
-
 ## 7.6 The ANCOVA: Introducing Continuous Covariates
 
 Let's take a step back and look at what the researchers are actually trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people—that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
