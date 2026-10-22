@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+filters:
+  - filters/glossary.lua
+
 book:
   title: "Statistical Methods in Research"
   subtitle: "A Conceptual Approach"
@@ -44,6 +47,8 @@ format:
     toc-location: left
     number-sections: true
     df-print: paged
+    include-after-body:
+      - includes/glossary.html
   pdf:
     documentclass: book
     mainfont: Times New Roman

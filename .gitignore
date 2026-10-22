@@ -19,3 +19,6 @@ Rplots.pdf
 
 # Dropbox sync state
 .stfolder/
+
+/.quarto/
+**/*.quarto_ipynb
