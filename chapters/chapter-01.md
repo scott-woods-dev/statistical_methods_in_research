@@ -626,7 +626,7 @@ Notice two crucial things about this conclusion. First, it uses the data to tell
 
 ## 1.17 Exercises
 
-### Part 1: Interpretation
+### Interpretation
 
 **1.** A university health center publishes a report stating that the mean number of alcoholic drinks consumed per week by undergraduate students is 4.2, with a median of 1.0. What does the large difference between the mean and the median tell you about the shape of this data? Why is the median so much lower?
 
@@ -636,7 +636,7 @@ Notice two crucial things about this conclusion. First, it uses the data to tell
 
 **4.** A researcher wants to know the average student loan debt for all seniors graduating from public universities in the United States. They survey 500 graduating seniors from a local state college and find an average debt of $28,500. Identify the population, the sample, the parameter, and the statistic in this scenario. 
 
-### Part 2: Choosing a Method
+### Choosing a Method
 
 **5.** A sociologist is studying the starting salaries of recent graduates. They know that while most graduates start around $45,000, a few land highly lucrative tech jobs paying over $150,000. Which measure of center (mean or median) and which measure of spread (standard deviation or IQR) should they report to accurately describe the typical graduate's experience?
 
@@ -646,7 +646,7 @@ Notice two crucial things about this conclusion. First, it uses the data to tell
 
 **8.** You are working with a dataset of hospital patients and want to show the breakdown of their primary insurance types (Medicare, Medicaid, Private, Uninsured). The hospital administrator wants to quickly see which insurance type is the most and least common. Should you use a histogram, a scatterplot, or a Pareto chart?
 
-### Part 3: Communicating Results
+### Communicating Results
 
 **9.** You are writing a summary report for the dean of students regarding a recent campus survey on "Number of times utilizing the campus food pantry this semester." The data has a massive floor effect. In plain English, explain to the dean what a floor effect means in this specific context and why it happened. 
 
@@ -654,7 +654,7 @@ Notice two crucial things about this conclusion. First, it uses the data to tell
 
 **11.** You are designing a survey to measure how much time students spend watching streaming services. If you ask students to select a box ("0-2 hours," "3-5 hours," "6-8 hours," "9+ hours"), you will create censored data. Explain the drawback of censored data to your research team and propose a better way to ask the question.
 
-### Part 4: Software Application
+### Software Application
 
 *For the following exercises, load the `student_lifestyle_sleep.csv` dataset into your statistical software.*
 

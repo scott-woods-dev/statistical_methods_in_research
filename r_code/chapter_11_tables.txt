@@ -1,0 +1,139 @@
+=== 1. CORRELATION MATRICES ===
+
+--- Female Ratings Correlation Matrix ---
+
+                 AttractiveF SincereF IntelligentF  FunF AmbitiousF
+AttractiveF            1.000    0.246        0.226 0.543      0.209
+SincereF               0.246    1.000        0.563 0.387      0.393
+IntelligentF           0.226    0.563        1.000 0.368      0.541
+FunF                   0.543    0.387        0.368 1.000      0.391
+AmbitiousF             0.209    0.393        0.541 0.391      1.000
+SharedInterestsF       0.467    0.222        0.236 0.556      0.187
+                 SharedInterestsF
+AttractiveF                 0.467
+SincereF                    0.222
+IntelligentF                0.236
+FunF                        0.556
+AmbitiousF                  0.187
+SharedInterestsF            1.000
+
+--- Male Ratings Correlation Matrix ---
+
+                 AttractiveM SincereM IntelligentM  FunM AmbitiousM
+AttractiveM            1.000    0.383        0.522 0.591      0.540
+SincereM               0.383    1.000        0.578 0.493      0.313
+IntelligentM           0.522    0.578        1.000 0.580      0.595
+FunM                   0.591    0.493        0.580 1.000      0.513
+AmbitiousM             0.540    0.313        0.595 0.513      1.000
+SharedInterestsM       0.457    0.346        0.377 0.474      0.388
+                 SharedInterestsM
+AttractiveM                 0.457
+SincereM                    0.346
+IntelligentM                0.377
+FunM                        0.474
+AmbitiousM                  0.388
+SharedInterestsM            1.000
+
+=== 2. FEMALE RATINGS: PAF WITH VARIMAX (SPSS Classic Emulation) ===
+
+Loadings:
+                 PA1   PA2  
+AttractiveF      0.151 0.655
+SincereF         0.611 0.225
+IntelligentF     0.853 0.141
+FunF             0.341 0.760
+AmbitiousF       0.598 0.197
+SharedInterestsF 0.135 0.672
+
+                 PA1   PA2
+SS loadings    1.617 1.568
+Proportion Var 0.270 0.261
+Cumulative Var 0.270 0.531
+
+
+Commonalities (h2):
+
+     AttractiveF         SincereF     IntelligentF             FunF 
+           0.452            0.425            0.748            0.694 
+      AmbitiousF SharedInterestsF 
+           0.396            0.469 
+
+Uniquenesses (u2):
+
+     AttractiveF         SincereF     IntelligentF             FunF 
+           0.548            0.575            0.252            0.306 
+      AmbitiousF SharedInterestsF 
+           0.604            0.531 
+
+
+=== 3. FEMALE RATINGS: ML WITH VARIMAX ===
+
+Loadings:
+                 ML1   ML2  
+AttractiveF      0.150 0.649
+SincereF         0.614 0.233
+IntelligentF     0.857 0.140
+FunF             0.318 0.774
+AmbitiousF       0.594 0.217
+SharedInterestsF 0.146 0.661
+
+                 ML1   ML2
+SS loadings    1.609 1.578
+Proportion Var 0.268 0.263
+Cumulative Var 0.268 0.531
+
+Commonalities (h2):
+
+     AttractiveF         SincereF     IntelligentF             FunF 
+           0.444            0.431            0.753            0.700 
+      AmbitiousF SharedInterestsF 
+           0.400            0.459 
+
+
+=== 4. MALE RATINGS: PAF WITH VARIMAX ===
+
+<Note to the AI reading this: R reported "maximum iteration exceeded" here>
+
+Loadings:
+                 PA1   PA2  
+AttractiveM      0.728 0.205
+SincereM         0.265 0.907
+IntelligentM     0.633 0.441
+FunM             0.692 0.344
+AmbitiousM       0.715 0.153
+SharedInterestsM 0.526 0.218
+
+                 PA1   PA2
+SS loadings    2.267 1.249
+Proportion Var 0.378 0.208
+Cumulative Var 0.378 0.586
+
+Commonalities (h2):
+
+     AttractiveM         SincereM     IntelligentM             FunM 
+           0.573            0.893            0.595            0.597 
+      AmbitiousM SharedInterestsM 
+           0.534            0.324 
+
+=== 5. PCA COMPARISON (For Section 11.3) ===
+
+Loadings:
+                 RC1   RC2  
+AttractiveF      0.108 0.812
+SincereF         0.765 0.190
+IntelligentF     0.853 0.145
+FunF             0.363 0.773
+AmbitiousF       0.776 0.142
+SharedInterestsF 0.085 0.827
+
+                 RC1   RC2
+SS loadings    2.066 2.018
+Proportion Var 0.344 0.336
+Cumulative Var 0.344 0.681
+
+PCA Communalities (h2):
+
+     AttractiveF         SincereF     IntelligentF             FunF 
+           0.672            0.621            0.749            0.729 
+      AmbitiousF SharedInterestsF 
+           0.622            0.691 

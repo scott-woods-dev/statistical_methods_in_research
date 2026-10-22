@@ -578,8 +578,6 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 
 
 
-Here are the drafts for the Key Concepts and New Notation sections. They summarize the core ideas of the chapter while stripping away the specific diet intervention context to leave students with universal rules.
-
 ## 3.10 Key Concepts
 
 1. **Hypothesis testing separates signal from noise.** It is a formal procedure used to determine if an observed effect in your sample is real (the signal) or just random natural variation (the noise).

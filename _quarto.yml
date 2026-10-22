@@ -9,7 +9,6 @@ book:
   date: today
   chapters:
     - index.md
-    - toc.md
     - part: "Unit I: Foundations of Data Analysis"
       chapters:
         - chapters/chapter-01.md
@@ -35,8 +34,6 @@ book:
         - chapters/chapter-13.md
   appendices:
     - chapters/appendix-glossary.md
-
-bibliography: references.bib
 
 format:
   html:

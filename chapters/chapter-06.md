@@ -687,15 +687,15 @@ When the difference in spread is your actual research interest, you can use a to
 
 ## 6.11 Key Concepts
 
-- **Vocabulary of Experimental Design:** When comparing groups, the numerical outcome you measure is the **response variable**, and the categorical grouping mechanism is the **factor** (or treatment variable). The specific categories are the **factor levels**, and the actual participants in those categories make up the **treatment groups**.
-- **The Purpose of ANOVA:** An Analysis of Variance (ANOVA) is used to compare the means of a numerical variable across three or more categorical groups. We use a single overarching ANOVA rather than multiple independent $t$-tests to prevent inflating our risk of a Type I error (a false positive).
-- **Partitioning Variation:** An ANOVA works by splitting the total spread of the data into two pieces. It compares the **Between-Groups variation** (the "signal" caused by the treatment) to the **Within-Groups variation** (the natural "noise" of individual differences). If the signal is significantly louder than the noise, the test produces a small $p$-value.
-- **The Hypotheses:** The null hypothesis ($H_0$) assumes all group means are exactly equal. The alternative hypothesis ($H_1$) claims that at least *one pair* of groups has a significant difference. It does not require every group to be different from all the others.
-- **Structural Assumptions:** A standard One-Way ANOVA requires independent samples, mutually exclusive factor levels, normally distributed residuals, and equal variances across the treatment groups.
-- **Diagnostics over Perfection:** When checking assumptions, we look for plausibility rather than perfect mathematical proof. We assume residuals are normal unless a Q-Q plot or histogram convinces us otherwise. We assume equal variances if our jitter plot looks relatively even and our largest standard deviation is no more than double our smallest.
-- **The Global ANOVA is Blind:** A significant $F$-statistic and $p$-value from an ANOVA only tell you that a difference exists somewhere in the data. It cannot tell you which specific groups are different, nor can it tell you the size of the effect.
-- **Post Hoc Analysis:** To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. **Tukey's HSD** is the standard for comparing every group to every other group. **Dunnett's test** is used when comparing multiple groups against a single control baseline.
-- **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference actually matters in the real world.
+1. **Vocabulary of Experimental Design:** When comparing groups, the numerical outcome you measure is the **response variable**, and the categorical grouping mechanism is the **factor** (or treatment variable). The specific categories are the **factor levels**, and the actual participants in those categories make up the **treatment groups**.
+2. **The Purpose of ANOVA:** An Analysis of Variance (ANOVA) is used to compare the means of a numerical variable across three or more categorical groups. We use a single overarching ANOVA rather than multiple independent $t$-tests to prevent inflating our risk of a Type I error (a false positive).
+3. **Partitioning Variation:** An ANOVA works by splitting the total spread of the data into two pieces. It compares the **Between-Groups variation** (the "signal" caused by the treatment) to the **Within-Groups variation** (the natural "noise" of individual differences). If the signal is significantly louder than the noise, the test produces a small $p$-value.
+4. **The Hypotheses:** The null hypothesis ($H_0$) assumes all group means are exactly equal. The alternative hypothesis ($H_1$) claims that at least *one pair* of groups has a significant difference. It does not require every group to be different from all the others.
+5. **Structural Assumptions:** A standard One-Way ANOVA requires independent samples, mutually exclusive factor levels, normally distributed residuals, and equal variances across the treatment groups.
+6. **Diagnostics over Perfection:** When checking assumptions, we look for plausibility rather than perfect mathematical proof. We assume residuals are normal unless a Q-Q plot or histogram convinces us otherwise. We assume equal variances if our jitter plot looks relatively even and our largest standard deviation is no more than double our smallest.
+7. **The Global ANOVA is Blind:** A significant $F$-statistic and $p$-value from an ANOVA only tell you that a difference exists somewhere in the data. It cannot tell you which specific groups are different, nor can it tell you the size of the effect.
+8. **Post Hoc Analysis:** To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. **Tukey's HSD** is the standard for comparing every group to every other group. **Dunnett's test** is used when comparing multiple groups against a single control baseline.
+9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference actually matters in the real world.
 
 ## 6.12 New Notation
 
@@ -704,8 +704,6 @@ When the difference in spread is your actual research interest, you can use a to
 | ANOVA       | "A-no-va" or "Analysis of Variance"                          | The overarching statistical framework used to compare the means of a numerical response variable across three or more categorical treatment groups. |
 | $F$         | "F-statistic" or just "F"                                    | The mathematical ratio of the between-groups variation (the signal) to the within-groups variation (the noise). |
 | Tukey's HSD | "Tukey's H-S-D" or "Tukey's Honestly Significant Difference" | The standard post hoc test used to safely determine which specific pairs of groups differ after a significant global ANOVA, without inflating the overall risk of a Type I error. |
-
-Here are the exercises for Chapter 6, formatted to match the style and structure of your previous chapters.
 
 ---
 

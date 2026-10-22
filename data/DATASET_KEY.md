@@ -372,7 +372,7 @@ The Washington Post. (2024). *Fatal Force: National archive of police-involved s
 
 ## Description
 
-This dataset contains weekly Google search popularity data for the term "gym membership" in the United States over a five-year period, capturing real-world consumer behavior, cyclical interest, and health-related seasonality.
+This dataset contains weekly Google search popularity data for the terms "gym membership" and "sunscreen" in the United States over a five-year period, capturing real-world consumer behavior, cyclical interest, and health-related seasonality.
 
 ## Format
 
@@ -382,18 +382,24 @@ A comma-separated values (`.csv`) file containing **262 observations** (rows) an
 
 | **Variable Name** | **Data Type** | **Description and Coding Keys**                              |
 | ----------------- | ------------- | ------------------------------------------------------------ |
-| `Week`            | Categorical   | The starting date for the week of data collection, recorded in MM/DD/YYYY format (ranging from 05/16/2021 to 05/17/2026). |
+| `Week`            | Categorical   | The starting date for the week of data collection, recorded in MM/DD/YYYY format (ranging from 10/01/2021 to 10/01/2026). |
 | `gym membership`  | Numerical     | The normalized search interest index for the phrase "gym membership." Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak. |
+| `sunscreen`       | Numerical     | The normalized search interest index for the phrase "sunscreen." Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak. |
 
 ## Details
 
 Google Trends isolates a random sample of search traffic to calculate how frequently a specific term is searched relative to the total number of searches conducted during that exact time window. This relative frequency approach prevents raw population growth or shifting internet access rates from artificially inflating the data over time.
 
-Spanning from mid-May 2021 to mid-May 2026, this dataset provides an excellent foundation for introductory statistics students to transition from traditional histograms to basic time-series analysis using line graphs. The data displays highly predictable, recurring seasonal trends.
+
+
+Spanning from October 2021 to October 2026, this dataset provides an excellent foundation to transition from traditional histograms to basic time-series analysis using line graphs. The data displays highly predictable, recurring seasonal trends.
 
 ## Source
 
-Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved May 19, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+Google LLC. (2026). *Google Trends Search Interest for "sunscreen"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+
+
 
 # Dataset: `happy_planet_index_2024.csv`
 
@@ -731,6 +737,33 @@ Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). Class st
 
 
 
+# Dataset: `textbook_prices.csv`
+
+## Description
+
+This dataset contains price comparisons for a random sample of required course textbooks, evaluating the cost difference between an online retailer (Amazon) and a local campus bookstore.
+
+## Format
+
+A comma-separated values (`.csv`) file containing **16 observations** (rows) and **4 variables** (columns).
+
+### Variable Dictionary
+
+| **Variable Name**   | **Data Type** | **Description and Coding Keys**                              |
+| ------------------- | ------------- | ------------------------------------------------------------ |
+| `Amazon`            | Numerical     | The retail price of the textbook on Amazon (in U.S. dollars). |
+| `College Bookstore` | Numerical     | The retail price of the textbook at the campus bookstore (in U.S. dollars). |
+| `Department`        | Categorical   | The specific academic department requiring the textbook (e.g., MATH, PHIL, RUSS). |
+| `School`            | Categorical   | The broader academic division housing the department (**Business**, **Liberal Arts**, **Natural Science**, or **Social Science**). |
+
+## Details
+
+To evaluate whether the campus bookstore charges significantly more than online retailers, a random sample of 16 required course textbooks was collected across four major academic divisions. Because each specific textbook's price is recorded at both Amazon and the campus bookstore, this creates naturally paired, within-subject data.
+
+## Source
+
+Woods, S. (2026). *Textbook price comparison across academic departments* [Dataset]. Prepared for *Statistical Methods in Research*.
+
 # Dataset: `weight_loss_incentive.csv`
 
 ## Description
@@ -788,6 +821,8 @@ A comma-separated values (`.csv`) file containing **13,388 observations** (rows)
 ## Details
 
 Public safety campaigns frequently focus on the catastrophic dangers of driving under the influence. However, an equally devastating and overlooked vector for youth traffic fatalities is Riding with a Drunk Driver (RDD). To design effective public health interventions and target safety messaging, researchers must identify which adolescent subgroups are most vulnerable to accepting these rides and explore underlying behavioral correlations.
+
+
 
 The data in this file is a streamlined subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States. 
 

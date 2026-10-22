@@ -31,8 +31,6 @@ By the end of this chapter, you will learn how to measure the exact strength of 
 
 
 
-Here is the revised draft for section 4.2. It incorporates the warnings about linear assumptions, introduces the formal hypothesis test for correlation, and removes the directional "predictor/response" language so we can properly introduce those concepts when we actually build the regression model in 4.3.
-
 ## 4.2 First Things First: Linear Correlation and the Coefficient of Determination
 
 In our initial explorations of data, we learned that scatterplots are the perfect visual tool for exploring the relationship between two numerical variables. For our current analysis, we want to map the raw connection between a country's economic baseline and its physical strain on the environment. To do this, we will look at `GDPperCapita` alongside `Footprint`.
@@ -454,8 +452,6 @@ These scenarios elegantly capture the law of diminishing returns: In Scenario A,
 By applying a log transformation to linearize the data, you allow your mathematical tools to understand that wealth operates on a sliding scale of impact. This is one of the most powerful and frequently used techniques in a researcher's toolkit for handling the natural, curved realities of human societies.
 
 
-
-Here is the draft for the new Section 4.8, which tackles the final step of the modeling process. (The "Limits of Our Line" section we drafted earlier would cleanly shift to become Section 4.9).
 
 ## 4.8 Inference and Predictions
 

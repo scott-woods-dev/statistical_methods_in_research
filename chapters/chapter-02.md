@@ -237,8 +237,6 @@ By forcing yourself to identify the specific measure (like a mean, median, or pr
 
 
 
-Here is the fully revised Section 2.7. I have incorporated the $H_1$ notation, the strict equality/inequality rules, the conceptual discussion on the burden of proof (including the medical placebo example), and a summary table to crystallize the universals for your students.
-
 ## 2.8 Formalizing Hypotheses
 
 We have successfully translated our broad research interest into a specific statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?* The final step before we can analyze any data is to set up a formal framework for testing this question. In statistics, we do this by establishing two competing claims about the real world. We call these claims hypotheses.
@@ -372,8 +370,6 @@ Unless you personally controlled the environment and randomly assigned treatment
 **A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build highly convincing arguments for cause and effect, even without a single, perfectly controlled master experiment.
 
 
-
-Here are the drafts for the Key Concepts and New Notation sections. I have kept the takeaways concise and focused entirely on the conceptual milestones we built throughout the chapter.
 
 ## 2.10 Key Concepts
 

@@ -16,8 +16,8 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render book
-        run: quarto render
+      - name: Render book (HTML only; PDF built locally until beta)
+        run: quarto render --to html
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

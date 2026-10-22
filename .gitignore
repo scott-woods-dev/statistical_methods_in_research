@@ -15,3 +15,7 @@ Thumbs.db
 .Rproj.user
 .Rhistory
 .RData
+Rplots.pdf
+
+# Dropbox sync state
+.stfolder/

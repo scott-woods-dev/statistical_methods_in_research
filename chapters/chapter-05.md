@@ -250,10 +250,6 @@ By using indicator variables, you can incorporate complex survey responses into 
 
 
 
-You are absolutely right. That principle is so fundamental to model building that it deserves to be highlighted as a strict rule, rather than just a passing comment. It gives students a clear, procedural anchor.
-
-Here is the fully revised Section 5.8. I have restructured it with clear subheadings to make both the hierarchy principle (main effects) and the p-value rule stand out prominently.
-
 ## 5.8 Interactions
 
 So far, we have assumed that our predictors act independently. We assumed that the penalty for smoking is exactly the same for every mother, regardless of her age. However, social and biological factors often intertwine.
