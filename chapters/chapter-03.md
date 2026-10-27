@@ -39,7 +39,7 @@ To figure out if we have a real signal, statistical tests use a bit of a logical
 
 
 
-Next, we look at the actual data we collected from our 75 students. We ask a crucial question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we actually observed?*
+Next, we look at the actual data we collected from our 75 students. We ask a central question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we actually observed?*
 
 
 
@@ -522,7 +522,7 @@ To understand power, we have to revisit the Type II error. A Type II error occur
 
 ### The Balancing Act
 
-Power is not an isolated number. It is part of a delicate balancing act involving three other vital pieces of your study:
+Power is not an isolated number. It is part of a delicate balancing act involving three other elements of your study:
 
 1. **Significance Level ($\alpha$):** The threshold of evidence you require (almost always fixed at .05).
 2. **Sample Size ($n$):** The number of participants in your study.
@@ -709,7 +709,7 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 
 **b)** Look at the sample means for both groups. In real-world terms, how much of a difference did the 21-day diet actually make on the students' BMI?
 
-**c)** Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is crucial for preventing researchers from making exaggerated claims about their studies.
+**c)** Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is essential for preventing researchers from making exaggerated claims about their studies.
 
 
 

@@ -2,11 +2,11 @@
 
 ## 2.1 Introduction
 
-Suppose you want to investigate whether systemic racial discrimination exists within corporate hiring. This is a vital social question, but how do you reliably measure bias? You cannot simply ask employers if their hiring practices are discriminatory. Instead, you need a measurable, objective signal of their behavior.
+Suppose you want to investigate whether systemic racial discrimination exists within corporate hiring. This is a serious social question, but how do you reliably measure bias? You cannot simply ask employers if their hiring practices are discriminatory. Instead, you need a measurable, objective signal of their behavior.
 
 
 
-In a landmark field experiment, researchers tackled this exact problem to rigorously study labor market dynamics (Bertrand & Mullainathan, 2004). They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting approximately 4,800 fictitious resumes. While the professional qualifications on the resumes were identical, the researchers randomly assigned different first names to manipulate the perceived race of the applicant. Names like "Emily" and "Greg" were used to signify White applicants, while names like "Lakisha" and "Jamal" signified African-American applicants. The researchers then tracked a single, crucial outcome: did the applicant receive a callback for an interview?
+In a landmark field experiment, researchers tackled this exact problem to rigorously study labor market dynamics (Bertrand & Mullainathan, 2004). They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting approximately 4,800 fictitious resumes. While the professional qualifications on the resumes were identical, the researchers randomly assigned different first names to manipulate the perceived race of the applicant. Names like "Emily" and "Greg" were used to signify White applicants, while names like "Lakisha" and "Jamal" signified African-American applicants. The researchers then tracked a single outcome: did the applicant receive a callback for an interview?
 
 
 
@@ -86,7 +86,7 @@ Let us look at the outcome variable in our resume dataset, `call`. The researche
 
 
 
-However, it is vital to recognize the limits of validity. Is the `call` variable a valid measure of *ultimate hiring rates* or *starting salary*? No. An employer might call a candidate for an interview but harbor hidden biases that prevent them from ultimately offering the job. A measure is only valid for the specific, narrow phenomenon it captures. This is why you must always align your final research conclusions strictly with the variables you actually measured.
+However, you must recognize the limits of validity. Is the `call` variable a valid measure of *ultimate hiring rates* or *starting salary*? No. An employer might call a candidate for an interview but harbor hidden biases that prevent them from ultimately offering the job. A measure is only valid for the specific, narrow phenomenon it captures. This is why you must always align your final research conclusions strictly with the variables you actually measured.
 
 ## 2.5 Internal Consistency and Cronbach's Alpha
 
@@ -96,7 +96,7 @@ In the previous section, we used the example of a bathroom scale to understand r
 
 A researcher could just ask a single question: *"On a scale of 1 to 10, how anxious does math make you?"* However, human emotions are complicated. A student might not feel anxious about listening to a math lecture, but they might feel terrified about taking a math test. A single question rarely captures the entire picture, making it an unreliable tool on its own.
 
-To solve this, researchers use a **summated scale**—a measurement tool that asks several different, targeted questions about the same overarching concept, and then combines the responses into a single overall score.
+To solve this, researchers use a **summated scale** (a measurement tool that asks several different, targeted questions about the same overarching concept, and then combines the responses into a single overall score).
 
 
 

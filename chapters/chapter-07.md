@@ -33,7 +33,7 @@ Before we introduce our new methods, let's take a moment to look at the big pict
 
 
 
-The signal is the **between-groups variation**. This represents the differences in the response variable that are directly caused by your experimental treatment—like the shift in blood pressure caused by our mindset intervention. The noise is the **within-groups variation**. This is a catch-all bucket that holds every single difference your model cannot explain. It includes the natural, pre-existing differences among individuals inside the exact same treatment group, such as their age, baseline fitness, genetics, and daily stress levels.
+The signal is the **between-groups variation**. This represents the differences in the response variable that are directly caused by your experimental treatment, like the shift in blood pressure caused by our mindset intervention. The noise is the **within-groups variation**. This is a catch-all bucket that holds every single difference your model cannot explain. It includes the natural, pre-existing differences among individuals inside the exact same treatment group, such as their age, baseline fitness, genetics, and daily stress levels.
 
 
 
@@ -43,7 +43,7 @@ When human bodies are involved, that noise bucket fills up incredibly fast. If t
 
 **The Two-Way ANOVA**
 
-What if we know that a categorical variable, like age brackets, is causing a massive amount of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks—such as comparing only the under-40 maids to other under-40 maids—we ensure we are comparing apples to apples. This not only shrinks the unexplained noise but also allows us to see if our intervention works differently for different types of people.
+What if we know that a categorical variable, like age brackets, is causing a massive amount of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This not only shrinks the unexplained noise but also allows us to see if our intervention works differently for different types of people.
 
 
 
@@ -55,7 +55,7 @@ But what if our nuisance variable isn't a category, but a highly precise continu
 
 **Repeated Measures ANOVA**
 
-Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the exact same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers massive statistical power to detect true changes, even with small sample sizes—a vital ethical advantage when asking human subjects to participate in a study.
+Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the exact same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers massive statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
 
 
 
@@ -69,7 +69,7 @@ Let's think about the design of our hotel maid study. We want to know if the min
 
 
 
-To fix this, researchers use a technique called **blocking**. Blocking takes a known background issue—often called a nuisance variable—and converts it into specific categorical groups. For example, we can split our maids into two distinct age blocks: those under 40, and those 40 and older. We will call this new variable `Age_Group`.
+To fix this, researchers use a technique called **blocking**. Blocking takes a known background issue (often called a nuisance variable) and converts it into specific categorical groups. For example, we can split our maids into two distinct age blocks: those under 40, and those 40 and older. We will call this new variable `Age_Group`.
 
 
 
@@ -88,7 +88,7 @@ Because we now have two factors interacting in our model, a Two-Way ANOVA gives 
 
 
 
-Here is a crucial warning for factorial designs: if an interaction effect exists, it completely changes how you interpret your main effects. In fact, a strong interaction can make a main effect entirely misleading.
+Here is the main warning for factorial designs: if an interaction effect exists, it completely changes how you interpret your main effects. In fact, a strong interaction can make a main effect entirely misleading.
 
 
 
@@ -96,7 +96,7 @@ Imagine if our mindset intervention was wildly successful for the younger maids,
 
 
 
-If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot—it just acted completely differently depending on the participant's age. Because of this, researchers follow a strict golden rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
+If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted completely differently depending on the participant's age. Because of this, researchers follow a strict golden rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
 
 
 
@@ -122,7 +122,7 @@ An interaction plot maps out the averages for every possible combination of our 
 
 
 
-Here is the golden rule for reading an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel—if they converge, diverge, or cross—an interaction is happening.
+Here is the golden rule for reading an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
 
 ```
 [Insert Figure 7.1: Interaction plot showing post-intervention systolic blood pressure by condition, with separate lines for the Under 40, 40+, and NA age groups]
@@ -148,7 +148,7 @@ When researchers see an "NA" disrupting their clean age categories, the immediat
 
 
 
-Real-world data is messy. People skip survey questions, leave fields blank, and forget to write things down. Learning to leave missing data intact instead of hiding it to make a chart look prettier is a crucial part of ethical research.
+Real-world data is messy. People skip survey questions, leave fields blank, and forget to write things down. Learning to leave missing data intact instead of hiding it to make a chart look prettier is a core part of ethical research.
 
 
 
@@ -158,7 +158,7 @@ Before we can trust the results of a Two-Way ANOVA, we must ensure our data fits
 
 
 
-However, there is one crucial structural difference. In a Two-Way ANOVA, we check these assumptions at the **cell** level. A cell is a specific, unique subgroup created by crossing your two factors. In our `maid_mindset.csv` dataset, we have four cells:
+However, there is one structural difference that matters here. In a Two-Way ANOVA, we check these assumptions at the **cell** level. A cell is a specific, unique subgroup created by crossing your two factors. In our `maid_mindset.csv` dataset, we have four cells:
 
 1. Under 40 / Control
 2. Under 40 / Informed
@@ -225,7 +225,7 @@ However, chopping a highly precise number like age into broad, arbitrary categor
 
 ## 7.6 The ANCOVA: Introducing Continuous Covariates
 
-Let's take a step back and look at what the researchers are actually trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people—that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
+Let's take a step back and look at what the researchers are actually trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
 
 
 
@@ -409,7 +409,7 @@ However, think back to the core assumptions of a standard ANOVA from Chapter 6. 
 
 
 
-If we measure the exact same hotel maid twice—once at baseline and once four weeks later—those two data points are intrinsically linked. They share the same genetics, the same resting metabolic rate, and the same lifestyle habits. If we put both of her scores into a standard ANOVA, we violently break the independence assumption.
+If we measure the exact same hotel maid twice (once at baseline and once four weeks later), those two data points are intrinsically linked. They share the same genetics, the same resting metabolic rate, and the same lifestyle habits. If we put both of her scores into a standard ANOVA, we violently break the independence assumption.
 
 ### The Fix: The Within-Subjects Design
 
@@ -427,7 +427,7 @@ Think about why this is so powerful. When we compare different people, we have t
 
 
 
-Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve massive statistical power with much smaller sample sizes. This is a vital ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can definitively prove their psychological intervention works using 75 people measured twice, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
+Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve massive statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can definitively prove their psychological intervention works using 75 people measured twice, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
 
 ### A Note on Longitudinal Studies
 
@@ -492,7 +492,7 @@ We can formally conclude that simply informing hotel maids that their daily labo
 
 ## 7.11 Putting It All Together: Summary and APA Reporting
 
-We just took a deep dive into the hotel maid study using three completely different advanced statistical designs. Before we wrap up the chapter, let's zoom out and summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.
+We just worked through the hotel maid study using three completely different advanced statistical designs. Before we wrap up the chapter, let's summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.
 
 ### The Story of the Data
 
@@ -520,7 +520,7 @@ When you read or write academic journal articles, you will rarely see raw softwa
 
 
 
-Notice how these write-ups always start with a plain-English translation of the finding, followed by the exact statistics—including the *F*-statistic, its pair of Degrees of Freedom, and the exact $p$-value.
+Notice how these write-ups always start with a plain-English translation of the finding, followed by the exact statistics (including the *F*-statistic, its pair of Degrees of Freedom, and the exact $p$-value).
 
 
 
@@ -581,7 +581,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 5. **Blocking:** The practice of taking a known background nuisance variable and converting it into categorical groups (blocks) to reduce unexplained statistical noise.
 6. **ANCOVA (Analysis of Covariance):** A hybrid statistical tool that blends an ANOVA with multiple regression. It allows researchers to control for a continuous nuisance variable (a **covariate**) without destroying its precision by chopping it into blocks.
 7. **Adjusted Means:** Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the exact same baseline covariate score.
-8. **Homogeneity of Regression Slopes:** A crucial assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the exact same way (has parallel slopes) across all of your different experimental groups.
+8. **Homogeneity of Regression Slopes:** A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the exact same way (has parallel slopes) across all of your different experimental groups.
 9. **Between-Subjects Design:** An experimental setup where completely different groups of people are compared against one another (e.g., an informed group versus a control group).
 10. **Within-Subjects Design:** An experimental setup where the exact same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out massive amounts of biological and genetic noise.
 11. **Repeated Measures ANOVA:** The statistical test used to analyze a within-subjects design.

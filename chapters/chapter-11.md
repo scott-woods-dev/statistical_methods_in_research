@@ -115,7 +115,7 @@ If you want to hear the pure voices of the two singers, you do not want to simpl
 
 
 
-Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (commonality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared commonality so you can see the hidden constructs clearly. As you will see in Section 11.3, this crucial step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
+Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (commonality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared commonality so you can see the hidden constructs clearly. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
 
 ## 11.3 Reading Factor Analysis Tables
 
@@ -232,7 +232,7 @@ A true factor analysis believes that hidden psychological constructs cause the s
 
 
 
-PCA makes no such assumptions. PCA is strictly a **data reduction** technique. It does not believe in hidden psychological constructs, and it does not try to separate commonality from unique variance. Instead, PCA takes $100\%$ of the variance in your dataset—including all the random measurement error and specific noise—and forcefully compresses it into a smaller number of summary variables called **components**.   
+PCA makes no such assumptions. PCA is strictly a **data reduction** technique. It does not believe in hidden psychological constructs, and it does not try to separate commonality from unique variance. Instead, PCA takes $100\%$ of the variance in your dataset, including all the random measurement error and specific noise, and forcefully compresses it into a smaller number of summary variables called **components**.   
 
 
 
@@ -269,17 +269,17 @@ Where did this extra "shared" variance come from? It is an illusion. Because PCA
 
 
 
-If your only goal is to shrink a massive database of 1,000 variables down to 50 variables so your computer can process it faster, PCA is a fantastic data reduction tool. However, if your goal is to uncover hidden psychological concepts—like "Social Appeal" or "Socioeconomic Status"—PCA will mislead you by mixing random noise into your latent constructs. When conducting social science research, you should always click into your software's options menu and change the extraction method from PCA to a true factor analysis method.   
+If your only goal is to shrink a massive database of 1,000 variables down to 50 variables so your computer can process it faster, PCA is a fantastic data reduction tool. However, if your goal is to uncover hidden psychological concepts (like "Social Appeal" or "Socioeconomic Status"), PCA will mislead you by mixing random noise into your latent constructs. When conducting social science research, you should always click into your software's options menu and change the extraction method from PCA to a true factor analysis method.   
 
 
 
 ## 11.5 Choosing Your Tools: Extraction Methods and Analysis Approaches
 
-Once you navigate past the Principal Components Analysis software trap, your statistical software will present you with a list of true factor analysis methods. The two most common choices in the social sciences are Principal Axis Factoring and Maximum Likelihood.   
+Once you move past the Principal Components Analysis software trap, your statistical software will present you with a list of true factor analysis methods. The two most common choices in the social sciences are Principal Axis Factoring and Maximum Likelihood.   
 
 
 
-**Principal Axis Factoring (PAF)** is a highly robust extraction method that makes very few assumptions about the shape of your data. This makes it the gold standard for analyzing ordinal, Likert-style survey responses—like the 1 to 10 partner ratings in the `speed_dating.csv` dataset. Because human survey data is rarely perfectly symmetrical and often clumps toward one extreme, Principal Axis Factoring is the safest and most reliable default choice for exploratory research.   
+**Principal Axis Factoring (PAF)** is a highly dependable extraction method that makes very few assumptions about the shape of your data. This makes it the gold standard for analyzing ordinal, Likert-style survey responses, like the 1 to 10 partner ratings in the `speed_dating.csv` dataset. Because human survey data is rarely perfectly symmetrical and often clumps toward one extreme, Principal Axis Factoring is the safest and most reliable default choice for exploratory research.   
 
 
 
@@ -305,7 +305,7 @@ For example, suppose you want to prove that the female ratings for `AttractiveF`
 
 
 
-Because Confirmatory Factor Analysis is an advanced structural modeling technique, most introductory social science research relies entirely on Exploratory Factor Analysis. However, running an exploratory analysis leaves us with one crucial, unanswered question. If we are truly exploring the data from scratch, how did we know to tell the software to look for exactly two factors in Section 11.3?   
+Because Confirmatory Factor Analysis is an advanced structural modeling technique, most introductory social science research relies entirely on Exploratory Factor Analysis. However, running an exploratory analysis leaves us with one unanswered question. If we are truly exploring the data from scratch, how did we know to tell the software to look for exactly two factors in Section 11.3?   
 
 ## 11.6 Visualizing Factors: Scree Charts
 
@@ -386,7 +386,7 @@ As you begin running your own factor analyses, watch out for these three common 
 
 
 
-If you look at the correlation matrix for the male ratings (`AttractiveM`, `IntelligentM`, `FunM`, etc.), you will not find distinct clusters. Instead, almost every trait correlates highly with every other trait. In psychology, this is known as the **Halo Effect**—a cognitive bias where a strong positive impression in one area (like physical attraction) causes a person to rate that partner highly across every other unrelated category.   
+If you look at the correlation matrix for the male ratings (`AttractiveM`, `IntelligentM`, `FunM`, etc.), you will not find distinct clusters. Instead, almost every trait correlates highly with every other trait. In psychology, this is known as the **Halo Effect**, a cognitive bias where a strong positive impression in one area (like physical attraction) causes a person to rate that partner highly across every other unrelated category.   
 
 
 
@@ -410,7 +410,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 2. **The Purpose of Factor Analysis:** Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants actually use.   
 3. **Commonality vs. Uniqueness:** The total variation of any survey item is a mix of commonality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.   
 4. **The PCA Trap:** Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating commonality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.   
-5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow"—the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   
+5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow", the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   
 6. **Validating the Scale:** Factor analysis and Cronbach's alpha work together. Factor analysis explores the data to group the variables, and Cronbach's alpha confirms that those specific groupings form a mathematically reliable scale before you average them into a single score.   
 
 ## New Notation

@@ -374,7 +374,7 @@ Building a multiple regression model is a balancing act. You are looking for the
 
 ### The Causation Illusion
 
-Multiple regression is a powerful tool for neutralizing confounding variables. By "controlling for" factors like gestational weeks, we get a much clearer picture of reality. Because the math feels so robust, people often start using words like "causes" or "proves."
+Multiple regression is a powerful tool for neutralizing confounding variables. By "controlling for" factors like gestational weeks, we get a much clearer picture of reality. Because the math feels so solid, people often start using words like "causes" or "proves."
 
 
 
@@ -390,7 +390,7 @@ These algorithms are completely blind to reality. They do not understand biology
 
 
 
-This brings us to a crucial lesson about real research. Sometimes, you should keep a predictor in your model even if its p-value is not significant. If a variable has a strong **theoretical justification**, it belongs in your equation.
+This brings us to a hard lesson about real research. Sometimes, you should keep a predictor in your model even if its p-value is not significant. If a variable has a strong **theoretical justification**, it belongs in your equation.
 
 
 

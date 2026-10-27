@@ -2,7 +2,7 @@
 
 ## 9.1 Introduction
 
-Up to this point in our modeling journey, we have primarily focused on continuous numerical outcomes. We built models to predict things like life expectancy or birth weight, where the response variable can take on a wide, continuous range of values. But what happens when our research question demands a simple binary answer? In many critical social and medical science applications, the response variable is a categorical event. A candidate wins an election, or they lose. A borrower defaults on a loan, or they pay it back. A patient survives a medical emergency, or they pass away.
+Up to this point, we have primarily focused on continuous numerical outcomes. We built models to predict things like life expectancy or birth weight, where the response variable can take on a wide, continuous range of values. But what happens when our research question demands a simple binary answer? In many critical social and medical science applications, the response variable is a categorical event. A candidate wins an election, or they lose. A borrower defaults on a loan, or they pay it back. A patient survives a medical emergency, or they pass away.
 
 
 
@@ -10,7 +10,7 @@ To evaluate these situations, researchers use **logistic regression**. Unlike st
 
 
 
-We will explore this method by stepping into a high-stakes clinical environment using the `icu_data.csv` dataset. An Intensive Care Unit handles the most severe, life-threatening cases in a hospital system, demanding continuous monitoring and rapid clinical intervention. Because critical care environments are high-risk, modeling patient survival alongside admission types and physiological baselines is crucial for improving triage and hospital resource management. 
+We will explore this method by stepping into a high-stakes clinical environment using the `icu_data.csv` dataset. An Intensive Care Unit handles the most severe, life-threatening cases in a hospital system, demanding continuous monitoring and rapid clinical intervention. Because critical care environments are high-risk, modeling patient survival alongside admission types and physiological baselines is central to improving triage and hospital resource management. 
 
 
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will understand how software tools manage the co
 
 ## 9.2 The Core Concept: Moving Beyond 2x2 Tables
 
-In the previous chapter, we analyzed relationships between categorical variables using tables. We could easily compare a patient's infection status (yes or no) against their survival status (yes or no). But what if we want to predict a **binary outcome**—an event with exactly two possible categorical results—using a continuous numerical variable?
+In the previous chapter, we analyzed relationships between categorical variables using tables. We could easily compare a patient's infection status (yes or no) against their survival status (yes or no). But what if we want to predict a **binary outcome** (an event with exactly two possible categorical results) using a continuous numerical variable?
 
 
 
@@ -235,7 +235,7 @@ While our model's $p$-values were statistically significant, this confusion matr
 
 ### Adjusting the Threshold
 
-Researchers are not permanently locked into a 50% threshold. In a medical setting, the cost of a false positive—predicting a patient will survive when they are actually at high risk of dying—is catastrophic. To fix our model's poor specificity, we could adjust the probability threshold upward. For instance, we might demand an 85% predicted probability before we classify someone in the "Predicted Survival" category.
+Researchers are not permanently locked into a 50% threshold. In a medical setting, the cost of a false positive (predicting a patient will survive when they are actually at high risk of dying) is catastrophic. To fix our model's poor specificity, we could adjust the probability threshold upward. For instance, we might demand an 85% predicted probability before we classify someone in the "Predicted Survival" category.
 
 
 
@@ -247,7 +247,7 @@ This massive gap between our significant $p$-values and our terrible specificity
 
 
 
-That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is incredibly complex. A real-life triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables—perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`)—without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
+That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is incredibly complex. A real-life triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
 
 ## 9.8 Model Diagnostics and Accuracy: The ROC Curve and the AUC
 
@@ -265,7 +265,7 @@ An ROC curve is simply a visual summary of our model's performance across all po
 
 
 
-When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a completely useless model—one that is effectively just flipping a coin. If our model is actually learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
+When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a completely useless model, one that is effectively just flipping a coin. If our model is actually learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
 
 ### Grading the Model: Area Under the Curve (AUC)
 
@@ -351,7 +351,7 @@ As a general rule of thumb, researchers aim for at least 10 to 15 occurrences of
 
 ## 9.11 Beyond Binary Outcomes: Ordinal Regression
 
-We built this chapter around binary outcomes—events with exactly two possibilities. But what happens if your research question involves an outcome with three or more categories that follow a natural sequence?
+We built this chapter around binary outcomes, events with exactly two possibilities. But what happens if your research question involves an outcome with three or more categories that follow a natural sequence?
 
 
 

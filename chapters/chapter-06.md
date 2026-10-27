@@ -6,7 +6,7 @@ In our previous chapters, we spent a lot of time exploring how to compare groups
 
 
 
-Consider the structure of the American high school system. Many schools utilize "academic tracking," placing students into distinct educational programs based on their perceived abilities or career goals. A researcher might ask: Does the choice of program track have a measurable effect on a student's academic performance? 
+Consider the structure of the American high school system. Many schools use "academic tracking," placing students into distinct educational programs based on their perceived abilities or career goals. A researcher might ask: Does the choice of program track have a measurable effect on a student's academic performance? 
 
 
 
@@ -27,7 +27,7 @@ When you hear the phrase "experimental design," you might instantly picture scie
 
 
 
-To navigate these designs, we need to establish a shared vocabulary. When we set up a study to compare groups, we use very specific terms to describe our variables:
+To work through these designs, we need to establish a shared vocabulary. When we set up a study to compare groups, we use very specific terms to describe our variables:
 
 - **Response variable**: This is the numerical outcome we are ultimately trying to measure or predict. In our high school dataset (`hsb.csv`), the response variable is the student's standardized writing score (`write`).
 - **Factor** (or **treatment variable**): This is the categorical variable that divides our sample into the distinct groups we want to compare. In our running example, the factor is the academic program track (`prog`).
@@ -132,7 +132,7 @@ In our high school dataset, we want to look at writing scores across three disti
 2. General versus Vocational
 3. Academic versus Vocational
 
-This approach is a massive statistical trap because it severely inflates our risk of making a Type I error. Recall from Chapter 3 that a Type I error happens when our test produces a false positive—claiming a significant difference exists when it actually does not. We actively control this risk by setting a strict standard of evidence, known as our significance level ($\alpha$), which is typically set at $0.05$ (or a 5% risk).
+This approach is a massive statistical trap because it severely inflates our risk of making a Type I error. Recall from Chapter 3 that a Type I error happens when our test produces a false positive, claiming a significant difference exists when it actually does not. We actively control this risk by setting a strict standard of evidence, known as our significance level ($\alpha$), which is typically set at $0.05$ (or a 5% risk).
 
 
 
@@ -152,7 +152,7 @@ Just like the tests in previous chapters, we start with a skeptical baseline. Th
 
 - $H_0$: The true mean writing score is exactly the same across all three program tracks ($\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}$).
 
-The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect actually exists. Because we are looking at three groups simultaneously, getting this wording right is crucial, and it is the source of a very common pitfall.
+The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect actually exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a very common pitfall.
 
 - $H_1$: At least one pair of program tracks shows a significant difference in their true mean writing scores.
 
@@ -220,7 +220,7 @@ In this context, a residual is simply the difference between an individual stude
 
 
 
-How do we actually check this? This is where many researchers get stuck because the tools we use are notoriously imperfect. Instead of trying to mathematically prove your residuals are perfectly normal, you should ask a simpler question: *Is it plausible that these residuals come from a normal distribution?* A good rule of thumb is this: **Assume the residuals are normal unless the diagnostics thoroughly convince you that they are not**. Because the ANOVA is robust, it can handle mild skewness or slight deviations from a perfect bell shape without breaking.
+How do we actually check this? This is where many researchers get stuck because the tools we use are notoriously imperfect. Instead of trying to mathematically prove your residuals are perfectly normal, you should ask a simpler question: *Is it plausible that these residuals come from a normal distribution?* A good rule of thumb is this: **Assume the residuals are normal unless the diagnostics thoroughly convince you that they are not**. Because the ANOVA is forgiving, it can handle mild skewness or slight deviations from a perfect bell shape without breaking.
 
 
 
@@ -308,7 +308,7 @@ Because visual checks can sometimes feel a bit subjective, we pair our jitter pl
 
 
 
-In Chapter 1, we learned that standard deviation is our primary measure of how spread out our data is. The ANOVA is a very robust tool, meaning it can tolerate some differences in spread without failing. To ensure we are safely within that tolerance, we use the following rule: **Find the standard deviation for each of your groups. If the largest standard deviation is no more than double (2X) the smallest standard deviation, there is likely no cause for concern**.
+In Chapter 1, we learned that standard deviation is our primary measure of how spread out our data is. The ANOVA is a very forgiving tool, meaning it can tolerate some differences in spread without failing. To ensure we are safely within that tolerance, we use the following rule: **Find the standard deviation for each of your groups. If the largest standard deviation is no more than double (2X) the smallest standard deviation, there is likely no cause for concern**.
 
 
 
@@ -324,7 +324,7 @@ For example, imagine a researcher comparing the reading scores of students in a 
 
 
 
-If your conceptual intuition is confirmed by your diagnostics (meaning your jitter plot shows drastically different vertical spreads, and your largest standard deviation is more than double your smallest standard deviation) you cannot trust the $p$-value from a standard ANOVA. Instead, you will need to use a robust alternative specifically designed to handle unequal spread, such as **Mood's Median test**.
+If your conceptual intuition is confirmed by your diagnostics (meaning your jitter plot shows drastically different vertical spreads, and your largest standard deviation is more than double your smallest standard deviation) you cannot trust the $p$-value from a standard ANOVA. Instead, you will need to use a sturdier alternative specifically designed to handle unequal spread, such as **Mood's Median test**.
 
 ### Circling Back
 
@@ -478,7 +478,7 @@ Next, we generate a side-by-side boxplot to get a preliminary visual feel for th
 [Insert Figure 6.4: A side-by-side boxplot showing standardized writing scores by program track. Alt-text: Three boxplots. The academic track box sits higher on the y-axis but is noticeably compressed compared to the wider general and vocational boxes. The academic track has one low-end outlier.]
 ```
 
-This boxplot gives us three immediate insights before we ever run a mathematical test. First, the academic track has a low outlier and appears slightly negatively skewed. Standardized tests often suffer from a mild **ceiling effect**—students can only score so high before they hit the maximum limit—which tends to compress the top of the data and stretch the bottom. 
+This boxplot gives us three immediate insights before we ever run a mathematical test. First, the academic track has a low outlier and appears slightly negatively skewed. Standardized tests often suffer from a mild **ceiling effect** (students can only score so high before they hit the maximum limit), which tends to compress the top of the data and stretch the bottom. 
 
 
 
@@ -557,7 +557,7 @@ How do we make sense of these numbers?
 
 
 
-The **$F$-statistic** ($21.27$) represents the mathematical ratio of our between-groups variation (our signal) to our within-groups variation (our noise). However, here is a crucial warning: you should generally avoid trying to interpret a raw $F$-statistic using your visual intuition.
+The **$F$-statistic** ($21.27$) represents the mathematical ratio of our between-groups variation (our signal) to our within-groups variation (our noise). However, here is a warning: you should generally avoid trying to interpret a raw $F$-statistic using your visual intuition.
 
 
 
@@ -565,7 +565,7 @@ With simpler tools, like the independent sample $t$-test in Chapter 3, you could
 
 
 
-Why? Because an $F$-statistic's meaning is entirely tethered to its **Degrees of Freedom**. The degrees of freedom reflect the structural design of your study—specifically, how many treatment groups you are comparing (2 degrees of freedom) and how many total students are in your sample (197 degrees of freedom).
+Why? Because an $F$-statistic's meaning is entirely tethered to its **Degrees of Freedom**. The degrees of freedom reflect the structural design of your study; specifically, how many treatment groups you are comparing (2 degrees of freedom) and how many total students are in your sample (197 degrees of freedom).
 
 
 
@@ -619,7 +619,7 @@ Congratulations! You have just completed a full, mathematically rigorous analysi
 
 ## 6.10 Common Mistakes and Misconceptions
 
-As you learn to navigate the One-Way ANOVA, you will likely encounter a few common conceptual hurdles. Avoiding these traps will make you a much more confident data analyst.
+As you learn to use the One-Way ANOVA, you will likely encounter a few common conceptual hurdles. Avoiding these traps will make you a much more confident data analyst.
 
 ### The "Significant vs. Non-Significant" Trap
 
@@ -671,7 +671,7 @@ This is simply not true. The mathematical requirement is that the model's **resi
 
 ### Viewing Unequal Variances Solely as a "Failure"
 
-In Section 6.7, we checked to make sure our treatment groups had a roughly equal spread, warning that unequal variances break the mathematical machinery of a standard ANOVA. It is incredibly common for students to view this as a frustrating failure—a roadblock that forces them to use a less familiar alternative tool.
+In Section 6.7, we checked to make sure our treatment groups had a roughly equal spread, warning that unequal variances break the mathematical machinery of a standard ANOVA. It is incredibly common for students to view this as a frustrating failure, a roadblock that forces them to use a less familiar alternative tool.
 
 
 

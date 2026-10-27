@@ -34,7 +34,7 @@ In this chapter, we will explore five common research scenarios where a standard
 
 ## 10.2 The Core Concept: When to Switch to Nonparametric Options
 
-We have just previewed specific scenarios where our standard tools fall apart. But what exactly is breaking under the hood? Traditional models—like $t$-tests and ANOVA—are called parametric tests because they make strict assumptions about the parameters of your population. When those assumptions fail, your results lose their validity.
+We have just previewed specific scenarios where our standard tools fall apart. But what exactly is breaking under the hood? Traditional models (like $t$-tests and ANOVA) are called parametric tests because they make strict assumptions about the parameters of your population. When those assumptions fail, your results lose their validity.
 
 
 
@@ -68,7 +68,7 @@ In statistics, there is a strict trade-off between flexibility and power. Parame
 
 
 
-If you use a nonparametric test, you will need a larger effect size or a larger sample to prove your case compared to a traditional test. This is why statisticians view these tests as a hierarchy. We always want to use the most powerful test our data can safely handle. If the assumptions fail, we drop down to the next safest alternative, accepting a slight loss in power to keep our results mathematically valid. And if the assumptions for *that* test fail, the field of statistics is deep enough that there is almost always another tool we can drop down to—though it will cost us even more power.
+If you use a nonparametric test, you will need a larger effect size or a larger sample to prove your case compared to a traditional test. This is why statisticians view these tests as a hierarchy. We always want to use the most powerful test our data can safely handle. If the assumptions fail, we drop down to the next safest alternative, accepting a slight loss in power to keep our results mathematically valid. And if the assumptions for *that* test fail, the field of statistics is deep enough that there is almost always another tool we can drop down to, though it will cost us even more power.
 
 ## 10.4 Choosing Between Tests for a Median
 
@@ -122,7 +122,7 @@ However, "nonparametric" does not mean there are absolutely no rules. While the 
 
 
 
-If your data is wildly lopsided in one direction, this assumption is broken, and the Wilcoxon test becomes mathematically invalid. If that happens, you would have to drop down the hierarchy again to an even more flexible—but less powerful—tool, such as the **Sign Test**. This text will not get into the mechanics of the Sign Test, but as a researcher, you should always remember that if your current test fails, the field of statistics almost always has another tool waiting for you.
+If your data is wildly lopsided in one direction, this assumption is broken, and the Wilcoxon test becomes mathematically invalid. If that happens, you would have to drop down the hierarchy again to an even more flexible (but less powerful) tool, such as the **Sign Test**. This text will not get into the mechanics of the Sign Test, but as a researcher, you should always remember that if your current test fails, the field of statistics almost always has another tool waiting for you.
 
 ### Formalizing the Hypotheses
 
@@ -172,11 +172,11 @@ Notice that the software uses the Greek letter eta ($\eta$) for the population m
 
   
 
-Next, the output provides the test statistic and the $p$-value. Just as a $t$-test calculates a $t$-statistic, the Wilcoxon test calculates its own statistic, shown here as $128.00$. You do not need to worry about the mathematical formula behind this number. The software handles the computational heavy lifting to generate the $p$-value for you. That $p$-value is $0.002$, which is the most crucial number for our decision. Because this value is far below our standard $0.05$ significance level, it provides strong evidence against the null hypothesis. It tells us that this $\$34.50$ median difference is highly unlikely to be the result of random sampling error.
+Next, the output provides the test statistic and the $p$-value. Just as a $t$-test calculates a $t$-statistic, the Wilcoxon test calculates its own statistic, shown here as $128.00$. You do not need to worry about the mathematical formula behind this number. The software handles the computational heavy lifting to generate the $p$-value for you. That $p$-value is $0.002$, which is the number that matters most for our decision. Because this value is far below our standard $0.05$ significance level, it provides strong evidence against the null hypothesis. It tells us that this $\$34.50$ median difference is highly unlikely to be the result of random sampling error.
 
 
 
-Finally, the output gives us a confidence interval of $(17, 58)$. We can be confident that for all required courses at this university, the true median price difference between the campus bookstore and Amazon is between $\$17$ and $\$58$. You might also notice the "Achieved Confidence" is listed as $94.75\%$. This is a quirk unique to nonparametric tests. Traditional tests use smooth, continuous bell curves, allowing the math to precisely target exactly $95\%$. Because nonparametric tests rely on ranking data—moving in discrete, whole-number jumps like first, second, and third place—the math sometimes cannot land directly on a perfect $95\%$. The software simply gets as close as it mathematically can. For all practical purposes in social science research, you interpret this exactly like a standard $95\%$ confidence interval.   
+Finally, the output gives us a confidence interval of $(17, 58)$. We can be confident that for all required courses at this university, the true median price difference between the campus bookstore and Amazon is between $\$17$ and $\$58$. You might also notice the "Achieved Confidence" is listed as $94.75\%$. This is a quirk unique to nonparametric tests. Traditional tests use smooth, continuous bell curves, allowing the math to precisely target exactly $95\%$. Because nonparametric tests rely on ranking data (moving in discrete, whole-number jumps like first, second, and third place), the math sometimes cannot land directly on a perfect $95\%$. The software simply gets as close as it mathematically can. For all practical purposes in social science research, you interpret this exactly like a standard $95\%$ confidence interval.   
 
 
 
@@ -387,7 +387,7 @@ The software gives us a test statistic, labeled here as an $H$-Value, of $5.46$.
 
 
 
-This non-significant result provides a crucial lesson in statistical research. A $p$-value of $0.141$ means we do not have enough mathematical evidence to confidently claim that a difference exists in the broader population. However, we must be incredibly careful not to state that this proves the null hypothesis is true. An absence of evidence is not evidence of absence. We have not proven that GPA is identical across all populations; we simply failed to find a strong enough signal in this specific sample of 253 students to rule out random sampling error. 
+This non-significant result provides an important lesson in statistical research. A $p$-value of $0.141$ means we do not have enough mathematical evidence to confidently claim that a difference exists in the broader population. However, we must be incredibly careful not to state that this proves the null hypothesis is true. An absence of evidence is not evidence of absence. We have not proven that GPA is identical across all populations; we simply failed to find a strong enough signal in this specific sample of 253 students to rule out random sampling error. 
 
   
 
@@ -435,7 +435,7 @@ As an added bonus, because this test relies entirely on rank-ordering, it is als
 
 ### The Monotonic Requirement
 
-While Spearman's Rho does not require your data to form a perfectly straight line, it does have one strict structural requirement. The relationship must be **monotonic**. This simply means the trend must consistently move in one direction—either consistently upward or consistently downward.
+While Spearman's Rho does not require your data to form a perfectly straight line, it does have one strict structural requirement. The relationship must be **monotonic**. This simply means the trend must consistently move in one direction, either consistently upward or consistently downward.
 
 
 
@@ -507,7 +507,7 @@ Before we write our final conclusions, let us look closely at the effect size fo
 
 
 
-This provides a perfect reminder of a crucial statistical concept: a low $p$-value means *strong evidence*, not a *strong effect*. Our $p$-value of $0.022$ gives us solid mathematical proof that this descending trend actually exists in the broader student population. However, the weak coefficient of $-0.144$ tells us that while the trend is real, drinking habits only account for a small piece of the overall academic puzzle.
+This provides a perfect reminder of a foundational statistical concept: a low $p$-value means *strong evidence*, not a *strong effect*. Our $p$-value of $0.022$ gives us solid mathematical proof that this descending trend actually exists in the broader student population. However, the weak coefficient of $-0.144$ tells us that while the trend is real, drinking habits only account for a small piece of the overall academic puzzle.
 
 
 
@@ -592,7 +592,7 @@ The table immediately reveals the severe imbalance we anticipated. Out of 100 to
 
 
 
-Moving below the table, you will notice something highly unusual compared to every other test in this textbook: there is no test statistic. There is no $t$, no $W$, no $U$, and no Chi-Square value. Do not panic—nothing is missing from your output. Test statistics are essentially mathematical stepping stones that software uses to estimate a $p$-value from a continuous distribution. Because Fisher's Exact Test calculates the exact, true probability of your table directly by analyzing every possible numerical combination, it does not need a stepping stone. It bypasses the estimate and hands you the final probability directly.
+Moving below the table, you will notice something highly unusual compared to every other test in this textbook: there is no test statistic. There is no $t$, no $W$, no $U$, and no Chi-Square value. Do not panic; nothing is missing from your output. Test statistics are essentially mathematical stepping stones that software uses to estimate a $p$-value from a continuous distribution. Because Fisher's Exact Test calculates the exact, true probability of your table directly by analyzing every possible numerical combination, it does not need a stepping stone. It bypasses the estimate and hands you the final probability directly.
 
    
 
@@ -624,7 +624,7 @@ When we analyzed the `student_lifestyle_sleep.csv` dataset, we compared student 
 
 
 
-The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as completely separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away incredibly valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, simply dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically leverage that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
+The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as completely separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away incredibly valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, simply dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically use that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
 
 ### Using Nonparametric Tests as the Default
 
@@ -632,7 +632,7 @@ Once researchers discover that nonparametric tests are safer for skewed data and
 
 
 
-The answer comes entirely down to the cost of flexibility. As we explored at the beginning of the chapter, you trade raw statistical power for that mathematical safety. Traditional parametric tests like the $t$-test are highly sensitive, powerful tools. If your data actually meets the parametric requirements—meaning your sample is large enough or your data is relatively normal—switching to a nonparametric test is a mistake. By defaulting to a rank-based test when you do not need to, you needlessly handicap your own research, dramatically increasing your risk of a Type II error (missing a real, publishable effect that a parametric test would have easily caught). You should always use the most powerful test your data can safely support.
+The answer comes entirely down to the cost of flexibility. As we explored at the beginning of the chapter, you trade raw statistical power for that mathematical safety. Traditional parametric tests like the $t$-test are highly sensitive, powerful tools. If your data actually meets the parametric requirements (meaning your sample is large enough or your data is relatively normal), switching to a nonparametric test is a mistake. By defaulting to a rank-based test when you do not need to, you needlessly handicap your own research, dramatically increasing your risk of a Type II error (missing a real, publishable effect that a parametric test would have easily caught). You should always use the most powerful test your data can safely support.
 
 
 
@@ -681,9 +681,9 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 8. A physical therapist is measuring the flexibility of patients (using a continuous numerical scale) across three different physical therapy clinics. The flexibility scores suffer from a severe ceiling effect, meaning the data is heavily left-skewed. Which specific nonparametric test should the therapist use to see if typical flexibility differs across the three clinics?
 
-9. A college administrator wants to know if the proportion of students who utilize the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is incredibly small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
+9. A college administrator wants to know if the proportion of students who use the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is incredibly small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
 
-10. A market researcher is comparing customer satisfaction scores across four different membership tiers: Free, Basic, Premium, and VIP. The satisfaction scores are severely skewed. Explain why using a Kruskal-Wallis test on this data might result in a loss of statistical power, and which nonparametric test the researcher should use instead to leverage the ordinal nature of the membership tiers.
+10. A market researcher is comparing customer satisfaction scores across four different membership tiers: Free, Basic, Premium, and VIP. The satisfaction scores are severely skewed. Explain why using a Kruskal-Wallis test on this data might result in a loss of statistical power, and which nonparametric test the researcher should use instead to use the ordinal nature of the membership tiers.
 
 ### Communicating Results
 

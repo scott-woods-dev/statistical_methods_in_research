@@ -27,7 +27,7 @@ The dataset includes the following variables:
 - **`Week`**: A categorical variable recording the starting date for the week of data collection, recorded in MM/DD/YYYY format (ranging from 05/16/2021 to 05/17/2026).   
 - **`gym membership`**: A numerical variable tracking the normalized search interest index for the phrase "gym membership". Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.   
 
-By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution—but doing so would completely destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequential journey from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks
+By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution, but doing so would completely destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequence from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks.
 
 
 
@@ -51,7 +51,7 @@ If you were given a single numerical variable like the `gym membership` search i
 
 
 
-To preserve the timeline, we use a **time series plot**. A time series plot is essentially a specialized line chart where time is always placed on the horizontal x-axis, and the numerical variable of interest is placed on the vertical y-axis. By connecting each chronological data point with a continuous line, we can visually trace the journey of the data from one week to the next.
+To preserve the timeline, we use a **time series plot**. A time series plot is essentially a specialized line chart where time is always placed on the horizontal x-axis, and the numerical variable of interest is placed on the vertical y-axis. By connecting each chronological data point with a continuous line, we can visually trace the data from one week to the next.
 
 ```
 [Insert Figure 12.1: Time Series Plot of Gym Membership Searches (2021-2026)]
@@ -65,7 +65,7 @@ Crucially, the time series plot reveals a structural change that simple summary 
 
 ### The Limits of Automated Tools
 
-Recognizing these expanding cyclical patterns is vital because automated forecasting models often struggle to capture them perfectly. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict an *average* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
+Recognizing these expanding cyclical patterns matters because automated forecasting models often struggle to capture them perfectly. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict an *average* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
 
 ### A Hint at the Independence Violation
 
@@ -77,7 +77,7 @@ This deep, sequential connection is called **autocorrelation**, and it fundament
 
 ## 12.3 The Independence Violation: Autocorrelation
 
-In our previous chapters on linear regression, we relied on a crucial assumption: independence. We assumed that each observation in a dataset was a completely separate, isolated event. If we survey one student about their sleep habits, their answer should not mechanically dictate the answer of the next student we randomly select.
+In our previous chapters on linear regression, we relied on a foundational assumption: independence. We assumed that each observation in a dataset was a completely separate, isolated event. If we survey one student about their sleep habits, their answer should not mechanically dictate the answer of the next student we randomly select.
 
 
 
@@ -101,7 +101,7 @@ When you look at this scatterplot, notice that you are no longer looking at time
 
 ### Trend vs. Autocorrelation: Understanding the Difference
 
-At this point, students often confuse an **overall linear trend** with **autocorrelation**. They sound similar on the surface: isn't predicting a value based on a slope exactly what we did in Chapter 4? It is crucial to understand why these are entirely different concepts.
+At this point, students often confuse an **overall linear trend** with **autocorrelation**. They sound similar on the surface: isn't predicting a value based on a slope exactly what we did in Chapter 4? You need to understand why these are entirely different concepts.
 
 
 
@@ -155,7 +155,7 @@ An ARIMA model is an incredibly powerful tool for projecting established histori
 
 
 
-However, it is vital to understand its limitations. An ARIMA model does not explain *why* something is happening; it is purely predictive, not causal. It also cannot predict unprecedented, structural anomalies. If a global event completely closed all fitness centers tomorrow, the ARIMA model would fail completely because it only knows how to repeat the past.
+However, you must understand its limitations. An ARIMA model does not explain *why* something is happening; it is purely predictive, not causal. It also cannot predict unprecedented, structural anomalies. If a global event completely closed all fitness centers tomorrow, the ARIMA model would fail completely because it only knows how to repeat the past.
 
 ### Forecasting the Fitness Data
 
@@ -173,7 +173,7 @@ However, notice the shaded blue region surrounding that predicted line. This is 
 
 
 
-Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates a peak that matches the *average* height of the historical spikes. However, our visual analysis in Section 12.2 revealed that these winter spikes are actually growing larger every single year. The algorithm missed this nuanced structural shift. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
+Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates a peak that matches the *average* height of the historical spikes. However, our visual analysis in Section 12.2 revealed that these winter spikes are actually growing larger every single year. The algorithm missed this subtle structural shift. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
 
 
 
@@ -191,7 +191,7 @@ As you go out and build your own time series plots and prediction models, keep t
 ## 12.6 Key Concepts
 
 1. **The Architecture of Time:** Time series analysis is designed to evaluate chronologically ordered data by breaking it down into three distinct structural components: overarching trends, predictable cyclical patterns (seasonality), and random irregular movements.   
-2. **Preserving the Timeline:** We cannot use tools like histograms for sequential data because they destroy the chronological order. Instead, we rely on time series plots to visually trace the data's journey over time.   
+2. **Preserving the Timeline:** We cannot use tools like histograms for sequential data because they destroy the chronological order. Instead, we rely on time series plots to visually trace the data over time.   
 3. **The Independence Violation:** Chronological data inherently breaks the fundamental regression assumption of independence. Because today's data is heavily influenced by yesterday's data, we cannot treat each observation as a brand new, isolated piece of evidence.   
 4. **Autocorrelation (Momentum):** This is the measure of how a single variable correlates with its own past values. When we compare an observation at time $t$ to its lag at time $t-1$, we measure the short-term stickiness or momentum of the data.   
 5. **The Danger of Standard Regression:** Using a simple line of best fit on time series data ignores cyclical seasonality and autocorrelation, resulting in a model that is mathematically overconfident and practically flawed.   

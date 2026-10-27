@@ -6,7 +6,7 @@ Our first questions that we'll tackle in this chapter are simple but profound: A
 
 
 
-These are meaningful, real-world questions with serious social implications, but how do we actually answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the vital data isn't always measured on a continuous scale, Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
+These are meaningful, real-world questions with serious social implications, but how do we actually answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
 
 
 
@@ -37,7 +37,7 @@ We will start this chapter by answering our opening question, learning how to co
 
 ## 8.2 Single Variable Patterns: The Chi-Square Goodness-of-Fit Test
 
-At the start of this chapter, we asked a crucial question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" actually looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot simply look at the raw counts. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
+At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" actually looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot simply look at the raw counts. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
 
 
 
@@ -174,7 +174,7 @@ Let's look at the cross-tabulation for our mental illness and fleeing data:
 
 Reading this table is highly intuitive. If we want to know how many subjects with documented mental illness attempted to flee on foot, we find the "Documented Illness" row, move over to the "Foot" column, and find that there were exactly 105 occurrences.
 
-### Navigating the Jargon: Independence and Association
+### Terms to Know: Independence and Association
 
 Before we establish our hypotheses, we need to clarify a few statistical terms that are often used interchangeably in the social sciences: **independence**, **association**, and **relationship**.
 
@@ -498,7 +498,7 @@ For McNemar's test, our software provides the $\chi^2$ test statistic, the degre
 
 ## 8.11 Quantifying the Relationship: Association Metrics
 
-In Chapter 3, we learned a crucial lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect actually is. A tiny $p$-value simply means we have a mountain of evidence that the variables are connected.
+In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect actually is. A tiny $p$-value simply means we have a mountain of evidence that the variables are connected.
 
 
 
@@ -581,7 +581,7 @@ In fields like medicine, public health, and criminology, researchers do not just
 
 
 
-To explore this, we will return to our `icu_data.csv` dataset. We want to quantify the exact risk of our survival outcome (`Survive`) based on whether a patient had a suspected infection upon admission (`Infection`). Because both of these variables are binary (they only have two categories, coded as 0 and 1), we can utilize two powerful clinical metrics: **Relative Risk** and the **Odds Ratio**.
+To explore this, we will return to our `icu_data.csv` dataset. We want to quantify the exact risk of our survival outcome (`Survive`) based on whether a patient had a suspected infection upon admission (`Infection`). Because both of these variables are binary (they only have two categories, coded as 0 and 1), we can use two powerful clinical metrics: **Relative Risk** and the **Odds Ratio**.
 
 ### The Intuitive Choice: Relative Risk
 

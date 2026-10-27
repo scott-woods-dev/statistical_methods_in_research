@@ -10,11 +10,11 @@ Now you have a spreadsheet filled with hundreds of rows and columns. Looking at 
 
 
 
-This chapter shows you how to take that first, crucial step in any research project: getting to know your data. Before we can answer complex questions about whether high anxiety causes lower GPAs, we need to understand what our data looks like.
+This chapter shows you how to take that first step in any research project: getting to know your data. Before we can answer complex questions about whether high anxiety causes lower GPAs, we need to understand what our data looks like.
 
 
 
-The dataset `student_lifestyle_sleep.csv` included with this text has all this raw data from a real study. If you open it in sooftware, you'll see it is filled with hundreds of rows and columns. To help you navigate this information, here is a dictionary of the specific variables we will analyze in this chapter. (Note that while the full dataset contains many more survey responses, a good researcher isolates and defines only the variables necessary for their current questions).
+The dataset `student_lifestyle_sleep.csv` included with this text has all this raw data from a real study. If you open it in software, you'll see it is filled with hundreds of rows and columns. To help you make sense of this information, here is a dictionary of the specific variables we will analyze in this chapter. (Note that while the full dataset contains many more survey responses, a good researcher isolates and defines only the variables necessary for their current questions).
 
 * **`WeekdaySleep`**: A numerical variable recording the average number of hours the student sleeps on a typical school night.
 * **`WeekendSleep`**: A numerical variable recording the average number of hours the student sleeps on a typical non-school night.
@@ -42,7 +42,7 @@ Some variables describe a trait, group, or status. We call these **categorical v
 
 
 
-Sometimes, these categories have a natural, logical order. We call these **ordinal variables**. `ClassYear` is a great example, grouping students smoothly from first-years up to seniors. `AlcoholUse` is also ordinal, progressing from Abstain to Heavy. While they are still descriptive categories (you cannot calculate a true mathematical average for them), their built-in order is incredibly important to keep in mind when we start making graphs. If the categories do not have any natural ranking—like choosing a college major or a favorite color—they are simply called **nominal variables**.
+Sometimes, these categories have a natural, logical order. We call these **ordinal variables**. `ClassYear` is a great example, grouping students smoothly from first-years up to seniors. `AlcoholUse` is also ordinal, progressing from Abstain to Heavy. While they are still descriptive categories (you cannot calculate a true mathematical average for them), their built-in order is incredibly important to keep in mind when we start making graphs. If the categories do not have any natural ranking (like choosing a college major or a favorite color), they are simply called **nominal variables**.
 
 
 
@@ -202,7 +202,7 @@ However, segmented bar charts have a major hidden drawback: they completely hide
 
 
 
-To solve this problem, we use a more robust visualization called a **mosaic plot**. A mosaic plot is essentially a segmented bar chart that adjusts itself to show you the true size of every group.
+To solve this problem, we use a clearer visualization called a **mosaic plot**. A mosaic plot is essentially a segmented bar chart that adjusts itself to show you the true size of every group.
 
 
 
@@ -218,7 +218,7 @@ First, look at the *width*. We slice the cake vertically based on `Stress`. The 
 
 
 
-Second, look at the *height*. We slice those vertical columns horizontally based on `AlcoholUse`. The height of these new blocks tells you the rate of drinking within that specific stress group—exactly like the segments in our stacked bar chart. 
+Second, look at the *height*. We slice those vertical columns horizontally based on `AlcoholUse`. The height of these new blocks tells you the rate of drinking within that specific stress group, exactly like the segments in our stacked bar chart. 
 
 
 
@@ -266,7 +266,7 @@ We can add `Stress` to our scatterplot as a **grouping variable** by changing th
 
 
 
-By doing this, you are looking at three variables at once. If all the red triangles cluster in the bottom right (high missed classes, low GPA), the visualization reveals a deeper, more nuanced relationship than the original plot showed.
+By doing this, you are looking at three variables at once. If all the red triangles cluster in the bottom right (high missed classes, low GPA), the visualization reveals a deeper, more detailed relationship than the original plot showed.
 
 
 
@@ -390,7 +390,7 @@ Just as the median is the resistant counterpart to the mean, the IQR is the resi
 
 
 
-Do you remember the box plots we used to visualize the `GPA` of different depression groups? A box plot is just a visual drawing of these exact numbers. The physical box spans from Q1 to Q3, meaning the visible length of the box *is* the IQR! By reporting the median and the IQR, you give your reader a complete, robust map of where the middle 50% of your data lives, ignoring the messy extremes.
+Do you remember the box plots we used to visualize the `GPA` of different depression groups? A box plot is just a visual drawing of these exact numbers. The physical box spans from Q1 to Q3, meaning the visible length of the box *is* the IQR! By reporting the median and the IQR, you give your reader a complete, reliable map of where the middle 50% of your data lives, ignoring the messy extremes.
 
 
 
@@ -415,11 +415,11 @@ To choose the right summary, simply look at your histogram and follow this golde
 
 ### The Reliability of the Mean
 
-You might be wondering: if the median is so robust and safely ignores messy outliers, why don't we just use it all the time? Why ever risk using the highly sensitive mean? 
+You might be wondering: if the median resists messy outliers so well, why don't we just use it all the time? Why ever risk using the highly sensitive mean? 
 
 
 
-The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We completely ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours—the median only cares about their rank in line. By doing this, we are throwing away a massive amount of information.
+The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We completely ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a massive amount of information.
 
 
 
@@ -456,7 +456,7 @@ This reality introduces the most fundamental division in statistics: the **popul
 
 ### Parameters vs. Statistics
 
-When we calculate a numerical summary—like a mean or a standard deviation—we have to be very clear about who we are summarizing. 
+When we calculate a numerical summary (like a mean or a standard deviation), we have to be very clear about who we are summarizing. 
 
 
 
@@ -557,7 +557,7 @@ As you begin working with real data, there are a few common traps that trip up a
 We have covered a lot of ground in this chapter. To see how these tools work together, let's walk through a complete, preliminary analysis using our dataset of 253 college students. 
 
 ### The Research Interest
-Student well-being is a major focus for universities. We know that college can be highly stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with depression find it more difficult to attend their classes. Behind these numbers are real students navigating challenging circumstances, so exploring this relationship could help universities better allocate support resources.
+Student well-being is a major focus for universities. We know that college can be highly stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with depression find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.
 
 ### The Research Question
 Can we translate that broad interest into a specific question we can answer with our data? 
@@ -614,7 +614,7 @@ When researchers write their conclusions, they state their findings in plain Eng
 Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.** A measure of center only tells half the story.  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the exact same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
 
 ### Preliminary Conclusion
-Now, we translate our statistical findings back into plain English—using APA formatting—to answer our research question. 
+Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question. 
 
 
 
@@ -622,7 +622,7 @@ Now, we translate our statistical findings back into plain English—using APA f
 
 
 
-Notice two crucial things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to *our sample*. We have not proven that depression causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.
+Notice two things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to *our sample*. We have not proven that depression causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.
 
 ## 1.17 Exercises
 
