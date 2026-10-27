@@ -72,7 +72,7 @@ To visualize a single categorical variable, we use a **bar plot**. A bar plot dr
 
 
 
-`[Insert Figure 1.2: A standard bar plot of DepressionStatus with categories on the horizontal axis (Normal, Moderate, Severe) and frequencies on the vertical axis. Ensure the bars do not touch.]`
+![Figure 1.2: Depression screening status among 253 students, ordered from normal to severe.](../figures/chapter_01/fig_01_02_bar_depression_status.png){fig-alt="Bar chart of depression screening status for 253 students. The Normal bar is tallest at 209 students, Moderate is 34, and Severe is 10. Bars are ordered Normal, Moderate, Severe."}
 
 
 
@@ -92,7 +92,7 @@ To make sense of this, we use a variation called a **Pareto chart**.
 
 
 
-`[Insert Figure 1.3: A Pareto chart showing reasons for visiting a tutoring and STEM resource center. The highest bar on the far left should be "Math Help", followed by "Computer Use". The final bar on the far right should be labeled "Other" to represent a combination of the least frequent, trailing categories.]`
+![Figure 1.3: An illustrative Pareto chart of reasons for visiting a tutoring and STEM resource center.](../figures/chapter_01/fig_01_03_bar_pareto_tutoring.png){fig-alt="Pareto chart of illustrative tutoring and STEM center visits, sorted from most to least common. Math Help has the most visits, followed by Computer Use, Statistics Help, Writing Help, and Other, which combines the least common reasons."}
 
 
 
@@ -114,7 +114,7 @@ We visualize this grouping using a **histogram**.
 
 
 
-`[Insert Figure 1.4: A histogram of WeekdaySleep with clear bin widths of 1 hour. Alt-text: A histogram showing the distribution of weekday sleep hours for students, peaking around 7 to 8 hours.]`
+![Figure 1.4: Distribution of weekday sleep hours for 253 students, binned in one-hour intervals.](../figures/chapter_01/fig_01_04_hist_weekday_sleep.png){fig-alt="Histogram of weekday sleep hours in one-hour bins. The distribution is centered near 8 hours, with the tallest bins at 7 to 8 and 8 to 9 hours, and few students below 5 or above 10 hours."}
 
 
 
@@ -134,7 +134,7 @@ Often, that single peak sits right in the middle, and the left and right sides r
 
 
 
-`[Insert Figure 1.5: A smooth, symmetric, bell-shaped normal curve overlaid on a histogram. Alt-text: A symmetric histogram with a bell-shaped curve drawn over it, showing data heavily concentrated in the center and fading evenly to the edges.]`
+![Figure 1.5: Weekday sleep hours with a fitted normal curve. The histogram is roughly symmetric and centered near 8 hours.](../figures/chapter_01/fig_01_05_hist_sleep_normal_overlay.png){fig-alt="Histogram of weekday sleep hours with a smooth bell-shaped normal curve overlaid. The histogram is roughly symmetric, peaks at 7 to 9 hours, and the curve follows the same shape."}
 
 
 
@@ -150,7 +150,7 @@ Let's look at the `ClassesMissed` variable. If we make a histogram of this numer
 
 
 
-`[Insert Figure 1.6: A strongly right-skewed histogram of ClassesMissed. Alt-text: A histogram with a tall peak on the far left at zero, with a long, thin tail extending to the right.]`
+![Figure 1.6: Distribution of classes missed, showing a strong right skew and a floor at zero.](../figures/chapter_01/fig_01_06_hist_classes_missed.png){fig-alt="Right-skewed histogram of classes missed. The tallest bars are at 0 and 1 classes missed, with 94 and 49 students, and a long thin tail extends to the right toward 20."}
 
 
 
@@ -170,7 +170,7 @@ To answer this, we need to look at two numerical variables at the exact same tim
 
 
 
-`[Insert Figure 1.7: A scatterplot with ClassesMissed on the horizontal axis and GPA on the vertical axis. Alt-text: A scatterplot showing a negative trend; as the number of classes missed increases on the x-axis, the dots generally trend downward toward lower GPAs on the y-axis.]`
+![Figure 1.7: Classes missed and GPA for 253 students. The downward trend is visible but weak.](../figures/chapter_01/fig_01_07_scatter_classes_missed_gpa.png){fig-alt="Scatterplot of classes missed versus GPA. The points form a loose downward cloud, but the relationship is weak; students who missed no classes still range from about 2.4 to 4.0 on GPA."}
 
 
 
@@ -186,7 +186,7 @@ To explore this, we need to compare how drinking habits differ between the two s
 
 
 
-`[Insert Figure 1.8: A segmented bar chart showing AlcoholUse within Stress levels. Two vertical bars of exactly equal height (representing 100%) labeled 'Normal' and 'High' on the x-axis. Each bar is divided into four colored segments representing the proportion of Abstain, Light, Moderate, and Heavy drinkers within that specific stress group.]`
+![Figure 1.8: Alcohol use within each stress group. Each bar is scaled to 100%, so the actual group sizes are hidden.](../figures/chapter_01/fig_01_08_segmented_alcohol_by_stress.png){fig-alt="Segmented bar chart of alcohol use within stress groups. In the High stress group, Moderate drinkers are 41%, Light 36%, Abstain 14%, and Heavy 9%. In the Normal stress group, Moderate is 49%, Light 32%, Abstain 13%, and Heavy 6%."}
 
 
 
@@ -206,7 +206,7 @@ To solve this problem, we use a clearer visualization called a **mosaic plot**. 
 
 
 
-`[Insert Figure 1.9: A mosaic plot of Stress and AlcoholUse. Alt-text: A large rectangle divided into smaller, unequal rectangular blocks. The width of the vertical columns represents the total number of students in each stress category, making the 'Normal' column noticeably wider. The height of the blocks within them represents the drinking habits.]`
+![Figure 1.9: Mosaic plot of stress level and alcohol use. Column width shows group size; block height shows the share within each group.](../figures/chapter_01/fig_01_09_mosaic_stress_alcohol.png){fig-alt="Mosaic plot of stress level and alcohol use. The Normal stress column is much wider, showing 197 students versus 56 under High stress. Within each column, Moderate drinkers form the largest block; the Heavy block is 6% under Normal stress and 9% under High stress."}
 
 
 
@@ -242,7 +242,7 @@ The best tool for this job is a **box plot** (sometimes called a box-and-whisker
 
 
 
-`[Insert Figure 1.9: Side-by-side box plots showing GPA on the vertical axis, split into three categories on the horizontal axis: Normal, Moderate, and Severe Depression. Alt-text: Three vertical box plots placed side-by-side. The boxes represent the middle 50% of GPAs for each depression group, allowing for easy comparison of their centers and spreads.]`
+![Figure 1.9b: GPA by depression screening status. The medians do not decline steadily with severity.](../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png){fig-alt="Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression groups. Median GPA is 3.25 in the Normal group, 3.32 in the Moderate group, and 3.04 in the Severe group. The Moderate group has the widest middle 50%."}
 
 
 
@@ -262,7 +262,7 @@ We can add `Stress` to our scatterplot as a **grouping variable** by changing th
 
 
 
-`[Insert Figure 1.10: The previous scatterplot of ClassesMissed vs GPA, but now dots for 'Normal' stress are blue circles, and dots for 'High' stress are red triangles.]`
+![Figure 1.10: Classes missed and GPA by stress level. Shape and color both encode stress, so the groups remain distinguishable without color.](../figures/chapter_01/fig_01_10_scatter_gpa_missed_by_stress.png){fig-alt="Scatterplot of classes missed versus GPA, with Normal stress shown as circles and High stress shown as triangles. The Normal group follows a loose downward trend, while High stress points are spread across the full range of classes missed rather than clustering in one corner."}
 
 
 
@@ -282,7 +282,7 @@ Because a piece of paper (or a computer screen) is flat, we can't easily add a 3
 
 
 
-`[Insert Figure 1.11: A bubble plot where x is WeekdaySleep, y is GPA, and the size of each dot is scaled to the number of Drinks. Alt-text: A scatterplot where the points vary in size. Larger bubbles indicate a higher number of weekly alcoholic drinks.]`
+![Figure 1.11: Weekday sleep, GPA, and weekly drinks. Bubble size encodes drinks per week.](../figures/chapter_01/fig_01_11_bubble_sleep_gpa_drinks.png){fig-alt="Bubble plot of weekday sleep versus GPA, with bubble size showing weekly drinks. Most bubbles are small, and larger bubbles are scattered across the sleep range rather than clustered at low sleep and low GPA."}
 
 
 
@@ -386,7 +386,7 @@ Just as the median is the resistant counterpart to the mean, the IQR is the resi
 
 
 
-`[Insert Figure 1.13: A visual diagram mapping quartiles and the IQR to a box plot. Alt-text: A diagram showing a box plot where the left edge of the box is labeled Q1 (25%), the line inside is the Median (50%), and the right edge is Q3 (75%). A bracket above the box shows that the physical length of the box represents the IQR.]`
+![Figure 1.13: Quartiles and the interquartile range on a box plot.](../figures/chapter_01/fig_01_13_diagram_iqr_boxplot.png){fig-alt="Diagram of a box plot. The left edge of the box is labeled Q1, the 25th percentile; the center line is the median, the 50th percentile; and the right edge is Q3, the 75th percentile. A bracket above the box spans Q1 to Q3 and is labeled IQR equals Q3 minus Q1."}
 
 
 
@@ -577,7 +577,7 @@ To visualize the relationship between a categorical variable and a numerical var
 
 
 
-`[Insert Figure 1.15: Side-by-side box plots showing ClassesMissed on the vertical axis, grouped by DepressionStatus (Normal, Moderate, Severe) on the horizontal axis. Alt-text: Three box plots showing that the median number of missed classes increases as depression severity increases.]`
+![Figure 1.15: Classes missed by depression screening status. The Severe group has the highest median, but the step from Normal to Moderate is flat.](../figures/chapter_01/fig_01_15_box_classes_missed_by_depression.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe depression groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 2 in the Severe group. Spread is similar in the Normal and Moderate groups and narrower in the Severe group."}
 
 
 

@@ -54,5 +54,9 @@ format:
     mainfont: Times New Roman
     toc: true
     number-sections: true
+    include-in-header:
+      text: |
+        \usepackage{caption}
+        \captionsetup[figure]{labelformat=empty}
   epub:
     cover-image: images/cover.png
