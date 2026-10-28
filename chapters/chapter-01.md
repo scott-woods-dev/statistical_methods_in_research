@@ -30,11 +30,27 @@ By the end of this chapter, you will learn how to identify different types of va
 
 ## 1.2 Data Basics: Categorical vs. Numerical Variables
 
-When you open `student_lifestyle_sleep.csv`, you will see a large grid of information. Each row represents a single student in the study. Each column represents a specific piece of information we recorded about them. 
+When you open `student_lifestyle_sleep.csv`, you will see a large grid of information. Each row represents a single student in the study. Each column represents a specific piece of information we recorded about them.
 
 
 
-We call these columns **variables** because the information they hold naturally varies from person to person. However, not all variables record the same type of information. Recognizing the different types of data is your first essential step in any analysis. 
+**Table 1.1: The first five rows of `student_lifestyle_sleep.csv`.**
+
+| ClassYear | GPA | ClassesMissed | DepressionStatus | AnxietyStatus | WeekdaySleep | WeekendSleep |
+| :-------- | --: | ------------: | :--------------- | :------------ | -----------: | -----------: |
+| 4         | 3.60 | 0            | normal           | normal        | 7.70         | 5.88         |
+| 4         | 3.24 | 0            | normal           | normal        | 6.80         | 7.25         |
+| 4         | 2.97 | 12           | moderate         | severe        | 3.00         | 10.09        |
+| 1         | 3.76 | 0            | normal           | normal        | 6.77         | 7.25         |
+| 4         | 3.20 | 4            | normal           | severe        | 6.09         | 7.00         |
+
+
+
+We call these columns **variables** because the information they hold naturally varies from person to person. However, not all variables record the same type of information. Recognizing the different types of data is your first essential step in any analysis.
+
+
+
+To illustrate this, let's look at the student in the third row of the table. They are a senior (ClassYear=4), their GPA is a bit low compared to the other students at 2.97, and they seem to be missing more classes than the other students here at 12 classes missed. We can also see they have moderate depression, severe anxiety, and their sleep patterns differ sharply from the other peers in this short sampling from the dataset. Just this little bit of information can give us potential clues about the relationship between a student's psychological status, student performance, and sleep habits.
 
 
 
@@ -55,10 +71,6 @@ Why does this distinction matter? Because the type of variable you have entirely
 ---
 
 ## 1.3 Visualizing Single Variables: Categorical Data
-
-`[Insert Figure 1.1: A small table showing the first 5 rows of the dataset, highlighting the columns for DepressionStatus and GPA to contrast a categorical text label with a numerical measurement.]`
-
-
 
 Suppose you want to understand the baseline mental health of the students in our study. Before looking at how mental health affects grades, you first need to know how prevalent different levels of depression are among the 253 participants. 
 
