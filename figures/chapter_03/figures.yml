@@ -1,0 +1,40 @@
+figures:
+- id: '3.1'
+  file: fig_03_01_hist_sampling_distribution_cesddiff.png
+  type: hist
+  caption: Simulated sampling distribution of the mean CESDDiff for 10,000 samples
+    of 75 students drawn from the observed diet-group change scores. The histogram
+    forms a symmetric bell shape centered near -6.03 points, with a normal curve overlaid.
+  alt: Histogram of 10,000 simulated sample means of CESDDiff, each from 75 students
+    drawn from the diet group. The bars form a symmetric bell shape centered near
+    -6 points, with almost all sample means between about -8.4 and -3.8.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_03.R
+  author_note: The simulation resamples the 37 observed diet-group CESDDiff values
+    10,000 times with samples of 75. It illustrates the Central Limit Theorem and
+    is not a population estimate.
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.3074822
+    min_lab_distance: 70.8574031
+- id: '3.2'
+  file: fig_03_02_line_power_curves.png
+  type: line
+  caption: Power curves for a two-sided independent sample t-test at alpha = .05,
+    with equal group sizes. Each line shows how power rises with the total sample
+    size for a small, medium, or large effect. The dashed horizontal line marks the
+    conventional 80% target.
+  alt: Line chart of statistical power against total sample size for three effect
+    sizes. The large-effect line reaches 80% power near 52 participants, the medium-effect
+    line near 128, and the small-effect line near 788. A dashed horizontal line marks
+    80% power.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_03.R
+  colour_audit:
+    n_colours: 5
+    min_contrast: 3.4211399
+    min_lab_distance: 23.4842746

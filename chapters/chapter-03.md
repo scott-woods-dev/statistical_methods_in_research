@@ -80,9 +80,7 @@ We understand that a p-value helps us weigh evidence. However, to calculate that
 
 To understand how a t-test works, look at Figure 3.1. This histogram shows what would happen if we repeated our diet intervention study thousands of times. Suppose we gathered thousands of different groups of 75 students, gave them the same healthy diet, and calculated the mean change in their depression scores (`CESDDiff`) every single time.
 
-```
-[Insert Figure 3.1: Histogram displaying a simulated sampling distribution of mean CESDDiff scores forming a symmetrical bell curve]
-```
+![Figure 3.1: Simulated sampling distribution of the mean CESDDiff for 10,000 samples of 75 students drawn from the observed diet-group change scores. The histogram forms a symmetric bell shape centered near -6.03 points, with a normal curve overlaid.](../figures/chapter_03/fig_03_01_hist_sampling_distribution_cesddiff.png){fig-alt="Histogram of 10,000 simulated sample means of CESDDiff, each from 75 students drawn from the diet group. The bars form a symmetric bell shape centered near -6 points, with almost all sample means between about -8.4 and -3.8."}
 
 As you can see in the graph, a fascinating pattern emerges. The most common results pile up in the middle around the true underlying average, and extreme flukes taper off symmetrically on both sides. This shape is the classic, symmetrical bell curve that we call a normal distribution in statistics.
 
@@ -249,7 +247,7 @@ Now that we have established our students were experiencing elevated depression 
 
 To answer this, we use a **Matched Pair t-test**. We use this test whenever our data is paired or linked. In our case, we measured the exact same students twice (once on Day 1, and again on Day 21). We do not want to just compare the Day 1 average to the Day 21 average; we want to see exactly how much each individual student changed.
 
-By calculating the difference for every single student (which is already saved in our dataset as the `CESDDiff` variable), we compress those two timeframes into one single column of change scores. A positive `CESDDiff` score means a student's depression symptoms decreased, while a negative score means they got worse.
+By calculating the difference for every single student (which is already saved in our dataset as the `CESDDiff` variable), we compress those two timeframes into one single column of change scores. A negative `CESDDiff` score means a student's depression symptoms decreased, while a positive score means they got worse.
 
 ### The Hypotheses
 
@@ -534,9 +532,7 @@ These four elements are mathematically locked together. If you know three of the
 
 To see how these elements interact, researchers often look at visualizations called **power curves**.
 
-```
-[Insert Figure 3.2: A power curve graph showing sample size on the x-axis, statistical power on the y-axis, and multiple curved lines representing different effect sizes]
-```
+![Figure 3.2: Power curves for a two-sided independent sample t-test at alpha = .05, with equal group sizes. Each line shows how power rises with the total sample size for a small, medium, or large effect. The dashed horizontal line marks the conventional 80% target.](../figures/chapter_03/fig_03_02_line_power_curves.png){fig-alt="Line chart of statistical power against total sample size for three effect sizes. The large-effect line reaches 80% power near 52 participants, the medium-effect line near 128, and the small-effect line near 788. A dashed horizontal line marks 80% power."}
 
 When you look at a power curve, you will notice two universal rules:
 
