@@ -223,3 +223,98 @@ save_book_fig(
     "not physically possible for a footprint, so the y-axis starts at zero."
   )
 )
+
+# ---- Chapter 4 values -------------------------------------------------------
+
+coef_rows <- function(fit) {
+  tab <- summary(fit)$coefficients
+  data.frame(
+    term = rownames(tab),
+    estimate = tab[, "Estimate"],
+    se = tab[, "Std. Error"],
+    t = tab[, "t value"],
+    p = tab[, "Pr(>|t|)"],
+    check.names = FALSE, row.names = NULL
+  )
+}
+
+model_record <- function(fit) {
+  f <- summary(fit)$fstatistic
+  list(
+    n = nobs(fit),
+    r_squared = summary(fit)$r.squared,
+    adjusted_r_squared = summary(fit)$adj.r.squared,
+    f = unname(f[1]),
+    df1 = unname(f[2]),
+    df2 = unname(f[3]),
+    p = pf(f[1], f[2], f[3], lower.tail = FALSE),
+    coefficients = coef_rows(fit)
+  )
+}
+
+slope_ci <- as.data.frame(confint(foot_model))
+slope_ci$term <- rownames(slope_ci)
+rownames(slope_ci) <- NULL
+names(slope_ci)[1:2] <- c("lower_95", "upper_95")
+
+pred_ci <- as.data.frame(predict(
+  foot_model, data.frame(GDPperCapita = 70000), interval = "confidence"
+))
+pred_pi <- as.data.frame(predict(
+  foot_model, data.frame(GDPperCapita = 70000), interval = "prediction"
+))
+prediction_70000 <- data.frame(
+  interval = c("confidence", "prediction"),
+  fit = c(pred_ci$fit, pred_pi$fit),
+  lower_95 = c(pred_ci$lwr, pred_pi$lwr),
+  upper_95 = c(pred_ci$upr, pred_pi$upr)
+)
+
+log_model <- lm(LifeExpectancy ~ log10(GDPperCapita), data = hp_complete)
+
+values <- list(
+  data = list(
+    file = "happy_planet_index_2024.csv",
+    total_countries = nrow(hp),
+    complete_cases = nrow(hp_complete),
+    missing_gdp = sum(is.na(hp$GDPperCapita))
+  ),
+  figure_4_1 = list(
+    note = "Illustrative exponential curves; no dataset is used."
+  ),
+  figure_4_2 = list(
+    note = "Scatterplot of GDP per capita and life expectancy; n = 143 complete cases."
+  ),
+  figure_4_3 = list(
+    note = paste(
+      "Regression of Footprint on GDPperCapita with confidence and prediction",
+      "intervals; n = 143."
+    )
+  ),
+  footprint_model = c(
+    list(model = "lm(Footprint ~ GDPperCapita, data = hp_complete)"),
+    model_record(foot_model),
+    list(
+      r = cor(hp_complete$GDPperCapita, hp_complete$Footprint),
+      slope_ci = slope_ci,
+      prediction_at_70000 = prediction_70000
+    )
+  ),
+  log_life_expectancy_model = c(
+    list(model = "lm(LifeExpectancy ~ log10(GDPperCapita), data = hp_complete)"),
+    model_record(log_model)
+  )
+)
+
+save_book_values(
+  chapter = 4,
+  values = values,
+  conventions = list(
+    note = paste(
+      "Ordinary least squares. The life-expectancy model uses a base-10",
+      "logarithm of GDPperCapita. The complete-case sample is 143 countries;",
+      "4 countries in the CSV have no GDPperCapita."
+    )
+  ),
+  source = "r_code/figures/chapter_04.R"
+)

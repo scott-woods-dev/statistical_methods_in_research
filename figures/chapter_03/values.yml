@@ -1,0 +1,38 @@
+chapter: 3
+source: r_code/figures/chapter_03.R
+script: r_code/figures/chapter_03.R
+conventions:
+  note: Figure 3.1 is a bootstrap simulation with set.seed(2026). Figure 3.2 uses
+    power.t.test with a two-sided alternative, alpha = .05, equal groups, and sd =
+    1.
+values:
+  data:
+    file: depression_diet_treatment.csv
+    diet_group_n: 37
+    diet_mean_change: -6.027027
+    diet_sd_change: 10.5316625
+  figure_3_1:
+    note: Bootstrap simulation of the sampling distribution; illustrative, not a population
+      estimate.
+    seed: 2026.0
+    n_sim: 10000.0
+    n_boot: 75.0
+    boot_mean: -6.0323653
+    boot_sd: 1.1923909
+    percentile_2_5: -8.4266667
+    percentile_97_5: -3.7733333
+  figure_3_2:
+    note: Two-sided independent-sample t-test, alpha = .05, equal group sizes, sd
+      = 1.
+    alpha: 0.05
+    alternative: two.sided
+    power_80:
+    - effect: Small (d = 0.2)
+      'N': 788.0
+      power: 0.8005922
+    - effect: Medium (d = 0.5)
+      'N': 128.0
+      power: 0.8014586
+    - effect: Large (d = 0.8)
+      'N': 52.0
+      power: 0.8074858

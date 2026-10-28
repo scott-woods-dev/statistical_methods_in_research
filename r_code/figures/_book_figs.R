@@ -9,10 +9,13 @@
 #   book_palette          Okabe-Ito colours, safe for colour-vision deficiency
 #   save_book_fig()       saves a 300-dpi PNG, validates alt text, audits
 #                         colour contrast, and writes figures/chapter_NN/figures.yml
+#   save_book_values()    writes figures/chapter_NN/values.yml with the
+#                         chapter's statistics, model calls, and conventions
 #   contrast_text()       picks white or dark text for a coloured fill
 #
-# The registry written by save_book_fig() is generated. Do not edit it by hand;
-# edit the caption and alt text in the chapter's R script and rerun it.
+# The registries written by save_book_fig() and save_book_values() are
+# generated. Do not edit them by hand; edit the caption, alt text, or values in
+# the chapter's R script and rerun it.
 # =============================================================================
 
 suppressPackageStartupMessages({
@@ -364,4 +367,52 @@ save_book_fig <- function(plot, chapter, id, type, slug, caption, alt,
 
   invisible(list(path = out_path, file = file, markdown = markdown,
                  entry = entry, audit = audit))
+}
+
+# ---- Chapter values registry ------------------------------------------------
+
+values_path <- function(chapter) {
+  file.path(chapter_dir(chapter), "values.yml")
+}
+
+# Convert data frames to row-oriented lists so values.yml reads as one record
+# per term or group, not one block per data-frame column.
+as_value_rows <- function(x) {
+  if (is.data.frame(x)) {
+    x[] <- lapply(x, function(v) if (is.factor(v)) as.character(v) else v)
+    return(lapply(seq_len(nrow(x)), function(i) {
+      as.list(x[i, , drop = FALSE])
+    }))
+  }
+  if (is.list(x)) {
+    return(lapply(x, as_value_rows))
+  }
+  x
+}
+
+#' Save the numeric values and model conventions used in a chapter.
+#'
+#' @param chapter Integer chapter number.
+#' @param values Named list of values, grouped by table or figure.
+#' @param conventions Named list describing contrasts, SS type, and other
+#'   calculation choices that affect the numbers.
+#' @param source Path to the reference script that produces the models.
+#' @param quiet Suppress the confirmation message.
+save_book_values <- function(chapter, values, conventions = NULL,
+                             source = NULL, quiet = FALSE) {
+  if (!is.list(values) || is.null(names(values))) {
+    stop("values must be a named list", call. = FALSE)
+  }
+  ch <- as.integer(chapter)
+  dir.create(chapter_dir(ch), recursive = TRUE, showWarnings = FALSE)
+  out <- list(chapter = ch)
+  if (!is.null(source)) out$source <- source
+  script <- script_name()
+  if (!is.na(script)) out$script <- script
+  if (!is.null(conventions)) out$conventions <- conventions
+  out$values <- as_value_rows(values)
+  path <- values_path(ch)
+  yaml::write_yaml(out, path)
+  if (!quiet) message("Saved ", path)
+  invisible(path)
 }

@@ -17,6 +17,7 @@ suppressPackageStartupMessages({
   library(ggplot2)
   library(readr)
   library(scales)
+  library(dplyr)
 })
 
 assert_book_font()
@@ -185,4 +186,57 @@ save_book_fig(
     "near 788. A dashed horizontal line marks 80% power."
   ),
   direct_labels = TRUE
+)
+
+# ---- Chapter 3 values -------------------------------------------------------
+
+power_80 <- power_df %>%
+  filter(power >= 0.8) %>%
+  group_by(effect) %>%
+  slice_min(N, n = 1) %>%
+  ungroup() %>%
+  mutate(effect = as.character(effect))
+
+values <- list(
+  data = list(
+    file = "depression_diet_treatment.csv",
+    diet_group_n = length(diet_diff),
+    diet_mean_change = mean(diet_diff),
+    diet_sd_change = sd(diet_diff)
+  ),
+  figure_3_1 = list(
+    note = paste(
+      "Bootstrap simulation of the sampling distribution; illustrative, not a",
+      "population estimate."
+    ),
+    seed = 2026,
+    n_sim = n_sim,
+    n_boot = n_boot,
+    boot_mean = boot_mean,
+    boot_sd = boot_sd,
+    percentile_2_5 = unname(quantile(sample_means, 0.025)),
+    percentile_97_5 = unname(quantile(sample_means, 0.975))
+  ),
+  figure_3_2 = list(
+    note = paste(
+      "Two-sided independent-sample t-test, alpha = .05, equal group sizes,",
+      "sd = 1."
+    ),
+    alpha = 0.05,
+    alternative = "two.sided",
+    power_80 = power_80
+  )
+)
+
+save_book_values(
+  chapter = 3,
+  values = values,
+  conventions = list(
+    note = paste(
+      "Figure 3.1 is a bootstrap simulation with set.seed(2026). Figure 3.2",
+      "uses power.t.test with a two-sided alternative, alpha = .05, equal",
+      "groups, and sd = 1."
+    )
+  ),
+  source = "r_code/figures/chapter_03.R"
 )

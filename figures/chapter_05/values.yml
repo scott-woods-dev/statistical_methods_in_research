@@ -1,0 +1,200 @@
+chapter: 5
+source: r_code/figures/chapter_05_values.R
+script: r_code/figures/chapter_05_values.R
+conventions:
+  note: Ordinary least squares. The births models treat habit as a smoker indicator
+    with nonsmoker as the reference, and mature as a mature-mom indicator with younger
+    mom as the reference. In the salary models, Sex is 1 = male and 0 = female, and
+    PhD is 1 = holds a PhD and 0 = does not. No Type III sums of squares or contrast
+    choices apply to these models.
+values:
+  data:
+    births_file: births_2014.csv
+    births_rows: 1000
+    births_missing_visits: 56
+    births_missing_habit: 19
+    salary_file: college_teacher_salary_2023.csv
+    salary_rows: 200
+  table_5_1:
+    model: lm(weight ~ visits, data = births)
+    'n': 944
+    r_squared: 0.0345546
+    adjusted_r_squared: 0.0335298
+    f: 33.7155009
+    df1: 1.0
+    df2: 942.0
+    p: 8.7150921e-09
+    coefficients:
+    - term: (Intercept)
+      estimate: 6.5291367
+      se: 0.1230524
+      t: 53.0598023
+      p: 3.0650637e-285
+    - term: visits
+      estimate: 0.0591895
+      se: 0.0101937
+      t: 5.8065051
+      p: 8.7150921e-09
+  table_5_2:
+    model: lm(weight ~ visits + weeks, data = births)
+    'n': 944
+    r_squared: 0.3076014
+    adjusted_r_squared: 0.3061298
+    f: 209.0218561
+    df1: 2.0
+    df2: 941.0
+    p: 7.7195343e-76
+    coefficients:
+    - term: (Intercept)
+      estimate: -3.5957442
+      se: 0.535841
+      t: -6.7104687
+      p: 3.3466562e-11
+    - term: visits
+      estimate: 0.0248871
+      se: 0.0088189
+      t: 2.8220268
+      p: 0.0048726
+    - term: weeks
+      estimate: 0.2720127
+      se: 0.0141206
+      t: 19.2635002
+      p: 5.7719715e-70
+  table_5_3:
+    note: Table 5.3 reports the two predictor coefficients from the Table 5.2 model.
+      The intercept is included here for completeness.
+    coefficients:
+    - term: (Intercept)
+      estimate: -3.5957442
+      se: 0.535841
+      t: -6.7104687
+      p: 3.3466562e-11
+    - term: visits
+      estimate: 0.0248871
+      se: 0.0088189
+      t: 2.8220268
+      p: 0.0048726
+    - term: weeks
+      estimate: 0.2720127
+      se: 0.0141206
+      t: 19.2635002
+      p: 5.7719715e-70
+  table_5_4:
+    model: lm(weight ~ weeks + habit, data = births)
+    'n': 981
+    r_squared: 0.303925
+    adjusted_r_squared: 0.3025015
+    f: 213.510511
+    df1: 2.0
+    df2: 978.0
+    p: 1.1449853e-77
+    coefficients:
+    - term: (Intercept)
+      estimate: -3.2120723
+      se: 0.5275532
+      t: -6.0886226
+      p: 1.6340944e-09
+    - term: weeks
+      estimate: 0.2704153
+      se: 0.013577
+      t: 19.9172061
+      p: 2.3346752e-74
+    - term: habitsmoker
+      estimate: -0.3865158
+      se: 0.1081217
+      t: -3.5748223
+      p: 0.0003676
+    note: The habit coefficient is the smoker-versus-nonsmoker difference; nonsmoker
+      is the reference level.
+  interaction_model:
+    model: lm(weight ~ weeks + smoker + mature_ind + smoker:mature_ind, data = births)
+    note: smoker = 1 for smokers, 0 for nonsmokers; mature_ind = 1 for mature moms,
+      0 for younger moms.
+    'n': 981
+    r_squared: 0.3076842
+    adjusted_r_squared: 0.3048468
+    f: 108.4403182
+    df1: 4.0
+    df2: 976.0
+    p: 1.769611e-76
+    coefficients:
+    - term: (Intercept)
+      estimate: -3.2715586
+      se: 0.527299
+      t: -6.2043705
+      p: 8.1028903e-10
+    - term: weeks
+      estimate: 0.2710016
+      se: 0.0135567
+      t: 19.9903047
+      p: 8.7075506e-75
+    - term: smoker
+      estimate: -0.3621215
+      se: 0.1155003
+      t: -3.1352426
+      p: 0.0017685
+    - term: mature_ind
+      estimate: 0.2260365
+      se: 0.0992684
+      t: 2.2770237
+      p: 0.0230005
+    - term: smoker:mature_ind
+      estimate: -0.1217019
+      se: 0.3233593
+      t: -0.3763675
+      p: 0.7067255
+  table_5_5:
+    model: lm(Salary ~ Sex, data = salary)
+    'n': 200
+    r_squared: 0.0494096
+    adjusted_r_squared: 0.0446087
+    f: 10.2916116
+    df1: 1.0
+    df2: 198.0
+    p: 0.0015587
+    coefficients:
+    - term: (Intercept)
+      estimate: 61.6701031
+      se: 7.0301506
+      t: 8.7722307
+      p: 8.0830471e-16
+    - term: Sex
+      estimate: 31.4269843
+      se: 9.796276
+      t: 3.2080542
+      p: 0.0015587
+  table_5_6:
+    model: lm(Salary ~ Sex + Age + PhD, data = salary)
+    'n': 200
+    r_squared: 0.220578
+    adjusted_r_squared: 0.208648
+    f: 18.4894604
+    df1: 3.0
+    df2: 196.0
+    p: 1.3267302e-10
+    coefficients:
+    - term: (Intercept)
+      estimate: 6.5221329
+      se: 14.5752907
+      t: 0.4474788
+      p: 0.6550236
+    - term: Sex
+      estimate: 27.6447265
+      se: 9.1322981
+      t: 3.027138
+      p: 0.0028005
+    - term: Age
+      estimate: 0.733522
+      se: 0.3057705
+      t: 2.3989297
+      p: 0.0173801
+    - term: PhD
+      estimate: 48.5542022
+      se: 9.3029455
+      t: 5.2192289
+      p: 4.5587201e-07
+  table_5_7:
+    note: Simulated side-by-side comparison of three salary models. The table is illustrative;
+      no dataset produces those coefficients.
+  table_5_8:
+    note: Notation table; no calculated values.

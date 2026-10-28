@@ -1,0 +1,90 @@
+chapter: 6
+source: r_code/figures/chapter_06.R
+script: r_code/figures/chapter_06.R
+conventions:
+  note: One-way ANOVA. Tukey HSD controls the family-wise error rate for the three
+    pairwise comparisons. Cohen's d uses the average of the two group SDs as the denominator,
+    matching the chapter text.
+values:
+  data:
+    file: hsb.csv
+    students: 200
+    groups:
+    - prog: general
+      'n': 45
+      mean: 51.3333333
+      sd: 9.3977754
+    - prog: academic
+      'n': 105
+      mean: 56.2571429
+      sd: 7.9433433
+    - prog: vocational
+      'n': 50
+      mean: 46.76
+      sd: 9.3187544
+  figure_6_1_6_5:
+    note: Pooled residual histogram from aov(write ~ prog). The normal curve is scaled
+      to the histogram counts.
+    residual_sd: 8.5956566
+    residual_n: 200
+  figure_6_2:
+    note: Simulated Q-Q examples, set.seed(2026), n = 200, rnorm/rexp/rt(df = 3).
+      These are illustrative, not hsb.csv residuals.
+  figure_6_3_6_4_6_7:
+    note: Group summaries used in the jitter and box plots.
+    groups:
+    - prog: general
+      'n': 45
+      mean: 51.3333333
+      sd: 9.3977754
+    - prog: academic
+      'n': 105
+      mean: 56.2571429
+      sd: 7.9433433
+    - prog: vocational
+      'n': 50
+      mean: 46.76
+      sd: 9.3187544
+  anova:
+    model: aov(write ~ prog, data = hsb)
+    terms:
+    - term: prog
+      df: 2.0
+      sum_sq: 3175.6978571
+      mean_sq: 1587.8489286
+      f: 21.2747378
+      p: 4.3101626e-09
+    - term: Residuals
+      df: 197.0
+      sum_sq: 14703.1771429
+      mean_sq: 74.635417
+      f: .na.real
+      p: .na.real
+  tukey_hsd:
+    note: Tukey HSD for all three program-track pairs.
+    comparisons:
+    - difference: 4.9238095
+      lower_95: 1.2887031
+      upper_95: 8.558916
+      p_adjusted: 0.0045651
+      comparison: academic-general
+    - difference: -4.5733333
+      lower_95: -8.7655426
+      upper_95: -0.3811241
+      p_adjusted: 0.0287616
+      comparison: vocational-general
+    - difference: -9.4971429
+      lower_95: -13.0027126
+      upper_95: -5.9915732
+      p_adjusted: 3.3685142e-09
+      comparison: vocational-academic
+  cohen_d:
+    note: Absolute mean difference divided by the average of the two group standard
+      deviations.
+    comparisons:
+    - comparison: academic vs general
+      d: 0.5678768
+    - comparison: academic vs vocational
+      d: 1.1003463
+    - comparison: general vs vocational
+      d: 0.4886946

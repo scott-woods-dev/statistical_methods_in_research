@@ -308,3 +308,103 @@ save_book_fig(
     "(academic), so the 2X rule is satisfied."
   )
 )
+
+# ---- Chapter 6 values -------------------------------------------------------
+
+group_summary <- hsb %>%
+  group_by(prog) %>%
+  summarise(
+    n = n(),
+    mean = mean(write),
+    sd = sd(write),
+    .groups = "drop"
+  )
+
+anova_table <- summary(write_model)[[1]]
+anova_rows <- data.frame(
+  term = trimws(rownames(anova_table)),
+  df = anova_table[, "Df"],
+  sum_sq = anova_table[, "Sum Sq"],
+  mean_sq = anova_table[, "Mean Sq"],
+  f = anova_table[, "F value"],
+  p = anova_table[, "Pr(>F)"],
+  check.names = FALSE, row.names = NULL
+)
+
+tukey <- as.data.frame(TukeyHSD(write_model)$prog)
+tukey$comparison <- rownames(tukey)
+rownames(tukey) <- NULL
+names(tukey) <- c(
+  "difference", "lower_95", "upper_95", "p_adjusted", "comparison"
+)
+
+cohen_d <- function(g1, g2) {
+  a <- group_summary[group_summary$prog == g1, ]
+  b <- group_summary[group_summary$prog == g2, ]
+  abs(a$mean - b$mean) / ((a$sd + b$sd) / 2)
+}
+cohen_d_table <- data.frame(
+  comparison = c(
+    "academic vs general", "academic vs vocational", "general vs vocational"
+  ),
+  d = c(
+    cohen_d("academic", "general"),
+    cohen_d("academic", "vocational"),
+    cohen_d("general", "vocational")
+  ),
+  check.names = FALSE
+)
+
+values <- list(
+  data = list(
+    file = "hsb.csv",
+    students = nrow(hsb),
+    groups = group_summary
+  ),
+  figure_6_1_6_5 = list(
+    note = paste(
+      "Pooled residual histogram from aov(write ~ prog). The normal curve is",
+      "scaled to the histogram counts."
+    ),
+    residual_sd = res_sd,
+    residual_n = n_res
+  ),
+  figure_6_2 = list(
+    note = paste(
+      "Simulated Q-Q examples, set.seed(2026), n = 200, rnorm/rexp/rt(df = 3).",
+      "These are illustrative, not hsb.csv residuals."
+    )
+  ),
+  figure_6_3_6_4_6_7 = list(
+    note = "Group summaries used in the jitter and box plots.",
+    groups = group_summary
+  ),
+  anova = list(
+    model = "aov(write ~ prog, data = hsb)",
+    terms = anova_rows
+  ),
+  tukey_hsd = list(
+    note = "Tukey HSD for all three program-track pairs.",
+    comparisons = tukey
+  ),
+  cohen_d = list(
+    note = paste(
+      "Absolute mean difference divided by the average of the two group",
+      "standard deviations."
+    ),
+    comparisons = cohen_d_table
+  )
+)
+
+save_book_values(
+  chapter = 6,
+  values = values,
+  conventions = list(
+    note = paste(
+      "One-way ANOVA. Tukey HSD controls the family-wise error rate for the",
+      "three pairwise comparisons. Cohen's d uses the average of the two group",
+      "SDs as the denominator, matching the chapter text."
+    )
+  ),
+  source = "r_code/figures/chapter_06.R"
+)

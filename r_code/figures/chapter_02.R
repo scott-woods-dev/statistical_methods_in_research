@@ -134,3 +134,25 @@ save_book_fig(
   width = 6.5, height = 5.5,
   direct_labels = TRUE
 )
+
+# ---- Chapter 2 values -------------------------------------------------------
+# Figure 2.1 is conceptual. Record the absence of calculated values so the
+# values registry is explicit rather than silently missing.
+
+values <- list(
+  figure_2_1 = list(
+    note = paste(
+      "Conceptual diagram comparing an observational study with a randomized",
+      "experiment. No dataset is read and no statistics are calculated."
+    )
+  )
+)
+
+save_book_values(
+  chapter = 2,
+  values = values,
+  conventions = list(
+    note = "Chapter 2 is conceptual; Figure 2.1 is a diagram, not a data plot."
+  ),
+  source = "r_code/figures/chapter_02.R"
+)

@@ -1,0 +1,77 @@
+chapter: 4
+source: r_code/figures/chapter_04.R
+script: r_code/figures/chapter_04.R
+conventions:
+  note: Ordinary least squares. The life-expectancy model uses a base-10 logarithm
+    of GDPperCapita. The complete-case sample is 143 countries; 4 countries in the
+    CSV have no GDPperCapita.
+values:
+  data:
+    file: happy_planet_index_2024.csv
+    total_countries: 147
+    complete_cases: 143
+    missing_gdp: 4
+  figure_4_1:
+    note: Illustrative exponential curves; no dataset is used.
+  figure_4_2:
+    note: Scatterplot of GDP per capita and life expectancy; n = 143 complete cases.
+  figure_4_3:
+    note: Regression of Footprint on GDPperCapita with confidence and prediction intervals;
+      n = 143.
+  footprint_model:
+    model: lm(Footprint ~ GDPperCapita, data = hp_complete)
+    'n': 143
+    r_squared: 0.6512018
+    adjusted_r_squared: 0.648728
+    f: 263.2451493
+    df1: 1.0
+    df2: 141.0
+    p: 4.6728145e-34
+    coefficients:
+    - term: (Intercept)
+      estimate: 1.6719584
+      se: 0.4935776
+      t: 3.3874278
+      p: 0.0009146
+    - term: GDPperCapita
+      estimate: 0.0002468
+      se: 1.5212077e-05
+      t: 16.2248313
+      p: 4.6728145e-34
+    r: 0.8069707
+    slope_ci:
+    - lower_95: 0.6961893
+      upper_95: 2.6477274
+      term: (Intercept)
+    - lower_95: 0.0002167
+      upper_95: 0.0002769
+      term: GDPperCapita
+    prediction_at_70000:
+    - interval: confidence
+      fit: 18.9488952
+      lower_95: 17.3788912
+      upper_95: 20.5188993
+    - interval: prediction
+      fit: 18.9488952
+      lower_95: 10.5886863
+      upper_95: 27.3091042
+  log_life_expectancy_model:
+    model: lm(LifeExpectancy ~ log10(GDPperCapita), data = hp_complete)
+    'n': 143
+    r_squared: 0.7721697
+    adjusted_r_squared: 0.7705539
+    f: 477.8816245
+    df1: 1.0
+    df2: 141.0
+    p: 3.9212544e-47
+    coefficients:
+    - term: (Intercept)
+      estimate: 16.2832236
+      se: 2.5685788
+      t: 6.3393903
+      p: 2.919742e-09
+    - term: log10(GDPperCapita)
+      estimate: 13.5401948
+      se: 0.6193908
+      t: 21.8605038
+      p: 3.9212544e-47

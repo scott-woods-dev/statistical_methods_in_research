@@ -1,0 +1,254 @@
+chapter: 7
+source: r_code/chapter_07.r
+script: r_code/figures/chapter_07.R
+conventions:
+  contrasts: contr.sum
+  ss_type: III
+  note: r_code/chapter_07.r sets options(contrasts = c('contr.sum', 'contr.poly')).
+    The chapter tables use Type III SS. Type II or treatment contrasts give different
+    main-effect and covariate rows, so these values are the reference for checking
+    the chapter. The reference script's twoway_fit uses Syst2; Table 7.1's baseline
+    Syst model is fit here with the same convention.
+  rm: Table 7.4 uses Method A, the car::Anova multivariate output. Method B, the long-format
+    aov, gives Time F = 16.632; the difference is the SS calculation, not a data error.
+values:
+  data:
+    rows: 75
+    missing_Age: 1
+    missing_Syst: 9
+    missing_Syst2: 9
+    missing_BMI2: 2
+  figure_7_1:
+    note: Cell means of post-intervention systolic blood pressure by condition and
+      age group. The NA row is the one maid missing Age (Syst2 = 116); the 9 maids
+      missing Syst2 are excluded.
+    cell_means:
+    - Condition: Control
+      Age_Group: Under 40
+      mean_syst2: 118.9166667
+      'n': 12
+    - Condition: Control
+      Age_Group: 40+
+      mean_syst2: 127.9333333
+      'n': 15
+    - Condition: Informed
+      Age_Group: Under 40
+      mean_syst2: 117.7
+      'n': 30
+    - Condition: Informed
+      Age_Group: 40+
+      mean_syst2: 129.875
+      'n': 8
+    - Condition: Informed
+      Age_Group: NA
+      mean_syst2: 116.0
+      'n': 1
+  table_7_1:
+    note: Baseline systolic blood pressure, Type III SS with sum-to-zero contrasts.
+      This is the table the chapter labels as baseline.
+    model: lm(Syst ~ Cond * Age_Group, data = model_data)
+    anova: car::Anova(model, type = 'III')
+    'n': 65
+    residual_df: 61
+    terms:
+    - Sum Sq: 890998.3353604
+      Df: 1.0
+      F value: 1898.321784
+      Pr(>F): 1.1415005e-47
+      term: (Intercept)
+    - Sum Sq: 848.5317568
+      Df: 1.0
+      F value: 1.8078444
+      Pr(>F): 0.1837456
+      term: Cond
+    - Sum Sq: 2836.802027
+      Df: 1.0
+      F value: 6.0439654
+      Pr(>F): 0.0168082
+      term: Age_Group
+    - Sum Sq: 22.0650901
+      Df: 1.0
+      F value: 0.0470109
+      Pr(>F): 0.8290722
+      term: Cond:Age_Group
+    - Sum Sq: 28631.025
+      Df: 61.0
+      F value: .na.real
+      Pr(>F): .na.real
+      term: Residuals
+  table_7_2:
+    note: Homogeneity of regression slopes, Type III SS with sum-to-zero contrasts.
+    model: lm(Syst2 ~ Syst * Cond, data = model_data)
+    anova: car::Anova(model, type = 'III')
+    'n': 66
+    residual_df: 62
+    terms:
+    - Sum Sq: 1540.2105699
+      Df: 1.0
+      F value: 9.0772796
+      Pr(>F): 0.003744
+      term: (Intercept)
+    - Sum Sq: 12915.4189786
+      Df: 1.0
+      F value: 76.1174294
+      Pr(>F): 2.2102813e-12
+      term: Syst
+    - Sum Sq: 180.2122198
+      Df: 1.0
+      F value: 1.0620864
+      Pr(>F): 0.3067434
+      term: Cond
+    - Sum Sq: 287.8682437
+      Df: 1.0
+      F value: 1.6965606
+      Pr(>F): 0.197556
+      term: Syst:Cond
+    - Sum Sq: 10520.0081367
+      Df: 62.0
+      F value: .na.real
+      Pr(>F): .na.real
+      term: Residuals
+  table_7_3:
+    note: ANCOVA, Type III SS with sum-to-zero contrasts.
+    model: lm(Syst2 ~ Syst + Cond, data = model_data)
+    anova: car::Anova(model, type = 'III')
+    'n': 66
+    residual_df: 63
+    terms:
+    - Sum Sq: 2530.3404562
+      Df: 1.0
+      F value: 14.7495626
+      Pr(>F): 0.0002876
+      term: (Intercept)
+    - Sum Sq: 13725.0523945
+      Df: 1.0
+      F value: 80.0044588
+      Pr(>F): 8.0772598e-13
+      term: Syst
+    - Sum Sq: 457.5035745
+      Df: 1.0
+      F value: 2.6668259
+      Pr(>F): 0.1074487
+      term: Cond
+    - Sum Sq: 10807.8763804
+      Df: 63.0
+      F value: .na.real
+      Pr(>F): .na.real
+      term: Residuals
+    adjusted_means:
+    - Cond: Control
+      emmean: 124.8659059
+      SE: 2.5228715
+      df: 63.0
+      lower.CL: 119.8243495
+      upper.CL: 129.9074623
+    - Cond: Informed
+      emmean: 119.5030908
+      SE: 2.0985956
+      df: 63.0
+      lower.CL: 115.3093822
+      upper.CL: 123.6967994
+    covariate_mean: 129.1666667
+  table_7_4:
+    note: Table 7.4 uses Method A, the car::Anova multivariate repeated-measures output.
+      Method B, the long-format aov, is recorded for comparison.
+    model: lm(cbind(BMI, BMI2) ~ Cond, data = model_data)
+    anova: car::Anova(model, idata = data.frame(Time = factor(c('Baseline', 'Post_4_Weeks'))),
+      idesign = ~Time, type = 'III')
+    'n': 73
+    den_df: 71.0
+    method_A_univariate:
+    - Sum Sq: 100617.2291509
+      num Df: 1.0
+      Error SS: 2583.4307121
+      den Df: 71.0
+      F value: 2765.2467071
+      Pr(>F): 1.3408907e-58
+      term: (Intercept)
+    - Sum Sq: 36.2905208
+      num Df: 1.0
+      Error SS: 2583.4307121
+      den Df: 71.0
+      F value: 0.9973664
+      Pr(>F): 0.3213401
+      term: Cond
+    - Sum Sq: 1.3285388
+      num Df: 1.0
+      Error SS: 6.6666667
+      den Df: 71.0
+      F value: 14.1489384
+      Pr(>F): 0.0003442
+      term: Time
+    - Sum Sq: 0.906621
+      num Df: 1.0
+      Error SS: 6.6666667
+      den Df: 71.0
+      F value: 9.6555137
+      Pr(>F): 0.0027144
+      term: Cond:Time
+    method_B_within:
+    - Df: 1.0
+      Sum Sq: 1.5617123
+      Mean Sq: 1.5617123
+      F value: 16.6322363
+      Pr(>F): 0.000117
+      term: Timepoint
+    - Df: 1.0
+      Sum Sq: 0.906621
+      Mean Sq: 0.906621
+      F value: 9.6555137
+      Pr(>F): 0.0027144
+      term: Timepoint:Cond
+    - Df: 71.0
+      Sum Sq: 6.6666667
+      Mean Sq: 0.0938967
+      F value: .na.real
+      Pr(>F): .na.real
+      term: Residuals
+  post_intervention_two_way:
+    note: Post-intervention model used for the clarifying sentence in Section 7.5.
+      The interaction p = .771 is the value that applies to Figure 7.1. The model
+      uses the 65 maids with known age; the single NA-age point is not in the model.
+    model: lm(Syst2 ~ Cond * Age_Group, data = model_data)
+    anova: car::Anova(model, type = 'III')
+    'n': 65
+    residual_df: 61
+    terms:
+    - Sum Sq: 792830.5317568
+      Df: 1.0
+      F value: 2099.3449648
+      Pr(>F): 5.7958903e-49
+      term: (Intercept)
+    - Sum Sq: 1.7047297
+      Df: 1.0
+      F value: 0.004514
+      Pr(>F): 0.9466533
+      term: Cond
+    - Sum Sq: 1456.4975225
+      Df: 1.0
+      F value: 3.8566763
+      Pr(>F): 0.0541102
+      term: Age_Group
+    - Sum Sq: 32.3515766
+      Df: 1.0
+      F value: 0.0856641
+      Pr(>F): 0.7707567
+      term: Cond:Age_Group
+    - Sum Sq: 23037.025
+      Df: 61.0
+      F value: .na.real
+      Pr(>F): .na.real
+      term: Residuals
+  bmi_change:
+    note: Paired before-and-after BMI change by condition (BMI minus BMI2).
+    paired:
+    - Cond: Control
+      n_pairs: 33
+      mean_BMI_minus_BMI2: 0.0333333
+      t: 0.4681646
+      p: 0.6428401
+    - Cond: Informed
+      n_pairs: 40
+      mean_BMI_minus_BMI2: 0.35
+      t: 4.8936048
+      p: 1.7511214e-05

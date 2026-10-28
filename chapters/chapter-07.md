@@ -43,7 +43,7 @@ When human bodies are involved, that noise bucket fills up incredibly fast. If t
 
 **The Two-Way ANOVA**
 
-What if we know that a categorical variable, like age brackets, is causing a massive amount of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This not only shrinks the unexplained noise but also allows us to see if our intervention works differently for different types of people.
+What if we know that a categorical variable, like age brackets, is causing a massive amount of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This shrinks the unexplained noise and lets us see whether the intervention works differently for different types of people.
 
 
 
@@ -124,9 +124,7 @@ An interaction plot maps out the averages for every possible combination of our 
 
 Here is the golden rule for reading an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
 
-```
-[Insert Figure 7.1: Interaction plot showing post-intervention systolic blood pressure by condition, with separate lines for the Under 40, 40+, and NA age groups]
-```
+![Figure 7.1: Interaction plot of post-intervention systolic blood pressure by condition and age group. The Under 40 line slopes down from control to informed, while the 40+ line slopes up, so the lines are not parallel. The single NA point marks the maid whose age was missing.](../figures/chapter_07/fig_07_01_line_interaction_syst2_condition_age.png){fig-alt="Interaction plot with condition on the x-axis and post-intervention systolic blood pressure on the y-axis. The Under 40 line falls from control to informed, the 40+ line rises, and a single NA point appears near the informed position. The 40+ line stays above the Under 40 line."}
 
 Let's look at the interaction plot for our hotel maids. First, follow the line for the "Under 40" age group. Notice that their average blood pressure is lower in the informed condition than in the control condition. For the younger maids, the mindset intervention worked exactly as the researchers hoped!
 
@@ -136,15 +134,15 @@ Now, look at the line for the "40+" age group. Their line actually goes in the o
 
 
 
-Notice that the lines for our two age groups do not physically cross on the graph. Because the older maids started out with a higher baseline blood pressure across the board, their line hovers safely above the younger maids' line. However, crossing lines are not required for an interaction. Because one line points up and the other points down, they are clearly not parallel. This diverging behavior is the visual hallmark of an interaction effect. The intervention's success heavily depends on the participant's age.
+Notice that the lines for our two age groups do not physically cross on the graph. Because the older maids started out with a higher baseline blood pressure across the board, their line hovers safely above the younger maids' line. However, crossing lines are not required for an interaction. Because one line points up and the other points down, they are not parallel. This diverging behavior is the visual hallmark of an interaction effect. The intervention's success heavily depends on the participant's age.
 
 
 
-When you look at Figure 7.1, you will notice a third element floating on the plot labeled "NA." This stands for "Not Available." In our dataset, the systolic blood pressure is missing for 9 of the 75 maids.
+When you look at Figure 7.1, you will notice a third element floating on the plot labeled "NA." This stands for "Not Available." One maid is missing her age, so she does not belong to either age block. Her post-intervention blood pressure is still known (116 mmHg), so she appears as a single point in the informed condition. Separately, 9 maids are missing their post-intervention systolic blood pressure, so they cannot appear on this plot at all.
 
 
 
-When researchers see an "NA" disrupting their clean age categories, the immediate temptation is to delete those 9 participants so the graph looks perfect. However, throwing away data is a dangerous habit. Even though we do not know their systolic blood pressure, we still have other perfectly valid readings like weight and BMI that could be used in other parts of our analysis.
+When researchers see missing values disrupting their clean age categories, the immediate temptation is to delete the affected participants so the graph looks perfect. However, throwing away data is a dangerous habit. The 9 maids without a final blood pressure reading still have other valid readings, like weight and baseline BMI, that can be used in other parts of the analysis. The maid without an age still has a final blood pressure reading, and deleting her would remove a real observation from the condition comparison.
 
 
 
@@ -190,11 +188,15 @@ Let's look at the output generated for our hotel maids. To see a mix of statisti
 | Cond * Age_Group (Interaction) | 1      | 0.05            | 0.829       |
 | Residuals (Error)              | 61     |                 |             |
 
+: Table 7.1: Two-way ANOVA of baseline systolic blood pressure by condition and age group (n = 65).
+
 Following our golden rule, we stop and look entirely at the interaction row (`Cond * Age_Group`) first. The $p$-value is $0.829$.
 
 
 
 This is a fantastic lesson in why we never rely *only* on a graph. In the previous section, we looked at the interaction plot and saw the lines pointing in different directions. However, a $p$-value of $0.829$ is massive. It is nowhere near our $0.05$ standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.
+
+Table 7.1 models baseline blood pressure, while Figure 7.1 plots post-intervention blood pressure. The post-intervention model gives an interaction $p$-value of $0.771$, also far from $0.05$, so the visual divergence is consistent with noise either way.
 
 
 
@@ -304,6 +306,8 @@ Let's look at the preliminary assumption check generated by our statistical soft
 | Syst * Cond (Assumption Check) | 1      | 1.70            | 0.198       |
 | Residuals (Error)              | 62     |                 |             |
 
+: Table 7.2: Homogeneity of regression slopes check for the ANCOVA of post-intervention systolic blood pressure (n = 66).
+
 To check this assumption, we are strictly looking at the interaction row (`Syst * Cond`) to see if the covariate behaves differently across our two conditions. The $p$-value is $0.198$.
 
 
@@ -331,6 +335,8 @@ Let's look at the ANCOVA output for our hotel maids, predicting their final post
 | Syst (Covariate)  | 1      | 80.00           | < 0.001     |
 | Cond (Condition)  | 1      | 2.67            | 0.107       |
 | Residuals (Error) | 63     |                 |             |
+
+: Table 7.3: ANCOVA of post-intervention systolic blood pressure controlling for baseline systolic blood pressure (n = 66).
 
 To read this table, we simply look at each row one at a time.
 
@@ -360,7 +366,7 @@ An ANCOVA does not just spit out a $p$-value; it actually recalculates the avera
 
 
 
-Remember, the goal of an ANCOVA is to simulate what would have happened if every single participant had started at the exact same baseline. The software calculates the overall average baseline blood pressure for the entire sample of 75 maids. Then, it mathematically adjusts every maid's final blood pressure score based on how far away they were from that starting average.
+Remember, the goal of an ANCOVA is to simulate what would have happened if every single participant had started at the exact same baseline. The software calculates the overall average baseline blood pressure for the 66 maids with both a baseline and a final reading. Then, it mathematically adjusts every maid's final blood pressure score based on how far away they were from that starting average.
 
 
 
@@ -427,7 +433,7 @@ Think about why this is so powerful. When we compare different people, we have t
 
 
 
-Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve massive statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can definitively prove their psychological intervention works using 75 people measured twice, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
+Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve massive statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can definitively prove their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
 
 ### A Note on Longitudinal Studies
 
@@ -458,6 +464,8 @@ Here is the simplified output for our analysis:
 | Cond * Time (Interaction)  | 1      | 9.66            | 0.003       |
 | Residuals (Error)          | 71     |                 |             |
 
+: Table 7.4: Repeated measures ANOVA of BMI by condition and time (n = 73).
+
 To interpret this table, we follow the exact same golden rule you learned in Section 7.5: **always check the interaction first**.
 
 ### 1. The Interaction Effect (`Cond * Time`)
@@ -470,7 +478,7 @@ In a Repeated Measures design, a significant interaction between time and condit
 
 ### 2. The Main Effect of Time (`Time`)
 
-Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The $p$-value is $< 0.001$. This tells us that, if we completely ignored the intervention and lumped all 75 maids together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.
+Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The $p$-value is $< 0.001$. This tells us that, if we completely ignored the intervention and lumped all 73 maids with both BMI readings together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.
 
 ### 3. The Main Effect of Condition (`Cond`)
 

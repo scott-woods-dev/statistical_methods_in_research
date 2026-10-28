@@ -1,0 +1,9 @@
+chapter: 2
+source: r_code/figures/chapter_02.R
+script: r_code/figures/chapter_02.R
+conventions:
+  note: Chapter 2 is conceptual; Figure 2.1 is a diagram, not a data plot.
+values:
+  figure_2_1:
+    note: Conceptual diagram comparing an observational study with a randomized experiment.
+      No dataset is read and no statistics are calculated.

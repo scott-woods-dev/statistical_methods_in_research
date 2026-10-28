@@ -1,0 +1,23 @@
+figures:
+- id: '7.1'
+  file: fig_07_01_line_interaction_syst2_condition_age.png
+  type: line
+  caption: Interaction plot of post-intervention systolic blood pressure by condition
+    and age group. The Under 40 line slopes down from control to informed, while the
+    40+ line slopes up, so the lines are not parallel. The single NA point marks the
+    maid whose age was missing.
+  alt: Interaction plot with condition on the x-axis and post-intervention systolic
+    blood pressure on the y-axis. The Under 40 line falls from control to informed,
+    the 40+ line rises, and a single NA point appears near the informed position.
+    The 40+ line stays above the Under 40 line.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_07.R
+  author_note: The 9 maids with missing Syst2 are excluded from the means. The NA
+    point is the 1 maid with missing Age (Syst2 = 116), not the 9 missing blood pressure
+    cases.
+  colour_audit:
+    n_colours: 3
+    min_contrast: 3.8671838
+    min_lab_distance: 43.5146176
