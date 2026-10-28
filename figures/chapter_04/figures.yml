@@ -6,9 +6,10 @@ figures:
     straight line through its endpoints. Both curves bend away from the straight line,
     so a straight-line model would fit poorly.
   alt: Two side-by-side line charts. The left panel shows a curve that rises slowly
-    and then steeply, labeled exponential growth, below a dashed straight line through
-    its endpoints. The right panel shows a curve that drops steeply and then flattens,
-    labeled exponential decay, also below the dashed straight line.
+    and then steeply, labeled exponential growth, below a dashed straight line illustrating
+    a linear trend. The right panel shows a curve that drops steeply and then flattens,
+    labeled exponential decay, also below the dashed straight line showing a linear
+    trend.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0

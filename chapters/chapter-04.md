@@ -388,7 +388,7 @@ But what happens when you have two variables that are clearly connected, but the
 
 Some variables compound over time or scale. For example, population sizes tend to grow exponentially, curving sharply upward like a hockey stick. Conversely, things like memory retention tend to decay exponentially, dropping sharply at first and then slowly leveling out.
 
-![Figure 4.1: Illustrative exponential growth and decay curves, each compared with a straight line through its endpoints. Both curves bend away from the straight line, so a straight-line model would fit poorly.](../figures/chapter_04/fig_04_01_line_exponential_growth_decay.png){fig-alt="Two side-by-side line charts. The left panel shows a curve that rises slowly and then steeply, labeled exponential growth, below a dashed straight line through its endpoints. The right panel shows a curve that drops steeply and then flattens, labeled exponential decay, also below the dashed straight line."}
+![Figure 4.1: Illustrative exponential growth and decay curves, each compared with a straight line through its endpoints. Both curves bend away from the straight line, so a straight-line model would fit poorly.](../figures/chapter_04/fig_04_01_line_exponential_growth_decay.png){fig-alt="Two side-by-side line charts. The left panel shows a curve that rises slowly and then steeply, labeled exponential growth, below a dashed straight line illustrating a linear trend. The right panel shows a curve that drops steeply and then flattens, labeled exponential decay, also below the dashed straight line showing a linear trend."}
 
 **2. The Law of Diminishing Returns**
 

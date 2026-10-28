@@ -101,9 +101,9 @@ save_book_fig(
   alt = paste(
     "Two side-by-side line charts. The left panel shows a curve that rises",
     "slowly and then steeply, labeled exponential growth, below a dashed",
-    "straight line through its endpoints. The right panel shows a curve that",
-    "drops steeply and then flattens, labeled exponential decay, also below",
-    "the dashed straight line."
+    "straight line illustrating a linear trend. The right panel shows a curve",
+    "that drops steeply and then flattens, labeled exponential decay, also",
+    "below the dashed straight line showing a linear trend."
   ),
   direct_labels = TRUE,
   author_note = paste(
