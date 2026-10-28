@@ -232,9 +232,7 @@ To build our case for or against normality, we evaluate three distinct pieces of
 
 In Chapter 1, we learned how to build histograms to visualize shape.
 
-```
-[Insert Figure 6.1: A single histogram showing the distribution of the pooled residuals from the ANOVA model. Alt-text: A histogram displaying a roughly symmetric, bell-shaped distribution of residuals centered around zero.]
-```
+![Figure 6.1: Distribution of the pooled residuals from the one-way ANOVA of writing scores by program track. The residuals are centered at zero and roughly bell-shaped, with a mild left tail. The smooth curve marks a normal distribution with the same mean and standard deviation.](../figures/chapter_06/fig_06_01_hist_residuals_histogram_concept.png){fig-alt="Histogram of the pooled ANOVA residuals, centered near zero with a roughly bell-shaped distribution and a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."}
 
 Histograms give us a quick, intuitive look at the residuals' shape. However, be careful: changing the software's bin width (the number of bars) can completely alter how a histogram looks. For this reason, never rely on a histogram as your only piece of evidence.
 
@@ -254,11 +252,9 @@ These plots line your actual residuals up against a theoretically perfect normal
 - **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or very light tails. This is also a problem that violates the assumption.
 - **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually perfectly fine! Human brains are incredibly good at finding patterns in random noise. A highly wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
 
-```
-[Insert Figure 6.2: A three-panel graphic showing Normal Probability Plots. Panel A shows data hugging the line (Normal). Panel B shows a single sharp hook (Skewed). Panel C shows an S-curve (Heavy Tails). Alt-text: Three scatterplots comparing residuals against a diagonal line. The first tracks perfectly, the second hooks sharply upward, and the third forms an S-shape across the line.]
-```
+![Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.](../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png){fig-alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."}
 
-**2. Normality Hypothesis Tests (Anderson-Darling or Shapiro-Wilk)**
+**3. Normality Hypothesis Tests (Anderson-Darling or Shapiro-Wilk)**
 
 
 
@@ -296,9 +292,7 @@ Why? Using a hypothesis test to see if you are allowed to run a hypothesis test 
 
 To visually check for equal variances, your best tool is a **jitter plot**. A jitter plot is similar to a scatterplot, but it randomly nudges the data points slightly to the left and right so they do not overlap. This allows you to see every single individual data point in your sample.
 
-```
-[Insert Figure 6.3: A jitter plot comparing the spread of writing scores across the three program tracks. Alt-text: A jitter plot showing three distinct vertical columns of dots representing the general, academic, and vocational tracks. The vertical spread of the dots is roughly equal across all three columns.]
-```
+![Figure 6.3: Jitter plot of writing scores by program track. Each dot is one student, and black diamonds mark the group means. The vertical spread is similar across the three tracks, which supports the equal variances assumption.](../figures/chapter_06/fig_06_03_scatter_writing_jitter_equal_variances.png){fig-alt="Jitter plot of writing scores for the general, academic, and vocational tracks. Each dot is a student, and black diamonds mark the group means. The academic track sits higher, but the vertical spread of dots is similar across all three columns."}
 
 While you might be tempted to use a boxplot here, boxplots can be misleading for this specific diagnostic. Because a boxplot focuses on the middle 50% of the data (the Interquartile Range), it can obscure the true top-to-bottom spread of the group. A jitter plot shows you the entire picture. You are simply looking for the vertical spread of the dots to be roughly similar across all your groups.
 
@@ -474,9 +468,7 @@ We begin by looking at the basic structure of our treatment groups. Our sample o
 
 Next, we generate a side-by-side boxplot to get a preliminary visual feel for the data.
 
-```
-[Insert Figure 6.4: A side-by-side boxplot showing standardized writing scores by program track. Alt-text: Three boxplots. The academic track box sits higher on the y-axis but is noticeably compressed compared to the wider general and vocational boxes. The academic track has one low-end outlier.]
-```
+![Figure 6.4: Side-by-side boxplots of standardized writing scores by program track. The line inside each box is the median, the box is the interquartile range, and the whiskers extend to the non-outlying data. The academic track has the highest median and the narrowest box, with one low outlier.](../figures/chapter_06/fig_06_04_box_writing_boxplot_by_program.png){fig-alt="Side-by-side boxplots of writing scores for the general, academic, and vocational tracks. The academic box sits higher and is shorter than the other two, and a single low outlier appears below its lower whisker. The general and vocational boxes overlap."}
 
 This boxplot gives us three immediate insights before we ever run a mathematical test. First, the academic track has a low outlier and appears slightly negatively skewed. Standardized tests often suffer from a mild **ceiling effect** (students can only score so high before they hit the maximum limit), which tends to compress the top of the data and stretch the bottom. 
 
@@ -504,25 +496,19 @@ To finalize our data triage, we evaluate the four structural assumptions of the 
 
 **3. Normality:** We pool the residuals from all three groups and look at their distribution.
 
-```
-[Insert Figure 6.5: A histogram of the pooled ANOVA residuals. Alt-text: A histogram showing a bell-shaped distribution of residuals centered at zero, with a very slight lean to the left.]
-```
+![Figure 6.5: Distribution of the pooled residuals from the one-way ANOVA in the guided analysis. The shape is mostly bell-shaped with a mild left tail, consistent with the lowest writing score in the academic track. The smooth curve marks a normal distribution with the same mean and standard deviation.](../figures/chapter_06/fig_06_05_hist_residuals_histogram_analysis.png){fig-alt="Histogram of the pooled ANOVA residuals, mostly bell-shaped and centered near zero, with a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."}
 
 Our histogram is mostly bell-shaped, but it exhibits that slight left-skew we anticipated from the ceiling effect. In a rigid mathematical sense, this is not a *perfect* bell curve. However, remember our golden rule of diagnostics: we are not looking for perfection; we are looking for plausibility. If someone handed you this histogram, it is entirely plausible that it came from a normal distribution.
 
-```
-[Insert Figure 6.6: A Normal Q-Q Plot of the pooled residuals. Alt-text: A scatterplot showing data points tightly hugging a straight, diagonal reference line with no major S-curves or sharp hooks.]
-```
+![Figure 6.6: Normal Q-Q plot of the pooled ANOVA residuals. Points close to the dashed line are consistent with a normal distribution. The points follow the line closely, with a small dip in the lower tail from the lowest writing score.](../figures/chapter_06/fig_06_06_scatter_residuals_qq_analysis.png){fig-alt="Normal Q-Q plot of the pooled residuals. Most points hug the dashed diagonal reference line, with a small dip below the line at the lower end. There is no sharp hook or S-curve."}
 
-To confirm, we check our Q-Q plot. The dots track our diagonal reference line beautifully. Any minor wiggles are simply the natural, random wanderings you expect from real-world data, not structural failures like a sharp hook or S-curve. The normality assumption is safely met.
+To confirm, we check our Q-Q plot. The dots track our diagonal reference line closely. The small dip in the lower tail comes from the same low outlier, but the rest of the points follow the line. That is a minor wiggle, not a structural failure like a sharp hook or S-curve. The normality assumption is safely met.
 
 
 
 **4. Equal Variances:** Because our boxplot showed different sized boxes, we use a jitter plot to look at the true top-to-bottom spread of every single student.
 
-```
-[Insert Figure 6.7: A jitter plot showing writing scores for the three program tracks. Alt-text: Three vertical columns of scattered dots. While the academic column sits higher overall, the total vertical spread of the dots is remarkably similar across all three columns.]
-```
+![Figure 6.7: Jitter plot of writing scores for the three program tracks in the guided analysis. The academic track sits higher, but the full vertical spread of scores is similar across groups. Black diamonds mark the group means.](../figures/chapter_06/fig_06_07_scatter_writing_jitter_analysis.png){fig-alt="Jitter plot of writing scores for the three program tracks. The academic column sits higher overall, but the total vertical spread of the dots is similar across all three columns. Black diamonds mark the group means."}
 
 The jitter plot reveals that the overall vertical spread of the scores is actually quite even across all three tracks. We confirm this visually with our mathematical rule of thumb. The largest standard deviation belongs to the general track ($SD = 9.40$), and the smallest belongs to the academic track ($SD = 7.94$). Because 9.40 is nowhere near double 7.94, we are well within the model's tolerance limits. The equal variances assumption is safely met.
 
@@ -704,6 +690,8 @@ When the difference in spread is your actual research interest, you can use a to
 | ANOVA       | "A-no-va" or "Analysis of Variance"                          | The overarching statistical framework used to compare the means of a numerical response variable across three or more categorical treatment groups. |
 | $F$         | "F-statistic" or just "F"                                    | The mathematical ratio of the between-groups variation (the signal) to the within-groups variation (the noise). |
 | Tukey's HSD | "Tukey's H-S-D" or "Tukey's Honestly Significant Difference" | The standard post hoc test used to safely determine which specific pairs of groups differ after a significant global ANOVA, without inflating the overall risk of a Type I error. |
+
+: Table 6.1: Notation introduced in this chapter.
 
 ---
 
