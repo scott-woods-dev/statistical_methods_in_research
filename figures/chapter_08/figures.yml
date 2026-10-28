@@ -1,0 +1,104 @@
+figures:
+- id: '8.1'
+  file: fig_08_01_bar_race_observed_expected.png
+  type: bar
+  caption: Observed racial distribution of fatal police shootings compared with the
+    expected 2020 U.S. Census distribution. The 5,708 incidents with a known race
+    in the five Census categories are shown. The observed Black count is far above
+    its expected count, while the White and Asian counts are below theirs.
+  alt: Grouped bar chart of observed and expected counts for five racial categories.
+    Black observed 1,528 versus expected 725; White 2,919 versus 3,466; Asian 105
+    versus 354; Hispanic 1,066 versus 1,121; Native American 90 versus 42. The Black
+    bar is much taller than expected, and the White and Asian bars are shorter.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_08.R
+  author_note: 'Expected counts use the 2020 Census weights c(5.9, 12.1, 18.7, 0.7,
+    57.8)%, rescaled after excluding the 4.8% other/multiracial category. Exact expected
+    counts: 353.75, 725.49, 1121.21, 41.97, 3465.57.'
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.2522876
+    min_lab_distance: 70.8574031
+- id: '8.2'
+  file: fig_08_02_segmented_flee_by_mental_illness.png
+  type: segmented
+  caption: Fleeing behavior by documented mental illness status. Each bar is scaled
+    to 100% within its group. People with documented illness were more likely to not
+    flee and less likely to flee by car or on foot.
+  alt: '100% stacked bar chart of fleeing behavior for two groups. No documented illness:
+    not fleeing 62%, on foot 17%, by car 22%. Documented illness: not fleeing 86%,
+    on foot 8%, by car 7%. The documented-illness bar has a larger not-fleeing segment
+    and smaller fleeing segments.'
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_08.R
+  author_note: 'Counts: no documented illness 2,700 not fleeing, 727 on foot, 941
+    by car; documented illness 1,183 not fleeing, 105 on foot, 94 by car. N = 5,750.'
+  colour_audit:
+    n_colours: 5
+    min_contrast: 1.0
+    min_lab_distance: 55.3717028
+- id: '8.3'
+  file: fig_08_03_bar_icu_age_by_admission.png
+  type: bar
+  caption: Age group distribution within elective and emergency ICU admissions. Bars
+    show the percentage of each admission group in each age category. Elective admissions
+    have a much smaller share of patients under 50.
+  alt: 'Grouped bar chart of age groups within two ICU admission types. Elective:
+    under 50 13%, 50 to 69 45%, 70 or older 42%. Emergency: under 50 35%, 50 to 69
+    36%, 70 or older 29%. The elective under-50 bar is much shorter.'
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_08.R
+  author_note: 'Counts: elective 7 under 50, 24 aged 50 to 69, 22 aged 70 or older;
+    emergency 52, 53, and 42. N = 200.'
+  colour_audit:
+    n_colours: 4
+    min_contrast: 2.2522876
+    min_lab_distance: 55.3717028
+- id: '8.4'
+  file: fig_08_04_bar_speed_dating_outcomes.png
+  type: bar
+  caption: 'Outcomes of 276 speed-dating interactions. The two disagreement bars are
+    the ones McNemar''s test compares: 83 interactions where only the man said yes
+    and 64 where only the woman said yes.'
+  alt: Bar chart of four paired dating outcomes. Both said no 66; only male said yes
+    83; only female said yes 64; both said yes 63. The only-male-yes bar is the tallest.
+    The only-female-yes bar is taller than both-said-yes and slightly shorter than
+    both-said-no.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_08.R
+  author_note: 'McNemar''s test uses the two disagreement cells: 83 male-only yes
+    versus 64 female-only yes. The agreement cells are 66 both no and 63 both yes.'
+  colour_audit:
+    n_colours: 2
+    min_contrast: 2.3074822
+    min_lab_distance: 70.8574031
+- id: '8.5'
+  file: fig_08_05_diagram_confusion_matrix.png
+  type: diagram
+  caption: A confusion matrix. Rows show the rule's prediction and columns show the
+    actual outcome. The diagonal cells are correct classifications (true positive
+    and true negative); the off-diagonal cells are errors (false positive and false
+    negative).
+  alt: Two-by-two confusion matrix. The top-left cell is true positive, predicted
+    positive and actual positive. The top-right is false positive, predicted positive
+    and actual negative. The bottom-left is false negative, predicted negative and
+    actual positive. The bottom-right is true negative, predicted negative and actual
+    negative.
+  width_in: 6.5
+  height_in: 4.5
+  dpi: 300.0
+  script: r_code/figures/chapter_08.R
+  author_note: The diagram is generic. The ICU pulse rule in Table 8.6 has 65 true
+    positives, 15 false positives, 82 false negatives, and 38 true negatives.
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.2522876
+    min_lab_distance: 67.8635748

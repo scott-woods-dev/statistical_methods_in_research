@@ -183,8 +183,27 @@ print(mcnemar_test)
 # 8.5 Quantifying the Relationship: Association Metrics
 # Dataset: fatal_police_shootings.csv
 # ------------------------------------------------------------------------------
-# We use Cramer's V for a table larger than 2x2 (armed vs threat_level)
-assoc_table <- table(fps$armed, fps$threat_level)
+# We use Cramer's V for a table larger than 2x2 (armed group vs threat_level).
+# The raw armed field has 98 nonblank categories, many with very small counts.
+# Collapse it to Gun, Unarmed, and Other weapon; cases coded blank,
+# "undetermined", or "unknown weapon" do not identify a weapon and are excluded.
+fps_armed <- subset(
+  fps,
+  !is.na(armed) & !(armed %in% c("", "undetermined", "unknown weapon"))
+)
+fps_armed$armed_group <- factor(
+  ifelse(
+    fps_armed$armed == "gun", "Gun",
+    ifelse(fps_armed$armed == "unarmed", "Unarmed", "Other weapon")
+  ),
+  levels = c("Gun", "Unarmed", "Other weapon")
+)
+
+assoc_table <- table(fps_armed$armed_group, fps_armed$threat_level)
+
+print("--- 8.5 Armed Group by Threat Level ---")
+print(assoc_table)
+print(chisq.test(assoc_table))
 
 cramers_v <- CramerV(assoc_table)
 print("--- 8.5 Cramer's V ---")

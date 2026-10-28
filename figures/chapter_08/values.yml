@@ -1,0 +1,408 @@
+chapter: 8
+source: r_code/chapter_08.r
+script: r_code/figures/chapter_08.R
+conventions:
+  chi_square: Pearson chi-square tests. The goodness-of-fit expected counts use the
+    2020 Census weights c(5.9, 12.1, 18.7, 0.7, 57.8)%, rescaled to sum to 1 after
+    excluding the 4.8% other/multiracial category.
+  mcnemar: mcnemar.test with continuity correction (R default).
+  cramers_v: 'Cramer''s V = sqrt(chi-square/(N*(min(r,c)-1))). The example collapses
+    the raw armed field to Gun, Unarmed, and Other weapon: Gun is armed == ''gun'',
+    Unarmed is armed == ''unarmed'', and every other retained entry is Other weapon.
+    Cases coded missing, ''undetermined'', or ''unknown weapon'' are excluded. The
+    resulting 3 x 3 table has N = 5963 and df = 4.'
+  risk: RR = risk of survival with infection / risk of survival without infection;
+    OR from the same 2 x 2 table.
+  classification: The pulse rule predicts emergency when Pulse > 100; rows are predicted
+    and columns are actual.
+  software: r_code/chapter_08.r calls DescTools::CramerV() and epitools for the risk
+    measures. Those packages are not installed here, so this script reproduces the
+    same quantities with base R table(), chisq.test(), and mcnemar.test().
+  note: The chapter's Cramer's V example was replaced with a 3 x 3 grouping that meets
+    the expected-count assumption. The earlier 99 x 3 table had 247 of 297 expected
+    counts below 5.
+values:
+  data:
+    fatal_police_shootings_rows: 6421
+    speed_dating_rows: 276
+    icu_rows: 200
+    race_clean_n: 5708
+    flee_clean_n: 5750
+    armed_clean_n: 5963
+    icu_clean_n: 200
+  goodness_of_fit_race:
+    test: chisq.test(observed_race, p = census_weights, rescale.p = TRUE)
+    'n': 5708
+    chi_square: 1206.5034012
+    df: 4.0
+    p: 6.1991638e-260
+    census_weights:
+    - 0.059
+    - 0.121
+    - 0.187
+    - 0.007
+    - 0.578
+    race_table:
+    - race_code: A
+      Race: Asian
+      Observed: 105.0
+      Expected: 353.7521008
+      Residual: -13.2256566
+    - race_code: B
+      Race: Black
+      Observed: 1528.0
+      Expected: 725.4915966
+      Residual: 29.7943144
+    - race_code: H
+      Race: Hispanic
+      Observed: 1066.0
+      Expected: 1121.2142857
+      Residual: -1.6489487
+    - race_code: 'N'
+      Race: Native American
+      Observed: 90.0
+      Expected: 41.9705882
+      Residual: 7.4136954
+    - race_code: W
+      Race: White
+      Observed: 2919.0
+      Expected: 3465.5714286
+      Residual: -9.2845209
+  independence_mental_illness_flee:
+    test: chisq.test(table(signs_of_mental_illness, flee))
+    'n': 5750
+    chi_square: 274.0818792
+    df: 2.0
+    p: 3.0470259e-60
+    table:
+    - mental_illness: 'FALSE'
+      flee: Car
+      count: 941
+    - mental_illness: 'TRUE'
+      flee: Car
+      count: 94
+    - mental_illness: 'FALSE'
+      flee: Foot
+      count: 727
+    - mental_illness: 'TRUE'
+      flee: Foot
+      count: 105
+    - mental_illness: 'FALSE'
+      flee: Not fleeing
+      count: 2700
+    - mental_illness: 'TRUE'
+      flee: Not fleeing
+      count: 1183
+    residuals:
+    - mental_illness: 'FALSE'
+      flee: Car
+      residual: 5.5192638
+    - mental_illness: 'TRUE'
+      flee: Car
+      residual: -9.8122464
+    - mental_illness: 'FALSE'
+      flee: Foot
+      residual: 3.7775881
+    - mental_illness: 'TRUE'
+      flee: Foot
+      residual: -6.715864
+    - mental_illness: 'FALSE'
+      flee: Not fleeing
+      residual: -4.5981017
+    - mental_illness: 'TRUE'
+      flee: Not fleeing
+      residual: 8.1745878
+  homogeneity_icu_age:
+    test: chisq.test(table(Admission_Type, Age_Category))
+    'n': 200
+    chi_square: 9.3878986
+    df: 2.0
+    p: 0.0091505
+    table:
+    - admission_type: Elective
+      age_category: Under 50
+      count: 7
+    - admission_type: Emergency
+      age_category: Under 50
+      count: 52
+    - admission_type: Elective
+      age_category: 50 to 69
+      count: 24
+    - admission_type: Emergency
+      age_category: 50 to 69
+      count: 53
+    - admission_type: Elective
+      age_category: 70 or older
+      count: 22
+    - admission_type: Emergency
+      age_category: 70 or older
+      count: 42
+    residuals:
+    - admission_type: Elective
+      age_category: Under 50
+      residual: -2.1838027
+    - admission_type: Emergency
+      age_category: Under 50
+      residual: 1.3112716
+    - admission_type: Elective
+      age_category: 50 to 69
+      residual: 0.7958489
+    - admission_type: Emergency
+      age_category: 50 to 69
+      residual: -0.4778701
+    - admission_type: Elective
+      age_category: 70 or older
+      residual: 1.2238202
+    - admission_type: Emergency
+      age_category: 70 or older
+      residual: -0.7348469
+  mcnemar_speed_dating:
+    test: mcnemar.test(table(DecisionM, DecisionF))
+    'n': 276
+    chi_square: 2.2040816
+    df: 1.0
+    p: 0.1376458
+    table:
+    - male_decision: '0'
+      female_decision: '0'
+      count: 66
+    - male_decision: '1'
+      female_decision: '0'
+      count: 83
+    - male_decision: '0'
+      female_decision: '1'
+      count: 64
+    - male_decision: '1'
+      female_decision: '1'
+      count: 63
+    outcome_counts:
+    - outcome: Both Said No
+      count: 66
+    - outcome: Only Male Said Yes
+      count: 83
+    - outcome: Only Female Said Yes
+      count: 64
+    - outcome: Both Said Yes
+      count: 63
+  cramers_v_armed_threat:
+    test: chisq.test(table(Armed_Group, Threat)); Cramer's V = sqrt(chi-square/(N*(min(r,c)-1)))
+    'n': 5963
+    armed_categories: 3
+    threat_categories: 3
+    chi_square: 812.7351967
+    df: 4.0
+    p: 1.339001e-174
+    cramers_v: 0.2610521
+    min_expected: 6.7182626
+    table:
+    - armed_group: Gun
+      threat_level: Attack
+      count: 2931
+    - armed_group: Unarmed
+      threat_level: Attack
+      count: 159
+    - armed_group: Other weapon
+      threat_level: Attack
+      count: 912
+    - armed_group: Gun
+      threat_level: Other
+      count: 729
+    - armed_group: Unarmed
+      threat_level: Other
+      count: 214
+    - armed_group: Other weapon
+      threat_level: Other
+      count: 921
+    - armed_group: Gun
+      threat_level: Undetermined
+      count: 39
+    - armed_group: Unarmed
+      threat_level: Undetermined
+      count: 40
+    - armed_group: Other weapon
+      threat_level: Undetermined
+      count: 18
+    expected:
+    - armed_group: Gun
+      threat_level: Attack
+      expected: 2482.5420091
+    - armed_group: Unarmed
+      threat_level: Attack
+      expected: 277.1802784
+    - armed_group: Other weapon
+      threat_level: Attack
+      expected: 1242.2777126
+    - armed_group: Gun
+      threat_level: Other
+      expected: 1156.286433
+    - armed_group: Unarmed
+      threat_level: Other
+      expected: 129.101459
+    - armed_group: Other weapon
+      threat_level: Other
+      expected: 578.612108
+    - armed_group: Gun
+      threat_level: Undetermined
+      expected: 60.1715579
+    - armed_group: Unarmed
+      threat_level: Undetermined
+      expected: 6.7182626
+    - armed_group: Other weapon
+      threat_level: Undetermined
+      expected: 30.1101794
+    residuals:
+    - armed_group: Gun
+      threat_level: Attack
+      residual: 9.0006415
+    - armed_group: Unarmed
+      threat_level: Attack
+      residual: -7.0984552
+    - armed_group: Other weapon
+      threat_level: Attack
+      residual: -9.3706544
+    - armed_group: Gun
+      threat_level: Other
+      residual: -12.5656914
+    - armed_group: Unarmed
+      threat_level: Other
+      residual: 7.471962
+    - armed_group: Other weapon
+      threat_level: Other
+      residual: 14.2339239
+    - armed_group: Gun
+      threat_level: Undetermined
+      residual: -2.7293372
+    - armed_group: Unarmed
+      threat_level: Undetermined
+      residual: 12.8403689
+    - armed_group: Other weapon
+      threat_level: Undetermined
+      residual: -2.2069572
+    note: 'The raw armed field is collapsed to Gun, Unarmed, and Other weapon: Gun
+      is armed == ''gun'', Unarmed is armed == ''unarmed'', and every other retained
+      entry is Other weapon. Cases coded missing, ''undetermined'', or ''unknown weapon''
+      are excluded, leaving N = 5963. Every expected count is at least 5 (minimum
+      6.72). This replaces the earlier 99 x 3 table, where 247 of 297 expected counts
+      were below 5 and blank armed values were treated as a category.'
+  risk_icu_infection_survival:
+    table:
+    - infection: '0'
+      survive: '0'
+      count: 16
+    - infection: '1'
+      survive: '0'
+      count: 24
+    - infection: '0'
+      survive: '1'
+      count: 100
+    - infection: '1'
+      survive: '1'
+      count: 60
+    risk_infected: 0.7142857
+    risk_uninfected: 0.862069
+    relative_risk: 0.8285714
+    odds_ratio: 0.4
+    note: Rows are Infection (0/1), columns are Survive (0/1); RR and OR compare infected
+      patients with uninfected patients.
+  classification_pulse_emergency:
+    rule: Pulse > 100 predicts emergency admission
+    'n': 200
+    table:
+    - predicted: '0'
+      actual: '0'
+      count: 38
+    - predicted: '1'
+      actual: '0'
+      count: 15
+    - predicted: '0'
+      actual: '1'
+      count: 82
+    - predicted: '1'
+      actual: '1'
+      count: 65
+    true_positive: 65
+    false_negative: 82
+    true_negative: 38
+    false_positive: 15
+    sensitivity: 0.4421769
+    specificity: 0.7169811
+  reference_body_camera_flee:
+    test: chisq.test(table(flee, body_camera))
+    note: Reference script section 8.2; not the main chapter example.
+    'n': 5750
+    chi_square: 18.0744495
+    df: 2.0
+    p: 0.0001189
+    table:
+    - flee: Car
+      body_camera: 'FALSE'
+      count: 927
+    - flee: Foot
+      body_camera: 'FALSE'
+      count: 689
+    - flee: Not fleeing
+      body_camera: 'FALSE'
+      count: 3361
+    - flee: Car
+      body_camera: 'TRUE'
+      count: 108
+    - flee: Foot
+      body_camera: 'TRUE'
+      count: 143
+    - flee: Not fleeing
+      body_camera: 'TRUE'
+      count: 522
+  reference_mental_illness_threat:
+    test: chisq.test(table(signs_of_mental_illness, threat_level))
+    note: Reference script section 8.3; not the main chapter example.
+    'n': 6421
+    chi_square: 16.8838551
+    df: 2.0
+    p: 0.0002156
+    table:
+    - mental_illness: 'FALSE'
+      threat_level: attack
+      count: 3227
+    - mental_illness: 'TRUE'
+      threat_level: attack
+      count: 915
+    - mental_illness: 'FALSE'
+      threat_level: other
+      count: 1555
+    - mental_illness: 'TRUE'
+      threat_level: other
+      count: 530
+    - mental_illness: 'FALSE'
+      threat_level: undetermined
+      count: 166
+    - mental_illness: 'TRUE'
+      threat_level: undetermined
+      count: 28
+  figures:
+    figure_8_1:
+      note: Observed and expected race counts; exact expected counts are in goodness_of_fit_race.
+        The figure labels the expected counts rounded to whole incidents.
+    figure_8_2:
+      note: 100% stacked bar of fleeing behavior within mental illness groups.
+    figure_8_3:
+      note: Age profile within ICU admission types.
+    figure_8_4:
+      note: Speed dating outcome counts; the two disagreement cells drive McNemar's
+        test.
+    figure_8_5:
+      note: Generic confusion matrix diagram. The ICU pulse-rule counts are in classification_pulse_emergency
+        and Table 8.6.
+  table_8_1:
+    note: Cross-tabulation of fleeing behavior by mental illness; counts are in independence_mental_illness_flee.
+  table_8_2:
+    note: Cross-tabulation of age group by ICU admission type; counts are in homogeneity_icu_age.
+  table_8_3:
+    note: Static Cramer's V cutoffs by the number of categories in the smaller variable;
+      no calculated values.
+  table_8_4:
+    note: Armed group by threat level cross-tabulation; counts, expected counts, and
+      residuals are in cramers_v_armed_threat.
+  table_8_5:
+    note: Static effect-size guidelines for odds ratios; no calculated values.
+  table_8_6:
+    note: Confusion matrix; values are in classification_pulse_emergency.

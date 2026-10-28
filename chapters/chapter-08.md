@@ -68,15 +68,15 @@ It does this by calculating the "expected" counts for every category if the null
 
 
 
-[Insert Figure 8.1: Grouped bar chart comparing the observed racial distribution of fatal police shootings against the expected 2020 U.S. Census baseline. Alt-text: A side-by-side bar chart with five racial categories on the x-axis: Asian, Black, Hispanic, Native American, and White. Each category has two distinct bars: one displaying the observed count in the dataset, and another displaying the expected count based on Census data. The observed bar for Black individuals is significantly taller than its expected bar, while the observed bar for White individuals is noticeably shorter than its expected bar.]
+![Figure 8.1: Observed racial distribution of fatal police shootings compared with the expected 2020 U.S. Census distribution. The 5,708 incidents with a known race in the five Census categories are shown. The observed Black count is far above its expected count, while the White and Asian counts are below theirs.](../figures/chapter_08/fig_08_01_bar_race_observed_expected.png){fig-alt="Grouped bar chart of observed and expected counts for five racial categories. Black observed 1,528 versus expected 725; White 2,919 versus 3,466; Asian 105 versus 354; Hispanic 1,066 versus 1,121; Native American 90 versus 42. The Black bar is much taller than expected, and the White and Asian bars are shorter."}
 
 
 
 As seen in Figure 8.1 above, the gaps between reality and our baseline expectation are highly visible:
 
 - **Black Individuals:** We observed 1,528 records in the dataset. However, if the total incidents strictly followed the 12.1% Census baseline, we would only expect there to be about 725 records. Reality is noticeably higher than the baseline expectation.
-- **White Individuals:** We observed 2,919 records. Based on the 57.8% Census baseline, we actually expected about 3,465 records. Reality is lower than the baseline expectation.
-- **Asian Individuals:** We observed 105 records, but based on the 5.9% Census baseline, we expected about 353. Reality is lower than the expectation.
+- **White Individuals:** We observed 2,919 records. Based on the 57.8% Census baseline, we actually expected about 3,466 records. Reality is lower than the baseline expectation.
+- **Asian Individuals:** We observed 105 records, but based on the 5.9% Census baseline, we expected about 354. Reality is lower than the expectation.
 
 
 
@@ -161,16 +161,18 @@ When we want to know if a connection exists between two categorical variables dr
 
 To answer a question involving two categorical variables, we first have to organize our data so we can actually see the overlaps. We do this by building a **cross-tabulation** (sometimes called a cross-tab or a contingency table).
 
-A cross-tabulation simply takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell. 
+A cross-tabulation simply takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell.
 
 
 
 Let's look at the cross-tabulation for our mental illness and fleeing data:
 
-|                           | **Car** | **Foot** | **Not Fleeing** |
+| Mental illness            | **Car** | **Foot** | **Not Fleeing** |
 | ------------------------- | :------ | :------- | :-------------- |
 | **No Documented Illness** | 941     | 727      | 2700            |
 | **Documented Illness**    | 94      | 105      | 1183            |
+
+: Table 8.1: Cross-tabulation of fleeing behavior by documented mental illness status (N = 5,750).
 
 Reading this table is highly intuitive. If we want to know how many subjects with documented mental illness attempted to flee on foot, we find the "Documented Illness" row, move over to the "Foot" column, and find that there were exactly 105 occurrences.
 
@@ -207,7 +209,7 @@ The difference lies in how the software calculates the baseline. Since we are no
 
 
 
-[Insert Figure 8.2: A 100% stacked bar chart comparing the proportions of fleeing behaviors between subjects with and without documented signs of mental illness. Alt-text: A 100% stacked bar chart with two wide columns on the x-axis representing Documented Mental Illness: Yes or No. Each column is divided vertically into three colored segments representing the proportion of subjects who did not flee, fled on foot, or fled by car. The proportional height of the colored segments differs between the Yes column and the No column, visually suggesting a potential relationship.]
+![Figure 8.2: Fleeing behavior by documented mental illness status. Each bar is scaled to 100% within its group. People with documented illness were more likely to not flee and less likely to flee by car or on foot.](../figures/chapter_08/fig_08_02_segmented_flee_by_mental_illness.png){fig-alt="100% stacked bar chart of fleeing behavior for two groups. No documented illness: not fleeing 62%, on foot 17%, by car 22%. Documented illness: not fleeing 86%, on foot 8%, by car 7%. The documented-illness bar has a larger not-fleeing segment and smaller fleeing segments."}
 
 
 
@@ -249,7 +251,7 @@ When writing up the results for a Test for Independence, we format our statistic
 
 > A Chi-Square Test for Independence was conducted to evaluate the relationship between a subject's fleeing behavior and documented signs of mental illness. The results indicated a significant association between the two variables, $\chi^2(2, N = 5750) = 274.08$, $p < .001$. A post hoc analysis of the standardized residuals revealed that subjects with documented signs of mental illness were significantly more likely to not flee, and significantly less likely to flee by car or on foot, than expected under independence.
 
-Again, the purpose here is to make an easily interpretable description of our results, while also giving the reader the statistical context they need to evaluate the significance of our results. 
+Again, the purpose here is to make an easily interpretable description of our results, while also giving the reader the statistical context they need to evaluate the significance of our results.
 
 
 
@@ -263,7 +265,7 @@ The Test for Independence looks at a single sample and asks if two variables int
 
 
 
-To clearly see this design difference, we are going to switch to a new dataset: `icu_data.csv`. This dataset contains clinical records for 200 patients admitted to a hospital's Intensive Care Unit.
+To see this design difference, we are going to switch to a new dataset: `icu_data.csv`. This dataset contains clinical records for 200 patients admitted to a hospital's Intensive Care Unit.
 
 
 
@@ -273,10 +275,12 @@ Instead of looking at one big pool of patients, we are going to use the `Emergen
 
 Just as we did in the previous section, we start by organizing our counts into a cross-tabulation so we can see the exact breakdown of the `AgeGroup` variable across our two populations.
 
-|                          | **Under 50** | **50 to 69** | **70 or older** |
+| Admission type           | **Under 50** | **50 to 69** | **70 or older** |
 | ------------------------ | :----------- | :----------- | :-------------- |
 | **Elective Admissions**  | 7            | 24           | 22              |
 | **Emergency Admissions** | 52           | 53           | 42              |
+
+: Table 8.2: Cross-tabulation of age group by ICU admission type (N = 200).
 
 Looking at the table, we can immediately spot some differences. Out of the 53 elective admissions, only 7 patients were under the age of 50. In the emergency group, the patients under 50 make up a much larger chunk of the total. But as always, we must test whether this visual difference is statistically meaningful.
 
@@ -295,7 +299,7 @@ Our hypotheses should look like this:
 - **$H_0$**: $\pi_{\text{Elective}} = \pi_{\text{Emergency}}$ (The proportions are equal for all age categories).
 - **$H_1$**: $\pi_{\text{Elective}} \neq \pi_{\text{Emergency}}$ (At least one pair of proportions is not equal).
 
-By writing it this way, we clearly see that the Test for Homogeneity is simply a tool to evaluate if the proportions of a specific trait remain balanced across entirely different populations. 
+By writing it this way, we see that the Test for Homogeneity is simply a tool to evaluate if the proportions of a specific trait remain balanced across entirely different populations.
 
 
 
@@ -305,7 +309,7 @@ If the null hypothesis is true, the percentage breakdown of the three age groups
 
 
 
-[Insert Figure 8.3: A grouped bar chart comparing the age group distribution within the two ICU admission populations. Alt-text: A grouped bar chart with two primary categories on the x-axis: Elective Admissions and Emergency Admissions. Within each category, there are three bars displaying the proportion of patients who are Under 50, 50 to 69, or 70 or older. The "Under 50" bar in the Elective Admissions group is noticeably shorter than the corresponding bar in the Emergency Admissions group.]
+![Figure 8.3: Age group distribution within elective and emergency ICU admissions. Bars show the percentage of each admission group in each age category. Elective admissions have a much smaller share of patients under 50.](../figures/chapter_08/fig_08_03_bar_icu_age_by_admission.png){fig-alt="Grouped bar chart of age groups within two ICU admission types. Elective: under 50 13%, 50 to 69 45%, 70 or older 42%. Emergency: under 50 35%, 50 to 69 36%, 70 or older 29%. The elective under-50 bar is much shorter."}
 
 
 
@@ -317,7 +321,7 @@ When our statistical software analyzes the cross-tabulated ICU data, it outputs 
 
 ### Post Hoc Analysis: Standardized Residuals
 
-Now we know the age profiles are different, but are *all* the age groups drastically different, or is the test being driven by one specific anomaly? To find out, we look at the standardized residuals for our cross-tabulation, utilizing our rule of thumb that any value outside the range of $-2.0$ to $+2.0$ marks a significant deviation.
+Now we know the age profiles are different, but are *all* the age groups drastically different, or is the test being driven by one specific anomaly? To find out, we look at the standardized residuals for our cross-tabulation, using our rule of thumb that any value outside the range of $-2.0$ to $+2.0$ marks a significant deviation.
 
 
 
@@ -363,7 +367,7 @@ To avoid making a critical design error, you can identify the correct test by as
 
 - **The Goal:** To see if a single categorical variable in your sample matches the outside world.
 
-  
+
 
 **2. The Chi-Square Test for Independence**
 
@@ -373,7 +377,7 @@ To avoid making a critical design error, you can identify the correct test by as
 
 - **The Goal:** To see if two distinct traits (like fleeing behavior and documented mental illness) overlap in a systematic, associated way.
 
-  
+
 
 **3. The Chi-Square Test for Homogeneity**
 
@@ -456,7 +460,7 @@ McNemar's test relies on a highly clever, intuitive trick. When two people go on
 3. The man says yes, but the woman says no.
 4. The woman says yes, but the man says no.
 
-[Insert Figure 8.4: Bar chart displaying the frequencies of the four possible paired outcomes from the speed dating interactions. Alt-text: A bar chart with four categories on the x-axis representing paired dating decisions. The first bar (Both Said No) is approximately equal in height to the fourth bar (Both Said Yes). The second bar (Only Male Said Yes) is the tallest, while the third bar (Only Female Said Yes) is slightly shorter but still taller than the agreement bars.]
+![Figure 8.4: Outcomes of 276 speed-dating interactions. The two disagreement bars are the ones McNemar's test compares: 83 interactions where only the man said yes and 64 where only the woman said yes.](../figures/chapter_08/fig_08_04_bar_speed_dating_outcomes.png){fig-alt="Bar chart of four paired dating outcomes. Both said no 66; only male said yes 83; only female said yes 64; both said yes 63. The only-male-yes bar is the tallest. The only-female-yes bar is taller than both-said-yes and slightly shorter than both-said-no."}
 
 
 
@@ -519,7 +523,7 @@ To answer the practical question, we calculate an **association metric** (the ca
 There are two primary association metrics used in the social sciences for Chi-Square tests, and you choose between them based entirely on the shape of your cross-tabulation table.
 
 - **Phi ($\phi$)**: You use Phi strictly when you are analyzing a $2 \times 2$ table. If you are comparing exactly two groups across exactly two outcomes, this is your metric.
-- **Cramér's $V$**: If your cross-tabulation is larger than $2 \times 2$, the mathematical boundaries of Phi begin to break down. Because our `armed` variable has multiple categories (e.g., gun, knife, unarmed) and our `threat_level` variable has three categories (attack, other, undetermined), we must use Cramér's $V$.
+- **Cramér's $V$**: If your cross-tabulation is larger than $2 \times 2$, the mathematical boundaries of Phi begin to break down. Because our `armed` field has more than two categories and our `threat_level` variable has three categories (attack, other, undetermined), a cross-tabulation of the two is larger than $2 \times 2$, so we must use Cramér's $V$.
 
 
 
@@ -530,7 +534,7 @@ Both of these metrics operate on a standardized scale from $0$ to $1$:
 
 ### Interpreting the Metric
 
-Both Phi and Cramér's $V$ operate on a standardized scale from $0$ to $1$, where $0$ indicates perfect independence and $1$ indicates a perfect predictive relationship. But how do we decide if a number in the middle is meaningful?Fortunately, the statistician Jacob Cohen established a set of standard guidelines for interpreting these metrics.
+How do we decide if a number in the middle is meaningful? Fortunately, the statistician Jacob Cohen established a set of standard guidelines for interpreting these metrics.
 
 
 
@@ -557,19 +561,29 @@ For example, if you are comparing a variable with 3 categories against a variabl
 | **4 Categories**                  | 0.06             | 0.17              | 0.29             |
 | **5 Categories**                  | 0.05             | 0.15              | 0.25             |
 
+: Table 8.3: Reference cutoffs for interpreting Cramér's V by the number of categories in the smaller variable.
 
+Now let's return to our police shooting analysis. The raw `armed` field contains dozens of specific entries, from "gun" and "knife" to "toy weapon" and "vehicle." Keeping every entry would create a very wide table, with many cells holding only a handful of incidents. That matters because the Chi-Square test from Section 8.8 requires every expected count to be at least 5.
 
-Let's look back at our police shooting analysis. We are evaluating the `threat_level` variable (which has 3 categories: attack, other, undetermined) against the `armed` variable (which has over a dozen categories). Since the smaller of our two variables has exactly 3 categories, we look at the second row of our reference table.
+To keep the test trustworthy, we group the field into three meaningful categories: **Gun**, **Unarmed**, and **Other weapon** (any other identified weapon or object). We also set aside incidents coded blank, "undetermined," or "unknown weapon," because those entries do not tell us what the person was holding. That leaves 5,963 incidents.
 
+Here is exactly how the collapse works. The raw field has 99 distinct values when the blank is included, 98 of them nonblank. We set aside the blank, "undetermined," and "unknown weapon," which leaves 96 entries. An incident is coded **Gun** only when its entry is exactly "gun" and **Unarmed** only when its entry is exactly "unarmed." The other 94 entries, including "knife," "vehicle," "toy weapon," "BB gun," and combination entries such as "gun and knife," become **Other weapon**. Every incident in the analysis therefore falls into exactly one of the three groups.
 
+| Armed group      | **Attack** | **Other** | **Undetermined** |
+| ---------------- | :--------: | :-------: | :--------------: |
+| **Gun**          | 2931       | 729       | 39               |
+| **Unarmed**      | 159        | 214       | 40               |
+| **Other weapon** | 912        | 921       | 18               |
 
-Our statistical software calculated a Cramér's $V$ of $0.442$. Because $0.442$ is significantly larger than the $0.35$ cutoff for a "Large Effect," we can conclude that the type of weapon an individual possesses is deeply and substantially connected to the resulting threat level of the encounter.
+: Table 8.4: Armed group by threat level for fatal police shootings with a known armed status (N = 5,963).
+
+Because this table has three rows and three columns, Phi is not an option. We use Cramér's $V$, and because the smaller of the two variables has three categories, we read the "3 Categories" row of Table 8.3. Our software reports $\chi^2(4, N = 5963) = 812.74$, $p < .001$, and Cramér's $V = .261$. The smallest expected count is 6.7, so the expected-count assumption holds. A value of $0.261$ sits above the $0.21$ cutoff for a medium effect but below the $0.35$ cutoff for a large effect, so we describe the association as medium. The pattern is visible in Table 8.4: gun incidents are mostly classified as attacks, while unarmed incidents are more often classified as other threats.
 
 ### Communicating Results in APA Format
 
 When you write up your final conclusions for a research paper, you simply append the association metric to the end of your standard Chi-Square statistical reporting.
 
-> A Chi-Square Test for Independence was conducted to evaluate the relationship between the type of weapon possessed by a subject and the immediate threat level of the encounter. The results indicated a significant association between the two variables, $\chi^2(6, N = 6421) = 1254.30$, $p < .001$, Cramér's $V = .442$.
+> A Chi-Square Test for Independence was conducted to evaluate the relationship between weapon group (gun, unarmed, or other weapon) and the immediate threat level of the encounter. The results indicated a significant association between the two variables, $\chi^2(4, N = 5963) = 812.74$, $p < .001$, Cramér's $V = .261$.
 
 ## 8.12 Quantifying Risk: Relative Risk and Odds Ratios
 
@@ -634,7 +648,7 @@ An Odds Ratio simply takes the odds of an outcome in one group and divides it by
 
 
 
-We interpret this by saying: *The odds of surviving for a patient with an infection are 0.40 times the odds of surviving for a patient without an infection.* 
+We interpret this by saying: *The odds of surviving for a patient with an infection are 0.40 times the odds of surviving for a patient without an infection.*
 
 ### Interpreting the Strength of an Odds Ratio
 
@@ -655,9 +669,10 @@ Here are the standard, mapped guidelines for interpreting the strength of an Odd
 | **Small Effect**                                     | 1.50                 | 0.67                 |
 | **Medium Effect**                                    | 3.50                 | 0.29                 |
 | **Large Effect**                                     | 9.00                 | 0.11                 |
-| *Table 8.4: Effect size guidelines for Odds Ratios.* |                      |                      |
 
-Our statistical software output an Odds Ratio of $0.40$. Looking at the "Odds Ratio < 1.0" column in Table 8.4, we can see that $0.40$ falls right between a Small effect ($0.67$) and a Medium effect ($0.29$). We can conclude that arriving with an infection has a small-to-moderate negative impact on the odds of ICU survival.
+: Table 8.5: Effect size guidelines for odds ratios.
+
+Our statistical software output an Odds Ratio of $0.40$. Looking at the "Odds Ratio < 1.0" column in Table 8.5, we can see that $0.40$ falls right between a Small effect ($0.67$) and a Medium effect ($0.29$). We can conclude that arriving with an infection has a small-to-moderate negative impact on the odds of ICU survival.
 
 
 
@@ -711,7 +726,7 @@ A Confusion Matrix is a specific type of $2 \times 2$ table used to see how well
 
 
 
-[Insert Figure 8.5: Diagram of a confusion matrix showing true positives, false positives, true negatives, and false negatives]
+![Figure 8.5: A confusion matrix. Rows show the rule's prediction and columns show the actual outcome. The diagonal cells are correct classifications (true positive and true negative); the off-diagonal cells are errors (false positive and false negative).](../figures/chapter_08/fig_08_05_diagram_confusion_matrix.png){fig-alt="Two-by-two confusion matrix. The top-left cell is true positive, predicted positive and actual positive. The top-right is false positive, predicted positive and actual negative. The bottom-left is false negative, predicted negative and actual positive. The bottom-right is true negative, predicted negative and actual negative."}
 
 
 
@@ -750,11 +765,12 @@ For our hospital scenario, it asks: *Of all the people who were actually electiv
 
 Let’s apply the pulse rule to our ICU data. When we check our patients against our "Pulse > 100" rule, we get the following Confusion Matrix:
 
-|                                                              | **Actual: Elective** | **Actual: Emergency** |
+| Rule prediction                                              | **Actual: Elective** | **Actual: Emergency** |
 | ------------------------------------------------------------ | :------------------: | :-------------------: |
 | **Predicted: Elective**                                      |          38          |          82           |
 | **Predicted: Emergency**                                     |          15          |          65           |
-| *Table 8.5: Confusion matrix for the "Pulse > 100" emergency triage rule.* |                      |                       |
+
+: Table 8.6: Confusion matrix for the "Pulse > 100" emergency triage rule.
 
 - **Sensitivity:** We had 147 actual emergency admissions ($82 + 65$). Our rule correctly predicted 65 of them. That is a sensitivity of $65 / 147 \approx \mathbf{0.442}$. This rule only catches about 44% of emergency cases.
 - **Specificity:** We had 53 actual elective admissions ($38 + 15$). Our rule correctly identified 38 of them as elective (meaning it correctly avoided a false alarm). That is a specificity of $38 / 53 \approx \mathbf{0.717}$. This rule has a specificity of about 72%.
@@ -773,19 +789,19 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 ## 8.14 Common Mistakes and Misconceptions
 
-1. **The "Observed Count" Trap** 
+1. **The "Observed Count" Trap**
 
    It is very tempting to look at your raw data and assume that if every group has at least 5 people, your Chi-Square test is perfectly valid. This is a mathematical trap. Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
 
-2. **Mixing up your table sizes for Cramér's $V$** 
+2. **Mixing up your table sizes for Cramér's $V$**
 
    When checking your effect size on Jacob Cohen's reference table, remember that you are looking for the *number of categories* in your smallest variable, not the degrees of freedom from your Chi-Square test. If you have a 3 by 4 table, your smaller variable has 3 categories. Do not try to use your test's degrees of freedom of 6.
 
-3. **Letting the software pick your test** 
+3. **Letting the software pick your test**
 
    Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a $p$-value. It is entirely up to you to look at how the data was gathered (one sample versus two distinct populations) to correctly interpret what that $p$-value actually means.
 
-4. **Treating Odds Ratios like Relative Risk** 
+4. **Treating Odds Ratios like Relative Risk**
 
    Relative Risk scales perfectly with how our brains process percentages, but Odds Ratios do not. An Odds Ratio of 2.0 means the *odds* are doubled, but that does not necessarily mean the event is twice as likely to happen in terms of raw probability. Never translate an Odds Ratio directly into a percentage chance.
 
@@ -841,36 +857,36 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 For this section, you will use your statistical software to analyze the chapter datasets to practice the advanced categorical frameworks we just learned.
 
-11. **The Test for Independence and Association: Evaluating Body Cameras and Threat Levels**: Using `fatal_police_shootings.csv`, you want to evaluate if the presence of a police body camera (`body_camera`: True/False) is associated with the overall threat level of the encounter (`threat_level`: attack, other, undetermined). 
+11. **The Test for Independence and Association: Evaluating Body Cameras and Threat Levels**: Using `fatal_police_shootings.csv`, you want to evaluate if the presence of a police body camera (`body_camera`: True/False) is associated with the overall threat level of the encounter (`threat_level`: attack, other, undetermined).
 
-    a) Create a cross-tabulation of these two variables. Visually, does the proportion of attacks seem drastically different when a camera is present? 
+    a) Create a cross-tabulation of these two variables. Visually, does the proportion of attacks seem drastically different when a camera is present?
 
-    b) Run the Chi-Square Test for Independence. What are the expected counts for the "True" body camera row? Did this analysis violate the expected count assumption? 
+    b) Run the Chi-Square Test for Independence. What are the expected counts for the "True" body camera row? Did this analysis violate the expected count assumption?
 
-    c) Report the exact χ2 statistic, degrees of freedom, and p-value. Is there a statistically significant association? 
+    c) Report the exact χ2 statistic, degrees of freedom, and p-value. Is there a statistically significant association?
 
-    d) Run a post hoc analysis of the standardized residuals. Identify any specific combinations (cells) that significantly deviate from the independent expectation (falling outside −2.0 to +2.0). 
+    d) Run a post hoc analysis of the standardized residuals. Identify any specific combinations (cells) that significantly deviate from the independent expectation (falling outside −2.0 to +2.0).
 
     e) Calculate Cramér's V. Using Cohen's guidelines for this specific table size, how would you classify the strength of this relationship? f) Write a brief, formal APA-formatted conclusion for this analysis.
 
-12. **Risk, Odds, and Confusion Matrices: Evaluating Previous ICU Admissions**: Using `icu_data.csv`, you want to determine if having a previous admission within the last 6 months (`PreviousAdmission`: 0 = No, 1 = Yes) impacts or predicts the patient's survival (`Survive`: 0 = No, 1 = Yes). 
+12. **Risk, Odds, and Confusion Matrices: Evaluating Previous ICU Admissions**: Using `icu_data.csv`, you want to determine if having a previous admission within the last 6 months (`PreviousAdmission`: 0 = No, 1 = Yes) impacts or predicts the patient's survival (`Survive`: 0 = No, 1 = Yes).
 
-    a) Generate a 2×2 table with `PreviousAdmission` on the rows and `Survive` on the columns. 
+    a) Generate a 2×2 table with `PreviousAdmission` on the rows and `Survive` on the columns.
 
-    b) Calculate the Relative Risk of survival. Interpret this number as a percentage (e.g., "Patients with a previous admission are X% as likely to survive..."). 
+    b) Calculate the Relative Risk of survival. Interpret this number as a percentage (e.g., "Patients with a previous admission are X% as likely to survive...").
 
-    c) Calculate the Odds Ratio. Using the standardized cutoffs in Table 8.4, how would you classify the strength of this effect? 
+    c) Calculate the Odds Ratio. Using the standardized cutoffs in Table 8.5, how would you classify the strength of this effect?
 
-    d) Now, treat `PreviousAdmission` as a predictive triage rule (Rule: "If they have a previous admission, predict that they will NOT survive"). Calculate the Sensitivity of this rule. 
+    d) Now, treat `PreviousAdmission` as a predictive triage rule (Rule: "If they have a previous admission, predict that they will NOT survive"). Calculate the Sensitivity of this rule.
 
     e) Calculate the Specificity of this rule. Based on these two percentages, is having a previous admission a useful, accurate rule for predicting mortality?
 
-13. **Goodness-of-Fit: Evaluating Gender Demographics**: Using `fatal_police_shootings.csv`, you want to determine if the gender breakdown of the subjects (`gender`: M, F) matches the overall U.S. Census baseline. According to the Census Bureau, the population is roughly 49% male and 51% female. *(Note: You must filter out any missing/unidentified gender rows before running this test).* 
+13. **Goodness-of-Fit: Evaluating Gender Demographics**: Using `fatal_police_shootings.csv`, you want to determine if the gender breakdown of the subjects (`gender`: M, F) matches the overall U.S. Census baseline. According to the Census Bureau, the population is roughly 49% male and 51% female. *(Note: You must filter out any missing/unidentified gender rows before running this test).*
 
-    a) State the null and alternative hypotheses for this analysis. 
+    a) State the null and alternative hypotheses for this analysis.
 
-    b) Run the Chi-Square Goodness-of-Fit test comparing the observed sample to the 49/51 baseline expectation. Report the χ2 statistic and the p-value. 
+    b) Run the Chi-Square Goodness-of-Fit test comparing the observed sample to the 49/51 baseline expectation. Report the χ2 statistic and the p-value.
 
-    c) Based on the standardized residuals, which specific demographic is over-represented, and which is under-represented? 
+    c) Based on the standardized residuals, which specific demographic is over-represented, and which is under-represented?
 
     d) Write a brief, formal APA-formatted conclusion for this analysis.
