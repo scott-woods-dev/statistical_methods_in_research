@@ -80,7 +80,7 @@ However, these exact same cutoffs would not apply in the physical sciences. The 
 
 ### Testing for Correlation: Population vs. Sample ($\rho$)
 
-Just because we calculate a strong $r$ value for our specific sample of 147 countries does not automatically guarantee that this relationship holds true for the entire, unmeasured globe. In Unit I, we learned the difference between English letters (which describe our known sample statistics) and Greek letters (which describe the true, unknown population parameters).
+Just because we calculate a strong $r$ value for our specific sample of 143 countries with a recorded GDP per capita does not automatically guarantee that this relationship holds true for the entire, unmeasured globe. In Unit I, we learned the difference between English letters (which describe our known sample statistics) and Greek letters (which describe the true, unknown population parameters).
 
 
 
@@ -388,13 +388,13 @@ But what happens when you have two variables that are clearly connected, but the
 
 Some variables compound over time or scale. For example, population sizes tend to grow exponentially, curving sharply upward like a hockey stick. Conversely, things like memory retention tend to decay exponentially, dropping sharply at first and then slowly leveling out.
 
-> **[Insert Graph 4.X: Side-by-side scatterplots. Left: A classic exponential growth curve curving sharply upward. Right: An exponential decay curve dropping sharply and flattening out. Both should clearly violate a straight line.]**
+![Figure 4.1: Illustrative exponential growth and decay curves, each compared with a straight line through its endpoints. Both curves bend away from the straight line, so a straight-line model would fit poorly.](../figures/chapter_04/fig_04_01_line_exponential_growth_decay.png){fig-alt="Two side-by-side line charts. The left panel shows a curve that rises slowly and then steeply, labeled exponential growth, below a dashed straight line through its endpoints. The right panel shows a curve that drops steeply and then flattens, labeled exponential decay, also below the dashed straight line."}
 
 **2. The Law of Diminishing Returns**
 
 Other relationships rise quickly but eventually hit a natural ceiling. A classic example of this is comparing a country's wealth (`GDPperCapita`) to the average lifespan of its citizens (`LifeExpectancy`).
 
-> **[Insert Graph 4.Y: A scatterplot of GDP per capita (x-axis) vs. Life Expectancy (y-axis), showing the dots rising sharply on the left side of the graph and then rapidly flattening out into a horizontal ceiling as you move to the right.]**
+![Figure 4.2: GDP per capita and life expectancy for 143 countries. Life expectancy rises steeply at low incomes and then levels off, the pattern called diminishing returns.](../figures/chapter_04/fig_04_02_scatter_gdp_life_expectancy_curve.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years at higher incomes."}
 
 This specific curve perfectly illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a very poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
 
@@ -459,7 +459,7 @@ If your model has successfully passed the L.I.N.E. diagnostic checks, you are fi
 
 
 
-In Chapter 3, we learned that sample statistics are just estimates of the true population parameter. Because every sample naturally varies, we used Confidence Intervals to create a mathematical net that we hope captures the true population average. That exact same logic applies to linear regression. Our software calculated a specific slope and intercept for our sample of 147 countries, but our ultimate goal is to understand the true relationship in the broader world.
+In Chapter 3, we learned that sample statistics are just estimates of the true population parameter. Because every sample naturally varies, we used Confidence Intervals to create a mathematical net that we hope captures the true population average. That exact same logic applies to linear regression. Our software calculated a specific slope and intercept for our sample of 143 countries with a recorded GDP per capita, but our ultimate goal is to understand the true relationship in the broader world.
 
 ### Confidence Intervals for the Slope
 
@@ -512,7 +512,7 @@ If your research question is, "What will the footprint be for *one specific, new
 - **The 95% PI is (10.59, 27.31).**
 - **Interpretation:** We are 95% confident that the ecological footprint for a *single* nation with a $70,000 GDP will fall between 10.59 and 27.31.
 
-> **[Insert Graph 4.Z: A scatterplot of GDP per capita vs. Footprint, showing the straight regression line in the center. Tightly hugging the line are the curved bands of the 95% Confidence Interval. Much further out, running roughly parallel to the line and capturing the vast majority of the raw data points, are the wide bands of the 95% Prediction Interval.]**
+![Figure 4.3: Simple linear regression of ecological footprint on GDP per capita for 143 countries. The dark line is the fitted regression. The narrow band is the 95% confidence interval for the mean footprint; the wide band is the 95% prediction interval for an individual country.](../figures/chapter_04/fig_04_03_scatter_footprint_regression_intervals.png){fig-alt="Scatterplot of ecological footprint against GDP per capita for 143 countries, with a rising regression line. A narrow shaded band hugs the line and a much wider shaded band surrounds it, widening at higher incomes."}
 
 Notice how incredibly wide the Prediction Interval is compared to the Confidence Interval! This perfectly illustrates a fundamental truth of the social sciences: **groups are predictable, but individuals are wildly erratic.**
 

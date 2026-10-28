@@ -1,0 +1,60 @@
+figures:
+- id: '4.1'
+  file: fig_04_01_line_exponential_growth_decay.png
+  type: line
+  caption: Illustrative exponential growth and decay curves, each compared with a
+    straight line through its endpoints. Both curves bend away from the straight line,
+    so a straight-line model would fit poorly.
+  alt: Two side-by-side line charts. The left panel shows a curve that rises slowly
+    and then steeply, labeled exponential growth, below a dashed straight line through
+    its endpoints. The right panel shows a curve that drops steeply and then flattens,
+    labeled exponential decay, also below the dashed straight line.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_04.R
+  author_note: These curves are illustrative; no dataset is used. They show the shape
+    of exponential growth and decay, not observed values.
+  colour_audit:
+    n_colours: 2
+    min_contrast: 5.1854463
+    min_lab_distance: 43.5146176
+- id: '4.2'
+  file: fig_04_02_scatter_gdp_life_expectancy_curve.png
+  type: scatter
+  caption: GDP per capita and life expectancy for 143 countries. Life expectancy rises
+    steeply at low incomes and then levels off, the pattern called diminishing returns.
+  alt: Scatterplot of GDP per capita versus life expectancy for 143 countries. Points
+    rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years
+    at higher incomes.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_04.R
+  author_note: This scatterplot repeats Figure 1.7 with the same variables. It is
+    included here to show the curved relationship before the log transformation.
+  colour_audit:
+    n_colours: 2
+    min_contrast: 5.1854463
+    min_lab_distance: 55.3717028
+- id: '4.3'
+  file: fig_04_03_scatter_footprint_regression_intervals.png
+  type: scatter
+  caption: Simple linear regression of ecological footprint on GDP per capita for
+    143 countries. The dark line is the fitted regression. The narrow band is the
+    95% confidence interval for the mean footprint; the wide band is the 95% prediction
+    interval for an individual country.
+  alt: Scatterplot of ecological footprint against GDP per capita for 143 countries,
+    with a rising regression line. A narrow shaded band hugs the line and a much wider
+    shaded band surrounds it, widening at higher incomes.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_04.R
+  author_note: The model uses the 143 countries with a non-missing GDPperCapita. The
+    prediction interval extends below zero at the lowest incomes, which is not physically
+    possible for a footprint, so the y-axis starts at zero.
+  colour_audit:
+    n_colours: 4
+    min_contrast: 2.2522876
+    min_lab_distance: 26.4342397
