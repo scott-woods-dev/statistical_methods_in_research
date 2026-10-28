@@ -28,11 +28,11 @@ In previous chapters, you used simple linear regression to predict a single outc
 
 
 
-Why do we need this upgrade? Let's look at our dataset. You might start your analysis by running a simple linear model. You try to predict neonatal birth weight (`weight`) using only maternal age (`mage`). The software gives you a positive slope. This suggests that as a mother gets older, her baby's birth weight increases.
+Why do we need this upgrade? Let's look at our dataset. You might start your analysis by running a simple linear model. You try to predict neonatal birth weight (`weight`) using only prenatal visits (`visits`). The software gives you a positive slope. This suggests that as a mother makes more prenatal visits, her baby's birth weight increases.
 
 
 
-But we must pause and think about reality. Older mothers might go to the doctor more frequently. Longer pregnancies naturally result in heavier babies. A simple linear model is blind to these overlapping influences. It forces all the credit onto the single predictor you provided.
+But we must pause and think about reality. Longer pregnancies create more opportunities for prenatal visits. They also produce heavier babies. A simple linear model is blind to these overlapping influences. It forces all the credit onto the single predictor you provided.
 
 
 
@@ -40,7 +40,7 @@ We call this overlapping interference a **confounding factor**. A confounding fa
 
 
 
-To fix this bias, we must build a multiple regression model. We add total prenatal hospital visits (`visits`) and gestational duration (`weeks`) to our equation alongside maternal age. By adding multiple predictors, we can account for confounding factors and get an accurate picture of what is truly driving the outcome.
+To fix this bias, we must build a multiple regression model. We add gestational duration (`weeks`) to our equation alongside prenatal visits. By adding multiple predictors, we can account for confounding factors and get an accurate picture of what is truly driving the outcome.
 
 ## 5.3 What "Controlling For" a Variable Means
 
@@ -52,36 +52,38 @@ To **control for** a variable means we mathematically hold that variable constan
 
 
 
-Let us look at a practical application using our dataset. Imagine you want to know how the biological mother's age (`mage`) affects her infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
+Let us look at a practical application using our dataset. Imagine you want to know how the number of prenatal visits (`visits`) affects an infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
-| Intercept | 6.793 | 0.208 | 32.65 | < .001 |
-| `mage` | 0.01424 | 0.00717 | 1.99 | .047 |
+| Intercept | 6.529 | 0.123 | 53.06 | < .001 |
+| `visits` | 0.05919 | 0.01019 | 5.81 | < .001 |
 
-: Table 5.1: Simple linear regression predicting birth weight from maternal age (n = 1,000; $R^2$ = 0.39%; adjusted $R^2$ = 0.29%; F(1, 998) = 3.95; p = .047).
+: Table 5.1: Simple linear regression predicting birth weight from prenatal visits (n = 944; $R^2$ = 3.45%; adjusted $R^2$ = 3.35%; F(1, 942) = 33.72; p < .001).
 
-When you look at this software output, you might see a positive slope for `mage`. This initial result suggests that as a mother gets older, her baby's birth weight increases. But we must remember our earlier discussion about confounding variables. Is the mother's age truly driving the heavier birth weight? Or is gestational duration (`weeks`) interfering as a confounding factor behind the scenes?
+*Note: 56 mothers with no recorded number of prenatal visits are excluded, so both models in this section use 944 births.*
+
+When you look at this software output, you might see a positive slope for `visits`. This initial result suggests that as a mother makes more prenatal visits, her baby's birth weight increases. But we must remember our earlier discussion about confounding variables. Are the visits truly driving the heavier birth weight? Or is gestational duration (`weeks`) interfering as a confounding factor behind the scenes?
 
 
 
-If we leave the length of the pregnancy out of our model, we introduce **omitted variable bias**. This bias occurs because our model is blind to the confounding variable. The slope we calculated for `mage` is inaccurate because it secretly absorbs the effect of the missing variable.
+If we leave gestational duration out of our model, we introduce **omitted variable bias**. This bias occurs because our model is blind to the confounding variable. The slope we calculated for `visits` is inaccurate because it secretly absorbs the effect of the missing variable.
 
-To fix this, we must add predictors to get accurate slopes. We build a multiple regression model by adding `weeks` as a second predictor alongside `mage`.
+To fix this, we must add predictors to get accurate slopes. We build a multiple regression model by adding `weeks` as a second predictor alongside `visits`.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
-| Intercept | -4.056 | 0.550 | -7.37 | < .001 |
-| `mage` | 0.01558 | 0.00599 | 2.60 | .009 |
-| `weeks` | 0.2796 | 0.01345 | 20.79 | < .001 |
+| Intercept | -3.596 | 0.536 | -6.71 | < .001 |
+| `visits` | 0.02489 | 0.00882 | 2.82 | .005 |
+| `weeks` | 0.27201 | 0.01412 | 19.26 | < .001 |
 
-: Table 5.2: Multiple regression predicting birth weight from maternal age and gestational weeks (n = 1,000; $R^2$ = 30.51%; adjusted $R^2$ = 30.37%; F(2, 997) = 218.8; p < .001).
+: Table 5.2: Multiple regression predicting birth weight from prenatal visits and gestational weeks (n = 944; $R^2$ = 30.76%; adjusted $R^2$ = 30.61%; F(2, 941) = 209.02; p < .001).
 
-When you run this new model, you will observe a structural shift in your demographic predictor. The slope for `mage` shrinks dramatically. It might even become statistically insignificant.
+When you run this new model, you will observe a structural shift in your primary predictor. The slope for `visits` shrinks by more than half, though it remains statistically significant.
 
 
 
-Why did this happen? The multiple regression model is now controlling for gestational weeks. It successfully neutralized the confounding variable. It is answering a much more specific and useful question. It asks: "If we only compare mothers whose pregnancies lasted the exact same number of weeks, does the mother's age still affect birth weight?" The answer is often no. The original positive slope was an illusion created by the confounding factor. Older mothers in our sample simply tended to have slightly longer pregnancies. The extra weeks in the womb caused the higher birth weight, not the mother's age itself.
+Why did this happen? The multiple regression model is now controlling for gestational duration. It successfully neutralized the confounding variable. It is answering a much more specific and useful question. It asks: "If we only compare mothers whose pregnancies lasted the exact same number of weeks, does the number of prenatal visits still affect birth weight?" The answer is yes, but the effect is much smaller. The original positive slope was inflated by the confounding factor. Mothers with longer pregnancies made more visits, and longer pregnancies also produced heavier babies. The extra visits were partly a marker for longer gestation, so the simple slope gave them too much credit.
 
 
 
@@ -97,7 +99,7 @@ To answer this, you will first check the overall model significance. Statistical
 
 
 
-Next, you must assess the model's accuracy. In Chapter 4, you used $R^2$ for this task. Our software reports a regular $R^2$ of $30.51\%$.
+Next, you must assess the model's accuracy. In Chapter 4, you used $R^2$ for this task. Our software reports a regular $R^2$ of $30.76\%$.
 
 
 
@@ -109,7 +111,7 @@ To fix this illusion, statistical software calculates an **Adjusted $R^2$**. Thi
 
 
 
-Our software reports an Adjusted $R^2$ of $30.37\%$. It is slightly lower than the regular $R^2$, which reflects the built-in mathematical penalty for using two predictors. This tells us that maternal age and gestational duration reliably explain $30.37\%$ of the total variation in infant birth weights. The remaining $69.63\%$ of the variation is driven by other biological or environmental factors that we did not include.
+Our software reports an Adjusted $R^2$ of $30.61\%$. It is slightly lower than the regular $R^2$, which reflects the built-in mathematical penalty for using two predictors. This tells us that prenatal visits and gestational duration explain $30.61\%$ of the total variation in infant birth weights. The remaining $69.39\%$ of the variation is driven by other biological or environmental factors that we did not include.
 
 
 
@@ -117,19 +119,19 @@ Now you can look at the regression equation itself. Your statistical software ge
 
 
 
-$$\text{Predicted Weight} = -4.056 + 0.01558(\text{mage}) + 0.2796(\text{weeks})$$
+$$\text{Predicted Weight} = -3.596 + 0.02489(\text{visits}) + 0.27201(\text{weeks})$$
 
 
 
-How do you interpret these specific numbers? You must always include the concept of holding other factors constant. The slope for maternal age (`mage`) is $0.01558$. This means for every additional year of maternal age, the infant's birth weight increases by an average of $0.01558$ pounds. Crucially, this interpretation is only true assuming the length of the pregnancy stays exactly the same.
+How do you interpret these specific numbers? You must always include the concept of holding other factors constant. The slope for prenatal visits (`visits`) is $0.02489$. This means for every additional prenatal visit, the infant's birth weight increases by an average of $0.02489$ pounds. Crucially, this interpretation is only true assuming the length of the pregnancy stays exactly the same.
 
 
 
-The slope for gestational duration (`weeks`) is $0.2796$. For every additional week of pregnancy, the birth weight increases by an average of $0.2796$ pounds. Again, this specific increase assumes the biological mother's age remains perfectly constant.
+The slope for gestational duration (`weeks`) is $0.27201$. For every additional week of pregnancy, the birth weight increases by an average of $0.27201$ pounds. Again, this specific increase assumes the number of prenatal visits remains perfectly constant.
 
 
 
-Finally, look at the starting value, which is the intercept of $-4.056$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a zero-year-old mother who was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful real-world interpretation for your research.
+Finally, look at the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful real-world interpretation for your research.
 
 ## 5.5 Evaluating Predictors
 
@@ -137,7 +139,7 @@ Once you build a multiple regression model, you might wonder which variable is d
 
 
 
-Regression slopes are tied to their specific units of measurement. You cannot directly compare the slope for a mother's age in years to the slope for a pregnancy length in weeks. The units simply do not match.
+Regression slopes are tied to their specific units of measurement. You cannot directly compare the slope for a number of prenatal visits to the slope for a pregnancy length in weeks. The units simply do not match.
 
 
 
@@ -145,30 +147,30 @@ How do we compare the strength of these predictors? We compare each slope to its
 
 
 
-Let us look at the actual mathematical output for our model predicting neonatal birth weight (`weight`) using maternal age (`mage`) and gestational duration (`weeks`).
+Let us look at the actual mathematical output for our model predicting neonatal birth weight (`weight`) using prenatal visits (`visits`) and gestational duration (`weeks`).
 
 | Predictor | Coefficient | SE | T-value | p |
 | :--- | ---: | ---: | ---: | ---: |
-| `mage` | 0.01558 | 0.00599 | 2.60 | .009 |
-| `weeks` | 0.2796 | 0.01345 | 20.79 | < .001 |
+| `visits` | 0.02489 | 0.00882 | 2.82 | .005 |
+| `weeks` | 0.27201 | 0.01412 | 19.26 | < .001 |
 
 : Table 5.3: Coefficients, standard errors, and T-values for the two predictors in the model in Table 5.2.
 
-The slope for `mage` is $0.01558$. The slope for `weeks` is $0.2796$. It looks like `weeks` has a much larger effect. But remember, a year is a very different unit of time than a week.
+The slope for `visits` is $0.02489$. The slope for `weeks` is $0.27201$. It looks like `weeks` has a much larger effect. But remember, a prenatal visit and a week of pregnancy are very different units.
 
 
 
 Instead of looking at the raw slopes, we must look at the test statistic. In your software output, this is labeled as the T-Value. This value is simply the slope divided by the standard error.
 
-The T-Value for `mage` is $2.60$. This means the maternal age signal is $2.6$ times larger than its background noise. The p-value is $0.009$. Because this is less than our standard $0.05$ threshold, maternal age is a statistically significant predictor.
+The T-Value for `visits` is $2.82$. This means the visits signal is $2.82$ times larger than its background noise. The p-value is $0.005$. Because this is less than our standard $0.05$ threshold, the number of prenatal visits is a statistically significant predictor.
 
 
 
-Now look at `weeks`. The T-Value is $20.79$. The gestational duration signal is nearly $21$ times larger than its background noise. The p-value is below $0.001$, which is highly significant.
+Now look at `weeks`. The T-Value is $19.26$. The gestational duration signal is more than $19$ times larger than its background noise. The p-value is below $0.001$, which is highly significant.
 
 
 
-Both variables are statistically significant predictors of birth weight. However, comparing the T-Values reveals the true story. The gestational length of the pregnancy provides a massively stronger and clearer signal than the mother's age.
+Both variables are statistically significant predictors of birth weight. Comparing the T-values reveals the true story: gestational duration provides a much stronger and clearer signal than the number of prenatal visits.
 
 ## 5.6 Binary Predictors
 
@@ -188,16 +190,15 @@ Statistical software handles this translation behind the scenes. It assigns a $1
 
 
 
-We can now introduce this indicator variable into our multiple regression model. We will use the smoking indicator to predict birth weight, while simultaneously controlling for maternal age and gestational weeks.
+We can now introduce this indicator variable into our multiple regression model. We will use the smoking indicator to predict birth weight, while controlling for gestational weeks.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
-| Intercept | -3.652 | 0.555 | -6.58 | < .001 |
-| `mage` | 0.01483 | 0.00599 | 2.48 | .014 |
-| `weeks` | 0.2708 | 0.01354 | 20.00 | < .001 |
-| `smoker` | -0.3723 | 0.1080 | -3.45 | .001 |
+| Intercept | -3.212 | 0.528 | -6.09 | < .001 |
+| `weeks` | 0.2704 | 0.01358 | 19.92 | < .001 |
+| `smoker` | -0.3865 | 0.1081 | -3.57 | < .001 |
 
-: Table 5.4: Multiple regression predicting birth weight from maternal age, gestational weeks, and smoking status (n = 981; $R^2$ = 30.83%; adjusted $R^2$ = 30.61%; F(3, 977) = 145.1; p < .001).
+: Table 5.4: Multiple regression predicting birth weight from gestational weeks and smoking status (n = 981; $R^2$ = 30.39%; adjusted $R^2$ = 30.25%; F(2, 978) = 213.51; p < .001).
 
 *Note: 19 mothers with no recorded smoking status are excluded, so the model uses 981 births.*
 
@@ -205,19 +206,19 @@ Your software will generate a regression equation that looks like this:
 
 
 
-$$\text{Predicted Weight} = -3.652 + 0.01483(\text{mage}) + 0.2708(\text{weeks}) - 0.3723(\text{smoker})$$
+$$\text{Predicted Weight} = -3.212 + 0.2704(\text{weeks}) - 0.3865(\text{smoker})$$
 
 
 
-How do we interpret the slope for an indicator variable? It is actually quite intuitive. Because the variable only equals zero or one, the slope acts like an on-and-off switch. If the mother is a nonsmoker, the variable is zero. The slope of $-0.369$ is multiplied by zero and vanishes from the equation. If the mother is a smoker, the variable is one. The slope is multiplied by one and stays in the equation.
+How do we interpret the slope for an indicator variable? It is actually quite intuitive. Because the variable only equals zero or one, the slope acts like an on-and-off switch. If the mother is a nonsmoker, the variable is zero. The slope of $-0.3865$ is multiplied by zero and vanishes from the equation. If the mother is a smoker, the variable is one. The slope is multiplied by one and stays in the equation.
 
 
 
-Therefore, the slope for the smoker indicator represents the average difference in birth weight between a smoker and a nonsmoker. Specifically, the model tells us that babies born to mothers who smoke weigh an average of $0.372$ pounds less than babies born to nonsmokers.
+Therefore, the slope for the smoker indicator represents the average difference in birth weight between a smoker and a nonsmoker. Specifically, the model tells us that babies born to mothers who smoke weigh an average of $0.387$ pounds less than babies born to nonsmokers.
 
 
 
-Crucially, this difference assumes we are comparing mothers of the exact same age whose pregnancies lasted the exact same number of weeks. This allows us to isolate the unique impact of tobacco use on neonatal health, separated from other confounding demographic factors.
+Crucially, this difference assumes we are comparing mothers whose pregnancies lasted the exact same number of weeks. This allows us to isolate the unique impact of tobacco use on neonatal health, separated from the confounding effect of gestational duration.
 
 
 
@@ -285,7 +286,7 @@ Imagine your software generates this new equation:
 
 
 
-$$\text{Predicted Weight} = -3.714 + 0.01035(\text{mage}) + 0.2753(\text{weeks}) - 0.353(\text{smoker}) + 0.118(\text{mature}) - 0.125(\text{mature} \times \text{smoker})$$
+$$\text{Predicted Weight} = -3.272 + 0.2710(\text{weeks}) - 0.3621(\text{smoker}) + 0.2260(\text{mature}) - 0.1217(\text{mature} \times \text{smoker})$$
 
 ### The Hierarchy Rule for Main Effects
 
@@ -305,7 +306,7 @@ If a younger mother is a nonsmoker, both the `mature` and `smoker` indicators ar
 
 If a younger mother is a smoker, the interaction term is $0 \times 1$, which is still zero. It vanishes.
 
-The interaction term only activates when both conditions are met. If a mature mother is a smoker, the interaction term is $1 \times 1$, which equals one. The switch turns on. This mother's predicted baby weight receives the $-0.353$ penalty for smoking, the $+0.118$ adjustment for being mature, and an additional $-0.125$ penalty specifically because she is a mature smoker.
+The interaction term only activates when both conditions are met. If a mature mother is a smoker, the interaction term is $1 \times 1$, which equals one. The switch turns on. This mother's predicted baby weight receives the $-0.3621$ penalty for smoking, the $+0.2260$ adjustment for being mature, and an additional $-0.1217$ penalty specifically because she is a mature smoker.
 
 ### The Rule for p-values
 
@@ -321,7 +322,7 @@ This leads to a second strict rule for interactions. If your model contains an i
 
 
 
-In this model, the p-value for the `mature` $\times$ `smoker` interaction is $0.700$. Because this is far above our $0.05$ threshold, the interaction is not statistically significant. The extra $-0.125$ penalty is just random noise.
+In this model, the p-value for the `mature` $\times$ `smoker` interaction is $0.707$. Because this is far above our $0.05$ threshold, the interaction is not statistically significant. The extra $-0.1217$ penalty is just random noise.
 
 
 
@@ -453,9 +454,11 @@ Let us look at a simulated example. Imagine a team of economists wants to predic
 | **Adjusted $R^2$**      | $0.12$                       | $0.24$                       | $0.38$                      |
 | **Sample Size ($n$)**   | $1,500$                      | $1,500$                      | $1,500$                     |
 
+: Table 5.7: A simulated side-by-side comparison of three regression models predicting annual starting salary.
+
 *Note: Standard errors are reported in parentheses with the coefficients.*
 
-** p < 0.05,  p < 0.01, *** p < 0.001*
+\* p < 0.05, \*\* p < 0.01, \*\*\* p < 0.001
 
 
 
@@ -585,6 +588,8 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 | $R^2_{\text{adj}}$ | "Adjusted R-squared"                   | The percentage of variation in the response variable explained by the model, mathematically penalized for the inclusion of useless predictors. |
 | VIF                | "V-I-F" or "Variance Inflation Factor" | A diagnostic test statistic that measures how much a specific predictor overlaps with the other predictors in the model. |
 
+: Table 5.8: Notation introduced in this chapter.
+
 ## 5.15 Exercises
 
 ### Interpretation
@@ -602,7 +607,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 
 ### Communicating Results
 
-8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is clearly a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should actually look at to compare variable strength.
+8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should actually look at to compare variable strength.
 9. A journalist reads a published multiple regression study about academic success. The study shows that eating a nutritious breakfast is positively associated with higher college GPAs, even after the researchers explicitly controlled for family income and high school performance. The journalist publishes an article with the headline: "Study Proves Eating Breakfast Causes Better Grades." Explain why this headline is ethically and scientifically flawed, and provide a more accurate alternative.
 10. You are reviewing a research paper draft written by a colleague. They proudly explain that they used their software's "Automated Model Selection" button to build their regression equation. The software tested 50 different variables and spit out a final model with 12 predictors. Half of these predictors have no logical connection to the research topic. Explain the dangers of the "Autopilot Trap" to your colleague. Introduce the concept of overfitting and explain why theoretical justification is required in real research.
 
