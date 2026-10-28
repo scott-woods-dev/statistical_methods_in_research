@@ -179,7 +179,7 @@ However, knowing the raw size of that gap is not enough. We have to weigh that g
 
 
 
-The final result of this division is the **t-statistic**. You can think of the t-statistic as a signal-to-noise ratio. A large t-statistic (like our calculated 2.81) means the gap between our sample and the benchmark is much larger than the random noise we would typically expect. The software then uses this t-statistic to calculate our precise p-value.
+The final result of this division is the **t-statistic**. You can think of the t-statistic as a signal-to-noise ratio. A large t-statistic (like our calculated 2.69) means the gap between our sample and the benchmark is much larger than the random noise we would typically expect. The software then uses this t-statistic to calculate our precise p-value.
 
 ### The Confidence Interval
 
@@ -199,7 +199,7 @@ You might wonder why we do not simply use a 100% confidence interval. The reason
 
 
 
-For our students, our 95% confidence interval is [17.30, 23.63]. We are 95% confident that the true, overarching average depression score for this specific population of students falls somewhere between 17.30 and 23.63. Because our entire interval sits above the benchmark of 16 (and does not include it), that aligns perfectly with a significant p-value (i.e., where our p-value is less than .05).
+For our students, our 95% confidence interval is [17.15, 23.78]. We are 95% confident that the true, overarching average depression score for this specific population of students falls somewhere between 17.15 and 23.78. Because our entire interval sits above the benchmark of 16 (and does not include it), that aligns perfectly with a significant p-value (i.e., where our p-value is less than .05).
 
 ### Reporting the Results
 
@@ -217,7 +217,7 @@ When you write an APA conclusion for a t-test, you must include:
 
 Here is how we would formally report the baseline findings for our students:
 
-> "At the beginning of the study, the sample of students exhibited depression scores (*M* = 20.47, *SD* = 13.76) that were significantly higher than the clinical baseline of 16, *t*(74) = 2.81, *p* = .006, 95% CI [17.30, 23.63]."
+> "At the beginning of the study, the sample of students exhibited depression scores (*M* = 20.47, *SD* = 14.40) that were significantly higher than the clinical baseline of 16, *t*(74) = 2.69, *p* = .009, 95% CI [17.15, 23.78]."
 
 ### A Closer Look at the Conclusion
 
@@ -338,7 +338,7 @@ When the software calculates the t-statistic for two independent groups, the gen
 
 
 
-Looking at our data, the diet group's average change was -6.03 points, while the control group's average change was a slight increase of 0.32 points. The raw gap between those two averages is roughly -6.35 points.
+Looking at our data, the diet group's average change was -6.03 points, while the control group's average change was a slight increase of 0.11 points. The raw gap between those two averages is roughly -6.13 points.
 
 
 
@@ -350,7 +350,7 @@ To solve this, modern software defaults to a specialized version of this tool ca
 
 ### Reporting the Results
 
-When we run Welch's test on our dataset, the software calculates a t-statistic of -2.40 and a p-value of .019. It also provides a 95% confidence interval for the difference between the two groups, which is [-11.63, -1.07].
+When we run Welch's test on our dataset, the software calculates a t-statistic of -2.31 and a p-value of .024. It also provides a 95% confidence interval for the difference between the two groups, which is [-11.42, -0.85].
 
 
 
@@ -360,7 +360,7 @@ Because the entire confidence interval is negative (meaning the diet group's dif
 
 When reporting an independent test in APA format, you must provide the descriptive statistics for *both* groups so the reader can clearly see the comparison. Notice that because Welch's test dynamically adjusts the degrees of freedom, that number will often include a decimal.
 
-> "A Welch's independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (*M* = -6.03, *SD* = 10.53) than the control group (*M* = 0.32, *SD* = 12.35), *t*(71.86) = -2.40, *p* = .019, 95% CI [-11.63, -1.07]."
+> "A Welch's independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (*M* = -6.03, *SD* = 10.53) than the control group (*M* = 0.11, *SD* = 12.38), *t*(71.72) = -2.31, *p* = .024, 95% CI [-11.42, -0.85]."
 
 ### A Note on Statistical Language: "Prove" and "Cause"
 
@@ -392,7 +392,7 @@ However, this was not a survey. This was a randomized controlled experiment. By 
 
 ## 3.8 Beyond the p-value: Practical Significance and Effect Sizes
 
-We have successfully used hypothesis testing to establish that the healthy diet intervention works. Our independent sample t-test gave us a p-value of .019, which is smaller than our .05 significance level. Because of this, we say our results are **statistically significant**.
+We have successfully used hypothesis testing to establish that the healthy diet intervention works. Our independent sample t-test gave us a p-value of .024, which is smaller than our .05 significance level. Because of this, we say our results are **statistically significant**.
 
 
 
@@ -446,11 +446,11 @@ When you look at the output from your statistical software, you generally look a
 - $d \approx 0.5$: A medium effect.
 - $d \approx 0.8$: A large effect.
 
-Let us look at our diet intervention. The diet group's scores dropped by roughly 6.35 points more than the control group's scores. When our software divides that raw gap by the combined standard deviation for the students (which is roughly 11.49), it calculates a Cohen's $d$ of 0.55.
+Let us look at our diet intervention. The diet group's scores dropped by roughly 6.13 points more than the control group's scores. When our software divides that raw gap by the combined standard deviation for the students (which is roughly 11.50), it calculates a Cohen's $d$ of 0.53.
 
 
 
-A Cohen's $d$ of 0.55 represents a medium, practically significant effect. We can now tell our readers that the healthy food packages not only caused a statistically real change, but that the change was large enough to noticeably improve the students' depression symptoms.
+A Cohen's $d$ of 0.53 represents a medium, practically significant effect. We can now tell our readers that the healthy food packages not only caused a statistically real change, but that the change was large enough to noticeably improve the students' depression symptoms.
 
 ### Other Effect Sizes You Might See
 
@@ -487,11 +487,11 @@ If your variable is measured in abstract units, the confidence interval loses mu
 
 
 
-In our study, the confidence interval for the difference between the two groups' depression scores was [-11.63, -1.07]. To a clinical psychologist who uses the CESD scale every day, a potential 11-point drop might be deeply meaningful. But to the average reader, or even a researcher from a different field, abstract survey points mean very little. Is a 5-point drop a massive life change, or barely noticeable?
+In our study, the confidence interval for the difference between the two groups' depression scores was [-11.42, -0.85]. To a clinical psychologist who uses the CESD scale every day, a potential 11-point drop might be deeply meaningful. But to the average reader, or even a researcher from a different field, abstract survey points mean very little. Is a 5-point drop a massive life change, or barely noticeable?
 
 
 
-When your units are not directly or easily interpretable, **Cohen's $d$** becomes the star of the show. By translating those abstract points into standard deviations, it gives everyone a universal measuring stick. Telling an audience that the diet had a "medium effect" ($d = 0.55$) instantly communicates the practical value of the intervention, even if they have no idea how the CESD scale is scored.
+When your units are not directly or easily interpretable, **Cohen's $d$** becomes the star of the show. By translating those abstract points into standard deviations, it gives everyone a universal measuring stick. Telling an audience that the diet had a "medium effect" ($d = 0.53$) instantly communicates the practical value of the intervention, even if they have no idea how the CESD scale is scored.
 
 ### The Complete APA Conclusion
 
@@ -504,7 +504,7 @@ When we put all of these pieces together, we get a final conclusion that answers
 
 Here is what the fully polished, professional conclusion looks like for our independent sample t-test:
 
-> "A Welch's independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (*M* = -6.03, *SD* = 10.53) than the control group (*M* = 0.32, *SD* = 12.35), *t*(71.86) = -2.40, *p* = .019, 95% CI [-11.63, -1.07], *d* = 0.55."
+> "A Welch's independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (*M* = -6.03, *SD* = 10.53) than the control group (*M* = 0.11, *SD* = 12.38), *t*(71.72) = -2.31, *p* = .024, 95% CI [-11.42, -0.85], *d* = 0.53."
 
 ## 3.9 Power Analysis
 
@@ -712,6 +712,6 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 **17. Planning a Follow-Up Study:** The researchers are applying for a grant to run a massive follow-up study across multiple universities to see if their diet intervention works on a national scale. The grant committee requires them to mathematically justify exactly how many students they need to recruit.
 
 **a)** Based on the standard conventions discussed in this chapter, what significance level ($\alpha$) and statistical power should the researchers plug into their planning software?
-**b)** In the main text of this chapter, we calculated a Cohen's *d* of 0.55 for the difference in `CESDDiff` scores between the diet and control groups. If the researchers expect to see this exact same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test.
-**c)** The grant committee pushes back. They argue that a Cohen's *d* of 0.55 is overly optimistic for a nationwide study, and they want to know the required sample size if the diet's effect is actually much smaller (a Cohen's *d* of 0.20). Use your software to calculate the new required sample size using this smaller expected effect.
+**b)** In the main text of this chapter, we calculated a Cohen's *d* of 0.53 for the difference in `CESDDiff` scores between the diet and control groups. If the researchers expect to see this exact same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test.
+**c)** The grant committee pushes back. They argue that a Cohen's *d* of 0.53 is overly optimistic for a nationwide study, and they want to know the required sample size if the diet's effect is actually much smaller (a Cohen's *d* of 0.20). Use your software to calculate the new required sample size using this smaller expected effect.
 **d)** Compare the two sample sizes you just calculated. In your own words, explain why detecting a smaller effect requires significantly more participants. (Hint: Think back to the noise-canceling headphone metaphor).

@@ -304,11 +304,11 @@ Remember that parameters are the true, hidden numbers that describe the entire p
 Let us define our two parameters for the study:
 
 - $\pi_W$ represents the true proportion of callbacks for all identical resumes with White-sounding names.
-- $\pi_B$ represents the true proportion of callbacks for all identical resumes with African-American-sounding names.
+- $\pi_{AA}$ represents the true proportion of callbacks for all identical resumes with African-American-sounding names.
 
 Now, we can write our hypotheses mathematically. The null hypothesis always anchors on exact equality, meaning there is no difference between the groups. The most intuitive way to write this is to simply set the two parameters equal to one another.
 
-- **Null Hypothesis ($H_0$):** $\pi_W = \pi_B$
+- **Null Hypothesis ($H_0$):** $\pi_W = \pi_{AA}$
 
   *(Plain English: There is no difference in the true callback proportions between the two groups.)*
 
@@ -316,7 +316,7 @@ Now, we can write our hypotheses mathematically. The null hypothesis always anch
 
 The alternative hypothesis claims that a significant difference does exist, meaning the two groups are not equal.
 
-- **Alternative Hypothesis ($H_1$):** $\pi_W \neq \pi_B$
+- **Alternative Hypothesis ($H_1$):** $\pi_W \neq \pi_{AA}$
 
   *(Plain English: There is a significant difference in the true callback proportions between the two groups.)*
   
@@ -332,10 +332,10 @@ While setting the parameters equal to each other is how human beings naturally t
 
 If two groups are truly equal (as the null hypothesis claims), then subtracting one from the other must result in exactly zero. Therefore, you will almost always see statistical software output and advanced research papers format these exact same hypotheses by setting the *difference* to zero:
 
-- **Software Null Hypothesis ($H_0$):** $\pi_W - \pi_B = 0$
-- **Software Alternative Hypothesis ($H_1$):** $\pi_W - \pi_B \neq 0$
+- **Software Null Hypothesis ($H_0$):** $\pi_W - \pi_{AA} = 0$
+- **Software Alternative Hypothesis ($H_1$):** $\pi_W - \pi_{AA} \neq 0$
 
-Both formats are mathematically identical and mean the exact same thing. We will generally use the intuitive format ($\pi_W = \pi_B$) when setting up our ideas, but be prepared to read the software format ($\pi_W - \pi_B = 0$) when interpreting your final results.
+Both formats are mathematically identical and mean the exact same thing. We will generally use the intuitive format ($\pi_W = \pi_{AA}$) when setting up our ideas, but be prepared to read the software format ($\pi_W - \pi_{AA} = 0$) when interpreting your final results.
 
 
 
