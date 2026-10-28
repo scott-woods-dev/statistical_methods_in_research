@@ -83,24 +83,25 @@ figures:
     min_contrast: 2.3074822
     min_lab_distance: 70.8574031
 - id: '1.7'
-  file: fig_01_07_scatter_classes_missed_gpa.png
+  file: fig_01_07_scatter_gdp_life_expectancy.png
   type: scatter
-  caption: Classes missed and GPA for 253 students. The downward trend is visible
-    but weak.
-  alt: Scatterplot of classes missed versus GPA. The points form a loose downward
-    cloud, but the relationship is weak; students who missed no classes still range
-    from about 2.4 to 4.0 on GPA.
+  caption: GDP per capita and life expectancy for 143 of the 147 countries in the
+    Happy Planet Index data. The trend rises steeply at low incomes and then levels
+    off.
+  alt: Scatterplot of GDP per capita versus life expectancy for 143 countries. Points
+    rise steeply from the low 50s at the lowest incomes and then flatten near 80 years
+    at higher incomes.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: The correlation is r = -0.18, so the visual trend is weak. The section
-    claims a downward relationship; without a summary line, a skeptical reader may
-    not see it.
+  author_note: Four countries in the CSV (Taiwan, Turkmenistan, Venezuela, Yemen)
+    have no GDPperCapita value, so they are omitted. The plot uses n = 143. The overall
+    trend is positive, but the form is nonlinear at high incomes.
   colour_audit:
-    n_colours: 1
+    n_colours: 2
     min_contrast: 5.1854463
-    min_lab_distance: .na.real
+    min_lab_distance: 55.3717028
 - id: '1.8'
   file: fig_01_08_segmented_alcohol_by_stress.png
   type: segmented
@@ -113,9 +114,6 @@ figures:
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: Heavy drinking is 8.9% under High stress versus 5.6% under Normal stress.
-    The difference is real but modest; the prose says the Heavy segment is noticeably
-    taller, which may overstate what the chart shows.
   colour_audit:
     n_colours: 5
     min_contrast: 2.2522876
@@ -134,9 +132,6 @@ figures:
   dpi: 300.0
   script: r_code/figures/chapter_01.R
   match: A mosaic plot of Stress and AlcoholUse
-  author_note: The High stress column is 22% of the sample, so the Heavy block difference
-    is visually small. Check whether the figure makes the relationship look stronger
-    than the data support.
   colour_audit:
     n_colours: 5
     min_contrast: 2.2522876
@@ -144,56 +139,51 @@ figures:
 - id: 1.9b
   file: fig_01_09b_box_gpa_by_depression.png
   type: box
-  caption: GPA by depression screening status. The medians do not decline steadily
-    with severity.
+  caption: GPA by depression screening status for 253 students. The Severe group has
+    the lowest median and third quartile.
   alt: Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression
-    groups. Median GPA is 3.25 in the Normal group, 3.32 in the Moderate group, and
-    3.04 in the Severe group. The Moderate group has the widest middle 50%.
+    groups. Median GPA is 3.25 in the Normal group, 3.33 in the Moderate group, and
+    3.04 in the Severe group. The third quartile is 3.50, 3.60, and 3.35. The Moderate
+    group has the widest middle 50%.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
   match: Side-by-side box plots showing GPA
-  author_note: 'Medians are 3.25 (Normal), 3.32 (Moderate), 3.04 (Severe): no monotonic
-    decline. The figure works for comparing spreads but does not support a simple
-    depression-lowers-GPA story.'
   colour_audit:
     n_colours: 2
     min_contrast: 1.2340449
     min_lab_distance: 82.8052266
 - id: '1.10'
-  file: fig_01_10_scatter_gpa_missed_by_stress.png
+  file: fig_01_10_scatter_gdp_lifeexp_by_region.png
   type: scatter
-  caption: Classes missed and GPA by stress level. Shape and color both encode stress,
-    so the groups remain distinguishable without color.
-  alt: Scatterplot of classes missed versus GPA, with Normal stress shown as circles
-    and High stress shown as triangles. The Normal group follows a loose downward
-    trend, while High stress points are spread across the full range of classes missed
-    rather than clustering in one corner.
+  caption: GDP per capita and life expectancy for 143 countries, grouped by region.
+    Sub-Saharan Africa clusters at low values of both, and Western Europe at high
+    values of both.
+  alt: Scatterplot of GDP per capita versus life expectancy for 143 countries. Sub-Saharan
+    Africa is shown as triangles at low GDP per capita and low life expectancy, Western
+    Europe as circles at high values of both, and other regions as squares in between.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: High stress students are spread across the full range of classes missed,
-    not clustered in the bottom right. The figure may not deliver the example's intended
-    lesson.
   colour_audit:
-    n_colours: 2
-    min_contrast: 3.8671838
-    min_lab_distance: 114.6049825
+    n_colours: 3
+    min_contrast: 3.4211399
+    min_lab_distance: 70.1211558
 - id: '1.11'
-  file: fig_01_11_bubble_sleep_gpa_drinks.png
+  file: fig_01_11_bubble_gdp_lifeexp_footprint.png
   type: bubble
-  caption: Weekday sleep, GPA, and weekly drinks. Bubble size encodes drinks per week.
-  alt: Bubble plot of weekday sleep versus GPA, with bubble size showing weekly drinks.
-    Most bubbles are small, and larger bubbles are scattered across the sleep range
-    rather than clustered at low sleep and low GPA.
+  caption: GDP per capita, life expectancy, and ecological footprint for 143 countries.
+    Bubble size encodes the ecological footprint.
+  alt: Bubble plot of GDP per capita versus life expectancy for 143 countries. Bubble
+    size shows the ecological footprint. Most bubbles are small and cluster at low
+    GDP per capita. The largest bubbles, including Qatar and Luxembourg, sit at higher
+    GDP per capita.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: The largest bubbles do not obviously cluster at low sleep and low GPA,
-    so the figure may not support the hunt-for-complex-patterns framing.
   colour_audit:
     n_colours: 2
     min_contrast: 5.1854463
@@ -215,21 +205,21 @@ figures:
     min_contrast: 1.2340449
     min_lab_distance: 82.8052266
 - id: '1.15'
-  file: fig_01_15_box_classes_missed_by_depression.png
+  file: fig_01_15_box_classes_missed_by_anxiety.png
   type: box
-  caption: Classes missed by depression screening status. The Severe group has the
-    highest median, but the step from Normal to Moderate is flat.
+  caption: Classes missed by anxiety screening status for 253 students. The Severe
+    group has a higher median and a wider middle 50%.
   alt: Side-by-side box plots of classes missed for the Normal, Moderate, and Severe
-    depression groups. Median classes missed is 1 in the Normal group, 1 in the Moderate
-    group, and 2 in the Severe group. Spread is similar in the Normal and Moderate
-    groups and narrower in the Severe group.
+    anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate
+    group, and 4.5 in the Severe group. The Severe group also has the widest middle
+    50%, from 1.5 to 6.25.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: The prose and the table below claim medians 1, 2, 4 and IQRs 2, 3,
-    5. The CSV gives medians 1, 1, 2 and IQRs 3, 3, 0.75. The figure follows the CSV,
-    so it will contradict the table. The prose needs review before this figure ships.
+  author_note: The Severe anxiety group has 16 students, so its box describes a small
+    sample. The figure compares the groups in this sample; it is not a population
+    estimate.
   colour_audit:
     n_colours: 2
     min_contrast: 1.2340449

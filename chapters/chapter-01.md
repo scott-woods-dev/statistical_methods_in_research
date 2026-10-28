@@ -96,7 +96,7 @@ To make sense of this, we use a variation called a **Pareto chart**.
 
 
 
-A Pareto chart is a bar plot for nominal data where the bars are sorted in descending order. The tallest bar is placed on the far left, and the shortest bar is on the far right. Often, to save space, the many rare categories at the tail end are combined into a single "Other" bar. This sorting forces the most common reasons to the front, making it effortless to see exactly where the majority of students are seeking help.
+A Pareto chart is a bar chart for nominal data where the bars are sorted in descending order. The tallest bar is placed on the far left, and the shortest bar is on the far right. Often, to save space, the many rare categories at the tail end are combined into a single "Other" bar. This sorting forces the most common reasons to the front, making it effortless to see exactly where the majority of students are seeking help.
 
 
 
@@ -118,7 +118,7 @@ We visualize this grouping using a **histogram**.
 
 
 
-At first glance, a histogram looks a lot like a bar plot. But notice one major visual difference: there are no gaps between the bars. In a bar plot, the gaps remind us that categories are completely separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.
+At first glance, a histogram looks a lot like a bar chart. But notice one major visual difference: there are no gaps between the bars. In a bar chart, the gaps remind us that categories are completely separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.
 
 ## 1.5 Distribution Shapes and The Normal Curve
 
@@ -146,7 +146,7 @@ However, real-world data is often messy and leans heavily to one side. We call t
 
 
 
-Let's look at the `ClassesMissed` variable. If we make a histogram of this numerical data, we will see a massive peak at zero or one, with a long "tail" stretching out to the right for the few students who missed 10 or 15 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
+Let's look at the `ClassesMissed` variable. In the histogram of this numerical data, we see a massive peak at zero, with a long "tail" stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
 
 
 
@@ -158,23 +158,27 @@ Conversely, if the tail stretches to the left, the data is **left-skewed** (or n
 
 
 
-While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Sctrict's class is strongly right-skewed, the "tail" stretches toward the higher grades (A and B), meaning the massive peak of the class is piled up at the lower end (D and F). If Professor Kuhl's class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.
+While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Strict's class is strongly right-skewed, the "tail" stretches toward the higher grades (A and B), meaning the massive peak of the class is piled up at the lower end (D and F). If Professor Kuhlman's class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.
 
 ## 1.6 Visualizing Relationships: Two Numerical Variables
 
-Up to this point, we have only looked at variables in isolation. We know how many students have severe anxiety, and we know the shape of the GPA distribution. But research is fundamentally about relationships. We don't just want to know *what* the GPA is; we want to know *why* it is that way. Does missing class lead to lower grades? 
+Up to this point, we have only looked at variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But research is fundamentally about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
 
 
 
-To answer this, we need to look at two numerical variables at the exact same time: `ClassesMissed` and `GPA`. Because both of these are numbers, we can plot them on a standard two-dimensional grid using a **scatterplot**. In a scatterplot, each student is represented by a single dot. The dot's horizontal position (the x-axis) shows how many classes they missed, and its vertical position (the y-axis) shows their GPA.
+We can ask a similar question about countries: does a country's wealth relate to how long its residents live? The `happy_planet_index_2024.csv` dataset records country-level measures, including `GDPperCapita` and `LifeExpectancy`. Because both of these are numbers, we can plot them on a standard two-dimensional grid using a **scatterplot**. In a scatterplot, each country is represented by a single dot. The dot's horizontal position (the x-axis) shows its GDP per capita, and its vertical position (the y-axis) shows its life expectancy.
 
 
 
-![Figure 1.7: Classes missed and GPA for 253 students. The downward trend is visible but weak.](../figures/chapter_01/fig_01_07_scatter_classes_missed_gpa.png){fig-alt="Scatterplot of classes missed versus GPA. The points form a loose downward cloud, but the relationship is weak; students who missed no classes still range from about 2.4 to 4.0 on GPA."}
+![Figure 1.7: GDP per capita and life expectancy for 143 of the 147 countries in the Happy Planet Index data. The trend rises steeply at low incomes and then levels off.](../figures/chapter_01/fig_01_07_scatter_gdp_life_expectancy.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the low 50s at the lowest incomes and then flatten near 80 years at higher incomes."}
 
 
 
 When you look at a scatterplot, you are looking for a trend. Do the dots form a cloud that drifts upward? Downward? Or is it just a random, shotgun blast of dots with no discernible pattern? By simply mapping one number against another, we can instantly see if a relationship exists and how strong it appears to be.
+
+
+
+The cloud here drifts upward: countries with higher GDP per capita tend to have higher life expectancy. If we look closely, we can see that life expectancy rises steeply at low GDP per capita, then levels off.  This "bend" in the relationship makes our analysis later in Chapter 4 slightly more complex, but the point here is that we can immediately recognize that shape of the relationship in the scatterplot. For now, just keep in mind that a trend does not have to be a straight line to be a trend.
 
 ## 1.7 Visualizing Relationships: Two Categorical Variables
 
@@ -190,11 +194,11 @@ To explore this, we need to compare how drinking habits differ between the two s
 
 
 
-In a segmented bar chart, every group gets a single vertical bar that is stretched to be exactly the same height, representing 100% of the people in that group. We then slice the bar into colored segments based on our second variable. 
+In a segmented bar chart, every group gets a single vertical bar that is stretched to be exactly the same height, representing 100% of the people in that group. We then slice the bar into segments based on our second variable. 
 
 
 
-To interpret this chart, you simply compare the sizes of the colored segments across the different bars. For example, if the "Heavy drinking" segment is noticeably taller inside the "High stress" bar than it is inside the "Normal stress" bar, you have immediate visual evidence that heavy drinking is more prevalent among highly stressed students.
+To interpret this chart, you simply compare the sizes of the segments across the different bars. For example, the "Heavy drinking" segment is taller inside the "High stress" bar than it is inside the "Normal stress" bar: 9% versus 6%. That difference is noticeable, and it suggests a relationship worth investigating further.
 
 
 
@@ -242,11 +246,15 @@ The best tool for this job is a **box plot** (sometimes called a box-and-whisker
 
 
 
-![Figure 1.9b: GPA by depression screening status. The medians do not decline steadily with severity.](../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png){fig-alt="Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression groups. Median GPA is 3.25 in the Normal group, 3.32 in the Moderate group, and 3.04 in the Severe group. The Moderate group has the widest middle 50%."}
+![Figure 1.9b: GPA by depression screening status for 253 students. The Severe group has the lowest median and third quartile.](../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png){fig-alt="Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression groups. Median GPA is 3.25 in the Normal group, 3.33 in the Moderate group, and 3.04 in the Severe group. The third quartile is 3.50, 3.60, and 3.35. The Moderate group has the widest middle 50%."}
 
 
 
-A box plot takes a numerical distribution and boils it down to its most essential parts: a box that contains the middle 50% of the students, a line inside the box for the median (the exact center), and lines (whiskers) reaching out to the extremes. By placing a box plot for "Normal," "Moderate," and "Severe" right next to each other, you can easily compare the typical GPA across different mental health statuses.
+A box plot takes a numerical distribution and boils it down to its most essential parts: a box that contains the middle 50% of the students, a line inside the box for the median (the exact center value when data is placed in numerical order), and lines (whiskers) reaching out to the extremes. By placing a box plot for "Normal," "Moderate," and "Severe" right next to each other, you can easily compare the typical GPA across different mental health statuses.
+
+
+
+In this sample, the Severe group has the lowest median GPA (3.04, compared with 3.25 for Normal and 3.33 for Moderate), so there may be a relationship there worth investigating. The Moderate group's median is slightly above the Normal group's, so the pattern is not a steady decline from Normal to Moderate to Severe.
 
 
 
@@ -254,19 +262,19 @@ A box plot takes a numerical distribution and boils it down to its most essentia
 
 
 
-Sometimes, a hidden categorical variable is secretly influencing a numerical relationship. Let's return to our scatterplot of `ClassesMissed` and `GPA`. What if we suspect that highly stressed students miss classes for different reasons than normal-stressed students? 
+Sometimes, a categorical variable quietly shapes a numerical relationship. Let's return to the scatterplot of `GDPperCapita` and `LifeExpectancy`. What if a country's region changes that relationship?
 
 
 
-We can add `Stress` to our scatterplot as a **grouping variable** by changing the color and shape of the dots. 
+We can add a simplified `Region` variable as a **grouping variable** by changing the color and shape of the dots. Here, countries in Region 5 (Sub-Saharan Africa) are orange triangles, countries in Region 3 (Western Europe) are blue circles, and all other regions are green squares. 
 
 
 
-![Figure 1.10: Classes missed and GPA by stress level. Shape and color both encode stress, so the groups remain distinguishable without color.](../figures/chapter_01/fig_01_10_scatter_gpa_missed_by_stress.png){fig-alt="Scatterplot of classes missed versus GPA, with Normal stress shown as circles and High stress shown as triangles. The Normal group follows a loose downward trend, while High stress points are spread across the full range of classes missed rather than clustering in one corner."}
+![Figure 1.10: GDP per capita and life expectancy for 143 countries, grouped by region. Sub-Saharan Africa clusters at low values of both, and Western Europe at high values of both.](../figures/chapter_01/fig_01_10_scatter_gdp_lifeexp_by_region.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Sub-Saharan Africa is shown as triangles at low GDP per capita and low life expectancy, Western Europe as circles at high values of both, and other regions as squares in between."}
 
 
 
-By doing this, you are looking at three variables at once. If all the red triangles cluster in the bottom right (high missed classes, low GPA), the visualization reveals a deeper, more detailed relationship than the original plot showed.
+By doing this, you are looking at three variables at once. The groups fall into distinct bands: Sub-Saharan Africa sits at low GDP per capita and low life expectancy, Western Europe sits at high values of both, and other regions span the range between. The grouping reveals a more granular look at the relationship than the original plot showed.
 
 
 
@@ -274,7 +282,7 @@ By doing this, you are looking at three variables at once. If all the red triang
 
 
 
-Finally, what if you have three numerical variables? Perhaps you want to look at `WeekdaySleep` (x-axis), `GPA` (y-axis), and the number of weekly alcoholic `Drinks`. 
+Finally, what if you have three numerical variables? We can return to the country data and look at `GDPperCapita` (x-axis), `LifeExpectancy` (y-axis), and `Footprint` (bubble size), the ecological footprint per person.
 
 
 
@@ -282,11 +290,11 @@ Because a piece of paper (or a computer screen) is flat, we can't easily add a 3
 
 
 
-![Figure 1.11: Weekday sleep, GPA, and weekly drinks. Bubble size encodes drinks per week.](../figures/chapter_01/fig_01_11_bubble_sleep_gpa_drinks.png){fig-alt="Bubble plot of weekday sleep versus GPA, with bubble size showing weekly drinks. Most bubbles are small, and larger bubbles are scattered across the sleep range rather than clustered at low sleep and low GPA."}
+![Figure 1.11: GDP per capita, life expectancy, and ecological footprint for 143 countries. Bubble size encodes the ecological footprint.](../figures/chapter_01/fig_01_11_bubble_gdp_lifeexp_footprint.png){fig-alt="Bubble plot of GDP per capita versus life expectancy for 143 countries. Bubble size shows the ecological footprint. Most bubbles are small and cluster at low GDP per capita. The largest bubbles, including Qatar and Luxembourg, sit at higher GDP per capita."}
 
 
 
-A bubble plot is just a scatterplot where the size of the dot changes based on a third numerical variable. A student who has 15 drinks a week is drawn as a massive bubble, while a student who abstains is a tiny speck. This allows you to hunt for complex patterns, like checking if the largest bubbles tend to cluster around low sleep and low GPA.
+A bubble plot is just a scatterplot where the size of the dot changes based on a third numerical variable. A country with a footprint of 42.2, such as Qatar, is drawn as a large bubble, while a country with a footprint near 0.2, such as Ethiopia, is a tiny speck. This allows you to hunt for complex patterns, like checking whether the largest bubbles cluster at high GDP per capita and high life expectancy. In this figure, the largest bubbles sit at higher GDP per capita, but their life expectancies are not the highest in the dataset.
 
 
 
@@ -557,12 +565,12 @@ As you begin working with real data, there are a few common traps that trip up a
 We have covered a lot of ground in this chapter. To see how these tools work together, let's walk through a complete, preliminary analysis using our dataset of 253 college students. 
 
 ### The Research Interest
-Student well-being is a major focus for universities. We know that college can be highly stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with depression find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.
+Student well-being is a major focus for universities. We know that college can be highly stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with anxiety find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.
 
 ### The Research Question
 Can we translate that broad interest into a specific question we can answer with our data? 
-* **Question:** In our sample of 253 students, do those who screen for severe depression miss more classes on average than those with normal screening results?
-* **The Variables:** We are comparing `DepressionStatus` (a categorical variable) against `ClassesMissed` (a numerical variable).
+* **Question:** In our sample of 253 students, do those who screen for severe anxiety miss more classes on average than those with normal screening results?
+* **The Variables:** We are comparing `AnxietyStatus` (a categorical variable) against `ClassesMissed` (a numerical variable).
 
 ### Data Triage and Exploratory Analysis
 Before we calculate any averages, we must look at the shape of our data. If we were to plot a histogram of `ClassesMissed` for all 253 students, we would immediately see a massive **floor effect**. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes. 
@@ -577,18 +585,18 @@ To visualize the relationship between a categorical variable and a numerical var
 
 
 
-![Figure 1.15: Classes missed by depression screening status. The Severe group has the highest median, but the step from Normal to Moderate is flat.](../figures/chapter_01/fig_01_15_box_classes_missed_by_depression.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe depression groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 2 in the Severe group. Spread is similar in the Normal and Moderate groups and narrower in the Severe group."}
+![Figure 1.15: Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.](../figures/chapter_01/fig_01_15_box_classes_missed_by_anxiety.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 4.5 in the Severe group. The Severe group also has the widest middle 50%, from 1.5 to 6.25."}
 
 
 
-Looking at the visual, there is a clear trend: as the severity of depression increases, the entire box plot shifts upward, indicating more missed classes. 
+The box plot shows where the groups differ: the Normal and Moderate groups both have a median of 1 class missed, and their boxes overlap heavily. The Severe group is different. Its median is 4.5 classes missed, and its middle 50% runs from 1.5 to 6.25, so both the center and the spread are larger. The Severe group has only 16 students, so this comparison describes our sample and is not a precise estimate for all students with severe anxiety.
 
 ### Numerical Summaries
-| Depression Status | Median Classes Missed | Interquartile Range (IQR) |
-| :---------------- | :-------------------- | :------------------------ |
-| **Normal**        | 1.0                   | 2.0                       |
-| **Moderate**      | 2.0                   | 3.0                       |
-| **Severe**        | 4.0                   | 5.0                       |
+| Anxiety Status | Median Classes Missed | Interquartile Range (IQR) |
+| :------------- | :-------------------- | :------------------------ |
+| **Normal**     | 1.0                   | 3.0                       |
+| **Moderate**   | 1.0                   | 2.25                      |
+| **Severe**     | 4.5                   | 4.75                      |
 
 ### Translating to APA Style
 Before we write our final conclusion, we need to address a small quirk of the research world. In your statistics class, we use standard mathematical notation, like $\bar{x}$ for the sample mean and $s$ for the sample standard deviation. 
@@ -618,11 +626,11 @@ Now, we translate our statistical findings back into plain English (using APA fo
 
 
 
->  **Conclusion:** Within our sample, students with severe depression missed more classes (*Mdn* = 4.0, *IQR* = 5.0) than students with normal screenings (*Mdn* = 1.0, *IQR* = 2.0).
+>  **Conclusion:** Within our sample, students with severe anxiety missed more classes (*Mdn* = 4.5, *IQR* = 4.75) than students with normal screenings (*Mdn* = 1.0, *IQR* = 3.0).
 
 
 
-Notice two things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to *our sample*. We have not proven that depression causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.
+Notice two things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to *our sample*. We have not proven that anxiety causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.
 
 ## 1.17 Exercises
 

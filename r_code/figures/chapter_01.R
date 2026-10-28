@@ -35,6 +35,11 @@ sl <- read_csv(
       levels = c("normal", "moderate", "severe"),
       labels = c("Normal", "Moderate", "Severe")
     ),
+    AnxietyStatus = factor(
+      AnxietyStatus,
+      levels = c("normal", "moderate", "severe"),
+      labels = c("Normal", "Moderate", "Severe")
+    ),
     Stress = factor(
       Stress, levels = c("normal", "high"), labels = c("Normal", "High")
     ),
@@ -45,16 +50,40 @@ sl <- read_csv(
 
 n_students <- nrow(sl)
 
+# Country-level data for Figures 1.7, 1.10, and 1.11. Four countries have no
+# GDPperCapita value in the CSV, so the plots use the 143 complete cases.
+hp <- read_csv(
+  "data/happy_planet_index_2024.csv", show_col_types = FALSE
+) %>%
+  filter(!is.na(GDPperCapita)) %>%
+  mutate(
+    region_grp = factor(
+      case_when(
+        Region == 5 ~ "Sub-Saharan Africa",
+        Region == 3 ~ "Western Europe",
+        TRUE ~ "Other regions"
+      ),
+      levels = c("Sub-Saharan Africa", "Western Europe", "Other regions")
+    )
+  )
+
+region_cols <- c(
+  "Sub-Saharan Africa" = book_palette[["vermillion"]],
+  "Western Europe"     = book_palette[["blue"]],
+  "Other regions"      = book_palette[["bluish_green"]]
+)
+
+region_shapes <- c(
+  "Sub-Saharan Africa" = 17,
+  "Western Europe"     = 16,
+  "Other regions"      = 15
+)
+
 alcohol_cols <- c(
   Abstain  = book_palette[["sky_blue"]],
   Light    = book_palette[["orange"]],
   Moderate = book_palette[["bluish_green"]],
   Heavy    = book_palette[["vermillion"]]
-)
-
-stress_cols <- c(
-  Normal = book_palette[["blue"]],
-  High   = book_palette[["vermillion"]]
 )
 
 # ---- Figure 1.2: bar plot of depression status ------------------------------
@@ -216,29 +245,32 @@ save_book_fig(
   )
 )
 
-# ---- Figure 1.7: scatterplot of classes missed and GPA ---------------------
+# ---- Figure 1.7: scatterplot of GDP per capita and life expectancy ---------
 
-p17 <- ggplot(sl, aes(x = ClassesMissed, y = GPA)) +
+p17 <- ggplot(hp, aes(x = GDPperCapita, y = LifeExpectancy)) +
   geom_point(
-    shape = 16, size = 1.7, colour = book_palette[["blue"]], alpha = 0.45
+    shape = 21, size = 1.8, fill = book_palette[["blue"]],
+    colour = BOOK_INK, stroke = 0.25, alpha = 0.7
   ) +
-  scale_y_continuous(breaks = seq(2, 4, 0.5)) +
-  labs(x = "Classes missed", y = "GPA") +
+  scale_x_continuous(
+    labels = label_comma(), expand = expansion(mult = c(0.01, 0.06))
+  ) +
+  labs(x = "GDP per capita", y = "Life expectancy (years)") +
   book_theme()
 
 save_book_fig(
   p17,
-  chapter = 1, id = "1.7", type = "scatter", slug = "classes_missed_gpa",
-  caption = "Classes missed and GPA for 253 students. The downward trend is visible but weak.",
+  chapter = 1, id = "1.7", type = "scatter", slug = "gdp_life_expectancy",
+  caption = "GDP per capita and life expectancy for 143 of the 147 countries in the Happy Planet Index data. The trend rises steeply at low incomes and then levels off.",
   alt = paste(
-    "Scatterplot of classes missed versus GPA. The points form a loose",
-    "downward cloud, but the relationship is weak; students who missed no",
-    "classes still range from about 2.4 to 4.0 on GPA."
+    "Scatterplot of GDP per capita versus life expectancy for 143 countries.",
+    "Points rise steeply from the low 50s at the lowest incomes and then",
+    "flatten near 80 years at higher incomes."
   ),
   author_note = paste(
-    "The correlation is r = -0.18, so the visual trend is weak. The section",
-    "claims a downward relationship; without a summary line, a skeptical",
-    "reader may not see it."
+    "Four countries in the CSV (Taiwan, Turkmenistan, Venezuela, Yemen) have",
+    "no GDPperCapita value, so they are omitted. The plot uses n = 143.",
+    "The overall trend is positive, but the form is nonlinear at high incomes."
   )
 )
 
@@ -279,12 +311,7 @@ save_book_fig(
     "Heavy 9%. In the Normal stress group, Moderate is 49%, Light 32%,",
     "Abstain 13%, and Heavy 6%."
   ),
-  direct_labels = TRUE,
-  author_note = paste(
-    "Heavy drinking is 8.9% under High stress versus 5.6% under Normal",
-    "stress. The difference is real but modest; the prose says the Heavy",
-    "segment is noticeably taller, which may overstate what the chart shows."
-  )
+  direct_labels = TRUE
 )
 
 # ---- Figure 1.9: mosaic plot ------------------------------------------------
@@ -355,12 +382,7 @@ save_book_fig(
     "under Normal stress and 9% under High stress."
   ),
   match = "A mosaic plot of Stress and AlcoholUse",
-  direct_labels = TRUE,
-  author_note = paste(
-    "The High stress column is 22% of the sample, so the Heavy block",
-    "difference is visually small. Check whether the figure makes the",
-    "relationship look stronger than the data support."
-  )
+  direct_labels = TRUE
 )
 
 # ---- Figure 1.9b: GPA box plots by depression status -----------------------
@@ -370,6 +392,12 @@ p19b <- ggplot(sl, aes(x = DepressionStatus, y = GPA)) +
     width = 0.55, fill = "#DCE9F5", colour = BOOK_INK, linewidth = 0.4,
     outlier.shape = 16, outlier.size = 1.4, outlier.alpha = 0.5
   ) +
+  stat_summary(
+    fun = median, geom = "label",
+    aes(label = sprintf("%.2f", after_stat(y))),
+    vjust = -0.35, size = 3.0, fill = "white", colour = BOOK_INK,
+    label.size = 0.15
+  ) +
   scale_y_continuous(breaks = seq(2, 4, 0.5)) +
   labs(x = "Depression status", y = "GPA") +
   book_theme() +
@@ -378,82 +406,84 @@ p19b <- ggplot(sl, aes(x = DepressionStatus, y = GPA)) +
 save_book_fig(
   p19b,
   chapter = 1, id = "1.9b", type = "box", slug = "gpa_by_depression",
-  caption = "GPA by depression screening status. The medians do not decline steadily with severity.",
+  caption = "GPA by depression screening status for 253 students. The Severe group has the lowest median and third quartile.",
   alt = paste(
     "Side-by-side box plots of GPA for the Normal, Moderate, and Severe",
-    "depression groups. Median GPA is 3.25 in the Normal group, 3.32 in the",
-    "Moderate group, and 3.04 in the Severe group. The Moderate group has the",
-    "widest middle 50%."
+    "depression groups. Median GPA is 3.25 in the Normal group, 3.33 in the",
+    "Moderate group, and 3.04 in the Severe group. The third quartile is",
+    "3.50, 3.60, and 3.35. The Moderate group has the widest middle 50%."
   ),
   match = "Side-by-side box plots showing GPA",
-  direct_labels = TRUE,
-  author_note = paste(
-    "Medians are 3.25 (Normal), 3.32 (Moderate), 3.04 (Severe): no monotonic",
-    "decline. The figure works for comparing spreads but does not support a",
-    "simple depression-lowers-GPA story."
-  )
+  direct_labels = TRUE
 )
 
-# ---- Figure 1.10: scatterplot grouped by stress ---------------------------
+# ---- Figure 1.10: scatterplot grouped by region ---------------------------
 
 p110 <- ggplot(
-  sl, aes(x = ClassesMissed, y = GPA, colour = Stress, shape = Stress)
+  hp,
+  aes(
+    x = GDPperCapita, y = LifeExpectancy,
+    colour = region_grp, shape = region_grp
+  )
 ) +
-  geom_point(size = 2.0, alpha = 0.65) +
-  scale_colour_manual(values = stress_cols, name = "Stress") +
-  scale_shape_manual(values = c(Normal = 16, High = 17), name = "Stress") +
-  scale_y_continuous(breaks = seq(2, 4, 0.5)) +
-  labs(x = "Classes missed", y = "GPA") +
+  geom_point(size = 2.1, alpha = 0.7) +
+  scale_colour_manual(values = region_cols, name = "Region") +
+  scale_shape_manual(values = region_shapes, name = "Region") +
+  scale_x_continuous(
+    labels = label_comma(), expand = expansion(mult = c(0.01, 0.06))
+  ) +
+  labs(x = "GDP per capita", y = "Life expectancy (years)") +
   book_theme()
 
 save_book_fig(
   p110,
-  chapter = 1, id = "1.10", type = "scatter", slug = "gpa_missed_by_stress",
-  caption = "Classes missed and GPA by stress level. Shape and color both encode stress, so the groups remain distinguishable without color.",
+  chapter = 1, id = "1.10", type = "scatter", slug = "gdp_lifeexp_by_region",
+  caption = "GDP per capita and life expectancy for 143 countries, grouped by region. Sub-Saharan Africa clusters at low values of both, and Western Europe at high values of both.",
   alt = paste(
-    "Scatterplot of classes missed versus GPA, with Normal stress shown as",
-    "circles and High stress shown as triangles. The Normal group follows a",
-    "loose downward trend, while High stress points are spread across the full",
-    "range of classes missed rather than clustering in one corner."
+    "Scatterplot of GDP per capita versus life expectancy for 143 countries.",
+    "Sub-Saharan Africa is shown as triangles at low GDP per capita and low",
+    "life expectancy, Western Europe as circles at high values of both, and",
+    "other regions as squares in between."
   ),
-  direct_labels = TRUE,
-  author_note = paste(
-    "High stress students are spread across the full range of classes missed,",
-    "not clustered in the bottom right. The figure may not deliver the",
-    "example's intended lesson."
-  )
+  direct_labels = TRUE
 )
 
 # ---- Figure 1.11: bubble plot ----------------------------------------------
 
-p111 <- ggplot(sl, aes(x = WeekdaySleep, y = GPA, size = Drinks)) +
+p111 <- ggplot(
+  hp, aes(x = GDPperCapita, y = LifeExpectancy, size = Footprint)
+) +
   geom_point(
     shape = 21, fill = book_palette[["blue"]], colour = BOOK_INK,
-    alpha = 0.35, stroke = 0.3
+    alpha = 0.4, stroke = 0.3
   ) +
-  scale_size_continuous(
-    range = c(1, 5), breaks = c(0, 5, 10, 15, 20),
-    name = "Drinks per week"
+  annotate(
+    "text", x = 2500, y = 89,
+    label = "Largest footprints:\nQatar 42.2, Luxembourg 34.9",
+    hjust = 0, vjust = 0, size = 3.2, lineheight = 0.95, colour = BOOK_INK
   ) +
-  scale_x_continuous(breaks = 3:11) +
-  scale_y_continuous(breaks = seq(2, 4, 0.5)) +
-  labs(x = "Weekday sleep (hours)", y = "GPA") +
+  scale_size_area(
+    max_size = 11, breaks = c(0, 5, 10, 20, 40),
+    name = "Ecological footprint"
+  ) +
+  scale_x_continuous(
+    labels = label_comma(), expand = expansion(mult = c(0.01, 0.06))
+  ) +
+  coord_cartesian(ylim = c(50, 91)) +
+  labs(x = "GDP per capita", y = "Life expectancy (years)") +
   book_theme()
 
 save_book_fig(
   p111,
-  chapter = 1, id = "1.11", type = "bubble", slug = "sleep_gpa_drinks",
-  caption = "Weekday sleep, GPA, and weekly drinks. Bubble size encodes drinks per week.",
+  chapter = 1, id = "1.11", type = "bubble", slug = "gdp_lifeexp_footprint",
+  caption = "GDP per capita, life expectancy, and ecological footprint for 143 countries. Bubble size encodes the ecological footprint.",
   alt = paste(
-    "Bubble plot of weekday sleep versus GPA, with bubble size showing weekly",
-    "drinks. Most bubbles are small, and larger bubbles are scattered across",
-    "the sleep range rather than clustered at low sleep and low GPA."
+    "Bubble plot of GDP per capita versus life expectancy for 143 countries.",
+    "Bubble size shows the ecological footprint. Most bubbles are small and",
+    "cluster at low GDP per capita. The largest bubbles, including Qatar and",
+    "Luxembourg, sit at higher GDP per capita."
   ),
-  direct_labels = TRUE,
-  author_note = paste(
-    "The largest bubbles do not obviously cluster at low sleep and low GPA,",
-    "so the figure may not support the hunt-for-complex-patterns framing."
-  )
+  direct_labels = TRUE
 )
 
 # ---- Figure 1.13: IQR diagram ----------------------------------------------
@@ -514,31 +544,36 @@ save_book_fig(
 
 # ---- Figure 1.15: classes missed box plots ---------------------------------
 
-p115 <- ggplot(sl, aes(x = DepressionStatus, y = ClassesMissed)) +
+p115 <- ggplot(sl, aes(x = AnxietyStatus, y = ClassesMissed)) +
   geom_boxplot(
     width = 0.55, fill = "#DCE9F5", colour = BOOK_INK, linewidth = 0.4,
     outlier.shape = 16, outlier.size = 1.3, outlier.alpha = 0.5
   ) +
+  stat_summary(
+    fun = median, geom = "label",
+    aes(label = sprintf("%.1f", after_stat(y))),
+    vjust = -0.35, size = 3.0, fill = "white", colour = BOOK_INK,
+    label.size = 0.15
+  ) +
   scale_y_continuous(breaks = seq(0, 20, 5)) +
-  labs(x = "Depression status", y = "Classes missed") +
+  labs(x = "Anxiety status", y = "Classes missed") +
   book_theme() +
   theme(panel.grid.major.x = element_blank())
 
 save_book_fig(
   p115,
-  chapter = 1, id = "1.15", type = "box", slug = "classes_missed_by_depression",
-  caption = "Classes missed by depression screening status. The Severe group has the highest median, but the step from Normal to Moderate is flat.",
+  chapter = 1, id = "1.15", type = "box", slug = "classes_missed_by_anxiety",
+  caption = "Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.",
   alt = paste(
     "Side-by-side box plots of classes missed for the Normal, Moderate, and",
-    "Severe depression groups. Median classes missed is 1 in the Normal group,",
-    "1 in the Moderate group, and 2 in the Severe group. Spread is similar in",
-    "the Normal and Moderate groups and narrower in the Severe group."
+    "Severe anxiety groups. Median classes missed is 1 in the Normal group,",
+    "1 in the Moderate group, and 4.5 in the Severe group. The Severe group",
+    "also has the widest middle 50%, from 1.5 to 6.25."
   ),
   direct_labels = TRUE,
   author_note = paste(
-    "The prose and the table below claim medians 1, 2, 4 and IQRs 2, 3, 5.",
-    "The CSV gives medians 1, 1, 2 and IQRs 3, 3, 0.75. The figure follows the",
-    "CSV, so it will contradict the table. The prose needs review before this",
-    "figure ships."
+    "The Severe anxiety group has 16 students, so its box describes a small",
+    "sample. The figure compares the groups in this sample; it is not a",
+    "population estimate."
   )
 )

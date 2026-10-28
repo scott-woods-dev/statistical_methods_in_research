@@ -57,6 +57,14 @@ for (entry in reg$figures) {
     idx <- grep(entry$file, lines, fixed = TRUE)
   }
 
+  # A figure whose filename changed is still embedded under the same number.
+  if (!length(idx)) {
+    escaped_id <- gsub(".", "\\.", entry$id, fixed = TRUE)
+    idx <- grep(
+      sprintf("^!\\[Figure %s:", escaped_id), lines, perl = TRUE
+    )
+  }
+
   if (!length(idx)) {
     missing <- c(missing, entry$id)
     next
