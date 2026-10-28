@@ -34,8 +34,6 @@ When you open `student_lifestyle_sleep.csv`, you will see a large grid of inform
 
 
 
-**Table 1.1: The first five rows of `student_lifestyle_sleep.csv`.**
-
 | ClassYear | GPA | ClassesMissed | DepressionStatus | AnxietyStatus | WeekdaySleep | WeekendSleep |
 | :-------- | --: | ------------: | :--------------- | :------------ | -----------: | -----------: |
 | 4         | 3.60 | 0            | normal           | normal        | 7.70         | 5.88         |
@@ -43,6 +41,8 @@ When you open `student_lifestyle_sleep.csv`, you will see a large grid of inform
 | 4         | 2.97 | 12           | moderate         | severe        | 3.00         | 10.09        |
 | 1         | 3.76 | 0            | normal           | normal        | 6.77         | 7.25         |
 | 4         | 3.20 | 4            | normal           | severe        | 6.09         | 7.00         |
+
+: Table 1.1: The first five rows of `student_lifestyle_sleep.csv`.
 
 
 
@@ -371,6 +371,8 @@ But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,
 | **Mode**       | Categorical (Nominal or Ordinal) | The single most frequent outcome or common category in your dataset. |
 | **Proportion** | Categorical                      | The fraction or percentage of the total group that belongs to a specific category. It tells you the "part" compared to the "whole" and is always a value between 0 and 1 (or 0% and 100%). |
 
+: A guide to choosing a measure of center from the data type and the question you are asking.
+
 ## 1.10 Measures of Spread and Position
 
 Knowing the center of your data is only half the story. Imagine two students who both have a mean `WeekdaySleep` of 7 hours. Student A gets exactly 7 hours of sleep every single night. Student B gets 4 hours one night, 10 hours the next, and 7 hours the night after. 
@@ -464,7 +466,7 @@ Because the mean is mathematically more stable and consistent, we always prefer 
 | **Roughly Symmetric** (like a bell curve) | Mean               | Standard Deviation        |
 | **Strongly Skewed or has Outliers**       | Median             | Interquartile Range (IQR) |
 
-
+: A guide to reporting center and spread from the shape of the distribution.
 
 ## 1.12 Populations and Samples: The Source of Our Data
 
@@ -510,6 +512,8 @@ Because populations and samples are entirely different concepts, we use differen
 | $s$       | -             | The standard deviation of the **sample** (a statistic).      |
 | $\pi$     | "pi"          | A proportion of the **population** (a parameter).            |
 | $p$       | -             | A proportion of the **sample** (a statistic).                |
+
+: Notation for populations and samples.
 
 ## 1.13 Complications of Real-Life Data
 
@@ -609,6 +613,8 @@ The box plot shows where the groups differ: the Normal and Moderate groups both 
 | **Normal**     | 1.0                   | 3.0                       |
 | **Moderate**   | 1.0                   | 2.25                      |
 | **Severe**     | 4.5                   | 4.75                      |
+
+: Numerical summaries of classes missed by anxiety status.
 
 ### Translating to APA Style
 Before we write our final conclusion, we need to address a small quirk of the research world. In your statistics class, we use standard mathematical notation, like $\bar{x}$ for the sample mean and $s$ for the sample standard deviation. 

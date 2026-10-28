@@ -58,5 +58,6 @@ format:
       text: |
         \usepackage{caption}
         \captionsetup[figure]{labelformat=empty}
+        \captionsetup[table]{labelformat=empty}
   epub:
     cover-image: images/cover.png

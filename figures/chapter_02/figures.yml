@@ -1,0 +1,20 @@
+figures:
+- id: '2.1'
+  file: fig_02_01_diagram_observational_vs_experiment.png
+  type: diagram
+  caption: Observational data compared with a randomized experiment. In the observational
+    panel, hidden differences such as experience and university rank can affect both
+    perceived race and interview callbacks. In the experiment, random assignment and
+    identical resumes remove those paths.
+  alt: Two-panel diagram comparing study designs. In the observational panel, hidden
+    differences such as experience and university rank affect both perceived race
+    and interview callbacks. In the experiment panel, random assignment sets the name
+    and identical resumes hold qualifications constant.
+  width_in: 6.5
+  height_in: 5.5
+  dpi: 300.0
+  script: r_code/figures/chapter_02.R
+  colour_audit:
+    n_colours: 5
+    min_contrast: 1.0
+    min_lab_distance: 7.5708808

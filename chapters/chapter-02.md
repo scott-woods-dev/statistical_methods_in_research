@@ -6,7 +6,7 @@ Suppose you want to investigate whether systemic racial discrimination exists wi
 
 
 
-In a landmark field experiment, researchers tackled this exact problem to rigorously study labor market dynamics (Bertrand & Mullainathan, 2004). They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting approximately 4,800 fictitious resumes. While the professional qualifications on the resumes were identical, the researchers randomly assigned different first names to manipulate the perceived race of the applicant. Names like "Emily" and "Greg" were used to signify White applicants, while names like "Lakisha" and "Jamal" signified African-American applicants. The researchers then tracked a single outcome: did the applicant receive a callback for an interview?
+In a landmark field experiment, researchers tackled this exact problem to rigorously study labor market dynamics (Bertrand & Mullainathan, 2004). They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting 4,870 fictitious resumes. While the professional qualifications on the resumes were identical, the researchers randomly assigned different first names to manipulate the perceived race of the applicant. Names like "Emily" and "Greg" were used to signify White applicants, while names like "Lakisha" and "Jamal" signified African-American applicants. The researchers then tracked a single outcome: did the applicant receive a callback for an interview?
 
 
 
@@ -169,11 +169,15 @@ This is where the genius of the Bertrand and Mullainathan (2004) study becomes c
 
 
 
-Let us look at how they applied the three core principles. First, they utilized extreme control by generating fictitious resumes. They ensured that the educational backgrounds, the number of prior jobs (`n_jobs`), and the years of experience (`years_exp`) were identical for competing candidates. Second, they used randomization. They took these identical resumes and randomly assigned either a White-sounding name or an African-American-sounding name. Finally, they employed massive replication by submitting nearly 4,800 resumes to various employers.
+Let us look at how they applied the three core principles. First, they applied extreme control by generating fictitious resumes. They ensured that the educational backgrounds, the number of prior jobs (`n_jobs`), and the years of experience (`years_exp`) were identical for competing candidates. Second, they used randomization. They took these identical resumes and randomly assigned either a White-sounding name or an African-American-sounding name. Finally, they employed massive replication by submitting 4,870 resumes to various employers.
 
 
 
 By designing an experiment, the researchers effectively stripped away all the confounding noise of the real world. Because the resumes were identical in every way except for the randomly assigned names, any difference in the interview callback rate (`call`) could only be caused by one thing: the perceived race of the applicant.
+
+
+
+![Figure 2.1: Observational data compared with a randomized experiment. In the observational panel, hidden differences such as experience and university rank can affect both perceived race and interview callbacks. In the experiment, random assignment and identical resumes remove those paths.](../figures/chapter_02/fig_02_01_diagram_observational_vs_experiment.png){fig-alt="Two-panel diagram comparing study designs. In the observational panel, hidden differences such as experience and university rank affect both perceived race and interview callbacks. In the experiment panel, random assignment sets the name and identical resumes hold qualifications constant."}
 
 
 
@@ -283,6 +287,8 @@ To help keep these concepts straight as we move into actual testing, here is a s
 | **Philosophical Stance**  | The assumed baseline. It requires zero evidence to maintain. | The claim requiring evidence. The burden of proof rests entirely here. |
 | **Mathematical Boundary** | Always uses strict equality ($=$). It provides an exact mathematical anchor point for our test. | Always uses "does not equal" ($\neq$). We look for any significant difference, regardless of direction. |
 
+: Table 2.1: Summary of the universal rules governing the null and alternative hypotheses.
+
 *Note on two-sided testing: By strictly using the "does not equal" sign ($\neq$) for our alternative hypothesis, we are conducting a "two-sided" test. This means we are keeping our minds open to the effect moving in either direction. For example, if we only check to see if a treatment is better than a placebo, we would miss the possibility that it's actually worse than a placebo. Once we prove an effect exists, we will use other tools (like confidence intervals and effect sizes) to talk about the specific direction and magnitude of that effect. Choosing to only look in one direction before the test begins is a highly discouraged practice in modern research.*
 
 ### Stating the Hypotheses with Parameters
@@ -390,11 +396,13 @@ Unless you personally controlled the environment and randomly assigned treatment
 | $H_0$      | "H-naught" or "H-zero" | The null hypothesis; the mathematical assumption of no effect, no difference, or exact equality. |
 | $H_1$      | "H-one"                | The alternative hypothesis; the mathematical claim that a significant effect or difference exists. |
 
+: Table 2.2: Notation for the null and alternative hypotheses.
+
 ## 2.12 Chapter Exercises
 
 ### Interpretation
 
-**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a very high resilience score. They take the exact same survey again on Tuesday, with no new academic events having occurred, but receive a very low resilience score. What measurement property is this new survey clearly lacking? Explain your reasoning.
+**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a very high resilience score. They take the exact same survey again on Tuesday, with no new academic events having occurred, but receive a very low resilience score. What measurement property is this new survey lacking? Explain your reasoning.
 
 
 
@@ -454,5 +462,5 @@ Translate these two mathematical statements into a plain English explanation of 
 **13.** Open the `amas_math_anxiety.csv` dataset in your statistical software. We will analyze the internal consistency of the 9-item Abbreviated Math Anxiety Scale using the baseline participant responses.
 
 - a) Use your software to calculate Cronbach's alpha ($\alpha$) for the nine items (`item_1` through `item_9`). Report the exact value from your output.
-- b) Based on the $0.70$ threshold discussed in the chapter, determine if this scale displays acceptable internal consistency. State your conclusion clearly in plain English.
-- c) Imagine a researcher wants to shorten the survey by removing `item_1`. If your software indicates that removing `item_1` would drop the overall alpha value to 0.65, should the researcher remove it? Explain how this change would impact the internal consistency of the remaining items.
+- b) Based on the $0.70$ threshold discussed in the chapter, determine if this scale displays acceptable internal consistency. State your conclusion in plain English.
+- c) Suppose that, in a different sample, removing `item_1` would drop the overall alpha value to $0.65$. Should the researcher remove it? Explain how this change would affect the internal consistency of the remaining items.

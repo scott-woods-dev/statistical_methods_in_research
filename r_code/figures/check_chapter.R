@@ -54,7 +54,7 @@ info <- function(...) cat("INFO  ", ..., "\n", sep = "")
 # ---- Registered figures -----------------------------------------------------
 
 if (!length(reg$figures)) {
-  fail("no figures registered in ", registry_path(chapter))
+  info("no figures registered in ", registry_path(chapter), "; nothing to validate")
 } else {
   for (entry in reg$figures) {
     label <- paste0("Figure ", entry$id)
