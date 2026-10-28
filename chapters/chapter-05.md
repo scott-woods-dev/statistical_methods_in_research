@@ -54,9 +54,12 @@ To **control for** a variable means we mathematically hold that variable constan
 
 Let us look at a practical application using our dataset. Imagine you want to know how the biological mother's age (`mage`) affects her infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
 
-```
-[Insert Figure 5.1: Minitab regression output table showing a simple linear model predicting birth weight using only the mother's age]
-```
+| Predictor | Coefficient | SE | t | p |
+| :--- | ---: | ---: | ---: | ---: |
+| Intercept | 6.793 | 0.208 | 32.65 | < .001 |
+| `mage` | 0.01424 | 0.00717 | 1.99 | .047 |
+
+: Table 5.1: Simple linear regression predicting birth weight from maternal age (n = 1,000; $R^2$ = 0.39%; adjusted $R^2$ = 0.29%; F(1, 998) = 3.95; p = .047).
 
 When you look at this software output, you might see a positive slope for `mage`. This initial result suggests that as a mother gets older, her baby's birth weight increases. But we must remember our earlier discussion about confounding variables. Is the mother's age truly driving the heavier birth weight? Or is gestational duration (`weeks`) interfering as a confounding factor behind the scenes?
 
@@ -66,9 +69,13 @@ If we leave the length of the pregnancy out of our model, we introduce **omitted
 
 To fix this, we must add predictors to get accurate slopes. We build a multiple regression model by adding `weeks` as a second predictor alongside `mage`.
 
-```
-[Insert Figure 5.2: Minitab regression output table showing a multiple regression model predicting birth weight using both the mother's age and weeks of gestation]
-```
+| Predictor | Coefficient | SE | t | p |
+| :--- | ---: | ---: | ---: | ---: |
+| Intercept | -4.056 | 0.550 | -7.37 | < .001 |
+| `mage` | 0.01558 | 0.00599 | 2.60 | .009 |
+| `weeks` | 0.2796 | 0.01345 | 20.79 | < .001 |
+
+: Table 5.2: Multiple regression predicting birth weight from maternal age and gestational weeks (n = 1,000; $R^2$ = 30.51%; adjusted $R^2$ = 30.37%; F(2, 997) = 218.8; p < .001).
 
 When you run this new model, you will observe a structural shift in your demographic predictor. The slope for `mage` shrinks dramatically. It might even become statistically insignificant.
 
@@ -86,7 +93,7 @@ You just built a multiple regression model to neutralize a confounding factor. H
 
 
 
-To answer this, you will first check the overall model significance. Statistical software provides a test statistic for the entire equation. This is often called an F-value, and it comes with an overall p-value. For our birth weight model, the software calculates a p-value of $0.000$. Because this is less than $0.05$, you have strong evidence that your model is effective. It confirms that at least one of your predictors is successfully tracking the infant's birth weight.
+To answer this, you will first check the overall model significance. Statistical software provides a test statistic for the entire equation. This is often called an F-value, and it comes with an overall p-value. For our birth weight model, the software calculates a p-value below $0.001$. Because this is less than $0.05$, you have strong evidence that your model is effective. It confirms that at least one of your predictors is successfully tracking the infant's birth weight.
 
 
 
@@ -140,9 +147,12 @@ How do we compare the strength of these predictors? We compare each slope to its
 
 Let us look at the actual mathematical output for our model predicting neonatal birth weight (`weight`) using maternal age (`mage`) and gestational duration (`weeks`).
 
-```
-[Insert Figure 5.3: Minitab regression output table showing coefficients, standard errors, and T-Values for birth weight predicted by maternal age and weeks of gestation]
-```
+| Predictor | Coefficient | SE | T-value | p |
+| :--- | ---: | ---: | ---: | ---: |
+| `mage` | 0.01558 | 0.00599 | 2.60 | .009 |
+| `weeks` | 0.2796 | 0.01345 | 20.79 | < .001 |
+
+: Table 5.3: Coefficients, standard errors, and T-values for the two predictors in the model in Table 5.2.
 
 The slope for `mage` is $0.01558$. The slope for `weeks` is $0.2796$. It looks like `weeks` has a much larger effect. But remember, a year is a very different unit of time than a week.
 
@@ -154,7 +164,7 @@ The T-Value for `mage` is $2.60$. This means the maternal age signal is $2.6$ ti
 
 
 
-Now look at `weeks`. The T-Value is $20.79$. The gestational duration signal is nearly $21$ times larger than its background noise. The p-value is $0.000$, which is highly significant.
+Now look at `weeks`. The T-Value is $20.79$. The gestational duration signal is nearly $21$ times larger than its background noise. The p-value is below $0.001$, which is highly significant.
 
 
 
@@ -180,15 +190,22 @@ Statistical software handles this translation behind the scenes. It assigns a $1
 
 We can now introduce this indicator variable into our multiple regression model. We will use the smoking indicator to predict birth weight, while simultaneously controlling for maternal age and gestational weeks.
 
-```
-[Insert Figure 5.4: Minitab regression output table showing a multiple regression model predicting birth weight using maternal age, weeks, and the smoker indicator variable]
-```
+| Predictor | Coefficient | SE | t | p |
+| :--- | ---: | ---: | ---: | ---: |
+| Intercept | -3.652 | 0.555 | -6.58 | < .001 |
+| `mage` | 0.01483 | 0.00599 | 2.48 | .014 |
+| `weeks` | 0.2708 | 0.01354 | 20.00 | < .001 |
+| `smoker` | -0.3723 | 0.1080 | -3.45 | .001 |
+
+: Table 5.4: Multiple regression predicting birth weight from maternal age, gestational weeks, and smoking status (n = 981; $R^2$ = 30.83%; adjusted $R^2$ = 30.61%; F(3, 977) = 145.1; p < .001).
+
+*Note: 19 mothers with no recorded smoking status are excluded, so the model uses 981 births.*
 
 Your software will generate a regression equation that looks like this:
 
 
 
-$$\text{Predicted Weight} = -3.812 + 0.01457(\text{mage}) + 0.2752(\text{weeks}) - 0.369(\text{smoker})$$
+$$\text{Predicted Weight} = -3.652 + 0.01483(\text{mage}) + 0.2708(\text{weeks}) - 0.3723(\text{smoker})$$
 
 
 
@@ -196,7 +213,7 @@ How do we interpret the slope for an indicator variable? It is actually quite in
 
 
 
-Therefore, the slope for the smoker indicator represents the average difference in birth weight between a smoker and a nonsmoker. Specifically, the model tells us that babies born to mothers who smoke weigh an average of $0.369$ pounds less than babies born to nonsmokers.
+Therefore, the slope for the smoker indicator represents the average difference in birth weight between a smoker and a nonsmoker. Specifically, the model tells us that babies born to mothers who smoke weigh an average of $0.372$ pounds less than babies born to nonsmokers.
 
 
 
@@ -503,9 +520,12 @@ We will focus on four variables:
 
 We begin by looking at the raw, unadjusted relationship. We run a simple linear regression using only `Sex` to predict `Salary`.
 
-```
-[Insert Figure 5.5: Software regression output table predicting Salary using only Sex]
-```
+| Predictor | Coefficient | SE | t | p |
+| :--- | ---: | ---: | ---: | ---: |
+| Intercept | 61.670 | 7.030 | 8.77 | < .001 |
+| `Sex` | 31.427 | 9.796 | 3.21 | .002 |
+
+: Table 5.5: Simple linear regression predicting annual teaching salary, in thousands of dollars, from sex (1 = male, 0 = female; n = 200; $R^2$ = 4.94%; adjusted $R^2$ = 4.46%; F(1, 198) = 10.29; p = .002).
 
 The software reports a slope of 31.43 for the `Sex` indicator variable. Because 1=male and the salary is measured in thousands, this means the average male educator in our sample makes $31,427 more than the average female educator. The p-value for this slope is 0.002. This tells us the initial wage gap in this dataset is statistically significant.
 
@@ -517,9 +537,14 @@ However, we must think critically. Are men simply paid more? Or are there confou
 
 If we ignore these factors, our model suffers from omitted variable bias. To fix this, we build a multiple regression model. We predict `Salary` using `Sex`, `Age`, and `PhD` all at the same time.
 
-```
-[Insert Figure 5.6: Software regression output table predicting Salary using Sex, Age, and PhD]
-```
+| Predictor | Coefficient | SE | t | p |
+| :--- | ---: | ---: | ---: | ---: |
+| Intercept | 6.522 | 14.575 | 0.45 | .655 |
+| `Sex` | 27.645 | 9.132 | 3.03 | .003 |
+| `Age` | 0.734 | 0.306 | 2.40 | .017 |
+| `PhD` | 48.554 | 9.303 | 5.22 | < .001 |
+
+: Table 5.6: Multiple regression predicting annual teaching salary, in thousands of dollars, from sex (1 = male, 0 = female), age, and PhD status (1 = holds a PhD, 0 = does not; n = 200; $R^2$ = 22.06%; adjusted $R^2$ = 20.86%; F(3, 196) = 18.49; p < .001).
 
 ### Step 3: Controlling for Variables in Action
 
