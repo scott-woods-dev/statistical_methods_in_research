@@ -531,7 +531,7 @@ p113 <- ggplot() +
 
 save_book_fig(
   p113,
-  chapter = 1, id = "1.13", type = "diagram", slug = "iqr_boxplot",
+  chapter = 1, id = "1.12", type = "diagram", slug = "iqr_boxplot",
   caption = "Quartiles and the interquartile range on a box plot.",
   alt = paste(
     "Diagram of a box plot. The left edge of the box is labeled Q1, the 25th",
@@ -562,7 +562,7 @@ p115 <- ggplot(sl, aes(x = AnxietyStatus, y = ClassesMissed)) +
 
 save_book_fig(
   p115,
-  chapter = 1, id = "1.15", type = "box", slug = "classes_missed_by_anxiety",
+  chapter = 1, id = "1.13", type = "box", slug = "classes_missed_by_anxiety",
   caption = "Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.",
   alt = paste(
     "Side-by-side box plots of classes missed for the Normal, Moderate, and",
@@ -679,7 +679,7 @@ save_book_values(
   conventions = list(
     note = paste(
       "Descriptive chapter: counts, means, medians, and quartiles. Figure 1.3",
-      "and Figure 1.13 are illustrative. Figure 1.1 is a native table."
+      "and Figure 1.12 are illustrative. Figure 1.1 is a native table."
     )
   ),
   source = "r_code/figures/chapter_01.R"

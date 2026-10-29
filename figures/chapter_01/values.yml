@@ -3,7 +3,7 @@ source: r_code/figures/chapter_01.R
 script: r_code/figures/chapter_01.R
 conventions:
   note: 'Descriptive chapter: counts, means, medians, and quartiles. Figure 1.3 and
-    Figure 1.13 are illustrative. Figure 1.1 is a native table.'
+    Figure 1.12 are illustrative. Figure 1.1 is a native table.'
 values:
   data:
     student_file: student_lifestyle_sleep.csv

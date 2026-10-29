@@ -188,8 +188,8 @@ figures:
     n_colours: 2
     min_contrast: 5.1854463
     min_lab_distance: 55.3717028
-- id: '1.13'
-  file: fig_01_13_diagram_iqr_boxplot.png
+- id: '1.12'
+  file: fig_01_12_diagram_iqr_boxplot.png
   type: diagram
   caption: Quartiles and the interquartile range on a box plot.
   alt: Diagram of a box plot. The left edge of the box is labeled Q1, the 25th percentile;
@@ -204,8 +204,8 @@ figures:
     n_colours: 2
     min_contrast: 1.2340449
     min_lab_distance: 82.8052266
-- id: '1.15'
-  file: fig_01_15_box_classes_missed_by_anxiety.png
+- id: '1.13'
+  file: fig_01_13_box_classes_missed_by_anxiety.png
   type: box
   caption: Classes missed by anxiety screening status for 253 students. The Severe
     group has a higher median and a wider middle 50%.

@@ -408,7 +408,7 @@ Just as the median is the resistant counterpart to the mean, the IQR is the resi
 
 
 
-![Figure 1.13: Quartiles and the interquartile range on a box plot.](../figures/chapter_01/fig_01_13_diagram_iqr_boxplot.png){fig-alt="Diagram of a box plot. The left edge of the box is labeled Q1, the 25th percentile; the center line is the median, the 50th percentile; and the right edge is Q3, the 75th percentile. A bracket above the box spans Q1 to Q3 and is labeled IQR equals Q3 minus Q1."}
+![Figure 1.12: Quartiles and the interquartile range on a box plot.](../figures/chapter_01/fig_01_12_diagram_iqr_boxplot.png){fig-alt="Diagram of a box plot. The left edge of the box is labeled Q1, the 25th percentile; the center line is the median, the 50th percentile; and the right edge is Q3, the 75th percentile. A bracket above the box spans Q1 to Q3 and is labeled IQR equals Q3 minus Q1."}
 
 
 
@@ -601,7 +601,7 @@ To visualize the relationship between a categorical variable and a numerical var
 
 
 
-![Figure 1.15: Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.](../figures/chapter_01/fig_01_15_box_classes_missed_by_anxiety.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 4.5 in the Severe group. The Severe group also has the widest middle 50%, from 1.5 to 6.25."}
+![Figure 1.13: Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.](../figures/chapter_01/fig_01_13_box_classes_missed_by_anxiety.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 4.5 in the Severe group. The Severe group also has the widest middle 50%, from 1.5 to 6.25."}
 
 
 
