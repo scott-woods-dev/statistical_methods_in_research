@@ -7,7 +7,7 @@ conventions:
   false_positive: The calculation assumes independent tests and a true null for every
     test. The probability of at least one false positive is 1 - (1 - alpha)^k. The
     figure uses alpha = 0.05 and k = 1, 5, 10, 20, and 50.
-  tables: Tables 13.1 through 13.4 are conceptual comparisons. They summarize definitions
+  tables: Tables 13.1 and 13.2 are conceptual comparisons. They summarize definitions
     and examples already in the prose; no values are calculated.
   workflow: Figure 13.1 is a diagram of the workflow described in Section 13.4. It
     shows the master key stored separately from the de-identified transcripts.
@@ -40,13 +40,7 @@ values:
     note: Data governance versus data stewardship. Conceptual comparison; no calculated
       values.
   table_13_2:
-    note: 'The three IRB review concepts: human subjects, minimal risk, and vulnerable
-      populations. Conceptual comparison; no calculated values.'
-  table_13_3:
     note: Anonymity versus confidentiality. Conceptual comparison; no calculated values.
-  table_13_4:
-    note: P-hacking tactics and ethical alternatives. Conceptual comparison; no calculated
-      values.
   figures:
     figure_13_1:
       note: Secure data workflow diagram. The four stages are gather, transfer, de-identify,

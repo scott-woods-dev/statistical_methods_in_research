@@ -86,14 +86,6 @@ When an IRB evaluates a protocol, they are specifically looking at three major c
 - **Minimal Risk:** The board's job is to protect participants from harm. The baseline they use is called **minimal risk**, which means the probability and magnitude of harm in the study are no greater than what a person would encounter in their normal, everyday life. An anonymous survey about favorite study habits is minimal risk. A study tracking illegal drug use or a clinical trial for depression medication exceeds minimal risk, requiring the IRB to demand much stricter safety and data stewardship protocols.
 - **Vulnerable Populations:** The foundation of ethical research is voluntary informed consent. However, some groups have a compromised ability to freely say "no." The IRB strictly protects **vulnerable populations**, which legally include children, prisoners, pregnant women, and individuals with cognitive impairments. In a college setting, even students can be considered vulnerable if they feel pressured to participate in a professor's study out of fear that refusing might impact their grades.
 
-| **Concept** | **Definition** | **Example** | **What the IRB checks** |
-| :--- | :--- | :--- | :--- |
-| Human subjects | Research that interacts with living people or analyzes identifiable private information | Interviewing students or analyzing identifiable academic records | Whether the study involves people, or only de-identified public data |
-| Minimal risk | The chance and size of harm are no greater than in ordinary daily life | An anonymous survey about study habits | Whether the study could cause more harm than everyday life |
-| Vulnerable populations | Groups whose ability to consent freely is compromised | Children, prisoners, pregnant women, and people with cognitive impairments | Whether extra safeguards are needed, including pressure on students |
-
-: Table 13.2: The three concepts an IRB evaluates in a research protocol.
-
 A behind-the-curtain look at an IRB reveals that they are not looking to block research; they are looking to calibrate safety. If you submit a protocol for an anonymous, harmless survey, the IRB might quickly issue an "exempt determination," allowing you to proceed with your work right away. But if your research touches on sensitive topics or vulnerable people, the board will step in to help you redesign your study so that the humans behind the numbers are treated with the respect they deserve.
 
 ## 13.4 Data Security and Privacy
@@ -123,7 +115,7 @@ The AOL incident is a textbook failure in data security. Simply deleting a name 
 | Promise to participants | No one, including the researcher, can identify you | The researcher can identify you but will not disclose your identity |
 | Main risk | Re-identification from combined details | A lost key or a data breach |
 
-: Table 13.3: Anonymity and confidentiality compared.
+: Table 13.2: Anonymity and confidentiality compared.
 
 To understand what good confidentiality looks like in practice, let's walk through a common research scenario. Imagine you are conducting in-person interviews to study math anxiety among college freshmen. You sit in a room, have them sign a paper consent form, and record their answers on a digital audio recorder.
 
@@ -216,15 +208,6 @@ P-hacking rarely involves inventing fake data. Instead, it relies on deceptive a
 - **Selective Group Analysis:** This is exactly what the Cornell lab did. If a diet intervention shows no overall effect, a p-hacker will divide the data into smaller and smaller subgroups. They might test just the men, then just the women, then just women who eat out frequently. Eventually, random noise in the data will produce a statistically significant result. Reporting that isolated finding while hiding all the failed tests creates a false narrative.   
 - **Failing to Adjust for Multiple Comparisons:** Our standard significance level ($\alpha$) is 0.05, meaning we accept a 5% chance of making a Type I error (a false positive). But if you test 20 different relationships in a single dataset, math dictates that at least one test will likely trigger a false positive by pure chance. Ethical researchers use mathematical adjustments to lower their significance level when running multiple tests. P-hackers ignore this rule and publish the random noise as a profound discovery.   
 - **Equating Sample Size with Practical Effect:** Remember that a $p$-value only measures the strength of evidence, not the size of the effect. If you have a massive sample size of 500,000 people, even a microscopic difference (like a diet plan that causes someone to lose two ounces over a year) might generate a highly significant $p$-value of 0.001. A researcher lacking integrity will weaponize that massive sample size to "find" non-existent practical effects, intentionally confusing statistical significance with real-world impact.   
-
-| **Tactic** | **What it looks like** | **Why it is unethical** | **Ethical alternative** |
-| :--- | :--- | :--- | :--- |
-| Unjustified one-sided test | Switching from a two-sided to a one-sided test after seeing a p-value of 0.08 | It halves the p-value without a pre-specified reason | Pre-specify a two-sided test; report a one-sided test only when justified in advance |
-| Selective group analysis | Testing men, then women, then women who eat out, and reporting only the significant subgroup | It hides the failed tests and reports noise | Report every pre-specified subgroup, or label the analysis exploratory |
-| No adjustment for multiple comparisons | Running 20 tests at the 0.05 level and reporting the one significant result | The chance of a false positive rises with the number of tests | Adjust the significance level for multiple comparisons, or report all tests |
-| Sample size versus practical effect | Using a huge sample to make a tiny difference significant | Statistical significance is confused with practical importance | Report the effect size and confidence interval alongside the p-value |
-
-: Table 13.4: P-hacking tactics and ethical alternatives.
 
 ![Figure 13.2: Probability of at least one false positive when testing independent hypotheses with no real effect, at an alpha level of 0.05. The probability rises from 5% with one test to 23% with five, 40% with ten, 64% with twenty, and 92% with fifty. The dashed line marks 50%.](../figures/chapter_13/fig_13_02_bar_false_positive_probability.png){fig-alt="Bar chart of false-positive probability by number of independent tests. Bars rise from 5% for 1 test to 23% for 5, 40% for 10, 64% for 20, and 92% for 50. The 20-test bar passes the 50% line."}
 
