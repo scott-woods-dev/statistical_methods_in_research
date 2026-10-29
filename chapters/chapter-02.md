@@ -1,4 +1,4 @@
-# Chapter 2: From Research Questions to Formal Hypotheses
+# From Research Questions to Formal Hypotheses
 
 ## 2.1 Introduction
 

@@ -1,4 +1,4 @@
-# Chapter 12: Time Series Analysis
+# Time Series Analysis
 
 ## 12.1 Introduction
 

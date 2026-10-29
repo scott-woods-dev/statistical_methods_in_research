@@ -1,4 +1,4 @@
-# Chapter 5: Multiple Regression for Complex Systems
+# Multiple Regression for Complex Systems
 
 ## 5.1 Introduction
 

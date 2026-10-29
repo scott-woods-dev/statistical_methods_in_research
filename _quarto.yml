@@ -74,5 +74,3 @@ format:
             }%
           \end{titlepage}%
         }
-  epub:
-    cover-image: images/cover.png

@@ -1,4 +1,4 @@
-# Chapter 4: Correlation and Simple Linear Regression
+# Correlation and Simple Linear Regression
 
 ## 4.1 Introduction
 

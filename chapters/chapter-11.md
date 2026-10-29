@@ -1,4 +1,4 @@
-# Chapter 11: Factor Analysis
+# Factor Analysis
 
 ## 11.1 Introduction
 

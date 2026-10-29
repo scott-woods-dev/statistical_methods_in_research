@@ -1,4 +1,4 @@
-# Chapter 9: Logistic Regression
+# Logistic Regression
 
 ## 9.1 Introduction
 

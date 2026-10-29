@@ -1,4 +1,4 @@
-# Chapter 6: The One-Way ANOVA
+# The One-Way ANOVA
 
 ## 6.1 Introduction
 

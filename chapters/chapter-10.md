@@ -1,4 +1,4 @@
-# Chapter 10: Nonparametric Tests
+# Nonparametric Tests
 
 ## 10.1 Introduction
 

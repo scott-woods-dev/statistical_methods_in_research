@@ -1,4 +1,4 @@
-# Chapter 7: Advanced Experimental Designs
+# Advanced Experimental Designs
 
 ## 7.1 Introduction
 

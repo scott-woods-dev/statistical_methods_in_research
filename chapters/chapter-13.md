@@ -1,4 +1,4 @@
-# Chapter 13: Ethics in Statistics and Data Integrity
+# Ethics in Statistics and Data Integrity
 
 ## 13.1 Introduction
 

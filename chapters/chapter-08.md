@@ -1,4 +1,4 @@
-# Chapter 8: Categorical Data Analysis
+# Categorical Data Analysis
 
 ## 8.1 Introduction
 

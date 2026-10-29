@@ -1,4 +1,4 @@
-# Chapter 1: Understanding Data through Measures and Visualizations
+# Understanding Data through Measures and Visualizations
 
 ## 1.1 Introduction
 
@@ -362,7 +362,7 @@ Consider a town council looking at resident income to forecast tax revenue. Inco
 
 But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,000 new people move to the town, the council can confidently plan for $2,000,000 in new revenue ($2,000 multiplied by 1,000 people). You cannot do this math with a median! The mean mathematically accounts for the total sum of the data. Those ultra-wealthy outliers who pay massive taxes provide real money that the town gets to spend. The mean's "smoothing out" effect spreads those extreme values across everyone. When you need to calculate totals or aggregates, its sensitivity to outliers is a feature, not a bug.
 
-### Figure 1.12: Choosing the Right Measure of Center
+### Choosing the Right Measure of Center
 
 | Measure        | Best For (Data Type)             | What it tells us                                             |
 | :------------- | :------------------------------- | :----------------------------------------------------------- |
@@ -371,7 +371,7 @@ But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,
 | **Mode**       | Categorical (Nominal or Ordinal) | The single most frequent outcome or common category in your dataset. |
 | **Proportion** | Categorical                      | The fraction or percentage of the total group that belongs to a specific category. It tells you the "part" compared to the "whole" and is always a value between 0 and 1 (or 0% and 100%). |
 
-: A guide to choosing a measure of center from the data type and the question you are asking.
+: Table 1.2: A guide to choosing a measure of center from the data type and the question you are asking.
 
 ## 1.10 Measures of Spread and Position
 
@@ -459,14 +459,14 @@ If you took twenty different samples of 253 students, their sample means would a
 
 Because the mean is mathematically more stable and consistent, we always prefer to use the mean and standard deviation whenever our data is symmetric enough to allow it. We only switch to the median and IQR when extreme skew or outliers either force our hand, or if that true "exact middle" idea of the median is our main interest.
 
-### Figure 1.14: Reporting Numerical Summaries
+### Reporting Numerical Summaries
 
 | Shape of Distribution                     | Report this Center | Report this Spread        |
 | :---------------------------------------- | :----------------- | :------------------------ |
 | **Roughly Symmetric** (like a bell curve) | Mean               | Standard Deviation        |
 | **Strongly Skewed or has Outliers**       | Median             | Interquartile Range (IQR) |
 
-: A guide to reporting center and spread from the shape of the distribution.
+: Table 1.3: A guide to reporting center and spread from the shape of the distribution.
 
 ## 1.12 Populations and Samples: The Source of Our Data
 
@@ -513,7 +513,7 @@ Because populations and samples are entirely different concepts, we use differen
 | $\pi$     | "pi"          | A proportion of the **population** (a parameter).            |
 | $p$       | -             | A proportion of the **sample** (a statistic).                |
 
-: Notation for populations and samples.
+: Table 1.4: Notation for populations and samples.
 
 ## 1.13 Complications of Real-Life Data
 
@@ -614,7 +614,7 @@ The box plot shows where the groups differ: the Normal and Moderate groups both 
 | **Moderate**   | 1.0                   | 2.25                      |
 | **Severe**     | 4.5                   | 4.75                      |
 
-: Numerical summaries of classes missed by anxiety status.
+: Table 1.5: Numerical summaries of classes missed by anxiety status.
 
 ### Translating to APA Style
 Before we write our final conclusion, we need to address a small quirk of the research world. In your statistics class, we use standard mathematical notation, like $\bar{x}$ for the sample mean and $s$ for the sample standard deviation. 
