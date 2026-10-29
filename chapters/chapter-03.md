@@ -603,6 +603,8 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 | *d*        | "Cohen's d"                         | A standardized measure of effect size that describes the difference between groups using standard deviations instead of raw units. |
 | *p*        | "p" or "p-value"                    | The probability of seeing our results by random chance if the null hypothesis is true. **Note: Context is key!** In formal hypothesis testing conclusions, this denotes the p-value. In other contexts (like in Chapter 2), it can denote a sample proportion. |
 
+: Table 3.1: Notation used in this chapter, with how each symbol is read aloud.
+
 
 
 ## 3.12 Exercises

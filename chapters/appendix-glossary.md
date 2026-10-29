@@ -294,3 +294,5 @@ This glossary contains definitions for key terms used throughout the textbook.
 | within-subjects design | A design in which the same participants are measured under multiple conditions or time points, so comparisons are made within each person. |
 | y-intercept | The predicted value of the response variable when the predictor variable equals zero; it anchors the regression line as a baseline. |
 | zero-inflated | A distribution with a large pile of zeros and a small number of high values, so the mean is pulled away from the typical observation. |
+
+: Definitions of key terms used throughout the book.

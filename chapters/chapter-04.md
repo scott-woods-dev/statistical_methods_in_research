@@ -551,6 +551,8 @@ As you begin applying regression analysis to your own research, keep these commo
 | $x$        | "x"            | The predictor variable (the information we use to predict).  |
 | $\hat{y}$  | "y-hat"        | The value of $y$ predicted by our regression model.          |
 
+: Table 4.1: Notation used in this chapter, with how each symbol is read aloud.
+
 ## 4.12 Exercises
 
 ### Interpretation

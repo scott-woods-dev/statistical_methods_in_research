@@ -828,6 +828,8 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 | **$RR$**     | Relative Risk             | A ratio comparing the probability of an outcome between two groups. |
 | **$OR$**     | Odds Ratio                | A ratio comparing the odds of an outcome between two groups. |
 
+: Table 8.7: Notation used in this chapter, with how each symbol is read aloud.
+
 ## 8.17 Exercises
 
 ### Interpretation

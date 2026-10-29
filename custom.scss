@@ -370,3 +370,29 @@ a.glossary-link:focus-visible {
         text-decoration: none; /* */
     }
 }
+
+/* * ADA contrast fixes
+ * Quarto's default muted ink (#6d7a86) measures 4.39:1 on white and 4.10:1 on
+ * the quote surface, and 3.66:1 for fourth-level section numbers. All three are
+ * below the 4.5:1 AA threshold at these sizes. These rules restore the book's
+ * darker muted tone. The !important flags are needed to beat the compiled
+ * Bootstrap rules, which are loaded after this file.
+ */
+.header-section-number,
+figcaption,
+caption,
+blockquote,
+blockquote p {
+    color: var(--muted-text-color) !important; /* */
+}
+
+/* ADA: the search box's default focus ring is a 1px translucent shadow.
+ * Strengthen it to a solid 2px ring in the link colour. The selectors match
+ * the defaults' specificity so this rule wins by coming later.
+ */
+.aa-Autocomplete .aa-Form:focus-within,
+.aa-DetachedFormContainer .aa-Form:focus-within {
+    box-shadow: 0 0 0 2px var(--link-color); /* */
+}
+
+

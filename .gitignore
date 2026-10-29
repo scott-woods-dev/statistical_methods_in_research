@@ -2,6 +2,9 @@
 /_freeze/
 /docs/
 
+# Accessibility scan report
+/tools/a11y/a11y-results.json
+
 # OS files
 .DS_Store
 Thumbs.db

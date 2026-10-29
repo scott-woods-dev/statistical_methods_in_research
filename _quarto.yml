@@ -49,6 +49,7 @@ format:
     df-print: paged
     include-after-body:
       - includes/glossary.html
+      - includes/a11y.html
   pdf:
     documentclass: book
     mainfont: Times New Roman

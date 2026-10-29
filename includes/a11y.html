@@ -1,0 +1,126 @@
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags three labeling problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  ready(function () {
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
