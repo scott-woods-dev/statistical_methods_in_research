@@ -1,0 +1,59 @@
+figures:
+- id: '9.1'
+  file: fig_09_01_scatter_survive_vs_pulse.png
+  type: scatter
+  caption: Survival status by pulse rate for 200 ICU patients. Each circle is a patient
+    at 0 (died) or 1 (survived), jittered vertically to show overlap. The straight-line
+    fit stays inside the probability range here because pulse is only weakly related
+    to survival, but nothing in a straight line keeps it there.
+  alt: Scatterplot of survival status against pulse for 200 ICU patients, with points
+    jittered into two bands at 0 (died) and 1 (survived). A straight regression line
+    runs from 83% predicted survival at pulse 39 down to 76% at pulse 192, staying
+    inside the 0 to 100% range. The line has no floor or ceiling.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_09.R
+  colour_audit:
+    n_colours: 4
+    min_contrast: 2.3074822
+    min_lab_distance: 23.4842746
+- id: '9.2'
+  file: fig_09_02_diagram_logit_progression.png
+  type: diagram
+  caption: Building the logit in three steps, all plotted against the same probability
+    of survival. Panel A shows probability, bounded between 0 and 1. Panel B shows
+    odds, compressed between 0 and 1 and stretching toward infinity above 1. Panel
+    C shows the log-odds (logit), centered on 0 and extending in both directions.
+  alt: Three stacked line charts share a probability axis from 0 to 1. Panel A is
+    the straight line from 0 to 1. Panel B stays near 0, passes even odds at 1, then
+    climbs steeply toward infinity. Panel C is an S-shaped curve through 0, dropping
+    near 0 and rising near 1.
+  width_in: 6.5
+  height_in: 6.2
+  dpi: 300.0
+  script: r_code/figures/chapter_09.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 5.1854463
+    min_lab_distance: 23.4842746
+- id: '9.3'
+  file: fig_09_03_roc_roc_auc.png
+  type: roc
+  caption: ROC curve for the logistic regression of survival on age and emergency
+    admission for 200 ICU patients. The curve plots sensitivity against the false
+    positive rate at every decision threshold. The dashed diagonal is a coin-flip
+    model; the triangle marks the 50% threshold, where the model's specificity is
+    only 5.0%.
+  alt: ROC curve for the age and emergency model. The curve climbs above the dashed
+    diagonal, reaching 40% sensitivity at a 10% false positive rate, 63% at 25%, and
+    98% at 95%. The area under the curve is 0.749. A triangle at a 95% false positive
+    rate and 99% sensitivity marks the 50% threshold.
+  width_in: 5.6
+  height_in: 5.2
+  dpi: 300.0
+  script: r_code/figures/chapter_09.R
+  colour_audit:
+    n_colours: 4
+    min_contrast: 3.8671838
+    min_lab_distance: 23.4842746

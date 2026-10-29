@@ -35,9 +35,7 @@ In the previous chapter, we analyzed relationships between categorical variables
 
 Imagine we want to predict the probability of a patient surviving to discharge (`Survive`) based on their resting heart rate (`Pulse`). If we plot this data, the survival outcome on the y-axis can only exist at exactly 0 (died) or exactly 1 (survived).
 
-```
-[Insert Figure 9.1: Scatterplot showing Survive (0 or 1) on the y-axis and Pulse on the x-axis, featuring a standard linear regression line that crosses below 0 and above 1]
-```
+![Figure 9.1: Survival status by pulse rate for 200 ICU patients. Each circle is a patient at 0 (died) or 1 (survived), jittered vertically to show overlap. The straight-line fit stays inside the probability range here because pulse is only weakly related to survival, but nothing in a straight line keeps it there.](../figures/chapter_09/fig_09_01_scatter_survive_vs_pulse.png){fig-alt="Scatterplot of survival status against pulse for 200 ICU patients, with points jittered into two bands at 0 (died) and 1 (survived). A straight regression line runs from 83% predicted survival at pulse 39 down to 76% at pulse 192, staying inside the 0 to 100% range. The line has no floor or ceiling."}
 
 If we fit a standard linear regression line to this scatterplot, we run into an immediate logical problem. A straight line continues infinitely in both directions. For extremely high or low pulse rates, the straight line will eventually predict survival values greater than 1 or less than 0. Because we want to interpret these predictions as probabilities, a straight line will eventually claim a patient has a -20% or 115% chance of survival. This is mathematically impossible.
 
@@ -75,9 +73,7 @@ To fix this severe skew, we use a mathematical stretching machine: the natural l
 
 This transformation centers our entire system perfectly at 0, creating a new, stretched metric called the **log-odds**, or the **logit**.
 
-```
-[Insert Figure 9.2: A three-panel progression. Panel A shows probability bounded between 0 and 1. Panel B shows odds, highlighting the severe compression below 1 and the infinite stretch above 1. Panel C shows the log-odds (logit) centered at 0, extending infinitely in both positive and negative directions.]
-```
+![Figure 9.2: Building the logit in three steps, all plotted against the same probability of survival. Panel A shows probability, bounded between 0 and 1. Panel B shows odds, compressed between 0 and 1 and stretching toward infinity above 1. Panel C shows the log-odds (logit), centered on 0 and extending in both directions.](../figures/chapter_09/fig_09_02_diagram_logit_progression.png){fig-alt="Three stacked line charts share a probability axis from 0 to 1. Panel A is the straight line from 0 to 1. Panel B stays near 0, passes even odds at 1, then climbs steeply toward infinity. Panel C is an S-shaped curve through 0, dropping near 0 and rising near 1."}
 
 The logit gives us a canvas suitable for a straight regression line. When you run a logistic regression, the software uses your predictor variables to directly estimate this logit.
 
@@ -89,9 +85,12 @@ However, nobody communicates clinical risk using abstract log-odds. Because our 
 
 ## 9.4 Interpreting the Output: Slopes and Odds Ratios
 
-```
-[Insert Table 9.1: Minitab logistic regression output table showing Constant and Age predictors, including raw Coef, SE, Z-Value, P-Value, and an Odds Ratio column]
-```
+| Predictor | Coefficient | Standard error | z-value | p-value | Odds ratio |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Constant | 3.0585 | 0.6961 | 4.39 | < 0.001 | 21.2959 |
+| Age (years) | -0.0275 | 0.0106 | -2.61 | 0.009 | 0.9728 |
+
+: Table 9.1: Simple logistic regression of survival on age for 200 ICU patients.
 
 When you run a logistic regression model, your software will output a familiar-looking table of coefficients. Because our model is predicting the logit, the raw slope we get back tells us how the log-odds change for every one-unit increase in our predictor variable.  
 
@@ -127,9 +126,11 @@ To make our model truly actionable, we must convert our findings back into intui
 
 To generate a predicted probability, we simply provide the software with a specific patient profile. Let's ask our software to predict the survival probability for a 65-year-old patient using our simple model.
 
-```
-[Insert Table 9.2: Software output table displaying predicted probability, standard error, and 95% Confidence Interval for a 65-year-old patient]
-```
+| Patient profile | Fitted probability | Standard error | 95% confidence interval |
+| :--- | ---: | ---: | :--- |
+| 65 years old | 0.7804 | 0.0310 | (0.7138, 0.8351) |
+
+: Table 9.2: Predicted probability of survival for a 65-year-old from the simple logistic regression on age (n = 200).
 
 The software takes this specific age, runs it through the log-odds equation, and automatically translates the final result back into a standard probability. Looking at the prediction output, the software gives us a "Fitted Probability" of $0.780442$. This means our model predicts that a 65-year-old ICU patient has approximately a 78% chance of surviving to discharge.  
 
@@ -149,9 +150,13 @@ In Chapter 5, we learned that social and medical outcomes are rarely driven by a
 
 Let's expand our ICU survival model by including `Emergency`, a categorical indicator variable where $1$ represents an emergency admission and $0$ represents an elective admission.  
 
-```
-[Insert Table 9.3: Multiple logistic regression output table showing Constant, Age, and Emergency predictors, including Coef, SE, 95% CI, Z-Value, P-Value, and VIF]
-```
+| Predictor | Coefficient | Standard error | 95% confidence interval | z-value | p-value | VIF |
+| :--- | ---: | ---: | :--- | ---: | ---: | ---: |
+| Constant | 5.5088 | 1.0335 | (3.4831, 7.5344) | 5.33 | < 0.001 | n/a |
+| Age (years) | -0.0340 | 0.0107 | (-0.0550, -0.0131) | -3.18 | 0.001 | 1.01 |
+| Emergency admission | -2.4535 | 0.7526 | (-3.9285, -0.9785) | -3.26 | 0.001 | 1.01 |
+
+: Table 9.3: Multiple logistic regression of survival on age and emergency admission (1 = emergency, 0 = elective) for 200 ICU patients.
 
 ### Evaluating Predictors: $p$-values and VIF
 
@@ -167,9 +172,12 @@ Furthermore, whenever we add multiple predictors, we must check for multicolline
 
 ### Interpreting the Odds Ratios
 
-```
-[Insert Table 9.4: Software output table displaying Odds Ratios and 95% CIs for Age and Emergency]
-```
+| Predictor | Odds ratio | 95% confidence interval |
+| :--- | ---: | :--- |
+| Age (years) | 0.9666 | (0.9465, 0.9870) |
+| Emergency admission | 0.0860 | (0.0197, 0.3759) |
+
+: Table 9.4: Odds ratios and 95% confidence intervals from the multiple logistic regression of survival on age and emergency admission.
 
 Now let's look at the Odds Ratios to understand the practical effect of these variables.
 
@@ -184,10 +192,17 @@ A 91% drop in odds sounds terrifying, but remember that odds are not percentages
 
 Let's generate the predicted probabilities of survival for a 65-year-old patient under both admission scenarios.  
 
-```
-[Insert Table 9.5: Software output table displaying predicted probability, standard error, and 95% CI for a 65-year-old non-emergency (elective) admission]
-[Insert Table 9.6: Software output table displaying predicted probability, standard error, and 95% CI for a 65-year-old emergency admission]
-```
+| Patient profile | Fitted probability | Standard error | 95% confidence interval |
+| :--- | ---: | ---: | :--- |
+| 65 years old, elective admission | 0.9644 | 0.0249 | (0.8674, 0.9911) |
+
+: Table 9.5: Predicted probability of survival for a 65-year-old elective admission from the age and emergency model.
+
+| Patient profile | Fitted probability | Standard error | 95% confidence interval |
+| :--- | ---: | ---: | :--- |
+| 65 years old, emergency admission | 0.6993 | 0.0417 | (0.6119, 0.7743) |
+
+: Table 9.6: Predicted probability of survival for a 65-year-old emergency admission from the age and emergency model.
 
 Our model predicts that a 65-year-old admitted for an elective procedure has a massive $0.964350$, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to $0.699344$, or roughly 69.9%.
 
@@ -203,12 +218,12 @@ Our multiple logistic regression model provides precise predicted probabilities 
 
 By cross-tabulating these predictions against what actually happened to the 200 patients in our sample, we build a confusion matrix.  
 
-|                            | **Actual Death (0)** | **Actual Survival (1)** |
-| -------------------------- | :------------------: | :---------------------: |
-| **Predicted Death (0)**    |          2           |            1            |
-| **Predicted Survival (1)** |          38          |           159           |
+| Predicted outcome | Actual death (0) | Actual survival (1) |
+| :--- | :---: | :---: |
+| Predicted death (0) | 2 | 1 |
+| Predicted survival (1) | 38 | 159 |
 
-Table 9.7: Confusion Matrix cross-tabulating Predicted Survival against Actual Survival.
+: Table 9.7: Confusion matrix cross-tabulating predicted survival against actual survival at the 50% threshold (n = 200).
 
 
 
@@ -257,9 +272,7 @@ In the previous section, we saw how manually adjusting our prediction threshold 
 
 To do this, researchers generate a **Receiver Operating Characteristic (ROC) curve**.
 
-```
-[Insert Figure 9.3: ROC Curve for the multiple logistic regression model, plotting Sensitivity on the y-axis against 1 - Specificity on the x-axis]
-```
+![Figure 9.3: ROC curve for the logistic regression of survival on age and emergency admission for 200 ICU patients. The curve plots sensitivity against the false positive rate at every decision threshold. The dashed diagonal is a coin-flip model; the triangle marks the 50% threshold, where the model's specificity is only 5.0%.](../figures/chapter_09/fig_09_03_roc_roc_auc.png){fig-alt="ROC curve for the age and emergency model. The curve climbs above the dashed diagonal, reaching 40% sensitivity at a 10% false positive rate, 63% at 25%, and 98% at 95%. The area under the curve is 0.749. A triangle at a 95% false positive rate and 99% sensitivity marks the 50% threshold."}
 
 An ROC curve is simply a visual summary of our model's performance across all possible decision thresholds. The vertical y-axis plots the Sensitivity (the True Positive Rate). The horizontal x-axis plots the False Positive Rate, which is simply 100% minus the Specificity.
 
@@ -314,7 +327,7 @@ Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a pa
 
 
 
-Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a completely useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the exact same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.53%, reflecting the minor penalty applied for using two predictor variables.  
+Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a completely useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the exact same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
 
 ### The Deviance Goodness-of-Fit Test
 
@@ -441,6 +454,8 @@ Do not let your readers assume that significant $p$-values guarantee a highly ac
 | **logit**            | "log-it"                          | The log-odds. It is the mathematical transformation that stretches bounded, asymmetrical odds into an unbounded metric suitable for straight-line regression. |
 | **ROC**              | "R-O-C curve"                     | Receiver Operating Characteristic. A visual curve plotting a model's Sensitivity against its False Positive rate across every possible decision threshold. |
 | **AUC**              | "A-U-C" or "Area Under the Curve" | A numerical grade ranging from 0.5 to 1.0 that summarizes the overall classification accuracy displayed by the ROC curve. |
+
+: Table 9.8: Notation introduced in this chapter.
 
 
 ## 9.16 Exercises

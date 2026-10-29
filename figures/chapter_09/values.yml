@@ -1,0 +1,211 @@
+chapter: 9
+source: r_code/chapter_09.r
+script: r_code/figures/chapter_09.R
+conventions:
+  outcome: Survive = 1 means survived to discharge; Survive = 0 means died in the
+    hospital.
+  models: The simple model in Table 9.1 is glm(Survive ~ Age); the multiple model
+    is glm(Survive ~ Emergency + Age); both use the binomial family with the logit
+    link.
+  confidence_intervals: Coefficient CIs are Wald intervals (estimate +/- 1.96 SE).
+    Predicted probability CIs are Wald intervals on the logit scale, back-transformed
+    with plogis; this reproduces the chapter's (0.713830, 0.835130).
+  vif: VIF from car::vif(full_model), R's standard GLM method, which uses the covariance
+    matrix of the coefficient estimates. Both predictors give 1.010. The auxiliary-regression
+    VIF used for lm models gives 1.036. Minitab reports the same 1.01 for this model;
+    other software can differ slightly.
+  deviance: 'Deviance R-squared = 1 - residual deviance/null deviance. Adjusted deviance
+    R-squared uses the same adjustment as summary(lm) $adj.r.squared: 1 - (1 - R-squared)(n
+    - 1)/(n - p) with p = 3, the intercept plus the two predictors. The result is
+    0.1265. The goodness-of-fit p-value is pchisq(residual deviance, residual df,
+    lower.tail = FALSE).'
+  software_differences: 'Minitab''s adjusted deviance R-squared uses a different penalty
+    and reports 12.53% for this model; its VIF is 1.01, matching car::vif. The chapter
+    uses the R values: VIF 1.01 and adjusted deviance R-squared 12.65%.'
+  classification: At the 50% threshold a patient is classified as predicted survival
+    when the fitted probability is greater than 0.50.
+  roc: The ROC curve sweeps every unique fitted probability. The AUC is the Mann-Whitney
+    statistic, equivalent to the area under the step curve.
+  prose_checks: 'Reproduced from the CSV: Age coefficient -0.0275 and OR 0.973; full
+    model Age OR 0.9666 and Emergency OR 0.0860; VIF 1.01 from car::vif; 65-year-old
+    fitted 0.780442 with CI (0.713830, 0.835130); 65-year-old elective 0.964350 and
+    emergency 0.699344; confusion matrix 159/38/2/1; sensitivity 99.4%; specificity
+    5.0%; AUC 0.7491; deviance R-squared 13.53%; goodness-of-fit chi-square 173.08
+    on 197 df, p = 0.890. The text uses VIF 1.01 and adjusted deviance R-squared 12.65%,
+    R''s values with p = all parameters. Minitab reports 12.53% for the adjusted value.'
+  reference_script: r_code/chapter_09.r fits Survive ~ Pulse as its baseline model
+    and does not fit Survive ~ Age, so it does not reproduce Table 9.1 or the 65-year-old
+    prediction. This script fits the Age model the prose uses.
+values:
+  data:
+    icu_rows: 200
+    survived: 160
+    died: 40
+  simple_model_age:
+    model: glm(Survive ~ Age, family = binomial)
+    'n': 200
+    coefficients:
+    - term: (Intercept)
+      estimate: 3.0585132
+      se: 0.6960812
+      z: 4.3939027
+      p: 1.1133365e-05
+      ci_low: 1.6942191
+      ci_high: 4.4228074
+      odds_ratio: 21.2958716
+      or_ci_low: 5.4423942
+      or_ci_high: 83.3298966
+    - term: Age
+      estimate: -0.0275426
+      se: 0.0105642
+      z: -2.6071737
+      p: 0.0091293
+      ci_low: -0.048248
+      ci_high: -0.0068372
+      odds_ratio: 0.9728332
+      or_ci_low: 0.9528974
+      or_ci_high: 0.9931861
+    null_deviance: 200.1609694
+    residual_deviance: 192.3063804
+    deviance_r2: 0.0392414
+  prediction_age65_simple:
+  - age: 65.0
+    emergency: .na
+    fitted: 0.7804419
+    se_response: 0.0309652
+    ci_low: 0.7138297
+    ci_high: 0.83513
+  multiple_model:
+    model: glm(Survive ~ Emergency + Age, family = binomial)
+    'n': 200
+    coefficients:
+    - term: (Intercept)
+      estimate: 5.5087625
+      se: 1.0335111
+      z: 5.3301437
+      p: 9.8135077e-08
+      ci_low: 3.483118
+      ci_high: 7.5344069
+      odds_ratio: 246.8454628
+      or_ci_low: 32.5610903
+      or_ci_high: 1871.3342167
+    - term: Emergency
+      estimate: -2.4535351
+      se: 0.7525698
+      z: -3.2602094
+      p: 0.0011133
+      ci_low: -3.9285449
+      ci_high: -0.9785254
+      odds_ratio: 0.0859891
+      or_ci_low: 0.0196723
+      or_ci_high: 0.3758649
+    - term: Age
+      estimate: -0.0340162
+      se: 0.0106944
+      z: -3.1807587
+      p: 0.0014689
+      ci_low: -0.0549767
+      ci_high: -0.0130556
+      odds_ratio: 0.9665559
+      or_ci_low: 0.9465072
+      or_ci_high: 0.9870292
+    vif_age: 1.0098393
+    vif_emergency: 1.0098393
+    null_deviance: 200.1609694
+    residual_deviance: 173.0756428
+    df_residual: 197
+    n_parameters: 3
+    deviance_r2: 0.1353177
+    adjusted_deviance_r2: 0.1265392
+    gof_p: 0.8895077
+  prediction_profiles_age65:
+  - age: 65.0
+    emergency: 0.0
+    fitted: 0.9643502
+    se_response: 0.0248946
+    ci_low: 0.8674336
+    ci_high: 0.991137
+  - age: 65.0
+    emergency: 1.0
+    fitted: 0.6993441
+    se_response: 0.0416985
+    ci_low: 0.611942
+    ci_high: 0.7743205
+  classification_threshold_50:
+    threshold: 0.5
+    rule: Predicted survival when fitted probability > 0.50
+    table:
+    - predicted: '0'
+      actual: '0'
+      count: 2
+    - predicted: '1'
+      actual: '0'
+      count: 38
+    - predicted: '0'
+      actual: '1'
+      count: 1
+    - predicted: '1'
+      actual: '1'
+      count: 159
+    true_positive: 159
+    false_negative: 1
+    true_negative: 2
+    false_positive: 38
+    sensitivity: 0.99375
+    specificity: 0.05
+    accuracy: 0.805
+  roc_auc:
+    auc: 0.7491406
+    note: AUC is the Mann-Whitney probability that a survivor has a higher fitted
+      probability than a non-survivor.
+    key_points:
+    - threshold: 1.0
+      sensitivity: 0.0
+      false_positive_rate: 0.0
+    - threshold: 0.9506191
+      sensitivity: 0.25625
+      false_positive_rate: 0.05
+    - threshold: 0.9148935
+      sensitivity: 0.4
+      false_positive_rate: 0.1
+    - threshold: 0.7892487
+      sensitivity: 0.625
+      false_positive_rate: 0.25
+    - threshold: 0.5154462
+      sensitivity: 0.9875
+      false_positive_rate: 0.95
+    - threshold: 0.4814435
+      sensitivity: 1.0
+      false_positive_rate: 1.0
+    operating_point:
+    - false_positive_rate: 0.95
+      sensitivity: 0.99375
+  figures:
+    figure_9_1:
+      note: 'Linear fit Survive ~ Pulse: intercept 0.84696, slope -0.0004747. Predicted
+        survival runs from 0.828 at Pulse 39 to 0.756 at Pulse 192. The line reaches
+        0 only at Pulse 1,784.'
+    figure_9_2:
+      note: 'Conceptual diagram: probability, odds = pi/(1-pi), and logit = log(pi/(1-pi))
+        plotted against the same probability axis.'
+    figure_9_3:
+      note: ROC computed from the full model's fitted probabilities without a package.
+        The triangle is the 50% classification threshold from the confusion matrix
+        (sensitivity 0.994, false positive rate 0.95).
+  table_9_1:
+    note: Simple logistic regression of survival on Age; coefficients are in simple_model_age.
+  table_9_2:
+    note: Predicted probability for a 65-year-old from the simple Age model; values
+      are in prediction_age65_simple.
+  table_9_3:
+    note: Multiple logistic regression coefficients, standard errors, Wald 95% CIs,
+      z, p, and VIF are in multiple_model.
+  table_9_4:
+    note: Odds ratios and 95% CIs are the odds_ratio, or_ci_low, and or_ci_high columns
+      in multiple_model$coefficients.
+  table_9_5:
+    note: 65-year-old elective admission; first row of prediction_profiles_age65.
+  table_9_6:
+    note: 65-year-old emergency admission; second row of prediction_profiles_age65.
+  table_9_7:
+    note: Confusion matrix at the 50% threshold; values are in classification_threshold_50.
