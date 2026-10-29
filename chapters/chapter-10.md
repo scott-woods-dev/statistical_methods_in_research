@@ -719,19 +719,19 @@ For this section, you will use statistical software to analyze the datasets prov
     b) Report the 95% confidence interval for the median difference. 
     c) Write a complete, formal APA conclusion for this test, making sure to include the descriptive medians in a preceding sentence.
 
-17. Mann-Whitney U Test: Using the `college_teacher_salary_2023.csv` dataset, you want to investigate if there is a pay disparity between professors working at institutions in different geographical regions. Assume the dataset contains a binary `Region` variable where 0 represents the Midwest and 1 represents the East Coast. Run a Mann-Whitney U test predicting `Salary` using `Region`. 
+17. Mann-Whitney U Test: Using the `college_teacher_salary_2023.csv` dataset, you want to investigate whether professors with a doctoral degree earn more than those without one. The dataset codes `PhD` as 1 for a PhD or equivalent terminal degree and 0 otherwise. Run a Mann-Whitney U test predicting `Salary` using `PhD`. 
 
-    a) Report the sample median salary for both regions. 
+    a) Report the sample median salary for both groups. 
     b) Report the test statistic (W or U, depending on your software) and the p-value. 
-    c) Based on the p-value, do you have significant evidence of a pay disparity between these two regions?
+    c) Based on the p-value, do you have significant evidence of a pay disparity between professors with and without a PhD?
 
-18. Kruskal-Wallis Test: Using the `student_lifestyle_sleep.csv` dataset, you want to see if students with different `StressLevel` categories (Low, Moderate, High) get a different amount of typical sleep (`SleepHours`). Run a Kruskal-Wallis test predicting `SleepHours` using `StressLevel`. 
+18. Kruskal-Wallis Test: Using the `student_lifestyle_sleep.csv` dataset, you want to see if students with different `AnxietyStatus` categories (normal, moderate, severe) get a different amount of weekday sleep (`WeekdaySleep`). Run a Kruskal-Wallis test predicting `WeekdaySleep` using `AnxietyStatus`. 
 
-    a) Report the median hours of sleep for each of the three stress categories. 
-    b) Look at the p-value adjusted for ties. Is there a statistically significant difference in median sleep hours across the stress levels? 
+    a) Report the median weekday sleep hours for each of the three anxiety categories. 
+    b) Look at the p-value adjusted for ties. Is there a statistically significant difference in median sleep hours across the anxiety levels? 
     c) Write a complete, formal APA conclusion for this test, remembering to include the descriptive sample medians.
 
-19. Spearman's Rho: Using the `cc_risk.csv` dataset, you want to measure the relationship between a student's age and the number of days they report driving significantly above the speed limit (`DaysSpeeding`). Run a Spearman's rank-order correlation between `Age` and `DaysSpeeding`. 
+19. Spearman's Rho: Using the `student_lifestyle_sleep.csv` dataset, you want to measure the relationship between a student's GPA and the number of classes they missed (`ClassesMissed`). Run a Spearman's rank-order correlation between `GPA` and `ClassesMissed`. 
 
     a) Report the correlation coefficient ($r_s$) and the p-value. 
     b) Using Cohen's guidelines for correlation, how would you describe the strength of this relationship? 
