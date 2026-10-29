@@ -12,6 +12,7 @@ book:
   date: today
   chapters:
     - index.md
+    - chapters/preface.md
     - part: "Unit I: Foundations of Data Analysis"
       chapters:
         - chapters/chapter-01.md
