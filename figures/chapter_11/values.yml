@@ -1,0 +1,314 @@
+chapter: 11
+source: r_code/figures/chapter_11_values.R
+script: r_code/figures/chapter_11_values.R
+conventions:
+  extraction: The chapter's factor analysis is principal axis factoring with varimax
+    rotation, reproduced with psych::fa(fm = 'pa', rotate = 'varimax'). The Maximum
+    Likelihood comparison uses fm = 'ml'. The PCA comparison uses psych::principal(rotate
+    = 'varimax'). All solutions request two factors.
+  sample: 'Analyses use listwise-complete cases: female n = 238 and male n = 236 of
+    the file''s 276 pairs. Ratings are integers from 1 to 10.'
+  variance: The Proportion of Variance row divides each factor's SS loading by the
+    six items, so it is a share of total variance. Factor 1 is 27.0% and Factor 2
+    is 26.1%, for 53.1% of total variance. The two-factor solution accounts for all
+    of the common variance it extracts.
+  alpha: Cronbach's alpha uses psych::alpha with check.keys = FALSE because all six
+    items are positively worded. Item-total statistics are not reported in the chapter.
+  scree: The scree values are the initial eigenvalues of the correlation matrix, the
+    values SPSS plots. The elbow rule and the eigenvalue > 1 rule both point to two
+    factors. Parallel analysis is not part of the chapter's method and is not used.
+  male_solution: The male two-factor PAF solution reports 'maximum iteration exceeded'
+    in psych. The chapter's Halo Effect argument does not depend on those loadings,
+    and the exercises ask students to inspect them rather than to match a printed
+    value.
+  software_differences: Values are rounded to three decimals as in the chapter. SPSS
+    may print the last digit differently because of its iteration and rotation tolerances;
+    the chapter labels the tables as emulated SPSS output.
+values:
+  data:
+    file: speed_dating.csv
+    rows: 276
+    columns: 22
+    female_complete: 238
+    female_missing: 38
+    male_complete: 236
+    male_missing: 40
+    note: 'The file has 276 rows and 22 columns. The factor analyses use listwise-complete
+      ratings: female n = 238, male n = 236. The chapter quotes the file''s 276 pairs,
+      which is correct; it does not quote the analysis n.'
+  table_11_1:
+    matrix:
+    - variable: AttractiveF
+      AttractiveF: 1.0
+      SincereF: 0.246
+      IntelligentF: 0.226
+      FunF: 0.543
+      AmbitiousF: 0.209
+      SharedInterestsF: 0.467
+    - variable: SincereF
+      AttractiveF: 0.246
+      SincereF: 1.0
+      IntelligentF: 0.563
+      FunF: 0.387
+      AmbitiousF: 0.393
+      SharedInterestsF: 0.222
+    - variable: IntelligentF
+      AttractiveF: 0.226
+      SincereF: 0.563
+      IntelligentF: 1.0
+      FunF: 0.368
+      AmbitiousF: 0.541
+      SharedInterestsF: 0.236
+    - variable: FunF
+      AttractiveF: 0.543
+      SincereF: 0.387
+      IntelligentF: 0.368
+      FunF: 1.0
+      AmbitiousF: 0.391
+      SharedInterestsF: 0.556
+    - variable: AmbitiousF
+      AttractiveF: 0.209
+      SincereF: 0.393
+      IntelligentF: 0.541
+      FunF: 0.391
+      AmbitiousF: 1.0
+      SharedInterestsF: 0.187
+    - variable: SharedInterestsF
+      AttractiveF: 0.467
+      SincereF: 0.222
+      IntelligentF: 0.236
+      FunF: 0.556
+      AmbitiousF: 0.187
+      SharedInterestsF: 1.0
+    note: Pearson correlations on the 238 complete female ratings. Every value in
+      Table 11.1 reproduces from cor(data_f) at three decimals.
+  table_11_2:
+    method: psych::fa(data_f, nfactors = 2, fm = 'pa', rotate = 'varimax')
+    'n': 238
+    loadings:
+    - variable: AttractiveF
+      factor_1: 0.151
+      factor_2: 0.655
+    - variable: SincereF
+      factor_1: 0.611
+      factor_2: 0.225
+    - variable: IntelligentF
+      factor_1: 0.853
+      factor_2: 0.141
+    - variable: FunF
+      factor_1: 0.341
+      factor_2: 0.76
+    - variable: AmbitiousF
+      factor_1: 0.598
+      factor_2: 0.197
+    - variable: SharedInterestsF
+      factor_1: 0.135
+      factor_2: 0.672
+    communality:
+    - 0.452
+    - 0.425
+    - 0.748
+    - 0.694
+    - 0.396
+    - 0.469
+    uniqueness:
+    - 0.548
+    - 0.575
+    - 0.252
+    - 0.306
+    - 0.604
+    - 0.531
+    ss_loadings:
+    - 1.617
+    - 1.568
+    proportion_variance:
+    - 0.27
+    - 0.261
+    cumulative_variance:
+    - 0.27
+    - 0.531
+    note: Principal axis factoring with varimax rotation, the emulated SPSS output
+      in the chapter. All loadings, communalities, uniquenesses, and the 0.270 and
+      0.261 proportions reproduce. The Proportion of Variance row divides the SS loadings
+      by the six items, so 0.531 is the share of total variance. Section 11.3 now
+      uses that label.
+  ml_comparison:
+    method: psych::fa(data_f, nfactors = 2, fm = 'ml', rotate = 'varimax')
+    loadings:
+    - variable: AttractiveF
+      factor_1: 0.15
+      factor_2: 0.649
+    - variable: SincereF
+      factor_1: 0.614
+      factor_2: 0.233
+    - variable: IntelligentF
+      factor_1: 0.857
+      factor_2: 0.14
+    - variable: FunF
+      factor_1: 0.318
+      factor_2: 0.774
+    - variable: AmbitiousF
+      factor_1: 0.594
+      factor_2: 0.217
+    - variable: SharedInterestsF
+      factor_1: 0.146
+      factor_2: 0.661
+    intelligent_factor_1: 0.857
+    note: Maximum likelihood gives IntelligentF a Factor 1 loading of 0.857 and a
+      Factor 2 loading of 0.140, compared with principal axis factoring 0.853 and
+      0.141. Section 11.5 quotes the 0.857 and 0.853 values, which match.
+  table_11_3:
+    method: psych::principal(data_f, nfactors = 2, rotate = 'varimax')
+    'n': 238
+    loadings:
+    - variable: AttractiveF
+      component_1: 0.108
+      component_2: 0.812
+    - variable: SincereF
+      component_1: 0.765
+      component_2: 0.19
+    - variable: IntelligentF
+      component_1: 0.853
+      component_2: 0.145
+    - variable: FunF
+      component_1: 0.363
+      component_2: 0.773
+    - variable: AmbitiousF
+      component_1: 0.776
+      component_2: 0.142
+    - variable: SharedInterestsF
+      component_1: 0.085
+      component_2: 0.827
+    communality:
+    - 0.672
+    - 0.621
+    - 0.749
+    - 0.729
+    - 0.622
+    - 0.691
+    ss_loadings:
+    - 2.066
+    - 2.018
+    proportion_variance:
+    - 0.344
+    - 0.336
+    note: 'Principal components analysis, two components with varimax rotation. All
+      Table 11.3 loadings and commonalities reproduce. The chapter''s comparison values
+      also match: AmbitiousF commonality rises from 0.396 under PAF to 0.622 under
+      PCA, and SincereF rises from 0.425 to 0.621.'
+  scree:
+    initial_eigenvalues:
+    - 2.861
+    - 1.223
+    - 0.61
+    - 0.535
+    - 0.421
+    - 0.35
+    factors_over_one: 2
+    note: 'Initial eigenvalues of the female correlation matrix: 2.861, 1.223, 0.610,
+      0.535, 0.421, 0.350. Two exceed 1.0, and the line flattens after the third point,
+      which supports keeping two factors. The drops are 1.638 from Factor 1 to 2,
+      0.613 from 2 to 3, then 0.075 or less. Section 11.6 now describes the sharp
+      drop to Factor 2.'
+  cronbach_alpha:
+    level_alpha: 0.739
+    appeal_alpha: 0.763
+    female_all_six: 0.772
+    male_all_six: 0.838
+    note: 'The chapter does not print alpha values. It says both three-item scales
+      should clear 0.70. Computed with psych::alpha and check.keys = FALSE: Factor
+      1 scale 0.739, Factor 2 scale 0.763, both above 0.70. All six female items give
+      0.772; all six male items give 0.838, which answers exercise 13.'
+  male_ratings:
+    correlation_matrix:
+    - variable: AttractiveM
+      AttractiveM: 1.0
+      SincereM: 0.383
+      IntelligentM: 0.522
+      FunM: 0.591
+      AmbitiousM: 0.54
+      SharedInterestsM: 0.457
+    - variable: SincereM
+      AttractiveM: 0.383
+      SincereM: 1.0
+      IntelligentM: 0.578
+      FunM: 0.493
+      AmbitiousM: 0.313
+      SharedInterestsM: 0.346
+    - variable: IntelligentM
+      AttractiveM: 0.522
+      SincereM: 0.578
+      IntelligentM: 1.0
+      FunM: 0.58
+      AmbitiousM: 0.595
+      SharedInterestsM: 0.377
+    - variable: FunM
+      AttractiveM: 0.591
+      SincereM: 0.493
+      IntelligentM: 0.58
+      FunM: 1.0
+      AmbitiousM: 0.513
+      SharedInterestsM: 0.474
+    - variable: AmbitiousM
+      AttractiveM: 0.54
+      SincereM: 0.313
+      IntelligentM: 0.595
+      FunM: 0.513
+      AmbitiousM: 1.0
+      SharedInterestsM: 0.388
+    - variable: SharedInterestsM
+      AttractiveM: 0.457
+      SincereM: 0.346
+      IntelligentM: 0.377
+      FunM: 0.474
+      AmbitiousM: 0.388
+      SharedInterestsM: 1.0
+    min_correlation: 0.313
+    max_correlation: 0.595
+    paf_method: psych::fa(data_m, nfactors = 2, fm = 'pa', rotate = 'varimax')
+    paf_loadings:
+    - variable: AttractiveM
+      factor_1: 0.728
+      factor_2: 0.205
+    - variable: SincereM
+      factor_1: 0.265
+      factor_2: 0.907
+    - variable: IntelligentM
+      factor_1: 0.633
+      factor_2: 0.441
+    - variable: FunM
+      factor_1: 0.692
+      factor_2: 0.344
+    - variable: AmbitiousM
+      factor_1: 0.715
+      factor_2: 0.153
+    - variable: SharedInterestsM
+      factor_1: 0.526
+      factor_2: 0.218
+    paf_communality:
+    - 0.573
+    - 0.893
+    - 0.595
+    - 0.597
+    - 0.534
+    - 0.324
+    paf_converged: no
+    paf_warning: maximum iteration exceeded (printed by psych, not raised as a warning)
+    note: The male ratings are used only in the Common Mistakes section and in the
+      exercises; the chapter makes no numeric male claims. The 15 off-diagonal correlations
+      run from 0.313 to 0.595, which supports the uniform-blur contrast but is moderate
+      rather than 'highly' correlated. The two-factor PAF solution does not converge
+      (maximum iteration exceeded), so its loadings are unstable; exercise 12 asks
+      students to run this analysis and inspect the cross-loadings.
+  table_11_4:
+    note: Notation table; no calculated values.
+  figures:
+    figure_11_1:
+      note: Scree chart of the six initial eigenvalues for the female ratings. The
+        line drops sharply from 2.86 to 1.22, continues to 0.61, and flattens through
+        0.35. The elbow falls after Factor 3, so two factors are retained.
+    figure_11_2:
+      note: Side-by-side correlation heatmaps for the female and male ratings, ordered
+        by the female factor clusters. The female panel shows two blocks of stronger
+        correlations; the male panel shows no block structure. Values are printed
+        in every cell.

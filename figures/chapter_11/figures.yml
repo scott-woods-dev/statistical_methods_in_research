@@ -1,0 +1,38 @@
+figures:
+- id: '11.1'
+  file: fig_11_01_line_scree_female_ratings.png
+  type: line
+  caption: Scree chart for the six female partner ratings (n = 238). The first eigenvalue
+    is 2.86 and the second is 1.22; the line then falls to 0.61 at Factor 3 and flattens
+    across Factors 4 through 6. The elbow falls at Factor 3, so the first two factors
+    are retained.
+  alt: Line chart of eigenvalues for six factors from the female ratings. Values are
+    2.86, 1.22, 0.61, 0.54, 0.42, and 0.35. The line drops steeply through Factor
+    2 and flattens after Factor 3.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_11.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.3074822
+    min_lab_distance: 23.4842746
+- id: '11.2'
+  file: fig_11_02_heatmap_correlation_heatmaps.png
+  type: heatmap
+  caption: 'Correlation heatmaps for the six female and six male partner ratings (female
+    n = 238, male n = 236). Rows and columns are ordered by the female factor clusters:
+    character and intellect first, then social appeal. The female panel forms two
+    blocks of stronger correlations; the male panel has no block structure. Every
+    cell prints its correlation.'
+  alt: Two 6 by 6 correlation heatmaps with values printed in each cell. The female
+    panel shows two blocks of correlations near 0.50 to 0.56. The male panel runs
+    from 0.31 to 0.60 with no block pattern.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_11.R
+  colour_audit:
+    n_colours: 31
+    min_contrast: 1.0
+    min_lab_distance: 0.2956345

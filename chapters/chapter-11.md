@@ -115,7 +115,7 @@ If you want to hear the pure voices of the two singers, you do not want to simpl
 
 
 
-Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (commonality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared commonality so you can see the hidden constructs clearly. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
+Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (commonality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared commonality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
 
 ## 11.3 Reading Factor Analysis Tables
 
@@ -127,12 +127,6 @@ Before extracting any hidden factors, your first step is always to inspect the r
 
 
 
-**Table 11.1**
-
-*Correlation Matrix for Female Partner Ratings in the Speed Dating Dataset*
-
-   
-
 | **Variable**           | **AttractiveF** | **SincereF** | **IntelligentF** | **FunF** | **AmbitiousF** | **SharedInterestsF** |
 | ---------------------- | --------------- | ------------ | ---------------- | -------- | -------------- | -------------------- |
 | **`AttractiveF`**      | 1.000           | 0.246        | 0.226            | 0.543    | 0.209          | 0.467                |
@@ -141,6 +135,8 @@ Before extracting any hidden factors, your first step is always to inspect the r
 | **`FunF`**             | 0.543           | 0.387        | 0.368            | 1.000    | 0.391          | 0.556                |
 | **`AmbitiousF`**       | 0.209           | 0.393        | 0.541            | 0.391    | 1.000          | 0.187                |
 | **`SharedInterestsF`** | 0.467           | 0.222        | 0.236            | 0.556    | 0.187          | 1.000                |
+
+: Table 11.1: Correlation matrix for the six female partner ratings in the speed dating dataset.
 
 Notice that a correlation matrix is symmetric: the numbers above the diagonal line of $1.000$ values are an exact mirror image of the numbers below the diagonal. Every cell simply tells you the linear correlation ($r$) between the variable in that row and the variable in that column.   
 
@@ -178,12 +174,6 @@ Let us examine the emulated SPSS output in Table 11.2, which displays the factor
 
 
 
-**Table 11.2**
-
-*Emulated SPSS Rotated Factor Matrix (Principal Axis Factoring) for Female Partner Ratings*
-
-   
-
 | **Observed Variable**      | **Factor 1** | **Factor 2** | **Commonality (h2)** | **Uniqueness (u2)** |
 | -------------------------- | ------------ | ------------ | -------------------- | ------------------- |
 | **`IntelligentF`**         | **0.853**    | 0.141        | 0.748                | 0.252               |
@@ -194,15 +184,17 @@ Let us examine the emulated SPSS output in Table 11.2, which displays the factor
 | **`AttractiveF`**          | 0.151        | **0.655**    | 0.452                | 0.548               |
 | **Proportion of Variance** | **0.270**    | **0.261**    | **Total = 0.531**    |                     |
 
+: Table 11.2: Emulated SPSS rotated factor matrix from principal axis factoring with varimax rotation for the female partner ratings.
+
 When you read Table 11.2, start by scanning down the column for Factor 1. Three variables stand out with bold loadings well above our $0.40$ benchmark: `IntelligentF` ($0.853$), `SincereF` ($0.611$), and `AmbitiousF` ($0.598$). Meanwhile, the other three variables sit below the threshold ($0.135$ to $0.341$). Now scan down the column for Factor 2. Here, the exact opposite pattern appears: `FunF` ($0.760$), `SharedInterestsF` ($0.672$), and `AttractiveF` ($0.655$) load heavily onto Factor 2, while the first three traits drop close to zero ($0.141$ to $0.225$).
 
 
 
-Notice what happened to `FunF`. Earlier, in the correlation matrix, `FunF` seemed to correlate moderately with almost everything. In Table 11.2, we can still see a trace of that overlap: `FunF` has a secondary loading of $0.341$ on Factor 1. However, because $0.341$ falls below our $0.40$ cutoff and is dwarfed by its primary loading of $0.760$ on Factor 2, the factor analysis clearly places `FunF` in the second cluster.
+Notice what happened to `FunF`. Earlier, in the correlation matrix, `FunF` seemed to correlate moderately with almost everything. In Table 11.2, we can still see a trace of that overlap: `FunF` has a secondary loading of $0.341$ on Factor 1. However, because $0.341$ falls below our $0.40$ cutoff and is dwarfed by its primary loading of $0.760$ on Factor 2, the factor analysis places `FunF` in the second cluster.
 
 
 
-When each survey question loads strongly onto one factor and weakly onto all the others, statisticians say the model has achieved **simple structure** (a clean pattern of factor loadings where each observed variable belongs clearly to a single factor, making the hidden concepts easy to interpret). Notice that the title of Table 11.2 specifies a "Rotated Factor Matrix." When statistical software first extracts factors, the initial loadings are often muddled and hard to read. To fix this, the software automatically applies a mathematical adjustment called **rotation** (a procedure that adjusts the axes of the factors to maximize high loadings and minimize low loadings, bringing the table into a clean simple structure without changing the underlying commonality). Think of rotation like turning the focus ring on a camera lens: the scenery in front of you does not change at all, but adjusting the lens brings the blurry shapes into sharp, distinct focus.
+When each survey question loads strongly onto one factor and weakly onto all the others, statisticians say the model has achieved **simple structure** (a clean pattern of factor loadings where each observed variable belongs to a single factor, making the hidden concepts easy to interpret). Notice that the title of Table 11.2 specifies a "Rotated Factor Matrix." When statistical software first extracts factors, the initial loadings are often muddled and hard to read. To fix this, the software automatically applies a mathematical adjustment called **rotation** (a procedure that adjusts the axes of the factors to maximize high loadings and minimize low loadings, bringing the table into a clean simple structure without changing the underlying commonality). Think of rotation like turning the focus ring on a camera lens: the scenery in front of you does not change at all, but adjusting the lens brings the blurry shapes into sharp, distinct focus.
 
 ### Putting It All Together
 
@@ -211,8 +203,8 @@ Once you have confirmed which variables load onto each factor, you are ready to 
 
 
 1. **Naming the Latent Constructs:** Notice that the software simply labels the columns "Factor 1" and "Factor 2." Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (`IntelligentF`, `SincereF`, and `AmbitiousF`), all three traits reflect a partner's intellect, integrity, and long-term career potential. We can label Factor 1 **"Socioeconomic Status & Character"**. Looking at Factor 2 (`FunF`, `SharedInterestsF`, and `AttractiveF`), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 **"Social Appeal"**.   
-2. **Evaluating Commonality ($h^2$) and Uniqueness ($u^2$):** Look at the two columns on the far right of Table 11.2. In statistical software output, commonality is often abbreviated as $h^2$, and unique variance is abbreviated as $u^2$. For each variable, the commonality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, `IntelligentF` has a commonality of $0.748$, meaning that $74.8\%$ of the variation in intelligence ratings is driven by these two underlying factors, while only $25.2\%$ ($u^2 = 0.252$) is unique variance and random noise. By contrast, `AmbitiousF` has a commonality of $0.396$ and a uniqueness of $0.604$. This tells us that while ambition clearly belongs to Factor 1, about $60.4\%$ of how participants judge a partner's ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Commonality ($h^2$) plus Uniqueness ($u^2$) equals $1.000$ ($100\%$ of that variable's variance).   
-3. **Assessing Total Variance Explained:** Finally, look at the bottom row labeled "Proportion of Variance." This row tells you how much of the shared variation across the entire six-item scorecard is captured by each factor. Factor 1 ("Socioeconomic Status & Character") captures $27.0\%$ ($0.270$) of the variance, and Factor 2 ("Social Appeal") captures $26.1\%$ ($0.261$). Together, these two hidden concepts explain $53.1\%$ ($0.531$) of the common variance across all six survey questions. Instead of wrestling with six overlapping ratings, you have successfully distilled the scorecard into two distinct psychological dimensions that capture more than half of the systematic variation in how female speed-daters evaluate their partners.  
+2. **Evaluating Commonality ($h^2$) and Uniqueness ($u^2$):** Look at the two columns on the far right of Table 11.2. In statistical software output, commonality is often abbreviated as $h^2$, and unique variance is abbreviated as $u^2$. For each variable, the commonality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, `IntelligentF` has a commonality of $0.748$, meaning that $74.8\%$ of the variation in intelligence ratings is driven by these two underlying factors, while only $25.2\%$ ($u^2 = 0.252$) is unique variance and random noise. By contrast, `AmbitiousF` has a commonality of $0.396$ and a uniqueness of $0.604$. This tells us that while ambition belongs to Factor 1, about $60.4\%$ of how participants judge a partner's ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Commonality ($h^2$) plus Uniqueness ($u^2$) equals $1.000$ ($100\%$ of that variable's variance).   
+3. **Assessing Total Variance Explained:** Finally, look at the bottom row labeled "Proportion of Variance." This row tells you the share of the total variance across the six-item scorecard that each factor accounts for. Factor 1 ("Socioeconomic Status & Character") captures $27.0\%$ ($0.270$) of the variance, and Factor 2 ("Social Appeal") captures $26.1\%$ ($0.261$). Together, these two hidden concepts explain $53.1\%$ ($0.531$) of the total variance across all six survey questions. Instead of wrestling with six overlapping ratings, you have successfully distilled the scorecard into two distinct psychological dimensions that capture more than half of the total variation in how female speed-daters evaluate their partners.  
 
 
 
@@ -244,10 +236,6 @@ To see why this software trap matters, we can run a parallel drop-down analysis 
 
  
 
-**Table 11.3**
-
-*Emulated SPSS Principal Components Analysis (PCA) for Female Partner Ratings*
-
 | **Observed Variable**  | **Component 1** | **Component 2** | **PCA Commonality (h2)** |
 | ---------------------- | --------------- | --------------- | ------------------------ |
 | **`IntelligentF`**     | **0.853**       | 0.145           | 0.749                    |
@@ -256,6 +244,8 @@ To see why this software trap matters, we can run a parallel drop-down analysis 
 | **`SharedInterestsF`** | 0.085           | **0.827**       | 0.691                    |
 | **`AttractiveF`**      | 0.108           | **0.812**       | 0.672                    |
 | **`FunF`**             | 0.363           | **0.773**       | 0.729                    |
+
+: Table 11.3: Emulated SPSS principal components analysis with varimax rotation for the female partner ratings.
 
 Compare the results in Table 11.3 back to the true factor analysis in Table 11.2. The groupings look similar, but look closely at the numbers themselves. In the PCA output, almost every loading is artificially higher.
 
@@ -335,7 +325,9 @@ To choose the right number of factors, you look for the "elbow." This is the exa
 
 
 
-If we generated a scree chart for the six female partner ratings in `speed_dating.csv`, we would see the line start high for Factor 1, drop slightly to Factor 2, and then plunge downward before sharply flattening out at Factor 3. Because the "elbow" bend occurs at the third point, the third factor and everything after it represent the useless rubble. The cliff itself consists only of the first two points. This visual test provides the objective justification we needed to confidently extract exactly two factors in Section 11.3.   
+Figure 11.1 shows the scree chart for the six female partner ratings in `speed_dating.csv`. The line starts high for Factor 1, falls sharply to Factor 2, keeps dropping to Factor 3, and then flattens out. Because the "elbow" bend occurs at the third point, the third factor and everything after it represent the useless rubble. The cliff itself consists only of the first two points. This visual test provides the objective justification we needed to confidently extract exactly two factors in Section 11.3.
+
+![Figure 11.1: Scree chart for the six female partner ratings (n = 238). The first eigenvalue is 2.86 and the second is 1.22; the line then falls to 0.61 at Factor 3 and flattens across Factors 4 through 6. The elbow falls at Factor 3, so the first two factors are retained.](../figures/chapter_11/fig_11_01_line_scree_female_ratings.png){fig-alt="Line chart of eigenvalues for six factors from the female ratings. Values are 2.86, 1.22, 0.61, 0.54, 0.42, and 0.35. The line drops steeply through Factor 2 and flattens after Factor 3."}
 
 ## 11.7 Revisiting Cronbach's Alpha: Validating the Scale
 
@@ -386,7 +378,9 @@ As you begin running your own factor analyses, watch out for these three common 
 
 
 
-If you look at the correlation matrix for the male ratings (`AttractiveM`, `IntelligentM`, `FunM`, etc.), you will not find distinct clusters. Instead, almost every trait correlates highly with every other trait. In psychology, this is known as the **Halo Effect**, a cognitive bias where a strong positive impression in one area (like physical attraction) causes a person to rate that partner highly across every other unrelated category.   
+If you look at the correlation matrix for the male ratings (`AttractiveM`, `IntelligentM`, `FunM`, etc.), you will not find distinct clusters. Instead, almost every trait correlates moderately to highly with every other trait. Figure 11.2 sets the female and male matrices side by side. In psychology, this is known as the **Halo Effect**, a cognitive bias where a strong positive impression in one area (like physical attraction) causes a person to rate that partner highly across every other unrelated category.
+
+![Figure 11.2: Correlation heatmaps for the six female and six male partner ratings (female n = 238, male n = 236). Rows and columns are ordered by the female factor clusters: character and intellect first, then social appeal. The female panel forms two blocks of stronger correlations; the male panel has no block structure. Every cell prints its correlation.](../figures/chapter_11/fig_11_02_heatmap_correlation_heatmaps.png){fig-alt="Two 6 by 6 correlation heatmaps with values printed in each cell. The female panel shows two blocks of correlations near 0.50 to 0.56. The male panel runs from 0.31 to 0.60 with no block pattern."}
 
 
 
@@ -415,14 +409,12 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 ## New Notation
 
-**Table 11.4**
-
-*Chapter 11 Notation Guide*
-
 | **Symbol** | **How it is read aloud**     | **What it represents in plain words**                        |
 | ---------- | ---------------------------- | ------------------------------------------------------------ |
 | $h^2$      | "h squared" or "commonality" | The proportion of a variable's total variation that is shared with the underlying hidden factors. |
 | $u^2$      | "u squared" or "uniqueness"  | The proportion of a variable's total variation that belongs exclusively to that single survey item, including random measurement error. |
+
+: Table 11.4: Chapter 11 notation guide.
 
 ## 11.8 Exercises
 
@@ -459,9 +451,12 @@ a) Instruct your software to generate a scree chart for the six male rating vari
 b) Look at the plot. At which factor number does the steep cliff bend into an "elbow" and flatten out into a trail of rubble?
 c) Based solely on the scree chart elbow, how many meaningful factors should you extract from this data?
 12. **Extraction and Simple Structure**: Let us see what happens if you force the software to extract two factors from the male ratings, mirroring the female rating analysis.
-a) Run an Exploratory Factor Analysis using Principal Axis Factoring (PAF) and a standard rotation method (like Varimax). Instruct the software to specifically extract exactly 2 factors.
-b) Look at the rotated factor matrix. Do you achieve a clean "simple structure" where every variable has a strong primary loading on one factor and near-zero loadings on the other? Or do some variables (such as `IntelligentM`) "cross-load" heavily on both factors?
-c) Look at the total variance explained by Factor 1 versus Factor 2. Does one single factor seem to dominate the male scorecard?
+a) Run an Exploratory Factor Analysis using Principal Axis Factoring (PAF) with Varimax rotation, and extract exactly two factors. Provide the rotated factor matrix. If the software prints a warning, copy the warning text.
+b) Report the commonality for each variable. A commonality is a proportion of variance, so it should fall between 0 and 1. Do any values exceed 1.0, or come so close to 1.0 that almost no unique variance is left? Does the software print a warning? If either occurs, state why that value or warning is a problem for interpreting the solution.
+c) Rerun the same analysis using Maximum Likelihood with Varimax rotation, again extracting two factors. Provide the rotated factor matrix. For each variable, which factor is it more strongly tied to in each solution? Do the two methods agree on the grouping?
+d) The chapter defines simple structure as each variable being strongly tied to one factor and weakly tied to the others. Does the PAF solution meet that definition? Does the Maximum Likelihood solution? Name any variable that is strongly tied to both factors.
+e) Report the proportion of variance for Factor 1 and Factor 2 in each solution. Which factor accounts for more variance? Is the difference large or small?
+f) Do the male ratings separate into two clear groups of variables the way the female ratings did? Use one result from parts (a) through (e) to support your answer.
 
 
 13. **Data Reduction and Internal Consistency**: Assume the scree chart and the blurry factor loadings convince you that the male participants simply evaluated one underlying construct (a "Halo Effect" or "Overall Impression").
