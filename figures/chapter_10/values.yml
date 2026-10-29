@@ -1,0 +1,154 @@
+chapter: 10
+source: r_code/figures/chapter_10_values.R
+script: r_code/figures/chapter_10_values.R
+conventions:
+  textbook: Paired differences are Bookstore - Amazon. The chapter reports the sample
+    medians (126.00 and 95.50) and the sample median difference (36.00). The test
+    values use the normal approximation without a continuity correction (W = 128,
+    p = .002, CI [17, 58]); the achieved confidence is the exact coverage of that
+    interval, 94.93%. Minitab's 34.5 is a Hodges-Lehmann estimate, which this text
+    does not cover. R's exact test gives p = .0008 and CI [15, 58.5].
+  salary: Sex is 0 = female and 1 = male; Salary is in thousands of dollars. The Mann-Whitney
+    test uses the normal approximation without a continuity correction. R's U is 4040.5;
+    Minitab's W is the female rank sum, 8793.5.
+  kruskal: R's kruskal.test applies the tie correction (H = 5.4603, p = .141). The
+    unadjusted H is 5.44. AlcoholUse levels are Abstain, Light, Moderate, Heavy.
+  spearman: Rank correlations use cor.test(method = 'spearman', exact = FALSE) because
+    of ties. Confidence intervals are Fisher z intervals. The alcohol rank is 1 =
+    Abstain, 2 = Light, 3 = Moderate, 4 = Heavy.
+  fisher: Two-sided Fisher exact test on the 2 x 2 Status by BackProblems table.
+  software_differences: 'Textbook prices: the chapter uses the CSV medians and the
+    sample median difference. Minitab reports a Hodges-Lehmann estimate (34.5) in
+    the same field; this text does not cover that estimate. The p and CI match R''s
+    normal approximation without continuity correction, not R''s exact test. Salary:
+    Minitab reports W as the female rank sum (8793.5); the chapter reports R''s U
+    (4040.5). Both give the same p-value.'
+values:
+  data:
+    textbook_rows: 16
+    salary_rows: 200
+    lifestyle_rows: 253
+    cc_risk_rows: 437
+    backpack_rows: 100
+  wilcoxon_textbook_prices:
+    test: wilcox.test(Bookstore, Amazon, paired = TRUE)
+    differences: Bookstore - Amazon
+    'n': 16
+    amazon_median: 95.5
+    bookstore_median: 126.0
+    sample_median_difference: 36.0
+    pseudo_median: 34.5
+    statistic_v: 128.0
+    exact_p: 0.0007629
+    exact_ci:
+    - 15.0
+    - 58.5
+    normal_p_no_correction: 0.0019188
+    normal_ci_no_correction:
+    - 16.999966
+    - 58.0000194
+    normal_p_with_correction: 0.0020933
+    achieved_confidence: 0.9493408
+    note: 'The chapter reports the sample medians (bookstore 126.00, Amazon 95.50)
+      and the sample median difference (36.00). The 34.5 value in the original output
+      was Minitab''s Hodges-Lehmann estimate; the chapter does not use it. The test
+      values match R''s normal approximation without a continuity correction: p =
+      0.00192 and CI [17.0, 58.0]. The achieved confidence is the exact coverage of
+      that interval (0.9493). R''s exact test gives p = 0.00076 and CI [15.0, 58.5].'
+  mann_whitney_salary:
+    test: wilcox.test(Salary ~ Sex, correct = FALSE, exact = FALSE)
+    n_female: 97
+    n_male: 103
+    median_female: 60.0
+    median_male: 75.0
+    u_statistic: 4040.5
+    rank_sum_female: 8793.5
+    p: 0.0195512
+    difference_in_location: -15.9999893
+    ci:
+    - -31.9999532
+    - -2.0000103
+    note: Sex is 0 = female and 1 = male; Salary is in thousands of dollars. R reports
+      U = 4040.5, which is the statistic now printed in the chapter. Minitab's W =
+      8793.5 is the rank sum for the female group, which equals U + 97*98/2. The p-value
+      and CI agree.
+  kruskal_wallis_gpa:
+    test: kruskal.test(GPA ~ AlcoholUse)
+    'n': 253
+    group_counts:
+      Abstain: 34
+      Heavy: 16
+      Light: 83
+      Moderate: 120
+    group_medians:
+      Abstain: 3.4
+      Heavy: 3.1
+      Light: 3.3
+      Moderate: 3.25
+    group_mean_ranks:
+      Abstain: 148.1029412
+      Heavy: 109.0
+      Light: 132.3915663
+      Moderate: 119.6916667
+    h_adjusted_for_ties: 5.4603084
+    h_unadjusted_for_ties: 5.4428735
+    df: 3
+    p: 0.141032
+    note: R's kruskal.test always applies the tie correction. The unadjusted statistic
+      is 5.44 and the adjusted statistic is 5.46, matching the two rows in the chapter's
+      output.
+  spearman_age_daysdrink:
+    test: cor.test(Age, DaysDrink, method = 'spearman', exact = FALSE)
+    'n': 437
+    rho: -0.0291799
+    p: 0.5429387
+    ci_fisher_z:
+    - -0.1226489
+    - 0.0648022
+    note: The confidence interval is a Fisher z interval for rho.
+  spearman_alcohol_gpa:
+    test: cor.test(GPA, AlcoholRank, method = 'spearman', exact = FALSE); AlcoholRank
+      = 1 Abstain, 2 Light, 3 Moderate, 4 Heavy
+    'n': 253
+    rho: -0.1442975
+    p: 0.0216842
+    ci_fisher_z:
+    - -0.2629461
+    - -0.0213494
+    note: The computed interval is (-0.263, -0.021), matching the chapter.
+  fisher_back_problems:
+    test: fisher.test(table(Status, BackProblems))
+    table:
+    - Var1: G
+      Var2: '0'
+      count: 3
+    - Var1: U
+      Var2: '0'
+      count: 65
+    - Var1: G
+      Var2: '1'
+      count: 0
+    - Var1: U
+      Var2: '1'
+      count: 32
+    p: 0.5491899
+    grad_share_with_problems: 0.0
+    undergrad_share_with_problems: 0.3298969
+    note: Rows are Status (G = graduate, U = undergraduate); columns are BackProblems
+      (0/1).
+  table_10_1:
+    note: Notation table; no calculated values.
+  figures:
+    figure_10_1:
+      note: Boxplot of the 16 paired textbook price differences; median 36.00; one
+        book is 123 dollars more at the bookstore.
+    figure_10_2:
+      note: Histograms of salary by sex; medians 60 and 75 (thousands of dollars).
+    figure_10_3:
+      note: Boxplots of GPA by AlcoholUse; medians 3.40, 3.30, 3.25, 3.10.
+    figure_10_4:
+      note: 'Histogram of DaysDrink: 123 zeros (28%), median 3 days, mean 6.5 days.
+        Zero is the modal category.'
+    figure_10_5:
+      note: Grouped bar of BackProblems by Status; 3 graduate students (0 with problems)
+        and 97 undergraduates (32 with problems).

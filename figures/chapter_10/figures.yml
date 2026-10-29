@@ -1,0 +1,92 @@
+figures:
+- id: '10.1'
+  file: fig_10_01_box_textbook_price_differences.png
+  type: box
+  caption: Price differences in dollars for 16 required textbooks, calculated as bookstore
+    minus Amazon. The median difference is 36.00, and most books cost more at the
+    bookstore. The box shows the middle half of the differences; each circle is one
+    textbook.
+  alt: Boxplot of textbook price differences in dollars, with one point per book.
+    The median is 36.00 and the middle half of the differences runs from about 4 to
+    61. Positive values mean the bookstore is more expensive; four books cost slightly
+    less at the bookstore.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_10.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.3074822
+    min_lab_distance: 23.4842746
+- id: '10.2'
+  file: fig_10_02_hist_salary_by_sex.png
+  type: hist
+  caption: Annual teaching salaries for 97 female and 103 male professors. Both distributions
+    are right-skewed, with most salaries below 120 thousand dollars and a long upper
+    tail; the dashed line marks each median.
+  alt: Side-by-side histograms of salary by sex with shared salary bins. Both distributions
+    have their tallest bars below 40 thousand dollars and a long right tail. Female
+    salaries reach about 170 thousand; male salaries extend to 536 thousand. Dashed
+    lines mark the medians at 60 and 75 thousand.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_10.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.2522876
+    min_lab_distance: 70.8574031
+- id: '10.3'
+  file: fig_10_03_box_gpa_by_alcohol.png
+  type: box
+  caption: Grade point averages for 253 students by self-reported alcohol use. The
+    medians fall from 3.40 for students who abstain to 3.10 for heavy drinkers, but
+    the groups overlap heavily and the Kruskal-Wallis test is not significant (p =
+    .141).
+  alt: Boxplots of GPA for four alcohol-use groups. Medians are 3.40 for abstain,
+    3.30 for light, 3.25 for moderate, and 3.10 for heavy. The boxes overlap and each
+    spans roughly 3.0 to 3.6.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_10.R
+  colour_audit:
+    n_colours: 2
+    min_contrast: 2.3074822
+    min_lab_distance: 70.8574031
+- id: '10.4'
+  file: fig_10_04_hist_days_drinking.png
+  type: hist
+  caption: Distribution of drinking days in the past month for 437 students. Zero
+    days is the tallest bar at 123 students, and the mean (6.5 days) sits well above
+    the median (3 days) because a small group drinks frequently.
+  alt: Histogram of drinking days in the past month for 437 students. The 0-day bar
+    is tallest at 123 students, counts drop after the first few days, a secondary
+    bump appears at 10 days, and a thin tail reaches 30 days. The mean of 6.5 days
+    is marked to the right of the median of 3 days.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_10.R
+  colour_audit:
+    n_colours: 4
+    min_contrast: 2.3074822
+    min_lab_distance: 23.4842746
+- id: '10.5'
+  file: fig_10_05_bar_back_problems_by_status.png
+  type: bar
+  caption: Back problems by enrollment status for 100 students. Only 3 students are
+    graduate students, and none reported back problems; 32 of 97 undergraduates did.
+    The tiny graduate group is why expected counts fall below five and Fisher's exact
+    test is used.
+  alt: 'Grouped bar chart of back problems by enrollment status. Graduate: 3 without
+    problems and 0 with. Undergraduate: 65 without and 32 with. The graduate bars
+    are tiny because the sample has only 3 graduate students.'
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_10.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.2522876
+    min_lab_distance: 70.8574031
