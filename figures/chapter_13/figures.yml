@@ -1,0 +1,39 @@
+figures:
+- id: '13.1'
+  file: fig_13_01_diagram_secure_data_workflow.png
+  type: diagram
+  caption: A secure workflow for confidential interview data. Consent forms and audio
+    are gathered, then transferred to an institutional cloud folder. The raw audio
+    is deleted, transcripts are de-identified with a code such as Participant 04,
+    and the master key that links the code to the participant's name is stored in
+    a separate restricted folder. Paper forms are locked or shredded.
+  alt: 'Flow chart of four steps: gather consent forms and audio, transfer them to
+    a secure cloud folder, de-identify transcripts and create a master key, then store
+    transcripts and forms. A dashed branch shows the master key in a separate restricted
+    folder.'
+  width_in: 6.5
+  height_in: 4.5
+  dpi: 300.0
+  script: r_code/figures/chapter_13.R
+  colour_audit:
+    n_colours: 5
+    min_contrast: 1.1180204
+    min_lab_distance: 11.2729684
+- id: '13.2'
+  file: fig_13_02_bar_false_positive_probability.png
+  type: bar
+  caption: Probability of at least one false positive when testing independent hypotheses
+    with no real effect, at an alpha level of 0.05. The probability rises from 5%
+    with one test to 23% with five, 40% with ten, 64% with twenty, and 92% with fifty.
+    The dashed line marks 50%.
+  alt: Bar chart of false-positive probability by number of independent tests. Bars
+    rise from 5% for 1 test to 23% for 5, 40% for 10, 64% for 20, and 92% for 50.
+    The 20-test bar passes the 50% line.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_13.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.3074822
+    min_lab_distance: 23.4842746

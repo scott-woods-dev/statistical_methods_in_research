@@ -1,0 +1,56 @@
+chapter: 13
+source: r_code/figures/chapter_13_values.R
+script: r_code/figures/chapter_13_values.R
+conventions:
+  dataset: Chapter 13 is conceptual and uses no dataset. The only calculated values
+    are the false-positive probabilities for Figure 13.2.
+  false_positive: The calculation assumes independent tests and a true null for every
+    test. The probability of at least one false positive is 1 - (1 - alpha)^k. The
+    figure uses alpha = 0.05 and k = 1, 5, 10, 20, and 50.
+  tables: Tables 13.1 through 13.4 are conceptual comparisons. They summarize definitions
+    and examples already in the prose; no values are calculated.
+  workflow: Figure 13.1 is a diagram of the workflow described in Section 13.4. It
+    shows the master key stored separately from the de-identified transcripts.
+values:
+  false_positive_probability:
+    assumption: Independent tests with a true null for every test
+    alpha: 0.05
+    table:
+    - tests: 1.0
+      probability: 0.05
+      percent: 5.0
+    - tests: 5.0
+      probability: 0.2262
+      percent: 22.6
+    - tests: 10.0
+      probability: 0.4013
+      percent: 40.1
+    - tests: 20.0
+      probability: 0.6415
+      percent: 64.2
+    - tests: 50.0
+      probability: 0.9231
+      percent: 92.3
+    twenty_test_percent: 64.2
+    note: The probability of at least one false positive is 1 - (1 - alpha)^k for
+      k independent tests. At 20 tests the probability is 64.2%, which supports the
+      chapter's claim that at least one false positive is likely. The figure rounds
+      the labels to whole percentages.
+  table_13_1:
+    note: Data governance versus data stewardship. Conceptual comparison; no calculated
+      values.
+  table_13_2:
+    note: 'The three IRB review concepts: human subjects, minimal risk, and vulnerable
+      populations. Conceptual comparison; no calculated values.'
+  table_13_3:
+    note: Anonymity versus confidentiality. Conceptual comparison; no calculated values.
+  table_13_4:
+    note: P-hacking tactics and ethical alternatives. Conceptual comparison; no calculated
+      values.
+  figures:
+    figure_13_1:
+      note: Secure data workflow diagram. The four stages are gather, transfer, de-identify,
+        and store. The master key branches to a separate restricted folder.
+    figure_13_2:
+      note: 'False-positive probability for 1, 5, 10, 20, and 50 independent tests
+        at alpha = 0.05: 5.0%, 22.6%, 40.1%, 64.2%, and 92.3%.'
