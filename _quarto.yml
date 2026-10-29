@@ -58,22 +58,21 @@ format:
       text: |
         \usepackage{caption}
         \usepackage{graphicx}
+        \usepackage{eso-pic}
         \captionsetup[figure]{labelformat=empty}
         \captionsetup[table]{labelformat=empty}
         % Cover title page. The stock title page is replaced by a blank page,
-        % and the cover PDF is painted full bleed behind it. The hook removes
-        % itself after the first page. Regenerate the artwork with
-        % Rscript r_code/figures/cover.R
+        % and the cover PDF is painted full bleed behind it. The starred
+        % \AddToShipoutPictureBG applies to the current page only.
+        % Regenerate the artwork with Rscript r_code/figures/cover.R
         \renewcommand{\maketitle}{%
-          \begin{titlepage}\thispagestyle{empty}\null\end{titlepage}%
-        }
-        \AddToHook{shipout/background}[cover]{%
-          \put(0,-\paperheight){%
-            \includegraphics[width=\paperwidth,height=\paperheight]{images/cover_title_page.pdf}%
-          }%
-        }
-        \AddToHook{shipout/after}[cover]{%
-          \RemoveFromHook{shipout/background}[cover]%
+          \begin{titlepage}
+            \thispagestyle{empty}%
+            \null
+            \AddToShipoutPictureBG*{%
+              \includegraphics[width=\paperwidth,height=\paperheight]{images/cover_title_page.pdf}%
+            }%
+          \end{titlepage}%
         }
   epub:
     cover-image: images/cover.png
