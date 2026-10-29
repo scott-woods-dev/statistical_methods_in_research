@@ -24,7 +24,7 @@ To explore these patterns, our motivating dataset for this chapter is `gym_membe
 
 The dataset includes the following variables:
 
-- **`Week`**: A categorical variable recording the starting date for the week of data collection, recorded in MM/DD/YYYY format (ranging from 05/16/2021 to 05/17/2026).   
+- **`Week`**: A categorical variable recording the starting date for the week of data collection, recorded in MM-DD-YY format (ranging from 05-16-21 to 05-17-26).   
 - **`gym membership`**: A numerical variable tracking the normalized search interest index for the phrase "gym membership". Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.   
 
 By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution, but doing so would completely destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequence from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks.
@@ -53,9 +53,7 @@ If you were given a single numerical variable like the `gym membership` search i
 
 To preserve the timeline, we use a **time series plot**. A time series plot is essentially a specialized line chart where time is always placed on the horizontal x-axis, and the numerical variable of interest is placed on the vertical y-axis. By connecting each chronological data point with a continuous line, we can visually trace the data from one week to the next.
 
-```
-[Insert Figure 12.1: Time Series Plot of Gym Membership Searches (2021-2026)]
-```
+![Figure 12.1: Weekly gym membership search index from May 2021 through May 2026 (262 weeks). The series trends upward and spikes every winter; the February 2026 spike reaches the maximum index value of 100. The distance between the summer baseline and the winter peak grows over time.](../figures/chapter_12/fig_12_01_line_gym_time_series.png){fig-alt="Line chart of weekly gym search interest over five years. A gradual upward trend with sharp winter peaks. Winter peaks are about 37 in the season ending 2022, 48 in 2023, 54 in 2024, 64 in 2025, and 100 in February 2026."}
 
 When we evaluate the time series plot for our fitness data, the power of visual analysis becomes immediately clear. First, we can see a positive long-term trend; the overall baseline of search interest is noticeably higher in 2026 than it was in 2021. Second, we see massive, undeniable cyclical patterns. There is a sharp, distinct spike in search volume every single winter, perfectly aligning with the cultural phenomenon of New Year's fitness resolutions.  
 
@@ -65,11 +63,11 @@ Crucially, the time series plot reveals a structural change that simple summary 
 
 ### The Limits of Automated Tools
 
-Recognizing these expanding cyclical patterns matters because automated forecasting models often struggle to capture them perfectly. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict an *average* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
+Recognizing these expanding cyclical patterns matters because automated forecasting models often struggle to capture them perfectly. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict a *typical* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
 
 ### A Hint at the Independence Violation
 
-As you look at the continuous, flowing line of the time series plot, you might intuitively realize that these data points are deeply connected. The search volume in one week is heavily influenced by the search volume of the week immediately prior. If we were to create a scatterplot comparing each week against its own past week, we would see a near-perfect linear relationship with a slope of exactly 1.
+As you look at the continuous, flowing line of the time series plot, you might intuitively realize that these data points are deeply connected. The search volume in one week is heavily influenced by the search volume of the week immediately prior. If we were to create a scatterplot comparing each week against its own past week, we would see a strong linear relationship with a slope close to 1.
 
 This deep, sequential connection is called **autocorrelation**, and it fundamentally breaks the rules of traditional inferential statistics. In the next section, we will explore exactly how this independence violation forces us to abandon standard regression in favor of specialized time series tools.   
 
@@ -93,11 +91,9 @@ To measure this, we mathematically shift our data by one time period, creating w
 
 
 
-```
-[Insert Figure 12.2: Scatterplot of Gym Membership Searches (Week t) vs. Previous Week (Week t-1). Alt-text: A scatterplot showing a strong, positive, linear relationship between the search index of the previous week on the x-axis and the search index of the current week on the y-axis.]
-```
+![Figure 12.2: Gym membership search index in week t against the same index in week t-1 (261 weekly pairs). The points form a tight positive band: r = 0.92 and the fitted slope is 0.93. The dashed line is the least-squares fit.](../figures/chapter_12/fig_12_02_scatter_gym_lag_scatter.png){fig-alt="Scatterplot of this week's gym search index against last week's. Points cluster tightly along a positive line from about 20 to 100; r = 0.92 and the fitted slope is 0.93."}
 
-When you look at this scatterplot, notice that you are no longer looking at time on the x-axis. Instead, you are looking at *past behavior*. The visual evidence of this connection is striking. You will see a tight, clear linear trend with a slope sitting almost exactly at 1. When we calculate the linear correlation coefficient (r) for this lag-1 relationship, we get a massive value of 0.92. This mathematically proves that a high search volume in week t directly relates to the search volume in week t+1.   
+When you look at this scatterplot, notice that you are no longer looking at time on the x-axis. Instead, you are looking at *past behavior*. The visual evidence of this connection is striking. You will see a tight, clear linear trend with a slope close to 1. When we calculate the linear correlation coefficient (r) for this lag-1 relationship, we get a value of 0.92. This mathematically demonstrates that a high search volume in week t directly relates to the search volume in week t+1.   
 
 ### Trend vs. Autocorrelation: Understanding the Difference
 
@@ -161,11 +157,9 @@ However, you must understand its limitations. An ARIMA model does not explain *w
 
 Let us apply this model to our `gym_membership_searches.csv` dataset to see what the software predicts for the upcoming year.
 
-```
-[Insert Figure 12.3: ARIMA Forecast Plot of Gym Membership Searches for the Next 12 Months. Alt-text: A time series line plot extending past the historical data into a forecasted year. The forecasted line predicts another peak in mid-February, surrounded by a shaded blue region indicating the margin of error.]
-```
+![Figure 12.3: Weekly gym membership search index from May 2021 through May 2026 with a 52-week ARIMA forecast. The selected model is ARIMA(1,1,1) with a seasonal moving-average term at 52 weeks. The forecast repeats a winter peak of 70.3 in mid-February 2027, below the 2026 record of 100, and the 95% prediction interval widens from about 19 points to about 45 points.](../figures/chapter_12/fig_12_03_line_gym_arima_forecast.png){fig-alt="Time series line plot from 2021 through 2027. Observed weekly searches rise with winter peaks; the dashed forecast starts in May 2026 and peaks at 70.3 in February 2027, inside a shaded band that widens through 2027."}
 
-Looking at the right side of the visual output, you will see a solid blue line extending past our final data point in May 2026 into the future. The ARIMA model has successfully recognized the cyclical pattern and is formally predicting another massive search spike for the upcoming winter.   
+Looking at the right side of the visual output, you will see a dashed blue line extending past our final data point in May 2026 into the future. The ARIMA model has successfully recognized the cyclical pattern and is formally predicting another search spike for the upcoming winter.   
 
 
 
@@ -173,7 +167,7 @@ However, notice the shaded blue region surrounding that predicted line. This is 
 
 
 
-Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates a peak that matches the *average* height of the historical spikes. However, our visual analysis in Section 12.2 revealed that these winter spikes are actually growing larger every single year. The algorithm missed this subtle structural shift. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
+Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates another *typical* winter peak, landing below the 2026 record. However, our visual analysis in Section 12.2 revealed that these winter spikes are actually growing larger every single year. The algorithm did not capture that growth. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
 
 
 
@@ -205,6 +199,8 @@ As you go out and build your own time series plots and prediction models, keep t
 | $t-1$      | "t minus one"            | The time period immediately preceding the current observation. This is used to create a "lag" to measure autocorrelation (e.g., "last week"). |
 | $t+1$      | "t plus one"             | The time period immediately following the current observation (e.g., "next week" or a forecasted step). |
 
+: Table 12.1: Notation introduced in this chapter.
+
 ## 12.8 Exercises
 
 ### Interpretation
@@ -227,17 +223,17 @@ As you go out and build your own time series plots and prediction models, keep t
 
 ### Software Application
 
-For this section, you will use statistical software to analyze the `gym_membership_searches.csv` dataset. The dataset includes the column `sunscreen`, which tracks the normalized Google Trends search index for that phrase across the exact same five-year weekly timeline.
+For this section, you will use statistical software to analyze two search series. The gym data are in `gym_membership_searches.csv`, a weekly series from May 2021 through May 2026. The sunscreen data are in `sunscreen_searches.csv`, a monthly series from October 2021 through October 2026. Google Trends now reports the sunscreen term monthly, so the two series have different time steps.
 
-10. **Visualizing Contrasting Cycles**: You will begin by exploring the raw visual differences between the two search terms in the dataset.
+10. **Visualizing Contrasting Cycles**: You will begin by exploring the raw visual differences between the two search terms.
 a) Use your software to generate a time series line plot for the `gym membership` search index across the `Week` timeline.
-b) Use your software to generate a second time series line plot for the new `sunscreen` search index across the same `Week` timeline.
+b) Use your software to generate a second time series line plot for the `sunscreen` search index across the `Month` timeline.
 c) Compare the two plots. In what specific months or seasons do the cyclical peaks occur for gym memberships, and when do they occur for sunscreen?
-11. **Measuring Momentum**: Let us mathematically verify the independence violation for the new variable.
-a) Use your software to create a new "lag-1" variable for the `sunscreen` index (shifting the data back by exactly one week).
-b) Generate a scatterplot placing the lagged sunscreen variable on the x-axis and the current week's sunscreen variable on the y-axis. Describe the visual relationship.
-c) Calculate the linear correlation coefficient ($r$) between the current week and the prior week. Does this value indicate strong autocorrelation?
+11. **Measuring Momentum**: Let us mathematically verify the independence violation for the sunscreen variable.
+a) Use your software to create a new "lag-1" variable for the `sunscreen` index (shifting the data back by exactly one month).
+b) Generate a scatterplot placing the lagged sunscreen variable on the x-axis and the current month's sunscreen variable on the y-axis. Describe the visual relationship.
+c) Calculate the linear correlation coefficient ($r$) between the current month and the prior month. Does this value indicate strong autocorrelation?
 12. **Forecasting the Future**: Assume you work for a public health agency planning an educational skin-safety campaign.
-a) Run an ARIMA model on the `sunscreen` variable to forecast search interest for the next 52 weeks.
-b) Look at the forecasted visual plot. Does the algorithm successfully predict another cyclical spike, and if so, when is it expected to happen?
-c) Examine the shaded prediction interval around the forecasted line. What does this shaded area tell you about the safety of predicting search volumes a few weeks from now versus a full year from now?
+a) Run an ARIMA model on the `sunscreen` variable to forecast search interest for the next 12 months.
+b) Look at the forecasted visual plot. Does the algorithm successfully predict another cyclical spike, and if so, in which month is it expected?
+c) Examine the shaded prediction interval around the forecasted line. What does this shaded area tell you about the safety of predicting search volumes a few months from now versus a full year from now?

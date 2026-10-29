@@ -1,0 +1,123 @@
+chapter: 12
+source: r_code/figures/chapter_12_values.R
+script: r_code/figures/chapter_12_values.R
+conventions:
+  data: 'Two files at their true frequencies. gym_membership_searches.csv is weekly:
+    262 rows, Week and gym membership, May 2021 through May 2026. sunscreen_searches.csv
+    is monthly: 61 rows, Month and sunscreen, October 2021 through October 2026. Dates
+    are stored as MM-DD-YY.'
+  autocorrelation: Lag-1 correlation is Pearson r between the current value and the
+    previous value. The first observation has no lag, so the gym analysis uses 261
+    pairs and the sunscreen exercise uses 60 pairs.
+  regression: The naive linear trend uses as.numeric(Week) as the predictor. Its p-value
+    is reported only to show the overconfidence that autocorrelation creates; it is
+    not a valid inference.
+  arima: Models are selected by forecast::auto.arima. The gym series uses frequency
+    52 and start c(2021, 20), with a 52-week forecast. The sunscreen series uses frequency
+    12 and start c(2021, 10), with a 12-month forecast. Prediction intervals are 95%.
+  forecast_wording: The gym forecast peak is 70.3, below the 2026 record of 100. The
+    chapter calls it a typical winter peak rather than an average height, because
+    the historical peaks are growing and an average would be misleading.
+  software_differences: auto.arima may select a different model if the forecast package
+    or the data changes. The recorded model and forecast values come from the restored
+    weekly file and the October 2026 monthly sunscreen file.
+values:
+  data:
+    gym_file: gym_membership_searches.csv
+    gym_rows: 262
+    gym_start: '2021-05-16'
+    gym_end: '2026-05-17'
+    gym_columns: Week, gym membership
+    sunscreen_file: sunscreen_searches.csv
+    sunscreen_rows: 61
+    sunscreen_start: '2021-10-01'
+    sunscreen_end: '2026-10-01'
+    sunscreen_columns: Month, sunscreen
+    note: The gym file is the restored 262-row weekly data from commit cc3e3a4, covering
+      May 2021 through May 2026. The sunscreen file is the 61-row monthly data from
+      the October 2026 Google Trends export, covering October 2021 through October
+      2026. Google Trends now reports the sunscreen term monthly, so the two series
+      have different time steps.
+  gym_time_series:
+    'n': 262
+    peak_value: 100.0
+    peak_date: '2026-02-15'
+    winter_peaks:
+      '2022': 37.0
+      '2023': 48.0
+      '2024': 54.0
+      '2025': 64.0
+      '2026': 100.0
+    note: The winter peaks are 37 in the season ending 2022, 48 in 2023, 54 in 2024,
+      64 in 2025, and 100 in 2026, so the winter spikes grow over time. A season runs
+      from November through February and is labeled by the year of its January and
+      February. The 2026 peak is the maximum index value and falls on 2026-02-15.
+  gym_autocorrelation:
+    lag: 1.0
+    pairs: 261
+    r: 0.9238
+    slope: 0.9262
+    note: Lag-1 Pearson correlation uses 261 complete pairs; the first week has no
+      previous value. The chapter rounds r to 0.92 and the slope to 0.93. The fitted
+      slope is current week on previous week.
+  gym_linear_trend:
+    model: lm(gym membership ~ as.numeric(Week))
+    slope_per_week: 0.0189
+    p: 2.8539855e-54
+    r_squared: 0.6043
+    note: This is the naive trend model the chapter warns against. Its p-value is
+      not valid because the residuals are autocorrelated; the chapter uses it only
+      to explain why standard regression is overconfident on time series data.
+  gym_arima:
+    model: auto.arima(ts(gym membership, frequency = 52, start = c(2021, 20)))
+    order: ARIMA(1,1,1)(0,0,1)[52]
+    coefficients:
+      ar1: 0.7707
+      ma1: -0.9479
+      sma1: 0.2233
+    forecast_h: 52.0
+    forecast_peak: 70.3
+    forecast_peak_date: '2027-02-14'
+    interval_width_first: 18.7
+    interval_width_last: 44.7
+    note: The model is selected by auto.arima on the weekly series. The 52-week forecast
+      peaks at 70.3 on 2027-02-14, below the 2026 record of 100. The 95% prediction
+      interval widens from 18.7 points in the first forecast week to 44.7 points in
+      the last. The chapter calls this a typical winter peak, not an average.
+  sunscreen_seasonality:
+    peak_value: 100.0
+    peak_month: '2026-06-01'
+    note: Sunscreen peaks in late spring and early summer. In 2026 the values are
+      91 in April, 87 in May, and 100 in June, so the exercise answer is a spring-to-summer
+      peak rather than a winter peak.
+  sunscreen_autocorrelation:
+    lag: 1.0
+    pairs: 60
+    r: 0.8352
+    slope: 0.8306
+    note: Monthly lag-1 correlation for exercise 11, using 60 complete pairs. The
+      first month has no previous value.
+  sunscreen_arima:
+    model: auto.arima(ts(sunscreen, frequency = 12, start = c(2021, 10)))
+    order: ARIMA(0,1,0)(1,1,0)[12]
+    coefficients:
+      sar1: -0.4528
+    forecast_h: 12.0
+    forecast_peak: 83.0
+    forecast_peak_month: Jun 2027
+    note: The 12-month forecast for exercise 12 peaks in June 2027 at 83.0. The monthly
+      series is shorter than the weekly gym series, so the exercise forecast is 12
+      months, not 52 weeks.
+  table_12_1:
+    note: Notation table; no calculated values.
+  figures:
+    figure_12_1:
+      note: Weekly time series, 262 points. Winter peaks grow from 31 to 100; the
+        2026 peak is marked.
+    figure_12_2:
+      note: Lag-1 scatterplot with 261 pairs. r = 0.92 and the fitted slope is 0.93;
+        the dashed line is the least-squares fit.
+    figure_12_3:
+      note: 52-week ARIMA forecast. The dashed forecast peaks at 70.3 in February
+        2027, below the 2026 record of 100; the shaded 95% prediction interval widens
+        through the forecast.

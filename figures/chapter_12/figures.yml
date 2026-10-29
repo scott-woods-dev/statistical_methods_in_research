@@ -1,0 +1,55 @@
+figures:
+- id: '12.1'
+  file: fig_12_01_line_gym_time_series.png
+  type: line
+  caption: Weekly gym membership search index from May 2021 through May 2026 (262
+    weeks). The series trends upward and spikes every winter; the February 2026 spike
+    reaches the maximum index value of 100. The distance between the summer baseline
+    and the winter peak grows over time.
+  alt: Line chart of weekly gym search interest over five years. A gradual upward
+    trend with sharp winter peaks. Winter peaks are about 37 in the season ending
+    2022, 48 in 2023, 54 in 2024, 64 in 2025, and 100 in February 2026.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_12.R
+  colour_audit:
+    n_colours: 2
+    min_contrast: 2.2522876
+    min_lab_distance: 98.0377715
+- id: '12.2'
+  file: fig_12_02_scatter_gym_lag_scatter.png
+  type: scatter
+  caption: 'Gym membership search index in week t against the same index in week t-1
+    (261 weekly pairs). The points form a tight positive band: r = 0.92 and the fitted
+    slope is 0.93. The dashed line is the least-squares fit.'
+  alt: Scatterplot of this week's gym search index against last week's. Points cluster
+    tightly along a positive line from about 20 to 100; r = 0.92 and the fitted slope
+    is 0.93.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_12.R
+  colour_audit:
+    n_colours: 3
+    min_contrast: 2.3074822
+    min_lab_distance: 70.8574031
+- id: '12.3'
+  file: fig_12_03_line_gym_arima_forecast.png
+  type: line
+  caption: Weekly gym membership search index from May 2021 through May 2026 with
+    a 52-week ARIMA forecast. The selected model is ARIMA(1,1,1) with a seasonal moving-average
+    term at 52 weeks. The forecast repeats a winter peak of 70.3 in mid-February 2027,
+    below the 2026 record of 100, and the 95% prediction interval widens from about
+    19 points to about 45 points.
+  alt: Time series line plot from 2021 through 2027. Observed weekly searches rise
+    with winter peaks; the dashed forecast starts in May 2026 and peaks at 70.3 in
+    February 2027, inside a shaded band that widens through 2027.
+  width_in: 6.5
+  height_in: 4.25
+  dpi: 300.0
+  script: r_code/figures/chapter_12.R
+  colour_audit:
+    n_colours: 5
+    min_contrast: 2.2522876
+    min_lab_distance: 23.4842746
