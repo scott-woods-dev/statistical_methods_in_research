@@ -2,7 +2,7 @@
 
 ## 13.1 Introduction
 
-In 2014, Amazon built an experimental artificial intelligence system to review job applicant resumes (Dastin, 2018). The goal was to automate the hiring pipeline to quickly find the absolute best talent. They fed the algorithm ten years of resumes submitted to the company so the model could learn what a "successful" candidate looked like. However, the company soon realized they had a massive problem. Because the tech industry has historically been male-dominated, the algorithm "learned" that male candidates were mathematically preferable. It actively penalized resumes that included the word "women's" (such as a "women's chess club" or "women's track team") and systematically downgraded graduates of two all-women's colleges.
+In 2014, Amazon built an experimental artificial intelligence system to review job applicant resumes (Dastin, 2018). The goal was to automate the hiring pipeline to quickly find the absolute best talent. They fed the algorithm ten years of resumes submitted to the company so the model could learn what a "successful" candidate looked like. However, the company soon realized they had a serious problem. Because the tech industry has historically been male-dominated, the algorithm "learned" that male candidates were mathematically preferable. It actively penalized resumes that included the word "women's" (such as a "women's chess club" or "women's track team") and systematically downgraded graduates of two all-women's colleges.
 
 
 
@@ -22,7 +22,7 @@ This is why statistical analysis requires a strict ethical infrastructure. Befor
 
 
 
-By the end of this chapter, you will understand the critical role of an **Institutional Review Board** (IRB) in safeguarding human subjects. We will take a behind-the-curtain look at how research protocols are evaluated for risk, equity, and compliance before a study ever begins. You will learn the strict difference between anonymity and confidentiality in data security. Finally, we will examine algorithmic accountability and the ethical dangers of analytical manipulation, exploring how practices like p-hacking, selective reporting, and unjustified one-sided tests betray the fundamental integrity of the scientific process.
+By the end of this chapter, you will understand the critical role of an **Institutional Review Board** (IRB) in safeguarding human subjects. We will take a behind-the-curtain look at how research protocols are evaluated for risk, equity, and compliance before a study ever begins. You will learn the strict difference between anonymity and confidentiality in data security. Finally, we will examine algorithmic accountability and the ethical dangers of analytical manipulation, exploring how practices like p-hacking, selective reporting, and unjustified one-sided tests betray the integrity of the scientific process.
 
 ## 13.2 The Infrastructure of Ethics
 
@@ -30,7 +30,7 @@ In 2016, a team of researchers scraped the personal profiles of 70,000 users on 
 
 
 
-This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated highly personal human experiences as free raw materials to be mined, completely ignoring the fundamental responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
+This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated highly personal human experiences as free raw materials to be mined, completely ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
 
 
 
@@ -46,7 +46,7 @@ Good data governance looks like a clear, institutional blueprint. It means a col
 
 
 
-Good data stewardship looks like the everyday, deliberate actions of a responsible researcher. It is the act of meticulously stripping names, birthdates, and identifying details from a spreadsheet before sharing it with a colleague. It is the decision to store sensitive survey responses on a secure, approved network drive rather than downloading them to a personal laptop that could be lost or stolen. Ultimately, a good data steward treats the data with the exact same respect and care they would offer the human beings it represents.
+Good data stewardship looks like the everyday, deliberate actions of a responsible researcher. It is the act of meticulously stripping names, birthdates, and identifying details from a spreadsheet before sharing it with a colleague. It is the decision to store sensitive survey responses on a secure, approved network drive rather than downloading them to a personal laptop that could be lost or stolen. Ultimately, a good data steward treats the data with the same respect and care they would offer the human beings it represents.
 
 
 
@@ -68,7 +68,7 @@ Before we can calculate a single mean or build a regression model, we must estab
 
 ## 13.3 The Institutional Review Board
 
-In 2014, researchers published the results of a massive experiment conducted on nearly 700,000 Facebook users. Without asking for permission or informing anyone they were part of a study, the company intentionally manipulated users' news feeds. Some users were shown mostly positive posts, while others were flooded with negative and sad content. The goal was to see if emotions were contagious online. When the paper was published, the academic community and the public were horrified (Meyer, 2014). Because Facebook was operating as a private tech company rather than an academic institution, they had bypassed the strict ethical review processes that universities rely on to protect people.
+In 2014, researchers published the results of a large experiment conducted on nearly 700,000 Facebook users. Without asking for permission or informing anyone they were part of a study, the company intentionally manipulated users' news feeds. Some users were shown mostly positive posts, while others were flooded with negative and sad content. The goal was to see if emotions were contagious online. When the paper was published, the academic community and the public were horrified (Meyer, 2014). Because Facebook was operating as a private tech company rather than an academic institution, they had bypassed the strict ethical review processes that universities rely on to protect people.
 
 
 
@@ -76,7 +76,7 @@ To prevent these kinds of ethical bypasses, universities, hospitals, and researc
 
 
 
-Many student researchers assume the IRB is simply a bureaucratic hurdle designed to slow down their timeline. In reality, the board acts as an ethical safety net. When you want to conduct research, you cannot just start handing out surveys. You must first submit a **protocol**, a comprehensive document detailing exactly what your research question is, who you will recruit, how you will secure their consent, and how you will protect their data. The board evaluates this protocol to ensure the potential benefits of the study justify the methods being used.   
+Many student researchers assume the IRB is just a bureaucratic hurdle designed to slow down their timeline. In reality, the board acts as an ethical safety net. When you want to conduct research, you cannot just start handing out surveys. You must first submit a **protocol**, a comprehensive document detailing exactly what your research question is, who you will recruit, how you will secure their consent, and how you will protect their data. The board evaluates this protocol to ensure the potential benefits of the study justify the methods being used.   
 
 
 
@@ -98,7 +98,7 @@ The AOL incident is a textbook failure in data security. Simply deleting a name 
 
  
 
-**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or highly specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is incredibly low.
+**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or highly specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is very low.
 
 
 
@@ -144,7 +144,7 @@ In 2016, the investigative journalism organization ProPublica analyzed a widely 
 
 
 
-The journalists discovered a massive racial disparity. The algorithm falsely flagged Black defendants as future criminals at almost twice the rate of white defendants. Simultaneously, it frequently mislabeled white defendants as low risk even when they later committed new crimes (Angwin et al., 2016).
+The journalists discovered a large racial disparity. The algorithm falsely flagged Black defendants as future criminals at almost twice the rate of white defendants. Simultaneously, it frequently mislabeled white defendants as low risk even when they later committed new crimes (Angwin et al., 2016).
 
 
 
@@ -156,7 +156,7 @@ This case is a stark example of a failure in **algorithmic accountability**. Com
 
 
 
-Many people mistakenly believe that because a computer relies on math, its decisions are perfectly objective. However, algorithms do not fall from the sky. They are built by humans and trained on historical data. If that data comes from a system that historically over-policed minority neighborhoods, the algorithm simply learns that bias. It will mathematically "prove" that minority defendants are a higher risk purely because they historically faced higher arrest rates.
+Many people mistakenly believe that because a computer relies on math, its decisions are perfectly objective. However, algorithms do not fall from the sky. They are built by humans and trained on historical data. If that data comes from a system that historically over-policed minority neighborhoods, the algorithm learns that bias. It will mathematically "prove" that minority defendants are a higher risk purely because they historically faced higher arrest rates.
 
 
 
@@ -176,7 +176,7 @@ In modern statistical research, secret algorithms are an ethical red flag. Good 
 
 ## 13.6 The Ethics of Omission
 
-In the early months of the COVID-19 pandemic in 2020, the Centers for Disease Control and Prevention (CDC) published surveillance data to track the spread of the virus. However, public health researchers soon noticed a massive problem: nearly half of the confirmed case reports were missing demographic information about race and ethnicity. Because early analyses simply omitted any patient with incomplete data, the official reports drastically underestimated the severity of the outbreak in Black and Hispanic communities (Labgold et al., 2021). The missing data was not just a clerical error; it actively hid a public health crisis and delayed targeted medical interventions.
+In the early months of the COVID-19 pandemic in 2020, the Centers for Disease Control and Prevention (CDC) published surveillance data to track the spread of the virus. However, public health researchers soon noticed a serious problem: nearly half of the confirmed case reports were missing demographic information about race and ethnicity. Because early analyses simply omitted any patient with incomplete data, the official reports drastically underestimated the severity of the outbreak in Black and Hispanic communities (Labgold et al., 2021). The missing data was not just a clerical error; it actively hid a public health crisis and delayed targeted medical interventions.
 
 
 
@@ -188,7 +188,7 @@ The most common way beginners handle missing responses is through **listwise del
 
   
 
-Instead of simply throwing incomplete records away, ethical researchers explore safer ways to handle missing data. One advanced technique is **imputation**. Imputation uses statistical models to estimate what the missing value likely would have been, based on the participant's answers to other related questions. While we will not calculate imputations in this textbook, you should understand the concept: replacing a missing value with a carefully calculated estimate is often much more ethical than completely deleting a human being's experience from the scientific record.   
+Instead of just throwing incomplete records away, ethical researchers explore safer ways to handle missing data. One advanced technique is **imputation**. Imputation uses statistical models to estimate what the missing value likely would have been, based on the participant's answers to other related questions. While we will not calculate imputations in this textbook, you should understand the concept: replacing a missing value with a carefully calculated estimate is often much more ethical than completely deleting a human being's experience from the scientific record.   
 
 
 
@@ -206,8 +206,8 @@ P-hacking rarely involves inventing fake data. Instead, it relies on deceptive a
 
 - **Unjustified One-Sided Tests:** In this textbook, we have established that a rigorous alternative hypothesis ($H_1$) always uses the does not equal symbol ($\neq$). This two-sided test is the strict default in ethical research. However, a one-sided test will mathematically cut your $p$-value in half. If a researcher runs a two-sided test and gets a non-significant $p$-value of 0.08, they might secretly switch to a one-sided test to drop the $p$-value to a "significant" 0.04. Unless this was explicitly planned before the study began, this is analytical cheating.   
 - **Selective Group Analysis:** This is exactly what the Cornell lab did. If a diet intervention shows no overall effect, a p-hacker will divide the data into smaller and smaller subgroups. They might test just the men, then just the women, then just women who eat out frequently. Eventually, random noise in the data will produce a statistically significant result. Reporting that isolated finding while hiding all the failed tests creates a false narrative.   
-- **Failing to Adjust for Multiple Comparisons:** Our standard significance level ($\alpha$) is 0.05, meaning we accept a 5% chance of making a Type I error (a false positive). But if you test 20 different relationships in a single dataset, math dictates that at least one test will likely trigger a false positive by pure chance. Ethical researchers use mathematical adjustments to lower their significance level when running multiple tests. P-hackers ignore this rule and publish the random noise as a profound discovery.   
-- **Equating Sample Size with Practical Effect:** Remember that a $p$-value only measures the strength of evidence, not the size of the effect. If you have a massive sample size of 500,000 people, even a microscopic difference (like a diet plan that causes someone to lose two ounces over a year) might generate a highly significant $p$-value of 0.001. A researcher lacking integrity will weaponize that massive sample size to "find" non-existent practical effects, intentionally confusing statistical significance with real-world impact.   
+- **Failing to Adjust for Multiple Comparisons:** Our standard significance level ($\alpha$) is 0.05, meaning we accept a 5% chance of making a Type I error (a false positive). But if you test 20 different relationships in a single dataset, math dictates that at least one test will likely trigger a false positive by pure chance. Ethical researchers use mathematical adjustments to lower their significance level when running multiple tests. P-hackers ignore this rule and publish the random noise as a major discovery.   
+- **Equating Sample Size with Practical Effect:** Remember that a $p$-value only measures the strength of evidence, not the size of the effect. If you have a huge sample size of 500,000 people, even a microscopic difference (like a diet plan that causes someone to lose two ounces over a year) might generate a highly significant $p$-value of 0.001. A researcher lacking integrity will weaponize that large sample size to "find" non-existent practical effects, intentionally confusing statistical significance with real-world impact.   
 
 ![Figure 13.2: Probability of at least one false positive when testing independent hypotheses with no real effect, at an alpha level of 0.05. The probability rises from 5% with one test to 23% with five, 40% with ten, 64% with twenty, and 92% with fifty. The dashed line marks 50%.](../figures/chapter_13/fig_13_02_bar_false_positive_probability.png){fig-alt="Bar chart of false-positive probability by number of independent tests. Bars rise from 5% for 1 test to 23% for 5, 40% for 10, 64% for 20, and 92% for 50. The 20-test bar passes the 50% line."}
 
@@ -230,8 +230,8 @@ As you conduct your first real research projects or critically evaluate other re
 2. **The Institutional Review Board (IRB):** An IRB is an independent committee that evaluates research protocols before a study begins. Their primary goal is to protect **human subjects**, ensure the study does not exceed **minimal risk**, and safeguard **vulnerable populations** who may not be able to freely give consent.   
 3. **Anonymity vs. Confidentiality:** **Anonymity** means absolutely no one can link the data back to the participant. **Confidentiality** means the researcher can identify the participant but uses strict security measures to keep that identity a secret from the public.   
 4. **Algorithmic Accountability:** Algorithms are not perfectly objective; they inherit the historical biases present in their training data. Ethical researchers promote transparency so that models can be openly audited for bias.   
-5. **The Ethics of Omission:** Cleaning a dataset requires careful **data triage**. Using **listwise deletion** to simply throw away incomplete records can severely bias your results by silencing specific demographics. Advanced techniques like **imputation** offer more ethical ways to handle missing responses.   
-6. **Analytic Integrity and P-Hacking:** **P-hacking** is the unethical practice of manipulating your analysis to artificially push a $p$-value below the 0.05 significance level. This includes using unjustified one-sided tests, selectively analyzing subgroups, failing to adjust for multiple comparisons, and weaponizing massive sample sizes to claim non-existent practical effects.   
+5. **The Ethics of Omission:** Cleaning a dataset requires careful **data triage**. Using **listwise deletion** to throw away incomplete records can severely bias your results by silencing specific demographics. Advanced techniques like **imputation** offer more ethical ways to handle missing responses.   
+6. **Analytic Integrity and P-Hacking:** **P-hacking** is the unethical practice of manipulating your analysis to artificially push a $p$-value below the 0.05 significance level. This includes using unjustified one-sided tests, selectively analyzing subgroups, failing to adjust for multiple comparisons, and weaponizing large sample sizes to claim non-existent practical effects.   
 
 ## 13.10 References
 
