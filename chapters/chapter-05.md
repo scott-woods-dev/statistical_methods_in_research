@@ -52,7 +52,7 @@ To **control for** a variable means we mathematically hold that variable constan
 
 
 
-Let us look at a practical application using our dataset. Imagine you want to know how the number of prenatal visits (`visits`) affects an infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
+Let's look at a practical application using our dataset. Imagine you want to know how the number of prenatal visits (`visits`) affects an infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
@@ -147,7 +147,7 @@ How do we compare the strength of these predictors? We compare each slope to its
 
 
 
-Let us look at the actual mathematical output for our model predicting neonatal birth weight (`weight`) using prenatal visits (`visits`) and gestational duration (`weeks`).
+Here is the actual mathematical output for our model predicting neonatal birth weight (`weight`) using prenatal visits (`visits`) and gestational duration (`weeks`):
 
 | Predictor | Coefficient | SE | T-value | p |
 | :--- | ---: | ---: | ---: | ---: |
@@ -178,7 +178,7 @@ Up to this point, all of our predictors have been numerical variables. But what 
 
 
 
-Let us look at the `habit` variable in our dataset. This categorical variable records the mother's tobacco smoking status during pregnancy. It classifies mothers as either a nonsmoker or a smoker.
+Consider the `habit` variable in our dataset. This categorical variable records the mother's tobacco smoking status during pregnancy. It classifies mothers as either a nonsmoker or a smoker.
 
 
 
@@ -278,7 +278,7 @@ Sometimes, the effect of one variable changes depending on the value of another 
 
 
 
-Let us ask a new research question. Does the negative impact of maternal smoking (`habit`) vary based on clinical age maturity categories (`mature`)? To answer this, we must add an interaction term to our model. Software does this by multiplying the two indicator variables together.
+Here is a new research question: Does the negative impact of maternal smoking (`habit`) vary based on clinical age maturity categories (`mature`)? To answer this, we must add an interaction term to our model. Software does this by multiplying the two indicator variables together.
 
 
 
@@ -348,7 +348,7 @@ The interpretation is straightforward. A VIF of $1$ means there is absolutely ze
 
 
 
-Let us look for this issue in our dataset. We will build a model to predict birth weight using both the biological mother's age (`mage`) and the biological father's age (`fage`). In society, partners are often similar in age. We might naturally expect these two variables to overlap heavily and cause a severe VIF warning. Let us look at the resulting equation:
+Let's look for this issue in our dataset. We will build a model to predict birth weight using both the biological mother's age (`mage`) and the biological father's age (`fage`). In society, partners are often similar in age. We might naturally expect these two variables to overlap heavily and cause a severe VIF warning. Here is the resulting equation:
 
 
 
@@ -442,7 +442,7 @@ When you read social science journals, you will rarely see a single regression e
 
 
 
-Let us look at a simulated example. Imagine a team of economists wants to predict a worker's annual starting salary. They build three separate models to explore the returns on education.
+Here is a simulated example. Imagine a team of economists wants to predict a worker's annual starting salary. They build three separate models to explore the returns on education.
 
 | **Predictor Variable**  | **Model 1 (Base)**           | **Model 2 (Demographics)**   | **Model 3 (Full Model)**    |
 | ----------------------- | ---------------------------- | ---------------------------- | --------------------------- |
@@ -494,7 +494,7 @@ This is the most important step. You must trace your primary variable horizontal
 
 
 
-In Model 1, the slope for the "Years of Education" variable is $4,500. This suggests a massive financial return for every extra year of schooling. Now look at Model 2. The researchers added "Years of Experience" to the equation. The slope for education drops to $3,800. Finally, look at Model 3. The researchers added "Parental Income." This is a massive confounding factor in both educational access and financial networking. When we control for parental income, the slope for education plummets to $2,100. It also loses two significance stars. The correct interpretation here is that the original $4,500 slope was heavily inflated by confounding variables.
+In Model 1, the slope for the "Years of Education" variable is $4,500. This suggests a large financial return for every extra year of schooling. Now look at Model 2. The researchers added "Years of Experience" to the equation. The slope for education drops to $3,800. Finally, look at Model 3. The researchers added "Parental Income." This is a major confounding factor in both educational access and financial networking. When we control for parental income, the slope for education plummets to $2,100. It also loses two significance stars. The correct interpretation here is that the original $4,500 slope was heavily inflated by confounding variables.
 
 ### Step 4: Evaluating the Big Picture
 
@@ -617,14 +617,14 @@ For this section, you will use statistical software to analyze the `college_teac
 
 
 
-11. **Exploring the Wage Gap:** We often hear about the gender wage gap in education. Let us explore this using our dataset.
+11. **Exploring the Wage Gap:** We often hear about the gender wage gap in education. Let's explore this using our dataset.
 a) Run a simple linear regression predicting `Salary` using only the `Sex` indicator variable ($1 = \text{male}$, $0 = \text{female}$). What is the slope for `Sex`, and what does it tell you about the raw difference in pay?
 b) Now, build a multiple regression model by adding `Age` to the equation. Look at the new slope for `Sex`. Did the gap widen, shrink, or reverse?
 c) Explain conceptually why the slope for `Sex` changed when you added the other variables. Use the phrase "controlling for" in your answer.
 
 
 
-12. **Evaluating the Model and Predictors:** Let us evaluate the overall accuracy and the individual predictors in your multiple regression model from Question 1b.
+12. **Evaluating the Model and Predictors:** Evaluate the overall accuracy and the individual predictors in your multiple regression model from Question 1b.
 a) Find the Adjusted $R^2$ value in your software output. Interpret what this percentage means regarding the variation in teacher salaries. Why should you report this metric instead of the regular $R^2$?
 b) Look at the slopes for `Age` and `Sex`. Because they use entirely different units (years versus a biological sex), you cannot compare the slopes directly. Which specific metric in your software output should you use instead to see which variable has a stronger influence on salary?
 c) Compare those specific metrics for `Age` and `Sex`. Which variable provides the stronger signal in this dataset?
