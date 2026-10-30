@@ -96,7 +96,7 @@ When you run a logistic regression model, your software will output a familiar-l
 
 
 
-Because log-odds are incredibly abstract, researchers typically treat this raw slope strictly as a directional signal. Let's apply this to the `Age` variable in our dataset, which measures the patient's age in years. In our output table, the raw coefficient for age is -0.0275. The negative sign immediately tells us the direction of the relationship: as age increases, the log-odds of survival decrease. Older age is associated with lower survival rates.  
+Because log-odds are very abstract, researchers typically treat this raw slope strictly as a directional signal. Let's apply this to the `Age` variable in our dataset, which measures the patient's age in years. In our output table, the raw coefficient for age is -0.0275. The negative sign immediately tells us the direction of the relationship: as age increases, the log-odds of survival decrease. Older age is associated with lower survival rates.  
 
 However, telling a doctor that a patient's log-odds of survival drop by 0.0275 each year is not practically useful. To make these numbers interpretable, statistical software automatically converts these raw slopes into an **Odds Ratio**.  
 
@@ -110,7 +110,7 @@ Why does multiplying by 0.97 matter? If you retain 100% of your baseline odds, y
 
 
 
-We must be incredibly careful here: this is a 3% decrease in the *odds* of survival, not the *probability* of survival. Furthermore, because this is a multiplier, the risk compounds like interest on a bank account. A 3% decrease per year does not mean that after 10 years, a patient has lost a flat 30% of their odds. Instead, the odds shrink by 3% of the *previous year's* value, curving gently downward rather than dropping in a straight, predictable line. The Odds Ratio allows us to easily understand this compounding, multiplicative risk without ever having to calculate the complex underlying mathematics.
+We must be especially careful here: this is a 3% decrease in the *odds* of survival, not the *probability* of survival. Furthermore, because this is a multiplier, the risk compounds like interest on a bank account. A 3% decrease per year does not mean that after 10 years, a patient has lost a flat 30% of their odds. Instead, the odds shrink by 3% of the *previous year's* value, curving gently downward rather than dropping in a straight, predictable line. The Odds Ratio allows us to easily understand this compounding, multiplicative risk without ever having to calculate the complex underlying mathematics.
 
 
 
@@ -204,7 +204,7 @@ Let's generate the predicted probabilities of survival for a 65-year-old patient
 
 : Table 9.6: Predicted probability of survival for a 65-year-old emergency admission from the age and emergency model.
 
-Our model predicts that a 65-year-old admitted for an elective procedure has a massive $0.964350$, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to $0.699344$, or roughly 69.9%.
+Our model predicts that a 65-year-old admitted for an elective procedure has a very high $0.964350$, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to $0.699344$, or roughly 69.9%.
 
 
 
@@ -246,7 +246,7 @@ Specificity measures the true negative rate: out of all the patients who *actual
 
 
 
-While our model's $p$-values were statistically significant, this confusion matrix reveals a massive practical flaw. Because the baseline survival rate in this ICU dataset is relatively high, setting a 50% threshold causes our model to predict that almost *everyone* will survive. A model that cannot accurately identify high-risk patients (low specificity) is not particularly useful for hospital triage.  
+While our model's $p$-values were statistically significant, this confusion matrix reveals a major practical flaw. Because the baseline survival rate in this ICU dataset is relatively high, setting a 50% threshold causes our model to predict that almost *everyone* will survive. A model that cannot accurately identify high-risk patients (low specificity) is not particularly useful for hospital triage.  
 
 ### Adjusting the Threshold
 
@@ -258,7 +258,7 @@ By raising the bar for survival, more patients will fall into the "Predicted Dea
 
 ### The Illusion of $p$-values and Thoughtful Modeling
 
-This massive gap between our significant $p$-values and our terrible specificity perfectly illustrates a core statistical truth: $p$-values only measure whether a relationship is better than random chance. A low $p$-value is strong evidence that a variable has *some* effect; it is absolutely not a measure of how useful the model is, how accurately it estimates reality, or whether it belongs in a clinical setting.
+This large gap between our significant $p$-values and our terrible specificity perfectly illustrates a core statistical truth: $p$-values only measure whether a relationship is better than random chance. A low $p$-value is strong evidence that a variable has *some* effect; it is absolutely not a measure of how useful the model is, how accurately it estimates reality, or whether it belongs in a clinical setting.
 
 
 
@@ -274,7 +274,7 @@ To do this, researchers generate a **Receiver Operating Characteristic (ROC) cur
 
 ![Figure 9.3: ROC curve for the logistic regression of survival on age and emergency admission for 200 ICU patients. The curve plots sensitivity against the false positive rate at every decision threshold. The dashed diagonal is a coin-flip model; the triangle marks the 50% threshold, where the model's specificity is only 5.0%.](../figures/chapter_09/fig_09_03_roc_roc_auc.png){fig-alt="ROC curve for the age and emergency model. The curve climbs above the dashed diagonal, reaching 40% sensitivity at a 10% false positive rate, 63% at 25%, and 98% at 95%. The area under the curve is 0.749. A triangle at a 95% false positive rate and 99% sensitivity marks the 50% threshold."}
 
-An ROC curve is simply a visual summary of our model's performance across all possible decision thresholds. The vertical y-axis plots the Sensitivity (the True Positive Rate). The horizontal x-axis plots the False Positive Rate, which is simply 100% minus the Specificity.
+An ROC curve is a visual summary of our model's performance across all possible decision thresholds. The vertical y-axis plots the Sensitivity (the True Positive Rate). The horizontal x-axis plots the False Positive Rate, which is simply 100% minus the Specificity.
 
 
 
@@ -319,7 +319,7 @@ With standard linear regression, we used $R^2$ to determine the percentage of va
 
 
 
-While the underlying math is different, the conceptual interpretation is incredibly similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to a completely empty baseline model that uses no predictors at all.
+While the underlying math is different, the conceptual interpretation is very similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to a completely empty baseline model that uses no predictors at all.
 
 
 
@@ -348,7 +348,7 @@ Looking at our software output, the Deviance Goodness-of-Fit test yields a $p$-v
 
 
 
-However, do not confuse a "good fit" with a "highly accurate model." The goodness-of-fit test simply confirms that the mathematical curve is behaving appropriately for the variables we provided. As we saw with our low 13.5% Deviance $R^2$ and our terrible 5% specificity from the confusion matrix, a model can be structurally sound while still missing the broader clinical reality of the intensive care unit.
+However, do not confuse a "good fit" with a "highly accurate model." The goodness-of-fit test only confirms that the mathematical curve is behaving appropriately for the variables we provided. As we saw with our low 13.5% Deviance $R^2$ and our terrible 5% specificity from the confusion matrix, a model can be structurally sound while still missing the broader clinical reality of the intensive care unit.
 
 ## 9.10 Sample Sizes and Rare Events
 
@@ -356,7 +356,7 @@ In standard multiple regression, having a small sample size generally just gives
 
 
 
-Imagine we have a massive dataset of 1,000 ICU patients, but thanks to an incredible medical staff, only two patients died. If we try to build a logistic regression model, the software will mathematically struggle. It simply does not have enough examples of the "death" category to figure out what underlying pattern leads to it. Without enough data on the rare event, the algorithm will likely just guess that every single patient survives, rendering the model practically useless for triage.
+Imagine we have a large dataset of 1,000 ICU patients, but thanks to an excellent medical staff, only two patients died. If we try to build a logistic regression model, the software will mathematically struggle. It simply does not have enough examples of the "death" category to figure out what underlying pattern leads to it. Without enough data on the rare event, the algorithm will likely just guess that every single patient survives, rendering the model practically useless for triage.
 
 
 
@@ -442,10 +442,10 @@ Do not let your readers assume that significant $p$-values guarantee a highly ac
 2. **The Logit Bridge:** To use regression math on a binary outcome, we translate probabilities into odds, and then use the natural logarithm to create the **logit** (log-odds). This transformation centers the data at zero and stretches it infinitely in both directions, allowing the software to fit a model.
 3. **Interpreting Odds Ratios:** Raw regression slopes tell us the direction of a relationship, but statistical software converts these abstract numbers into highly interpretable Odds Ratios. An Odds Ratio acts as a compounding multiplicative factor, telling us how a one-unit increase in a predictor shrinks or grows the baseline odds of the outcome.
 4. **Predicted Probabilities:** The ultimate practical goal of a logistic model is translating the abstract logit back into an intuitive percentage. We rely entirely on software to generate these predicted probabilities for specific real-world profiles (e.g., a 65-year-old elective admission).
-5. **Evaluating Practical Accuracy:** A statistically significant $p$-value only proves a variable is performing better than random chance. To evaluate real-world usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model's true Sensitivity and Specificity.
+5. **Evaluating Practical Accuracy:** A statistically significant $p$-value only shows a variable is performing better than random chance. To evaluate real-world usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model's true Sensitivity and Specificity.
 6. **ROC Curves and AUC:** The Receiver Operating Characteristic (ROC) curve visualizes a model's trade-off between Sensitivity and False Positives across all possible decision thresholds. The Area Under the Curve (AUC) provides a single numerical grade (from 0.5 to 1.0) summarizing the model's overall ability to distinguish between the two outcomes.
 7. **Deviance and Fit:** Logistic regression measures predictive error using deviance rather than standard residuals. Deviance $R^2$ estimates the percentage reduction in error compared to a blind guess, while the Deviance Goodness-of-Fit test formally evaluates the structural fit of the curve (where a large $p$-value means we fail to reject the assumption that the model fits well).
-8. **The Rare Events Rule:** Having a massive total sample size is not enough for logistic regression. The model specifically requires a sufficient number of occurrences of the least common outcome (roughly 10 to 15 occurrences per predictor variable) to calculate reliable slopes.
+8. **The Rare Events Rule:** Having a large total sample size is not enough for logistic regression. The model specifically requires a sufficient number of occurrences of the least common outcome (roughly 10 to 15 occurrences per predictor variable) to calculate reliable slopes.
 
 ## 9.15 New Notation
 
