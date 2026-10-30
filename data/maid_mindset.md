@@ -35,7 +35,7 @@ In 2007, a Harvard University psychologist conducted an experiment involving 75 
 
 The **informed group** ($n = 41$) was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General's recommendations for a healthy, active lifestyle. They were provided with specific examples showing how activities like changing linens, vacuuming, and scrubbing tubs translated into significant physical exercise. The **uninformed group** ($n = 34$) served as a control and received no such information.
 
-Biometric and physiological markers—including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure—were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.
+Biometric and physiological markers (including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure) were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.
 
 ------
 

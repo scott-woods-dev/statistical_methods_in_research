@@ -6,7 +6,7 @@ This dataset contains a subset of records from a landmark 2004 field experiment 
 
 ## Format
 
-A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently utilized in introductory analyses is outlined below.
+A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently used in introductory analyses is outlined below.
 
 ### Variable Dictionary
 

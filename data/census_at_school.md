@@ -20,7 +20,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | `Foot`            | Numerical     | The student's foot length measured in centimeters.           |
 | `Armspan`         | Numerical     | The student's armspan measured in centimeters.               |
 | `Languages`       | Numerical     | The number of languages the student speaks fluently.         |
-| `GetToSchool`     | Categorical   | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**—where Walk includes bicycles and skateboards). |
+| `GetToSchool`     | Categorical   | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**, where Walk includes bicycles and skateboards). |
 | `TravelTime`      | Numerical     | The time it takes the student to travel to school, recorded in minutes. |
 | `ReactionTime`    | Numerical     | The time, in seconds, it takes the student to click a button when a visual color changes during an online test. |
 | `MemoryScore`     | Numerical     | The score achieved by the student in a standard online memory card-matching game. |

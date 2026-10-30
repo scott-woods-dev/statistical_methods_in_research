@@ -167,7 +167,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | `Foot`            | Numerical     | The student's foot length measured in centimeters.           |
 | `Armspan`         | Numerical     | The student's armspan measured in centimeters.               |
 | `Languages`       | Numerical     | The number of languages the student speaks fluently.         |
-| `GetToSchool`     | Categorical   | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**—where Walk includes bicycles and skateboards). |
+| `GetToSchool`     | Categorical   | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**, where Walk includes bicycles and skateboards). |
 | `TravelTime`      | Numerical     | The time it takes the student to travel to school, recorded in minutes. |
 | `ReactionTime`    | Numerical     | The time, in seconds, it takes the student to click a button when a visual color changes during an online test. |
 | `MemoryScore`     | Numerical     | The score achieved by the student in a standard online memory card-matching game. |
@@ -531,7 +531,7 @@ This dataset contains a subset of records from a landmark 2004 field experiment 
 
 ## Format
 
-A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently utilized in introductory analyses is outlined below.
+A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently used in introductory analyses is outlined below.
 
 ### Variable Dictionary
 
@@ -598,7 +598,7 @@ In 2007, a Harvard University psychologist conducted an experiment involving 75 
 
 The **informed group** ($n = 41$) was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General’s recommendations for a healthy, active lifestyle. They were provided with specific examples showing how activities like changing linens, vacuuming, and scrubbing tubs translated into significant physical exercise. The **uninformed group** ($n = 34$) served as a control and received no such information.
 
-Biometric and physiological markers—including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure—were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.
+Biometric and physiological markers (including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure) were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.
 
 ------
 
@@ -855,7 +855,7 @@ Public safety campaigns frequently focus on the catastrophic dangers of driving 
 
 
 
-The data in this file is a streamlined subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States. 
+The data in this file is a smaller subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States. 
 
 ------
 
