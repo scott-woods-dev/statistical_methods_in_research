@@ -37,7 +37,7 @@ We will start this chapter by answering our opening question, learning how to co
 
 ## 8.2 Single Variable Patterns: The Chi-Square Goodness-of-Fit Test
 
-At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" actually looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot simply look at the raw counts. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
+At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" actually looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot rely on the raw counts alone. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
 
 
 
@@ -60,7 +60,7 @@ Following our intuitive "human" formatting, we set our null hypothesis to assume
 
 ### The Intuition Behind the Test
 
-Instead of getting bogged down in formulas, let's think about how this test actually works. Your statistical software is simply measuring how far reality deviated from our baseline expectation.
+Instead of getting bogged down in formulas, let's think about how this test actually works. Your statistical software is measuring how far reality deviated from our baseline expectation.
 
 
 
@@ -117,7 +117,7 @@ The Hispanic category has a residual of $-1.65$. Because this falls between $-2.
 
 
 
-However, the residuals for the other four categories are massive. Black and Native American individuals have large positive residuals, indicating they are significantly over-represented in the database relative to their U.S. Census baselines. Conversely, White and Asian individuals have large negative residuals, indicating they are significantly under-represented compared to their demographic baselines.
+However, the residuals for the other four categories fall far outside that range. Black and Native American individuals have large positive residuals, indicating they are significantly over-represented in the database relative to their U.S. Census baselines. Conversely, White and Asian individuals have large negative residuals, indicating they are significantly under-represented compared to their demographic baselines.
 
 ### Communicating Results in APA Format
 
@@ -161,7 +161,7 @@ When we want to know if a connection exists between two categorical variables dr
 
 To answer a question involving two categorical variables, we first have to organize our data so we can actually see the overlaps. We do this by building a **cross-tabulation** (sometimes called a cross-tab or a contingency table).
 
-A cross-tabulation simply takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell.
+A cross-tabulation takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell.
 
 
 
@@ -186,7 +186,7 @@ In statistics, "independence" is a heavily overloaded word. In previous chapters
 
 
 
-If a test proves that the variables are *not* independent, researchers will say that the variables have an "association" or a "relationship." For our purposes, "association" and "relationship" mean the exact same thing: the behavior of one variable is structurally connected to the behavior of the other.
+If a test shows that the variables are *not* independent, researchers will say that the variables have an "association" or a "relationship." For our purposes, "association" and "relationship" mean the same thing: the behavior of one variable is structurally connected to the behavior of the other.
 
 ### Formulating the Hypotheses
 
@@ -233,13 +233,13 @@ Because we are now working with two variables, the software will output a standa
 
 
 
-When we look at the residuals for individuals with documented signs of mental illness, we find massive deviations across the board:
+When we look at the residuals for individuals with documented signs of mental illness, we find large deviations across the board:
 
 
 
 - **Mental Illness (Yes) & Fleeing (Car):** A significant negative residual of $-9.81$.
 - **Mental Illness (Yes) & Fleeing (Foot):** A significant negative residual of $-6.72$.
-- **Mental Illness (Yes) & Fleeing (Not fleeing):** A massive positive residual of $+8.17$.
+- **Mental Illness (Yes) & Fleeing (Not fleeing):** A significant positive residual of $+8.17$.
 
 
 
@@ -257,7 +257,7 @@ Again, the purpose here is to make an easily interpretable description of our re
 
 ## 8.6 Comparing Populations: The Chi-Square Test for Homogeneity
 
-It is incredibly easy to confuse the Test for Independence with our next tool, the **Chi-Square Test for Homogeneity**. The mathematical engine calculating the "gap" under the hood is actually identical, but the *research design* is fundamentally different.
+It is easy to confuse the Test for Independence with our next tool, the **Chi-Square Test for Homogeneity**. The mathematical engine calculating the "gap" under the hood is actually identical, but the *research design* is fundamentally different.
 
 
 
@@ -468,7 +468,7 @@ If we want to figure out if men say "yes" more often than women, the dates where
 
 
 
-McNemar's test essentially ignores all the interactions where the couple agreed. Instead, it looks strictly at the "disagreements." As seen in Figure 8.4 above, we observe 83 instances where only the man said yes, compared to 64 instances where only the woman said yes. The statistical software simply acts as a balancing scale, checking to see if those two disagreement piles are roughly equal. If one group is significantly "heavier" than the other, the test will flag it as a meaningful difference.
+McNemar's test essentially ignores all the interactions where the couple agreed. Instead, it looks strictly at the "disagreements." As seen in Figure 8.4 above, we observe 83 instances where only the man said yes, compared to 64 instances where only the woman said yes. The mathematics our statistical software is doing for us acts as a balancing scale, checking to see if those two disagreement piles are roughly equal. If one group is significantly "heavier" than the other, the test will flag it as a meaningful difference.
 
 ## 8.10 Interpreting McNemar's Test
 
@@ -488,7 +488,7 @@ Because McNemar's test looks at a highly constrained scenario (comparing a simpl
 
 
 
-When you only have two groups, a significant overall test inherently tells you exactly where the difference lies. There are no extra categories to sort through. Because of this structural simplicity, formal post hoc testing is generally not required for McNemar's test. If your result is significant, you simply look at the raw counts of the two disagreement cells to see which group had the higher rate.
+When you only have two groups, a significant overall test inherently tells you exactly where the difference lies. There are no extra categories to sort through. Because of this structural simplicity, formal post hoc testing is generally not required for McNemar's test. If your result is significant, the final step is to look at the raw counts of the two disagreement cells to see which group had the higher rate.
 
 ### Communicating Results in APA Format
 
@@ -502,7 +502,7 @@ For McNemar's test, our software provides the $\chi^2$ test statistic, the degre
 
 ## 8.11 Quantifying the Relationship: Association Metrics
 
-In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect actually is. A tiny $p$-value simply means we have a mountain of evidence that the variables are connected.
+In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect actually is. A tiny $p$-value only means we have a mountain of evidence that the variables are connected.
 
 
 
@@ -546,7 +546,7 @@ If you are using **Phi ($\phi$)** for a $2 \times 2$ table, the cutoffs are stra
 
 
 
-If you are using **Cramér's $V$**, interpreting the metric requires one extra step. Because adding more categories to a table naturally spreads the data out, the definition of a "strong" relationship shifts depending on the size of your cross-tabulation. To find the right cutoffs, you simply look at your two variables and count the number of categories in the *smaller* variable.
+If you are using **Cramér's $V$**, interpreting the metric requires one extra step. Because adding more categories to a table naturally spreads the data out, the definition of a "strong" relationship shifts depending on the size of your cross-tabulation. To find the right cutoffs, you look at your two variables and count the number of categories in the *smaller* variable.
 
 
 
@@ -581,7 +581,7 @@ Because this table has three rows and three columns, Phi is not an option. We us
 
 ### Communicating Results in APA Format
 
-When you write up your final conclusions for a research paper, you simply append the association metric to the end of your standard Chi-Square statistical reporting.
+When you write up your final conclusions for a research paper, you should append the association metric to the end of your standard Chi-Square statistical reporting.
 
 > A Chi-Square Test for Independence was conducted to evaluate the relationship between weapon group (gun, unarmed, or other weapon) and the immediate threat level of the encounter. The results indicated a significant association between the two variables, $\chi^2(4, N = 5963) = 812.74$, $p < .001$, Cramér's $V = .261$.
 
@@ -603,7 +603,7 @@ The most natural way for humans to think about chance is through probability. If
 
 
 
-**Relative Risk (RR)** simply takes the probability of an outcome in one group and divides it by the probability of that same outcome in a baseline group.
+**Relative Risk (RR)** takes the probability of an outcome in one group and divides it by the probability of that same outcome in a baseline group.
 
 
 
@@ -644,7 +644,7 @@ To understand an Odds Ratio, we first have to understand "odds." While probabili
 
 
 
-An Odds Ratio simply takes the odds of an outcome in one group and divides it by the odds in the baseline group. When we run this for our ICU data, the software outputs an Odds Ratio of $0.40$.
+An Odds Ratio takes the odds of an outcome in one group and divides it by the odds in the baseline group. When we run this for our ICU data, the software outputs an Odds Ratio of $0.40$.
 
 
 
@@ -781,7 +781,7 @@ This analysis teaches us a critical lesson about predictive rules: they almost a
 
 
 
-In the real world, medical professionals and researchers manage this trade-off by using a two-stage testing process. When doctors screen for diseases like cancer, or when employers run initial drug tests, that first test is intentionally designed to have extremely high sensitivity. The primary goal of stage one is simply to make sure no true cases slip through the cracks.
+In the real world, medical professionals and researchers manage this trade-off by using a two-stage testing process. When doctors screen for diseases like cancer, or when employers run initial drug tests, that first test is intentionally designed to have extremely high sensitivity. The primary goal of stage one is to make sure no true cases slip through the cracks.
 
 
 
