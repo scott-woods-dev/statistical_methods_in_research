@@ -4,7 +4,7 @@
 
 
 
-Imagine you are a sociologist trying to understand what makes a society genuinely thrive. Does having a massive economy automatically guarantee that citizens will live long, happy lives? Or does the environmental cost of that economic engine actually drag down well-being?
+Imagine you are a sociologist trying to understand what makes a society genuinely thrive. Does having a large economy automatically guarantee that citizens will live long, happy lives? Or does the environmental cost of that economic engine actually drag down well-being?
 
 
 
@@ -116,7 +116,7 @@ Let's ground this in our research scenario. A country's ecological footprint nat
 
 
 
-If we calculate an $R^2$ of **65.12%** for our economic and environmental data, it means that a massive **65.12%** of all the differences in global ecological footprints can be entirely explained by just knowing a country's GDP per capita. The remaining **34.88%** of the variation is due to all those other outside factors we haven't measured yet.
+If we calculate an $R^2$ of **65.12%** for our economic and environmental data, it means that **65.12%** of all the differences in global ecological footprints can be explained by just knowing a country's GDP per capita. The remaining **34.88%** of the variation is due to all those other outside factors we haven't measured yet.
 
 > **A Note on Notation: Why the Capital R?**
 >
@@ -142,7 +142,7 @@ By pairing $r$ and $R^2$, you give your readers a complete picture. The linear c
 
 ## 4.3 Foundations of Modeling: The Four-Step Process
 
-Knowing that a strong correlation exists between two variables is a fantastic starting point. However, researchers usually want to do more than just point out a connection; they want to build a mathematical tool that can make actual predictions. We call this tool a statistical model.
+Knowing that a strong correlation exists between two variables is a good starting point. However, researchers usually want to do more than point out a connection; they want to build a mathematical tool that can make actual predictions. We call this tool a statistical model.
 
 
 
@@ -273,7 +273,7 @@ Suppose we notice that almost all the dots representing Western European countri
 
 
 
-This is a massive red flag. It tells us that our model is structurally biased: it systematically underestimates the environmental impact of Europe and systematically overestimates the impact of Africa. A single, global economic line is too simplistic. This finding reveals that geography and local culture play a distinct structural role in environmental impact that a nation's wealth alone cannot capture.
+This is a major red flag. It tells us that our model is structurally biased: it systematically underestimates the environmental impact of Europe and systematically overestimates the impact of Africa. A single, global economic line is too simplistic. This finding reveals that geography and local culture play a distinct structural role in environmental impact that a nation's wealth alone cannot capture.
 
 
 
@@ -342,7 +342,7 @@ Let's look for these anomalies in our global dataset. When modeling ecological f
 
 
 
-Because these specific nations have incredibly high GDP per capita (giving them massive leverage) and unique consumption patterns, they can single-handedly pull the global regression line steeper or flatter than it rightfully should be for the rest of the world.
+Because these specific nations have very high GDP per capita (giving them substantial leverage) and unique consumption patterns, they can single-handedly pull the global regression line steeper or flatter than it rightfully should be for the rest of the world.
 
 ### Measuring the Magnet: Cook's Distance
 
@@ -380,7 +380,7 @@ Throughout this chapter, we have firmly established that linear regression requi
 
 
 
-But what happens when you have two variables that are clearly connected, but their relationship is undeniably curved? In the social sciences, researchers frequently encounter two specific types of curved relationships:
+But what happens when you have two variables that are closely related, but their relationship is curved? In the social sciences, researchers frequently encounter two specific types of curved relationships:
 
 
 
@@ -424,7 +424,7 @@ Once you transform your predictor variable, your statistical software will give 
 
 
 
-Let's look at the actual output when we apply a **Base-10 logarithm** (written as `log10`) to our global health data. By simply squishing the wealth scale, our model's accuracy skyrockets. We achieve an $R^2$ of **77.22%**, meaning over three-quarters of the global variation in lifespan can be explained by our new, linearized economic curve.
+Let's look at the actual output when we apply a **Base-10 logarithm** (written as `log10`) to our global health data. By squishing the wealth scale, our model's accuracy jumps. We achieve an $R^2$ of **77.22%**, meaning over three-quarters of the global variation in lifespan can be explained by our new, linearized economic curve.
 
 
 
@@ -445,7 +445,7 @@ Let's translate our new slope (**13.54**) into plain English using concrete numb
 - **Scenario A:** Imagine a very poor developing nation grows its economy from **$\$1,000$** per person to **$\$10,000$** per person. Because their wealth just multiplied by 10, our model predicts their average life expectancy will increase by **13.54 years**.
 - **Scenario B:** Now, imagine an already comfortable, developed nation grows its economy from **$\$10,000$** per person to **$\$100,000$** per person. Even though this requires a massive influx of $\$90,000$ per person, they have still only multiplied their wealth by 10. Therefore, our model predicts their average life expectancy will *also* increase by exactly **13.54 years**.
 
-These scenarios elegantly capture the law of diminishing returns: In Scenario A, it only cost $\$9,000$ to buy 13.5 years of life. In Scenario B, it cost a staggering $\$90,000$ to buy that exact same 13.5 years of life!
+These scenarios capture the law of diminishing returns: In Scenario A, it only cost $\$9,000$ to buy 13.5 years of life. In Scenario B, it cost $\$90,000$ to buy that same 13.5 years of life.
 
 
 
@@ -514,7 +514,7 @@ If your research question is, "What will the footprint be for *one specific, new
 
 ![Figure 4.3: Simple linear regression of ecological footprint on GDP per capita for 143 countries. The dark line is the fitted regression. The narrow band is the 95% confidence interval for the mean footprint; the wide band is the 95% prediction interval for an individual country.](../figures/chapter_04/fig_04_03_scatter_footprint_regression_intervals.png){fig-alt="Scatterplot of ecological footprint against GDP per capita for 143 countries, with a rising regression line. A narrow shaded band hugs the line and a much wider shaded band surrounds it, widening at higher incomes."}
 
-Notice how incredibly wide the Prediction Interval is compared to the Confidence Interval! This perfectly illustrates a fundamental truth of the social sciences: **groups are predictable, but individuals are wildly erratic.**
+Notice how much wider the Prediction Interval is than the Confidence Interval! This illustrates a core truth of the social sciences: **groups are predictable, but individuals are wildly erratic.**
 
 
 
@@ -570,7 +570,7 @@ As you begin applying regression analysis to your own research, keep these commo
 ### Communicating Results
 
 7. A popular health blog publishes an article titled, "New Study Proves That Eating Organic Blueberries Causes Higher Standardized Test Scores!" The study they cite found a strong linear correlation ($r = 0.72$) between a school district's average organic food purchases and their average SAT scores. Based on your knowledge of regression and confounding variables, what is the fundamental flaw in the blog's claim?
-8. While modeling the relationship between city population and crime rates, you discover a massive influential point: a tiny resort town that hosts a multi-million-person festival one week a year. The software shows its Cook's Distance is 2.4. You decide to remove it to better represent normal municipal crime rates. What ethical obligation do you have to your readers when reporting your final results?
+8. While modeling the relationship between city population and crime rates, you discover a highly influential point: a tiny resort town that hosts a multi-million-person festival one week a year. The software shows its Cook's Distance is 2.4. You decide to remove it to better represent normal municipal crime rates. What ethical obligation do you have to your readers when reporting your final results?
 9. An economist uses data from 1990 to 2010 to build a regression model predicting housing prices based on inflation rates. Next year, they plug in an unprecedented, record-breaking inflation rate (one that is twice as high as anything seen in their dataset) to predict the future housing market. What statistical error are they committing, and why is it dangerous?
 
 ### Software Application
