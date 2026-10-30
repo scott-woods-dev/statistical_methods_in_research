@@ -82,7 +82,7 @@ Once you have operationalized a concept into a measurable variable, you must eva
 
 
 
-Let us look at the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a highly valid measure of *initial* labor market interest.
+Let's look at the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a highly valid measure of *initial* labor market interest.
 
 
 
@@ -127,7 +127,7 @@ In the social sciences, researchers generally look for a Cronbach's alpha of **0
 
 Once you have defined your research question and decided exactly how to measure your variables, you face a logistical hurdle. How do you actually go out into the world and collect the data? In the social sciences, researchers generally choose between two primary methods of data gathering: observational studies and controlled experiments.
 
-The method you choose dictates what kind of conclusions you are allowed to draw from your data. Let us explore both approaches in detail, using our corporate hiring bias scenario as a guide.
+The method you choose dictates what kind of conclusions you are allowed to draw from your data. We will explore both approaches in detail, using our corporate hiring bias scenario as a guide.
 
 ### Observational Studies
 
@@ -147,7 +147,7 @@ While observational studies are excellent for gathering large amounts of real-wo
 
 
 
-Furthermore, observational studies face a massive hurdle when trying to prove a cause-and-effect relationship. Imagine our observational HR study reveals that White applicants were hired at a higher rate than African-American applicants. Can we definitively claim this difference was caused by racial bias?
+Furthermore, observational studies face a major hurdle when trying to prove a cause-and-effect relationship. Imagine our observational HR study reveals that White applicants were hired at a higher rate than African-American applicants. Can we definitively claim this difference was caused by racial bias?
 
 
 
@@ -169,7 +169,7 @@ This is where the genius of the Bertrand and Mullainathan (2004) study becomes c
 
 
 
-Let us look at how they applied the three core principles. First, they applied extreme control by generating fictitious resumes. They ensured that the educational backgrounds, the number of prior jobs (`n_jobs`), and the years of experience (`years_exp`) were identical for competing candidates. Second, they used randomization. They took these identical resumes and randomly assigned either a White-sounding name or an African-American-sounding name. Finally, they employed massive replication by submitting 4,870 resumes to various employers.
+Here is how they applied the three core principles: First, they applied extreme control by generating fictitious resumes. They ensured that the educational backgrounds, the number of prior jobs (`n_jobs`), and the years of experience (`years_exp`) were identical for competing candidates. Second, they used randomization. They took these identical resumes and randomly assigned either a White-sounding name or an African-American-sounding name. Finally, they employed large-scale replication by submitting 4,870 resumes to various employers.
 
 
 
@@ -197,7 +197,7 @@ A research question asks about a relationship in the real world. A statistical q
 2. **It must account for variability.** The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the exact same callback rates. A statistical question expects and embraces this natural variation.
 3. **It must identify a specific statistical measure.** The question must explicitly state what mathematical summary you are going to use to compare your groups. In Chapter 1, we learned about measures like the mean, median, and proportion. A statistical question forces you to declare exactly which of these you are hunting for.
 
-The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let us look at a few examples to see this translation process in action.
+The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let's look at a few examples to see this translation process in action.
 
 
 
@@ -237,7 +237,7 @@ The outcome variable here is student debt. Like sleep hours, debt is numerical. 
 
 
 
-By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are actually doing yourself a massive favor. The statistical measure you choose during this step will dictate exactly which statistical method of analysis you must use later in the process,
+By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are actually doing yourself a massive favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.
 
 
 
@@ -301,7 +301,7 @@ Remember that parameters are the true, hidden numbers that describe the entire p
 
 
 
-Let us define our two parameters for the study:
+Here are our two parameters for the study:
 
 - $\pi_W$ represents the true proportion of callbacks for all identical resumes with White-sounding names.
 - $\pi_{AA}$ represents the true proportion of callbacks for all identical resumes with African-American-sounding names.
