@@ -430,7 +430,7 @@ Instead, we rely on our resistant measures: the median and the IQR. Because they
 
 
 
-To choose the right summary, simply look at your histogram and follow this golden rule:
+To choose the right summary, look at your histogram and follow this rule:
 
 * **If your data is strongly skewed or has extreme outliers:** The mean and standard deviation will be aggressively pulled toward the tail. You should pair the **median** with the **IQR** to accurately describe the everyday experience of the group.
 * **If your data is roughly symmetric (like a bell curve):** The mean and median will be nearly identical. You should pair the **mean** with the **standard deviation** to describe the center and spread.
@@ -633,7 +633,7 @@ To read and write confidently in your field, you need to know this basic transla
 
 When researchers write their conclusions, they state their findings in plain English and place these statistical abbreviations in parentheses right next to the claim to provide the exact mathematical proof.
 
-### **The Golden Rule: Center and Spread Together** 
+### **Report Center and Spread Together** 
 
 
 
@@ -688,7 +688,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 **12.** Create a histogram of the `WeekdaySleep` variable and a separate histogram for the `ClassesMissed` variable. Describe the physical shape of both distributions. Do you notice any floor or ceiling effects? 
 
-**13.** Calculate the mean and the median for the `GPA` variable. Are the numbers similar or very different? Based on the golden rule of matching measures to shapes, does the relationship between this mean and median make sense for a variable capped at 4.0?
+**13.** Calculate the mean and the median for the `GPA` variable. Are the numbers similar or very different? Based on the rule for matching measures to shapes, does the relationship between this mean and median make sense for a variable capped at 4.0?
 
 **14.** Generate side-by-side box plots to compare `GPA` across the different categories of `ClassYear` (1 = First Year, 2 = Sophomore, 3 = Junior, 4 = Senior). Which class year appears to have the highest median GPA? Which class year shows the widest spread (IQR) in their grades?
 
