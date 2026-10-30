@@ -6,7 +6,7 @@ Throughout this book, we have largely looked at static snapshots of data. Howeve
 
 
 
-Before we look at our data, it is important to understand the goals of time series analysis: identifying overarching **trends**, predictable **cyclical patterns** (like seasonality), and random **irregular movements**. Why is this necessary? You might wonder why we cannot simply use the simple linear regression tools from Chapter 4, placing "Time" on the x-axis and drawing a line of best fit.  
+Before we look at our data, it is important to understand the goals of time series analysis: identifying overarching **trends**, predictable **cyclical patterns** (like seasonality), and random **irregular movements**. Why is this necessary? You might wonder why we cannot use the simple linear regression tools from Chapter 4, placing "Time" on the x-axis and drawing a line of best fit.  
 
  
 
@@ -55,7 +55,7 @@ To preserve the timeline, we use a **time series plot**. A time series plot is e
 
 ![Figure 12.1: Weekly gym membership search index from May 2021 through May 2026 (262 weeks). The series trends upward and spikes every winter; the February 2026 spike reaches the maximum index value of 100. The distance between the summer baseline and the winter peak grows over time.](../figures/chapter_12/fig_12_01_line_gym_time_series.png){fig-alt="Line chart of weekly gym search interest over five years. A gradual upward trend with sharp winter peaks. Winter peaks are about 37 in the season ending 2022, 48 in 2023, 54 in 2024, 64 in 2025, and 100 in February 2026."}
 
-When we evaluate the time series plot for our fitness data, the power of visual analysis becomes immediately clear. First, we can see a positive long-term trend; the overall baseline of search interest is noticeably higher in 2026 than it was in 2021. Second, we see massive, undeniable cyclical patterns. There is a sharp, distinct spike in search volume every single winter, perfectly aligning with the cultural phenomenon of New Year's fitness resolutions.  
+When we evaluate the time series plot for our fitness data, the power of visual analysis becomes immediately clear. First, we can see a positive long-term trend; the overall baseline of search interest is noticeably higher in 2026 than it was in 2021. Second, we see strong cyclical patterns. There is a sharp, distinct spike in search volume every single winter, perfectly aligning with the cultural phenomenon of New Year's fitness resolutions.  
 
  
 
@@ -83,7 +83,7 @@ When dealing with time series data, this independence assumption completely coll
 
 
 
-Statisticians call this sequential connection **autocorrelation**. The prefix "auto" means "self." Therefore, autocorrelation is simply the measure of how a single variable correlates with its own past values.   
+Statisticians call this sequential connection **autocorrelation**. The prefix "auto" means "self." Autocorrelation is just a measure of how strongly a variable correlates with its own past values.   
 
 
 
@@ -101,11 +101,11 @@ At this point, students often confuse an **overall linear trend** with **autocor
 
 
 
-A **linear trend** describes the relationship between the *calendar* and our variable. In our dataset, the overall upward trend simply tells us that as the years go by, general baseline interest in gym memberships increases. If we draw a line of best fit, knowing that week 200 is further along the x-axis than week 10 tells us to expect a higher value simply because more time has passed.
+A **linear trend** describes the relationship between the *calendar* and our variable. In our dataset, the overall upward trend tells us that as the years go by, general baseline interest in gym memberships increases. If we draw a line of best fit, knowing that week 200 is further along the x-axis than week 10 tells us to expect a higher value only because more time has passed.
 
 
 
-**Autocorrelation**, on the other hand, describes *momentum*. It has nothing to do with how many years have passed; it has everything to do with what happened *yesterday*. Imagine a massive, unpredicted spike in fitness searches occurs because a celebrity launches a viral workout challenge. A standard linear trend line cannot predict this spike because it only looks at the calendar. However, autocorrelation recognizes that because searches were anomalously huge last week, they will carry that momentum and be huge again this week. Trend is about long-term trajectory; autocorrelation is about short-term stickiness.
+**Autocorrelation**, on the other hand, describes *momentum*. It has nothing to do with how many years have passed; it has everything to do with what happened *yesterday*. Imagine a large, unpredicted spike in fitness searches occurs because a celebrity launches a viral workout challenge. A standard linear trend line cannot predict this spike because it only looks at the calendar. However, autocorrelation recognizes that because searches were anomalously huge last week, they will carry that momentum and be huge again this week. Trend is about long-term trajectory; autocorrelation is about short-term stickiness.
 
 ### The Consequences for Linear Regression
 
@@ -117,7 +117,7 @@ Because autocorrelation creates momentum, the data points are essentially copyin
 
 
 
-When a regression model double-counts evidence like this, it becomes wildly overconfident. It artificially shrinks the standard errors, falsely inflates the test statistics, and produces p-values that look incredibly "significant" but are mathematically meaningless. To make accurate, honest predictions about the future, we must abandon simple straight lines and adopt specialized models built specifically to handle the momentum of intertwined data.
+When a regression model double-counts evidence like this, it becomes wildly overconfident. It artificially shrinks the standard errors, falsely inflates the test statistics, and produces p-values that look very "significant" but are mathematically meaningless. To make accurate, honest predictions about the future, we must abandon simple straight lines and adopt specialized models built specifically to handle the momentum of intertwined data.
 
 
 
@@ -147,7 +147,7 @@ To understand how the software builds this recipe, we can look at the three part
 
 ### What ARIMA Does and Does Not Do
 
-An ARIMA model is an incredibly powerful tool for projecting established historical patterns into the future. It uses the internal structure of the data itself to map out where the numbers are most likely to go next.   
+An ARIMA model is a powerful tool for projecting established historical patterns into the future. It uses the internal structure of the data itself to map out where the numbers are most likely to go next.   
 
 
 
@@ -155,7 +155,7 @@ However, you must understand its limitations. An ARIMA model does not explain *w
 
 ### Forecasting the Fitness Data
 
-Let us apply this model to our `gym_membership_searches.csv` dataset to see what the software predicts for the upcoming year.
+Let's apply this model to our `gym_membership_searches.csv` dataset to see what the software predicts for the upcoming year.
 
 ![Figure 12.3: Weekly gym membership search index from May 2021 through May 2026 with a 52-week ARIMA forecast. The selected model is ARIMA(1,1,1) with a seasonal moving-average term at 52 weeks. The forecast repeats a winter peak of 70.3 in mid-February 2027, below the 2026 record of 100, and the 95% prediction interval widens from about 19 points to about 45 points.](../figures/chapter_12/fig_12_03_line_gym_arima_forecast.png){fig-alt="Time series line plot from 2021 through 2027. Observed weekly searches rise with winter peaks; the dashed forecast starts in May 2026 and peaks at 70.3 in February 2027, inside a shaded band that widens through 2027."}
 
@@ -178,7 +178,7 @@ As you go out and build your own time series plots and prediction models, keep t
 - **Modeling Before Graphing:** One of the most dangerous traps in data analysis is feeding numbers directly into an algorithm without looking at them first. As we saw with the growing seasonal spikes in our fitness data, a visual time series plot will often reveal structural shifts that the automated math completely misses. Never build a model, whether it is a simple regression or an advanced forecasting tool, without exploring a relevant graph. The visual evidence should always guide your choice of analytical method, because the graph will often find something the math cannot.   
 - **Applying Linear Regression to Chronological Data:** Because simple linear regression is so versatile, researchers often assume they can just use time as the explanatory variable on the horizontal axis. However, doing so violates the core assumption of independence. Standard regression ignores autocorrelation and smooths over cyclical patterns, leading to wildly overconfident $p$-values and fundamentally flawed conclusions. As a general rule, we should not use standard linear regression to handle time series data.   
 - **Treating Forecasts as Guarantees:** When looking at an ARIMA forecast, it is tempting to focus entirely on the solid predicted line and treat it as a guaranteed certainty. However, time series models only know how to repeat historical patterns. They cannot predict unprecedented real-world shocks, such as a sudden economic crisis or a disruptive new technology. You must always pay close attention to the widening prediction intervals (the shaded margin of error). The further into the future you project, the less certainty you actually have.   
-- **Confusing Prediction with Causation:** Time series analysis is excellent at identifying *what* is happening and *when* it is happening, but it cannot tell you *why*. A structural model might accurately predict a massive surge in fitness searches next January, but the algorithm has no concept of New Year's resolutions, human psychology, or winter weather. It simply recognizes a numerical pattern. It is always the researcher's job to provide the theoretical context that explains the mathematical pattern.
+- **Confusing Prediction with Causation:** Time series analysis is excellent at identifying *what* is happening and *when* it is happening, but it cannot tell you *why*. A structural model might accurately predict a large surge in fitness searches next January, but the algorithm has no concept of New Year's resolutions, human psychology, or winter weather. It only recognizes a numerical pattern. It is always the researcher's job to provide the theoretical context that explains the mathematical pattern.
 
 
 
@@ -213,7 +213,7 @@ As you go out and build your own time series plots and prediction models, keep t
 
 4. A political scientist wants to analyze how a mayor's public approval rating fluctuates month by month over a four-year term. A research assistant suggests building a histogram of the approval ratings. Explain why a histogram is the wrong visual tool for this data, and state which visualization the assistant should use instead.
 5. An education researcher has ten years of weekly library attendance data. They want to predict next week's attendance. They decide to run a simple linear regression using "Week" as the independent predictor variable. Explain the primary statistical assumption the researcher is violating by using standard linear regression on this chronological data.
-6. A retail analyst is examining five years of weekly sales data for winter coats. They want to isolate the overarching baseline growth of the company from the massive sales spikes that happen every November. What type of statistical modeling framework is specifically designed to separate overarching trends from cyclical patterns?
+6. A retail analyst is examining five years of weekly sales data for winter coats. They want to isolate the overarching baseline growth of the company from the large sales spikes that happen every November. What type of statistical modeling framework is specifically designed to separate overarching trends from cyclical patterns?
 
 ### Communicating Results
 
@@ -229,7 +229,7 @@ For this section, you will use statistical software to analyze two search series
 a) Use your software to generate a time series line plot for the `gym membership` search index across the `Week` timeline.
 b) Use your software to generate a second time series line plot for the `sunscreen` search index across the `Month` timeline.
 c) Compare the two plots. In what specific months or seasons do the cyclical peaks occur for gym memberships, and when do they occur for sunscreen?
-11. **Measuring Momentum**: Let us mathematically verify the independence violation for the sunscreen variable.
+11. **Measuring Momentum**: Let's mathematically verify the independence violation for the sunscreen variable.
 a) Use your software to create a new "lag-1" variable for the `sunscreen` index (shifting the data back by exactly one month).
 b) Generate a scatterplot placing the lagged sunscreen variable on the x-axis and the current month's sunscreen variable on the y-axis. Describe the visual relationship.
 c) Calculate the linear correlation coefficient ($r$) between the current month and the prior month. Does this value indicate strong autocorrelation?
