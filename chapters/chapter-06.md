@@ -23,7 +23,7 @@ By the end of this chapter, you will learn how to partition the variation in a d
 
 ## 6.2 What Do We Mean by Experimental Design?
 
-When you hear the phrase "experimental design," you might instantly picture scientists in white coats mixing chemicals in a sterile laboratory. But in the social sciences, economics, and psychology, experimental design is rarely about test tubes. Instead, it is about how we structure our observations to compare different conditions, interventions, or pre-existing groups.
+When you hear the phrase "experimental design," you might picture scientists in white coats mixing chemicals in a sterile laboratory. But in the social sciences, economics, and psychology, experimental design is rarely about test tubes. Instead, it is about how we structure our observations to compare different conditions, interventions, or pre-existing groups.
 
 
 
@@ -81,7 +81,7 @@ But where exactly does all that variation come from? Is it because the school's 
 
 
 
-To answer this, an ANOVA does something incredibly clever: it splits that giant pile of variation into two distinct, manageable pieces. In statistics, this process is called **partitioning variation**. We partition, or divide, the total variation into two categories:
+To answer this, an ANOVA does something quite clever: it splits that giant pile of variation into two distinct, manageable pieces. In statistics, this process is called **partitioning variation**. We partition, or divide, the total variation into two categories:
 
 
 
@@ -132,7 +132,7 @@ In our high school dataset, we want to look at writing scores across three disti
 2. General versus Vocational
 3. Academic versus Vocational
 
-This approach is a massive statistical trap because it severely inflates our risk of making a Type I error. Recall from Chapter 3 that a Type I error happens when our test produces a false positive, claiming a significant difference exists when it actually does not. We actively control this risk by setting a strict standard of evidence, known as our significance level ($\alpha$), which is typically set at $0.05$ (or a 5% risk).
+This approach is a statistical trap because it severely inflates our risk of making a Type I error. Recall from Chapter 3 that a Type I error happens when our test produces a false positive, claiming a significant difference exists when it actually does not. We actively control this risk by setting a strict standard of evidence, known as our significance level ($\alpha$), which is typically set at $0.05$ (or a 5% risk).
 
 
 
@@ -351,7 +351,7 @@ If your ANOVA produces a significant $p$-value, you know that at least one pair 
 
 ### Why Are We Allowed to Do This?
 
-Before we look at the specific tests, we need to address the elephant in the room. In Section 6.5, we explicitly warned you that running multiple independent $t$-tests to compare our groups was a massive statistical trap. We stated that doing so inflates your risk of a Type I error (a false positive).
+Before we look at the specific tests, we need to resolve an apparent contradiction. In Section 6.5, we explicitly warned you that running multiple independent $t$-tests to compare our groups was a statistical trap. We stated that doing so inflates your risk of a Type I error (a false positive).
 
 
 
@@ -438,7 +438,7 @@ To answer this statistical question, we have to formally assign our variables fr
 - **The Response Variable (`write`):** This is our numerical outcome. It is the "response" we are measuring to see if the grouping had any effect. Here, it is the student's standardized writing score.
 - **The Factor Variable (`prog`):** This is our categorical "cause" or grouping mechanism. It is the overarching category we suspect is driving the differences in the response. Here, the factor is the academic program track.
 
-It is highly important to distinguish between the factor itself, the factor levels, and the treatment groups.
+We need to be able to distinguish between the factor itself, the factor levels, and the treatment groups.
 
 - **The Factor Variable** is what we're using to split our population of students into groups, which is the academic program.
 - **The Factor Levels** are the specific, mutually exclusive categories that exist within that column: general, academic, and vocational.
@@ -446,7 +446,7 @@ It is highly important to distinguish between the factor itself, the factor leve
 
 #### A Warning on Observational Groups
 
-Understanding exactly who makes up our treatment groups gives us a massive hint about how our data might behave.
+Understanding exactly who makes up our treatment groups gives us a strong hint about how our data might behave.
 
 
 
@@ -581,9 +581,9 @@ When we command our software to run Tukey's test, it simultaneously compares all
 
 Here is what the post hoc output reveals:
 
-- **Academic vs. Vocational:** Our visual intuition from the boxplot was spot on! The software confirms a massive difference here ($p < .001$). The practical significance is exceptionally large ($d = 1.10$), meaning the average academic student scores more than a full standard deviation higher than the average vocational student.
+- **Academic vs. Vocational:** Our visual intuition from the boxplot was correct! The software confirms a statistically significant difference here ($p < .001$). The practical significance is exceptionally large ($d = 1.10$), meaning the average academic student scores more than a full standard deviation higher than the average vocational student.
 - **Academic vs. General:** The academic track also significantly outperforms the general track ($p = .005$). This difference represents a moderate practical effect ($d = 0.57$).
-- **General vs. Vocational:** When we looked at the initial boxplot, these two groups overlapped quite a bit, making it hard to guess if a difference truly existed. This is exactly why we rely on mathematical testing rather than just our eyes. Tukey's HSD confirms that the general track does score significantly higher than the vocational track ($p = .029$), though the practical difference between them is relatively small ($d = 0.49$).
+- **General vs. Vocational:** When we looked at the initial boxplot, these two groups overlapped quite a bit, making it hard to guess if a difference truly existed. This is exactly why we rely on mathematical testing rather than just our eyes. Tukey's HSD confirms that the general track does score significantly higher than the vocational track ($p = .029$), though the practical difference between them is moderate ($d = 0.49$).
 
 In a rare and statistically neat outcome, every single program track is significantly different from all the others!
 
@@ -609,7 +609,7 @@ As you learn to use the One-Way ANOVA, you will likely encounter a few common co
 
 ### The "Significant vs. Non-Significant" Trap
 
-When reading your post hoc results, it is incredibly tempting to use flawed, everyday logic to compare your groups.
+When reading your post hoc results, it is very tempting to use flawed, everyday logic to compare your groups.
 
 
 
@@ -617,7 +617,7 @@ Imagine you are testing two new clinical treatments (Treatment A and Treatment B
 
 
 
-This is a massive statistical fallacy. Think about how incredibly close those two $p$-values are. Treatment A just barely scraped past the arbitrary 5% finish line, while Treatment B just barely missed it. In reality, the actual physical effects of Treatment A and Treatment B might be virtually indistinguishable from one another.
+This is a serious statistical fallacy. Think about how close those two $p$-values are. Treatment A just barely scraped past the arbitrary 5% finish line, while Treatment B just barely missed it. In reality, the actual physical effects of Treatment A and Treatment B might be virtually indistinguishable from one another.
 
 
 
