@@ -61,7 +61,7 @@ Imagine you open `speed_dating.csv` from the data subfolder and examine the six 
 
 
 
-If people evaluated each of these six traits completely independently, the correlation matrix would be filled with numbers close to zero. Knowing that a female participant thought her date was intelligent would tell you nothing about whether she also thought he was sincere or ambitious. Similarly, if participants simply decided within the first ten seconds whether they liked their partner and blindly gave them the exact same score across all six categories, every correlation in the table would be extremely high across the board.
+If people evaluated each of these six traits completely independently, the correlation matrix would be filled with numbers close to zero. Knowing that a female participant thought her date was intelligent would tell you nothing about whether she also thought he was sincere or ambitious. Similarly, if participants decided within the first ten seconds whether they liked their partner and blindly gave them the same score across all six categories, every correlation in the table would be extremely high across the board.
 
 
 
@@ -91,31 +91,31 @@ To figure out which survey questions belong to which hidden factor, factor analy
 
 Why are those three numbers slightly different if they are all being driven by the same underlying impression of social appeal? Factor analysis explains this discrepancy by splitting the total variability of every survey question into two separate pieces:
 
-1. **Commonality**: The proportion of a variable's variation that is shared with the other variables in the analysis because they all measure the same underlying factor. If a participant feels an immediate spark of social chemistry with her date, that central impression pushes up her ratings for `AttractiveF`, `FunF`, and `SharedInterestsF` simultaneously. That shared upward push is the commonality.   
+1. **Communality**: The proportion of a variable's variation that is shared with the other variables in the analysis because they all measure the same underlying factor. If a participant feels an immediate spark of social chemistry with her date, that central impression pushes up her ratings for `AttractiveF`, `FunF`, and `SharedInterestsF` simultaneously. That shared upward push is the communality.   
 2. **Unique variance**: The proportion of a variable's variation that belongs strictly to that single question and is not shared with any other variable in the dataset.
 
 To understand unique variance, it helps to recognize that a variable can wander away from its group for two very different reasons. Because of this, statisticians further divide unique variance into two sub-categories:
 
-- **Specific variance**: Variation that is genuinely real and systematic, but completely unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on `SharedInterestsF`, even if they only gave them a 5 on `AttractiveF` and a 6 on `FunF`. That spike in `SharedInterestsF` is not random error; it reflects a genuine evaluation of a shared hobby that simply has nothing to do with general social appeal.
+- **Specific variance**: Variation that is genuinely real and systematic, but completely unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on `SharedInterestsF`, even if they only gave them a 5 on `AttractiveF` and a 6 on `FunF`. That spike in `SharedInterestsF` is not random error; it reflects a genuine evaluation of a shared hobby that has nothing to do with general social appeal.
 - **Measurement error**: Random noise caused by the imperfect nature of human surveys. Perhaps a participant is exhausted after talking to several strangers in a noisy room, misreads the 1 to 10 scale on their clipboard, or accidentally circles a 7 when they meant to circle an 8. Just like specific variance, random measurement error cannot be shared with the other variables in the dataset.   
 
 We can summarize how factor analysis views the total variability of any single survey item using a simple conceptual breakdown:
 
 
 
-> $$\text{Total Variance} = \text{Commonality} + \text{Specific Variance} + \text{Measurement Error}$$
+> $$\text{Total Variance} = \text{Communality} + \text{Specific Variance} + \text{Measurement Error}$$
 
 
 
-Separating commonality from unique variance (the combined specific variance and measurement error) is the secret behind how true factor analysis works. Think of a sound engineer working in a recording studio. Imagine two singers are standing on a stage, and six microphones are scattered around the room. Each microphone picks up the melodies of the two singers (the commonality), but each microphone also picks up localized background noises, like a creaky floorboard right next to microphone three (specific variance) or random static in the microphone cable (measurement error). 
+Separating communality from unique variance (the combined specific variance and measurement error) is the secret behind how true factor analysis works. Think of a sound engineer working in a recording studio. Imagine two singers are standing on a stage, and six microphones are scattered around the room. Each microphone picks up the melodies of the two singers (the communality), but each microphone also picks up localized background noises, like a creaky floorboard right next to microphone three (specific variance) or random static in the microphone cable (measurement error). 
 
   
 
-If you want to hear the pure voices of the two singers, you do not want to simply crank up the volume on all six microphones at once; that would amplify the creaky floorboards and the cable static right along with the music. Instead, a sound engineer isolates the sound waves that all the microphones are picking up in common and filters out the localized noise unique to each individual microphone.
+If you want to hear the pure voices of the two singers, you do not want to crank up the volume on all six microphones at once; that would amplify the creaky floorboards and the cable static right along with the music. Instead, a sound engineer isolates the sound waves that all the microphones are picking up in common and filters out the localized noise unique to each individual microphone.
 
 
 
-Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (commonality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared commonality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
+Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (communality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared communality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
 
 ## 11.3 Reading Factor Analysis Tables
 
@@ -123,7 +123,7 @@ Knowing that hidden factors exist in theory is helpful, but as a researcher, you
 
 ### The Correlation Matrix
 
-Before extracting any hidden factors, your first step is always to inspect the raw correlation matrix for your survey items. Let us look at the actual correlations among the six partner ratings completed by the female participants in `speed_dating.csv` (Gelman & Hill, 2007).   
+Before extracting any hidden factors, your first step is always to inspect the raw correlation matrix for your survey items. Let's look at the actual correlations among the six partner ratings completed by the female participants in `speed_dating.csv` (Gelman & Hill, 2007).   
 
 
 
@@ -138,7 +138,7 @@ Before extracting any hidden factors, your first step is always to inspect the r
 
 : Table 11.1: Correlation matrix for the six female partner ratings in the speed dating dataset.
 
-Notice that a correlation matrix is symmetric: the numbers above the diagonal line of $1.000$ values are an exact mirror image of the numbers below the diagonal. Every cell simply tells you the linear correlation ($r$) between the variable in that row and the variable in that column.   
+Notice that a correlation matrix is symmetric: the numbers above the diagonal line of $1.000$ values are an exact mirror image of the numbers below the diagonal. Every cell tells you the linear correlation ($r$) between the variable in that row and the variable in that column.   
 
 
 
@@ -156,7 +156,7 @@ If you already encounter blurry boundaries like `FunF` when looking at just six 
 
 ### The Factor Matrix
 
-To run a factor analysis, you must first tell your statistical software how many hidden factors to look for. Because our inspection of the correlation matrix suggested two distinct neighborhoods of traits, we instructed the software to extract exactly two factors. (Of course, when you analyze a massive survey with dozens of items, you will not be able to guess the number of factors by eye; in Section 11.6, you will learn an objective visual method for deciding exactly how many factors to extract.)   
+To run a factor analysis, you must first tell your statistical software how many hidden factors to look for. Because our inspection of the correlation matrix suggested two distinct neighborhoods of traits, we instructed the software to extract exactly two factors. (Of course, when you analyze a large survey with dozens of items, you will not be able to guess the number of factors by eye; in Section 11.6, you will learn an objective visual method for deciding exactly how many factors to extract.)   
 
 
 
@@ -170,11 +170,11 @@ Because a factor loading represents the correlation between a specific survey qu
 - A factor loading close to $0$ means the survey question has almost nothing to do with that hidden factor.
 - Most social scientists use a practical benchmark of $0.40$ (or $-0.40$) when reading factor tables. If a variable's loading has a magnitude of $0.40$ or higher, we consider that variable to be a meaningful member of that factor's cluster.
 
-Let us examine the emulated SPSS output in Table 11.2, which displays the factor loadings, commonalities, and uniqueness values when we extract two factors from the female partner ratings in `speed_dating.csv`.   
+Table 11.2 shows the emulated SPSS output, which displays the factor loadings, communalities, and uniqueness values when we extract two factors from the female partner ratings in `speed_dating.csv`.   
 
 
 
-| **Observed Variable**      | **Factor 1** | **Factor 2** | **Commonality (h2)** | **Uniqueness (u2)** |
+| **Observed Variable**      | **Factor 1** | **Factor 2** | **Communality (h2)** | **Uniqueness (u2)** |
 | -------------------------- | ------------ | ------------ | -------------------- | ------------------- |
 | **`IntelligentF`**         | **0.853**    | 0.141        | 0.748                | 0.252               |
 | **`SincereF`**             | **0.611**    | 0.225        | 0.425                | 0.575               |
@@ -194,7 +194,7 @@ Notice what happened to `FunF`. Earlier, in the correlation matrix, `FunF` seeme
 
 
 
-When each survey question loads strongly onto one factor and weakly onto all the others, statisticians say the model has achieved **simple structure** (a clean pattern of factor loadings where each observed variable belongs to a single factor, making the hidden concepts easy to interpret). Notice that the title of Table 11.2 specifies a "Rotated Factor Matrix." When statistical software first extracts factors, the initial loadings are often muddled and hard to read. To fix this, the software automatically applies a mathematical adjustment called **rotation** (a procedure that adjusts the axes of the factors to maximize high loadings and minimize low loadings, bringing the table into a clean simple structure without changing the underlying commonality). Think of rotation like turning the focus ring on a camera lens: the scenery in front of you does not change at all, but adjusting the lens brings the blurry shapes into sharp, distinct focus.
+When each survey question loads strongly onto one factor and weakly onto all the others, statisticians say the model has achieved **simple structure** (a clean pattern of factor loadings where each observed variable belongs to a single factor, making the hidden concepts easy to interpret). Notice that the title of Table 11.2 specifies a "Rotated Factor Matrix." When statistical software first extracts factors, the initial loadings are often muddled and hard to read. To fix this, the software automatically applies a mathematical adjustment called **rotation** (a procedure that adjusts the axes of the factors to maximize high loadings and minimize low loadings, bringing the table into a clean simple structure without changing the underlying communality). Think of rotation like turning the focus ring on a camera lens: the scenery in front of you does not change at all, but adjusting the lens brings the blurry shapes into sharp, distinct focus.
 
 ### Putting It All Together
 
@@ -202,8 +202,8 @@ Once you have confirmed which variables load onto each factor, you are ready to 
 
 
 
-1. **Naming the Latent Constructs:** Notice that the software simply labels the columns "Factor 1" and "Factor 2." Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (`IntelligentF`, `SincereF`, and `AmbitiousF`), all three traits reflect a partner's intellect, integrity, and long-term career potential. We can label Factor 1 **"Socioeconomic Status & Character"**. Looking at Factor 2 (`FunF`, `SharedInterestsF`, and `AttractiveF`), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 **"Social Appeal"**.   
-2. **Evaluating Commonality ($h^2$) and Uniqueness ($u^2$):** Look at the two columns on the far right of Table 11.2. In statistical software output, commonality is often abbreviated as $h^2$, and unique variance is abbreviated as $u^2$. For each variable, the commonality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, `IntelligentF` has a commonality of $0.748$, meaning that $74.8\%$ of the variation in intelligence ratings is driven by these two underlying factors, while only $25.2\%$ ($u^2 = 0.252$) is unique variance and random noise. By contrast, `AmbitiousF` has a commonality of $0.396$ and a uniqueness of $0.604$. This tells us that while ambition belongs to Factor 1, about $60.4\%$ of how participants judge a partner's ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Commonality ($h^2$) plus Uniqueness ($u^2$) equals $1.000$ ($100\%$ of that variable's variance).   
+1. **Naming the Latent Constructs:** Notice that the software labels the columns "Factor 1" and "Factor 2" without any explanation of what those labels mean. Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (`IntelligentF`, `SincereF`, and `AmbitiousF`), all three traits reflect a partner's intellect, integrity, and long-term career potential. We can label Factor 1 **"Socioeconomic Status & Character"**. Looking at Factor 2 (`FunF`, `SharedInterestsF`, and `AttractiveF`), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 **"Social Appeal"**.   
+2. **Evaluating Communality ($h^2$) and Uniqueness ($u^2$):** Look at the two columns on the far right of Table 11.2. In statistical software output, communality is often abbreviated as $h^2$, and unique variance is abbreviated as $u^2$. For each variable, the communality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, `IntelligentF` has a communality of $0.748$, meaning that $74.8\%$ of the variation in intelligence ratings is driven by these two underlying factors, while only $25.2\%$ ($u^2 = 0.252$) is unique variance and random noise. By contrast, `AmbitiousF` has a communality of $0.396$ and a uniqueness of $0.604$. This tells us that while ambition belongs to Factor 1, about $60.4\%$ of how participants judge a partner's ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Communality ($h^2$) plus Uniqueness ($u^2$) equals $1.000$ ($100\%$ of that variable's variance).   
 3. **Assessing Total Variance Explained:** Finally, look at the bottom row labeled "Proportion of Variance." This row tells you the share of the total variance across the six-item scorecard that each factor accounts for. Factor 1 ("Socioeconomic Status & Character") captures $27.0\%$ ($0.270$) of the variance, and Factor 2 ("Social Appeal") captures $26.1\%$ ($0.261$). Together, these two hidden concepts explain $53.1\%$ ($0.531$) of the total variance across all six survey questions. Instead of wrestling with six overlapping ratings, you have successfully distilled the scorecard into two distinct psychological dimensions that capture more than half of the total variation in how female speed-daters evaluate their partners.  
 
 
@@ -216,15 +216,15 @@ If you open almost any major statistical software package and look for a drop-do
 
 Because PCA is the default option, thousands of students and researchers accidentally run it every year, believing they are conducting a true factor analysis. However, PCA and factor analysis are fundamentally different tools designed for fundamentally different purposes.   
 
-To understand the debate, recall the variance equation we explored in Section 11.2. We established that the total variation in any survey response is a mix of shared commonality and unique variance (which includes random measurement error).
+To understand the debate, recall the variance equation we explored in Section 11.2. We established that the total variation in any survey response is a mix of shared communality and unique variance (which includes random measurement error).
 
 
 
-A true factor analysis believes that hidden psychological constructs cause the survey answers. Because it only cares about those hidden constructs, it acts like a filter. It strips away the unique variance and random noise, isolating only the shared commonality.   
+A true factor analysis believes that hidden psychological constructs cause the survey answers. Because it only cares about those hidden constructs, it acts like a filter. It strips away the unique variance and random noise, isolating only the shared communality.   
 
 
 
-PCA makes no such assumptions. PCA is strictly a **data reduction** technique. It does not believe in hidden psychological constructs, and it does not try to separate commonality from unique variance. Instead, PCA takes $100\%$ of the variance in your dataset, including all the random measurement error and specific noise, and forcefully compresses it into a smaller number of summary variables called **components**.   
+PCA makes no such assumptions. PCA is strictly a **data reduction** technique. It does not believe in hidden psychological constructs, and it does not try to separate communality from unique variance. Instead, PCA takes $100\%$ of the variance in your dataset, including all the random measurement error and specific noise, and forcefully compresses it into a smaller number of summary variables called **components**.   
 
 
 
@@ -236,7 +236,7 @@ To see why this software trap matters, we can run a parallel drop-down analysis 
 
  
 
-| **Observed Variable**  | **Component 1** | **Component 2** | **PCA Commonality (h2)** |
+| **Observed Variable**  | **Component 1** | **Component 2** | **PCA Communality (h2)** |
 | ---------------------- | --------------- | --------------- | ------------------------ |
 | **`IntelligentF`**     | **0.853**       | 0.145           | 0.749                    |
 | **`AmbitiousF`**       | **0.776**       | 0.142           | 0.622                    |
@@ -251,7 +251,7 @@ Compare the results in Table 11.3 back to the true factor analysis in Table 11.2
 
 
 
-More importantly, look at the PCA Commonality column. In our true factor analysis, we discovered that `AmbitiousF` had a commonality of $0.396$. In the PCA table, that number has suddenly inflated to $0.622$. Similarly, the commonality for `SincereF` jumped from $0.425$ to $0.621$.
+More importantly, look at the PCA Communality column. In our true factor analysis, we discovered that `AmbitiousF` had a communality of $0.396$. In the PCA table, that number has suddenly inflated to $0.622$. Similarly, the communality for `SincereF` jumped from $0.425$ to $0.621$.
 
 
 
@@ -259,7 +259,7 @@ Where did this extra "shared" variance come from? It is an illusion. Because PCA
 
 
 
-If your only goal is to shrink a massive database of 1,000 variables down to 50 variables so your computer can process it faster, PCA is a fantastic data reduction tool. However, if your goal is to uncover hidden psychological concepts (like "Social Appeal" or "Socioeconomic Status"), PCA will mislead you by mixing random noise into your latent constructs. When conducting social science research, you should always click into your software's options menu and change the extraction method from PCA to a true factor analysis method.   
+If your only goal is to shrink a large database of 1,000 variables down to 50 variables so your computer can process it faster, PCA is a good data reduction tool. However, if your goal is to uncover hidden psychological concepts (like "Social Appeal" or "Socioeconomic Status"), PCA will mislead you by mixing random noise into your latent constructs. When conducting social science research, you should always click into your software's options menu and change the extraction method from PCA to a true factor analysis method.   
 
 
 
@@ -273,7 +273,7 @@ Once you move past the Principal Components Analysis software trap, your statist
 
 
 
-**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is incredibly powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the real-world data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
+**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is very powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the real-world data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
 
 In practice, if your hidden constructs are strong and well-defined, both methods will produce nearly identical results. When we ran the female speed dating ratings using Maximum Likelihood behind the scenes, the loading for `IntelligentF` was $0.857$, compared to $0.853$ under Principal Axis Factoring. For most introductory survey research, you should select Principal Axis Factoring to avoid assumptions about normal distributions.   
 
@@ -291,7 +291,7 @@ In addition to choosing an extraction method, you must also decide how you want 
 
 
 
-For example, suppose you want to prove that the female ratings for `AttractiveF`, `FunF`, and `SharedInterestsF` universally measure "Social Appeal" across all contexts. You could collect a brand-new dataset of speed daters, run a Confirmatory Factor Analysis, and intentionally lock those three specific variables to a single factor to see if the structure holds up in a new population.   
+For example, suppose you want to demonstrate that the female ratings for `AttractiveF`, `FunF`, and `SharedInterestsF` universally measure "Social Appeal" across all contexts. You could collect a brand-new dataset of speed daters, run a Confirmatory Factor Analysis, and intentionally lock those three specific variables to a single factor to see if the structure holds up in a new population.   
 
 
 
@@ -339,7 +339,7 @@ The ultimate goal of factor analysis is data reduction with a meaningful, concep
 
 
 
-However, before you are allowed to collapse individual survey questions into a single composite score, you must prove that the questions reliably measure the same concept.  
+However, before you are allowed to collapse individual survey questions into a single composite score, you must show that the questions reliably measure the same concept.  
 
  
 
@@ -350,7 +350,7 @@ This brings us directly back to Chapter 2. Recall that **Cronbach's alpha** is a
 Factor analysis and Cronbach's alpha are two halves of the exact same research workflow:
 
 1. **Factor analysis explores the data to discover the hidden clusters.** It tells you *which* variables belong together.   
-2. **Cronbach's alpha confirms the measurement quality of those specific clusters.** It proves that combining them into a single score is mathematically reliable.   
+2. **Cronbach's alpha confirms the measurement quality of those specific clusters.** It shows that combining them into a single score is mathematically reliable.   
 
 To complete our analysis of the female speed-dating evaluations, we would run Cronbach's alpha twice. First, we compute alpha using only the three variables that loaded onto Factor 1 (`IntelligentF`, `AmbitiousF`, and `SincereF`). Second, we compute a separate alpha using only the three variables that loaded onto Factor 2 (`AttractiveF`, `FunF`, `SharedInterestsF`). Assuming both alpha scores clear the standard threshold for reliability (typically $0.70$ or higher), we have successfully validated our two newly discovered scales.   
 
@@ -388,11 +388,11 @@ When you ask statistical software to extract two factors from the male dataset, 
 
 
 
-**2. Falling into the PCA Software Trap** Because **Principal Components Analysis (PCA)** is the default data-reduction setting in many popular statistical software programs, students often click it assuming it is the same thing as factor analysis. It is not. PCA does not believe in hidden psychological concepts, and it does not filter out measurement error. If you use PCA, your factor loadings and commonalities will be artificially inflated because the software is sweeping random noise into your newly created components. Always double-check your software settings to ensure you are using a true extraction method like Principal Axis Factoring.   
+**2. Falling into the PCA Software Trap** Because **Principal Components Analysis (PCA)** is the default data-reduction setting in many popular statistical software programs, students often click it assuming it is the same thing as factor analysis. It is not. PCA does not believe in hidden psychological concepts, and it does not filter out measurement error. If you use PCA, your factor loadings and communalities will be artificially inflated because the software is sweeping random noise into your newly created components. Always double-check your software settings to ensure you are using a true extraction method like Principal Axis Factoring.   
 
 
 
-**3. Treating the Factor Name as Mathematical Truth** When you run a factor analysis, the software proves that a cluster of variables moves together mathematically. It does *not* prove what that cluster actually represents. The software simply outputs a column labeled "Factor 1" and leaves the naming up to you.
+**3. Treating the Factor Name as Mathematical Truth** When you run a factor analysis, the software shows that a cluster of variables moves together mathematically. It does *not* prove what that cluster actually represents. The software just outputs a column labeled "Factor 1" and leaves the naming up to you.
 
 A common mistake is believing that because the grouping is mathematically valid, the researcher's chosen name for it is also an unquestionable fact. If a researcher poorly names a cluster of survey items, the entire conclusion of the study can be misleading. Always look closely at the specific survey questions that make up a factor and ask yourself: *Does this label genuinely capture what these questions are asking?*
 
@@ -402,8 +402,8 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 1. **Latent Constructs:** Many concepts in the social sciences, such as intelligence or social appeal, are hidden and cannot be measured directly. Researchers must measure them indirectly using multiple survey items.   
 2. **The Purpose of Factor Analysis:** Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants actually use.   
-3. **Commonality vs. Uniqueness:** The total variation of any survey item is a mix of commonality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.   
-4. **The PCA Trap:** Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating commonality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.   
+3. **Communality vs. Uniqueness:** The total variation of any survey item is a mix of communality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.   
+4. **The PCA Trap:** Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating communality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.   
 5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow," the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   
 6. **Validating the Scale:** Factor analysis and Cronbach's alpha work together. Factor analysis explores the data to group the variables, and Cronbach's alpha confirms that those specific groupings form a mathematically reliable scale before you average them into a single score.   
 
@@ -411,7 +411,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 | **Symbol** | **How it is read aloud**     | **What it represents in plain words**                        |
 | ---------- | ---------------------------- | ------------------------------------------------------------ |
-| $h^2$      | "h squared" or "commonality" | The proportion of a variable's total variation that is shared with the underlying hidden factors. |
+| $h^2$      | "h squared" or "communality" | The proportion of a variable's total variation that is shared with the underlying hidden factors. |
 | $u^2$      | "u squared" or "uniqueness"  | The proportion of a variable's total variation that belongs exclusively to that single survey item, including random measurement error. |
 
 : Table 11.4: Chapter 11 notation guide.
@@ -421,7 +421,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 ### Interpretation
 
 1. A survey researcher runs an exploratory factor analysis on a set of workplace satisfaction questions. The software outputs a rotated factor matrix. For a question asking about "salary fairness," the factor loading on Factor 1 is 0.82. Explain in plain English what this number tells the researcher about the relationship between the survey question and the hidden concept.
-2. In that same factor analysis table, the question about "salary fairness" has a reported commonality ($h^2$) of 0.74. What percentage of the variance in this specific question is unique or random measurement error, and what does that mean conceptually?
+2. In that same factor analysis table, the question about "salary fairness" has a reported communality ($h^2$) of 0.74. What percentage of the variance in this specific question is unique or random measurement error, and what does that mean conceptually?
 3. A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts very high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp "elbow" bend, becoming completely flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?
 
 ### Choosing a Method
@@ -446,19 +446,19 @@ b) Instruct your software to generate a correlation matrix for these six variabl
 c) Review the correlations. Do you see two distinct, unconnected "neighborhoods" like we saw in the female ratings, or do the variables generally correlate moderately-to-highly across the entire board?
 
 
-11. **Visualizing Factors with a Scree Chart**: Let us objectively check how many latent concepts exist in the male dataset.
+11. **Visualizing Factors with a Scree Chart**: Let's objectively check how many latent concepts exist in the male dataset.
 a) Instruct your software to generate a scree chart for the six male rating variables.
 b) Look at the plot. At which factor number does the steep cliff bend into an "elbow" and flatten out into a trail of rubble?
 c) Based solely on the scree chart elbow, how many meaningful factors should you extract from this data?
-12. **Extraction and Simple Structure**: Let us see what happens if you force the software to extract two factors from the male ratings, mirroring the female rating analysis.
+12. **Extraction and Simple Structure**: Let's see what happens if you force the software to extract two factors from the male ratings, mirroring the female rating analysis.
 a) Run an Exploratory Factor Analysis using Principal Axis Factoring (PAF) with Varimax rotation, and extract exactly two factors. Provide the rotated factor matrix. If the software prints a warning, copy the warning text.
-b) Report the commonality for each variable. A commonality is a proportion of variance, so it should fall between 0 and 1. Do any values exceed 1.0, or come so close to 1.0 that almost no unique variance is left? Does the software print a warning? If either occurs, state why that value or warning is a problem for interpreting the solution.
+b) Report the communality for each variable. A communality is a proportion of variance, so it should fall between 0 and 1. Do any values exceed 1.0, or come so close to 1.0 that almost no unique variance is left? Does the software print a warning? If either occurs, state why that value or warning is a problem for interpreting the solution.
 c) Rerun the same analysis using Maximum Likelihood with Varimax rotation, again extracting two factors. Provide the rotated factor matrix. For each variable, which factor is it more strongly tied to in each solution? Do the two methods agree on the grouping?
 d) The chapter defines simple structure as each variable being strongly tied to one factor and weakly tied to the others. Does the PAF solution meet that definition? Does the Maximum Likelihood solution? Name any variable that is strongly tied to both factors.
 e) Report the proportion of variance for Factor 1 and Factor 2 in each solution. Which factor accounts for more variance? Is the difference large or small?
 f) Do the male ratings separate into two clear groups of variables the way the female ratings did? Use one result from parts (a) through (e) to support your answer.
 
 
-13. **Data Reduction and Internal Consistency**: Assume the scree chart and the blurry factor loadings convince you that the male participants simply evaluated one underlying construct (a "Halo Effect" or "Overall Impression").
+13. **Data Reduction and Internal Consistency**: Assume the scree chart and the blurry factor loadings convince you that the male participants really only evaluated one underlying construct (a "Halo Effect" or "Overall Impression").
 a) If you decide to collapse all six of these variables into a single composite score, what specific statistical test must you run first to prove they form a reliable scale?
 b) Run this reliability test on the six male rating variables. Report the final mathematical metric. Does it clear the standard 0.70 threshold for internal consistency?

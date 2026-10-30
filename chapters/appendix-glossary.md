@@ -46,7 +46,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | chi-square test for independence | A test that asks whether two categorical variables measured in a single sample are associated, using a cross-tabulation of their counts. |
 | coefficient of determination | The proportion of variability in one variable that is explained by another, written $R^2$ and calculated by squaring the correlation $r$; often reported as a percentage. |
 | cohen's $d$ | A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies. |
-| commonality | The proportion of a variable's variation that is shared with other variables because they measure the same underlying factor; also called communality. |
+| communality | The proportion of a variable's variation that is shared with other variables because they measure the same underlying factor; also called communality. |
 | component | A summary variable produced by PCA, which compresses all variance, including unique variance and measurement error, into a smaller set of dimensions. |
 | confidence interval | A range of plausible values for a true population mean or difference, built from sample data; a 95% confidence interval (CI) comes from a procedure that captures the true value in about 95% of repeated samples. |
 | confidentiality | A privacy condition in which the researcher can link data to participants but promises to keep their identities secret. |
@@ -87,11 +87,11 @@ This glossary contains definitions for key terms used throughout the textbook.
 | exploratory factor analysis (EFA) | A factor analysis used when the researcher does not know the underlying structure and lets the correlations reveal how many factors exist and which variables belong together. |
 | extrapolation | Using a regression model to predict outside the range of predictor values actually observed in the data, which is risky because the relationship may change. |
 | factor | The categorical variable that divides a sample into the groups being compared; also called the treatment variable. |
-| factor analysis | A statistical method that explains correlations among observed variables by positing one or more hidden factors, separating shared commonality from unique variance. |
+| factor analysis | A statistical method that explains correlations among observed variables by positing one or more hidden factors, separating shared communality from unique variance. |
 | factorial design | A study design that crosses two or more categorical factors so that every combination of levels is represented, allowing main effects and interactions to be estimated. |
 | factor level | One of the specific categories that make up a factor; also called a treatment level. |
 | factor loading | A weight between -1 and 1 that measures the strength and direction of the relationship between an observed variable and a factor; loadings of about 0.40 or higher are usually treated as meaningful. |
-| factor matrix | A table showing each observed variable's loadings on each extracted factor, often after rotation, along with commonality and uniqueness. |
+| factor matrix | A table showing each observed variable's loadings on each extracted factor, often after rotation, along with communality and uniqueness. |
 | false negative | A missed case: the prediction rule says no when the event actually happened. |
 | false positive | A false alarm: the prediction rule says yes when the event did not actually happen. |
 | family-wise error rate | The overall probability of making at least one Type I error across a family of comparisons; post hoc tests are designed to control it. |
@@ -212,7 +212,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | prediction interval | A range that is likely to contain the response value for a single new observation at a given predictor value; it is wider than a confidence interval for the mean because individuals vary more than averages. |
 | predictor variable | A variable used to predict or explain the response variable in a regression model; also called an independent variable. |
 | principal axis factoring (PAF) | A factor extraction method that makes few distributional assumptions and is the usual choice for ordinal survey data in exploratory factor analysis. |
-| principal components analysis (PCA) | A data reduction method that compresses all variance, including unique variance and measurement error, into components; it does not separate shared commonality from noise. |
+| principal components analysis (PCA) | A data reduction method that compresses all variance, including unique variance and measurement error, into components; it does not separate shared communality from noise. |
 | proportion | The fraction of observations falling into a given category; commonly reported for two-category categorical variables (e.g., 80 out of 200 = 0.40 or 40%). |
 | proportion of variance | The share of total variance explained by a factor or component, used to judge how much each one contributes. |
 | protocol | A detailed plan submitted to an Institutional Review Board that describes the research question, participants, consent process, and data protection; approval is required before data collection begins. |
@@ -235,7 +235,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | resistant measure | A statistical measure not strongly influenced by extreme values or outliers; the median is an example. |
 | response variable | The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement. |
 | right-skewed | A distribution whose longer tail extends toward higher values; also called positively skewed. |
-| rotation | A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying commonality. |
+| rotation | A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying communality. |
 | sample | A subset of a population, the portion from which you actually collect data. |
 | sample size | The number of observations in a sample, usually written $n$; larger samples reduce random error and increase statistical power. |
 | scatterplot | A graph that displays the relationship between two numerical variables by placing each observation as a point; used to assess direction, form, and strength of the relationship. |
