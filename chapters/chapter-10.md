@@ -80,7 +80,7 @@ Let's look at a real survey example about risky behaviors, like how many days a 
 
 
 
-When the mean is distorted by extreme outliers, we have to look for a different way to measure the center. The nonparametric alternatives in this section solve this problem by testing the **median** instead. The median simply lines up all your data and finds the physical middle point. Because it only cares about position, the median completely ignores those extreme outliers and gives you a much safer reflection of typical behavior.   
+When the mean is distorted by extreme outliers, we have to look for a different way to measure the center. The nonparametric alternatives in this section solve this problem by testing the **median** instead. To find the median, you line up all your data from smallest to largest and take the value in the physical middle. Because the median depends only on position, extreme outliers do not change it, and it gives you a much safer reflection of typical behavior.   
 
 
 
