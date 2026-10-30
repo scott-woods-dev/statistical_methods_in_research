@@ -58,7 +58,7 @@ Some variables describe a trait, group, or status. We call these **categorical v
 
 
 
-Sometimes, these categories have a natural, logical order. We call these **ordinal variables**. `ClassYear` is a great example, grouping students smoothly from first-years up to seniors. `AlcoholUse` is also ordinal, progressing from Abstain to Heavy. While they are still descriptive categories (you cannot calculate a true mathematical average for them), their built-in order is incredibly important to keep in mind when we start making graphs. If the categories do not have any natural ranking (like choosing a college major or a favorite color), they are simply called **nominal variables**.
+Sometimes, these categories have a natural, logical order. We call these **ordinal variables**. `ClassYear` is a great example, ordering students from first-years up to seniors. `AlcoholUse` is also ordinal, progressing from Abstain to Heavy. While they are still descriptive categories (you cannot calculate a true mathematical average for them), their built-in order is important to remember when we start making graphs. If the categories do not have any natural ranking (like choosing a college major or a favorite color), they are simply called **nominal variables**.
 
 
 
@@ -96,7 +96,7 @@ Notice that because `DepressionStatus` is an ordinal variable, we keep the bars 
 
 
 
-However, what if you are working with a nominal variable that has a massive number of categories? Imagine looking at data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be incredibly wide, cluttered, and hard to read.
+However, what if you are working with a nominal variable that has a large number of categories? Imagine looking at data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be incredibly wide, cluttered, and hard to read.
 
 
 
@@ -170,11 +170,11 @@ Conversely, if the tail stretches to the left, the data is **left-skewed** (or n
 
 
 
-While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Strict's class is strongly right-skewed, the "tail" stretches toward the higher grades (A and B), meaning the massive peak of the class is piled up at the lower end (D and F). If Professor Kuhlman's class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.
+While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Strict's class is strongly right-skewed, the "tail" stretches toward the higher grades (A and B), meaning the biggest peak of the class is piled up at the lower end (D and F). If Professor Kuhlman's class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.
 
 ## 1.6 Visualizing Relationships: Two Numerical Variables
 
-Up to this point, we have only looked at variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But research is fundamentally about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
+Up to this point, we have only looked at variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But most research questions are about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
 
 
 
@@ -238,7 +238,7 @@ Second, look at the *height*. We slice those vertical columns horizontally based
 
 
 
-By combining width (group size) and height (group rate), the total *area* of each resulting block tells you the exact proportion of your total sample that falls into that specific combination. While mosaic plots take a little more time to read than a simple bar chart, they are incredibly powerful because they tell you the complete, unfiltered story without hiding any data.
+By combining width (group size) and height (group rate), the total *area* of each resulting block tells you the exact proportion of your total sample that falls into that specific combination. While mosaic plots take a little more time to read than a simple bar chart, they are worth the effort because they show every group's size and rate without hiding any data.
 
 ## 1.8 Visualizing Relationships: Mixed and Complex Data
 
@@ -352,7 +352,7 @@ $$\text{Mean} = \frac{7 + 6 + 8 + 7 + 7}{5} = \frac{35}{5} = 7 \text{ hours}$$
 
 
 
-You will often hear that the mean is "flawed" because it gets pulled in the direction of skew or outliers, making the median the better choice for skewed data. While this is true when trying to describe a "typical" individual, the mean is actually the superior choice when your goal is to understand the *total* impact of a group. 
+You will often hear that the mean is "flawed" because it gets pulled in the direction of skew or outliers, making the median the better choice for skewed data. While this is true when trying to describe a "typical" individual, the mean is the better choice when your goal is to understand the *total* impact of a group. 
 
 
 
@@ -396,7 +396,7 @@ We often cut our data into quarters, called **quartiles**.
 * The Second Quartile is the 50th percentile (which is exactly the median!).
 * The Third Quartile (Q3) is the 75th percentile. 
 
-Because the first and third quartiles mark the boundaries of the middle 50% of your data, the distance between them gives us a powerful measure of spread called the **Interquartile Range** (or **IQR**). You calculate it simply by subtracting the first quartile from the third quartile:
+Because the first and third quartiles mark the boundaries of the middle 50% of your data, the distance between them gives us a useful measure of spread called the **Interquartile Range** (or **IQR**). You calculate it by subtracting the first quartile from the third quartile:
 
 
 
@@ -494,7 +494,7 @@ A helpful memory trick is to match the first letters: **S**amples produce **S**t
 
 
 
-The entire mathematical field of inferential statistics is built on this relationship. Researchers calculate a known statistic from a small sample, and they use that statistic to make a highly educated guess about the unknown parameter in the massive population.
+The entire mathematical field of inferential statistics is built on this relationship. Researchers calculate a known statistic from a small sample, and they use that statistic to make an educated guess about the unknown parameter in the much larger population.
 
 ### Notation for Samples and Populations
 
@@ -589,7 +589,7 @@ Can we translate that broad interest into a specific question we can answer with
 * **The Variables:** We are comparing `AnxietyStatus` (a categorical variable) against `ClassesMissed` (a numerical variable).
 
 ### Data Triage and Exploratory Analysis
-Before we calculate any averages, we must look at the shape of our data. If we were to plot a histogram of `ClassesMissed` for all 253 students, we would immediately see a massive **floor effect**. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes. 
+Before we calculate any averages, we must look at the shape of our data. If we were to plot a histogram of `ClassesMissed` for all 253 students, we would immediately see a strong **floor effect**. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes. 
 
 
 
@@ -637,7 +637,7 @@ When researchers write their conclusions, they state their findings in plain Eng
 
 
 
-Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.** A measure of center only tells half the story.  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the exact same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
+Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the exact same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
 
 ### Preliminary Conclusion
 Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question. 
@@ -674,7 +674,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 ### Communicating Results
 
-**9.** You are writing a summary report for the dean of students regarding a recent campus survey on "Number of times utilizing the campus food pantry this semester." The data has a massive floor effect. In plain English, explain to the dean what a floor effect means in this specific context and why it happened. 
+**9.** You are writing a summary report for the dean of students regarding a recent campus survey on "The number of times students used the campus food pantry this semester." The data has a strong floor effect. In plain English, explain to the dean what a floor effect means in this specific context and why it happened. 
 
 **10.** A local newspaper publishes an article claiming that "The average household in our county pays $4,500 in property taxes, but the typical family only pays $2,100." The reporter is confused by their own numbers. Write a short explanation to the reporter clarifying how both numbers can be true at the same time, using the concepts of mean, median, and skewness.
 
