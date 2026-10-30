@@ -64,7 +64,7 @@ The answer comes down to **statistical power**. In research, power is your abili
 
 
 
-In statistics, there is a strict trade-off between flexibility and power. Parametric tests (like the $t$-test) are incredibly powerful, but they buy that power by making strict assumptions about your data, like requiring a normal distribution. Because nonparametric tests (like the ones in this chapter) throw away those strict assumptions, they lose some of that raw power.
+In statistics, there is a strict trade-off between flexibility and power. Parametric tests (like the $t$-test) are very powerful, but they buy that power by making strict assumptions about your data, like requiring a normal distribution. Because nonparametric tests (like the ones in this chapter) throw away those strict assumptions, they lose some of that raw power.
 
 
 
@@ -76,7 +76,7 @@ In earlier chapters, we used the paired $t$-test, the independent samples $t$-te
 
 
 
-Let us look at a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a massive pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the massive pile of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
+Let's look at a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a massive pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the large amount of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
 
 
 
@@ -94,15 +94,15 @@ Choosing the right nonparametric test follows the exact same logic you learned i
 
 ## 10.5 The Wilcoxon Signed-Rank Test
 
-When you are working with paired data, your instinct is likely to reach for the paired $t$-test. But as we discussed earlier, traditional tests have strict boundaries. The **Wilcoxon Signed-Rank Test** is your nonparametric alternative for evaluating paired, within-subject differences when your sample size is simply too small to assume a normal distribution.   
+When you are working with paired data, your instinct is likely to reach for the paired $t$-test. But as we discussed earlier, traditional tests have strict boundaries. The **Wilcoxon Signed-Rank Test** is your nonparametric alternative for evaluating paired, within-subject differences when your sample size is too small to assume a normal distribution.   
 
 
 
-Let us look at a practical research scenario. Imagine you want to investigate textbook affordability on your campus. You gather a random sample of 16 required course textbooks. For every single book in your sample, you record the retail price on Amazon and the retail price at the campus bookstore. Because each specific textbook's price is recorded at both locations, this creates naturally paired, within-subject data.   
+Consider a practical research scenario. Imagine you want to investigate textbook affordability on your campus. You gather a random sample of 16 required course textbooks. For every single book in your sample, you record the retail price on Amazon and the retail price at the campus bookstore. Because each specific textbook's price is recorded at both locations, this creates naturally paired, within-subject data.   
 
 ### Why a Standard Paired $t$-test Fails
 
-Normally, to analyze this data, you would subtract the Amazon price from the bookstore price for each book to find the difference, and then run a paired $t$-test on those differences. However, the paired $t$-test makes a massive mathematical assumption: it requires those differences to follow a normal, bell-shaped distribution.
+Normally, to analyze this data, you would subtract the Amazon price from the bookstore price for each book to find the difference, and then run a paired $t$-test on those differences. However, the paired $t$-test makes a major mathematical assumption: it requires those differences to follow a normal, bell-shaped distribution.
 
 
 
@@ -150,7 +150,7 @@ With our hypotheses clearly defined and our nonparametric tool selected, we are 
 
 ## 10.6 Interpreting Software Output for the Wilcoxon Signed-Rank Test
 
-When you run the Wilcoxon Signed-Rank Test using the `textbook_prices.csv` dataset, the software evaluates the differences between the two prices for each textbook. Let us look at a typical results table generated by a program like Minitab:   
+When you run the Wilcoxon Signed-Rank Test using the `textbook_prices.csv` dataset, the software evaluates the differences between the two prices for each textbook. Here is a typical results table generated by a program like Minitab:   
 
 ```
 Median difference = 36.00, N = 16
@@ -170,7 +170,7 @@ While the format looks slightly different than a traditional $t$-test, the under
 
 
 
-Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is actually no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a very common choice in statistical software. The program is simply testing whether that true population median difference is zero. 
+Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is actually no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a very common choice in statistical software. The program is testing whether that true population median difference is zero. 
 
   
 
@@ -178,7 +178,7 @@ Next, the output provides the test statistic and the $p$-value. Just as a $t$-te
 
 
 
-Finally, the output gives us a confidence interval of $(17, 58)$. We can be confident that for all required courses at this university, the true median price difference between the campus bookstore and Amazon is between $\$17$ and $\$58$. You might also notice the "Achieved Confidence" is listed as $94.93\%$. This is a quirk unique to nonparametric tests. Traditional tests use smooth, continuous bell curves, allowing the math to precisely target exactly $95\%$. Because nonparametric tests rely on ranking data (moving in discrete, whole-number jumps like first, second, and third place), the math sometimes cannot land directly on a perfect $95\%$. The software simply gets as close as it mathematically can. For all practical purposes in social science research, you interpret this exactly like a standard $95\%$ confidence interval.   
+Finally, the output gives us a confidence interval of $(17, 58)$. We can be confident that for all required courses at this university, the true median price difference between the campus bookstore and Amazon is between $\$17$ and $\$58$. You might also notice the "Achieved Confidence" is listed as $94.93\%$. This is a quirk unique to nonparametric tests. Traditional tests use smooth, continuous bell curves, allowing the math to precisely target exactly $95\%$. Because nonparametric tests rely on ranking data (moving in discrete, whole-number jumps like first, second, and third place), the math sometimes cannot land directly on a perfect $95\%$. The software gets as close as it mathematically can. For all practical purposes in social science research, you interpret this exactly like a standard $95\%$ confidence interval.   
 
 
 
@@ -192,7 +192,7 @@ A formal APA-formatted conclusion condenses your research question, the practica
 
 > A Wilcoxon signed-rank test indicated that the median price of required textbooks is significantly different between the campus bookstore and Amazon, $W = 128.00$, $p = .002$, 95% CI $[17, 58]$. 
 
-Notice how this single sentence seamlessly provides the reader with the specific test used, the practical result, the test statistic, the strength of the evidence, and the bounds of our confidence.
+Notice how this single sentence provides the reader with the specific test used, the practical result, the test statistic, the strength of the evidence, and the bounds of our confidence.
 
 
 
@@ -218,7 +218,7 @@ Let's explore this with a real-world scenario. Suppose you are investigating gen
 
 ### Why a Standard Independent $t$-test Fails
 
-Income data is notoriously right-skewed. In almost any salary dataset, there is a massive cluster of people earning a standard wage, trailing off to a tiny handful of ultra-high earners. Those few extreme outliers pull the mean far away from the center.   
+Income data is notoriously right-skewed. In almost any salary dataset, there is a large cluster of people earning a standard wage, trailing off to a tiny handful of ultra-high earners. Those few extreme outliers pull the mean far away from the center.   
 
 
 
@@ -260,7 +260,7 @@ With our hypotheses formalized and our nonparametric tool selected, we are ready
 
 ## 10.8 Interpreting Software Output for the Mann-Whitney U Test
 
-When you run the Mann-Whitney U Test using the `college_teacher_salary_2023.csv` dataset, the software evaluates the salaries of the male and female professors independently. Let us look at the results generated by our statistical software:   
+When you run the Mann-Whitney U Test using the `college_teacher_salary_2023.csv` dataset, the software evaluates the salaries of the male and female professors independently. Here are the results generated by our statistical software:   
 
 ```
 Descriptive Statistics
@@ -286,7 +286,7 @@ Below this, we see the hypotheses using the software format ($\eta_1 - \eta_2 = 
 
 
 
-Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters simply represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look completely different, they are mathematically linked and will always produce the exact same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
+Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look completely different, they are mathematically linked and will always produce the exact same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
 
 
 
@@ -294,7 +294,7 @@ Our $p$-value is $0.020$. Because this is below our standard $0.05$ significance
 
 
 
-The output also provides a confidence interval for the difference, ranging from $-32$ to $-2$. At first glance, a negative salary difference might look confusing. However, those negative signs simply indicate the direction the software subtracted the groups. Because it subtracted the male median from the female median ($60 - 75 = -15$), the entire interval is negative. In plain English, we can be $95\%$ confident that the true median salary for female professors is between $\$2,000$ and $\$32,000$ lower than the median salary for male professors. You will also see the "Achieved Confidence" is $95.01\%$, which is just the software getting as mathematically close to a perfect $95\%$ as it can while using rank-ordered data.
+The output also provides a confidence interval for the difference, ranging from $-32$ to $-2$. At first glance, a negative salary difference might look confusing. Those negative signs are just telling us the order for the subtraction for the groups. Because it subtracted the male median from the female median ($60 - 75 = -15$), the entire interval is negative. If it had subtracted the female median from the male median, we would have had a positive interval: $75 - 60 = 15$. In plain English, we can be $95\%$ confident that the true median salary for female professors is between $\$2,000$ and $\$32,000$ lower than the median salary for male professors. You will also see the "Achieved Confidence" is $95.01\%$, which is just the software getting as mathematically close to a perfect $95\%$ as it can while using rank-ordered data.
 
 
 
@@ -342,7 +342,7 @@ Because we are comparing more than two groups, writing our hypotheses requires a
 
 
 
-However, just like with the parametric One-Way ANOVA, our alternative hypothesis ($H_1$) does not claim that *all* the groups are completely different from one another. It simply claims that the baseline rule of "no difference" is broken somewhere in the mix.
+However, just like with the parametric One-Way ANOVA, our alternative hypothesis ($H_1$) does not claim that *all* the groups are completely different from one another. It claims only that the baseline rule of "no difference" is broken somewhere in the mix.
 
 
 
@@ -362,7 +362,7 @@ With our hypotheses established, we can run the Kruskal-Wallis test in our stati
 
 ## 10.10 Interpreting Software Output for the Kruskal-Wallis Test
 
-When you run a Kruskal-Wallis test using the `student_lifestyle_sleep.csv` dataset, the software pools all the grade point averages, ranks them, and then checks how those ranks are distributed across the four different `AlcoholUse` categories. Let us look at the results generated by statistical software like Minitab:   
+When you run a Kruskal-Wallis test using the `student_lifestyle_sleep.csv` dataset, the software pools all the grade point averages, ranks them, and then checks how those ranks are distributed across the four different `AlcoholUse` categories. Let's look at the results generated by statistical software like Minitab:   
 
 ```
 Descriptive Statistics
@@ -377,7 +377,7 @@ Not adjusted for ties  3    5.44      0.142
 Adjusted for ties      3    5.46      0.141
 ```
 
-Just like with our previous tests, we start by looking at the descriptive statistics to understand the practical reality of our sample. You can safely ignore the "Mean Rank" and "Z-Value" columns, as those are simply internal mathematical steps the software uses to calculate the final result. Instead, focus directly on the medians. 
+Just like with our previous tests, we start by looking at the descriptive statistics to understand the practical reality of our sample. You can safely ignore the "Mean Rank" and "Z-Value" columns, as those are internal mathematical steps the software uses to calculate the final result. Instead, focus directly on the medians. 
 
 
 
@@ -385,15 +385,15 @@ Notice that as the alcohol consumption level increases, the sample median GPA st
 
 
 
-However, we must look at the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" simply happens when two or more students have the exact same GPA, which is incredibly common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
+However, we must look at the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" happens when two or more students have the same GPA, which is very common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
 
 
 
-The software gives us a test statistic, labeled here as an $H$-Value, of $5.46$. (Depending on your software, this might also be labeled as a Chi-Square value). Our degrees of freedom (DF) is $3$, which simply reflects our four groups minus one. The most important number is our $p$-value, which is $0.141$. Because $0.141$ is greater than our standard $0.05$ significance level, we fail to reject the null hypothesis.
+The software gives us a test statistic, labeled here as an $H$-Value, of $5.46$. (Depending on your software, this might also be labeled as a Chi-Square value). Our degrees of freedom (DF) is $3$, which reflects our four groups minus one. The most important number is our $p$-value, which is $0.141$. Because $0.141$ is greater than our standard $0.05$ significance level, we fail to reject the null hypothesis.
 
 
 
-This non-significant result provides an important lesson in statistical research. A $p$-value of $0.141$ means we do not have enough mathematical evidence to confidently claim that a difference exists in the broader population. However, we must be incredibly careful not to state that this proves the null hypothesis is true. An absence of evidence is not evidence of absence. We have not proven that GPA is identical across all populations; we simply failed to find a strong enough signal in this specific sample of 253 students to rule out random sampling error. 
+This non-significant result provides an important lesson in statistical research. A $p$-value of $0.141$ means we do not have enough mathematical evidence to confidently claim that a difference exists in the broader population. However, we must be especially careful not to state that this proves the null hypothesis is true. An absence of evidence is not evidence of absence. We have not proven that GPA is identical across all populations; we simply failed to find a strong enough signal in this specific sample of 253 students to rule out random sampling error. 
 
   
 
@@ -409,11 +409,11 @@ To conclude this analysis formally in your Results section, you would pair your 
 
 ## 10.11 Measuring Correlation: Spearman's Rho
 
-Up to this point, we have used the nonparametric trick of rank-ordering to compare groups, whether those groups are paired, independent, or divided into multiple categories. But what if your research question is not about comparing groups at all? What if you want to measure the strength of a relationship between two variables, but your data is simply too skewed to trust a standard linear correlation? It turns out that the exact same rank-ordering trick can save your correlation analysis as well.
+Up to this point, we have used the nonparametric trick of rank-ordering to compare groups, whether those groups are paired, independent, or divided into multiple categories. But what if your research question is not about comparing groups at all? What if you want to measure the strength of a relationship between two variables, but your data is too skewed to trust a standard linear correlation? It turns out that the exact same rank-ordering trick can save your correlation analysis as well.
 
 
 
-When researchers want to measure the relationship between two numerical variables, their default tool is standard linear correlation, which produces the correlation coefficient $r$. However, standard correlation evaluates how closely the raw data points cluster around a straight line of best fit. Because that line of best fit acts as a moving average, it is incredibly sensitive to outliers and severe skew. When your data is heavily distorted, you must switch to a nonparametric alternative called **Spearman's Rho**. 
+When researchers want to measure the relationship between two numerical variables, their default tool is standard linear correlation, which produces the correlation coefficient $r$. However, standard correlation evaluates how closely the raw data points cluster around a straight line of best fit. Because that line of best fit acts as a moving average, it is very sensitive to outliers and severe skew. When your data is heavily distorted, you must switch to a nonparametric alternative called **Spearman's Rho**. 
 
   
 
@@ -439,11 +439,11 @@ The software takes the entire column of student ages and ranks them from younges
 
 
 
-As an added bonus, because this test relies entirely on rank-ordering, it is also the perfect tool for analyzing ordinal survey data. For example, if you wanted to measure the correlation between a student's numerical GPA and the ordinal drinking categories we used in the previous section (Abstain, Light, Moderate, Heavy), a standard linear correlation would be mathematically invalid. Spearman's Rho handles ordinal data seamlessly because the categories are already ranked.   
+As an added bonus, because this test relies entirely on rank-ordering, it is also the perfect tool for analyzing ordinal survey data. For example, if you wanted to measure the correlation between a student's numerical GPA and the ordinal drinking categories we used in the previous section (Abstain, Light, Moderate, Heavy), a standard linear correlation would be mathematically invalid. Spearman's Rho handles ordinal data well because the categories are already ranked.   
 
 ### The Monotonic Requirement
 
-While Spearman's Rho does not require your data to form a perfectly straight line, it does have one strict structural requirement. The relationship must be **monotonic**. This simply means the trend must consistently move in one direction, either consistently upward or consistently downward.
+While Spearman's Rho does not require your data to form a perfectly straight line, it does have one strict structural requirement. The relationship must be **monotonic**. This means the trend must consistently move in one direction, either consistently upward or consistently downward.
 
 
 
@@ -471,7 +471,7 @@ With our hypotheses set, we can run Spearman's Rho in our statistical software a
 
 ## 10.12 Interpreting Software Output for Spearman's Rho
 
-When you run Spearman's Rho using the `cc_risk.csv` dataset, the software ranks the ages of the 437 students, ranks their monthly drinking days, and evaluates the correlation between those ranks. Let us look at the results generated by the software:   
+When you run Spearman's Rho using the `cc_risk.csv` dataset, the software ranks the ages of the 437 students, ranks their monthly drinking days, and evaluates the correlation between those ranks. Here are the results generated by the software:   
 
 ```
 Pairwise Spearman Correlations
@@ -479,15 +479,15 @@ N      Correlation    95% CI for ρ       P-Value
 437    -0.029         (-0.123, 0.065)    0.543
 ```
 
-This output is highly condensed, but it gives us exactly what we need. The correlation coefficient is $-0.029$. Just like standard linear correlation, this number falls on a scale from $-1$ to $1$. A value of $-0.029$ is incredibly close to zero, suggesting there is virtually no relationship between a student's age and their drinking frequency in our sample.   
+This output is highly condensed, but it gives us exactly what we need. The correlation coefficient is $-0.029$. Just like standard linear correlation, this number falls on a scale from $-1$ to $1$. A value of $-0.029$ is very close to zero, suggesting there is virtually no relationship between a student's age and their drinking frequency in our sample.   
 
 
 
-To see if this holds true for the broader population, we look at the $p$-value. Our $p$-value of $0.543$ is massive. Because it is well above our $0.05$ threshold, we fail to reject the null hypothesis. The confidence interval tells the same story. Because the interval stretches from a negative correlation ($-0.123$) to a positive correlation ($0.065$), it captures zero. We do not have evidence of a rank correlation between age and drinking frequency.
+To see if this holds true for the broader population, we look at the $p$-value. Our $p$-value of $0.543$ is large. Because it is well above our $0.05$ threshold, we fail to reject the null hypothesis. The confidence interval tells the same story. Because the interval stretches from a negative correlation ($-0.123$) to a positive correlation ($0.065$), it captures zero. We do not have evidence of a rank correlation between age and drinking frequency.
 
 
 
-Now, let us look at a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can actually run Spearman's Rho to test that specific descending trend.   
+Now, let's look at a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can actually run Spearman's Rho to test that specific descending trend.   
 
 
 
@@ -503,15 +503,15 @@ This time, the correlation coefficient is $-0.144$, indicating a negative associ
 
 
 
-Why did Spearman's Rho find a statistically significant effect when the Kruskal-Wallis test on the exact same data did not? It all comes back to statistical power. The Kruskal-Wallis test treats the drinking groups as nominal buckets; it does not mathematically know that "Moderate" comes after "Light." By throwing away that ordinal information, it lost the power to detect the descending trend. Spearman's Rho, however, specifically utilizes that rank-order, giving it the necessary power to find the signal in the noise.
+Why did Spearman's Rho find a statistically significant effect when the Kruskal-Wallis test on the exact same data did not? It all comes back to statistical power. The Kruskal-Wallis test treats the drinking groups as nominal buckets; it does not mathematically know that "Moderate" comes after "Light." By throwing away that ordinal information, it lost the power to detect the descending trend. Spearman's Rho, however, specifically uses that rank-order, giving it the necessary power to find the signal in the noise.
 
 
 
-However, this brings up a massive ethical warning that we will explore deeper in Chapter 13. You cannot just keep running different statistical tests on the exact same dataset until you finally find one that gives you a $p$-value under $0.05$. That practice is called **p-hacking**, and it artificially inflates your chances of making a Type I error (a false positive). Your choice of test must be driven by your specific research question and the structure of your data *before* you run the analysis, never by your desire to find a publishable, significant result.   
+However, this brings up a serious ethical warning that we will explore deeper in Chapter 13. You cannot just keep running different statistical tests on the exact same dataset until you finally find one that gives you a $p$-value under $0.05$. That practice is called **p-hacking**, and it artificially inflates your chances of making a Type I error (a false positive). Your choice of test must be driven by your specific research question and the structure of your data *before* you run the analysis, never by your desire to find a publishable, significant result.   
 
 
 
-Before we write our final conclusions, let us look closely at the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those exact same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
+Before we write our final conclusions, let's look closely at the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those exact same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
 
 
 
@@ -539,7 +539,7 @@ When you want to evaluate the relationship between two categorical variables, yo
 
 
 
-Let us look at a scenario using our `college_backpacks.csv` dataset. You are a health researcher investigating whether carrying heavy backpacks causes physical strain. You survey 100 students and ask them to self-report any history of back discomfort, recorded in the `BackProblems` variable. You want to know if the proportion of students experiencing back problems differs between graduate and undergraduate students, which is recorded in the `Status` variable. Because both of these variables are categorical, your first instinct is to cross-tabulate the data into a $2 \times 2$ table and run a Chi-Square test.   
+Let's look at a scenario using our `college_backpacks.csv` dataset. You are a health researcher investigating whether carrying heavy backpacks causes physical strain. You survey 100 students and ask them to self-report any history of back discomfort, recorded in the `BackProblems` variable. You want to know if the proportion of students experiencing back problems differs between graduate and undergraduate students, which is recorded in the `Status` variable. Because both of these variables are categorical, your first instinct is to cross-tabulate the data into a $2 \times 2$ table and run a Chi-Square test.   
 
 ### Why a Standard Chi-Square Test Fails
 
@@ -581,7 +581,7 @@ With our hypotheses formalized and the expected cell count problem resolved, we 
 
 ## 10.14 Interpreting Software Output for Fisher's Exact Test
 
-When you run Fisher's Exact Test using the `college_backpacks.csv` dataset, the software builds a cross-tabulation table to organize the categorical frequencies. Let us look at the results generated by the software:   
+When you run Fisher's Exact Test using the `college_backpacks.csv` dataset, the software builds a cross-tabulation table to organize the categorical frequencies. Here are the results generated by the software:   
 
 ```
 Rows: BackProblems   Columns: Status
@@ -598,7 +598,7 @@ As always, we begin by looking at the raw descriptive statistics in the table to
 
 
 
-The table immediately reveals the severe imbalance we anticipated. Out of 100 total subjects, 97 are undergraduates and only 3 are graduate students. None of the 3 graduate students reported back problems, while 32 of the 97 undergraduates reported discomfort. Looking at this extreme split, you can see exactly why a standard Chi-Square test would fail; there is simply not enough data in the graduate column to mathematically support a standard approximation.   
+The table immediately reveals the severe imbalance we anticipated. Out of 100 total subjects, 97 are undergraduates and only 3 are graduate students. None of the 3 graduate students reported back problems, while 32 of the 97 undergraduates reported discomfort. Looking at this extreme split, you can see exactly why a standard Chi-Square test would fail; there is not enough data in the graduate column to mathematically support a standard approximation.   
 
 
 
@@ -606,11 +606,11 @@ Moving below the table, you will notice something highly unusual compared to eve
 
    
 
-Our final answer here is a $p$-value of $0.549$. Because $0.549$ is well above our $0.05$ significance level, we fail to reject the null hypothesis. Even though roughly $33\%$ of the undergraduates reported pain compared to $0\%$ of the graduate students, our graduate sample of three people is simply too small to confidently rule out random chance. We do not have the mathematical evidence to claim that the proportion of students experiencing back problems differs based on their enrollment status in the broader population.
+Our final answer here is a $p$-value of $0.549$. Because $0.549$ is well above our $0.05$ significance level, we fail to reject the null hypothesis. Even though roughly $33\%$ of the undergraduates reported pain compared to $0\%$ of the graduate students, our graduate sample of three people is too small to confidently rule out random chance. We do not have the mathematical evidence to claim that the proportion of students experiencing back problems differs based on their enrollment status in the broader population.
 
 
 
-When writing your formal conclusion, you pair the raw counts from your cross-tabulation table with the $p$-value. Because there is no test statistic, you simply omit that piece of the standard APA format. For our backpack study, the complete conclusion would look like this:
+When writing your formal conclusion, you pair the raw counts from your cross-tabulation table with the $p$-value. Because there is no test statistic, you omit that piece of the standard APA format. For our backpack study, the complete conclusion would look like this:
 
 
 
@@ -622,7 +622,7 @@ As you begin incorporating nonparametric tests into your research toolkit, there
 
 ### Assuming "Nonparametric" Means "No Rules"
 
-Because nonparametric tests are often introduced as the "fix" for broken data, it is incredibly tempting to view them as a mathematical free pass. Researchers often assume that because these tests do not require a perfect, normal bell curve, they have absolutely no assumptions at all. This is fundamentally untrue.
+Because nonparametric tests are often introduced as the "fix" for broken data, it is very tempting to view them as a mathematical free pass. Researchers often assume that because these tests do not require a perfect, normal bell curve, they have absolutely no assumptions at all. This is fundamentally untrue.
 
 
 
@@ -634,7 +634,7 @@ When we analyzed the `student_lifestyle_sleep.csv` dataset, we compared student 
 
 
 
-The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as completely separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away incredibly valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, simply dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically use that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
+The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as completely separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away potentially valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically use that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
 
 ### Using Nonparametric Tests as the Default
 
@@ -652,7 +652,7 @@ When extreme skew, outliers, or ceiling effects distort the mean, traditional pa
 
 
 
-However, this mathematical safety comes at the cost of statistical power. Because nonparametric tests throw away the specific numerical distances between data points, they are less sensitive than their parametric counterparts. They require a stronger underlying signal to detect a statistically significant effect. Consequently, they should be utilized strictly when parametric assumptions fail, never as a default setting or a shortcut to avoid running diagnostics.
+However, this mathematical safety comes at the cost of statistical power. Because nonparametric tests throw away the specific numerical distances between data points, they are less sensitive than their parametric counterparts. They require a stronger underlying signal to detect a statistically significant effect. Consequently, they should be used strictly when parametric assumptions fail, never as a default setting or a shortcut to avoid running diagnostics.
 
 
 
@@ -660,7 +660,7 @@ Every parametric tool in your research toolkit has a nonparametric equivalent. Y
 
 
 
-While these tests evaluate ranks rather than raw averages, your final interpretation logic remains completely unchanged. You still rely on a $p$-value to determine statistical significance and effect size to measure practical impact. You must continually remind yourself that a low $p$-value provides strong evidence, not a strong effect. Furthermore, a non-significant result simply represents an absence of mathematical evidence in your specific sample, never proof that the null hypothesis is inherently true.
+While these tests evaluate ranks rather than raw averages, your final interpretation logic remains completely unchanged. You still rely on a $p$-value to determine statistical significance and effect size to measure practical impact. You must continually remind yourself that a low $p$-value provides strong evidence, not a strong effect. Furthermore, a non-significant result represents only an absence of mathematical evidence in your specific sample, never proof that the null hypothesis is inherently true.
 
 ## 10.17 New Notation
 
@@ -693,7 +693,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 8. A physical therapist is measuring the flexibility of patients (using a continuous numerical scale) across three different physical therapy clinics. The flexibility scores suffer from a severe ceiling effect, meaning the data is heavily left-skewed. Which specific nonparametric test should the therapist use to see if typical flexibility differs across the three clinics?
 
-9. A college administrator wants to know if the proportion of students who use the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is incredibly small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
+9. A college administrator wants to know if the proportion of students who use the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is very small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
 
 10. A market researcher is comparing customer satisfaction scores across four different membership tiers: Free, Basic, Premium, and VIP. The satisfaction scores are severely skewed. Explain why using a Kruskal-Wallis test on this data might result in a loss of statistical power, and which nonparametric test the researcher should use instead to use the ordinal nature of the membership tiers.
 
