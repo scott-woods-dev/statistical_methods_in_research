@@ -46,7 +46,7 @@ Next, we look at the actual data we collected from our 75 students. We ask a cen
 This probability is called a **p-value**. The p-value measures the strength of the evidence in favor of our alternative hypothesis ($H_1$) by telling us how surprising our data would be if the null hypothesis were true.
 
 - A **large $p$-value** means our results are not very surprising. If the diet does nothing, seeing this kind of difference between the groups is perfectly normal random noise. We do not have enough evidence to claim the diet works.
-- A **small $p$-value** means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a massive difference in depression scores purely by random luck are incredibly tiny. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet actually works) is probably the better explanation.
+- A **small $p$-value** means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a large difference in depression scores purely by random luck are extremely small. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet actually works) is probably the better explanation.
 
 ### The Standard of Evidence: Significance Level ($\alpha$)
 
@@ -171,7 +171,7 @@ $$\text{Test Statistic} = \frac{\text{Sample Outcome} - \text{Hypothesized Outco
 
 
 
-Let us break down what this fraction actually means. The top half (the numerator) represents our raw effect. It is the gap between the sample average we actually collected (which based on a calculation of the data, is 20.47) and the benchmark we are testing against (16). This gap of 4.47 points tells us how far off our data was from where we would expect it to be if the null hypothesis were true.
+Let's break down what this fraction actually means. The top half (the numerator) represents our raw effect. It is the gap between the sample average we actually collected (which, based on a calculation of the data, is 20.47) and the benchmark we are testing against (16). This gap of 4.47 points tells us how far off our data was from where we would expect it to be if the null hypothesis were true.
 
 
 
@@ -408,11 +408,11 @@ Remember from Section 3.5 that our t-statistic is essentially a signal-to-noise 
 
 
 
-Imagine you run a study with 10,000 students and find that a new therapy reduces depression scores by an average of just 0.1 points. Because your sample is so massive, the statistical noise drops to almost zero. With the static gone, the software easily recognizes that this tiny 0.1-point drop is not just random fluctuation; it is a real, mathematically genuine signal. It will give you a remarkably small p-value, and you will declare the results "statistically significant."
+Imagine you run a study with 10,000 students and find that a new therapy reduces depression scores by an average of just 0.1 points. Because your sample is so large, the statistical noise drops to almost zero. With the static gone, the software easily recognizes that this tiny 0.1-point drop is not just random fluctuation; it is a real, mathematically genuine signal. It will give you a remarkably small p-value, and you will declare the results "statistically significant."
 
 
 
-But does a 0.1-point drop on a 60-point clinical depression scale actually change a student's life? Probably not. The mathematical evidence for the effect is massive (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
+But does a 0.1-point drop on a 60-point clinical depression scale actually change a student's life? Probably not. The mathematical evidence for the effect is very strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
 
 
 
@@ -446,7 +446,7 @@ When you look at the output from your statistical software, you generally look a
 - $d \approx 0.5$: A medium effect.
 - $d \approx 0.8$: A large effect.
 
-Let us look at our diet intervention. The diet group's scores dropped by roughly 6.13 points more than the control group's scores. When our software divides that raw gap by the combined standard deviation for the students (which is roughly 11.50), it calculates a Cohen's $d$ of 0.53.
+In our diet intervention, the diet group's scores dropped by roughly 6.13 points more than the control group's scores. When our software divides that raw gap by the combined standard deviation for the students (which is roughly 11.50), it calculates a Cohen's $d$ of 0.53.
 
 
 
@@ -457,7 +457,7 @@ A Cohen's $d$ of 0.53 represents a medium, practically significant effect. We ca
 While Cohen's $d$ is the standard, your software might offer a few other variations:
 
 - **Hedges' $g$:** This is essentially Cohen's $d$ with a slight mathematical correction for smaller sample sizes (usually when your total group is under 20 people). It is very common and interpreted exactly the same way.
-- **Glass's Delta:** This is used when the standard deviations of your two groups are incredibly different. Instead of combining the spread of both groups, it only divides the difference by the control group's standard deviation.
+- **Glass's Delta:** This is used when the standard deviations of your two groups are very different. Instead of combining the spread of both groups, it only divides the difference by the control group's standard deviation.
 
 Regardless of which specific letter your software uses, the goal remains the same. You always want to pair your p-value (to show the effect is real) with an effect size (to show the effect actually matters).
 
