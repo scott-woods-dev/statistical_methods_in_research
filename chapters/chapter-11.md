@@ -255,7 +255,7 @@ More importantly, look at the PCA Communality column. In our true factor analysi
 
 
 
-Where did this extra "shared" variance come from? It is an illusion. Because PCA refuses to throw away unique variance and measurement error, it simply sweeps that noise under the rug by stuffing it into the new components. This artificially inflates the mathematical weights, making the relationships look much stronger than they actually are.   
+Where did this extra "shared" variance come from? It is an illusion. Because PCA keeps all of the variance, including unique variance and measurement error, that noise ends up inside the new components. This artificially inflates the mathematical weights, making the relationships look much stronger than they actually are.   
 
 
 
@@ -460,5 +460,5 @@ f) Do the male ratings separate into two clear groups of variables the way the f
 
 
 13. **Data Reduction and Internal Consistency**: Assume the scree chart and the blurry factor loadings convince you that the male participants really only evaluated one underlying construct (a "Halo Effect" or "Overall Impression").
-a) If you decide to collapse all six of these variables into a single composite score, what specific statistical test must you run first to prove they form a reliable scale?
+a) If you decide to collapse all six of these variables into a single composite score, what specific statistical test must you run first to show they form a reliable scale?
 b) Run this reliability test on the six male rating variables. Report the final mathematical metric. Does it clear the standard 0.70 threshold for internal consistency?
