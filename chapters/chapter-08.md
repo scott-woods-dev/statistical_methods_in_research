@@ -152,7 +152,7 @@ We have learned how to evaluate the distribution of a single categorical variabl
 
 Consider this real-world research question: Does experiencing acute mental distress alter how an individual reacts during a high-stakes police encounter? To answer this, we will evaluate two variables from our `fatal_police_shootings.csv` database simultaneously:
 
-- **`flee`**: The subject's movement behavior, categorized as "Car", "Foot", or "Not fleeing".
+- **`flee`**: The subject's movement behavior, categorized as "Car," "Foot," or "Not fleeing."
 - **`signs_of_mental_illness`**: A categorical indicator of whether the individual had documented acute mental distress or a psychiatric history.
 
 When we want to know if a connection exists between two categorical variables drawn from a single sample, we use the **Chi-Square Test for Independence**.
@@ -438,7 +438,7 @@ In our speed dating data, the observations are explicitly **paired**. A single f
 
 
 
-Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no", but rather that the two decisions were born from the exact same environment. Standard Chi-Square math completely falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
+Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the exact same environment. Standard Chi-Square math completely falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
 
 ### Formulating the Hypotheses
 

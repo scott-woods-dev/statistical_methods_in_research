@@ -656,7 +656,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 **1.** A university health center publishes a report stating that the mean number of alcoholic drinks consumed per week by undergraduate students is 4.2, with a median of 1.0. What does the large difference between the mean and the median tell you about the shape of this data? Why is the median so much lower?
 
-**2.** You are reviewing a mosaic plot that compares student housing (On-Campus vs. Off-Campus) and anxiety levels (Normal, Moderate, Severe). The vertical block for "On-Campus" is twice as wide as the block for "Off-Campus". Within the "On-Campus" block, the segment for "Severe" anxiety is relatively small. What do the width of the blocks and the height of the segments tell you?
+**2.** You are reviewing a mosaic plot that compares student housing (On-Campus vs. Off-Campus) and anxiety levels (Normal, Moderate, Severe). The vertical block for "On-Campus" is twice as wide as the block for "Off-Campus." Within the "On-Campus" block, the segment for "Severe" anxiety is relatively small. What do the width of the blocks and the height of the segments tell you?
 
 **3.** Two professors teach different sections of the same introductory psychology course. Professor A's final exam grades have a mean of 75 and a standard deviation of 4. Professor B's final exam grades have a mean of 75 and a standard deviation of 12. If a student wants a predictable, consistent classroom environment, which professor should they choose and why?
 

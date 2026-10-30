@@ -25,7 +25,7 @@ To explore these patterns, our motivating dataset for this chapter is `gym_membe
 The dataset includes the following variables:
 
 - **`Week`**: A categorical variable recording the starting date for the week of data collection, recorded in MM-DD-YY format (ranging from 05-16-21 to 05-17-26).   
-- **`gym membership`**: A numerical variable tracking the normalized search interest index for the phrase "gym membership". Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.   
+- **`gym membership`**: A numerical variable tracking the normalized search interest index for the phrase "gym membership." Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.   
 
 By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution, but doing so would completely destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequence from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks.
 

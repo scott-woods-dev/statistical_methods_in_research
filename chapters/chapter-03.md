@@ -9,7 +9,7 @@ In recent years, psychologists and public health officials have grown increasing
 Throughout this chapter, we will explore this exact scenario using the `depression_diet_treatment.csv` dataset. While the researchers collected a variety of physiological and psychological metrics, we will focus exclusively on four key variables:
 
 - **`Group`**: A categorical variable indicating the experimental group assignment for the student (either **Control** or **Diet**).
-- **`CESD1`**: A numerical variable representing the Centre for Epidemiological Studies Depression (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity.
+- **`CESD1`**: A numerical variable representing the Center for Epidemiologic Studies Depression Scale (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity.
 - **`CESD21`**: A numerical variable representing the CESD score measured at the conclusion of the study on Day 21.
 - **`CESDDiff`**: A numerical variable representing the change in the CESD depression score over the 21 days (calculated as Day 21 minus Day 1). A negative value indicates an improvement in symptoms.
 
@@ -144,7 +144,7 @@ To do this, we use a **Single Sample t-test**. This test compares the average of
 
 
 
-For our study, the clinical benchmark for the Centre for Epidemiological Studies Depression (CESD) scale is a score of 16. Anyone scoring 16 or higher is generally considered to be at risk for clinical depression. We want to test if the baseline Day 1 scores (`CESD1`) for our 75 students are significantly different from this clinical threshold of 16.
+For our study, the clinical benchmark for the Center for Epidemiologic Studies Depression Scale (CESD) is a score of 16. Anyone scoring 16 or higher is generally considered to be at risk for clinical depression. We want to test if the baseline Day 1 scores (`CESD1`) for our 75 students are significantly different from this clinical threshold of 16.
 
 ### The Hypotheses
 

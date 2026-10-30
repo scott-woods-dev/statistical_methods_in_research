@@ -73,7 +73,7 @@ Why do these scores move together in distinct clusters? Factor analysis operates
 
 
 
-Think of a hidden factor like a puppeteer holding the strings of several puppets at once. You sit in the audience and watch six puppets on a stage. You cannot see the puppeteers standing hidden above the curtain, just as you cannot directly see a participant's subconscious evaluation of "Social Appeal" or "Socioeconomic Status". However, when the first puppeteer pulls their hand up, three specific puppets (`AttractiveF`, `FunF`, and `SharedInterestsF`) all rise at the exact same time. A moment later, a second puppeteer pulls their hand up, and the other three puppets (`IntelligentF`, `AmbitiousF`, and `SincereF`) rise together. By carefully watching which puppets move in sync on stage, you can deduce how many puppeteers are hiding behind the curtain and which strings each one controls.   
+Think of a hidden factor like a puppeteer holding the strings of several puppets at once. You sit in the audience and watch six puppets on a stage. You cannot see the puppeteers standing hidden above the curtain, just as you cannot directly see a participant's subconscious evaluation of "Social Appeal" or "Socioeconomic Status." However, when the first puppeteer pulls their hand up, three specific puppets (`AttractiveF`, `FunF`, and `SharedInterestsF`) all rise at the exact same time. A moment later, a second puppeteer pulls their hand up, and the other three puppets (`IntelligentF`, `AmbitiousF`, and `SincereF`) rise together. By carefully watching which puppets move in sync on stage, you can deduce how many puppeteers are hiding behind the curtain and which strings each one controls.   
 
 
 
@@ -283,7 +283,7 @@ In addition to choosing an extraction method, you must also decide how you want 
 
 
 
-**Exploratory Factor Analysis (EFA)** is used when you do not know the underlying structure of the relationships between your variables before you begin. You hand the software a large pool of survey questions and ask it to explore the correlations, discover the hidden factors, and group the variables together for you. Everything we have done with the `speed_dating.csv` dataset so far has been exploratory. We did not tell the software which variables belonged to "Social Appeal" and which belonged to "Socioeconomic Status". We simply provided the data and let the natural correlations guide the groupings.   
+**Exploratory Factor Analysis (EFA)** is used when you do not know the underlying structure of the relationships between your variables before you begin. You hand the software a large pool of survey questions and ask it to explore the correlations, discover the hidden factors, and group the variables together for you. Everything we have done with the `speed_dating.csv` dataset so far has been exploratory. We did not tell the software which variables belonged to "Social Appeal" and which belonged to "Socioeconomic Status." We simply provided the data and let the natural correlations guide the groupings.   
 
 
 
@@ -335,7 +335,7 @@ Once you use a scree chart to extract your factors and a rotated factor matrix t
 
 
 
-The ultimate goal of factor analysis is data reduction with a meaningful, conceptual purpose. Instead of juggling six separate dating ratings in your future statistical models, you want to combine the items within each cluster into two clean, composite scores. You could average `AttractiveF`, `FunF`, and `SharedInterestsF` together to create a single "Social Appeal Index," and average `IntelligentF`, `AmbitiousF`, and `SincereF` together to create a "Character Index".   
+The ultimate goal of factor analysis is data reduction with a meaningful, conceptual purpose. Instead of juggling six separate dating ratings in your future statistical models, you want to combine the items within each cluster into two clean, composite scores. You could average `AttractiveF`, `FunF`, and `SharedInterestsF` together to create a single "Social Appeal Index," and average `IntelligentF`, `AmbitiousF`, and `SincereF` together to create a "Character Index."   
 
 
 
@@ -404,7 +404,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 2. **The Purpose of Factor Analysis:** Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants actually use.   
 3. **Commonality vs. Uniqueness:** The total variation of any survey item is a mix of commonality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.   
 4. **The PCA Trap:** Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating commonality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.   
-5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow", the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   
+5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow," the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   
 6. **Validating the Scale:** Factor analysis and Cronbach's alpha work together. Factor analysis explores the data to group the variables, and Cronbach's alpha confirms that those specific groupings form a mathematically reliable scale before you average them into a single score.   
 
 ## New Notation

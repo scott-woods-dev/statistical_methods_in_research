@@ -235,7 +235,7 @@ In this context, a factor like age or baseline blood pressure is what researcher
 
 
 
-In the previous sections, we tried to clear that fog using a Two-Way ANOVA. We controlled for the nuisance of age by chopping the maids into two distinct blocks: "Under 40" and "40+". While this successfully identified age as a source of noise, blocking is a blunt instrument with a major mathematical flaw.
+In the previous sections, we tried to clear that fog using a Two-Way ANOVA. We controlled for the nuisance of age by chopping the maids into two distinct blocks: "Under 40" and "40+." While this successfully identified age as a source of noise, blocking is a blunt instrument with a major mathematical flaw.
 
 
 

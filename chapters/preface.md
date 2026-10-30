@@ -75,8 +75,8 @@ This book was built to be usable by readers who use screen readers, screen magni
 
 - Every figure has alt text that describes what the figure shows, so the information is not locked behind an image.
 - Every table has a header row and a caption that names its content.
-- Figures use a palette chosen for color-vision deficiency, and color never carries meaning by itself. Values are labelled directly, and lines and groups are distinguished by more than hue.
-- Headings are structured, navigation regions are labelled, and the HTML edition can be read and operated with a keyboard alone.
+- Figures use a palette chosen for color-vision deficiency, and color never carries meaning by itself. Values are labeled directly, and lines and groups are distinguished by more than hue.
+- Headings are structured, navigation regions are labeled, and the HTML edition can be read and operated with a keyboard alone.
 
 The HTML edition is the accessible one. The PDF is not tagged, so screen readers cannot navigate it well. If you use assistive technology, read the web version, which has the same content and the same numbering.
 
