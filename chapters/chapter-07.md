@@ -37,13 +37,13 @@ The signal is the **between-groups variation**. This represents the differences 
 
 
 
-When human bodies are involved, that noise bucket fills up incredibly fast. If the background noise becomes too loud, it will completely drown out the signal of your intervention. You might look at your data, see a high $p$-value, and falsely conclude that the intervention failed. As you learned in Chapter 3, this is a Type II error, and missing a real, impactful discovery is a major setback in research. The advanced designs in this chapter share one common goal: they allow you to scoop specific, known variation out of the "noise" bucket and give it a proper label. By identifying and controlling the noise, we make our primary signal much easier to detect. Here is how we will do it:
+When human bodies are involved, that noise bucket fills up fast. If the background noise becomes too loud, it will completely drown out the signal of your intervention. You might look at your data, see a high $p$-value, and falsely conclude that the intervention failed. As you learned in Chapter 3, this is a Type II error, and missing a real, impactful discovery is a major setback in research. The advanced designs in this chapter share one common goal: they allow you to scoop specific, known variation out of the "noise" bucket and give it a proper label. By identifying and controlling the noise, we make our primary signal much easier to detect. Here is how we will do it:
 
 
 
 **The Two-Way ANOVA**
 
-What if we know that a categorical variable, like age brackets, is causing a massive amount of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This shrinks the unexplained noise and lets us see whether the intervention works differently for different types of people.
+What if we know that a categorical variable, like age brackets, is causing a large share of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This shrinks the unexplained noise and lets us see whether the intervention works differently for different types of people.
 
 
 
@@ -55,7 +55,7 @@ But what if our nuisance variable isn't a category, but a highly precise continu
 
 **Repeated Measures ANOVA**
 
-Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the exact same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers massive statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
+Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the exact same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
 
 
 
@@ -96,7 +96,7 @@ Imagine if our mindset intervention was wildly successful for the younger maids,
 
 
 
-If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted completely differently depending on the participant's age. Because of this, researchers follow a strict golden rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
+If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted completely differently depending on the participant's age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
 
 
 
@@ -122,7 +122,7 @@ An interaction plot maps out the averages for every possible combination of our 
 
 
 
-Here is the golden rule for reading an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
+Here is how to read an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
 
 ![Figure 7.1: Interaction plot of post-intervention systolic blood pressure by condition and age group. The Under 40 line slopes down from control to informed, while the 40+ line slopes up, so the lines are not parallel. The single NA point marks the maid whose age was missing.](../figures/chapter_07/fig_07_01_line_interaction_syst2_condition_age.png){fig-alt="Interaction plot with condition on the x-axis and post-intervention systolic blood pressure on the y-axis. The Under 40 line falls from control to informed, the 40+ line rises, and a single NA point appears near the informed position. The 40+ line stays above the Under 40 line."}
 
@@ -165,13 +165,13 @@ However, there is one structural difference that matters here. In a Two-Way ANOV
 
 When checking for equal variances, we generate a jitter dot plot and look at the vertical spread across all four of these distinct cells, ensuring the largest spread is no more than double the smallest. When checking for normality, we generate a single probability plot (or Q-Q plot) of the model's pooled residuals, just as we did previously. Remember our rule from Chapter 6: avoid running formal statistical tests to check these assumptions. Rely on your visual plots and your intuition.
 
-### The Golden Rule: The Stop Sign
+### The Stop Sign
 
 Once your diagnostic plots look safe, you can run the Two-Way ANOVA and look at the output table. Statistical software will generate an Analysis of Variance table that provides Degrees of Freedom, $F$-statistics, and $p$-values for three distinct things: the main effect of your first factor, the main effect of your second factor, and the interaction effect between them.
 
 
 
-When you look at this table, you must follow the **golden rule of factorial designs**: always check the interaction $p$-value first. Treat it like a stop sign.
+When you look at this table, you must follow one rule: always check the interaction $p$-value first. Treat it like a stop sign.
 
 
 
@@ -190,11 +190,11 @@ Let's look at the output generated for our hotel maids. To see a mix of statisti
 
 : Table 7.1: Two-way ANOVA of baseline systolic blood pressure by condition and age group (n = 65).
 
-Following our golden rule, we stop and look entirely at the interaction row (`Cond * Age_Group`) first. The $p$-value is $0.829$.
+Following that rule, we stop and look entirely at the interaction row (`Cond * Age_Group`) first. The $p$-value is $0.829$.
 
 
 
-This is a fantastic lesson in why we never rely *only* on a graph. In the previous section, we looked at the interaction plot and saw the lines pointing in different directions. However, a $p$-value of $0.829$ is massive. It is nowhere near our $0.05$ standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.
+This is a useful lesson in why we never rely *only* on a graph. In the previous section, we looked at the interaction plot and saw the lines pointing in different directions. However, a $p$-value of $0.829$ is nowhere near our $0.05$ standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.
 
 Table 7.1 models baseline blood pressure, while Figure 7.1 plots post-intervention blood pressure. The post-intervention model gives an interaction $p$-value of $0.771$, also far from $0.05$, so the visual divergence is consistent with noise either way.
 
@@ -362,7 +362,7 @@ You might be wondering: if the result was not significant, what exactly did the 
 
 
 
-An ANCOVA does not just spit out a $p$-value; it actually recalculates the averages for your groups. We call these new averages **adjusted means** (many software programs refer to them as "Estimated Marginal Means").
+An ANCOVA also recalculates the averages for your groups. We call these new averages **adjusted means** (many software programs refer to them as "Estimated Marginal Means").
 
 
 
@@ -425,15 +425,15 @@ Everything we have done in this textbook so far has relied on **between-subjects
 
 
 
-A Repeated Measures ANOVA utilizes a **within-subjects design**. Instead of comparing different people, it measures the exact same person across multiple time points or conditions.
+A Repeated Measures ANOVA uses a **within-subjects design**. Instead of comparing different people, it measures the exact same person across multiple time points or conditions.
 
 
 
-Think about why this is so powerful. When we compare different people, we have to deal with massive biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math looks at the *change* inside each specific person, entirely filtering out the background noise of their baseline genetics.
+Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math looks at the *change* inside each specific person, entirely filtering out the background noise of their baseline genetics.
 
 
 
-Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve massive statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can definitively prove their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
+Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve a considerable amount of statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can show strong evidence that their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
 
 ### A Note on Longitudinal Studies
 
@@ -466,7 +466,7 @@ Here is the simplified output for our analysis:
 
 : Table 7.4: Repeated measures ANOVA of BMI by condition and time (n = 73).
 
-To interpret this table, we follow the exact same golden rule you learned in Section 7.5: **always check the interaction first**.
+To interpret this table, we follow the same rule you learned in Section 7.5: **always check the interaction first**.
 
 ### 1. The Interaction Effect (`Cond * Time`)
 
@@ -490,7 +490,7 @@ This non-significant $p$-value is actually a good thing! It confirms that our tw
 
 ### The Final Conclusion
 
-By utilizing a Repeated Measures design, we successfully filtered out the massive biological noise of human genetics by treating every maid as her own baseline. Once that noise was removed, the signal of the intervention shined through beautifully.
+By using a Repeated Measures design, we successfully filtered out the strong biological noise of human genetics by treating every maid as her own baseline. Once that noise was removed, the signal of the intervention was easy to see.
 
 
 
@@ -554,7 +554,7 @@ Advanced experimental designs are powerful tools, but with that power comes a hi
 
 **1. Blowing Past the "Stop Sign" (Ignoring Interactions)**
 
-The single most common error in a Two-Way ANOVA is interpreting the main effects while ignoring a statistically significant interaction. Remember the golden rule: always check the interaction $p$-value first. If it is significant, the treatment works *differently* depending on the subgroup. If you ignore this and broadly claim "the treatment worked overall" based on the main effect, you are reporting a deceptive average and hiding the true nuance of your data.
+The single most common error in a Two-Way ANOVA is interpreting the main effects while ignoring a statistically significant interaction. Remember the rule: always check the interaction $p$-value first. If it is significant, the treatment works *differently* depending on the subgroup. If you ignore this and broadly claim "the treatment worked overall" based on the main effect, you are reporting a deceptive average and hiding the true pattern in your data.
 
 
 

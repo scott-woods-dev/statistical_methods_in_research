@@ -101,7 +101,6 @@ This glossary contains definitions for key terms used throughout the textbook.
 | f-statistic | The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value. |
 | glass's delta | An effect size that divides the difference between two group means by the control group's standard deviation, used when the two groups have very different spreads. |
 | global ANOVA | The overall ANOVA F-test that asks whether any group means differ, before post hoc tests identify which specific pairs differ. |
-| golden rule of factorial designs | The rule that a significant interaction must be interpreted before the main effects, because main effects can be misleading when an interaction exists. |
 | grouping variable | A categorical variable used to divide observations into groups within a plot, often shown through different colors or shapes, so patterns can be compared across categories. |
 | halo effect | A cognitive bias in which a strong positive impression in one area leads a person to rate a target favorably across unrelated categories, producing a uniform blur of correlations. |
 | hedges' $g$ | A version of Cohen's $d$ with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as $d$. |
