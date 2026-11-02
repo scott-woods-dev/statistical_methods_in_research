@@ -13,7 +13,7 @@ Throughout this chapter, we will explore this exact scenario using the `depressi
 - **`CESD21`**: A numerical variable representing the CESD score measured at the conclusion of the study on Day 21.
 - **`CESDDiff`**: A numerical variable representing the change in the CESD depression score over the 21 days (calculated as Day 21 minus Day 1). A negative value indicates an improvement in symptoms.
 
-In Chapter 1, we learned how to visualize this kind of data and calculate numerical summaries, like the mean change in depression scores for both groups. In Chapter 2, we learned how to translate the overarching research question into formal statistical hypotheses. We know how to set up our null hypothesis ($H_0$), which is the baseline assumption that the diet has absolutely no effect, and our alternative hypothesis ($H_1$), which is the claim that the diet intervention actually works.
+In Chapter 1, we learned how to visualize this kind of data and calculate numerical summaries, like the mean change in depression scores for both groups. In Chapter 2, we learned how to translate the overarching research question into formal statistical hypotheses. We know how to set up our null hypothesis ($H_0$), which is the baseline assumption that the diet has absolutely no effect, and our alternative hypothesis ($H_1$), which is the claim that the diet intervention works.
 
 
 
@@ -39,14 +39,14 @@ To figure out if we have a real signal, statistical tests use a bit of a logical
 
 
 
-Next, we look at the actual data we collected from our 75 students. We ask a central question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we actually observed?*
+Next, we look at the actual data we collected from our 75 students. We ask a central question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we observed?*
 
 
 
 This probability is called a **p-value**. The p-value measures the strength of the evidence in favor of our alternative hypothesis ($H_1$) by telling us how surprising our data would be if the null hypothesis were true.
 
 - A **large $p$-value** means our results are not very surprising. If the diet does nothing, seeing this kind of difference between the groups is perfectly normal random noise. We do not have enough evidence to claim the diet works.
-- A **small $p$-value** means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a large difference in depression scores purely by random luck are extremely small. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet actually works) is probably the better explanation.
+- A **small $p$-value** means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a large difference in depression scores purely by random luck are extremely small. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet works) is probably the better explanation.
 
 ### The Standard of Evidence: Significance Level ($\alpha$)
 
@@ -90,7 +90,7 @@ This visual phenomenon is driven by the **Central Limit Theorem**. It is the eng
 
 ### Checking the Tool's Requirements
 
-Because the t-test relies on this predictable mathematical shape, we have to make sure our data actually fits the tool before we trust the resulting p-value. Using a t-test on data that violates its core rules is like trying to measure a curved road with a stiff wooden ruler; the tool simply will not give you an accurate number.
+Because the t-test relies on this predictable mathematical shape, we have to make sure our data fits the tool before we trust the resulting p-value. Using a t-test on data that violates its core rules is like trying to measure a curved road with a stiff wooden ruler; the tool simply will not give you an accurate number.
 
 Before running a t-test, we always check two primary conditions:
 
@@ -106,7 +106,7 @@ We now know that the t-test is our mathematical tool for comparing averages and 
 
 
 
-In Chapter 2, we discussed how the structure of a research study dictates how we analyze the results. When we look at our diet intervention study, we can actually ask three distinctly different research questions. Each question requires a different variation of the t-test.
+In Chapter 2, we discussed how the structure of a research study dictates how we analyze the results. When we look at our diet intervention study, we can ask three distinctly different research questions. Each question requires a different variation of the t-test.
 
 ### Comparing to a Benchmark: The Single Sample t-Test
 
@@ -136,7 +136,7 @@ Once you understand how your data was gathered, choosing the right test becomes 
 
 ## 3.5 Single Sample *t*-tests
 
-When we start a new research project, we often need to establish a baseline. Before we can evaluate whether our diet intervention improved the students' mental health, we first need to verify that our sample actually exhibited elevated depression symptoms to begin with.
+When we start a new research project, we often need to establish a baseline. Before we can evaluate whether our diet intervention improved the students' mental health, we first need to verify that our sample exhibited elevated depression symptoms to begin with.
 
 
 
@@ -171,7 +171,7 @@ $$\text{Test Statistic} = \frac{\text{Sample Outcome} - \text{Hypothesized Outco
 
 
 
-Let's break down what this fraction actually means. The top half (the numerator) represents our raw effect. It is the gap between the sample average we actually collected (which, based on a calculation of the data, is 20.47) and the benchmark we are testing against (16). This gap of 4.47 points tells us how far off our data was from where we would expect it to be if the null hypothesis were true.
+Let's break down what this fraction means. The top half (the numerator) represents our raw effect. It is the gap between the sample average we collected (which, based on a calculation of the data, is 20.47) and the benchmark we are testing against (16). This gap of 4.47 points tells us how far off our data was from where we would expect it to be if the null hypothesis were true.
 
 
 
@@ -237,7 +237,7 @@ In everyday English, calling something "significant" usually means it is huge or
 
 
 
-Notice that we wrote the scores were significantly "higher" than 16. Remember that our alternative hypothesis ($H_1$) only stated that the true average was *not equal* to 16. The t-test and the resulting p-value only told us that a mathematical difference exists. The test itself is entirely blind to direction. To confidently state that the scores were *higher*, we had to look back at our sample mean (20.47) and our confidence interval (which sat entirely above 16). The p-value proves the difference is real, but you must always rely on your descriptive statistics to tell you which direction the difference actually goes.
+Notice that we wrote the scores were significantly "higher" than 16. Remember that our alternative hypothesis ($H_1$) only stated that the true average was *not equal* to 16. The t-test and the resulting p-value only told us that a mathematical difference exists. The test itself is entirely blind to direction. To confidently state that the scores were *higher*, we had to look back at our sample mean (20.47) and our confidence interval (which sat entirely above 16). The p-value proves the difference is real, but you must always rely on your descriptive statistics to tell you which direction the difference goes.
 
 
 
@@ -265,7 +265,7 @@ $H_1: \mu_{\text{diff}} \neq 0$
 
 
 
-Our alternative hypothesis ($H_1$) states that the true average change is not zero, meaning the diet actually had some sort of measurable impact.
+Our alternative hypothesis ($H_1$) states that the true average change is not zero, meaning the diet had some sort of measurable impact.
 
 ### Calculating the Difference Score
 
@@ -412,7 +412,7 @@ Imagine you run a study with 10,000 students and find that a new therapy reduces
 
 
 
-But does a 0.1-point drop on a 60-point clinical depression scale actually change a student's life? Probably not. The mathematical evidence for the effect is very strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
+But does a 0.1-point drop on a 60-point clinical depression scale change a student's life? Probably not. The mathematical evidence for the effect is very strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
 
 
 
@@ -420,7 +420,7 @@ Hypothesis testing establishes *if* an effect exists. We need a different set of
 
 ### Measuring the Impact: Effect Sizes
 
-To understand the practical importance of an intervention, we calculate an **effect size**. An effect size is a standardized number that tells you how large the difference between two groups actually is, regardless of the sample size.
+To understand the practical importance of an intervention, we calculate an **effect size**. An effect size is a standardized number that tells you how large the difference between two groups is, regardless of the sample size.
 
 
 
@@ -459,11 +459,11 @@ While Cohen's $d$ is the standard, your software might offer a few other variati
 - **Hedges' $g$:** This is essentially Cohen's $d$ with a slight mathematical correction for smaller sample sizes (usually when your total group is under 20 people). It is very common and interpreted exactly the same way.
 - **Glass's Delta:** This is used when the standard deviations of your two groups are very different. Instead of combining the spread of both groups, it only divides the difference by the control group's standard deviation.
 
-Regardless of which specific letter your software uses, the goal remains the same. You always want to pair your p-value (to show the effect is real) with an effect size (to show the effect actually matters).
+Regardless of which specific letter your software uses, the goal remains the same. You always want to pair your p-value (to show the effect is real) with an effect size (to show the effect matters).
 
 ### Best Practices: When to Emphasize Which Measure
 
-The American Psychological Association strongly recommends reporting both a confidence interval and an effect size for all hypothesis tests. Providing both ensures that future researchers have all the mathematical pieces they need. However, when you are actually interpreting your findings for a general audience, you will usually want to emphasize one measure over the other. The deciding factor is usually the interpretability of your units.
+The American Psychological Association strongly recommends reporting both a confidence interval and an effect size for all hypothesis tests. Providing both ensures that future researchers have all the mathematical pieces they need. However, when you are interpreting your findings for a general audience, you will usually want to emphasize one measure over the other. The deciding factor is usually the interpretability of your units.
 
 
 
@@ -561,7 +561,7 @@ Researchers will often look at previous, similar studies to see what kind of eff
 
 
 
-Sometimes, researchers set their sample size based entirely on practical significance. They ask themselves, "What is the smallest difference that would actually matter in the real world?"
+Sometimes, researchers set their sample size based entirely on practical significance. They ask themselves, "What is the smallest difference that would matter in the real world?"
 
 
 
@@ -585,7 +585,7 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 4. **Decisions carry the risk of error.** A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).
 5. **The Central Limit Theorem provides flexibility.** Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically $n \ge 30$).
 6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two entirely separate groups.
-7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is actually large enough to matter in the real world.
+7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is large enough to matter in the real world.
 8. **Power Analysis prevents wasted effort.** Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.
 
 
@@ -705,7 +705,7 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 
 **a)** Based on the p-value, did the diet group experience a statistically significant difference in BMI change compared to the control group?
 
-**b)** Look at the sample means for both groups. In real-world terms, how much of a difference did the 21-day diet actually make on the students' BMI?
+**b)** Look at the sample means for both groups. In real-world terms, how much of a difference did the 21-day diet make on the students' BMI?
 
 **c)** Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is essential for preventing researchers from making exaggerated claims about their studies.
 

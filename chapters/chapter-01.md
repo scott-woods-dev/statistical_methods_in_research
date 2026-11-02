@@ -62,7 +62,7 @@ Sometimes, these categories have a natural, logical order. We call these **ordin
 
 
 
-Other variables record a measurable quantity or exact amount. We call these **numerical variables**. These are numbers where doing math actually makes logical sense. In our dataset, `GPA` and `WeekdaySleep` are numerical variables. They tell us exactly "how much" or "how many." Because they represent true quantities, you can calculate meaningful summaries, like the average sleep time for the entire group.
+Other variables record a measurable quantity or exact amount. We call these **numerical variables**. These are numbers where doing math makes logical sense. In our dataset, `GPA` and `WeekdaySleep` are numerical variables. They tell us exactly "how much" or "how many." Because they represent true quantities, you can calculate meaningful summaries, like the average sleep time for the entire group.
 
 
 
@@ -214,7 +214,7 @@ To interpret this chart, you simply compare the sizes of the segments across the
 
 
 
-However, segmented bar charts have a major hidden drawback: they hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people actually make up each group.
+However, segmented bar charts have a major hidden drawback: they hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people make up each group.
 
 
 
@@ -418,7 +418,7 @@ Do you remember the box plots we used to visualize the `GPA` of different depres
 
 ## 1.11 Matching the Measure to the Shape
 
-Now that you have a complete toolkit of numerical summaries, how do you know which ones to actually use in your research paper? You usually do not report all of them. Instead, the physical shape of your data dictates which measures are appropriate.
+Now that you have a complete toolkit of numerical summaries, how do you know which ones to use in your research paper? You usually do not report all of them. Instead, the physical shape of your data dictates which measures are appropriate.
 
 
 
@@ -637,7 +637,7 @@ When researchers write their conclusions, they state their findings in plain Eng
 
 
 
-Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the same center, but their academic experiences are different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
+Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the same center, but their academic experiences are different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group matched that typical experience. You will see this pairing in every APA-formatted conclusion.
 
 ### Preliminary Conclusion
 Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question. 

@@ -44,7 +44,7 @@ To fix this bias, we must build a multiple regression model. We add gestational 
 
 ## 5.3 What "Controlling For" a Variable Means
 
-When you read news articles about medical research, you often see a specific phrase. The article might say, "Researchers found a link between a new medication and lower blood pressure, even after controlling for age and diet." But what does that actually mean?
+When you read news articles about medical research, you often see a specific phrase. The article might say, "Researchers found a link between a new medication and lower blood pressure, even after controlling for age and diet." But what does that mean?
 
 
 
@@ -91,7 +91,7 @@ By adding predictors, we strip away the confounding noise. This allows us to see
 
 ## 5.4 Evaluating the Model
 
-You just built a multiple regression model to neutralize a confounding factor. However, before you analyze individual variables, you must look at the big picture. Does your new complex model actually explain anything useful?
+You just built a multiple regression model to neutralize a confounding factor. However, before you analyze individual variables, you must look at the big picture. Does your new complex model explain anything useful?
 
 
 
@@ -336,7 +336,7 @@ Imagine trying to predict a student's height using their left shoe size and thei
 
 
 
-This disruptive overlap is called **multicollinearity**. When multicollinearity is present, the model cannot figure out which variable is actually driving the change. As a result, the slopes become highly unstable and unreliable.
+This disruptive overlap is called **multicollinearity**. When multicollinearity is present, the model cannot figure out which variable is driving the change. As a result, the slopes become highly unstable and unreliable.
 
 
 
@@ -498,7 +498,7 @@ In Model 1, the slope for the "Years of Education" variable is $4,500. This sugg
 
 ### Step 4: Evaluating the Big Picture
 
-Finally, examine the bottom rows of the table. You want to see if the added complexity was actually worth it.
+Finally, examine the bottom rows of the table. You want to see if the added complexity was worth it.
 
 
 
@@ -607,7 +607,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 
 ### Communicating Results
 
-8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should actually look at to compare variable strength.
+8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should look at to compare variable strength.
 9. A journalist reads a published multiple regression study about academic success. The study shows that eating a nutritious breakfast is positively associated with higher college GPAs, even after the researchers explicitly controlled for family income and high school performance. The journalist publishes an article with the headline: "Study Proves Eating Breakfast Causes Better Grades." Explain why this headline is ethically and scientifically flawed, and provide a more accurate alternative.
 10. You are reviewing a research paper draft written by a colleague. They proudly explain that they used their software's "Automated Model Selection" button to build their regression equation. The software tested 50 different variables and spit out a final model with 12 predictors. Half of these predictors have no logical connection to the research topic. Explain the dangers of the "Autopilot Trap" to your colleague. Introduce the concept of overfitting and explain why theoretical justification is required in real research.
 

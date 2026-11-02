@@ -6,7 +6,7 @@ Our first questions that we'll tackle in this chapter are simple but profound: A
 
 
 
-These are meaningful, real-world questions with serious social implications, but how do we actually answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
+These are meaningful, real-world questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
 
 
 
@@ -31,13 +31,13 @@ As we work through the chapter, we will analyze several structural variables des
 
 
 
-We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to look at two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating entirely independently. By the time we finish, you will have moved beyond simply identifying relationships to actually quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
+We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to look at two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating entirely independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
 
 
 
 ## 8.2 Single Variable Patterns: The Chi-Square Goodness-of-Fit Test
 
-At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" actually looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot rely on the raw counts alone. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
+At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot rely on the raw counts alone. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
 
 
 
@@ -60,11 +60,11 @@ Following our intuitive "human" formatting, we set our null hypothesis to assume
 
 ### The Intuition Behind the Test
 
-Instead of getting bogged down in formulas, let's think about how this test actually works. Your statistical software is measuring how far reality deviated from our baseline expectation.
+Instead of getting bogged down in formulas, let's think about how this test works. Your statistical software is measuring how far reality deviated from our baseline expectation.
 
 
 
-It does this by calculating the "expected" counts for every category if the null hypothesis were perfectly true, and then comparing them to the "observed" counts we actually have in our data.
+It does this by calculating the "expected" counts for every category if the null hypothesis were perfectly true, and then comparing them to the "observed" counts we have in our data.
 
 
 
@@ -75,7 +75,7 @@ It does this by calculating the "expected" counts for every category if the null
 As seen in Figure 8.1 above, the gaps between reality and our baseline expectation are highly visible:
 
 - **Black Individuals:** We observed 1,528 records in the dataset. However, if the total incidents strictly followed the 12.1% Census baseline, we would only expect there to be about 725 records. Reality is noticeably higher than the baseline expectation.
-- **White Individuals:** We observed 2,919 records. Based on the 57.8% Census baseline, we actually expected about 3,466 records. Reality is lower than the baseline expectation.
+- **White Individuals:** We observed 2,919 records. Based on the 57.8% Census baseline, we expected about 3,466 records. Reality is lower than the baseline expectation.
 - **Asian Individuals:** We observed 105 records, but based on the 5.9% Census baseline, we expected about 354. Reality is lower than the expectation.
 
 
@@ -159,7 +159,7 @@ When we want to know if a connection exists between two categorical variables dr
 
 ### Organizing the Data: The Cross-Tabulation
 
-To answer a question involving two categorical variables, we first have to organize our data so we can actually see the overlaps. We do this by building a **cross-tabulation** (sometimes called a cross-tab or a contingency table).
+To answer a question involving two categorical variables, we first have to organize our data so we can see the overlaps. We do this by building a **cross-tabulation** (sometimes called a cross-tab or a contingency table).
 
 A cross-tabulation takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell.
 
@@ -205,7 +205,7 @@ The mathematical engine underneath the Test for Independence is exactly the same
 
 
 
-The difference lies in how the software calculates the baseline. Since we are no longer comparing our data to an outside source like the U.S. Census, the software uses the cross-tabulation itself to create a hypothetical scenario. It essentially asks, "If these two variables had absolutely zero connection to one another, what would this table look like?" It then compares that hypothetical, perfectly independent table to the counts we actually observed.
+The difference lies in how the software calculates the baseline. Since we are no longer comparing our data to an outside source like the U.S. Census, the software uses the cross-tabulation itself to create a hypothetical scenario. It essentially asks, "If these two variables had absolutely zero connection to one another, what would this table look like?" It then compares that hypothetical, perfectly independent table to the counts we observed.
 
 
 
@@ -341,7 +341,7 @@ Out of all six cells, only *one* crosses our significance threshold: the **Under
 
 
 
-This tells a fascinating real-world story. The profiles of older patients (those 50 to 69, and 70 or older) actually align relatively well with baseline expectations across both admission types. The entire significant result is being driven by the fact that the elective admission group has a severe, disproportionate lack of young patients compared to the emergency group.
+This tells a fascinating real-world story. The profiles of older patients (those 50 to 69, and 70 or older) align relatively well with baseline expectations across both admission types. The entire significant result is being driven by the fact that the elective admission group has a severe, disproportionate lack of young patients compared to the emergency group.
 
 ### Communicating Results in APA Format
 
@@ -502,7 +502,7 @@ For McNemar's test, our software provides the $\chi^2$ test statistic, the degre
 
 ## 8.11 Quantifying the Relationship: Association Metrics
 
-In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect actually is. A tiny $p$-value only means we have a mountain of evidence that the variables are connected.
+In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect is. A tiny $p$-value only means we have a mountain of evidence that the variables are connected.
 
 
 
@@ -732,7 +732,7 @@ A Confusion Matrix is a specific type of $2 \times 2$ table used to see how well
 
 When we evaluate any predictive rule, we get four distinct general outcomes. Let's look at what these mean broadly, and how they apply specifically to the 200 patients in `icu_data.csv`:
 
-- **True Positive (The "Hit"):** In general research, this means your rule correctly identified an event that actually occurred. For our ICU data, the patient actually had an emergency admission, and our pulse rule correctly predicted it.
+- **True Positive (The "Hit"):** In general research, this means your rule correctly identified an event that occurred. For our ICU data, the patient had an emergency admission, and our pulse rule correctly predicted it.
 - **True Negative (The "Correct Rejection"):** Generally, this means your rule correctly ignored something that did not happen. In our dataset, the patient had an elective admission, and our pulse rule correctly predicted it as a non-emergency.
 - **False Positive (The "False Alarm"):** Generally, your rule claimed an event happened, but it actually did not. Here, the patient had an elective admission, but our pulse rule incorrectly flagged them as an emergency.
 - **False Negative (The "Missed Case"):** Generally, an event truly happened, but your rule missed it. For our patients, they truly had an emergency admission, but our pulse rule failed to flag it.
@@ -759,7 +759,7 @@ In general usage, specificity is your rule's ability to leave the non-events alo
 
 
 
-For our hospital scenario, it asks: *Of all the people who were actually elective admissions, what percentage did our rule correctly identify as NOT being an emergency?* If a rule has high specificity, it has a very low false alarm rate. A low specificity means the rule is constantly flagging cases that do not actually need attention.
+For our hospital scenario, it asks: *Of all the people who were actually elective admissions, what percentage did our rule correctly identify as NOT being an emergency?* If a rule has high specificity, it has a very low false alarm rate. A low specificity means the rule is constantly flagging cases that do not need attention.
 
 ### Applying the Rule to the ICU Data
 
@@ -799,7 +799,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 3. **Letting the software pick your test**
 
-   Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a $p$-value. It is entirely up to you to look at how the data was gathered (one sample versus two distinct populations) to correctly interpret what that $p$-value actually means.
+   Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a $p$-value. It is entirely up to you to look at how the data was gathered (one sample versus two distinct populations) to correctly interpret what that $p$-value means.
 
 4. **Treating Odds Ratios like Relative Risk**
 
@@ -849,7 +849,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 ### Communicating Results
 
-8. A journalist reads a published study analyzing the relationship between a suspect's age group and whether a police encounter resulted in an arrest. The study reports a significant Chi-Square Test for Independence (p<.01). The journalist publishes a headline: "Study Proves Every Age Group Experiences Vastly Different Arrest Rates." Explain the fatal flaw in this communication and identify the post hoc tool the researcher actually needs to use to see which specific groups differ.
+8. A journalist reads a published study analyzing the relationship between a suspect's age group and whether a police encounter resulted in an arrest. The study reports a significant Chi-Square Test for Independence (p<.01). The journalist publishes a headline: "Study Proves Every Age Group Experiences Vastly Different Arrest Rates." Explain the fatal flaw in this communication and identify the post hoc tool the researcher needs to use to see which specific groups differ.
 
 9. A fellow student is presenting their research on the effects of a new study program on passing a difficult licensing exam. They ran an analysis and calculated an Odds Ratio of 3.0 for the students who took the program. On their slide, they write: "Students who take the program are 3.0 times more likely to pass the exam in terms of raw probability." Explain why this interpretation of an Odds Ratio is incorrect.
 

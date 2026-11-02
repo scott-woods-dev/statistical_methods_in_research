@@ -85,15 +85,15 @@ This glossary contains definitions for key terms used throughout the textbook.
 | expected count | The count a chi-square test would expect in a cell if the null hypothesis were true; every expected count should be at least 5 for the standard test to be trustworthy. |
 | experiment | A study in which researchers deliberately manipulate one or more variables to observe the direct effect on an outcome, using control and randomization to support a cause-and-effect conclusion. |
 | exploratory factor analysis (EFA) | A factor analysis used when the researcher does not know the underlying structure and lets the correlations reveal how many factors exist and which variables belong together. |
-| extrapolation | Using a regression model to predict outside the range of predictor values actually observed in the data, which is risky because the relationship may change. |
+| extrapolation | Using a regression model to predict outside the range of predictor values observed in the data, which is risky because the relationship may change. |
 | factor | The categorical variable that divides a sample into the groups being compared; also called the treatment variable. |
 | factor analysis | A statistical method that explains correlations among observed variables by positing one or more hidden factors, separating shared communality from unique variance. |
 | factorial design | A study design that crosses two or more categorical factors so that every combination of levels is represented, allowing main effects and interactions to be estimated. |
 | factor level | One of the specific categories that make up a factor; also called a treatment level. |
 | factor loading | A weight between -1 and 1 that measures the strength and direction of the relationship between an observed variable and a factor; loadings of about 0.40 or higher are usually treated as meaningful. |
 | factor matrix | A table showing each observed variable's loadings on each extracted factor, often after rotation, along with communality and uniqueness. |
-| false negative | A missed case: the prediction rule says no when the event actually happened. |
-| false positive | A false alarm: the prediction rule says yes when the event did not actually happen. |
+| false negative | A missed case: the prediction rule says no when the event happened. |
+| false positive | A false alarm: the prediction rule says yes when the event did not happen. |
 | family-wise error rate | The overall probability of making at least one Type I error across a family of comparisons; post hoc tests are designed to control it. |
 | Fisher's Exact Test | A test for categorical associations designed for small samples, used when an expected count falls below 5. |
 | floor effect | Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation. |
@@ -229,14 +229,14 @@ This glossary contains definitions for key terms used throughout the textbook.
 | repeated measures ANOVA | An ANOVA for a within-subjects design in which the same participants are measured at multiple time points or conditions, so each person serves as their own baseline. |
 | replication | Conducting an experiment on a large enough number of subjects so that the results are not just a statistical fluke. |
 | research goal | A general statement about the phenomenon you want to understand; broad and directional, but usually too abstract to test directly. |
-| research question | A specific, measurable relationship between defined variables that you can actually observe and record, narrowed down from a broad research goal. |
+| research question | A specific, measurable relationship between defined variables that you can observe and record, narrowed down from a broad research goal. |
 | residual | The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted. |
 | residual plot | A graph with the predictor variable on the horizontal axis and the residuals on the vertical axis, used to check for curves, unequal spread, and structural patterns that a straight-line model would miss. |
 | resistant measure | A statistical measure not strongly influenced by extreme values or outliers; the median is an example. |
 | response variable | The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement. |
 | right-skewed | A distribution whose longer tail extends toward higher values; also called positively skewed. |
 | rotation | A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying communality. |
-| sample | A subset of a population, the portion from which you actually collect data. |
+| sample | A subset of a population, the portion from which you collect data. |
 | sample size | The number of observations in a sample, usually written $n$; larger samples reduce random error and increase statistical power. |
 | scatterplot | A graph that displays the relationship between two numerical variables by placing each observation as a point; used to assess direction, form, and strength of the relationship. |
 | scree chart | A line graph of the variance explained by each successive factor, used to choose how many factors to keep by locating the elbow where the curve flattens. |
@@ -272,7 +272,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | treatment group | The subset of participants who fall into one particular level of a factor. |
 | trend | The long-term, overarching direction of a time series, meaning whether its baseline is generally rising, falling, or stable. |
 | true negative | A correct rejection: the prediction rule says no and the event did not happen. |
-| true positive | A hit: the prediction rule says yes and the event actually happened. |
+| true positive | A hit: the prediction rule says yes and the event happened. |
 | truncated data | Data in which observations beyond a certain threshold are excluded entirely and never appear in the dataset (e.g., only enrolling students who scored above 70). |
 | t-statistic | A signal-to-noise ratio calculated by dividing the gap between a sample result and the hypothesized value by the standard error; software converts it into a p-value. |
 | t-test | A family of hypothesis tests for comparing means, including the single sample, matched pair, and independent sample versions. |

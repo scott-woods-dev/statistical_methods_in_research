@@ -22,7 +22,7 @@ Think about how people evaluate a potential partner during a brief conversation.
 
 
 
-Discovering these hidden groups within survey data is the exact purpose of **factor analysis** (a statistical technique used to identify a small number of hidden, underlying themes among a large set of observed variables). In Chapter 2, you learned how to use Cronbach's alpha to check if a set of survey questions reliably measures a single concept. However, Cronbach's alpha assumes you already know which questions belong together. What happens when you design a brand-new survey with dozens of questions and you do not know how many different concepts you are actually measuring? Factor analysis solves this problem by scanning the patterns in your data and revealing which questions naturally cluster together around shared, hidden themes.   
+Discovering these hidden groups within survey data is the exact purpose of **factor analysis** (a statistical technique used to identify a small number of hidden, underlying themes among a large set of observed variables). In Chapter 2, you learned how to use Cronbach's alpha to check if a set of survey questions reliably measures a single concept. However, Cronbach's alpha assumes you already know which questions belong together. What happens when you design a brand-new survey with dozens of questions and you do not know how many different concepts you are measuring? Factor analysis solves this problem by scanning the patterns in your data and revealing which questions naturally cluster together around shared, hidden themes.   
 
 
 
@@ -81,7 +81,7 @@ This reveals why factor analysis is such an essential tool in social science res
 
 
 
-Factor analysis solves both problems at once. First, it serves as a tool for psychological discovery, mapping out the hidden mental categories people actually use when making judgments. Second, it simplifies your dataset. Instead of juggling six overlapping survey items, you can group them into two clean, distinct factors, making your future statistical models much easier to build and interpret.   
+Factor analysis solves both problems at once. First, it serves as a tool for psychological discovery, mapping out the hidden mental categories people use when making judgments. Second, it simplifies your dataset. Instead of juggling six overlapping survey items, you can group them into two clean, distinct factors, making your future statistical models much easier to build and interpret.   
 
 ### Shared Variance versus Unique Variance
 
@@ -287,7 +287,7 @@ In addition to choosing an extraction method, you must also decide how you want 
 
 
 
-**Confirmatory Factor Analysis (CFA)** is used when you already have a firm theory and you want to test whether your new data actually fits that specific theory. In a confirmatory analysis, you tell the software exactly how many factors exist and precisely which survey questions belong to each factor before you run the test. The software then calculates a mathematical "fit statistic" to confirm whether your proposed model matches reality.   
+**Confirmatory Factor Analysis (CFA)** is used when you already have a firm theory and you want to test whether your new data fits that specific theory. In a confirmatory analysis, you tell the software exactly how many factors exist and precisely which survey questions belong to each factor before you run the test. The software then calculates a mathematical "fit statistic" to confirm whether your proposed model matches reality.   
 
 
 
@@ -299,7 +299,7 @@ Because Confirmatory Factor Analysis is an advanced structural modeling techniqu
 
 ## 11.6 Visualizing Factors: Scree Charts
 
-When you run an exploratory factor analysis, the software does not inherently know how many hidden concepts actually exist in your survey. If you do not know the answer either, how do you decide how many factors to extract? You rely on a visual diagnostic tool called a **scree chart** (a line graph that displays the amount of total variation each potential factor explains, allowing researchers to visually identify the optimal number of factors to keep).   
+When you run an exploratory factor analysis, the software does not inherently know how many hidden concepts exist in your survey. If you do not know the answer either, how do you decide how many factors to extract? You rely on a visual diagnostic tool called a **scree chart** (a line graph that displays the amount of total variation each potential factor explains, allowing researchers to visually identify the optimal number of factors to keep).   
 
 
 
@@ -331,7 +331,7 @@ Figure 11.1 shows the scree chart for the six female partner ratings in `speed_d
 
 ## 11.7 Revisiting Cronbach's Alpha: Validating the Scale
 
-Once you use a scree chart to extract your factors and a rotated factor matrix to name them, what do you actually do with the results?   
+Once you use a scree chart to extract your factors and a rotated factor matrix to name them, what do you do with the results?   
 
 
 
@@ -392,7 +392,7 @@ When you ask statistical software to extract two factors from the male dataset, 
 
 
 
-**3. Treating the Factor Name as Mathematical Truth** When you run a factor analysis, the software shows that a cluster of variables moves together mathematically. It does *not* prove what that cluster actually represents. The software just outputs a column labeled "Factor 1" and leaves the naming up to you.
+**3. Treating the Factor Name as Mathematical Truth** When you run a factor analysis, the software shows that a cluster of variables moves together mathematically. It does *not* prove what that cluster represents. The software just outputs a column labeled "Factor 1" and leaves the naming up to you.
 
 A common mistake is believing that because the grouping is mathematically valid, the researcher's chosen name for it is also an unquestionable fact. If a researcher poorly names a cluster of survey items, the entire conclusion of the study can be misleading. Always look closely at the specific survey questions that make up a factor and ask yourself: *Does this label genuinely capture what these questions are asking?*
 
@@ -401,7 +401,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 ## Key Concepts
 
 1. **Latent Constructs:** Many concepts in the social sciences, such as intelligence or social appeal, are hidden and cannot be measured directly. Researchers must measure them indirectly using multiple survey items.   
-2. **The Purpose of Factor Analysis:** Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants actually use.   
+2. **The Purpose of Factor Analysis:** Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants use.   
 3. **Communality vs. Uniqueness:** The total variation of any survey item is a mix of communality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.   
 4. **The PCA Trap:** Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating communality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.   
 5. **Visualizing with Scree Charts:** A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the "elbow," the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.   

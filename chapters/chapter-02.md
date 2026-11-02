@@ -30,7 +30,7 @@ Science begins with curiosity. In the social sciences, this curiosity often star
 
 
 
-While a broad goal provides direction, it is usually too abstract to test directly. Statistics requires precision. You cannot simply drop a vague concept like "discrimination" into a spreadsheet and expect a mathematical answer. We have to translate that overarching goal into a specific, measurable **research question**. A research question narrows the focus to a precise relationship between defined variables that we can actually observe and record in the real world.
+While a broad goal provides direction, it is usually too abstract to test directly. Statistics requires precision. You cannot simply drop a vague concept like "discrimination" into a spreadsheet and expect a mathematical answer. We have to translate that overarching goal into a specific, measurable **research question**. A research question narrows the focus to a precise relationship between defined variables that we can observe and record in the real world.
 
 
 
@@ -54,7 +54,7 @@ This is why the transition from a vague interest to a concrete question is the f
 
 ## 2.3 Operationalization of Variables and Proxy Variables
 
-When we have a specific research question, we face a new challenge. How do we actually measure the things we want to study? Concepts like "racial bias" or "labor market interest" are abstract. You cannot put them on a scale or measure them with a ruler.
+When we have a specific research question, we face a new challenge. How do we measure the things we want to study? Concepts like "racial bias" or "labor market interest" are abstract. You cannot put them on a scale or measure them with a ruler.
 
 
 
@@ -125,7 +125,7 @@ In the social sciences, researchers generally look for a Cronbach's alpha of **0
 
 ## 2.6 Methods of Data Gathering
 
-Once you have defined your research question and decided exactly how to measure your variables, you face a logistical hurdle. How do you actually go out into the world and collect the data? In the social sciences, researchers generally choose between two primary methods of data gathering: observational studies and controlled experiments.
+Once you have defined your research question and decided exactly how to measure your variables, you face a logistical hurdle. How do you go out into the world and collect the data? In the social sciences, researchers generally choose between two primary methods of data gathering: observational studies and controlled experiments.
 
 The method you choose dictates what kind of conclusions you are allowed to draw from your data. We will explore both approaches in detail, using our corporate hiring bias scenario as a guide.
 
@@ -237,7 +237,7 @@ The outcome variable here is student debt. Like sleep hours, debt is numerical. 
 
 
 
-By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are actually doing yourself a massive favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.
+By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are doing yourself a massive favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.
 
 
 
@@ -434,7 +434,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 ### Communicating Results
 
-**9.** A political scientist is studying local voter turnout. They want to test if the true proportion of registered voters who actually cast a ballot is different in Natrona County compared to Carbon County. Write the formal null ($H_0$) and alternative ($H_1$) hypotheses for this test.
+**9.** A political scientist is studying local voter turnout. They want to test if the true proportion of registered voters who cast a ballot is different in Natrona County compared to Carbon County. Write the formal null ($H_0$) and alternative ($H_1$) hypotheses for this test.
 
 
 

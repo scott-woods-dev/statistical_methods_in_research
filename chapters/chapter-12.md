@@ -167,7 +167,7 @@ However, notice the shaded blue region surrounding that predicted line. This is 
 
 
 
-Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates another *typical* winter peak, landing below the 2026 record. However, our visual analysis in Section 12.2 revealed that these winter spikes are actually growing larger every single year. The algorithm did not capture that growth. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
+Finally, this forecast provides a perfect reminder of why human researchers must always review automated output. If you look closely at the predicted winter spike, the ARIMA model anticipates another *typical* winter peak, landing below the 2026 record. However, our visual analysis in Section 12.2 revealed that these winter spikes are growing larger every single year. The algorithm did not capture that growth. Time series software is a powerful assistant, but the researcher's visual intuition must always remain the final check.   
 
 
 

@@ -60,7 +60,7 @@ If nonparametric tests are so flexible and safe, why don't we just use them all 
 
 
 
-The answer comes down to **statistical power**. In research, power is your ability to successfully detect a real effect when one actually exists. Our entire goal as researchers is to find enough evidence to support our alternative hypothesis.
+The answer comes down to **statistical power**. In research, power is your ability to successfully detect a real effect when one exists. Our entire goal as researchers is to find enough evidence to support our alternative hypothesis.
 
 
 
@@ -170,7 +170,7 @@ While the format looks slightly different than a traditional $t$-test, the under
 
 
 
-Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is actually no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a very common choice in statistical software. The program is testing whether that true population median difference is zero. 
+Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a very common choice in statistical software. The program is testing whether that true population median difference is zero. 
 
   
 
@@ -487,7 +487,7 @@ To see if this holds true for the broader population, we look at the $p$-value. 
 
 
 
-Now, let's look at a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can actually run Spearman's Rho to test that specific descending trend.   
+Now, let's look at a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can run Spearman's Rho to test that specific descending trend.   
 
 
 
@@ -515,7 +515,7 @@ Before we write our final conclusions, let's look closely at the effect size for
 
 
 
-This provides a perfect reminder of a foundational statistical concept: a low $p$-value means *strong evidence*, not a *strong effect*. Our $p$-value of $0.022$ gives us solid mathematical proof that this descending trend actually exists in the broader student population. However, the weak coefficient of $-0.144$ tells us that while the trend is real, drinking habits only account for a small piece of the overall academic puzzle.
+This provides a perfect reminder of a foundational statistical concept: a low $p$-value means *strong evidence*, not a *strong effect*. Our $p$-value of $0.022$ gives us solid mathematical proof that this descending trend exists in the broader student population. However, the weak coefficient of $-0.144$ tells us that while the trend is real, drinking habits only account for a small piece of the overall academic puzzle.
 
 
 
@@ -557,7 +557,7 @@ To salvage the analysis, we use Fisher's Exact Test. Rather than relying on a ma
 
   
 
-Conceptually, the software looks at the total number of graduates, the total number of undergraduates, and the total number of back problems. It then calculates every single possible way those totals could be arranged in a $2 \times 2$ grid. By looking at all possible combinations, it can precisely determine how rare your specific sample actually is. Because it calculates the exact probability rather than estimating it, Fisher's Exact Test does not require a minimum expected cell count. This allows you to safely analyze associations in small or highly unbalanced samples.   
+Conceptually, the software looks at the total number of graduates, the total number of undergraduates, and the total number of back problems. It then calculates every single possible way those totals could be arranged in a $2 \times 2$ grid. By looking at all possible combinations, it can precisely determine how rare your specific sample is. Because it calculates the exact probability rather than estimating it, Fisher's Exact Test does not require a minimum expected cell count. This allows you to safely analyze associations in small or highly unbalanced samples.   
 
 ### Formalizing the Hypotheses
 
@@ -642,7 +642,7 @@ Once researchers discover that nonparametric tests are safer for skewed data and
 
 
 
-The answer comes entirely down to the cost of flexibility. As we explored at the beginning of the chapter, you trade raw statistical power for that mathematical safety. Traditional parametric tests like the $t$-test are highly sensitive, powerful tools. If your data actually meets the parametric requirements (meaning your sample is large enough or your data is relatively normal), switching to a nonparametric test is a mistake. By defaulting to a rank-based test when you do not need to, you needlessly handicap your own research, dramatically increasing your risk of a Type II error (missing a real, publishable effect that a parametric test would have easily caught). You should always use the most powerful test your data can safely support.
+The answer comes entirely down to the cost of flexibility. As we explored at the beginning of the chapter, you trade raw statistical power for that mathematical safety. Traditional parametric tests like the $t$-test are highly sensitive, powerful tools. If your data meets the parametric requirements (meaning your sample is large enough or your data is relatively normal), switching to a nonparametric test is a mistake. By defaulting to a rank-based test when you do not need to, you needlessly handicap your own research, dramatically increasing your risk of a Type II error (missing a real, publishable effect that a parametric test would have easily caught). You should always use the most powerful test your data can safely support.
 
 
 
@@ -707,7 +707,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 14. A researcher runs a Kruskal-Wallis test to compare the median reaction times of drivers across three different age groups. The test yields a p-value of 0.22. The researcher concludes their report by writing, "This test proves that driving reaction times are exactly the same across all age groups." Explain the logical error in this conclusion and provide a more accurate way to phrase this finding.
 
-15. A colleague in your research lab discovers nonparametric tests and tells you, "These tests are so much easier because you don't have to worry about perfect bell curves. I'm just going to use rank-based tests for every analysis from now on to be safe." Explain the fundamental trade-off of nonparametric tests and why defaulting to them is a mistake if the data actually meets parametric assumptions.
+15. A colleague in your research lab discovers nonparametric tests and tells you, "These tests are so much easier because you don't have to worry about perfect bell curves. I'm just going to use rank-based tests for every analysis from now on to be safe." Explain the fundamental trade-off of nonparametric tests and why defaulting to them is a mistake if the data meets parametric assumptions.
 
 ### Software Application
 

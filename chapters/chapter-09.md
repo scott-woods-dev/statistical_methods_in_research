@@ -140,7 +140,7 @@ Furthermore, the software provides a 95% Confidence Interval of $(0.713830, 0.83
 
 
 
-This translation is the ultimate practical goal of logistic regression. We rely on the raw slopes and Odds Ratios to understand *how* variables influence an outcome, but we use the software's predicted probabilities to actually *apply* the model to real-world decision-making. Once we can generate these specific probabilities, we can evaluate how accurate our model actually is when forced to make a prediction in the real world.
+This translation is the ultimate practical goal of logistic regression. We rely on the raw slopes and Odds Ratios to understand *how* variables influence an outcome, but we use the software's predicted probabilities to *apply* the model to real-world decision-making. Once we can generate these specific probabilities, we can evaluate how accurate our model is when forced to make a prediction in the real world.
 
 ## 9.6 Multiple Logistic Regression
 
@@ -212,11 +212,11 @@ This is the power of multiple logistic regression. By controlling for multiple v
 
 ## 9.7 Model Diagnostics and Accuracy: The Confusion Matrix
 
-Our multiple logistic regression model provides precise predicted probabilities for patient survival. However, to evaluate how practically useful this model is in a high-stakes clinical setting, we need to see how well it actually classifies patients. To do this, researchers pick a probability threshold (commonly 50%) and instruct the software to make a hard prediction. If a patient's predicted probability of survival is over 50%, the model predicts they will survive. If it is under 50%, the model predicts they will die.
+Our multiple logistic regression model provides precise predicted probabilities for patient survival. However, to evaluate how practically useful this model is in a high-stakes clinical setting, we need to see how well it classifies patients. To do this, researchers pick a probability threshold (commonly 50%) and instruct the software to make a hard prediction. If a patient's predicted probability of survival is over 50%, the model predicts they will survive. If it is under 50%, the model predicts they will die.
 
 
 
-By cross-tabulating these predictions against what actually happened to the 200 patients in our sample, we build a confusion matrix.  
+By cross-tabulating these predictions against what happened to the 200 patients in our sample, we build a confusion matrix.  
 
 | Predicted outcome | Actual death (0) | Actual survival (1) |
 | :--- | :---: | :---: |
@@ -229,10 +229,10 @@ By cross-tabulating these predictions against what actually happened to the 200 
 
 Looking at our matrix, we can categorize every patient into one of four groups:  
 
-- **True Positives (159 patients):** The model predicted they would survive, and they actually survived.
-- **True Negatives (2 patients):** The model predicted they would not survive, and they actually did not survive.
+- **True Positives (159 patients):** The model predicted they would survive, and they survived.
+- **True Negatives (2 patients):** The model predicted they would not survive, and they did not survive.
 - **False Positives (38 patients):** The model predicted they would survive, but they unfortunately died.
-- **False Negatives (1 patient):** The model predicted they would not survive, but they actually lived.
+- **False Negatives (1 patient):** The model predicted they would not survive, but they lived.
 
 With these counts, we can calculate our model's accuracy using two metrics introduced in Chapter 8: sensitivity and specificity.  
 
@@ -278,7 +278,7 @@ An ROC curve is a visual summary of our model's performance across all possible 
 
 
 
-When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a useless model, one that is effectively just flipping a coin. If our model is actually learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
+When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a useless model, one that is effectively just flipping a coin. If our model is learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
 
 ### Grading the Model: Area Under the Curve (AUC)
 
@@ -291,7 +291,7 @@ Think of the AUC as a grading scale for your model's overall accuracy, ranging f
 - **0.80 to 0.90:** The model is excellent.
 - **1.00:** The model is perfect (which rarely happens in real-world data).
 
-Conceptually, the AUC tells us the probability that our model will correctly rank two random observations. If we randomly pick one patient who actually survived and one patient who actually died, the AUC is the probability that our model assigns a higher predicted survival percentage to the patient who lived.
+Conceptually, the AUC tells us the probability that our model will correctly rank two random observations. If we randomly pick one patient who survived and one patient who died, the AUC is the probability that our model assigns a higher predicted survival percentage to the patient who lived.
 
 
 
@@ -498,6 +498,6 @@ d) Use your software to generate a predicted probability for an 80-year-old pati
 
 13. **Model Diagnostics: The Confusion Matrix and AUC**: You want to evaluate the practical accuracy of the two-variable model you built in Question 12 (predicting `Survive` using `Age` and `SysBP`).
 a) Instruct your software to generate a classification table (confusion matrix) for this model using a standard 50% probability threshold. How many patients did the model accurately predict would die (True Negatives)?
-b) Calculate the specificity of this model by dividing the true negatives by the total number of patients who actually died in the dataset. Does this model perform well at identifying high-risk patients?
+b) Calculate the specificity of this model by dividing the true negatives by the total number of patients who died in the dataset. Does this model perform well at identifying high-risk patients?
 c) Generate an ROC curve for this model and report the Area Under the Curve (AUC). Based on the grading scale provided in the chapter, how would you classify the overall predictive accuracy of this model?
 

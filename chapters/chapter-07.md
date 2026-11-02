@@ -84,7 +84,7 @@ When a study categorizes participants using two or more factors at the same time
 Because we now have two factors interacting in our model, a Two-Way ANOVA gives us two different types of results to interpret:
 
 1. **Main Effects**: A **main effect** is the independent, isolated impact of just *one* variable, temporarily pretending the other variable does not exist. For example, if we ignore their age, did the informed maids have lower blood pressure than the control maids? That is the main effect of the experimental condition.
-2. **Interaction Effects**: Human traits rarely exist in a vacuum. An **interaction effect** occurs when the impact of one variable actually *depends* on the value of the other variable. What if the psychological intervention worked beautifully to lower blood pressure for the younger maids, but had absolutely no effect on the older maids? You cannot see that nuance if you only look at the main effects. You need to measure how the two variables mix.
+2. **Interaction Effects**: Human traits rarely exist in a vacuum. An **interaction effect** occurs when the impact of one variable *depends* on the value of the other variable. What if the psychological intervention worked beautifully to lower blood pressure for the younger maids, but had absolutely no effect on the older maids? You cannot see that nuance if you only look at the main effects. You need to measure how the two variables mix.
 
 
 
@@ -227,7 +227,7 @@ However, chopping a highly precise number like age into broad, arbitrary categor
 
 ## 7.6 The ANCOVA: Introducing Continuous Covariates
 
-Let's take a step back and look at what the researchers are actually trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
+Let's take a step back and look at what the researchers are trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
 
 
 
@@ -271,7 +271,7 @@ However, because we are introducing a continuous covariate into the mix, we must
 
 **Linearity**
 
-For an ANCOVA to work, your continuous covariate must actually have a straight-line relationship with your response variable. If you create a scatterplot of baseline blood pressure (`Syst`) versus post-intervention blood pressure (`Syst2`), the dots should generally form a straight diagonal band. If the dots form a U-shape or a strange curve, our linear ANCOVA math will not be able to properly filter out the noise.
+For an ANCOVA to work, your continuous covariate must have a straight-line relationship with your response variable. If you create a scatterplot of baseline blood pressure (`Syst`) versus post-intervention blood pressure (`Syst2`), the dots should generally form a straight diagonal band. If the dots form a U-shape or a strange curve, our linear ANCOVA math will not be able to properly filter out the noise.
 
 
 
@@ -342,7 +342,7 @@ To read this table, we simply look at each row one at a time.
 
 
 
-**1. Did the covariate actually help?**
+**1. Did the covariate help?**
 
 First, we look at the row for our baseline covariate (`Syst`). The $p$-value is exceptionally small ($p < .001$). This confirms what we suspected: a maid's baseline blood pressure is a massive, statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a massive source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.
 
@@ -356,7 +356,7 @@ Next, we look at the row for our primary research interest: the experimental con
 
 The $p$-value is $0.107$. Because this is larger than our standard $\alpha = 0.05$ threshold, we fail to reject the null hypothesis. Even after using advanced mathematics to level the playing field, we do not have enough evidence to prove that simply informing the maids about their exercise levels significantly lowered their systolic blood pressure.
 
-### What did the ANCOVA actually do? Adjusted Means
+### What did the ANCOVA do? Adjusted Means
 
 You might be wondering: if the result was not significant, what exactly did the ANCOVA mathematics do behind the scenes?
 
@@ -474,7 +474,7 @@ Look at the interaction row. The $p$-value is $0.003$. Because this is well belo
 
 
 
-In a Repeated Measures design, a significant interaction between time and condition is the ultimate prize. It means that the *change over time* was fundamentally different depending on which group the participant was in. The informed maids' BMI did not follow the same timeline trajectory as the control maids' BMI. This interaction provides the mathematical proof that our psychological intervention actually did something.
+In a Repeated Measures design, a significant interaction between time and condition is the ultimate prize. It means that the *change over time* was fundamentally different depending on which group the participant was in. The informed maids' BMI did not follow the same timeline trajectory as the control maids' BMI. This interaction provides the mathematical proof that our psychological intervention did something.
 
 ### 2. The Main Effect of Time (`Time`)
 

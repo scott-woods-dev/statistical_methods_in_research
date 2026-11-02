@@ -168,7 +168,7 @@ As a researcher, you cannot hide behind the defense that "the computer did it." 
 
 
 
-The only way to achieve algorithmic accountability is through absolute transparency. In the case of the COMPAS algorithm, the software was proprietary. The company that built it considered the exact mathematical formulas to be a corporate trade secret. When the software produced biased results, the public and the judges using the scores were not allowed to look under the hood to see how the math actually worked.
+The only way to achieve algorithmic accountability is through absolute transparency. In the case of the COMPAS algorithm, the software was proprietary. The company that built it considered the exact mathematical formulas to be a corporate trade secret. When the software produced biased results, the public and the judges using the scores were not allowed to look under the hood to see how the math worked.
 
 
 

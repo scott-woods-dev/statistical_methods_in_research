@@ -58,11 +58,11 @@ At its core, an **ANOVA** (which stands for Analysis of Variance) is a statistic
 
 
 
-If you are paying close attention, that name might sound a bit strange. Why are we talking about "variance" when our goal is to compare *averages* across different groups? In Chapter 1, we learned that the standard deviation is our primary measure of how spread out, or variable, our data is. **Variance** is simply another mathematical way to measure that same concept of variability. As we will see in the next section, the secret to comparing group averages actually lies in analyzing how the data's variability is spread out.
+If you are paying close attention, that name might sound a bit strange. Why are we talking about "variance" when our goal is to compare *averages* across different groups? In Chapter 1, we learned that the standard deviation is our primary measure of how spread out, or variable, our data is. **Variance** is simply another mathematical way to measure that same concept of variability. As we will see in the next section, the secret to comparing group averages lies in analyzing how the data's variability is spread out.
 
 
 
-So, what kinds of research designs actually lead to an ANOVA? It depends slightly on who you ask:
+So, what kinds of research designs lead to an ANOVA? It depends slightly on who you ask:
 
 - **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. Looking at our dataset, a statistician would ask: *Is the mean writing score the same in each of the three program tracks?*
 - **The Researcher's Perspective:** Social science researchers often think of an ANOVA as a way to look for a broader relationship between a categorical variable and a numerical variable. A researcher would ask: *Does a student's choice of program track have a significant effect on their writing scores?*
@@ -73,7 +73,7 @@ Both perspectives are perfectly valid, and both are answered using the same ANOV
 
 ## 6.4 Partitioning Variation
 
-If we want to know whether the academic program track actually affects a student's writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this massive pile of differences the **total variation**.
+If we want to know whether the academic program track affects a student's writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this massive pile of differences the **total variation**.
 
 
 
@@ -152,7 +152,7 @@ Just like the tests in previous chapters, we start with a skeptical baseline. Th
 
 - $H_0$: The true mean writing score is exactly the same across all three program tracks ($\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}$).
 
-The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect actually exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a very common pitfall.
+The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a very common pitfall.
 
 - $H_1$: At least one pair of program tracks shows a significant difference in their true mean writing scores.
 
@@ -172,11 +172,11 @@ If your statistical software produces a $p$-value that is smaller than your sign
 
 
 
-However, notice how vague that alternative hypothesis is. A significant ANOVA tells you that a difference exists between at least one pair of groups, but it does not tell you *which* pair. Is the academic track scoring higher than the general track? Is the vocational track scoring lower than the academic track? The initial ANOVA model cannot answer those questions directly. Before we can pinpoint exactly which pairs differ (a process called post hoc analysis), we first have to pause and make sure our ANOVA model is actually mathematically valid.
+However, notice how vague that alternative hypothesis is. A significant ANOVA tells you that a difference exists between at least one pair of groups, but it does not tell you *which* pair. Is the academic track scoring higher than the general track? Is the vocational track scoring lower than the academic track? The initial ANOVA model cannot answer those questions directly. Before we can pinpoint exactly which pairs differ (a process called post hoc analysis), we first have to pause and make sure our ANOVA model is mathematically valid.
 
 ## 6.7 Model Diagnostics
 
-Before we can confidently use an ANOVA to draw conclusions from our data, we have to make sure the data actually fits the tool. Just as we learned in Chapter 3, statistical tests are built on mathematical foundations that require certain conditions to be met. If we apply a test to data that violates these core rules, our $p$-values become unreliable and our conclusions fall apart.
+Before we can confidently use an ANOVA to draw conclusions from our data, we have to make sure the data fits the tool. Just as we learned in Chapter 3, statistical tests are built on mathematical foundations that require certain conditions to be met. If we apply a test to data that violates these core rules, our $p$-values become unreliable and our conclusions fall apart.
 
 
 
@@ -220,7 +220,7 @@ In this context, a residual is simply the difference between an individual stude
 
 
 
-How do we actually check this? This is where many researchers get stuck because the tools we use are notoriously imperfect. Instead of trying to mathematically prove your residuals are perfectly normal, you should ask a simpler question: *Is it plausible that these residuals come from a normal distribution?* A good rule of thumb is this: **Assume the residuals are normal unless the diagnostics thoroughly convince you that they are not**. Because the ANOVA is forgiving, it can handle mild skewness or slight deviations from a perfect bell shape without breaking.
+How do we check this? This is where many researchers get stuck because the tools we use are notoriously imperfect. Instead of trying to mathematically prove your residuals are perfectly normal, you should ask a simpler question: *Is it plausible that these residuals come from a normal distribution?* A good rule of thumb is this: **Assume the residuals are normal unless the diagnostics thoroughly convince you that they are not**. Because the ANOVA is forgiving, it can handle mild skewness or slight deviations from a perfect bell shape without breaking.
 
 
 
@@ -394,7 +394,7 @@ Let's consider the "general" academic track to be our standard baseline. We only
 1. General (Baseline) versus Academic
 2. General (Baseline) versus Vocational
 
-By intentionally skipping the comparison between the academic and vocational tracks, Dunnett's test saves statistical power (our ability to find differences when they actually exist). It is highly efficient and is the preferred post hoc test whenever your experimental design includes a clear control group.
+By intentionally skipping the comparison between the academic and vocational tracks, Dunnett's test saves statistical power (our ability to find differences when they exist). It is highly efficient and is the preferred post hoc test whenever your experimental design includes a clear control group.
 
 ### The Post Hoc to the Post Hoc: Practical Significance
 
@@ -510,7 +510,7 @@ To confirm, we check our Q-Q plot. The dots track our diagonal reference line cl
 
 ![Figure 6.7: Jitter plot of writing scores for the three program tracks in the guided analysis. The academic track sits higher, but the full vertical spread of scores is similar across groups. Black diamonds mark the group means.](../figures/chapter_06/fig_06_07_scatter_writing_jitter_analysis.png){fig-alt="Jitter plot of writing scores for the three program tracks. The academic column sits higher overall, but the total vertical spread of the dots is similar across all three columns. Black diamonds mark the group means."}
 
-The jitter plot reveals that the overall vertical spread of the scores is actually quite even across all three tracks. We confirm this visually with our mathematical rule of thumb. The largest standard deviation belongs to the general track ($SD = 9.40$), and the smallest belongs to the academic track ($SD = 7.94$). Because 9.40 is nowhere near double 7.94, we are well within the model's tolerance limits. The equal variances assumption is safely met.
+The jitter plot reveals that the overall vertical spread of the scores is quite even across all three tracks. We confirm this visually with our mathematical rule of thumb. The largest standard deviation belongs to the general track ($SD = 9.40$), and the smallest belongs to the academic track ($SD = 7.94$). Because 9.40 is nowhere near double 7.94, we are well within the model's tolerance limits. The equal variances assumption is safely met.
 
 
 
@@ -555,7 +555,7 @@ Why? Because an $F$-statistic's meaning is entirely tethered to its **Degrees of
 
 
 
-Since the raw $F$-statistic is so dependent on the study's design, we rely entirely on the **$p$-value** to interpret it. The $p$-value takes that raw $F$-statistic, judges it against our specific degrees of freedom, and translates it into a probability we can actually understand.
+Since the raw $F$-statistic is so dependent on the study's design, we rely entirely on the **$p$-value** to interpret it. The $p$-value takes that raw $F$-statistic, judges it against our specific degrees of freedom, and translates it into a probability we can understand.
 
 
 
@@ -633,7 +633,7 @@ This is perhaps the most understandable source of confusion when learning the AN
 
 
 
-During our data triage, we used a side-by-side boxplot to get a feel for our treatment groups. As we learned in Chapter 1, a boxplot is built using the **median** (the solid line inside the box) and the **Interquartile Range** (the box itself, representing the middle 50% of the data). However, remember what ANOVA actually stands for: Analysis of Variance. The mathematical engine of the ANOVA ignores the median and the IQR. Instead, it tests for differences between the group **means**, and it measures noise using **variances** (standard deviations).
+During our data triage, we used a side-by-side boxplot to get a feel for our treatment groups. As we learned in Chapter 1, a boxplot is built using the **median** (the solid line inside the box) and the **Interquartile Range** (the box itself, representing the middle 50% of the data). However, remember what ANOVA stands for: Analysis of Variance. The mathematical engine of the ANOVA ignores the median and the IQR. Instead, it tests for differences between the group **means**, and it measures noise using **variances** (standard deviations).
 
 
 
@@ -681,7 +681,7 @@ When the difference in spread is your actual research interest, you can use a to
 6. **Diagnostics over Perfection:** When checking assumptions, we look for plausibility rather than perfect mathematical proof. We assume residuals are normal unless a Q-Q plot or histogram convinces us otherwise. We assume equal variances if our jitter plot looks relatively even and our largest standard deviation is no more than double our smallest.
 7. **The Global ANOVA is Blind:** A significant $F$-statistic and $p$-value from an ANOVA only tell you that a difference exists somewhere in the data. It cannot tell you which specific groups are different, nor can it tell you the size of the effect.
 8. **Post Hoc Analysis:** To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. **Tukey's HSD** is the standard for comparing every group to every other group. **Dunnett's test** is used when comparing multiple groups against a single control baseline.
-9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference actually matters in the real world.
+9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference matters in the real world.
 
 ## 6.12 New Notation
 

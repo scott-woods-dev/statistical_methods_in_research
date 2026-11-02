@@ -4,7 +4,7 @@
 
 
 
-Imagine you are a sociologist trying to understand what makes a society genuinely thrive. Does having a large economy automatically guarantee that citizens will live long, happy lives? Or does the environmental cost of that economic engine actually drag down well-being?
+Imagine you are a sociologist trying to understand what makes a society genuinely thrive. Does having a large economy automatically guarantee that citizens will live long, happy lives? Or does the environmental cost of that economic engine drag down well-being?
 
 
 
@@ -41,7 +41,7 @@ If you were to plot these two variables on a scatterplot, you might expect to se
 
 
 
-Before you run any calculations, you must visually verify two things: first, that a relationship actually appears to exist, and second, that the relationship is plausibly linear (meaning the dots follow a roughly straight line). The tools in this chapter only measure straight-line relationships. If your scatterplot shows a clear curve (like a U-shape), you cannot use linear correlation. For curved relationships, researchers use specialized non-parametric tools like Spearman's rho, which we will cover in Chapter 10.
+Before you run any calculations, you must visually verify two things: first, that a relationship appears to exist, and second, that the relationship is plausibly linear (meaning the dots follow a roughly straight line). The tools in this chapter only measure straight-line relationships. If your scatterplot shows a clear curve (like a U-shape), you cannot use linear correlation. For curved relationships, researchers use specialized non-parametric tools like Spearman's rho, which we will cover in Chapter 10.
 
 
 
@@ -100,11 +100,11 @@ If our statistical software gives us a $p$-value smaller than our significance l
 
 ### Measuring Real-World Impact: The Coefficient of Determination ($R^2$)
 
-While knowing that two variables are connected is helpful, researchers usually want to know how much one variable actually explains the other. To find this, we use the **coefficient of determination**, more commonly known as R-squared (written mathematically as $R^2$).
+While knowing that two variables are connected is helpful, researchers usually want to know how much one variable explains the other. To find this, we use the **coefficient of determination**, more commonly known as R-squared (written mathematically as $R^2$).
 
 
 
-The math behind this tool is simple: to find $R^2$, you simply take your correlation value ($r$) and square it by multiplying it by itself. But what does this new number actually mean in plain English?
+The math behind this tool is simple: to find $R^2$, you simply take your correlation value ($r$) and square it by multiplying it by itself. But what does this new number mean in plain English?
 
 
 
@@ -215,7 +215,7 @@ This brings us to a key rule for statistical modeling: **never confuse the size 
 
 
 
-If you want to know how strong the relationship actually is, you must look at your linear correlation ($r$). If you want to know how reliable your predictions will be, you must look at your R-squared ($R^2$).
+If you want to know how strong the relationship is, you must look at your linear correlation ($r$). If you want to know how reliable your predictions will be, you must look at your R-squared ($R^2$).
 
 
 
@@ -487,7 +487,7 @@ However, there is a common misconception about what this point estimate actually
 
 ### Predicting the Average vs. Predicting the Individual
 
-Just like we built an interval around our slope, we can build intervals around our predictions. But because regression allows us to predict both group averages and individual outcomes, we actually have two different types of intervals to choose from: Confidence Intervals and Prediction Intervals.
+Just like we built an interval around our slope, we can build intervals around our predictions. But because regression allows us to predict both group averages and individual outcomes, we have two different types of intervals to choose from: Confidence Intervals and Prediction Intervals.
 
 
 
@@ -527,7 +527,7 @@ As you begin applying regression analysis to your own research, keep these commo
 - **The "$r = 0$" Trap:** If your software tells you that $r = 0$, do not assume there is *no* relationship between your variables. An $r$ of 0 only means there is no *linear* (straight-line) relationship. Your variables might still be strongly connected, but in a curved or complex way that a straight line cannot capture. Always look at your scatterplot!
 - **Assuming Causation:** Correlation proves that variables move in a predictable, synchronized way. It never proves that one variable *causes* the other. Unless you are running a strictly controlled, randomized experiment, always use language like "predicts" or "is associated with" rather than "causes."
 - **The "Bigger Slope is Better" Fallacy:** New researchers often see a large slope coefficient and assume it represents a stronger influence than a smaller slope. This is incorrect. Slope represents the rate of change based on the units of measurement (e.g., dollars vs. thousands of dollars). To judge the strength of the relationship, look at the correlation ($r$).
-- **Extrapolation:** A regression line is only valid within the boundaries of the data you actually collected. Using that line to predict values far outside your observed range (like predicting the life expectancy of a hypothetical nation with one billion dollars of GDP) is a gamble, not science.
+- **Extrapolation:** A regression line is only valid within the boundaries of the data you collected. Using that line to predict values far outside your observed range (like predicting the life expectancy of a hypothetical nation with one billion dollars of GDP) is a gamble, not science.
 
 ## 4.10 Key Concepts
 
