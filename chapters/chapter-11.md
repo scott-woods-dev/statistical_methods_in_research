@@ -57,7 +57,7 @@ Earlier in this course, you learned how to measure the linear relationship betwe
 
  
 
-Imagine you open `speed_dating.csv` from the data subfolder and examine the six ratings completed by the female participants after their four-minute speed dates: `AttractiveF`, `SincereF`, `IntelligentF`, `FunF`, `AmbitiousF`, and `SharedInterestsF`. Rather than looking at just one pair of variables at a time, you can ask your statistical software to calculate the correlation for every possible pair at once. This produces a **correlation matrix** (a table that displays the correlation coefficients between every possible pair of variables in a list).   
+Imagine you open `speed_dating.csv` from the data subfolder and examine the six ratings completed by the female participants after their four-minute speed dates: `AttractiveF`, `SincereF`, `IntelligentF`, `FunF`, `AmbitiousF`, and `SharedInterestsF`. Rather than analyzing just one pair of variables at a time, you can ask your statistical software to calculate the correlation for every possible pair at once. This produces a **correlation matrix** (a table that displays the correlation coefficients between every possible pair of variables in a list).   
 
 
 
@@ -123,7 +123,7 @@ Knowing that hidden factors exist in theory is helpful, but as a researcher, you
 
 ### The Correlation Matrix
 
-Before extracting any hidden factors, your first step is always to inspect the raw correlation matrix for your survey items. Let's look at the actual correlations among the six partner ratings completed by the female participants in `speed_dating.csv` (Gelman & Hill, 2007).   
+Before extracting any hidden factors, your first step is always to inspect the raw correlation matrix for your survey items. Let's review the actual correlations among the six partner ratings completed by the female participants in `speed_dating.csv` (Gelman & Hill, 2007).   
 
 
 
@@ -145,14 +145,14 @@ Notice that a correlation matrix is symmetric: the numbers above the diagonal li
 If you scan across the rows of Table 11.1, you can already see the two neighborhoods we discussed in Section 11.2 beginning to take shape:
 
 - **Neighborhood 1 (Character and Intellect):** Look at the row for `IntelligentF`. When a female participant rates her date highly on intelligence, she also tends to rate him much higher on `SincereF` ($r = 0.563$) and `AmbitiousF` ($r = 0.541$). Similarly, `SincereF` and `AmbitiousF` correlate moderately well with each other ($r = 0.393$).
-- **Neighborhood 2 (Immediate Chemistry):** Now look at the row for `AttractiveF`. A high rating on physical attractiveness connects strongly to `FunF` ($r = 0.543$) and `SharedInterestsF` ($r = 0.467$). Furthermore, `FunF` and `SharedInterestsF` show one of the strongest connections in the entire table ($r = 0.556$).
+- **Neighborhood 2 (Immediate Chemistry):** Now consider the row for `AttractiveF`. A high rating on physical attractiveness connects strongly to `FunF` ($r = 0.543$) and `SharedInterestsF` ($r = 0.467$). Furthermore, `FunF` and `SharedInterestsF` show one of the strongest connections in the entire table ($r = 0.556$).
 - **Weak Cross-Neighborhood Connections:** Next, check how these two groups interact with each other. Knowing that a participant rated her date high on `AttractiveF` tells you very little about whether she thought he was `SincereF` ($r = 0.246$), `IntelligentF` ($r = 0.226$), or `AmbitiousF` ($r = 0.209$). Likewise, `SharedInterestsF` shows weak correlations with `SincereF` ($r = 0.222$), `IntelligentF` ($r = 0.236$), and `AmbitiousF` ($r = 0.187$).
 
 However, Table 11.1 also shows why simply eyeballing a correlation matrix is not enough. Look closely at the row for `FunF`. Even though `FunF` correlates most strongly with `SharedInterestsF` ($r = 0.556$) and `AttractiveF` ($r = 0.543$), it also shows moderate correlations with `SincereF` ($r = 0.387$), `IntelligentF` ($r = 0.368$), and `AmbitiousF` ($r = 0.391$). Why does `FunF` seem to bridge both groups? In a four-minute speed date, witty banter or an engaging story can make someone seem fun, intelligent, and ambitious all at once.   
 
 
 
-If you already encounter blurry boundaries like `FunF` when looking at just six variables, imagine trying to untangle a correlation matrix with thirty or forty survey questions. Rather than guessing where the boundaries lie, we need factor analysis to mathematically separate the shared themes from the unique variance.
+If you already encounter blurry boundaries like `FunF` when working with just six variables, imagine trying to untangle a correlation matrix with thirty or forty survey questions. Rather than guessing where the boundaries lie, we need factor analysis to mathematically separate the shared themes from the unique variance.
 
 ### The Factor Matrix
 
@@ -202,7 +202,7 @@ Once you have confirmed which variables load onto each factor, you are ready to 
 
 
 
-1. **Naming the Latent Constructs:** Notice that the software labels the columns "Factor 1" and "Factor 2" without any explanation of what those labels mean. Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (`IntelligentF`, `SincereF`, and `AmbitiousF`), all three traits reflect a partner's intellect, integrity, and long-term career potential. We can label Factor 1 **"Socioeconomic Status & Character"**. Looking at Factor 2 (`FunF`, `SharedInterestsF`, and `AttractiveF`), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 **"Social Appeal"**.   
+1. **Naming the Latent Constructs:** Notice that the software labels the columns "Factor 1" and "Factor 2" without any explanation of what those labels mean. Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (`IntelligentF`, `SincereF`, and `AmbitiousF`), all three traits reflect a partner's intellect, integrity, and long-term career potential. We can label Factor 1 **"Socioeconomic Status & Character"**. Turning to Factor 2 (`FunF`, `SharedInterestsF`, and `AttractiveF`), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 **"Social Appeal"**.   
 2. **Evaluating Communality ($h^2$) and Uniqueness ($u^2$):** Look at the two columns on the far right of Table 11.2. In statistical software output, communality is often abbreviated as $h^2$, and unique variance is abbreviated as $u^2$. For each variable, the communality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, `IntelligentF` has a communality of $0.748$, meaning that $74.8\%$ of the variation in intelligence ratings is driven by these two underlying factors, while only $25.2\%$ ($u^2 = 0.252$) is unique variance and random noise. By contrast, `AmbitiousF` has a communality of $0.396$ and a uniqueness of $0.604$. This tells us that while ambition belongs to Factor 1, about $60.4\%$ of how participants judge a partner's ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Communality ($h^2$) plus Uniqueness ($u^2$) equals $1.000$ ($100\%$ of that variable's variance).   
 3. **Assessing Total Variance Explained:** Finally, look at the bottom row labeled "Proportion of Variance." This row tells you the share of the total variance across the six-item scorecard that each factor accounts for. Factor 1 ("Socioeconomic Status & Character") captures $27.0\%$ ($0.270$) of the variance, and Factor 2 ("Social Appeal") captures $26.1\%$ ($0.261$). Together, these two hidden concepts explain $53.1\%$ ($0.531$) of the total variance across all six survey questions. Instead of wrestling with six overlapping ratings, you have successfully distilled the scorecard into two distinct psychological dimensions that capture more than half of the total variation in how female speed-daters evaluate their partners.  
 
@@ -306,7 +306,7 @@ When you run an exploratory factor analysis, the software does not inherently kn
 If you give your software a survey with six variables, the software will initially calculate six potential factors. It builds these factors in a specific order:
 
 1. **Factor 1** is designed to capture the maximum possible amount of shared variation across all the survey items.
-2. **Factor 2** looks at whatever variation is left over and captures as much of that remaining chunk as possible.
+2. **Factor 2** works from whatever variation is left over and captures as much of that remaining chunk as possible.
 3. **Factor 3** scoops up the best of the remaining scraps, and so on.
 
 By the time the software reaches the fifth or sixth factor, there is almost no shared variation left to capture. Those final factors are essentially just picking up random noise and measurement error.

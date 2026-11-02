@@ -27,7 +27,7 @@ By the end of this chapter, you will learn how to formally test these hypotheses
 
 ### Signal vs. Noise
 
-When we look at the raw data from our dietary intervention study, we might see that the students in the healthy diet group experienced a larger drop in their depression scores than those in the control group. But how do we know if that difference is meaningful? In any experiment involving human beings, there will always be natural variation. Some students will organically feel better over a three-week period, some will feel worse, and hundreds of other factors, like academic stress or sleep, could influence those scores on any given day. This background variation is what statisticians call "noise."
+When we scan the raw data from our dietary intervention study, we might see that the students in the healthy diet group experienced a larger drop in their depression scores than those in the control group. But how do we know if that difference is meaningful? In any experiment involving human beings, there will always be natural variation. Some students will organically feel better over a three-week period, some will feel worse, and hundreds of other factors, like academic stress or sleep, could influence those scores on any given day. This background variation is what statisticians call "noise."
 
 
 
@@ -39,7 +39,7 @@ To figure out if we have a real signal, statistical tests use a bit of a logical
 
 
 
-Next, we look at the actual data we collected from our 75 students. We ask a central question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we observed?*
+Next, we examine the actual data we collected from our 75 students. We ask a central question: *If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we observed?*
 
 
 
@@ -78,7 +78,7 @@ We understand that a p-value helps us weigh evidence. However, to calculate that
 
 ### The Central Limit Theorem
 
-To understand how a t-test works, look at Figure 3.1. This histogram shows what would happen if we repeated our diet intervention study thousands of times. Suppose we gathered thousands of different groups of 75 students, gave them the same healthy diet, and calculated the mean change in their depression scores (`CESDDiff`) every single time.
+To understand how a t-test works, study Figure 3.1. This histogram shows what would happen if we repeated our diet intervention study thousands of times. Suppose we gathered thousands of different groups of 75 students, gave them the same healthy diet, and calculated the mean change in their depression scores (`CESDDiff`) every single time.
 
 ![Figure 3.1: Simulated sampling distribution of the mean CESDDiff for 10,000 samples of 75 students drawn from the observed diet-group change scores. The histogram forms a symmetric bell shape centered near -6.03 points, with a normal curve overlaid.](../figures/chapter_03/fig_03_01_hist_sampling_distribution_cesddiff.png){fig-alt="Histogram of 10,000 simulated sample means of CESDDiff, each from 75 students drawn from the diet group. The bars form a symmetric bell shape centered near -6 points, with almost all sample means between about -8.4 and -3.8."}
 
@@ -106,7 +106,7 @@ We now know that the t-test is our mathematical tool for comparing averages and 
 
 
 
-In Chapter 2, we discussed how the structure of a research study dictates how we analyze the results. When we look at our diet intervention study, we can ask three distinctly different research questions. Each question requires a different variation of the t-test.
+In Chapter 2, we discussed how the structure of a research study dictates how we analyze the results. In our diet intervention study, we can ask three distinctly different research questions. Each question requires a different variation of the t-test.
 
 ### Comparing to a Benchmark: The Single Sample t-Test
 
@@ -122,7 +122,7 @@ In many experimental designs, researchers measure the same people twice to see i
 
 - **Data Gathering and Format:** You measure the same participants twice, or you measure naturally paired subjects like twins. The data format usually features two columns of numbers side-by-side for each participant, allowing the software to calculate the direct difference between those two time points.
 - **The Research Question:** Did the students who received the healthy food packages see a significant improvement in their depression scores over the three weeks?
-- **The Application:** We only look at the students in the Diet group. We compare their Day 1 score (`CESD1`) to their Day 21 score (`CESD21`). Because we are tracking within-subject improvements, the software actually calculates the difference between the two scores for every single student (the `CESDDiff` variable) and tests to see if that average difference is significantly different from zero.
+- **The Application:** We analyze only the students in the Diet group. We compare their Day 1 score (`CESD1`) to their Day 21 score (`CESD21`). Because we are tracking within-subject improvements, the software actually calculates the difference between the two scores for every single student (the `CESDDiff` variable) and tests to see if that average difference is significantly different from zero.
 
 ### Comparing Two Separate Groups: The Independent Sample t-Test
 
@@ -221,7 +221,7 @@ Here is how we would formally report the baseline findings for our students:
 
 ### A Closer Look at the Conclusion
 
-Before we move on, let's look closely at two important nuances in how we worded that final conclusion:
+Before we move on, let's consider two important nuances in how we worded that final conclusion:
 
 
 
@@ -338,7 +338,7 @@ When the software calculates the t-statistic for two independent groups, the gen
 
 
 
-Looking at our data, the diet group's average change was -6.03 points, while the control group's average change was a slight increase of 0.11 points. The raw gap between those two averages is roughly -6.13 points.
+In our data, the diet group's average change was -6.03 points, while the control group's average change was a slight increase of 0.11 points. The raw gap between those two averages is roughly -6.13 points.
 
 
 
@@ -440,7 +440,7 @@ Why do we divide by the standard deviation? Imagine I tell you that a new diet p
 
 ### Interpreting Cohen's $d$
 
-When you look at the output from your statistical software, you generally look at the absolute value of Cohen's $d$ to judge the size of the effect. While context always matters, social scientists generally use these standard rules of thumb:
+When you read the output from your statistical software, you generally focus on the absolute value of Cohen's $d$ to judge the size of the effect. While context always matters, social scientists generally use these standard rules of thumb:
 
 - $d \approx 0.2$: A small effect.
 - $d \approx 0.5$: A medium effect.
@@ -530,7 +530,7 @@ These four elements are mathematically locked together. If you know three of the
 
 ### Visualizing Power Curves
 
-To see how these elements interact, researchers often look at visualizations called **power curves**.
+To see how these elements interact, researchers often use visualizations called **power curves**.
 
 ![Figure 3.2: Power curves for a two-sided independent sample t-test at alpha = .05, with equal group sizes. Each line shows how power rises with the total sample size for a small, medium, or large effect. The dashed horizontal line marks the conventional 80% target.](../figures/chapter_03/fig_03_02_line_power_curves.png){fig-alt="Line chart of statistical power against total sample size for three effect sizes. The large-effect line reaches 80% power near 52 participants, the medium-effect line near 128, and the small-effect line near 788. A dashed horizontal line marks 80% power."}
 
@@ -545,7 +545,7 @@ The most common use of power analysis is figuring out how many participants to r
 
 
 
-This is where the math meets practice. How can a researcher know the effect size before they run the study? There are generally two ways to answer this:
+This is where the math meets the real world. How can a researcher know the effect size before they run the study? There are generally two ways to answer this:
 
 
 
@@ -553,7 +553,7 @@ This is where the math meets practice. How can a researcher know the effect size
 
 
 
-Researchers will often look at previous, similar studies to see what kind of effect sizes were reported. If three previous studies on dietary interventions all found a Cohen's *d* of roughly 0.50, the researcher will plug 0.50 into their software to find out how many students they need to reliably detect that same medium effect.
+Researchers will often review previous, similar studies to see what kind of effect sizes were reported. If three previous studies on dietary interventions all found a Cohen's *d* of roughly 0.50, the researcher will plug 0.50 into their software to find out how many students they need to reliably detect that same medium effect.
 
 
 
@@ -585,7 +585,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 4. **Decisions carry the risk of error.** A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).
 5. **The Central Limit Theorem provides flexibility.** Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically $n \ge 30$).
 6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two separate groups.
-7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is large enough to matter in practice.
+7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or check the confidence interval to determine if the effect is large enough to matter in practice.
 8. **Power Analysis prevents wasted effort.** Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.
 
 
@@ -683,7 +683,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 **b)** Run the appropriate t-test to determine if the control group's `DASSDiff` scores were significantly different from zero.
 
-**c)** Look at the resulting 95% confidence interval. Does it include zero? How does this align with your calculated p-value?
+**c)** Examine the resulting 95% confidence interval. Does it include zero? How does this align with your calculated p-value?
 
 **d)** Write a complete APA-formatted conclusion reporting your results. Be sure to note the direction of the change (or lack thereof) based on the sample mean.
 
@@ -705,7 +705,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 **a)** Based on the p-value, did the diet group experience a statistically significant difference in BMI change compared to the control group?
 
-**b)** Look at the sample means for both groups. In practical terms, how much of a difference did the 21-day diet make on the students' BMI?
+**b)** Compare the sample means for both groups. In practical terms, how much of a difference did the 21-day diet make on the students' BMI?
 
 **c)** Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is essential for preventing researchers from making exaggerated claims about their studies.
 

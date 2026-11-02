@@ -80,9 +80,9 @@ Many student researchers assume the IRB is just a bureaucratic hurdle designed t
 
 
 
-When an IRB evaluates a protocol, they are specifically looking at three major concepts:
+When an IRB evaluates a protocol, they are specifically weighing three major concepts:
 
-- **Human Subjects:** The IRB is only concerned with research involving **human subjects**. This means the researcher is either interacting directly with living individuals (like conducting an interview or a diet intervention) or analyzing identifiable private information (like looking at identifiable student academic records). If you are analyzing a public dataset where all identities have been stripped away, like the global economic data from Chapter 4, the IRB generally does not need to intervene.
+- **Human Subjects:** The IRB is only concerned with research involving **human subjects**. This means the researcher is either interacting directly with living individuals (like conducting an interview or a diet intervention) or analyzing identifiable private information (like reviewing identifiable student academic records). If you are analyzing a public dataset where all identities have been stripped away, like the global economic data from Chapter 4, the IRB generally does not need to intervene.
 - **Minimal Risk:** The board's job is to protect participants from harm. The baseline they use is called **minimal risk**, which means the probability and magnitude of harm in the study are no greater than what a person would encounter in their normal, everyday life. An anonymous survey about favorite study habits is minimal risk. A study tracking illegal drug use or a clinical trial for depression medication exceeds minimal risk, requiring the IRB to demand much stricter safety and data stewardship protocols.
 - **Vulnerable Populations:** The foundation of ethical research is voluntary informed consent. However, some groups have a compromised ability to freely say "no." The IRB strictly protects **vulnerable populations**, which legally include children, prisoners, pregnant women, and individuals with cognitive impairments. In a college setting, even students can be considered vulnerable if they feel pressured to participate in a professor's study out of fear that refusing might impact their grades.
 
@@ -274,7 +274,7 @@ These questions test your understanding of the core ethical frameworks and defin
 ### Section B: Spot the Violation
 Read the following research scenarios. Identify the specific ethical or analytical violation occurring in each situation.
 
-5. A researcher studying diet and energy levels runs an independent $t$-test comparing men and women and finds a $p$-value of 0.08. He then decides to only look at women under 30, and finds a $p$-value of 0.04. He publishes the second finding without mentioning the first. What specific analytical violation has he committed?
+5. A researcher studying diet and energy levels runs an independent $t$-test comparing men and women and finds a $p$-value of 0.08. He then decides to analyze only women under 30, and finds a $p$-value of 0.04. He publishes the second finding without mentioning the first. What specific analytical violation has he committed?
 6. A hospital uses a machine learning algorithm to predict which patients will require intensive care. The algorithm was trained exclusively on data from the 1990s, when the hospital served a primarily wealthy, fully insured demographic. What is the ethical danger of deploying this algorithm on today's general population?
 7. A professor requires her introductory psychology students to participate in her clinical trial for a new anxiety medication, stating that anyone who refuses will automatically fail the course. Which specific Institutional Review Board guideline is the professor violating?
 8. A researcher collects data on college binge drinking. She stores the spreadsheet containing the students' names, dorm rooms, and drinking habits on her personal laptop and frequently works on the data at a public coffee shop. Is this a failure of data governance or data stewardship? Explain your reasoning.

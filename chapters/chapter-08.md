@@ -6,11 +6,11 @@ Our first questions that we'll tackle in this chapter are simple but profound: A
 
 
 
-These are meaningful questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
+These are meaningful questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist studies police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
 
 
 
-To answer questions like the one above, we need a new set of statistical tools designed specifically for categorical data. Instead of asking how much a numerical measurement changes, we will be looking at counts and percentages. We will ask whether our observations align with what we would expect by random chance, or if there is a systematic, underlying relationship at play.
+To answer questions like the one above, we need a new set of statistical tools designed specifically for categorical data. Instead of asking how much a numerical measurement changes, we will be working with counts and percentages. We will ask whether our observations align with what we would expect by random chance, or if there is a systematic, underlying relationship at play.
 
 
 
@@ -31,7 +31,7 @@ As we work through the chapter, we will analyze several structural variables des
 
 
 
-We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to look at two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
+We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to analyze two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
 
 
 
@@ -49,7 +49,7 @@ The statistical tool we use to formally test this relationship is the **Chi-Squa
 
 ### Formulating the Hypotheses
 
-Before running the test, it is critical to understand exactly what we mean by "distribution" in this context. We are looking at the overall percentage breakdown across all the categories of our variable simultaneously.
+Before running the test, it is critical to understand exactly what we mean by "distribution" in this context. We are tracking the overall percentage breakdown across all the categories of our variable simultaneously.
 
 According to the 2020 U.S. Census, the baseline population distribution we are using for our test is 57.8% White, 18.7% Hispanic, 12.1% Black, 5.9% Asian, and 0.7% Native American.
 
@@ -165,7 +165,7 @@ A cross-tabulation takes one variable and places each category across the column
 
 
 
-Let's look at the cross-tabulation for our mental illness and fleeing data:
+Consider the cross-tabulation for our mental illness and fleeing data:
 
 | Mental illness            | **Car** | **Foot** | **Not Fleeing** |
 | ------------------------- | :------ | :------- | :-------------- |
@@ -233,7 +233,7 @@ Because we are now working with two variables, the software will output a standa
 
 
 
-When we look at the residuals for individuals with documented signs of mental illness, we find large deviations across the board:
+When we check the residuals for individuals with documented signs of mental illness, we find large deviations across the board:
 
 
 
@@ -261,7 +261,7 @@ It is easy to confuse the Test for Independence with our next tool, the **Chi-Sq
 
 
 
-The Test for Independence looks at a single sample and asks if two variables interact. The Test for Homogeneity takes two separate, predefined populations and asks if they share the same categorical profile for a single variable. The word "homogeneous" literally means "of the same kind."
+The Test for Independence uses a single sample and asks if two variables interact. The Test for Homogeneity takes two separate, predefined populations and asks if they share the same categorical profile for a single variable. The word "homogeneous" literally means "of the same kind."
 
 
 
@@ -269,7 +269,7 @@ To see this design difference, we are going to switch to a new dataset: `icu_dat
 
 
 
-Instead of looking at one big pool of patients, we are going to use the `Emergency` variable to split our data into two distinct populations: patients admitted for **Elective** procedures (scheduled in advance) and patients admitted for **Emergency** procedures (unexpected traumas). We want to know: Do these two distinct populations share the same age profile?
+Instead of analyzing one big pool of patients, we are going to use the `Emergency` variable to split our data into two distinct populations: patients admitted for **Elective** procedures (scheduled in advance) and patients admitted for **Emergency** procedures (unexpected traumas). We want to know: Do these two distinct populations share the same age profile?
 
 ### Organizing the Data
 
@@ -305,7 +305,7 @@ By writing it this way, we see that the Test for Homogeneity is simply a tool to
 
 ### The Intuition Behind the Test
 
-If the null hypothesis is true, the percentage breakdown of the three age groups should look essentially identical regardless of whether you are looking at the elective wing or the emergency wing of the ICU.
+If the null hypothesis is true, the percentage breakdown of the three age groups should look essentially identical regardless of whether you are viewing the elective wing or the emergency wing of the ICU.
 
 
 
@@ -321,7 +321,7 @@ When our statistical software analyzes the cross-tabulated ICU data, it outputs 
 
 ### Post Hoc Analysis: Standardized Residuals
 
-Now we know the age profiles are different, but are *all* the age groups drastically different, or is the test being driven by one specific anomaly? To find out, we look at the standardized residuals for our cross-tabulation, using our rule of thumb that any value outside the range of $-2.0$ to $+2.0$ marks a significant deviation.
+Now we know the age profiles are different, but are *all* the age groups drastically different, or is the test being driven by one specific anomaly? To find out, we turn to the standardized residuals for our cross-tabulation, using our rule of thumb that any value outside the range of $-2.0$ to $+2.0$ marks a significant deviation.
 
 
 
@@ -399,7 +399,7 @@ If you observe 5 people but only expected 1, your raw gap is 4. When the softwar
 
 
 
-To prevent this from happening, statisticians use a strict rule of thumb: **every single expected count in your table must be at least 5.** *(Note: We are looking at the expected counts generated by the software, not the raw observed counts in your data).*
+To prevent this from happening, statisticians use a strict rule of thumb: **every single expected count in your table must be at least 5.** *(Note: We are checking the expected counts generated by the software, not the raw observed counts in your data).*
 
 
 
@@ -407,11 +407,11 @@ If your software alerts you that an expected count has fallen below 5, the stand
 
 
 
-> **The "Observed Count" Trap:** It is tempting to just look at your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap! Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
+> **The "Observed Count" Trap:** It is tempting to just rely on your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap! Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
 
 ## 8.9 Dependent Categorical Data: McNemar's Test
 
-We are now ready to look at a slightly more complex question, although just why this is complex needs some explanation: Are men more likely to ask for a second date than women?
+We are now ready to tackle a slightly more complex question, although just why this is complex needs some explanation: Are men more likely to ask for a second date than women?
 
 
 
@@ -476,7 +476,7 @@ When we run McNemar's test in our statistical software, we evaluate the $p$-valu
 
 
 
-Looking at our dataset of 276 interactions, the men did in fact say "yes" unilaterally more often than the women (83 times compared to 64 times). However, in statistics, we must ask if that gap is large enough to rule out random chance. The software outputs a $p$-value of $0.138$. Because this $p$-value is large (well above the standard $0.05$ threshold), we fail to reject the null hypothesis.
+In our dataset of 276 interactions, the men did in fact say "yes" unilaterally more often than the women (83 times compared to 64 times). However, in statistics, we must ask if that gap is large enough to rule out random chance. The software outputs a $p$-value of $0.138$. Because this $p$-value is large (well above the standard $0.05$ threshold), we fail to reject the null hypothesis.
 
 
 
@@ -484,11 +484,11 @@ What does this mean in plain English? Even though we observed a slight imbalance
 
 ### Post Hoc Analysis for McNemar's Test
 
-Because McNemar's test looks at a constrained scenario (comparing a simple binary "yes or no" choice between two dependent groups), it operates entirely within a $2 \times 2$ framework.
+Because McNemar's test addresses a constrained scenario (comparing a simple binary "yes or no" choice between two dependent groups), it operates entirely within a $2 \times 2$ framework.
 
 
 
-When you only have two groups, a significant overall test inherently tells you exactly where the difference lies. There are no extra categories to sort through. Because of this structural simplicity, formal post hoc testing is generally not required for McNemar's test. If your result is significant, the final step is to look at the raw counts of the two disagreement cells to see which group had the higher rate.
+When you only have two groups, a significant overall test inherently tells you exactly where the difference lies. There are no extra categories to sort through. Because of this structural simplicity, formal post hoc testing is generally not required for McNemar's test. If your result is significant, the final step is to compare the raw counts of the two disagreement cells to see which group had the higher rate.
 
 ### Communicating Results in APA Format
 
@@ -508,7 +508,7 @@ In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-va
 
 When working with numerical data, we used effect sizes like Cohen's $d$ to measure the actual strength of the difference. For categorical data, we need a different set of tools to measure the strength of an association.
 
-To see why this matters, let's look at two variables from our `fatal_police_shootings.csv` dataset. We want to evaluate the connection between the type of weapon an individual possessed (**`armed`**) and the overall classification of the immediate threat (**`threat_level`**).
+To see why this matters, let's use two variables from our `fatal_police_shootings.csv` dataset. We want to evaluate the connection between the type of weapon an individual possessed (**`armed`**) and the overall classification of the immediate threat (**`threat_level`**).
 
 
 
@@ -546,7 +546,7 @@ If you are using **Phi ($\phi$)** for a $2 \times 2$ table, the cutoffs are stra
 
 
 
-If you are using **Cramér's $V$**, interpreting the metric requires one extra step. Because adding more categories to a table naturally spreads the data out, the definition of a "strong" relationship shifts depending on the size of your cross-tabulation. To find the right cutoffs, you look at your two variables and count the number of categories in the *smaller* variable.
+If you are using **Cramér's $V$**, interpreting the metric requires one extra step. Because adding more categories to a table naturally spreads the data out, the definition of a "strong" relationship shifts depending on the size of your cross-tabulation. To find the right cutoffs, you identify your two variables and count the number of categories in the *smaller* variable.
 
 
 
@@ -607,7 +607,7 @@ The most natural way for humans to think about chance is through probability. If
 
 
 
-When our statistical software calculates the Relative Risk for our ICU data, it looks at the probability of surviving for patients with an infection and divides it by the probability of surviving for patients without an infection. The software outputs a Relative Risk of $0.83$.
+When our statistical software calculates the Relative Risk for our ICU data, it takes the probability of surviving for patients with an infection and divides it by the probability of surviving for patients without an infection. The software outputs a Relative Risk of $0.83$.
 
 
 
@@ -704,7 +704,7 @@ Because the researcher artificially fixed the total number of sick and healthy p
 
 
 
-Up until now, we have only looked at relationships between two categorical variables at a time. But what if we wanted to predict ICU survival using infection status, the patient's age, and their blood pressure all at the same time?
+Up until now, we have only analyzed relationships between two categorical variables at a time. But what if we wanted to predict ICU survival using infection status, the patient's age, and their blood pressure all at the same time?
 
 
 
@@ -714,7 +714,7 @@ To do that, we need a predictive regression model. However, standard linear regr
 
 ## 8.13 Evaluating a Classification: Sensitivity and Specificity
 
-In the previous section, we measured how much a condition (like infection) *impacts* the odds of an outcome. Now, we will look at how we can use information to *predict* an outcome.
+In the previous section, we measured how much a condition (like infection) *impacts* the odds of an outcome. Now, we will explore how we can use information to *predict* an outcome.
 
 
 
@@ -730,7 +730,7 @@ A Confusion Matrix is a specific type of $2 \times 2$ table used to see how well
 
 
 
-When we evaluate any predictive rule, we get four distinct general outcomes. Let's look at what these mean broadly, and how they apply specifically to the 200 patients in `icu_data.csv`:
+When we evaluate any predictive rule, we get four distinct general outcomes. Let's break down what these mean broadly, and how they apply specifically to the 200 patients in `icu_data.csv`:
 
 - **True Positive (The "Hit"):** In general research, this means your rule correctly identified an event that occurred. For our ICU data, the patient had an emergency admission, and our pulse rule correctly predicted it.
 - **True Negative (The "Correct Rejection"):** Generally, this means your rule correctly ignored something that did not happen. In our dataset, the patient had an elective admission, and our pulse rule correctly predicted it as a non-emergency.
@@ -791,7 +791,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 1. **The "Observed Count" Trap**
 
-   It is tempting to look at your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap. Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
+   It is tempting to rely on your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap. Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
 
 2. **Mixing up your table sizes for Cramér's $V$**
 
@@ -799,7 +799,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 3. **Letting the software pick your test**
 
-   Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a $p$-value. It is entirely up to you to look at how the data was gathered (one sample versus two distinct populations) to correctly interpret what that $p$-value means.
+   Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a $p$-value. It is entirely up to you to consider how the data was gathered (one sample versus two distinct populations) to correctly interpret what that $p$-value means.
 
 4. **Treating Odds Ratios like Relative Risk**
 
@@ -836,7 +836,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 1. A public health researcher is analyzing a small sample of 40 patients to see if there is an association between a rare dietary supplement and a specific side effect. Looking at the raw cross-tabulation, every single cell has at least 6 people in it. However, when the software runs the Chi-Square Test for Independence, it flags a warning that an assumption has been violated. Explain the "Observed Count" trap and why this mathematical warning occurred.
 2. A sociologist surveys 500 randomly selected adults in a single city and asks them two questions: their primary news source (Cable, Print, or Social Media) and their voting frequency (Always, Sometimes, Rarely). They want to know if news source and voting frequency are connected. Another researcher takes 250 known Urban residents and 250 known Rural residents and compares their primary news sources. Explain which researcher should use the Test for Independence and which should use the Test for Homogeneity, and justify your answer based on their study designs.
-3. A criminal justice student wants to know if a police body camera alters a subject's behavior. They look at 100 encounters where a subject interacted with an officer *before* the officer turned their camera on, and then look at the same 100 subjects' behavior *after* the camera was activated. The student plans to put the "Before" and "After" behaviors into a standard Chi-Square Test for Homogeneity. Explain why this violates a core assumption, and state which test must be used instead.
+3. A criminal justice student wants to know if a police body camera alters a subject's behavior. They record 100 encounters where a subject interacted with an officer *before* the officer turned their camera on, and then record the same 100 subjects' behavior *after* the camera was activated. The student plans to put the "Before" and "After" behaviors into a standard Chi-Square Test for Homogeneity. Explain why this violates a core assumption, and state which test must be used instead.
 4. A medical clinic implements a new, highly sensitive screening test for a rare autoimmune disease. A patient tests positive and begins to panic, assuming the positive result has just proven that they have the disease. Using the concepts of the sensitivity/specificity trade-off, explain why the patient should not panic and describe the standard next step in clinical testing.
 
 ### Choosing a Method
@@ -853,7 +853,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 9. A fellow student is presenting their research on the effects of a new study program on passing a difficult licensing exam. They ran an analysis and calculated an Odds Ratio of 3.0 for the students who took the program. On their slide, they write: "Students who take the program are 3.0 times more likely to pass the exam in terms of raw probability." Explain why this interpretation of an Odds Ratio is incorrect.
 
-10. You are reviewing a research paper draft written by a colleague. They ran a Chi-Square Test for Independence on a 3×5 cross-tabulation table (which has 8 degrees of freedom) and calculated a Cramér's V of 0.18. Using the Chi-Square degrees of freedom, they look at Jacob Cohen's reference table and claim this is a "Weak" effect. Explain their mistake and identify exactly how they should have determined the table size for interpreting Cramér's V.
+10. You are reviewing a research paper draft written by a colleague. They ran a Chi-Square Test for Independence on a 3×5 cross-tabulation table (which has 8 degrees of freedom) and calculated a Cramér's V of 0.18. Using the Chi-Square degrees of freedom, they consult Jacob Cohen's reference table and claim this is a "Weak" effect. Explain their mistake and identify exactly how they should have determined the table size for interpreting Cramér's V.
 
 ### Software Application
 

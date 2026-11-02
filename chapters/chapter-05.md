@@ -28,7 +28,7 @@ In previous chapters, you used simple linear regression to predict a single outc
 
 
 
-Why do we need this upgrade? Let's look at our dataset. You might start your analysis by running a simple linear model. You try to predict neonatal birth weight (`weight`) using only prenatal visits (`visits`). The software gives you a positive slope. This suggests that as a mother makes more prenatal visits, her baby's birth weight increases.
+Why do we need this upgrade? Let's start with our dataset. You might start your analysis by running a simple linear model. You try to predict neonatal birth weight (`weight`) using only prenatal visits (`visits`). The software gives you a positive slope. This suggests that as a mother makes more prenatal visits, her baby's birth weight increases.
 
 
 
@@ -52,7 +52,7 @@ To **control for** a variable means we mathematically hold that variable constan
 
 
 
-Let's look at a practical application using our dataset. Imagine you want to know how the number of prenatal visits (`visits`) affects an infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
+Let's explore a practical application using our dataset. Imagine you want to know how the number of prenatal visits (`visits`) affects an infant's birth weight (`weight`). You start by running a simple linear regression just like you did in Chapter 4.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
@@ -91,7 +91,7 @@ By adding predictors, we strip away the confounding noise. This allows us to see
 
 ## 5.4 Evaluating the Model
 
-You just built a multiple regression model to neutralize a confounding factor. However, before you analyze individual variables, you must look at the big picture. Does your new complex model explain anything useful?
+You just built a multiple regression model to neutralize a confounding factor. However, before you analyze individual variables, you must consider the big picture. Does your new complex model explain anything useful?
 
 
 
@@ -115,7 +115,7 @@ Our software reports an Adjusted $R^2$ of $30.61\%$. It is slightly lower than t
 
 
 
-Now you can look at the regression equation itself. Your statistical software generates the following mathematical formula:
+Now you can read the regression equation itself. Your statistical software generates the following mathematical formula:
 
 
 
@@ -131,7 +131,7 @@ The slope for gestational duration (`weeks`) is $0.27201$. For every additional 
 
 
 
-Finally, look at the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful interpretation for your research.
+Finally, turn to the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful interpretation for your research.
 
 ## 5.5 Evaluating Predictors
 
@@ -160,13 +160,13 @@ The slope for `visits` is $0.02489$. The slope for `weeks` is $0.27201$. It look
 
 
 
-Instead of looking at the raw slopes, we must look at the test statistic. In your software output, this is labeled as the T-Value. This value is simply the slope divided by the standard error.
+Instead of relying on the raw slopes, we must examine the test statistic. In your software output, this is labeled as the T-Value. This value is simply the slope divided by the standard error.
 
 The T-Value for `visits` is $2.82$. This means the visits signal is $2.82$ times larger than its background noise. The p-value is $0.005$. Because this is less than our standard $0.05$ threshold, the number of prenatal visits is a statistically significant predictor.
 
 
 
-Now look at `weeks`. The T-Value is $19.26$. The gestational duration signal is more than $19$ times larger than its background noise. The p-value is below $0.001$, which is highly significant.
+Now consider `weeks`. The T-Value is $19.26$. The gestational duration signal is more than $19$ times larger than its background noise. The p-value is below $0.001$, which is highly significant.
 
 
 
@@ -240,7 +240,7 @@ Suppose the software chooses High School as the baseline group. It will then cre
 
 
 
-Our dataset does not actually track maternal education, so let's look at a hypothetical example to see how the math works. Imagine your software generates the following multiple regression equation. We are predicting birth weight using gestational weeks, a Bachelor's Degree indicator, and a Graduate Degree indicator. High School is our hidden baseline group.
+Our dataset does not actually track maternal education, so let's walk through a hypothetical example to see how the math works. Imagine your software generates the following multiple regression equation. We are predicting birth weight using gestational weeks, a Bachelor's Degree indicator, and a Graduate Degree indicator. High School is our hidden baseline group.
 
 
 
@@ -298,7 +298,7 @@ You cannot have the `mature` $\times$ `smoker` interaction term without also kee
 
 ### Interpreting the Math
 
-How do we read this complex equation? We just look at our on-and-off switches again.
+How do we read this complex equation? We just revisit our on-and-off switches.
 
 If a younger mother is a nonsmoker, both the `mature` and `smoker` indicators are zero. The interaction term is $0 \times 0$, which equals zero. It vanishes.
 
@@ -318,7 +318,7 @@ In our example, the p-value for the `smoker` variable no longer tests the genera
 
 
 
-This leads to a second strict rule for interactions. If your model contains an interaction term, you must ignore the p-values for the individual main effects. You should only look at the p-value for the interaction itself.
+This leads to a second strict rule for interactions. If your model contains an interaction term, you must ignore the p-values for the individual main effects. You should only interpret the p-value for the interaction itself.
 
 
 
@@ -426,11 +426,11 @@ When you look at a multiple regression equation, it is tempting to just look for
 
 
 
-Regression slopes are tied directly to their units of measurement. You cannot compare a slope measured in years to a slope measured in weeks. To evaluate which predictor provides the strongest signal, you must look at the T-Values in your software output. The T-Value compares the slope against its own background noise, giving you a safe way to evaluate variable strength.
+Regression slopes are tied directly to their units of measurement. You cannot compare a slope measured in years to a slope measured in weeks. To evaluate which predictor provides the strongest signal, you must compare the T-Values in your software output. The T-Value compares the slope against its own background noise, giving you a safe way to evaluate variable strength.
 
 ### Forgetting the Baseline Group
 
-When you add categorical variables to a model, the software creates on-and-off switches using indicator variables. It is easy to look at the slope for a category, such as a Bachelor's Degree, and interpret it as an absolute value.
+When you add categorical variables to a model, the software creates on-and-off switches using indicator variables. It is easy to glance at the slope for a category, such as a Bachelor's Degree, and interpret it as an absolute value.
 
 
 
@@ -482,7 +482,7 @@ Journals provide the standard error so readers can independently verify the prec
 
 
 
-For example, look at the Years of Experience in Model 3. The slope is $1,050$ and the standard error is $350$. Doubling the standard error gives us $700$. This means we can be roughly 95% confident that the true population return on a year of experience is somewhere between $350$ and $1,750$.
+For example, consider the Years of Experience in Model 3. The slope is $1,050$ and the standard error is $350$. Doubling the standard error gives us $700$. This means we can be roughly 95% confident that the true population return on a year of experience is somewhere between $350$ and $1,750$.
 
 
 
@@ -494,7 +494,7 @@ This is the most important step. You must trace your primary variable horizontal
 
 
 
-In Model 1, the slope for the "Years of Education" variable is $4,500. This suggests a large financial return for every extra year of schooling. Now look at Model 2. The researchers added "Years of Experience" to the equation. The slope for education drops to $3,800. Finally, look at Model 3. The researchers added "Parental Income." This is a major confounding factor in both educational access and financial networking. When we control for parental income, the slope for education plummets to $2,100. It also loses two significance stars. The correct interpretation here is that the original $4,500 slope was heavily inflated by confounding variables.
+In Model 1, the slope for the "Years of Education" variable is $4,500. This suggests a large financial return for every extra year of schooling. Now turn to Model 2. The researchers added "Years of Experience" to the equation. The slope for education drops to $3,800. Finally, examine Model 3. The researchers added "Parental Income." This is a major confounding factor in both educational access and financial networking. When we control for parental income, the slope for education plummets to $2,100. It also loses two significance stars. The correct interpretation here is that the original $4,500 slope was heavily inflated by confounding variables.
 
 ### Step 4: Evaluating the Big Picture
 
@@ -502,7 +502,7 @@ Finally, examine the bottom rows of the table. You want to see if the added comp
 
 
 
-Let's take a look at the Adjusted $R^2$. In Model 1, education alone only explained $12\%$ of the variation in starting salaries. By Model 3, the Adjusted $R^2$ climbs to $38\%$. This steady increase proves that adding experience and parental income was theoretically justified. The full model gives us a much more accurate and honest picture of reality. Be suspicious of more complex models that end up have lower Adjusted $R^2$, as that typically means the additional complexity did not add utility to the model.
+Let's check the Adjusted $R^2$. In Model 1, education alone only explained $12\%$ of the variation in starting salaries. By Model 3, the Adjusted $R^2$ climbs to $38\%$. This steady increase proves that adding experience and parental income was theoretically justified. The full model gives us a much more accurate and honest picture of reality. Be suspicious of more complex models that end up have lower Adjusted $R^2$, as that typically means the additional complexity did not add utility to the model.
 
 ## 5.12 Guided Analysis: The Wage Gap
 
@@ -521,7 +521,7 @@ We will focus on four variables:
 
 ### Step 1: The Raw Gap
 
-We begin by looking at the raw, unadjusted relationship. We run a simple linear regression using only `Sex` to predict `Salary`.
+We begin with the raw, unadjusted relationship. We run a simple linear regression using only `Sex` to predict `Salary`.
 
 | Predictor | Coefficient | SE | t | p |
 | :--- | ---: | ---: | ---: | ---: |
@@ -551,7 +551,7 @@ If we ignore these factors, our model suffers from omitted variable bias. To fix
 
 ### Step 3: Controlling for Variables in Action
 
-When we look at the new model, we see a dramatic shift. The slope for `Age` is 0.73 (an extra $734 per year of age). The slope for `PhD` is 48.55 (an extra $48,554 for holding a doctorate).
+In the new model, we see a dramatic shift. The slope for `Age` is 0.73 (an extra $734 per year of age). The slope for `PhD` is 48.55 (an extra $48,554 for holding a doctorate).
 
 But look at what happened to the slope for `Sex`. It shifted to 27.64. Furthermore, the new p-value for `Sex` is 0.003.
 
@@ -607,7 +607,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 
 ### Communicating Results
 
-8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should look at to compare variable strength.
+8. A fellow student is presenting their research on commute times. They used a multiple regression model to predict the total commute time in minutes. Their predictors were the distance traveled in miles (slope = $1.2$) and the driver's age in years (slope = $0.05$). The student concludes their presentation by stating, "Because the slope for distance is so much larger than the slope for age, distance is a much stronger predictor." Explain the fatal flaw in this communication and tell the student which metric they should use to compare variable strength.
 9. A journalist reads a published multiple regression study about academic success. The study shows that eating a nutritious breakfast is positively associated with higher college GPAs, even after the researchers explicitly controlled for family income and high school performance. The journalist publishes an article with the headline: "Study Proves Eating Breakfast Causes Better Grades." Explain why this headline is ethically and scientifically flawed, and provide a more accurate alternative.
 10. You are reviewing a research paper draft written by a colleague. They proudly explain that they used their software's "Automated Model Selection" button to build their regression equation. The software tested 50 different variables and spit out a final model with 12 predictors. Half of these predictors have no logical connection to the research topic. Explain the dangers of the "Autopilot Trap" to your colleague. Introduce the concept of overfitting and explain why theoretical justification is required in real research.
 
@@ -619,14 +619,14 @@ For this section, you will use statistical software to analyze the `college_teac
 
 11. **Exploring the Wage Gap:** We often hear about the gender wage gap in education. Let's explore this using our dataset.
 a) Run a simple linear regression predicting `Salary` using only the `Sex` indicator variable ($1 = \text{male}$, $0 = \text{female}$). What is the slope for `Sex`, and what does it tell you about the raw difference in pay?
-b) Now, build a multiple regression model by adding `Age` to the equation. Look at the new slope for `Sex`. Did the gap widen, shrink, or reverse?
+b) Now, build a multiple regression model by adding `Age` to the equation. Check the new slope for `Sex`. Did the gap widen, shrink, or reverse?
 c) Explain conceptually why the slope for `Sex` changed when you added the other variables. Use the phrase "controlling for" in your answer.
 
 
 
 12. **Evaluating the Model and Predictors:** Evaluate the overall accuracy and the individual predictors in your multiple regression model from Question 1b.
 a) Find the Adjusted $R^2$ value in your software output. Interpret what this percentage means regarding the variation in teacher salaries. Why should you report this metric instead of the regular $R^2$?
-b) Look at the slopes for `Age` and `Sex`. Because they use different units (years versus a biological sex), you cannot compare the slopes directly. Which specific metric in your software output should you use instead to see which variable has a stronger influence on salary?
+b) Examine the slopes for `Age` and `Sex`. Because they use different units (years versus a biological sex), you cannot compare the slopes directly. Which specific metric in your software output should you use instead to see which variable has a stronger influence on salary?
 c) Compare those specific metrics for `Age` and `Sex`. Which variable provides the stronger signal in this dataset?
 
 

@@ -33,7 +33,7 @@ By the end of this chapter, you will learn how to measure the exact strength of 
 
 ## 4.2 First Things First: Linear Correlation and the Coefficient of Determination
 
-In our initial explorations of data, we learned that scatterplots are the perfect visual tool for exploring the relationship between two numerical variables. For our current analysis, we want to map the raw connection between a country's economic baseline and its physical strain on the environment. To do this, we will look at `GDPperCapita` alongside `Footprint`.
+In our initial explorations of data, we learned that scatterplots are the perfect visual tool for exploring the relationship between two numerical variables. For our current analysis, we want to map the raw connection between a country's economic baseline and its physical strain on the environment. To do this, we will pair `GDPperCapita` with `Footprint`.
 
 
 
@@ -148,7 +148,7 @@ Knowing that a strong correlation exists between two variables is a good startin
 
 Building a reliable model requires discipline. To ensure our predictions are trustworthy, we will follow a strict, four-step modeling process:
 
-1. **Choose a form:** First, we look at a scatterplot of our data to decide if a straight mathematical line makes logical sense for the shape we see.
+1. **Choose a form:** First, we inspect a scatterplot of our data to decide if a straight mathematical line makes logical sense for the shape we see.
 2. **Fit to data:** Next, we rely on our statistical software to calculate the exact mathematical line that best cuts through the center of our data points.
 3. **Assess accuracy:** We then perform diagnostic checks to see how much our data deviates from that perfect line, ensuring our tool does not have any hidden, systematic errors.
 4. **Use for inference:** Finally, if the model passes our checks, we use it to make predictions and draw conclusions about our population.
@@ -215,7 +215,7 @@ This brings us to a key rule for statistical modeling: **never confuse the size 
 
 
 
-If you want to know how strong the relationship is, you must look at your linear correlation ($r$). If you want to know how reliable your predictions will be, you must look at your R-squared ($R^2$).
+If you want to know how strong the relationship is, you must check your linear correlation ($r$). If you want to know how reliable your predictions will be, you must consult your R-squared ($R^2$).
 
 
 
@@ -424,7 +424,7 @@ Once you transform your predictor variable, your statistical software will give 
 
 
 
-Let's look at the actual output when we apply a **Base-10 logarithm** (written as `log10`) to our global health data. By squishing the wealth scale, our model's accuracy jumps. We achieve an $R^2$ of **77.22%**, meaning over three-quarters of the global variation in lifespan can be explained by our new, linearized economic curve.
+Let's examine the actual output when we apply a **Base-10 logarithm** (written as `log10`) to our global health data. By squishing the wealth scale, our model's accuracy jumps. We achieve an $R^2$ of **77.22%**, meaning over three-quarters of the global variation in lifespan can be explained by our new, linearized economic curve.
 
 
 
@@ -475,7 +475,7 @@ Because this entire interval is positive (it does not cross zero), we have stron
 
 
 
-Simple scaling is mathematically valid here, so if we wanted to look at a more meaningful $10,000 change in GDP per capita, we simply multiply the confidence interval values by 10,000 as well: *We are 95% confident that in the population, for every $10,000 increase in a country's GDP per capita, the true average ecological footprint increases by between 2.17 and 2.77 units.*
+Simple scaling is mathematically valid here, so if we wanted to consider a more meaningful $10,000 change in GDP per capita, we simply multiply the confidence interval values by 10,000 as well: *We are 95% confident that in the population, for every $10,000 increase in a country's GDP per capita, the true average ecological footprint increases by between 2.17 and 2.77 units.*
 
 ### Point Estimates: Predicting the Mean
 
@@ -526,7 +526,7 @@ As you begin applying regression analysis to your own research, keep these commo
 
 - **The "$r = 0$" Trap:** If your software tells you that $r = 0$, do not assume there is *no* relationship between your variables. An $r$ of 0 only means there is no *linear* (straight-line) relationship. Your variables might still be strongly connected, but in a curved or complex way that a straight line cannot capture. Always look at your scatterplot!
 - **Assuming Causation:** Correlation proves that variables move in a predictable, synchronized way. It never proves that one variable *causes* the other. Unless you are running a strictly controlled, randomized experiment, always use language like "predicts" or "is associated with" rather than "causes."
-- **The "Bigger Slope is Better" Fallacy:** New researchers often see a large slope coefficient and assume it represents a stronger influence than a smaller slope. This is incorrect. Slope represents the rate of change based on the units of measurement (e.g., dollars vs. thousands of dollars). To judge the strength of the relationship, look at the correlation ($r$).
+- **The "Bigger Slope is Better" Fallacy:** New researchers often see a large slope coefficient and assume it represents a stronger influence than a smaller slope. This is incorrect. Slope represents the rate of change based on the units of measurement (e.g., dollars vs. thousands of dollars). To judge the strength of the relationship, use the correlation ($r$).
 - **Extrapolation:** A regression line is only valid within the boundaries of the data you collected. Using that line to predict values far outside your observed range (like predicting the life expectancy of a hypothetical nation with one billion dollars of GDP) is a gamble, not science.
 
 ## 4.10 Key Concepts

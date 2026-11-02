@@ -29,7 +29,7 @@ In this chapter, you will learn how to use advanced experimental designs to stra
 
 ## 7.2 The Evolution of Experimental Design
 
-Before we introduce our new methods, let's take a moment to look at the big picture. In Chapter 6, you learned that a standard ANOVA works by a process called partitioning variation. It takes all the chaotic differences in your dataset and splits them into two specific buckets: the signal and the noise.
+Before we introduce our new methods, let's take a moment to survey the big picture. In Chapter 6, you learned that a standard ANOVA works by a process called partitioning variation. It takes all the chaotic differences in your dataset and splits them into two specific buckets: the signal and the noise.
 
 
 
@@ -61,7 +61,7 @@ Finally, what if the biggest source of noise is simply the large, uncontrollable
 
 ## 7.3 The Two-Way ANOVA: Expanding the Model
 
-In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-way" because it looks at the effect of just *one* categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to look at two grouping variables at the same time? That is exactly what a **Two-Way ANOVA** does.
+In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-way" because it tests the effect of just *one* categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to study two grouping variables at the same time? That is exactly what a **Two-Way ANOVA** does.
 
 
 
@@ -77,7 +77,7 @@ By adding this second factor to our model, we pull age out of the noise bucket. 
 
 
 
-When a study categorizes participants using two or more factors at the same time, we call it a **factorial design**. In a factorial design, you cross your categories to look at every possible combination. For our maids, we have two conditions (Informed vs. Control) and two age blocks (Under 40 vs. 40 and older). This creates four unique, overlapping subgroups of participants to compare.
+When a study categorizes participants using two or more factors at the same time, we call it a **factorial design**. In a factorial design, you cross your categories to examine every possible combination. For our maids, we have two conditions (Informed vs. Control) and two age blocks (Under 40 vs. 40 and older). This creates four unique, overlapping subgroups of participants to compare.
 
 
 
@@ -92,11 +92,11 @@ Here is the main warning for factorial designs: if an interaction effect exists,
 
 
 
-Imagine if our mindset intervention was wildly successful for the younger maids, dropping their blood pressure by an average of 10 points. However, imagine the older maids felt stressed by the intervention, and their blood pressure actually *increased* by 10 points. What happens if we ignore age and only look at the main effect of the intervention? The 10-point drop and the 10-point increase average out to zero.
+Imagine if our mindset intervention was wildly successful for the younger maids, dropping their blood pressure by an average of 10 points. However, imagine the older maids felt stressed by the intervention, and their blood pressure actually *increased* by 10 points. What happens if we ignore age and only analyze the main effect of the intervention? The 10-point drop and the 10-point increase average out to zero.
 
 
 
-If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted differently depending on the participant's age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
+If you relied only on the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted differently depending on the participant's age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
 
 
 
@@ -126,7 +126,7 @@ Here is how to read an interaction plot: look at the lines. If the lines are per
 
 ![Figure 7.1: Interaction plot of post-intervention systolic blood pressure by condition and age group. The Under 40 line slopes down from control to informed, while the 40+ line slopes up, so the lines are not parallel. The single NA point marks the maid whose age was missing.](../figures/chapter_07/fig_07_01_line_interaction_syst2_condition_age.png){fig-alt="Interaction plot with condition on the x-axis and post-intervention systolic blood pressure on the y-axis. The Under 40 line falls from control to informed, the 40+ line rises, and a single NA point appears near the informed position. The 40+ line stays above the Under 40 line."}
 
-Let's look at the interaction plot for our hotel maids. First, follow the line for the "Under 40" age group. Notice that their average blood pressure is lower in the informed condition than in the control condition. For the younger maids, the mindset intervention worked exactly as the researchers hoped!
+Let's view the interaction plot for our hotel maids. First, follow the line for the "Under 40" age group. Notice that their average blood pressure is lower in the informed condition than in the control condition. For the younger maids, the mindset intervention worked exactly as the researchers hoped!
 
 
 
@@ -163,15 +163,15 @@ However, there is one structural difference that matters here. In a Two-Way ANOV
 3. 40+ / Control
 4. 40+ / Informed
 
-When checking for equal variances, we generate a jitter dot plot and look at the vertical spread across all four of these distinct cells, ensuring the largest spread is no more than double the smallest. When checking for normality, we generate a single probability plot (or Q-Q plot) of the model's pooled residuals, just as we did previously. Remember our rule from Chapter 6: avoid running formal statistical tests to check these assumptions. Rely on your visual plots and your intuition.
+When checking for equal variances, we generate a jitter dot plot and compare the vertical spread across all four of these distinct cells, ensuring the largest spread is no more than double the smallest. When checking for normality, we generate a single probability plot (or Q-Q plot) of the model's pooled residuals, just as we did previously. Remember our rule from Chapter 6: avoid running formal statistical tests to check these assumptions. Rely on your visual plots and your intuition.
 
 ### The Stop Sign
 
-Once your diagnostic plots look safe, you can run the Two-Way ANOVA and look at the output table. Statistical software will generate an Analysis of Variance table that provides Degrees of Freedom, $F$-statistics, and $p$-values for three distinct things: the main effect of your first factor, the main effect of your second factor, and the interaction effect between them.
+Once your diagnostic plots look safe, you can run the Two-Way ANOVA and read the output table. Statistical software will generate an Analysis of Variance table that provides Degrees of Freedom, $F$-statistics, and $p$-values for three distinct things: the main effect of your first factor, the main effect of your second factor, and the interaction effect between them.
 
 
 
-When you look at this table, you must follow one rule: always check the interaction $p$-value first. Treat it like a stop sign.
+When you interpret this table, you must follow one rule: always check the interaction $p$-value first. Treat it like a stop sign.
 
 
 
@@ -179,7 +179,7 @@ Why? Because if the interaction is statistically significant (if its $p$-value i
 
 ### Interpreting the Output
 
-Let's look at the output generated for our hotel maids. To see a mix of statistical results, we will look at the model predicting their baseline systolic blood pressure (`Syst`).
+Let's review the output generated for our hotel maids. To see a mix of statistical results, we will use the model predicting their baseline systolic blood pressure (`Syst`).
 
 | **Source**                     | **df** | **F-statistic** | **p-value** |
 | ------------------------------ | ------ | --------------- | ----------- |
@@ -194,22 +194,22 @@ Following that rule, we stop and look entirely at the interaction row (`Cond * A
 
 
 
-This is a useful lesson in why we never rely *only* on a graph. In the previous section, we looked at the interaction plot and saw the lines pointing in different directions. However, a $p$-value of $0.829$ is nowhere near our $0.05$ standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.
+This is a useful lesson in why we never rely *only* on a graph. In the previous section, we examined the interaction plot and saw the lines pointing in different directions. However, a $p$-value of $0.829$ is nowhere near our $0.05$ standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.
 
 Table 7.1 models baseline blood pressure, while Figure 7.1 plots post-intervention blood pressure. The post-intervention model gives an interaction $p$-value of $0.771$, also far from $0.05$, so the visual divergence is consistent with noise either way.
 
 
 
-Because the interaction is **not** statistically significant, the stop sign turns green. We are now mathematically allowed to look at the main effects:
+Because the interaction is **not** statistically significant, the stop sign turns green. We are now mathematically allowed to interpret the main effects:
 
-- **Main Effect of Condition (`Cond`):** The $p$-value is $0.184$. When controlling for age blocks, the experimental condition does not have a statistically significant effect. (This makes perfect logical sense here, as we are looking at baseline blood pressure measured *before* the psychological intervention even started!)
+- **Main Effect of Condition (`Cond`):** The $p$-value is $0.184$. When controlling for age blocks, the experimental condition does not have a statistically significant effect. (This makes perfect logical sense here, as we are analyzing baseline blood pressure measured *before* the psychological intervention even started!)
 - **Main Effect of Age (`Age_Group`):** The $p$-value is $0.017$. This is well below our threshold! This tells us that age has a statistically significant main effect on blood pressure.
 
 This output demonstrates why we use a Two-Way ANOVA. By chopping the maids into age blocks, we successfully identified a major source of variation. We scooped that age-related variance out of the catch-all noise bucket and proved that it genuinely impacts blood pressure.
 
 
 
-However, chopping a precise number like age into broad, arbitrary categories (like "Under 40" and "40+") is not always the best strategy. In the next section, we will look at a method that allows us to control for background noise without throwing away our exact numbers.
+However, chopping a precise number like age into broad, arbitrary categories (like "Under 40" and "40+") is not always the best strategy. In the next section, we will explore a method that allows us to control for background noise without throwing away our exact numbers.
 
 
 
@@ -227,7 +227,7 @@ However, chopping a precise number like age into broad, arbitrary categories (li
 
 ## 7.6 The ANCOVA: Introducing Continuous Covariates
 
-Let's take a step back and look at what the researchers are trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
+Let's take a step back and consider what the researchers are trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
 
 
 
@@ -247,7 +247,7 @@ To solve this issue with information loss, statisticians use an **ANCOVA** (Anal
 
 
 
-Let's look at our mindset intervention using a precise nuisance variable: baseline systolic blood pressure (`Syst`). We know that a maid's blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.
+Let's revisit our mindset intervention using a precise nuisance variable: baseline systolic blood pressure (`Syst`). We know that a maid's blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.
 
 
 
@@ -297,7 +297,7 @@ To check this assumption, statisticians look for an interaction between the cont
 
 
 
-Let's look at the preliminary assumption check generated by our statistical software for the hotel maids:
+Let's inspect the preliminary assumption check generated by our statistical software for the hotel maids:
 
 | **Source**                     | **df** | **F-statistic** | **p-value** |
 | ------------------------------ | ------ | --------------- | ----------- |
@@ -308,7 +308,7 @@ Let's look at the preliminary assumption check generated by our statistical soft
 
 : Table 7.2: Homogeneity of regression slopes check for the ANCOVA of post-intervention systolic blood pressure (n = 66).
 
-To check this assumption, we are strictly looking at the interaction row (`Syst * Cond`) to see if the covariate behaves differently across our two conditions. The $p$-value is $0.198$.
+To check this assumption, we are strictly focusing on the interaction row (`Syst * Cond`) to see if the covariate behaves differently across our two conditions. The $p$-value is $0.198$.
 
 
 
@@ -320,7 +320,7 @@ That means we have successfully passed the homogeneity of regression slopes assu
 
 ## 7.8 ANCOVA: Output Interpretation and Adjusted Means
 
-Now that we have verified our covariate behaves fairly across both groups, we can confidently look at the final ANCOVA results. 
+Now that we have verified our covariate behaves fairly across both groups, we can confidently move on to the final ANCOVA results. 
 
 
 
@@ -328,7 +328,7 @@ Statistical software will generate a standard Analysis of Variance table, but it
 
 
 
-Let's look at the ANCOVA output for our hotel maids, predicting their final post-intervention blood pressure (`Syst2`) while controlling for their exact baseline blood pressure (`Syst`).
+Let's read the ANCOVA output for our hotel maids, predicting their final post-intervention blood pressure (`Syst2`) while controlling for their exact baseline blood pressure (`Syst`).
 
 | **Source**        | **df** | **F-statistic** | **p-value** |
 | ----------------- | ------ | --------------- | ----------- |
@@ -338,19 +338,19 @@ Let's look at the ANCOVA output for our hotel maids, predicting their final post
 
 : Table 7.3: ANCOVA of post-intervention systolic blood pressure controlling for baseline systolic blood pressure (n = 66).
 
-To read this table, we simply look at each row one at a time.
+To read this table, we simply take each row one at a time.
 
 
 
 **1. Did the covariate help?**
 
-First, we look at the row for our baseline covariate (`Syst`). The $p$-value is exceptionally small ($p < .001$). This confirms what we suspected: a maid's baseline blood pressure is a statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a large source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.
+First, we find the row for our baseline covariate (`Syst`). The $p$-value is exceptionally small ($p < .001$). This confirms what we suspected: a maid's baseline blood pressure is a statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a large source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.
 
 
 
 **2. Did the psychological intervention work?**
 
-Next, we look at the row for our primary research interest: the experimental condition (`Cond`). We want to know if the mindset intervention changed their final blood pressure, *after* controlling for their baselines.
+Next, we move to the row for our primary research interest: the experimental condition (`Cond`). We want to know if the mindset intervention changed their final blood pressure, *after* controlling for their baselines.
 
 
 
@@ -387,7 +387,7 @@ This brings us all the way back to Chapter 3: the difference between a sample an
 
 
 
-To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will look at the ultimate design for eliminating individual biological noise: the Repeated Measures ANOVA.
+To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will cover the ultimate design for eliminating individual biological noise: the Repeated Measures ANOVA.
 
 ## 7.9 Repeated Measures ANOVA: The Within-Subjects Design
 
@@ -403,11 +403,11 @@ The short answer is absolutely not. If a researcher runs test after test on the 
 
 
 
-So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is an ethical, standard scientific practice.
+So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are examining a different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is an ethical, standard scientific practice.
 
 ### The Independence Violation
 
-Now, let's look at how BMI changed over the four weeks of the study. If we want to compare baseline `BMI` to final `BMI2`, our first instinct might be to toss both columns into a standard ANOVA.
+Now, let's see how BMI changed over the four weeks of the study. If we want to compare baseline `BMI` to final `BMI2`, our first instinct might be to toss both columns into a standard ANOVA.
 
 
 
@@ -429,7 +429,7 @@ A Repeated Measures ANOVA uses a **within-subjects design**. Instead of comparin
 
 
 
-Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math looks at the *change* inside each specific person, filtering out the background noise of their baseline genetics.
+Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math tracks the *change* inside each specific person, filtering out the background noise of their baseline genetics.
 
 
 
@@ -447,7 +447,7 @@ Analyzing longitudinal data introduces new statistical complexities because the 
 
 ## 7.10 Repeated Measures ANOVA: Output Interpretation
 
-Now that we understand how a within-subjects design uses participants as their own baseline, let's look at the final results for our hotel maids. We want to know if the mindset intervention (`Cond`) caused a change in Body Mass Index over the four-week period (`Time`).
+Now that we understand how a within-subjects design uses participants as their own baseline, let's turn to the final results for our hotel maids. We want to know if the mindset intervention (`Cond`) caused a change in Body Mass Index over the four-week period (`Time`).
 
 
 
@@ -642,7 +642,7 @@ For this section, you will use statistical software to analyze the `maid_mindset
 
     b) *The Main Model:* Run the standard ANCOVA (predicting `Wt2` using `Wt` and `Cond`). Look at the row for your covariate (`Wt`). Did baseline weight significantly predict final weight?
 
-    c) Look at the row for your experimental condition (`Cond`). Report its $F$-statistic and $p$-value. Did the mindset intervention significantly change physical weight?
+    c) Find the row for your experimental condition (`Cond`). Report its $F$-statistic and $p$-value. Did the mindset intervention significantly change physical weight?
 
     d) Generate the Estimated Marginal Means (Adjusted Means). Report the adjusted means for both groups, and explain in plain English what these specific numbers represent.
 
@@ -654,7 +654,7 @@ For this section, you will use statistical software to analyze the `maid_mindset
 
     a) In your own words, explain why you must use a Repeated Measures ANOVA instead of a standard One-Way ANOVA for this specific question.
 
-    b) Run the Repeated Measures model. Look at the interaction row between Time and Condition (`Time * Cond`). Is it statistically significant?
+    b) Run the Repeated Measures model. Check the interaction row between Time and Condition (`Time * Cond`). Is it statistically significant?
 
     c) What does a significant interaction mean in the context of this specific within-subjects design?
 

@@ -50,7 +50,7 @@ We call these columns **variables** because the information they hold naturally 
 
 
 
-To illustrate this, let's look at the student in the third row of the table. They are a senior (ClassYear=4), their GPA is a bit low compared to the other students at 2.97, and they seem to be missing more classes than the other students here at 12 classes missed. We can also see they have moderate depression, severe anxiety, and their sleep patterns differ sharply from the other peers in this short sampling from the dataset. Just this little bit of information can give us potential clues about the relationship between a student's psychological status, student performance, and sleep habits.
+To illustrate this, let's focus on the student in the third row of the table. They are a senior (ClassYear=4), their GPA is a bit low compared to the other students at 2.97, and they seem to be missing more classes than the other students here at 12 classes missed. We can also see they have moderate depression, severe anxiety, and their sleep patterns differ sharply from the other peers in this short sampling from the dataset. Just this little bit of information can give us potential clues about the relationship between a student's psychological status, student performance, and sleep habits.
 
 
 
@@ -72,11 +72,11 @@ Why does this distinction matter? Because the type of variable you have entirely
 
 ## 1.3 Visualizing Single Variables: Categorical Data
 
-Suppose you want to understand the baseline mental health of the students in our study. Before looking at how mental health affects grades, you first need to know how prevalent different levels of depression are among the 253 participants. 
+Suppose you want to understand the baseline mental health of the students in our study. Before exploring how mental health affects grades, you first need to know how prevalent different levels of depression are among the 253 participants. 
 
 
 
-To answer this, let's look at the `DepressionStatus` variable. This categorical variable records each student's clinical screening result as one of three distinct groups: normal, moderate, or severe. Counting how many students fall into each group gives you a summary, but a visual representation is often much faster to interpret. 
+To answer this, let's turn to the `DepressionStatus` variable. This categorical variable records each student's clinical screening result as one of three distinct groups: normal, moderate, or severe. Counting how many students fall into each group gives you a summary, but a visual representation is often much faster to interpret. 
 
 
 
@@ -96,7 +96,7 @@ Notice that because `DepressionStatus` is an ordinal variable, we keep the bars 
 
 
 
-However, what if you are working with a nominal variable that has a large number of categories? Imagine looking at data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be wide, cluttered, and hard to read.
+However, what if you are working with a nominal variable that has a large number of categories? Imagine reviewing data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be wide, cluttered, and hard to read.
 
 
 
@@ -114,7 +114,7 @@ A Pareto chart is a bar chart for nominal data where the bars are sorted in desc
 
 ## 1.4 Visualizing Single Variables: Quantitative Data
 
-Now that we can visualize categories, how do we handle numbers? Suppose we want to know how much sleep our 253 students get on average during the week. If we look at the `WeekdaySleep` variable, we see exact measurements like 6.5 hours, 7.2 hours, and 8.0 hours.
+Now that we can visualize categories, how do we handle numbers? Suppose we want to know how much sleep our 253 students get on average during the week. If we examine the `WeekdaySleep` variable, we see exact measurements like 6.5 hours, 7.2 hours, and 8.0 hours.
 
 
 
@@ -158,7 +158,7 @@ However, messy, real data often leans heavily to one side. We call this **skewne
 
 
 
-Let's look at the `ClassesMissed` variable. In the histogram of this numerical data, we see a large peak at zero, with a long "tail" stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
+Consider the `ClassesMissed` variable. In the histogram of this numerical data, we see a large peak at zero, with a long "tail" stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
 
 
 
@@ -174,7 +174,7 @@ While we typically use these shape terms for continuous numerical data, the conc
 
 ## 1.6 Visualizing Relationships: Two Numerical Variables
 
-Up to this point, we have only looked at variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But most research questions are about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
+Up to this point, we have only studied variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But most research questions are about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
 
 
 
@@ -242,7 +242,7 @@ By combining width (group size) and height (group rate), the total *area* of eac
 
 ## 1.8 Visualizing Relationships: Mixed and Complex Data
 
-In reality, research questions are rarely confined to just two simple variables of the same type. You will often need to mix categorical and numerical data, or look at three variables at once, to uncover the true story in your dataset.
+In reality, research questions are rarely confined to just two simple variables of the same type. You will often need to mix categorical and numerical data, or compare three variables at once, to uncover the true story in your dataset.
 
 
 
@@ -286,7 +286,7 @@ We can add a simplified `Region` variable as a **grouping variable** by changing
 
 
 
-By doing this, you are looking at three variables at once. The groups fall into distinct bands: Sub-Saharan Africa sits at low GDP per capita and low life expectancy, Western Europe sits at high values of both, and other regions span the range between. The grouping reveals a more granular look at the relationship than the original plot showed.
+By doing this, you are viewing three variables at once. The groups fall into distinct bands: Sub-Saharan Africa sits at low GDP per capita and low life expectancy, Western Europe sits at high values of both, and other regions span the range between. The grouping reveals a more granular look at the relationship than the original plot showed.
 
 
 
@@ -294,7 +294,7 @@ By doing this, you are looking at three variables at once. The groups fall into 
 
 
 
-Finally, what if you have three numerical variables? We can return to the country data and look at `GDPperCapita` (x-axis), `LifeExpectancy` (y-axis), and `Footprint` (bubble size), the ecological footprint per person.
+Finally, what if you have three numerical variables? We can return to the country data and use `GDPperCapita` (x-axis), `LifeExpectancy` (y-axis), and `Footprint` (bubble size), the ecological footprint per person.
 
 
 
@@ -340,7 +340,7 @@ If you simply want to state the single most common category, you report the **mo
 
 
 
-For numerical variables, you have two primary choices: the median and the mean. The **median** is the exact middle value when you line up all your data from smallest to largest. Half the students scored above the median, and half scored below. The median is particularly useful in data sets with outliers or skew because those unusual values far from the typical values in the data don't really affect it. If we look at the `Drinks` variable, most students drank 5 or fewer drinks in a week, with some extreme outliers reporting triple that or more. A few students reporting 20 drinks a week will not affect the median. The median simply tells you what the perfectly middle-of-the-pack student is doing.
+For numerical variables, you have two primary choices: the median and the mean. The **median** is the exact middle value when you line up all your data from smallest to largest. Half the students scored above the median, and half scored below. The median is particularly useful in data sets with outliers or skew because those unusual values far from the typical values in the data don't really affect it. If we check the `Drinks` variable, most students drank 5 or fewer drinks in a week, with some extreme outliers reporting triple that or more. A few students reporting 20 drinks a week will not affect the median. The median simply tells you what the perfectly middle-of-the-pack student is doing.
 
 
 
@@ -356,7 +356,7 @@ You will often hear that the mean is "flawed" because it gets pulled in the dire
 
 
 
-Consider a town council looking at resident income to forecast tax revenue. Income is notoriously right-skewed, with a few large outliers pulling the mean significantly higher than the median. If the council wants to know what a "typical" middle-class family earns, they should look at the median. 
+Consider a town council studying resident income to forecast tax revenue. Income is notoriously right-skewed, with a few large outliers pulling the mean significantly higher than the median. If the council wants to know what a "typical" middle-class family earns, they should use the median. 
 
 
 
@@ -470,7 +470,7 @@ Because the mean is mathematically more stable and consistent, we always prefer 
 
 ## 1.12 Populations and Samples: The Source of Our Data
 
-Let's look back at our `student_lifestyle_sleep.csv` dataset. Why did the researchers only study 253 students? If they want to understand how sleep affects college academic performance, wouldn't it be better to study *every* college student? Of course it would! But tracking down millions of students, securing their consent, and monitoring their sleep for two weeks is physically and financially impossible. 
+Let's return to our `student_lifestyle_sleep.csv` dataset. Why did the researchers only study 253 students? If they want to understand how sleep affects college academic performance, wouldn't it be better to study *every* college student? Of course it would! But tracking down millions of students, securing their consent, and monitoring their sleep for two weeks is physically and financially impossible. 
 
 
 
@@ -541,7 +541,7 @@ We already saw a **floor effect** with the `ClassesMissed` variable. A student c
 
 
 
-The opposite is a **ceiling effect**, which happens when data hits an absolute maximum limit. Look at the `GPA` variable. A student cannot score higher than a 4.0. If you give an easy exam where half the class scores 100%, the data piles up against the right wall of the graph, creating a left-skewed distribution. 
+The opposite is a **ceiling effect**, which happens when data hits an absolute maximum limit. Check the `GPA` variable. A student cannot score higher than a 4.0. If you give an easy exam where half the class scores 100%, the data piles up against the right wall of the graph, creating a left-skewed distribution. 
 
 
 
@@ -589,7 +589,7 @@ Can we translate that broad interest into a specific question we can answer with
 * **The Variables:** We are comparing `AnxietyStatus` (a categorical variable) against `ClassesMissed` (a numerical variable).
 
 ### Data Triage and Exploratory Analysis
-Before we calculate any averages, we must look at the shape of our data. If we were to plot a histogram of `ClassesMissed` for all 253 students, we would immediately see a strong **floor effect**. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes. 
+Before we calculate any averages, we must inspect the shape of our data. If we were to plot a histogram of `ClassesMissed` for all 253 students, we would immediately see a strong **floor effect**. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes. 
 
 
 

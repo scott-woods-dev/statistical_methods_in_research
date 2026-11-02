@@ -64,7 +64,7 @@ If you are paying close attention, that name might sound a bit strange. Why are 
 
 So, what kinds of research designs lead to an ANOVA? It depends slightly on who you ask:
 
-- **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. Looking at our dataset, a statistician would ask: *Is the mean writing score the same in each of the three program tracks?*
+- **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. In our dataset, a statistician would ask: *Is the mean writing score the same in each of the three program tracks?*
 - **The Researcher's Perspective:** Social science researchers often think of an ANOVA as a way to look for a broader relationship between a categorical variable and a numerical variable. A researcher would ask: *Does a student's choice of program track have a significant effect on their writing scores?*
 
 Both perspectives are valid, and both are answered using the same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.
@@ -89,7 +89,7 @@ To answer this, an ANOVA does something quite clever: it splits that giant pile 
 
 
 
-This piece of the pie measures how much the *averages* of our three treatment groups (general, academic, and vocational) differ from one another. Imagine calculating the average writing score for the academic track, the average for the general track, and the average for the vocational track, and then looking at the gaps between those three numbers.
+This piece of the pie measures how much the *averages* of our three treatment groups (general, academic, and vocational) differ from one another. Imagine calculating the average writing score for the academic track, the average for the general track, and the average for the vocational track, and then comparing the gaps between those three numbers.
 
 
 
@@ -126,7 +126,7 @@ We briefly touched on this in the introduction, but it is a question worth explo
 
 
 
-In our high school dataset, we want to look at writing scores across three distinct program tracks (general, academic, and vocational). It might seem logical to just run three separate independent sample $t$-tests:
+In our high school dataset, we want to compare writing scores across three distinct program tracks (general, academic, and vocational). It might seem logical to just run three separate independent sample $t$-tests:
 
 1. General versus Academic
 2. General versus Vocational
@@ -152,13 +152,13 @@ Just like the tests in previous chapters, we start with a skeptical baseline. Th
 
 - $H_0$: The true mean writing score is exactly the same across all three program tracks ($\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}$).
 
-The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a common pitfall.
+The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect exists. Because we are working with three groups simultaneously, getting this wording right matters, and it is the source of a common pitfall.
 
 - $H_1$: At least one pair of program tracks shows a significant difference in their true mean writing scores.
 
 ### A Common Pitfall: "Different from the Others"
 
-If you look at older textbooks or search online, you will frequently see the alternative hypothesis written as: *"At least one mean is different from the others."* This is misleading and can lead to a misunderstanding of what the ANOVA actually shows.
+If you read older textbooks or search online, you will frequently see the alternative hypothesis written as: *"At least one mean is different from the others."* This is misleading and can lead to a misunderstanding of what the ANOVA actually shows.
 
 
 
@@ -322,7 +322,7 @@ If your conceptual intuition is confirmed by your diagnostics (meaning your jitt
 
 ### Circling Back
 
-We have just covered a lot of ground checking the mathematical foundation of our ANOVA. Before we look at our final results, let's quickly review what these checks mean for our research.
+We have just covered a lot of ground checking the mathematical foundation of our ANOVA. Before we turn to our final results, let's quickly review what these checks mean for our research.
 
 
 
@@ -351,7 +351,7 @@ If your ANOVA produces a significant $p$-value, you know that at least one pair 
 
 ### Why Are We Allowed to Do This?
 
-Before we look at the specific tests, we need to resolve an apparent contradiction. In Section 6.5, we explicitly warned you that running multiple independent $t$-tests to compare our groups was a statistical trap. We stated that doing so inflates your risk of a Type I error (a false positive).
+Before we examine the specific tests, we need to resolve an apparent contradiction. In Section 6.5, we explicitly warned you that running multiple independent $t$-tests to compare our groups was a statistical trap. We stated that doing so inflates your risk of a Type I error (a false positive).
 
 
 
@@ -404,7 +404,7 @@ There is one final step to a complete analysis. A significant Tukey's or Dunnett
 
 To be a responsible researcher, you must move beyond statistical significance and establish practical significance. Once your post hoc test identifies which pairs differ, you must report:
 
-- **Confidence Intervals:** Look at the confidence interval for the difference between the two means. If the academic track scores higher than the general track, the confidence interval will tell you exactly how many points higher you can expect the population average to be.
+- **Confidence Intervals:** Use the confidence interval for the difference between the two means. If the academic track scores higher than the general track, the confidence interval will tell you exactly how many points higher you can expect the population average to be.
 - **Effect Sizes:** Calculate **Cohen's $d$** for the specific pair of groups to determine if the difference is small, medium, or large.
 
 A statistically significant difference is only useful if it represents a meaningful, practical impact.
@@ -462,7 +462,7 @@ Before we rush to calculate $p$-values, we must explore our data to ensure a sta
 
 
 
-We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational data, uneven groups are normal and acceptable for an ANOVA.
+We begin with the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational data, uneven groups are normal and acceptable for an ANOVA.
 
 
 
@@ -494,7 +494,7 @@ To finalize our data triage, we evaluate the four structural assumptions of the 
 
 
 
-**3. Normality:** We pool the residuals from all three groups and look at their distribution.
+**3. Normality:** We pool the residuals from all three groups and examine their distribution.
 
 ![Figure 6.5: Distribution of the pooled residuals from the one-way ANOVA in the guided analysis. The shape is mostly bell-shaped with a mild left tail, consistent with the lowest writing score in the academic track. The smooth curve marks a normal distribution with the same mean and standard deviation.](../figures/chapter_06/fig_06_05_hist_residuals_histogram_analysis.png){fig-alt="Histogram of the pooled ANOVA residuals, mostly bell-shaped and centered near zero, with a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."}
 
@@ -506,7 +506,7 @@ To confirm, we check our Q-Q plot. The dots track our diagonal reference line cl
 
 
 
-**4. Equal Variances:** Because our boxplot showed different sized boxes, we use a jitter plot to look at the true top-to-bottom spread of every single student.
+**4. Equal Variances:** Because our boxplot showed different sized boxes, we use a jitter plot to see the true top-to-bottom spread of every single student.
 
 ![Figure 6.7: Jitter plot of writing scores for the three program tracks in the guided analysis. The academic track sits higher, but the full vertical spread of scores is similar across groups. Black diamonds mark the group means.](../figures/chapter_06/fig_06_07_scatter_writing_jitter_analysis.png){fig-alt="Jitter plot of writing scores for the three program tracks. The academic column sits higher overall, but the total vertical spread of the dots is similar across all three columns. Black diamonds mark the group means."}
 
@@ -522,7 +522,7 @@ With our data triage complete and all structural assumptions met, we can confide
 
 
 
-Before looking at the software output, we ground ourselves by formally stating what we are testing. We start with the skeptical baseline that the program track has absolutely no effect on a student's writing performance.
+Before reading the software output, we ground ourselves by formally stating what we are testing. We start with the skeptical baseline that the program track has absolutely no effect on a student's writing performance.
 
 - **Null Hypothesis ($H_0$):** The true mean writing score is exactly the same across all three program tracks ($\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}$).
 - **Alternative Hypothesis ($H_1$):** At least one pair of program tracks shows a significant difference in their true mean writing scores.
@@ -613,7 +613,7 @@ When reading your post hoc results, it is tempting to use flawed, everyday logic
 
 
 
-Imagine you are testing two new clinical treatments (Treatment A and Treatment B) against a standard placebo control. Your post hoc analysis reveals that Treatment A is significantly better than the placebo ($p = .048$), but Treatment B is not quite significantly better than the placebo ($p = .052$). A common mistake is to look at these two results and confidently conclude, "Therefore, Treatment A is significantly better than Treatment B."
+Imagine you are testing two new clinical treatments (Treatment A and Treatment B) against a standard placebo control. Your post hoc analysis reveals that Treatment A is significantly better than the placebo ($p = .048$), but Treatment B is not quite significantly better than the placebo ($p = .052$). A common mistake is to glance at these two results and confidently conclude, "Therefore, Treatment A is significantly better than Treatment B."
 
 
 
@@ -625,7 +625,7 @@ To quote a famous statistical maxim: *The difference between "significant" and "
 
 
 
-**The Takeaway:** You can never draw a conclusion about the relationship between two groups by comparing their individual relationships to a third group. If you want to know if Treatment A is better than Treatment B, you cannot use the placebo as a middleman. You must look at the specific $p$-value for the direct, head-to-head comparison between Treatment A and Treatment B.
+**The Takeaway:** You can never draw a conclusion about the relationship between two groups by comparing their individual relationships to a third group. If you want to know if Treatment A is better than Treatment B, you cannot use the placebo as a middleman. You must use the specific $p$-value for the direct, head-to-head comparison between Treatment A and Treatment B.
 
 ### Mixing Up Measures: Boxplots vs. The Math
 

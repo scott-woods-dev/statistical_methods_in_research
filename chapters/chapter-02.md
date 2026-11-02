@@ -82,7 +82,7 @@ Once you have operationalized a concept into a measurable variable, you must eva
 
 
 
-Let's look at the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a valid measure of *initial* labor market interest.
+Let's identify the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a valid measure of *initial* labor market interest.
 
 
 
@@ -135,7 +135,7 @@ An **observational study** is exactly what it sounds like. Researchers observe i
 
 
 
-Surveys and polls are the most common examples of observational studies. If you want to know about the study habits of college freshmen, you might send out a questionnaire. If an economist wants to study national income trends, they might look at tax records. In both cases, the researcher is simply a record-keeper.
+Surveys and polls are the most common examples of observational studies. If you want to know about the study habits of college freshmen, you might send out a questionnaire. If an economist wants to study national income trends, they might turn to tax records. In both cases, the researcher is simply a record-keeper.
 
 
 
@@ -197,7 +197,7 @@ A research question asks about a relationship in the population. A statistical q
 2. **It must account for variability.** The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the same callback rates. A statistical question expects and embraces this natural variation.
 3. **It must identify a specific statistical measure.** The question must explicitly state what mathematical summary you are going to use to compare your groups. In Chapter 1, we learned about measures like the mean, median, and proportion. A statistical question forces you to declare exactly which of these you are hunting for.
 
-The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let's look at a few examples to see this translation process in action.
+The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let's walk through a few examples to see this translation process in action.
 
 
 
@@ -209,7 +209,7 @@ Our research question asks: Do identical resumes receive different interview cal
 
 
 
-To find our statistical measure, we have to look at our outcome variable. We are measuring whether or not an applicant received a callback. This is categorical data (a simple "yes" or "no"). You cannot calculate an "average" of a yes/no question. Instead, we have to count the number of successes (callbacks) and divide by the total number of resumes. Therefore, the only appropriate mathematical measure for this categorical outcome is a proportion. We can now write our final statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?*
+To find our statistical measure, we have to start with our outcome variable. We are measuring whether or not an applicant received a callback. This is categorical data (a simple "yes" or "no"). You cannot calculate an "average" of a yes/no question. Instead, we have to count the number of successes (callbacks) and divide by the total number of resumes. Therefore, the only appropriate mathematical measure for this categorical outcome is a proportion. We can now write our final statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?*
 
 
 
@@ -361,7 +361,7 @@ It is easy to mix up these two concepts because we often use them interchangeabl
 
 
 
-Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your reliable proxy is invalid.
+Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer spends on a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your reliable proxy is invalid.
 
 ### The Causation Illusion in Observational Studies
 
@@ -410,7 +410,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 
 
-**3.** A university researcher looks at five years of registrar records and discovers a strong relationship: students who take early morning classes tend to have higher graduation rates than students who only take afternoon classes. Based entirely on this study design, can the researcher conclude that waking up early causes students to graduate at higher rates? Why or why not?
+**3.** A university researcher reviews five years of registrar records and discovers a strong relationship: students who take early morning classes tend to have higher graduation rates than students who only take afternoon classes. Based entirely on this study design, can the researcher conclude that waking up early causes students to graduate at higher rates? Why or why not?
 
 
 

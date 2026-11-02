@@ -18,7 +18,7 @@ In this chapter, we will explore five common research scenarios where a standard
 
 1. **Evaluating Paired Differences (Wilcoxon Signed-Rank Test):** We want to compare the prices of required course textbooks between Amazon and the campus bookstore with a limited sample of 16 books.   
    - *Why standard tests fail:* We only have a random sample of 16 textbooks. When your sample size is this small, you cannot rely on the Central Limit Theorem to guarantee normality, making a standard paired $t$-test risky.   
-   - *The solution:* The **Wilcoxon Signed-Rank Test**, which safely evaluates paired, within-subject differences by looking at the median price difference rather than assuming a normal distribution.   
+   - *The solution:* The **Wilcoxon Signed-Rank Test**, which safely evaluates paired, within-subject differences by analyzing the median price difference rather than assuming a normal distribution.   
 2. **Comparing Independent Groups (Mann-Whitney U Test):** We want to compare the annual salaries of male and female college professors.   
    - *Why standard tests fail:* Income data is famously right-skewed. A few ultra-high earners pull the mean away from what is truly typical, making an independent $t$-test misleading.   
    - *The solution:* The **Mann-Whitney U Test**, which focuses on comparing medians rather than means to prevent extreme outliers from distorting your understanding of typical faculty pay.   
@@ -76,7 +76,7 @@ In earlier chapters, we used the paired $t$-test, the independent samples $t$-te
 
 
 
-Let's look at a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a large pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the large amount of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
+Let's use a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a large pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the large amount of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
 
 
 
@@ -84,13 +84,13 @@ When the mean is distorted by extreme outliers, we have to look for a different 
 
 
 
-Choosing the right nonparametric test follows the same logic you learned in earlier chapters. You just need to look at how your research is designed. Are your groups paired together or separate? How many groups are you comparing?
+Choosing the right nonparametric test follows the same logic you learned in earlier chapters. You just need to consider how your research is designed. Are your groups paired together or separate? How many groups are you comparing?
 
 
 
 - **Two Paired Groups:** Sometimes you measure the same people twice, like giving a pre-test and a post-test. Or, you might compare two naturally linked things, like the price of a specific textbook on Amazon versus the price of that same book at the campus bookstore. When your data is paired like this, and your sample size is small, you should use the **Wilcoxon Signed-Rank Test**. This is your safe alternative to the paired $t$-test.   
 - **Two Independent Groups:** Other times, you want to compare two separate groups of people who have no connection to one another. For example, you might want to compare the salaries of male professors to female professors. When you are comparing two independent groups, and extreme outliers make the median a better choice than the mean, you should use the **Mann-Whitney U Test**. This is your nonparametric alternative to the independent $t$-test.   
-- **Three or More Groups:** Finally, you might want to compare three or more distinct groups. For example, you might want to see if grade point averages differ across survey categories of drinking habits, like "Abstain," "Light," "Moderate," or "Heavy." Because these categories are ordinal variables, meaning they are ranked in a specific order, we cannot calculate a proper mean for them. To solve this, you should use the **Kruskal-Wallis Test**. This test evaluates differences across multiple groups by looking at how the data ranks, making it your safe alternative to the One-Way ANOVA.   
+- **Three or More Groups:** Finally, you might want to compare three or more distinct groups. For example, you might want to see if grade point averages differ across survey categories of drinking habits, like "Abstain," "Light," "Moderate," or "Heavy." Because these categories are ordinal variables, meaning they are ranked in a specific order, we cannot calculate a proper mean for them. To solve this, you should use the **Kruskal-Wallis Test**. This test evaluates differences across multiple groups by comparing how the data ranks, making it your safe alternative to the One-Way ANOVA.   
 
 ## 10.5 The Wilcoxon Signed-Rank Test
 
@@ -362,7 +362,7 @@ With our hypotheses established, we can run the Kruskal-Wallis test in our stati
 
 ## 10.10 Interpreting Software Output for the Kruskal-Wallis Test
 
-When you run a Kruskal-Wallis test using the `student_lifestyle_sleep.csv` dataset, the software pools all the grade point averages, ranks them, and then checks how those ranks are distributed across the four different `AlcoholUse` categories. Let's look at the results generated by statistical software like Minitab:   
+When you run a Kruskal-Wallis test using the `student_lifestyle_sleep.csv` dataset, the software pools all the grade point averages, ranks them, and then checks how those ranks are distributed across the four different `AlcoholUse` categories. Consider the results generated by statistical software like Minitab:   
 
 ```
 Descriptive Statistics
@@ -377,7 +377,7 @@ Not adjusted for ties  3    5.44      0.142
 Adjusted for ties      3    5.46      0.141
 ```
 
-Just like with our previous tests, we start by looking at the descriptive statistics to understand the practical reality of our sample. You can safely ignore the "Mean Rank" and "Z-Value" columns, as those are internal mathematical steps the software uses to calculate the final result. Instead, focus directly on the medians. 
+Just like with our previous tests, we start with the descriptive statistics to understand the practical reality of our sample. You can safely ignore the "Mean Rank" and "Z-Value" columns, as those are internal mathematical steps the software uses to calculate the final result. Instead, focus directly on the medians. 
 
 
 
@@ -385,7 +385,7 @@ Notice that as the alcohol consumption level increases, the sample median GPA st
 
 
 
-However, we must look at the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" happens when two or more students have the same GPA, which is common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
+However, we must turn to the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" happens when two or more students have the same GPA, which is common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
 
 
 
@@ -483,11 +483,11 @@ This output is condensed, but it gives us exactly what we need. The correlation 
 
 
 
-To see if this holds true for the broader population, we look at the $p$-value. Our $p$-value of $0.543$ is large. Because it is well above our $0.05$ threshold, we fail to reject the null hypothesis. The confidence interval tells the same story. Because the interval stretches from a negative correlation ($-0.123$) to a positive correlation ($0.065$), it captures zero. We do not have evidence of a rank correlation between age and drinking frequency.
+To see if this holds true for the broader population, we consult the $p$-value. Our $p$-value of $0.543$ is large. Because it is well above our $0.05$ threshold, we fail to reject the null hypothesis. The confidence interval tells the same story. Because the interval stretches from a negative correlation ($-0.123$) to a positive correlation ($0.065$), it captures zero. We do not have evidence of a rank correlation between age and drinking frequency.
 
 
 
-Now, let's look at a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can run Spearman's Rho to test that specific descending trend.   
+Now, let's work through a second example using the `student_lifestyle_sleep.csv` dataset. Earlier in this chapter, we used a Kruskal-Wallis test to see if median GPAs differed across four drinking categories (Abstain, Light, Moderate, Heavy). That test gave us a non-significant $p$-value of $0.141$. However, we noted that the sample medians formed a descending staircase, suggesting a potential trend. Because those drinking categories are ordinal (they can be ranked from 1 to 4), we can run Spearman's Rho to test that specific descending trend.   
 
 
 
@@ -511,7 +511,7 @@ However, this brings up a serious ethical warning that we will explore deeper in
 
 
 
-Before we write our final conclusions, let's look closely at the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
+Before we write our final conclusions, let's examine the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
 
 
 
@@ -539,7 +539,7 @@ When you want to evaluate the relationship between two categorical variables, yo
 
 
 
-Let's look at a scenario using our `college_backpacks.csv` dataset. You are a health researcher investigating whether carrying heavy backpacks causes physical strain. You survey 100 students and ask them to self-report any history of back discomfort, recorded in the `BackProblems` variable. You want to know if the proportion of students experiencing back problems differs between graduate and undergraduate students, which is recorded in the `Status` variable. Because both of these variables are categorical, your first instinct is to cross-tabulate the data into a $2 \times 2$ table and run a Chi-Square test.   
+Let's try a scenario using our `college_backpacks.csv` dataset. You are a health researcher investigating whether carrying heavy backpacks causes physical strain. You survey 100 students and ask them to self-report any history of back discomfort, recorded in the `BackProblems` variable. You want to know if the proportion of students experiencing back problems differs between graduate and undergraduate students, which is recorded in the `Status` variable. Because both of these variables are categorical, your first instinct is to cross-tabulate the data into a $2 \times 2$ table and run a Chi-Square test.   
 
 ### Why a Standard Chi-Square Test Fails
 
@@ -557,7 +557,7 @@ To salvage the analysis, we use Fisher's Exact Test. Rather than relying on a ma
 
   
 
-Conceptually, the software looks at the total number of graduates, the total number of undergraduates, and the total number of back problems. It then calculates every single possible way those totals could be arranged in a $2 \times 2$ grid. By looking at all possible combinations, it can precisely determine how rare your specific sample is. Because it calculates the exact probability rather than estimating it, Fisher's Exact Test does not require a minimum expected cell count. This allows you to safely analyze associations in small or highly unbalanced samples.   
+Conceptually, the software counts the total number of graduates, the total number of undergraduates, and the total number of back problems. It then calculates every single possible way those totals could be arranged in a $2 \times 2$ grid. By evaluating all possible combinations, it can precisely determine how rare your specific sample is. Because it calculates the exact probability rather than estimating it, Fisher's Exact Test does not require a minimum expected cell count. This allows you to safely analyze associations in small or highly unbalanced samples.   
 
 ### Formalizing the Hypotheses
 
@@ -594,11 +594,11 @@ All           3              97   100
 P-Value = 0.549
 ```
 
-As always, we begin by looking at the raw descriptive statistics in the table to understand the practical reality of our sample. Recalling our variable dictionary, a `BackProblems` code of $0$ means the student reported no discomfort, while a $1$ indicates they do experience back problems. 
+As always, we begin with the raw descriptive statistics in the table to understand the practical reality of our sample. Recalling our variable dictionary, a `BackProblems` code of $0$ means the student reported no discomfort, while a $1$ indicates they do experience back problems. 
 
 
 
-The table immediately reveals the severe imbalance we anticipated. Out of 100 total subjects, 97 are undergraduates and only 3 are graduate students. None of the 3 graduate students reported back problems, while 32 of the 97 undergraduates reported discomfort. Looking at this extreme split, you can see exactly why a standard Chi-Square test would fail; there is not enough data in the graduate column to mathematically support a standard approximation.   
+The table immediately reveals the severe imbalance we anticipated. Out of 100 total subjects, 97 are undergraduates and only 3 are graduate students. None of the 3 graduate students reported back problems, while 32 of the 97 undergraduates reported discomfort. Given this extreme split, you can see exactly why a standard Chi-Square test would fail; there is not enough data in the graduate column to mathematically support a standard approximation.   
 
 
 
@@ -679,7 +679,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 ### Interpretation
 
-1. A researcher runs a Wilcoxon Signed-Rank test to compare the prices of textbooks between the campus bookstore and Amazon. The software generates a 95% confidence interval for the difference of (−45,−12). Explain what these negative numbers represent in plain English, and how the researcher can tell which retailer is more expensive just by looking at the software's subtraction method.
+1. A researcher runs a Wilcoxon Signed-Rank test to compare the prices of textbooks between the campus bookstore and Amazon. The software generates a 95% confidence interval for the difference of (−45,−12). Explain what these negative numbers represent in plain English, and how the researcher can tell which retailer is more expensive just from the software's subtraction method.
 2. A sociologist uses a Mann-Whitney U test to compare the annual income of two different neighborhoods. The test yields a highly significant result (p=.003), proving that Neighborhood A has a higher median income than Neighborhood B. However, when the sociologist calculates the arithmetic means, Neighborhood B has a higher mean income. Explain how it is mathematically possible for Neighborhood A to have a higher median but a lower mean, and why the median is the more accurate reflection of the typical resident.
 3. You are reviewing the software output for a Kruskal-Wallis test evaluating the grade point averages of students across different majors. You notice a row labeled "Adjusted for ties." Explain what a "tie" means in the context of rank-ordering numerical data like GPA, and why the software must mathematically adjust for it.
 4. A classmate runs Fisher's Exact test to analyze the relationship between major and dropout status in a highly unbalanced sample. They are confused because the software output only provides a p-value and does not report a test statistic (like a Chi-Square value or a t-value). Explain why Fisher's Exact test does not require a traditional test statistic to generate a p-value.
@@ -728,7 +728,7 @@ For this section, you will use statistical software to analyze the datasets prov
 18. Kruskal-Wallis Test: Using the `student_lifestyle_sleep.csv` dataset, you want to see if students with different `AnxietyStatus` categories (normal, moderate, severe) get a different amount of weekday sleep (`WeekdaySleep`). Run a Kruskal-Wallis test predicting `WeekdaySleep` using `AnxietyStatus`. 
 
     a) Report the median weekday sleep hours for each of the three anxiety categories. 
-    b) Look at the p-value adjusted for ties. Is there a statistically significant difference in median sleep hours across the anxiety levels? 
+    b) Find the p-value adjusted for ties. Is there a statistically significant difference in median sleep hours across the anxiety levels? 
     c) Write a complete, formal APA conclusion for this test, remembering to include the descriptive sample medians.
 
 19. Spearman's Rho: Using the `student_lifestyle_sleep.csv` dataset, you want to measure the relationship between a student's GPA and the number of classes they missed (`ClassesMissed`). Run a Spearman's rank-order correlation between `GPA` and `ClassesMissed`. 

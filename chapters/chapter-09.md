@@ -102,7 +102,7 @@ However, telling a doctor that a patient's log-odds of survival drop by 0.0275 e
 
 
 
-If we look at our software output, it translates that raw slope of -0.0275 into an Odds Ratio of approximately 0.97. This single number is interpretable. It tells us that for every one-year increase in a patient's age, their baseline odds of surviving are multiplied by a factor of 0.97.  
+If we read our software output, it translates that raw slope of -0.0275 into an Odds Ratio of approximately 0.97. This single number is interpretable. It tells us that for every one-year increase in a patient's age, their baseline odds of surviving are multiplied by a factor of 0.97.  
 
 
 
@@ -179,7 +179,7 @@ Furthermore, whenever we add multiple predictors, we must check for multicolline
 
 : Table 9.4: Odds ratios and 95% confidence intervals from the multiple logistic regression of survival on age and emergency admission.
 
-Now let's look at the Odds Ratios to understand the practical effect of these variables.
+Now let's turn to the Odds Ratios to understand the practical effect of these variables.
 
 - **Age:** The Odds Ratio for `Age` is $0.9666$. This means for every additional year of life, a patient retains roughly 96.7% of their baseline odds of survival, assuming their admission type stays the same. This translates to a 3.3% decrease in the odds of survival per year ($1.00 - 0.9666 = 0.0334$).
 - **Emergency:** The Odds Ratio for `Emergency` is $0.0860$. Because this is an indicator variable, it compares the $1$ group to the baseline $0$ group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a 91.4% drop in the odds of survival ($1.00 - 0.0860 = 0.914$).  
@@ -227,7 +227,7 @@ By cross-tabulating these predictions against what happened to the 200 patients 
 
 
 
-Looking at our matrix, we can categorize every patient into one of four groups:  
+Using our matrix, we can categorize every patient into one of four groups:  
 
 - **True Positives (159 patients):** The model predicted they would survive, and they survived.
 - **True Negatives (2 patients):** The model predicted they would not survive, and they did not survive.
@@ -307,7 +307,7 @@ In a low-stakes social science survey, an AUC of 0.75 might be acceptable. Howev
 
 ### Understanding Deviance
 
-In Chapters 4 and 5, you learned to evaluate standard regression models by looking at residuals, which measure the physical distance between the actual data points and your line of best fit. Because logistic regression uses an S-shaped probability curve rather than a straight line, we cannot calculate standard residuals. Instead, logistic regression measures error using a concept called **deviance**.  
+In Chapters 4 and 5, you learned to evaluate standard regression models by examining residuals, which measure the physical distance between the actual data points and your line of best fit. Because logistic regression uses an S-shaped probability curve rather than a straight line, we cannot calculate standard residuals. Instead, logistic regression measures error using a concept called **deviance**.  
 
 
 
@@ -331,7 +331,7 @@ Furthermore, you may recall from Chapter 5 that adding *any* variable to a model
 
 ### The Deviance Goodness-of-Fit Test
 
-As a final structural check, researchers often look at the **Deviance Goodness-of-Fit test**. This test formally evaluates whether the model's predicted probabilities adequately align with the actual observed outcomes.
+As a final structural check, researchers often consult the **Deviance Goodness-of-Fit test**. This test formally evaluates whether the model's predicted probabilities adequately align with the actual observed outcomes.
 
 
 
@@ -344,7 +344,7 @@ Because the null hypothesis ($H_0$) assumes the model fits well, we actually *wa
 
 
 
-Looking at our software output, the Deviance Goodness-of-Fit test yields a $p$-value of 0.890. Because 0.890 is much larger than a standard alpha level of 0.05, we fail to reject the null hypothesis. We have no evidence that the model is structurally flawed.
+In our software output, the Deviance Goodness-of-Fit test yields a $p$-value of 0.890. Because 0.890 is much larger than a standard alpha level of 0.05, we fail to reject the null hypothesis. We have no evidence that the model is structurally flawed.
 
 
 
@@ -476,7 +476,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 ### Communicating Results
 
 8. A science journalist reads a medical study indicating that a specific genetic marker has an Odds Ratio of 3.5 for developing a rare autoimmune disease. The journalist publishes an article with the headline: "People with this Gene are 3.5 Times More Likely to Get the Disease!" Explain the fatal linguistic flaw in this headline and the difference between odds and probability.
-9. A colleague proudly shows you the output for their new logistic regression model predicting employee turnover. All five predictor variables have highly significant $p$-values ($p < 0.001$). However, when you look at the model's Area Under the Curve (AUC), it is 0.53. Explain to your colleague why this model, despite its significant $p$-values, is practically useless for the human resources department.
+9. A colleague proudly shows you the output for their new logistic regression model predicting employee turnover. All five predictor variables have highly significant $p$-values ($p < 0.001$). However, when you check the model's Area Under the Curve (AUC), it is 0.53. Explain to your colleague why this model, despite its significant $p$-values, is practically useless for the human resources department.
 10. A hospital administrator sets a probability threshold of 50% for an ICU survival model, generating a confusion matrix with a sensitivity of 99% and a specificity of 4%. The administrator decides to lower the threshold to 20% to "fix" the model. Explain the inherent trade-off that occurs when shifting this threshold, detailing what will happen to the sensitivity and specificity metrics.
 
 ### Software Application
@@ -486,7 +486,7 @@ For this section, you will use statistical software to analyze the `icu_data.csv
 11. **Simple Logistic Regression: Evaluating Infection Status**: You want to determine if an infection at the time of admission significantly impacts a patient's survival status at discharge.
 a) Run a simple logistic regression predicting `Survive` using `Infection`. Does the presence of an infection have a statistically significant effect on survival? Report the $p$-value.
 b) Locate the Odds Ratio for `Infection`. Because this is an indicator variable comparing the infected group to the uninfected baseline group, interpret this Odds Ratio as a percentage decrease in the odds of survival.
-c) Look at the Deviance Goodness-of-Fit test for this model. Report the $p$-value. Do you have any evidence that this simple model is structurally flawed?
+c) Evaluate the Deviance Goodness-of-Fit test for this model. Report the $p$-value. Do you have any evidence that this simple model is structurally flawed?
 
 
 12. **Multiple Logistic Regression: Adding Physiological Metrics**: You want to see if the patient's age and their systolic blood pressure provide unique predictive value for survival.

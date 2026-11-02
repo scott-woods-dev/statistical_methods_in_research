@@ -2,15 +2,15 @@
 
 ## 12.1 Introduction
 
-Throughout this book, we have largely looked at static snapshots of data. However, the world is dynamic, and the systems we study in the social sciences change constantly. **Time series analysis** is a set of statistical techniques designed to evaluate data points collected in a specific chronological order over regular intervals.
+Throughout this book, we have largely studied static snapshots of data. However, the world is dynamic, and the systems we study in the social sciences change constantly. **Time series analysis** is a set of statistical techniques designed to evaluate data points collected in a specific chronological order over regular intervals.
 
 
 
-Before we look at our data, it is important to understand the goals of time series analysis: identifying overarching **trends**, predictable **cyclical patterns** (like seasonality), and random **irregular movements**. Why is this necessary? You might wonder why we cannot use the simple linear regression tools from Chapter 4, placing "Time" on the x-axis and drawing a line of best fit.  
+Before we explore our data, it is important to understand the goals of time series analysis: identifying overarching **trends**, predictable **cyclical patterns** (like seasonality), and random **irregular movements**. Why is this necessary? You might wonder why we cannot use the simple linear regression tools from Chapter 4, placing "Time" on the x-axis and drawing a line of best fit.  
 
  
 
-There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only look at a linear trend, we miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is connected to what happened yesterday. 
+There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only model a linear trend, we miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is connected to what happened yesterday. 
 
   
 
@@ -105,7 +105,7 @@ A **linear trend** describes the relationship between the *calendar* and our var
 
 
 
-**Autocorrelation**, on the other hand, describes *momentum*. It has nothing to do with how many years have passed; it has everything to do with what happened *yesterday*. Imagine a large, unpredicted spike in fitness searches occurs because a celebrity launches a viral workout challenge. A standard linear trend line cannot predict this spike because it only looks at the calendar. However, autocorrelation recognizes that because searches were anomalously huge last week, they will carry that momentum and be huge again this week. Trend is about long-term trajectory; autocorrelation is about short-term stickiness.
+**Autocorrelation**, on the other hand, describes *momentum*. It has nothing to do with how many years have passed; it has everything to do with what happened *yesterday*. Imagine a large, unpredicted spike in fitness searches occurs because a celebrity launches a viral workout challenge. A standard linear trend line cannot predict this spike because it only tracks the calendar. However, autocorrelation recognizes that because searches were anomalously huge last week, they will carry that momentum and be huge again this week. Trend is about long-term trajectory; autocorrelation is about short-term stickiness.
 
 ### The Consequences for Linear Regression
 
@@ -139,7 +139,7 @@ You can think of the conceptual form of an ARIMA model as a formula made of dist
 
 
 
-To understand how the software builds this recipe, we can look at the three parts of the ARIMA acronym:
+To understand how the software builds this recipe, we can break down the three parts of the ARIMA acronym:
 
 - **AutoRegressive (AR):** This handles the momentum or autocorrelation we discussed in the previous section. It recognizes that if gym searches were high yesterday, they will likely be high today.
 - **Integrated (I):** This handles the overarching trend. Before the model can analyze the repeating cyclical patterns, it temporarily mathematically strips away the upward or downward calendar trajectory. This allows the model to analyze the pure seasonal cycles on a level playing field.
@@ -175,9 +175,9 @@ Finally, this forecast provides a perfect reminder of why human researchers must
 
 As you go out and build your own time series plots and prediction models, keep these common mistakes in mind:
 
-- **Modeling Before Graphing:** One of the most dangerous traps in data analysis is feeding numbers directly into an algorithm without looking at them first. As we saw with the growing seasonal spikes in our fitness data, a visual time series plot will often reveal structural shifts that the automated math misses. Never build a model, whether it is a simple regression or an advanced forecasting tool, without exploring a relevant graph. The visual evidence should always guide your choice of analytical method, because the graph will often find something the math cannot.   
+- **Modeling Before Graphing:** One of the most dangerous traps in data analysis is feeding numbers directly into an algorithm without plotting them first. As we saw with the growing seasonal spikes in our fitness data, a visual time series plot will often reveal structural shifts that the automated math misses. Never build a model, whether it is a simple regression or an advanced forecasting tool, without exploring a relevant graph. The visual evidence should always guide your choice of analytical method, because the graph will often find something the math cannot.   
 - **Applying Linear Regression to Chronological Data:** Because simple linear regression is so versatile, researchers often assume they can just use time as the explanatory variable on the horizontal axis. However, doing so violates the core assumption of independence. Standard regression ignores autocorrelation and smooths over cyclical patterns, leading to wildly overconfident $p$-values and fundamentally flawed conclusions. As a general rule, we should not use standard linear regression to handle time series data.   
-- **Treating Forecasts as Guarantees:** When looking at an ARIMA forecast, it is tempting to focus entirely on the solid predicted line and treat it as a guaranteed certainty. However, time series models only know how to repeat historical patterns. They cannot predict unprecedented shocks, such as a sudden economic crisis or a disruptive new technology. You must always pay close attention to the widening prediction intervals (the shaded margin of error). The further into the future you project, the less certainty you actually have.   
+- **Treating Forecasts as Guarantees:** When reading an ARIMA forecast, it is tempting to focus entirely on the solid predicted line and treat it as a guaranteed certainty. However, time series models only know how to repeat historical patterns. They cannot predict unprecedented shocks, such as a sudden economic crisis or a disruptive new technology. You must always pay close attention to the widening prediction intervals (the shaded margin of error). The further into the future you project, the less certainty you actually have.   
 - **Confusing Prediction with Causation:** Time series analysis is excellent at identifying *what* is happening and *when* it is happening, but it cannot tell you *why*. A structural model might accurately predict a large surge in fitness searches next January, but the algorithm has no concept of New Year's resolutions, human psychology, or winter weather. It only recognizes a numerical pattern. It is always the researcher's job to provide the theoretical context that explains the mathematical pattern.
 
 
@@ -205,7 +205,7 @@ As you go out and build your own time series plots and prediction models, keep t
 
 ### Interpretation
 
-1. An economist looks at a time series plot of monthly housing prices over a ten-year span. The line moves up and down predictably every single year but finishes significantly higher at the end of the decade than it started. Identify the "trend" and the "cyclical pattern" in this description.
+1. An economist studies a time series plot of monthly housing prices over a ten-year span. The line moves up and down predictably every single year but finishes significantly higher at the end of the decade than it started. Identify the "trend" and the "cyclical pattern" in this description.
 2. A sociologist tracks daily social media usage for a cohort of teenagers. They calculate a lag-1 autocorrelation coefficient of $r = 0.85$. Explain in plain English what this number tells the researcher about how yesterday's social media usage relates to today's usage.
 3. A public health researcher reviews an ARIMA forecast for weekly reported influenza cases over the next two years. They notice the shaded prediction interval around the forecasted line is narrow for the first month but becomes extremely wide by the second year. What does this widening shaded region mean conceptually?
 
