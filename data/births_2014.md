@@ -38,4 +38,4 @@ This dataset represents a random sample of $n = 1,000$ cases extracted from the 
 
 ## Source
 
-United States Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics. (2016). *Natality Detail File, 2014 United States* (ICPSR 36461-v1). Inter-university Consortium for Political and Social Research. [https://doi.org/10.3886/ICPSR36461.v1](https://www.google.com/search?q=https://doi.org/10.3886/ICPSR36461.v1&authuser=1)
+United States Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics. (2016). *Natality Detail File, 2014 United States* (ICPSR 36461-v1). Inter-university Consortium for Political and Social Research. [https://doi.org/10.3886/ICPSR36461.v1](https://doi.org/10.3886/ICPSR36461.v1)

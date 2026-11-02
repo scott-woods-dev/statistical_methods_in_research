@@ -28,6 +28,6 @@ This dataset represents baseline psychological profiling measurements collected 
 
 ## Source
 
-Hopko, D. R., Mahadevan, R., Bare, R. L., & Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. *Assessment*, 10(2), 178–182. [https://doi.org/10.1177/1073191103010002008](https://www.google.com/search?q=https://doi.org/10.1177/1073191103010002008&authuser=1)
+Hopko, D. R., Mahadevan, R., Bare, R. L., & Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. *Assessment*, 10(2), 178–182. [https://doi.org/10.1177/1073191103010002008](https://doi.org/10.1177/1073191103010002008)
 
 Keller, B., Park, S., & Zhang, J. (2022). *A new four-arm within-study comparison: Design, implementation, and data*. Working paper/dataset documentation.

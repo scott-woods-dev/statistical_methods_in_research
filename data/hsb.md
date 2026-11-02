@@ -36,4 +36,4 @@ This specific dataset is a random sample of $n = 200$ seniors taken from the bro
 
 ## Source
 
-UCLA Institute for Digital Research & Education. (n.d.). *High School and Beyond (HS&B) Dataset*. Statistical Consulting Archive. Retrieved from [https://stats.oas.ucla.edu/](https://www.google.com/search?q=https://stats.oas.ucla.edu/&authuser=1)
+UCLA Institute for Digital Research & Education. (n.d.). *High School and Beyond (HS&B) Dataset*. Statistical Consulting Archive. Retrieved from [https://stats.oas.ucla.edu/](https://stats.oas.ucla.edu/)

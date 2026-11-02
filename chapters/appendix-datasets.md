@@ -66,7 +66,7 @@ The PDF edition does not include the data files. Download them from the web edit
 
 **Details.** This dataset represents baseline psychological profiling measurements collected as part of a major within-study comparison research project conducted by academic researchers in 2022. A sample of $n = 2,200$ participants was recruited via the Amazon Mechanical Turk crowdsourcing platform. The primary purpose of the original study was to create a high-quality empirical benchmark database to evaluate how well non-experimental causal effect estimation methods replicate the findings of randomized controlled trials within educational training settings. Before participating in any educational intervention exercises, respondents completed the full 9-item Abbreviated Mathematics Anxiety Scale (AMAS) to capture variations in baseline quantitative anxiety. The AMAS is widely implemented in psychometric literature because it efficiently captures two distinct but correlated dimensions of quantitative stress: math evaluation anxiety (items 2, 4, 5, and 8) and math learning anxiety (items 1, 3, 6, 7, and 9).
 
-**Source.** Hopko, D. R., Mahadevan, R., Bare, R. L., & Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. *Assessment*, 10(2), 178–182. [https://doi.org/10.1177/1073191103010002008](https://www.google.com/search?q=https://doi.org/10.1177/1073191103010002008&authuser=1)
+**Source.** Hopko, D. R., Mahadevan, R., Bare, R. L., & Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. *Assessment*, 10(2), 178–182. [https://doi.org/10.1177/1073191103010002008](https://doi.org/10.1177/1073191103010002008)
 
 Keller, B., Park, S., & Zhang, J. (2022). *A new four-arm within-study comparison: Design, implementation, and data*. Working paper/dataset documentation.
 
@@ -102,7 +102,7 @@ Keller, B., Park, S., & Zhang, J. (2022). *A new four-arm within-study compariso
 
 This dataset represents a random sample of $n = 1,000$ cases extracted from the massive 2014 national natality public-use file.
 
-**Source.** United States Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics. (2016). *Natality Detail File, 2014 United States* (ICPSR 36461-v1). Inter-university Consortium for Political and Social Research. [https://doi.org/10.3886/ICPSR36461.v1](https://www.google.com/search?q=https://doi.org/10.3886/ICPSR36461.v1&authuser=1)
+**Source.** United States Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics. (2016). *Natality Detail File, 2014 United States* (ICPSR 36461-v1). Inter-university Consortium for Political and Social Research. [https://doi.org/10.3886/ICPSR36461.v1](https://doi.org/10.3886/ICPSR36461.v1)
 
 ## `cc_risk.csv`
 
@@ -125,9 +125,9 @@ This dataset represents a random sample of $n = 1,000$ cases extracted from the 
 
 **Details.** The data was collected via a comprehensive, 150-question survey distributed to 437 undergraduate students enrolled in large introductory courses at either Mississippi State University or the University of Mississippi.
 
-The primary objective of the original study was to examine the relationships between psychological sensation-seeking traits, behavioral risk-taking (such as alcohol consumption habits), and problematic financial management behaviors among young adults (such as credit card misuse and bank account mismanagement). 
+The primary objective of the original study was to examine the relationships between psychological sensation-seeking traits, behavioral risk-taking (such as alcohol consumption habits), and problematic financial management behaviors among young adults (such as credit card misuse and bank account mismanagement).
 
-**Source.** Worthy, S. L., Jonkman, J. N., & Blinn-Pike, L. (2010). Sensation-seeking, risk-taking, and problematic financial behaviors of college students. *Journal of Family and Economic Issues*, 31(2), 161–170. [https://doi.org/10.1007/s10834-010-9183-2](https://www.google.com/search?q=https://doi.org/10.1007/s10834-010-9183-2&authuser=1)
+**Source.** Worthy, S. L., Jonkman, J. N., & Blinn-Pike, L. (2010). Sensation-seeking, risk-taking, and problematic financial behaviors of college students. *Journal of Family and Economic Issues*, 31(2), 161–170. [https://doi.org/10.1007/s10834-010-9183-2](https://doi.org/10.1007/s10834-010-9183-2)
 
 ## `census_at_school.csv`
 
@@ -251,8 +251,8 @@ The data was originally published to provide statistics students with a realisti
 | **Variable Name** | **Data Type** | **Description and Coding Keys**                              |
 | :----------------------------- | :-------------- | :------------------------------------------------------ |
 | `Group`           | Categorical   | The experimental group assignment for the student (**Control** or **Diet**). |
-| `CESD1`           | Numerical     | Center for Epidemiological Studies Depression (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity. |
-| `CESD21`          | Numerical     | Center for Epidemiological Studies Depression (CESD) score measured at the conclusion of the study on Day 21. |
+| `CESD1`           | Numerical     | Center for Epidemiologic Studies Depression Scale (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity. |
+| `CESD21`          | Numerical     | Center for Epidemiologic Studies Depression Scale (CESD) score measured at the conclusion of the study on Day 21. |
 | `CESDDiff`        | Numerical     | The change in the CESD depression score over the 21 days ($\text{Day 21} - \text{Day 1}$). A negative value indicates an improvement in symptoms. |
 | `DASS1`           | Numerical     | Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at baseline on Day 1. High scores indicate greater self-reported depression severity. |
 | `DASS21`          | Numerical     | Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at the conclusion of the study on Day 21. |
@@ -267,7 +267,7 @@ The data was originally published to provide statistics students with a realisti
 
 To track changes in mental health, the researchers recorded scores across two distinct numerical depression metrics at the start and end of the 21-day period: the CESD scale, which leans more heavily toward clinical observations of depression, and the DASS depression subscale, which relies primarily on subjective, self-reported symptom frequency. Physical changes were also monitored by calculating each participant's Body Mass Index (BMI) on Day 1 and Day 21.
 
-**Source.** Francis, H. M., Stevenson, R. J., Chambers, J. R., Joint, D., Dickie, E. W., & Burger, C. (2019). A brief diet intervention can reduce symptoms of depression in young adults: A randomised controlled trial. *PLoS ONE*, 14(10), e0222768. [https://doi.org/10.1371/journal.pone.0222768](https://www.google.com/search?q=https://doi.org/10.1371/journal.pone.0222768&authuser=1)
+**Source.** Francis, H. M., Stevenson, R. J., Chambers, J. R., Joint, D., Dickie, E. W., & Burger, C. (2019). A brief diet intervention can reduce symptoms of depression in young adults: A randomised controlled trial. *PLoS ONE*, 14(10), e0222768. [https://doi.org/10.1371/journal.pone.0222768](https://doi.org/10.1371/journal.pone.0222768)
 
 ## `fatal_police_shootings.csv`
 
@@ -298,7 +298,7 @@ To track changes in mental health, the researchers recorded scores across two di
 
 **Details.** This dataset is derived directly from an ongoing investigative database maintained by *The Washington Post*, which tracks every fatal shooting by an on-duty police officer in the United States. Launched to address a lack of comprehensive, centralized tracking at the federal level, the database relies on local news reports, public records, social media, and independent verification platforms to log incidents.
 
-The dataset includes structural variables designed to classify the circumstances surrounding each fatal encounter, including demographic markers, geographic locations, whether body cameras were deployed, and behavioral risk profiles (such as active flight attempts or visible indicators of psychological crisis). 
+The dataset includes structural variables designed to classify the circumstances surrounding each fatal encounter, including demographic markers, geographic locations, whether body cameras were deployed, and behavioral risk profiles (such as active flight attempts or visible indicators of psychological crisis).
 
 **Source.** The Washington Post. (2024). *Fatal Force: National archive of police-involved shootings*. Retrieved from https://github.com/washingtonpost/data-police-shootings
 
@@ -325,7 +325,7 @@ The dataset includes structural variables designed to classify the circumstances
 
 Spanning from May 2021 to May 2026, this dataset provides an excellent foundation to transition from traditional histograms to basic time-series analysis using line graphs. The data displays highly predictable, recurring seasonal trends.
 
-**Source.** Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+**Source.** Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com)
 
 ## `happy_planet_index_2024.csv`
 
@@ -344,7 +344,7 @@ Spanning from May 2021 to May 2026, this dataset provides an excellent foundatio
 | `HPI`             | Numerical     | Happy Planet Index score, measured on a $0 \text{ to } 100$ scale. Higher scores represent higher efficiency at delivering long, happy lives with a sustainable ecological footprint. |
 | `HPIRank`         | Numerical     | The global ranking of the country based on its HPI score.    |
 | `LifeExpectancy`  | Numerical     | The average life expectancy of a resident in years.          |
-| `Footprint`       | Numerical     | Ecological footprint per capita. This measures the biological surface area required to support a country’s consumption and absorb its waste. |
+| `Footprint`       | Numerical     | Ecological footprint per capita. This measures the biological surface area required to support a country's consumption and absorb its waste. |
 | `LOL`             | Numerical     | Ladder of Life score, measured on a $0 \text{ to } 10$ scale. This is a subjective metric where residents rate their own overall well-being and life satisfaction. |
 | `GDPperCapita`    | Numerical     | Gross Domestic Product per person, adjusted for purchasing power. |
 | `Population`      | Numerical     | The total population of the country, recorded in millions.   |
@@ -387,7 +387,7 @@ The index combines three primary pillars: subjective well-being (measured by the
 
 This specific dataset is a random sample of $n = 200$ seniors taken from the broader baseline cohort. All five subject-area test variables (`read`, `write`, `math`, `science`, and `socst`) are scaled to a standardized metric (typically with a mean around 50 and a standard deviation of 10).
 
-**Source.** UCLA Institute for Digital Research & Education. (n.d.). *High School and Beyond (HS&B) Dataset*. Statistical Consulting Archive. Retrieved from [https://stats.oas.ucla.edu/](https://www.google.com/search?q=https://stats.oas.ucla.edu/&authuser=1)
+**Source.** UCLA Institute for Digital Research & Education. (n.d.). *High School and Beyond (HS&B) Dataset*. Statistical Consulting Archive. Retrieved from [https://stats.oas.ucla.edu/](https://stats.oas.ucla.edu/)
 
 ## `icu_data.csv`
 
@@ -423,7 +423,7 @@ This dataset consists of a random sample of $n = 200$ patients extracted from a 
 
 **Description.** This dataset contains a subset of records from a landmark 2004 field experiment investigating racial discrimination in the United States labor market by measuring callback rates for fictitious resumes assigned distinctly African-American or White-sounding names.
 
-**File.** A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently used in introductory analyses is outlined below.
+**File.** A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **7 variables** (columns), a selection of the 63 variables in the original data that introductory analyses use most often.
 
 ::: {.content-visible when-format="html"}
 [Download labor_market_discrimination.csv (CSV file, 91 KB)](../data/labor_market_discrimination.csv)
@@ -447,7 +447,7 @@ The key experimental manipulation involved randomly assigning first names to ide
 
 The original study's primary finding revealed that resumes with White-sounding names received 50% more callbacks for interviews than identical resumes with African-American-sounding names.
 
-**Source.** Bertrand, M., & Mullainathan, S. (2004). Replication data for: Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. *American Economic Review*, 94(4), 991–1013. Harvard Dataverse. [https://doi.org/10.7910/DVN/JG939E](https://www.google.com/search?q=https://doi.org/10.7910/DVN/JG939E&authuser=1)
+**Source.** Bertrand, M., & Mullainathan, S. (2004). Replication data for: Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. *American Economic Review*, 94(4), 991–1013. Harvard Dataverse. [https://doi.org/10.7910/DVN/JG939E](https://doi.org/10.7910/DVN/JG939E)
 
 ## `maid_mindset.csv`
 
@@ -480,11 +480,11 @@ The original study's primary finding revealed that resumes with White-sounding n
 
 **Details.** In 2007, a Harvard University psychologist conducted an experiment involving 75 female hotel maids. While hotel room attendants experience high levels of physical exertion every day, many do not perceive their labor as actual "exercise." To test the physiological power of mindset, the researcher randomly split the maids into two experimental conditions.
 
-The **informed group** ($n = 41$) was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General’s recommendations for a healthy, active lifestyle. They were provided with specific examples showing how activities like changing linens, vacuuming, and scrubbing tubs translated into significant physical exercise. The **uninformed group** ($n = 34$) served as a control and received no such information.
+The **informed group** ($n = 41$) was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General's recommendations for a healthy, active lifestyle. They were provided with specific examples showing how activities like changing linens, vacuuming, and scrubbing tubs translated into significant physical exercise. The **uninformed group** ($n = 34$) served as a control and received no such information.
 
 Biometric and physiological markers (including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure) were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.
 
-**Source.** Crum, A. J., & Langer, E. J. (2007). Mind-set matters: Exercise and the placebo effect. *Psychological Science*, 18(2), 165–171. [https://doi.org/10.1111/j.1467-9280.2007.01867.x](https://www.google.com/search?q=https://doi.org/10.1111/j.1467-9280.2007.01867.x&authuser=1)
+**Source.** Crum, A. J., & Langer, E. J. (2007). Mind-set matters: Exercise and the placebo effect. *Psychological Science*, 18(2), 165–171. [https://doi.org/10.1111/j.1467-9280.2007.01867.x](https://doi.org/10.1111/j.1467-9280.2007.01867.x)
 
 ## `smoking_bmi_bp.csv`
 
@@ -508,7 +508,7 @@ Biometric and physiological markers (including weight, body mass index, body fat
 
 This dataset tracks 500 randomly selected adults from the United States, capturing their exact blood pressure reading alongside their self-reported smoking status and calculated BMI classification. The data was compiled as part of an academic case study presentation for the 2003 Annual Meeting of the Statistical Society of Canada (SSC).
 
-**Source.** Statistical Society of Canada. (2003). *Blood Pressure Case Studies for the 2003 Annual Meeting*. Archived Case Studies. Retrieved from [http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure](https://www.google.com/search?q=http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure&authuser=1)
+**Source.** Statistical Society of Canada. (2003). *Blood Pressure Case Studies for the 2003 Annual Meeting*. Archived Case Studies. Retrieved from [http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure](http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure)
 
 ## `speed_dating.csv`
 
@@ -551,7 +551,7 @@ This dataset tracks 500 randomly selected adults from the United States, capturi
 
 During an event, participants engaged in individual, four-minute "speed dates" with every attendee of the opposite sex, with the pairing sequence and table assignments randomly determined. At the end of each four-minute round, participants filled out a scorecard evaluation rating their date on an integer scale from 1 to 10 across an array of attributes, as well as reporting whether they would want to go on a real date with that person. To simplify the data structure for introductory analysis while preserving independence, this specific file isolates only the very first date that occurred within each testing session.
 
-**Source.** Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge University Press. [https://doi.org/10.1017/CBO9780511790942](https://www.google.com/search?q=https://doi.org/10.1017/CBO9780511790942&authuser=1)
+**Source.** Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge University Press. [https://doi.org/10.1017/CBO9780511790942](https://doi.org/10.1017/CBO9780511790942)
 
 ## `student_lifestyle_sleep.csv`
 
@@ -581,7 +581,7 @@ During an event, participants engaged in individual, four-minute "speed dates" w
 
 **Details.** The data were obtained from a sample of undergraduate students who participated in a comprehensive study on sleep and cognitive health. Students completed a battery of baseline skills tests to measure cognitive function and filled out a detailed lifestyle survey tracking their personal habits, mental health status, and attitudes toward school. Additionally, participants maintained a daily sleep diary over a continuous two-week period to accurately record the timing, duration, and subjective quality of their sleep.
 
-**Source.** Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). Class start times, sleep, and academic performance in college: A path analysis. *Chronobiology International: The Journal of Biological and Medical Rhythm Research*, 29(3), 318–335. [https://doi.org/10.3109/07420528.2012.659144](https://www.google.com/search?q=https://doi.org/10.3109/07420528.2012.659144&authuser=1)
+**Source.** Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). Class start times, sleep, and academic performance in college: A path analysis. *Chronobiology International: The Journal of Biological and Medical Rhythm Research*, 29(3), 318–335. [https://doi.org/10.3109/07420528.2012.659144](https://doi.org/10.3109/07420528.2012.659144)
 
 ## `sunscreen_searches.csv`
 
@@ -606,7 +606,7 @@ During an event, participants engaged in individual, four-minute "speed dates" w
 
 Because Google Trends now reports this term at monthly resolution, this file is monthly rather than weekly. It spans October 2021 to October 2026 and is used alongside the weekly `gym_membership_searches.csv` in the Chapter 12 exercises.
 
-**Source.** Google LLC. (2026). *Google Trends Search Interest for "sunscreen"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+**Source.** Google LLC. (2026). *Google Trends Search Interest for "sunscreen"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com)
 
 ## `textbook_prices.csv`
 
@@ -651,15 +651,15 @@ Because Google Trends now reports this term at monthly resolution, this file is 
 
 **Details.** Obesity management is a major public health focus, but sustaining motivation for lifestyle modification remains a substantial barrier to long-term success. To explore behavioral economics as a tool for clinical compliance, researchers conducted a randomized controlled trial tracking individuals over an extended period. Participants were randomly split into an **Incentive group** (eligible for cash rewards if they met predetermined weight reduction milestones) and a **Control group** (enrolled in the same weight-loss program but given no financial compensation).
 
-The trial was divided into two structural phases to test both intervention efficacy and behavioral habituation. The first phase lasted 4 months under active monitoring and intervention. After the Month 4 check, the structural incentives were removed, and participants were left unmonitored for an additional 3 months. At the 7-month mark, researchers conducted a follow-up assessment. 
+The trial was divided into two structural phases to test both intervention efficacy and behavioral habituation. The first phase lasted 4 months under active monitoring and intervention. After the Month 4 check, the structural incentives were removed, and participants were left unmonitored for an additional 3 months. At the 7-month mark, researchers conducted a follow-up assessment.
 
-**Source.** Volpp, K. G., John, L. K., Troxel, A. B., Norton, L., Fassbender, J., & Loewenstein, G. (2008). Financial incentive–based approaches for weight loss. *JAMA*, 300(22), 2631–2637. [https://doi.org/10.1001/jama.2008.804](https://www.google.com/search?q=https://doi.org/10.1001/jama.2008.804&authuser=1)
+**Source.** Volpp, K. G., John, L. K., Troxel, A. B., Norton, L., Fassbender, J., & Loewenstein, G. (2008). Financial incentive–based approaches for weight loss. *JAMA*, 300(22), 2631–2637. [https://doi.org/10.1001/jama.2008.804](https://doi.org/10.1001/jama.2008.804)
 
 ## `youth_risk_2007.csv`
 
 **Description.** This dataset isolates demographic and behavioral responses from a sample of American high school students, focusing on the prevalence and risk factors associated with adolescents riding in a vehicle with an intoxicated driver.
 
-**File.** A comma-separated values (`.csv`) file containing **13,388 observations** (rows) and **5 variables** (columns). Each row represents the anonymous survey responses of a single high school student.
+**File.** A comma-separated values (`.csv`) file containing **13,387 observations** (rows) and **6 variables** (columns). Each row represents the anonymous survey responses of a single high school student.
 
 ::: {.content-visible when-format="html"}
 [Download youth_risk_2007.csv (CSV file, 192 KB)](../data/youth_risk_2007.csv)
@@ -672,18 +672,15 @@ The trial was divided into two structural phases to test both intervention effic
 | `grade`           | Categorical   | The respondent's academic grade standing in high school (**9** = 9th grade/Freshman, **10** = 10th grade/Sophomore, **11** = 11th grade/Junior, **12** = 12th grade/Senior). |
 | `age4`            | Categorical   | The respondent's age in years, restricted to adolescent age brackets (**14**, **15**, **16**, **17**, or **18** years old). |
 | `smoke`           | Categorical   | Lifetime tobacco experimentation indicator ($1 = \text{yes, has tried smoking cigarettes (even a few puffs)}$, $0 = \text{no}$). |
+| `DriverLicense`   | Categorical   | Whether the respondent has a driver's license ($1 = \text{yes}$, $0 = \text{no}$); 54 values are missing. |
 
 : Variables in `youth_risk_2007.csv`, with data type and coding key.
 
 **Details.** Public safety campaigns frequently focus on the catastrophic dangers of driving under the influence. However, an equally devastating and overlooked vector for youth traffic fatalities is Riding with a Drunk Driver (RDD). To design effective public health interventions and target safety messaging, researchers must identify which adolescent subgroups are most vulnerable to accepting these rides and explore underlying behavioral correlations.
 
+The data in this file is a smaller subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States.
 
-
-The data in this file is a smaller subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States. 
-
-**Source.** Brooks-Russell, A., Simons-Morton, B., Haynie, D., Farhat, T., & Litvak, E. (2009). Which young people accept a lift from a drunk or drugged driver? *Accident Analysis & Prevention*, 41(4), 703–709. [https://doi.org/10.1016/j.aap.2009.03.004](https://www.google.com/search?q=https://doi.org/10.1016/j.aap.2009.03.004&authuser=1)
-
-
+**Source.** Brooks-Russell, A., Simons-Morton, B., Haynie, D., Farhat, T., & Litvak, E. (2009). Which young people accept a lift from a drunk or drugged driver? *Accident Analysis & Prevention*, 41(4), 703–709. [https://doi.org/10.1016/j.aap.2009.03.004](https://doi.org/10.1016/j.aap.2009.03.004)
 
 Centers for Disease Control and Prevention. (2007). *Youth Risk Behavior Surveillance System (YRBSS) Data and Documentation*. https://www.cdc.gov/yrbs/data/index.html
 

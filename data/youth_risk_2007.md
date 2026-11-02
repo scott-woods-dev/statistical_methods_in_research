@@ -6,7 +6,7 @@ This dataset isolates demographic and behavioral responses from a sample of Amer
 
 ## Format
 
-A comma-separated values (`.csv`) file containing **13,388 observations** (rows) and **5 variables** (columns). Each row represents the anonymous survey responses of a single high school student.
+A comma-separated values (`.csv`) file containing **13,387 observations** (rows) and **6 variables** (columns). Each row represents the anonymous survey responses of a single high school student.
 
 ### Variable Dictionary
 
@@ -17,6 +17,7 @@ A comma-separated values (`.csv`) file containing **13,388 observations** (rows)
 | `grade`           | Categorical   | The respondent's academic grade standing in high school (**9** = 9th grade/Freshman, **10** = 10th grade/Sophomore, **11** = 11th grade/Junior, **12** = 12th grade/Senior). |
 | `age4`            | Categorical   | The respondent's age in years, restricted to adolescent age brackets (**14**, **15**, **16**, **17**, or **18** years old). |
 | `smoke`           | Categorical   | Lifetime tobacco experimentation indicator ($1 = \text{yes, has tried smoking cigarettes (even a few puffs)}$, $0 = \text{no}$). |
+| `DriverLicense`   | Categorical   | Whether the respondent has a driver's license ($1 = \text{yes}$, $0 = \text{no}$); 54 values are missing. |
 
 ------
 
@@ -30,6 +31,6 @@ The data in this file is a smaller subset derived from the 2007 Youth Risk Behav
 
 ## Source
 
-Brooks-Russell, A., Simons-Morton, B., Haynie, D., Farhat, T., & Litvak, E. (2009). Which young people accept a lift from a drunk or drugged driver? *Accident Analysis & Prevention*, 41(4), 703–709. [https://doi.org/10.1016/j.aap.2009.03.004](https://www.google.com/search?q=https://doi.org/10.1016/j.aap.2009.03.004&authuser=1)
+Brooks-Russell, A., Simons-Morton, B., Haynie, D., Farhat, T., & Litvak, E. (2009). Which young people accept a lift from a drunk or drugged driver? *Accident Analysis & Prevention*, 41(4), 703–709. [https://doi.org/10.1016/j.aap.2009.03.004](https://doi.org/10.1016/j.aap.2009.03.004)
 
 Centers for Disease Control and Prevention. (2007). *Youth Risk Behavior Surveillance System (YRBSS) Data and Documentation*. https://www.cdc.gov/yrbs/data/index.html

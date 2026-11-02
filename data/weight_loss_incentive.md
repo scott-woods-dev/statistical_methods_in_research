@@ -28,4 +28,4 @@ The trial was divided into two structural phases to test both intervention effic
 
 ## Source
 
-Volpp, K. G., John, L. K., Troxel, A. B., Norton, L., Fassbender, J., & Loewenstein, G. (2008). Financial incentive–based approaches for weight loss. *JAMA*, 300(22), 2631–2637. [https://doi.org/10.1001/jama.2008.804](https://www.google.com/search?q=https://doi.org/10.1001/jama.2008.804&authuser=1)
+Volpp, K. G., John, L. K., Troxel, A. B., Norton, L., Fassbender, J., & Loewenstein, G. (2008). Financial incentive–based approaches for weight loss. *JAMA*, 300(22), 2631–2637. [https://doi.org/10.1001/jama.2008.804](https://doi.org/10.1001/jama.2008.804)

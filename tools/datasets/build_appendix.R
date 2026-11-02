@@ -1,10 +1,15 @@
 #!/usr/bin/env Rscript
-# Generates chapters/appendix-datasets.md from data/DATASET_KEY.md, which stays
-# the single source of truth. Never edit the appendix by hand.
+# Generates chapters/appendix-datasets.md from the per-dataset keys in data/
+# (one <name>.md beside each <name>.csv, following data/DATASET_STYLE_GUIDE.md).
+# The keys are the single source of truth. Never edit the appendix by hand.
 #
 #   Rscript tools/datasets/build_appendix.R                 write the appendix
 #   Rscript tools/datasets/build_appendix.R --plain FILE    write a plain-Markdown
-#       copy of the key (no Quarto blocks) for the downloadable archive
+#       copy of the keys (no Quarto blocks) for the downloadable archive
+#
+# Every key is checked against its CSV before anything is written: the key must
+# exist for each CSV, and the row count, column count, and variable names in the
+# key must match the file. A mismatch stops the script with exit status 1.
 #
 # The "as of" date is the date of the last commit that touched data/, so
 # rerunning the script on another day does not change the file.
@@ -15,16 +20,11 @@ root <- normalizePath(file.path(dirname(sub("^--file=", "",
 setwd(root)
 
 plain_out <- if (length(args) == 2 && args[1] == "--plain") args[2] else NULL
-key <- readLines("data/DATASET_KEY.md", encoding = "UTF-8", warn = FALSE)
 
-# ---- Parse the key into one record per dataset ----
-starts <- grep("^# Dataset: `", key)
-stopifnot(length(starts) > 0)
-ends <- c(starts[-1] - 1L, length(key))
-
-section <- function(lines, name) {
+# ---- Parse each per-dataset key ----
+section <- function(lines, name, file) {
   i <- grep(paste0("^## ", name, "\\s*$"), lines)
-  if (length(i) != 1) stop("expected one '## ", name, "' section")
+  if (length(i) != 1) stop(file, ": expected one '## ", name, "' section")
   rest <- lines[(i + 1):length(lines)]
   nxt <- grep("^## ", rest)
   body <- if (length(nxt)) rest[seq_len(nxt[1] - 1L)] else rest
@@ -34,12 +34,26 @@ section <- function(lines, name) {
   body
 }
 
-datasets <- lapply(seq_along(starts), function(k) {
-  lines <- key[starts[k]:ends[k]]
+key_files <- list.files("data", pattern = "\\.md$", full.names = TRUE)
+key_files <- key_files[basename(key_files) != "DATASET_STYLE_GUIDE.md"]
+key_files <- key_files[order(basename(key_files), method = "radix")]
+problems <- character()
+
+csvs <- list.files("data", pattern = "\\.csv$")
+for (m in setdiff(csvs, sub("\\.md$", ".csv", basename(key_files))))
+  problems <- c(problems, paste0(m, ": no matching key data/", sub("\\.csv$", ".md", m)))
+
+datasets <- lapply(key_files, function(path) {
+  lines <- readLines(path, encoding = "UTF-8", warn = FALSE)
+  start <- grep("^# Dataset: `", lines)
+  if (length(start) != 1) stop(path, ": expected exactly one '# Dataset: `file.csv`' heading")
+  lines <- lines[start:length(lines)]
   file <- sub("^# Dataset: `(.+)`\\s*$", "\\1", lines[1])
-  fmt <- section(lines, "Format")
+  if (file != sub("\\.md$", ".csv", basename(path)))
+    problems <<- c(problems, paste0(path, ": heading names ", file))
+  fmt <- section(lines, "Format", path)
   vd <- grep("^### Variable Dictionary", fmt)
-  stopifnot(length(vd) == 1)
+  if (length(vd) != 1) stop(path, ": expected one '### Variable Dictionary'")
   fmt_text <- fmt[seq_len(vd - 1L)]
   table <- fmt[(vd + 1L):length(fmt)]
   table <- table[nzchar(trimws(table))]
@@ -48,13 +62,45 @@ datasets <- lapply(seq_along(starts), function(k) {
   # on one line in the PDF.
   stopifnot(grepl("^\\|[ :|-]+\\|\\s*$", table[2]))
   table[2] <- paste0("| :", strrep("-", 29), " | :", strrep("-", 14), " | :", strrep("-", 54), " |")
+
+  # Check the key against the CSV.
+  csv_path <- file.path("data", file)
+  if (file.exists(csv_path)) {
+    d <- utils::read.csv(csv_path, check.names = FALSE, stringsAsFactors = FALSE, nrows = -1)
+    # Ignore trailing columns with no name and no values (smoking_bmi_bp.csv has six).
+    blank <- names(d) == "" & vapply(d, function(x) all(is.na(x) | x == ""), logical(1))
+    d <- d[, !blank, drop = FALSE]
+    txt <- paste(fmt_text, collapse = " ")
+    num <- function(re) {
+      x <- regmatches(txt, regexec(re, txt))[[1]]
+      if (length(x) < 2) NA_integer_ else as.integer(gsub(",", "", x[2]))
+    }
+    n_key <- num("\\*\\*([0-9,]+) observations\\*\\*")
+    p_key <- num("\\*\\*([0-9,]+) variables\\*\\*")
+    if (is.na(n_key) || n_key != nrow(d))
+      problems <<- c(problems, sprintf("%s: key says %s rows, CSV has %d", file, n_key, nrow(d)))
+    if (is.na(p_key) || p_key != ncol(d))
+      problems <<- c(problems, sprintf("%s: key says %s variables, CSV has %d", file, p_key, ncol(d)))
+    vars <- sub("^\\|\\s*`([^`]+)`.*$", "\\1", table[grepl("^\\|\\s*`", table)])
+    if (!setequal(vars, names(d)) || anyDuplicated(vars))
+      problems <<- c(problems, sprintf("%s: variable names differ. Key only: %s. CSV only: %s", file,
+        paste(setdiff(vars, names(d)), collapse = ", "), paste(setdiff(names(d), vars), collapse = ", ")))
+  } else {
+    problems <<- c(problems, paste0(path, ": no matching CSV ", csv_path))
+  }
+
   list(file = file,
-       description = section(lines, "Description"),
+       description = section(lines, "Description", path),
        format = fmt_text[nzchar(trimws(fmt_text))],
        table = table,
-       details = section(lines, "Details"),
-       source = section(lines, "Source"))
+       details = section(lines, "Details", path),
+       source = section(lines, "Source", path))
 })
+
+if (length(problems)) {
+  cat("Dataset keys do not match the data:\n", paste0("  ", problems, "\n"), sep = "")
+  quit(status = 1)
+}
 
 # ---- Facts shared by both outputs ----
 as_of <- local({

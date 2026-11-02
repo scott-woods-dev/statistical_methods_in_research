@@ -29,4 +29,4 @@ Because Google Trends now reports this term at monthly resolution, this file is 
 
 ## Source
 
-Google LLC. (2026). *Google Trends Search Interest for "sunscreen"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+Google LLC. (2026). *Google Trends Search Interest for "sunscreen"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com)

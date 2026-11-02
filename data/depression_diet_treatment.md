@@ -35,4 +35,4 @@ To track changes in mental health, the researchers recorded scores across two di
 
 ## Source
 
-Francis, H. M., Stevenson, R. J., Chambers, J. R., Joint, D., Dickie, E. W., & Burger, C. (2019). A brief diet intervention can reduce symptoms of depression in young adults: A randomised controlled trial. *PLoS ONE*, 14(10), e0222768. [https://doi.org/10.1371/journal.pone.0222768](https://www.google.com/search?q=https://doi.org/10.1371/journal.pone.0222768&authuser=1)
+Francis, H. M., Stevenson, R. J., Chambers, J. R., Joint, D., Dickie, E. W., & Burger, C. (2019). A brief diet intervention can reduce symptoms of depression in young adults: A randomised controlled trial. *PLoS ONE*, 14(10), e0222768. [https://doi.org/10.1371/journal.pone.0222768](https://doi.org/10.1371/journal.pone.0222768)

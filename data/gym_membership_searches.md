@@ -25,4 +25,4 @@ Spanning from May 2021 to May 2026, this dataset provides an excellent foundatio
 
 ## Source
 
-Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com?authuser=1)
+Google LLC. (2026). *Google Trends Search Interest for "gym membership"*. Retrieved October 20, 2026, from [https://trends.google.com](https://trends.google.com)

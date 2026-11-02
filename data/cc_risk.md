@@ -29,4 +29,4 @@ The primary objective of the original study was to examine the relationships bet
 
 ## Source
 
-Worthy, S. L., Jonkman, J. N., & Blinn-Pike, L. (2010). Sensation-seeking, risk-taking, and problematic financial behaviors of college students. *Journal of Family and Economic Issues*, 31(2), 161–170. [https://doi.org/10.1007/s10834-010-9183-2](https://www.google.com/search?q=https://doi.org/10.1007/s10834-010-9183-2&authuser=1)
+Worthy, S. L., Jonkman, J. N., & Blinn-Pike, L. (2010). Sensation-seeking, risk-taking, and problematic financial behaviors of college students. *Journal of Family and Economic Issues*, 31(2), 161–170. [https://doi.org/10.1007/s10834-010-9183-2](https://doi.org/10.1007/s10834-010-9183-2)

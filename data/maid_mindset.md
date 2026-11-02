@@ -41,4 +41,4 @@ Biometric and physiological markers (including weight, body mass index, body fat
 
 ## Source
 
-Crum, A. J., & Langer, E. J. (2007). Mind-set matters: Exercise and the placebo effect. *Psychological Science*, 18(2), 165–171. [https://doi.org/10.1111/j.1467-9280.2007.01867.x](https://www.google.com/search?q=https://doi.org/10.1111/j.1467-9280.2007.01867.x&authuser=1)
+Crum, A. J., & Langer, E. J. (2007). Mind-set matters: Exercise and the placebo effect. *Psychological Science*, 18(2), 165–171. [https://doi.org/10.1111/j.1467-9280.2007.01867.x](https://doi.org/10.1111/j.1467-9280.2007.01867.x)

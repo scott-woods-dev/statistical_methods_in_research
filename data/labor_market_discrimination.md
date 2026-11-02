@@ -6,7 +6,7 @@ This dataset contains a subset of records from a landmark 2004 field experiment 
 
 ## Format
 
-A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **63 variables** (columns). A selection of 7 foundational variables frequently used in introductory analyses is outlined below.
+A comma-separated values (`.csv`) file containing **4,870 observations** (rows) and **7 variables** (columns), a selection of the 63 variables in the original data that introductory analyses use most often.
 
 ### Variable Dictionary
 
@@ -34,4 +34,4 @@ The original study's primary finding revealed that resumes with White-sounding n
 
 ## Source
 
-Bertrand, M., & Mullainathan, S. (2004). Replication data for: Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. *American Economic Review*, 94(4), 991–1013. Harvard Dataverse. [https://doi.org/10.7910/DVN/JG939E](https://www.google.com/search?q=https://doi.org/10.7910/DVN/JG939E&authuser=1)
+Bertrand, M., & Mullainathan, S. (2004). Replication data for: Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. *American Economic Review*, 94(4), 991–1013. Harvard Dataverse. [https://doi.org/10.7910/DVN/JG939E](https://doi.org/10.7910/DVN/JG939E)

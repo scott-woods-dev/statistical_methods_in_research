@@ -47,4 +47,4 @@ During an event, participants engaged in individual, four-minute "speed dates" w
 
 ## Source
 
-Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge University Press. [https://doi.org/10.1017/CBO9780511790942](https://www.google.com/search?q=https://doi.org/10.1017/CBO9780511790942&authuser=1)
+Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge University Press. [https://doi.org/10.1017/CBO9780511790942](https://doi.org/10.1017/CBO9780511790942)

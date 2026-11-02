@@ -28,4 +28,4 @@ This dataset tracks 500 randomly selected adults from the United States, capturi
 
 ## Source
 
-Statistical Society of Canada. (2003). *Blood Pressure Case Studies for the 2003 Annual Meeting*. Archived Case Studies. Retrieved from [http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure](https://www.google.com/search?q=http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure&authuser=1)
+Statistical Society of Canada. (2003). *Blood Pressure Case Studies for the 2003 Annual Meeting*. Archived Case Studies. Retrieved from [http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure](http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure)

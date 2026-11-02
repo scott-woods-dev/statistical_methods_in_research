@@ -34,4 +34,4 @@ The data were obtained from a sample of undergraduate students who participated 
 
 ## Source
 
-Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). Class start times, sleep, and academic performance in college: A path analysis. *Chronobiology International: The Journal of Biological and Medical Rhythm Research*, 29(3), 318–335. [https://doi.org/10.3109/07420528.2012.659144](https://www.google.com/search?q=https://doi.org/10.3109/07420528.2012.659144&authuser=1)
+Onyper, S. V., Thacher, P. V., Gilbert, J. W., & Gradess, S. G. (2012). Class start times, sleep, and academic performance in college: A path analysis. *Chronobiology International: The Journal of Biological and Medical Rhythm Research*, 29(3), 318–335. [https://doi.org/10.3109/07420528.2012.659144](https://doi.org/10.3109/07420528.2012.659144)
