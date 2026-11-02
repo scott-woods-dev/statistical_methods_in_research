@@ -162,7 +162,7 @@ If you look at older textbooks or search online, you will frequently see the alt
 
 
 
-Why is that phrasing wrong? Imagine our academic track scores very high, our vocational track scores very low, and our general track sits perfectly in the middle. It is entirely possible for an ANOVA to find a significant difference between the academic track and the vocational track, while the general track's middle-ground score is not statistically different from either of them.
+Why is that phrasing wrong? Imagine our academic track scores very high, our vocational track scores very low, and our general track sits perfectly in the middle. It is possible for an ANOVA to find a significant difference between the academic track and the vocational track, while the general track's middle-ground score is not statistically different from either of them.
 
 In this scenario, the academic track is *not* different from "the others" (plural), because it is not different from the general track. It is only different from the vocational track. The ANOVA only requires **one pair** of factor levels to show a significant difference for the entire test to be significant.
 
@@ -498,7 +498,7 @@ To finalize our data triage, we evaluate the four structural assumptions of the 
 
 ![Figure 6.5: Distribution of the pooled residuals from the one-way ANOVA in the guided analysis. The shape is mostly bell-shaped with a mild left tail, consistent with the lowest writing score in the academic track. The smooth curve marks a normal distribution with the same mean and standard deviation.](../figures/chapter_06/fig_06_05_hist_residuals_histogram_analysis.png){fig-alt="Histogram of the pooled ANOVA residuals, mostly bell-shaped and centered near zero, with a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."}
 
-Our histogram is mostly bell-shaped, but it exhibits that slight left-skew we anticipated from the ceiling effect. In a rigid mathematical sense, this is not a *perfect* bell curve. However, remember this rule for diagnostics: we are not looking for perfection; we are looking for plausibility. If someone handed you this histogram, it is entirely plausible that it came from a normal distribution.
+Our histogram is mostly bell-shaped, but it exhibits that slight left-skew we anticipated from the ceiling effect. In a rigid mathematical sense, this is not a *perfect* bell curve. However, remember this rule for diagnostics: we are not looking for perfection; we are looking for plausibility. If someone handed you this histogram, it is plausible that it came from a normal distribution.
 
 ![Figure 6.6: Normal Q-Q plot of the pooled ANOVA residuals. Points close to the dashed line are consistent with a normal distribution. The points follow the line closely, with a small dip in the lower tail from the lowest writing score.](../figures/chapter_06/fig_06_06_scatter_residuals_qq_analysis.png){fig-alt="Normal Q-Q plot of the pooled residuals. Most points hug the dashed diagonal reference line, with a small dip below the line at the lower end. There is no sharp hook or S-curve."}
 

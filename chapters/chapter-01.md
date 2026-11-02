@@ -498,7 +498,7 @@ The entire mathematical field of inferential statistics is built on this relatio
 
 ### Notation for Samples and Populations
 
-Because populations and samples are entirely different concepts, we use different mathematical symbols to keep them separate. In statistics, we generally use Greek letters for unknown population parameters, and standard English letters for known sample statistics.
+Because populations and samples are different concepts, we use different mathematical symbols to keep them separate. In statistics, we generally use Greek letters for unknown population parameters, and standard English letters for known sample statistics.
 
 
 

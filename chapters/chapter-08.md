@@ -31,7 +31,7 @@ As we work through the chapter, we will analyze several structural variables des
 
 
 
-We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to look at two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating entirely independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
+We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to look at two variables at once, allowing you to determine if distinct categorical factors (such as a subject's behavior and the deployment of a body camera) are associated with one another or operating independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.
 
 
 
@@ -261,7 +261,7 @@ It is easy to confuse the Test for Independence with our next tool, the **Chi-Sq
 
 
 
-The Test for Independence looks at a single sample and asks if two variables interact. The Test for Homogeneity takes two entirely separate, predefined populations and asks if they share the same categorical profile for a single variable. The word "homogeneous" literally means "of the same kind."
+The Test for Independence looks at a single sample and asks if two variables interact. The Test for Homogeneity takes two separate, predefined populations and asks if they share the same categorical profile for a single variable. The word "homogeneous" literally means "of the same kind."
 
 
 
@@ -299,7 +299,7 @@ Our hypotheses should look like this:
 - **$H_0$**: $\pi_{\text{Elective}} = \pi_{\text{Emergency}}$ (The proportions are equal for all age categories).
 - **$H_1$**: $\pi_{\text{Elective}} \neq \pi_{\text{Emergency}}$ (At least one pair of proportions is not equal).
 
-By writing it this way, we see that the Test for Homogeneity is simply a tool to evaluate if the proportions of a specific trait remain balanced across entirely different populations.
+By writing it this way, we see that the Test for Homogeneity is simply a tool to evaluate if the proportions of a specific trait remain balanced across different populations.
 
 
 
@@ -809,7 +809,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 - **Chi-Square Goodness-of-Fit:** A test used to compare a single categorical variable from a single sample against a known external baseline (like a historical average or census data).
 - **Chi-Square Test for Independence:** A test used to evaluate whether two distinct categorical variables gathered from a single sample overlap in a systematic, associated way.
-- **Chi-Square Test for Homogeneity:** A test used to determine if the proportions of a single categorical trait are equal across two or more entirely distinct populations.
+- **Chi-Square Test for Homogeneity:** A test used to determine if the proportions of a single categorical trait are equal across two or more distinct populations.
 - **McNemar's Test:** The required test for evaluating categorical outcomes when the data is dependent or comes in matched pairs (like speed dating partners or before-and-after studies).
 - **Standardized Residuals:** The post hoc tool used after a significant Chi-Square test. Any cell with a residual outside the boundaries of $-2.0$ and $+2.0$ is considered a significant contributor to the relationship.
 - **The Expected Count Rule:** To avoid inflating the risk of a Type I error, every *expected* count calculated by your software must be at least 5. This is driven by overall averages, not just raw observed counts.

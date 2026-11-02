@@ -38,13 +38,13 @@ Think of the transition this way: The goal is your destination (understanding hi
 
 
 
-This translation process is rarely simple, and there is never just one perfect route to your destination. A single research goal can spawn dozens of valid research questions depending on the creative approach of the researcher and the data available. For example, a team with the same goal of studying corporate hiring bias might decide to ask entirely different questions:
+This translation process is rarely simple, and there is never just one perfect route to your destination. A single research goal can spawn dozens of valid research questions depending on the creative approach of the researcher and the data available. For example, a team with the same goal of studying corporate hiring bias might decide to ask different questions:
 
 - Do minority candidates receive lower starting salary offers than White candidates with the identical qualifications?
 - Are African-American employees promoted to managerial positions at the same rate as their White peers within their first five years of employment?
 - Do human resource recruiters spend the same number of seconds reading resumes from Black applicants as they do for White applicants?
 
-Each of these alternative questions is a valid way to address the main research goal, but each requires entirely different data, different variables, and different statistical tools.
+Each of these alternative questions is a valid way to address the main research goal, but each requires different data, different variables, and different statistical tools.
 
 
 

@@ -200,7 +200,7 @@ That said, you might notice a missing piece in that formal APA sentence: it tell
 
 
 
-In a real research paper, you never let a statistical sentence stand entirely on its own. You must always pair your inferential statistics (the test results) with your descriptive statistics (the actual medians). You typically write a plain-English sentence reporting the medians first to establish the direction of the effect, followed immediately by the APA-formatted sentence to provide the mathematical proof.
+In a real research paper, you never let a statistical sentence stand on its own. You must always pair your inferential statistics (the test results) with your descriptive statistics (the actual medians). You typically write a plain-English sentence reporting the medians first to establish the direction of the effect, followed immediately by the APA-formatted sentence to provide the mathematical proof.
 
 
 

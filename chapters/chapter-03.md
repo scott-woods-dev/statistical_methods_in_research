@@ -237,7 +237,7 @@ In everyday English, calling something "significant" usually means it is huge or
 
 
 
-Notice that we wrote the scores were significantly "higher" than 16. Remember that our alternative hypothesis ($H_1$) only stated that the true average was *not equal* to 16. The t-test and the resulting p-value only told us that a mathematical difference exists. The test itself is entirely blind to direction. To confidently state that the scores were *higher*, we had to look back at our sample mean (20.47) and our confidence interval (which sat entirely above 16). The p-value proves the difference is real, but you must always rely on your descriptive statistics to tell you which direction the difference goes.
+Notice that we wrote the scores were significantly "higher" than 16. Remember that our alternative hypothesis ($H_1$) only stated that the true average was *not equal* to 16. The t-test and the resulting p-value only told us that a mathematical difference exists. The test itself is blind to direction. To confidently state that the scores were *higher*, we had to look back at our sample mean (20.47) and our confidence interval (which sat entirely above 16). The p-value proves the difference is real, but you must always rely on your descriptive statistics to tell you which direction the difference goes.
 
 
 
@@ -516,7 +516,7 @@ To understand power, we have to revisit the Type II error. A Type II error occur
 
 
 
-**Statistical Power** is the exact opposite of a Type II error. Power is the probability that your study will successfully detect a true effect if one genuinely exists. If a study has 80% power, it means that if the diet intervention truly reduces depression, the study has an 80% chance of successfully calculating a p-value below .05, and a 20% chance of missing the effect entirely. In the social sciences, researchers generally aim for a minimum power of 80% when planning their experiments.
+**Statistical Power** is the exact opposite of a Type II error. Power is the probability that your study will successfully detect a true effect if one genuinely exists. If a study has 80% power, it means that if the diet intervention truly reduces depression, the study has an 80% chance of successfully calculating a p-value below .05, and a 20% chance of missing the effect. In the social sciences, researchers generally aim for a minimum power of 80% when planning their experiments.
 
 ### The Balancing Act
 
@@ -584,7 +584,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 3. **The significance level ($\alpha$) sets the boundary.** It is the predetermined standard of evidence required to reject the null hypothesis, universally set at .05 in the social sciences.
 4. **Decisions carry the risk of error.** A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).
 5. **The Central Limit Theorem provides flexibility.** Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically $n \ge 30$).
-6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two entirely separate groups.
+6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two separate groups.
 7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is large enough to matter in the real world.
 8. **Power Analysis prevents wasted effort.** Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.
 

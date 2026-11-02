@@ -88,7 +88,7 @@ Because we now have two factors interacting in our model, a Two-Way ANOVA gives 
 
 
 
-Here is the main warning for factorial designs: if an interaction effect exists, it changes how you interpret your main effects. In fact, a strong interaction can make a main effect entirely misleading.
+Here is the main warning for factorial designs: if an interaction effect exists, it changes how you interpret your main effects. In fact, a strong interaction can make a main effect misleading.
 
 
 
@@ -429,7 +429,7 @@ A Repeated Measures ANOVA uses a **within-subjects design**. Instead of comparin
 
 
 
-Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math looks at the *change* inside each specific person, entirely filtering out the background noise of their baseline genetics.
+Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math looks at the *change* inside each specific person, filtering out the background noise of their baseline genetics.
 
 
 
@@ -516,7 +516,7 @@ Our core research question was simple: Can changing a person's mindset about the
 
    
 
-3. **The Repeated Measures ANOVA:** Finally, we shifted our focus to Body Mass Index and used the ultimate noise-reduction tool: the within-subjects design. By measuring the same maids twice, we filtered out their baseline genetics entirely. Here, we found our prize: a statistically significant interaction between time and the experimental condition ($p = 0.003$). The informed maids' BMI dropped significantly over the four weeks, while the control group's BMI remained relatively static.
+3. **The Repeated Measures ANOVA:** Finally, we shifted our focus to Body Mass Index and used the ultimate noise-reduction tool: the within-subjects design. By measuring the same maids twice, we filtered out their baseline genetics. Here, we found our prize: a statistically significant interaction between time and the experimental condition ($p = 0.003$). The informed maids' BMI dropped significantly over the four weeks, while the control group's BMI remained relatively static.
 
 
 

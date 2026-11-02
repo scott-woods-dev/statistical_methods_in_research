@@ -47,7 +47,7 @@ If a health organization wants to launch an effective fitness campaign, relying 
 
 ### Visualizing Time: The Time Series Plot
 
-If you were given a single numerical variable like the `gym membership` search index, your training from Chapter 1 might lead you directly to a histogram. However, if we build a histogram for this dataset, we only see the frequency of certain search volumes. We learn *how often* the index hits 50, but we lose the context of *when* it happens. A histogram destroys the chronological sequence, erasing the timeline entirely.
+If you were given a single numerical variable like the `gym membership` search index, your training from Chapter 1 might lead you directly to a histogram. However, if we build a histogram for this dataset, we only see the frequency of certain search volumes. We learn *how often* the index hits 50, but we lose the context of *when* it happens. A histogram destroys the chronological sequence, erasing the timeline.
 
 
 
@@ -97,7 +97,7 @@ When you look at this scatterplot, notice that you are no longer looking at time
 
 ### Trend vs. Autocorrelation: Understanding the Difference
 
-At this point, students often confuse an **overall linear trend** with **autocorrelation**. They sound similar on the surface: isn't predicting a value based on a slope exactly what we did in Chapter 4? You need to understand why these are entirely different concepts.
+At this point, students often confuse an **overall linear trend** with **autocorrelation**. They sound similar on the surface: isn't predicting a value based on a slope exactly what we did in Chapter 4? You need to understand why these are different concepts.
 
 
 
@@ -109,11 +109,11 @@ A **linear trend** describes the relationship between the *calendar* and our var
 
 ### The Consequences for Linear Regression
 
-Why does this momentum matter so much? In Chapter 4, our regression models assumed that the distance between our data points and the line of best fit (the residuals) was entirely random noise. We assumed every single data point was a brand new, independent piece of evidence.
+Why does this momentum matter so much? In Chapter 4, our regression models assumed that the distance between our data points and the line of best fit (the residuals) was random noise. We assumed every single data point was a brand new, independent piece of evidence.
 
 
 
-Because autocorrelation creates momentum, the data points are essentially copying each other. If we force a standard linear regression model onto this data, the math ignores the 0.92 autocorrelation. The model believes it has 262 entirely independent, unique pieces of evidence. In reality, because the weeks are just echoing one another, we actually have far less unique information than the model thinks.   
+Because autocorrelation creates momentum, the data points are essentially copying each other. If we force a standard linear regression model onto this data, the math ignores the 0.92 autocorrelation. The model believes it has 262 independent, unique pieces of evidence. In reality, because the weeks are just echoing one another, we actually have far less unique information than the model thinks.   
 
 
 

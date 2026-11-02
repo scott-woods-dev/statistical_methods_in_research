@@ -184,7 +184,7 @@ This brings us to the **ethics of omission**. When you gather real-world data, i
 
  
 
-The most common way beginners handle missing responses is through **listwise deletion**. This means that if a participant leaves even one question blank on a survey, you delete their entire row from your dataset. It feels like a safe, mathematical way to clean your data. However, what if the missing data is not random? What if low-income students are systematically skipping a survey question about their family's total wealth? If you use listwise deletion, you will inadvertently erase an entire demographic from your study. Your final analysis will look mathematically perfect, but it will be entirely biased because you threw away the very people who needed to be counted. 
+The most common way beginners handle missing responses is through **listwise deletion**. This means that if a participant leaves even one question blank on a survey, you delete their entire row from your dataset. It feels like a safe, mathematical way to clean your data. However, what if the missing data is not random? What if low-income students are systematically skipping a survey question about their family's total wealth? If you use listwise deletion, you will inadvertently erase an entire demographic from your study. Your final analysis will look mathematically perfect, but it will be biased because you threw away the very people who needed to be counted. 
 
   
 

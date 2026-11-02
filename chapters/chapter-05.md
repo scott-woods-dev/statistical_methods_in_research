@@ -626,7 +626,7 @@ c) Explain conceptually why the slope for `Sex` changed when you added the other
 
 12. **Evaluating the Model and Predictors:** Evaluate the overall accuracy and the individual predictors in your multiple regression model from Question 1b.
 a) Find the Adjusted $R^2$ value in your software output. Interpret what this percentage means regarding the variation in teacher salaries. Why should you report this metric instead of the regular $R^2$?
-b) Look at the slopes for `Age` and `Sex`. Because they use entirely different units (years versus a biological sex), you cannot compare the slopes directly. Which specific metric in your software output should you use instead to see which variable has a stronger influence on salary?
+b) Look at the slopes for `Age` and `Sex`. Because they use different units (years versus a biological sex), you cannot compare the slopes directly. Which specific metric in your software output should you use instead to see which variable has a stronger influence on salary?
 c) Compare those specific metrics for `Age` and `Sex`. Which variable provides the stronger signal in this dataset?
 
 
