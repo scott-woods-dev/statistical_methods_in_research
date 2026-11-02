@@ -40,7 +40,7 @@ scan "H_a notation" '\bH_\{?a\}?\b' fail
 scan "British spelling: -our/-re/-ce" '(?i)\b(colour\w*|behaviour\w*|favour\w*|honour\w*|neighbour\w*|labour\w*|humour\w*|centre[sd]?|metres?|litres?|fibre|theatre|defence|licence|grey|catalogue[sd]?|programmes?)\b' fail
 scan "British spelling: -ise family" '(?i)\b(summari|organi|recogni|normali|prioriti|characteri|criticiz|criticis|randomi|standardi|generali|minimi|maximi|realis|categori|visuali|specialis|finali|optimi|hypothesi|emphasi|apologi|authori|capitali|customi|familiari|memori|penali|summari|symbolis|synthesi|utili)s(e|ed|es|ing|ation|ations)\b|\banalys(e|ed|ing)\b' fail
 scan "British spelling: doubled consonant" '(?i)\b(labell(ed|ing)|modell(ed|ing)|travell(ed|ing|er)|cancell(ed|ing)|fuell(ed|ing)|signall(ed|ing)|levell(ed|ing)|counsell(ed|ing)|totall(ed|ing))\b' fail
-scan "British spelling: one-offs" '(?i)\b(whilst|amongst|towards|learnt|spelt|judgement|ageing|enrolment|fulfil|practis(e|ed|es|ing)|per cent|different to|artefacts?|sceptic\w*|aluminium|maths|Epidemiological Studies)\b' fail
+scan "British spelling: one-offs" '(?i)\b(whilst|amongst|towards|learnt|spelt|judgement|ageing|enrolment|fulfil|practis(e|ed|es|ing)|per cent|different to|artefacts?|sceptic\w*|aluminium|maths|Centre for Epidemiological Studies)\b' fail
 
 # ---- WARN: candidates for review ----
 scan "'clearly' (banned when it presumes the reader sees it; fine as a manner adverb, e.g. 'state it clearly')" '(?i)\bclearly\b' warn

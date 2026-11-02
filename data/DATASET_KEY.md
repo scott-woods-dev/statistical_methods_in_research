@@ -297,8 +297,8 @@ A comma-separated values (`.csv`) file containing **75 observations** (rows) and
 | **Variable Name** | **Data Type** | **Description and Coding Keys**                              |
 | ----------------- | ------------- | ------------------------------------------------------------ |
 | `Group`           | Categorical   | The experimental group assignment for the student (**Control** or **Diet**). |
-| `CESD1`           | Numerical     | Centre for Epidemiological Studies Depression (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity. |
-| `CESD21`          | Numerical     | Centre for Epidemiological Studies Depression (CESD) score measured at the conclusion of the study on Day 21. |
+| `CESD1`           | Numerical     | Center for Epidemiological Studies Depression (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity. |
+| `CESD21`          | Numerical     | Center for Epidemiological Studies Depression (CESD) score measured at the conclusion of the study on Day 21. |
 | `CESDDiff`        | Numerical     | The change in the CESD depression score over the 21 days ($\text{Day 21} - \text{Day 1}$). A negative value indicates an improvement in symptoms. |
 | `DASS1`           | Numerical     | Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at baseline on Day 1. High scores indicate greater self-reported depression severity. |
 | `DASS21`          | Numerical     | Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at the conclusion of the study on Day 21. |
