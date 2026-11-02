@@ -2,12 +2,14 @@
 /*
  * Accessibility shims for the Quarto book theme.
  *
- * axe-core flags three labeling problems that come from Quarto's generated
+ * axe-core flags four problems that come from Quarto's generated
  * markup, not from the chapter sources:
  *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
  *   2. Section toggles that all share the name "Toggle section".
  *   3. Pagination and sidebar links whose aria-label does not contain their
  *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
  * This script repairs the names after the page loads. If Quarto starts
  * emitting these labels itself, delete this file.
  */
@@ -107,7 +109,25 @@
     });
   }
 
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
   ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
     labelLandmarks();
     labelToggles();
     labelSidebarSections();

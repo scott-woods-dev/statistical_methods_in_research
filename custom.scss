@@ -387,7 +387,7 @@ blockquote p {
 }
 
 /* ADA: the search box's default focus ring is a 1px translucent shadow.
- * Strengthen it to a solid 2px ring in the link colour. The selectors match
+ * Strengthen it to a solid 2px ring in the link color. The selectors match
  * the defaults' specificity so this rule wins by coming later.
  */
 .aa-Autocomplete .aa-Form:focus-within,
@@ -396,3 +396,11 @@ blockquote p {
 }
 
 
+
+/* ADA: code blocks that scroll sideways are made keyboard-focusable by
+ * includes/a11y.html. Show a solid ring so keyboard users can see where they are.
+ */
+pre[tabindex="0"]:focus-visible {
+    outline: 2px solid var(--link-color); /* */
+    outline-offset: 2px; /* */
+}
