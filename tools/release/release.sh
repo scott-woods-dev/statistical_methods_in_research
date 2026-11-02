@@ -80,7 +80,12 @@ if [ "$FAST" = 1 ]; then
 fi
 
 # 5. Render
-quarto render --to html --to pdf >"$LOG" 2>&1 || fail "5 render" "quarto render"
+# Plain `quarto render` builds every format in _quarto.yml (html and pdf); passing
+# `--to html --to pdf` left docs/ with only the PDF.
+quarto render >"$LOG" 2>&1 || fail "5 render" "quarto render"
+for f in docs/index.html docs/chapters/chapter-01.html; do
+  [ -f "$f" ] || { echo "missing $f" >"$LOG"; fail "5 render" "HTML output missing"; }
+done
 PDF=$(ls docs/*.pdf 2>/dev/null | head -n 1)
 PAGES=$([ -n "$PDF" ] && pdfinfo "$PDF" 2>/dev/null | awk '/^Pages:/{print $2}')
 pass "5 render" "PDF ${PAGES:-?} pages"
