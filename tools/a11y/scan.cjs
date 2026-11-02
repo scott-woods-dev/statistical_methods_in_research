@@ -12,6 +12,7 @@
  *
  * Set VW and VH to test a narrow viewport, for example VW=390 VH=844.
  * The JSON report is written to a11y-results.json next to this script.
+ * The process exits 1 if any page has a violation or an error, otherwise 0.
  */
 const { chromium } = require('playwright');
 const { AxeBuilder } = require('@axe-core/playwright');
@@ -71,4 +72,7 @@ const outFile = path.join(__dirname, 'a11y-results.json');
     errors: results.filter(r => r.error),
     totals
   }, null, 2));
+
+  // Exit 1 when any page has a violation or failed to load, so scripts can gate on it.
+  if (results.some(r => r.error || (r.violations || []).length > 0)) process.exitCode = 1;
 })();
