@@ -49,6 +49,39 @@ scan "sentence-initial 'Let us' (propose 'Let's' or a direct rewrite; mid-senten
 scan "'Not X, but Y' / 'not just X, it's Y' frame" "(?i)\b(it(’|')s|it is|this is|that(’|')s|that is) not (just |merely |only |simply )?[^.;:!?]{1,80}[,;] (but |it(’|')s |it is |this is |that(’|')s |that is )|\bnot (just|merely|only) [^.;:!?]{1,60}[,;] (but|it|this|that|they|we)\b|\bnot only\b[^.;:!?]{1,80}\bbut also\b" warn
 scan "'rather than X, Y' / 'more than just' filler" '(?i)\bmore than (just|merely|simply)\b' warn
 
+# ---- WARN: frequency of words swept in the style pass ----
+# freq <label> <perl-regex> <per-chapter limit> <book limit>
+# Counts occurrences in chapters/chapter-NN.md (allow.txt lines skipped). The
+# limits sit at today's counts, because the kept instances are intentional
+# (fixed phrases, ideal cases, literal viewing). A WARN means the word is
+# creeping back; revise the sentence or raise the limit on purpose.
+freq() {
+  local label=$1 re=$2 chmax=$3 bookmax=$4 counts total over
+  counts=$(prose | { if [ -s "$ALLOW" ]; then grep -vFf "$ALLOW"; else cat; fi; } |
+    RE="$re" perl -ne 'BEGIN { $re = qr/$ENV{RE}/i }
+      if (m{^chapters/(chapter-\d+)\.md:\d+:(.*)$}) { ($f, $t) = ($1, $2); $c{$f}++ while $t =~ /$re/g; }
+      END { print "$_ $c{$_}\n" for sort keys %c }')
+  total=$(printf '%s\n' "$counts" | awk '{s += $2} END {print s + 0}')
+  over=$(printf '%s\n' "$counts" | awk -v m="$chmax" '$2 > m {print $1 ": " $2 " (limit " m ")"}')
+  if [ -n "$over" ] || [ "$total" -gt "$bookmax" ]; then
+    printf '\n[WARN] frequency: %s (%d)\n' "$label" "$(( $(printf '%s\n' "$over" | grep -c .) + (total > bookmax ? 1 : 0) ))"
+    [ -n "$over" ] && printf '%s\n' "$over"
+    [ "$total" -gt "$bookmax" ] && printf 'book total: %d (limit %d)\n' "$total" "$bookmax"
+  fi
+}
+
+freq "exact same" '\bexact same\b' 0 0
+freq "completely" '\bcompletely\b' 4 5
+freq "actually" '\bactually\b' 8 62
+freq "highly" '\bhighly\b' 6 23
+freq "very" '\bvery\b' 7 22
+freq "perfectly" '\bperfectly\b' 9 36
+freq "entirely" '\bentirely\b' 4 30
+freq "massive" '\bmassive(ly)?\b' 0 0
+freq "incredibly" '\bincredibl[ey]\b' 1 2
+freq "real world" '\breal[- ](world|life)\b' 1 2
+freq "look at" "\\b(look(s|ed|ing)? at|let(?:'|\\xE2\\x80\\x99)s look)\\b" 11 71
+
 if [ "$FAILED" = 1 ]; then
   printf '\nStyle check: FAIL (see [FAIL] sections above)\n'
   exit 1
