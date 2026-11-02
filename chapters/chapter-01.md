@@ -66,7 +66,7 @@ Other variables record a measurable quantity or exact amount. We call these **nu
 
 
 
-Why does this distinction matter? Because the type of variable you have entirely dictates what you can do with it. The statistical tools you use to explore a categorical variable like `DepressionStatus` will be completely different from the tools you use to analyze a numerical variable like `ClassesMissed`. We will see exactly how this works as we start building visual summaries in the next section.
+Why does this distinction matter? Because the type of variable you have entirely dictates what you can do with it. The statistical tools you use to explore a categorical variable like `DepressionStatus` will be different from the tools you use to analyze a numerical variable like `ClassesMissed`. We will see exactly how this works as we start building visual summaries in the next section.
 
 ---
 
@@ -130,7 +130,7 @@ We visualize this grouping using a **histogram**.
 
 
 
-At first glance, a histogram looks a lot like a bar chart. But notice one major visual difference: there are no gaps between the bars. In a bar chart, the gaps remind us that categories are completely separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.
+At first glance, a histogram looks a lot like a bar chart. But notice one major visual difference: there are no gaps between the bars. In a bar chart, the gaps remind us that categories are separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.
 
 ## 1.5 Distribution Shapes and The Normal Curve
 
@@ -214,7 +214,7 @@ To interpret this chart, you simply compare the sizes of the segments across the
 
 
 
-However, segmented bar charts have a major hidden drawback: they completely hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people actually make up each group.
+However, segmented bar charts have a major hidden drawback: they hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people actually make up each group.
 
 
 
@@ -367,7 +367,7 @@ But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,
 | Measure        | Best For (Data Type)             | What it tells us                                             |
 | :------------- | :------------------------------- | :----------------------------------------------------------- |
 | **Mean**       | Numerical (Symmetric)            | The mathematical balancing point of the data. It is highly sensitive to extreme outliers, making it excellent for understanding the *total* impact or aggregate of a group, but sometimes misleading for describing a single "typical" individual. |
-| **Median**     | Numerical (Skewed or Outliers)   | The exact middle position of the data. Half the values are higher, and half are lower. It is completely resistant to extreme outliers, making it the best choice for describing the "typical" everyday experience of an individual. |
+| **Median**     | Numerical (Skewed or Outliers)   | The exact middle position of the data. Half the values are higher, and half are lower. It is resistant to extreme outliers, making it the best choice for describing the "typical" everyday experience of an individual. |
 | **Mode**       | Categorical (Nominal or Ordinal) | The single most frequent outcome or common category in your dataset. |
 | **Proportion** | Categorical                      | The fraction or percentage of the total group that belongs to a specific category. It tells you the "part" compared to the "whole" and is always a value between 0 and 1 (or 0% and 100%). |
 
@@ -379,7 +379,7 @@ Knowing the center of your data is only half the story. Imagine two students who
 
 
 
-They have the same center, but their sleep habits are completely different! We measure this inconsistency using **measures of spread**. 
+They have the same center, but their sleep habits are different! We measure this inconsistency using **measures of spread**. 
 
 
 
@@ -404,7 +404,7 @@ $$\text{IQR} = Q3 - Q1$$
 
 
 
-Just as the median is the resistant counterpart to the mean, the IQR is the resistant counterpart to the standard deviation. Because the IQR only measures the core middle of the data, it completely ignores any extreme outliers or heavy skewness out at the tails. 
+Just as the median is the resistant counterpart to the mean, the IQR is the resistant counterpart to the standard deviation. Because the IQR only measures the core middle of the data, it ignores any extreme outliers or heavy skewness out at the tails. 
 
 
 
@@ -426,7 +426,7 @@ Because the mean and standard deviation mathematically use every single data poi
 
 
 
-Instead, we rely on our resistant measures: the median and the IQR. Because they only care about the position of the middle 50% of the data, they completely ignore the extreme values at the ends of the tails. 
+Instead, we rely on our resistant measures: the median and the IQR. Because they only care about the position of the middle 50% of the data, they ignore the extreme values at the ends of the tails. 
 
 
 
@@ -441,7 +441,7 @@ You might be wondering: if the median resists messy outliers so well, why don't 
 
 
 
-The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We completely ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a massive amount of information.
+The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a massive amount of information.
 
 
 
@@ -529,7 +529,7 @@ If a student simply skipped the question by accident, the missing data is random
 
 
 
-This introduces **bias**, which occurs when your data systematically distorts the truth. We see this often with income surveys. Extremely wealthy individuals and individuals living in poverty are both less likely to report their income than middle-class earners. If you ignore *why* the data is missing, your sample statistic will completely misrepresent the true population parameter. 
+This introduces **bias**, which occurs when your data systematically distorts the truth. We see this often with income surveys. Extremely wealthy individuals and individuals living in poverty are both less likely to report their income than middle-class earners. If you ignore *why* the data is missing, your sample statistic will misrepresent the true population parameter. 
 
 ### Floor and Ceiling Effects
 
@@ -553,7 +553,7 @@ Sometimes our measuring tools simply give up. Suppose our lifestyle survey didn'
 
 
 
-Similarly, we might face **truncated data**, where certain values are entirely cut off and excluded from the dataset before you even see them. For example, if our sleep study required students to sign a consent form during an early morning baseline test, students who sleep in until noon are completely missing from our sample. Our data is truncated because the "heavy sleeper" population was cut out by the study design itself.
+Similarly, we might face **truncated data**, where certain values are entirely cut off and excluded from the dataset before you even see them. For example, if our sleep study required students to sign a consent form during an early morning baseline test, students who sleep in until noon are missing from our sample. Our data is truncated because the "heavy sleeper" population was cut out by the study design itself.
 
 
 
@@ -564,7 +564,7 @@ Understanding these realities ensures you don't blindly trust a mean or a median
 As you begin working with real data, there are a few common traps that trip up almost every new researcher. Keep these in mind as you start your own analyses:
 
 * **Averaging numerical labels:** Sometimes, categories are recorded using numbers just to make data entry easier. For example, suppose a study records a student's college major using arbitrary codes: $1$ for Biology, $2$ for English, $3$ for Psychology, and $4$ for Business. Because these look like numbers, statistical software will happily let you calculate a mean. But what happens if you average a Biology major ($1$) and a Psychology major ($3$)? You get a $2$. Does that mean they combine to form an English major? No! The result is complete nonsense. Always check your variable dictionary before calculating summaries. If the number is just a placeholder for a label, you must use proportions or a bar plot, not a mean.
-* **Confusing bar plots with histograms:** They look incredibly similar, but they tell completely different stories. A bar plot is for *categorical* data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for *numerical* data, and the bars must touch to show that the numbers flow continuously along a number line.
+* **Confusing bar plots with histograms:** They look incredibly similar, but they tell different stories. A bar plot is for *categorical* data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for *numerical* data, and the bars must touch to show that the numbers flow continuously along a number line.
 * **Blindly trusting the mean:** It is tempting to calculate the mean and standard deviation for every numerical variable because they are the most famous statistics. However, if your data is heavily skewed (like `ClassesMissed`), the mean will not represent the "typical" student. Always look at the shape of your distribution in a histogram *before* you decide to report the mean or the median.
 
 ## 1.15 Key Concepts
@@ -637,7 +637,7 @@ When researchers write their conclusions, they state their findings in plain Eng
 
 
 
-Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
+Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the same center, but their academic experiences are different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
 
 ### Preliminary Conclusion
 Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question. 

@@ -10,7 +10,7 @@ Before we look at our data, it is important to understand the goals of time seri
 
  
 
-There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it completely ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only look at a linear trend, we completely miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is highly connected to what happened yesterday. 
+There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only look at a linear trend, we miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is highly connected to what happened yesterday. 
 
   
 
@@ -27,13 +27,13 @@ The dataset includes the following variables:
 - **`Week`**: A categorical variable recording the starting date for the week of data collection, recorded in MM-DD-YY format (ranging from 05-16-21 to 05-17-26).   
 - **`gym membership`**: A numerical variable tracking the normalized search interest index for the phrase "gym membership." Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.   
 
-By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution, but doing so would completely destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequence from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks.
+By the end of this chapter, you will transition away from the visual tools we used previously. If you were given a single numerical variable like search volume in Chapter 1, your first instinct would be to build a histogram to see its distribution, but doing so would destroy the chronological order of the data. Even a standard scatterplot fails to emphasize the sequence from one week to the next. Instead, you will learn to visualize time using continuous line charts. You will also explore **autocorrelation**, which explains exactly how chronological data violates the independence assumption. Finally, we will introduce the conceptual foundations of forecasting so you can use structural models to predict future behavioral peaks.
 
 
 
 ## 12.2 The Purpose of Time Series Analysis
 
-When we analyze data collected chronologically, our primary goal is to break the data down into understandable, predictable components. True time series analysis is much more sophisticated than simply placing time on the x-axis and drawing a line of best fit through the center of the data. While a simple linear regression model might show us a general upward trajectory, it completely smooths over the rich, dynamic reality of human behavior.
+When we analyze data collected chronologically, our primary goal is to break the data down into understandable, predictable components. True time series analysis is much more sophisticated than simply placing time on the x-axis and drawing a line of best fit through the center of the data. While a simple linear regression model might show us a general upward trajectory, it smooths over the rich, dynamic reality of human behavior.
 
 
 
@@ -47,7 +47,7 @@ If a health organization wants to launch an effective fitness campaign, relying 
 
 ### Visualizing Time: The Time Series Plot
 
-If you were given a single numerical variable like the `gym membership` search index, your training from Chapter 1 might lead you directly to a histogram. However, if we build a histogram for this dataset, we only see the frequency of certain search volumes. We learn *how often* the index hits 50, but we completely lose the context of *when* it happens. A histogram destroys the chronological sequence, erasing the timeline entirely.
+If you were given a single numerical variable like the `gym membership` search index, your training from Chapter 1 might lead you directly to a histogram. However, if we build a histogram for this dataset, we only see the frequency of certain search volumes. We learn *how often* the index hits 50, but we lose the context of *when* it happens. A histogram destroys the chronological sequence, erasing the timeline entirely.
 
 
 
@@ -75,11 +75,11 @@ This deep, sequential connection is called **autocorrelation**, and it fundament
 
 ## 12.3 The Independence Violation: Autocorrelation
 
-In our previous chapters on linear regression, we relied on a foundational assumption: independence. We assumed that each observation in a dataset was a completely separate, isolated event. If we survey one student about their sleep habits, their answer should not mechanically dictate the answer of the next student we randomly select.
+In our previous chapters on linear regression, we relied on a foundational assumption: independence. We assumed that each observation in a dataset was a separate, isolated event. If we survey one student about their sleep habits, their answer should not mechanically dictate the answer of the next student we randomly select.
 
 
 
-When dealing with time series data, this independence assumption completely collapses. The search volume for gym memberships during the second week of January is not an isolated event. It is deeply connected to the search volume from the first week of January. If public interest is surging this week, it is highly likely to remain high next week.   
+When dealing with time series data, this independence assumption collapses. The search volume for gym memberships during the second week of January is not an isolated event. It is deeply connected to the search volume from the first week of January. If public interest is surging this week, it is highly likely to remain high next week.   
 
 
 
@@ -113,7 +113,7 @@ Why does this momentum matter so much? In Chapter 4, our regression models assum
 
 
 
-Because autocorrelation creates momentum, the data points are essentially copying each other. If we force a standard linear regression model onto this data, the math completely ignores the 0.92 autocorrelation. The model believes it has 262 entirely independent, unique pieces of evidence. In reality, because the weeks are just echoing one another, we actually have far less unique information than the model thinks.   
+Because autocorrelation creates momentum, the data points are essentially copying each other. If we force a standard linear regression model onto this data, the math ignores the 0.92 autocorrelation. The model believes it has 262 entirely independent, unique pieces of evidence. In reality, because the weeks are just echoing one another, we actually have far less unique information than the model thinks.   
 
 
 
@@ -151,7 +151,7 @@ An ARIMA model is a powerful tool for projecting established historical patterns
 
 
 
-However, you must understand its limitations. An ARIMA model does not explain *why* something is happening; it is purely predictive, not causal. It also cannot predict unprecedented, structural anomalies. If a global event completely closed all fitness centers tomorrow, the ARIMA model would fail completely because it only knows how to repeat the past.
+However, you must understand its limitations. An ARIMA model does not explain *why* something is happening; it is purely predictive, not causal. It also cannot predict unprecedented, structural anomalies. If a global event closed all fitness centers tomorrow, the ARIMA model would fail because it only knows how to repeat the past.
 
 ### Forecasting the Fitness Data
 
@@ -175,7 +175,7 @@ Finally, this forecast provides a perfect reminder of why human researchers must
 
 As you go out and build your own time series plots and prediction models, keep these common mistakes in mind:
 
-- **Modeling Before Graphing:** One of the most dangerous traps in data analysis is feeding numbers directly into an algorithm without looking at them first. As we saw with the growing seasonal spikes in our fitness data, a visual time series plot will often reveal structural shifts that the automated math completely misses. Never build a model, whether it is a simple regression or an advanced forecasting tool, without exploring a relevant graph. The visual evidence should always guide your choice of analytical method, because the graph will often find something the math cannot.   
+- **Modeling Before Graphing:** One of the most dangerous traps in data analysis is feeding numbers directly into an algorithm without looking at them first. As we saw with the growing seasonal spikes in our fitness data, a visual time series plot will often reveal structural shifts that the automated math misses. Never build a model, whether it is a simple regression or an advanced forecasting tool, without exploring a relevant graph. The visual evidence should always guide your choice of analytical method, because the graph will often find something the math cannot.   
 - **Applying Linear Regression to Chronological Data:** Because simple linear regression is so versatile, researchers often assume they can just use time as the explanatory variable on the horizontal axis. However, doing so violates the core assumption of independence. Standard regression ignores autocorrelation and smooths over cyclical patterns, leading to wildly overconfident $p$-values and fundamentally flawed conclusions. As a general rule, we should not use standard linear regression to handle time series data.   
 - **Treating Forecasts as Guarantees:** When looking at an ARIMA forecast, it is tempting to focus entirely on the solid predicted line and treat it as a guaranteed certainty. However, time series models only know how to repeat historical patterns. They cannot predict unprecedented real-world shocks, such as a sudden economic crisis or a disruptive new technology. You must always pay close attention to the widening prediction intervals (the shaded margin of error). The further into the future you project, the less certainty you actually have.   
 - **Confusing Prediction with Causation:** Time series analysis is excellent at identifying *what* is happening and *when* it is happening, but it cannot tell you *why*. A structural model might accurately predict a large surge in fitness searches next January, but the algorithm has no concept of New Year's resolutions, human psychology, or winter weather. It only recognizes a numerical pattern. It is always the researcher's job to provide the theoretical context that explains the mathematical pattern.

@@ -46,7 +46,7 @@ As a researcher, you will primarily encounter three scenarios where traditional 
 
 
 
-**2. Preference for a Median** In social science research, data is often highly skewed. Variables like income or behavioral data usually contain a few extreme outliers. Because traditional tests rely on averages, these extreme values pull the mean far away from the center. When the mean is distorted, it no longer represents what is truly typical for your subjects. Nonparametric tests allow you to evaluate the median instead, which completely ignores those extreme outliers and provides a much more accurate reflection of the typical person.   
+**2. Preference for a Median** In social science research, data is often highly skewed. Variables like income or behavioral data usually contain a few extreme outliers. Because traditional tests rely on averages, these extreme values pull the mean far away from the center. When the mean is distorted, it no longer represents what is truly typical for your subjects. Nonparametric tests allow you to evaluate the median instead, which ignores those extreme outliers and provides a much more accurate reflection of the typical person.   
 
 
 
@@ -84,12 +84,12 @@ When the mean is distorted by extreme outliers, we have to look for a different 
 
 
 
-Choosing the right nonparametric test follows the same logic you learned in earlier chapters. You just need to look at how your research is designed. Are your groups paired together or completely separate? How many groups are you comparing?
+Choosing the right nonparametric test follows the same logic you learned in earlier chapters. You just need to look at how your research is designed. Are your groups paired together or separate? How many groups are you comparing?
 
 
 
 - **Two Paired Groups:** Sometimes you measure the same people twice, like giving a pre-test and a post-test. Or, you might compare two naturally linked things, like the price of a specific textbook on Amazon versus the price of that same book at the campus bookstore. When your data is paired like this, and your sample size is small, you should use the **Wilcoxon Signed-Rank Test**. This is your safe alternative to the paired $t$-test.   
-- **Two Independent Groups:** Other times, you want to compare two completely separate groups of people who have no connection to one another. For example, you might want to compare the salaries of male professors to female professors. When you are comparing two independent groups, and extreme outliers make the median a better choice than the mean, you should use the **Mann-Whitney U Test**. This is your nonparametric alternative to the independent $t$-test.   
+- **Two Independent Groups:** Other times, you want to compare two separate groups of people who have no connection to one another. For example, you might want to compare the salaries of male professors to female professors. When you are comparing two independent groups, and extreme outliers make the median a better choice than the mean, you should use the **Mann-Whitney U Test**. This is your nonparametric alternative to the independent $t$-test.   
 - **Three or More Groups:** Finally, you might want to compare three or more distinct groups. For example, you might want to see if grade point averages differ across survey categories of drinking habits, like "Abstain," "Light," "Moderate," or "Heavy." Because these categories are ordinal variables, meaning they are ranked in a specific order, we cannot calculate a proper mean for them. To solve this, you should use the **Kruskal-Wallis Test**. This test evaluates differences across multiple groups by looking at how the data ranks, making it your safe alternative to the One-Way ANOVA.   
 
 ## 10.5 The Wilcoxon Signed-Rank Test
@@ -114,7 +114,7 @@ To salvage the research, we switch to the Wilcoxon Signed-Rank Test. Instead of 
 
 
 
-Conceptually, the software calculates the difference in price for each textbook, but then it completely ignores the raw dollar amounts. Instead, it ranks those differences from smallest to largest. By analyzing the rank-ordering of the data rather than the raw numerical values, the test safely bypasses the need for a normal bell curve.
+Conceptually, the software calculates the difference in price for each textbook, but then it ignores the raw dollar amounts. Instead, it ranks those differences from smallest to largest. By analyzing the rank-ordering of the data rather than the raw numerical values, the test safely bypasses the need for a normal bell curve.
 
 ![Figure 10.1: Price differences in dollars for 16 required textbooks, calculated as bookstore minus Amazon. The median difference is 36.00, and most books cost more at the bookstore. The box shows the middle half of the differences; each circle is one textbook.](../figures/chapter_10/fig_10_01_box_textbook_price_differences.png){fig-alt="Boxplot of textbook price differences in dollars, with one point per book. The median is 36.00 and the middle half of the differences runs from about 4 to 61. Positive values mean the bookstore is more expensive; four books cost slightly less at the bookstore."}
 
@@ -210,11 +210,11 @@ For example, a complete write-up in a research journal would look like this: "Th
 
 ## 10.7 The Mann-Whitney U Test
 
-When you need to compare two completely separate groups of people, your first instinct is likely to use the independent samples $t$-test. However, just like the paired $t$-test, the independent $t$-test requires the mean to be a reliable measure of the center. When your data is heavily skewed, the mean loses its meaning, and you must switch to a nonparametric alternative. The **Mann-Whitney U Test** is your tool for comparing two independent groups when extreme outliers make a median a much more accurate reflection of the typical subject. 
+When you need to compare two separate groups of people, your first instinct is likely to use the independent samples $t$-test. However, just like the paired $t$-test, the independent $t$-test requires the mean to be a reliable measure of the center. When your data is heavily skewed, the mean loses its meaning, and you must switch to a nonparametric alternative. The **Mann-Whitney U Test** is your tool for comparing two independent groups when extreme outliers make a median a much more accurate reflection of the typical subject. 
 
   
 
-Let's explore this with a real-world scenario. Suppose you are investigating gender pay equity in higher education. You get a random sample of 200 postsecondary educators from the American Community Survey. You want to compare the annual teaching salary between professors self-identifying as male and female. Because no single professor belongs to both groups, you are working with two completely independent samples.   
+Let's explore this with a real-world scenario. Suppose you are investigating gender pay equity in higher education. You get a random sample of 200 postsecondary educators from the American Community Survey. You want to compare the annual teaching salary between professors self-identifying as male and female. Because no single professor belongs to both groups, you are working with two independent samples.   
 
 ### Why a Standard Independent $t$-test Fails
 
@@ -230,7 +230,7 @@ To bypass this problem, we switch to the Mann-Whitney U Test. Instead of trying 
 
 
 
-Conceptually, the software takes all 200 salaries from both men and women, pools them together, and ranks them from lowest to highest. It completely ignores the actual dollar values. Once everything is ranked, it separates the men and women back into their independent groups and compares their ranks. If one group consistently holds the higher ranks, the software knows their median is significantly higher. By analyzing the rank-ordering of the data rather than the raw, skewed numbers, the test safely ignores the ultra-high earners that would otherwise ruin your analysis.   
+Conceptually, the software takes all 200 salaries from both men and women, pools them together, and ranks them from lowest to highest. It ignores the actual dollar values. Once everything is ranked, it separates the men and women back into their independent groups and compares their ranks. If one group consistently holds the higher ranks, the software knows their median is significantly higher. By analyzing the rank-ordering of the data rather than the raw, skewed numbers, the test safely ignores the ultra-high earners that would otherwise ruin your analysis.   
 
 
 
@@ -286,7 +286,7 @@ Below this, we see the hypotheses using the software format ($\eta_1 - \eta_2 = 
 
 
 
-Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look completely different, they are mathematically linked and will always produce the same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
+Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look different, they are mathematically linked and will always produce the same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
 
 
 
@@ -328,7 +328,7 @@ The Kruskal-Wallis test is your nonparametric alternative to the One-Way ANOVA. 
 
 
 
-The software takes every student's GPA, completely ignoring their drinking habits, and pools them together to rank them from lowest to highest. It then separates the students back into their four original drinking categories and compares how those ranks are distributed. If one group contains mostly high ranks while another contains mostly low ranks, the software knows their medians are significantly different. By evaluating the rank-ordering of the data, the test completely bypasses the ceiling effect and safely evaluates the median GPA instead. 
+The software takes every student's GPA, ignoring their drinking habits, and pools them together to rank them from lowest to highest. It then separates the students back into their four original drinking categories and compares how those ranks are distributed. If one group contains mostly high ranks while another contains mostly low ranks, the software knows their medians are significantly different. By evaluating the rank-ordering of the data, the test bypasses the ceiling effect and safely evaluates the median GPA instead. 
 
   
 
@@ -342,7 +342,7 @@ Because we are comparing more than two groups, writing our hypotheses requires a
 
 
 
-However, just like with the parametric One-Way ANOVA, our alternative hypothesis ($H_1$) does not claim that *all* the groups are completely different from one another. It claims only that the baseline rule of "no difference" is broken somewhere in the mix.
+However, just like with the parametric One-Way ANOVA, our alternative hypothesis ($H_1$) does not claim that *all* the groups are different from one another. It claims only that the baseline rule of "no difference" is broken somewhere in the mix.
 
 
 
@@ -425,13 +425,13 @@ Variables tracking risky behaviors like alcohol consumption are almost always ze
 
 
 
-If you try to plot this raw data on a scatterplot and calculate a standard linear correlation, the zero-inflation completely breaks the mathematical assumptions. The extreme outliers pull the line of best fit wildly off course. Any standard correlation coefficient ($r$) or $p$-value you generate from that distorted line will be fundamentally unreliable.
+If you try to plot this raw data on a scatterplot and calculate a standard linear correlation, the zero-inflation breaks the mathematical assumptions. The extreme outliers pull the line of best fit wildly off course. Any standard correlation coefficient ($r$) or $p$-value you generate from that distorted line will be fundamentally unreliable.
 
 ![Figure 10.4: Distribution of drinking days in the past month for 437 students. Zero days is the tallest bar at 123 students, and the mean (6.5 days) sits well above the median (3 days) because a small group drinks frequently.](../figures/chapter_10/fig_10_04_hist_days_drinking.png){fig-alt="Histogram of drinking days in the past month for 437 students. The 0-day bar is tallest at 123 students, counts drop after the first few days, a secondary bump appears at 10 days, and a thin tail reaches 30 days. The mean of 6.5 days is marked to the right of the median of 3 days."}
 
 ### The Nonparametric Solution
 
-To measure this relationship safely, we use Spearman's Rho. Just like our previous nonparametric tests, this method completely ignores the raw numbers.   
+To measure this relationship safely, we use Spearman's Rho. Just like our previous nonparametric tests, this method ignores the raw numbers.   
 
 
 
@@ -634,7 +634,7 @@ When we analyzed the `student_lifestyle_sleep.csv` dataset, we compared student 
 
 
 
-The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as completely separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away potentially valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically use that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
+The Kruskal-Wallis test is designed to handle basic nominal categories, meaning it treats the groups as separate buckets. It does not mathematically know that "Moderate" comes after "Light" on a spectrum. By treating the categories as nominal rather than ordinal, the test throws away potentially valuable information about the ranking of the groups. Whenever you throw away information in statistics, you lose statistical power. If your groups naturally follow a ranked, ordinal sequence, dropping them into a standard ANOVA or Kruskal-Wallis test leaves power on the table. In those situations, you should look for tools that specifically use that order, like Spearman's Rho, to maximize your chances of detecting a real effect.
 
 ### Using Nonparametric Tests as the Default
 
@@ -660,7 +660,7 @@ Every parametric tool in your research toolkit has a nonparametric equivalent. Y
 
 
 
-While these tests evaluate ranks rather than raw averages, your final interpretation logic remains completely unchanged. You still rely on a $p$-value to determine statistical significance and effect size to measure practical impact. You must continually remind yourself that a low $p$-value provides strong evidence, not a strong effect. Furthermore, a non-significant result represents only an absence of mathematical evidence in your specific sample, never proof that the null hypothesis is inherently true.
+While these tests evaluate ranks rather than raw averages, your final interpretation logic remains unchanged. You still rely on a $p$-value to determine statistical significance and effect size to measure practical impact. You must continually remind yourself that a low $p$-value provides strong evidence, not a strong effect. Furthermore, a non-significant result represents only an absence of mathematical evidence in your specific sample, never proof that the null hypothesis is inherently true.
 
 ## 10.17 New Notation
 

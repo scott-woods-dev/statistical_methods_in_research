@@ -30,7 +30,7 @@ In 2016, a team of researchers scraped the personal profiles of 70,000 users on 
 
 
 
-This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated highly personal human experiences as free raw materials to be mined, completely ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
+This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated highly personal human experiences as free raw materials to be mined, ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
 
 
 
@@ -50,7 +50,7 @@ Good data stewardship looks like the everyday, deliberate actions of a responsib
 
 
 
-The OkCupid researchers operated outside of strict data governance, and they completely failed in their duty of data stewardship. They broke the trust of the individuals who generated the data, causing permanent reputational damage to their field and proving that technical skill does not equal ethical competence.
+The OkCupid researchers operated outside of strict data governance, and they failed in their duty of data stewardship. They broke the trust of the individuals who generated the data, causing permanent reputational damage to their field and proving that technical skill does not equal ethical competence.
 
 
 
@@ -130,7 +130,7 @@ A secure data workflow requires you to actively protect the information at every
 - **Gathering:** You collect the signed paper consent forms and record the audio. At this moment, the data is highly vulnerable because it exists on physical, easily accessible media.
 - **Transferring:** As soon as the interview ends, you scan the paper forms and upload the audio files directly to your secure cloud folder. You immediately delete the raw audio from the portable recorder so it cannot be found if you drop the device on your way home.
 - **De-identification:** You type out the interview transcripts. Instead of using the student's name, you **de-identify** the data by assigning them a random code (e.g., "Participant 04"). You create a separate "master key" document that links "Participant 04" to the student's real name.
-- **Storage:** You store this master key in a completely different, restricted cloud folder from the transcripts. Finally, you lock the original paper consent forms in a secure campus office, or securely shred them if your institutional policy allows for digital-only records.
+- **Storage:** You store this master key in a different, restricted cloud folder from the transcripts. Finally, you lock the original paper consent forms in a secure campus office, or securely shred them if your institutional policy allows for digital-only records.
 
 ![Figure 13.1: A secure workflow for confidential interview data. Consent forms and audio are gathered, then transferred to an institutional cloud folder. The raw audio is deleted, transcripts are de-identified with a code such as Participant 04, and the master key that links the code to the participant's name is stored in a separate restricted folder. Paper forms are locked or shredded.](../figures/chapter_13/fig_13_01_diagram_secure_data_workflow.png){fig-alt="Flow chart of four steps: gather consent forms and audio, transfer them to a secure cloud folder, de-identify transcripts and create a master key, then store transcripts and forms. A dashed branch shows the master key in a separate restricted folder."}
 

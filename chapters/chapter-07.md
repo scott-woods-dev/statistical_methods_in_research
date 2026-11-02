@@ -37,7 +37,7 @@ The signal is the **between-groups variation**. This represents the differences 
 
 
 
-When human bodies are involved, that noise bucket fills up fast. If the background noise becomes too loud, it will completely drown out the signal of your intervention. You might look at your data, see a high $p$-value, and falsely conclude that the intervention failed. As you learned in Chapter 3, this is a Type II error, and missing a real, impactful discovery is a major setback in research. The advanced designs in this chapter share one common goal: they allow you to scoop specific, known variation out of the "noise" bucket and give it a proper label. By identifying and controlling the noise, we make our primary signal much easier to detect. Here is how we will do it:
+When human bodies are involved, that noise bucket fills up fast. If the background noise becomes too loud, it will drown out the signal of your intervention. You might look at your data, see a high $p$-value, and falsely conclude that the intervention failed. As you learned in Chapter 3, this is a Type II error, and missing a real, impactful discovery is a major setback in research. The advanced designs in this chapter share one common goal: they allow you to scoop specific, known variation out of the "noise" bucket and give it a proper label. By identifying and controlling the noise, we make our primary signal much easier to detect. Here is how we will do it:
 
 
 
@@ -55,7 +55,7 @@ But what if our nuisance variable isn't a category, but a highly precise continu
 
 **Repeated Measures ANOVA**
 
-Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
+Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
 
 
 
@@ -81,14 +81,14 @@ When a study categorizes participants using two or more factors at the same time
 
 
 
-Because we now have two factors interacting in our model, a Two-Way ANOVA gives us two completely different types of results to interpret:
+Because we now have two factors interacting in our model, a Two-Way ANOVA gives us two different types of results to interpret:
 
-1. **Main Effects**: A **main effect** is the independent, isolated impact of just *one* variable, temporarily pretending the other variable does not exist. For example, if we completely ignore their age, did the informed maids have lower blood pressure than the control maids? That is the main effect of the experimental condition.
+1. **Main Effects**: A **main effect** is the independent, isolated impact of just *one* variable, temporarily pretending the other variable does not exist. For example, if we ignore their age, did the informed maids have lower blood pressure than the control maids? That is the main effect of the experimental condition.
 2. **Interaction Effects**: Human traits rarely exist in a vacuum. An **interaction effect** occurs when the impact of one variable actually *depends* on the value of the other variable. What if the psychological intervention worked beautifully to lower blood pressure for the younger maids, but had absolutely no effect on the older maids? You cannot see that nuance if you only look at the main effects. You need to measure how the two variables mix.
 
 
 
-Here is the main warning for factorial designs: if an interaction effect exists, it completely changes how you interpret your main effects. In fact, a strong interaction can make a main effect entirely misleading.
+Here is the main warning for factorial designs: if an interaction effect exists, it changes how you interpret your main effects. In fact, a strong interaction can make a main effect entirely misleading.
 
 
 
@@ -96,7 +96,7 @@ Imagine if our mindset intervention was wildly successful for the younger maids,
 
 
 
-If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted completely differently depending on the participant's age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
+If you only looked at the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted differently depending on the participant's age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to "did the intervention work?" becomes "it depends on their age."
 
 
 
@@ -175,7 +175,7 @@ When you look at this table, you must follow one rule: always check the interact
 
 
 
-Why? Because if the interaction is statistically significant (if its $p$-value is less than our $\alpha = 0.05$ threshold), the main effects are fundamentally compromised. As we discussed in Section 7.3, a strong interaction means the treatment acts completely differently depending on the subgroup. If you try to interpret a main effect while a significant interaction is happening, you are reporting a deceptive, watered-down average.
+Why? Because if the interaction is statistically significant (if its $p$-value is less than our $\alpha = 0.05$ threshold), the main effects are fundamentally compromised. As we discussed in Section 7.3, a strong interaction means the treatment acts differently depending on the subgroup. If you try to interpret a main effect while a significant interaction is happening, you are reporting a deceptive, watered-down average.
 
 ### Interpreting the Output
 
@@ -285,7 +285,7 @@ Think about what an ANCOVA is trying to do: it wants to apply a single mathemati
 
 
 
-Imagine if, for the control group, a high baseline blood pressure strongly predicted a high final blood pressure. But, what if our psychological intervention was so powerful that it completely shattered that biological pattern for the informed group? What if, for the informed maids, their baseline blood pressure suddenly did not matter at all?
+Imagine if, for the control group, a high baseline blood pressure strongly predicted a high final blood pressure. But, what if our psychological intervention was so powerful that it shattered that biological pattern for the informed group? What if, for the informed maids, their baseline blood pressure suddenly did not matter at all?
 
 
 
@@ -387,11 +387,11 @@ This brings us all the way back to Chapter 3: the difference between a sample an
 
 
 
-To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will look at the ultimate design for completely eliminating individual biological noise: the Repeated Measures ANOVA.
+To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will look at the ultimate design for eliminating individual biological noise: the Repeated Measures ANOVA.
 
 ## 7.9 Repeated Measures ANOVA: The Within-Subjects Design
 
-Before we introduce our final model, we need to address a shift in our data. So far, we have looked exclusively at the maids' systolic blood pressure. For this next analysis, we are going to evaluate a completely different health metric: Body Mass Index, tracking the change from their baseline (`BMI`) to their post-intervention score (`BMI2`).
+Before we introduce our final model, we need to address a shift in our data. So far, we have looked exclusively at the maids' systolic blood pressure. For this next analysis, we are going to evaluate a different health metric: Body Mass Index, tracking the change from their baseline (`BMI`) to their post-intervention score (`BMI2`).
 
 
 
@@ -403,7 +403,7 @@ The short answer is absolutely not. If a researcher runs test after test on the 
 
 
 
-So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a completely different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is a perfectly ethical, standard scientific practice.
+So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is a perfectly ethical, standard scientific practice.
 
 ### The Independence Violation
 
@@ -421,7 +421,7 @@ If we measure the same hotel maid twice (once at baseline and once four weeks la
 
 To solve this, researchers use a **Repeated Measures ANOVA**.
 
-Everything we have done in this textbook so far has relied on **between-subjects designs**. In a between-subjects design, we compare completely different people to each other (e.g., comparing the informed group against the control group).
+Everything we have done in this textbook so far has relied on **between-subjects designs**. In a between-subjects design, we compare different people to each other (e.g., comparing the informed group against the control group).
 
 
 
@@ -478,11 +478,11 @@ In a Repeated Measures design, a significant interaction between time and condit
 
 ### 2. The Main Effect of Time (`Time`)
 
-Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The $p$-value is $< 0.001$. This tells us that, if we completely ignored the intervention and lumped all 73 maids with both BMI readings together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.
+Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The $p$-value is $< 0.001$. This tells us that, if we ignored the intervention and lumped all 73 maids with both BMI readings together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.
 
 ### 3. The Main Effect of Condition (`Cond`)
 
-Finally, look at the main effect for the experimental condition. The $p$-value is $0.321$. This tells us that, if we completely ignored the four-week timeline and just averaged everyone's baseline and final scores together, the informed group and the control group did not have significantly different BMIs overall.
+Finally, look at the main effect for the experimental condition. The $p$-value is $0.321$. This tells us that, if we ignored the four-week timeline and just averaged everyone's baseline and final scores together, the informed group and the control group did not have significantly different BMIs overall.
 
 
 
@@ -500,7 +500,7 @@ We can formally conclude that simply informing hotel maids that their daily labo
 
 ## 7.11 Putting It All Together: Summary and APA Reporting
 
-We just worked through the hotel maid study using three completely different advanced statistical designs. Before we wrap up the chapter, let's summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.
+We just worked through the hotel maid study using three different advanced statistical designs. Before we wrap up the chapter, let's summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.
 
 ### The Story of the Data
 
@@ -590,7 +590,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 6. **ANCOVA (Analysis of Covariance):** A hybrid statistical tool that blends an ANOVA with multiple regression. It allows researchers to control for a continuous nuisance variable (a **covariate**) without destroying its precision by chopping it into blocks.
 7. **Adjusted Means:** Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the same baseline covariate score.
 8. **Homogeneity of Regression Slopes:** A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the same way (has parallel slopes) across all of your different experimental groups.
-9. **Between-Subjects Design:** An experimental setup where completely different groups of people are compared against one another (e.g., an informed group versus a control group).
+9. **Between-Subjects Design:** An experimental setup where different groups of people are compared against one another (e.g., an informed group versus a control group).
 10. **Within-Subjects Design:** An experimental setup where the same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out massive amounts of biological and genetic noise.
 11. **Repeated Measures ANOVA:** The statistical test used to analyze a within-subjects design.
 12. **Longitudinal Data:** Data collected by tracking the same participants across three or more specific points in time.
@@ -614,7 +614,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 
 ### Communicating Results
 
-8. A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a massive, statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant ($p = .54$). The journalist publishes an article with the headline: "New Antidepressant Proven Completely Useless." Explain the fatal flaw in this communication.
+8. A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a massive, statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant ($p = .54$). The journalist publishes an article with the headline: "New Antidepressant Proven Useless." Explain the fatal flaw in this communication.
 9. A fellow student is presenting their research on the effects of a new sleep medication. They ran an ANCOVA, controlling for the participants' baseline sleep hours. Pointing to the Adjusted Means (Estimated Marginal Means) table on their slide, they state, "As you can see, the actual, raw average sleep time for the medication group in the real world was exactly 8.2 hours." Explain why this interpretation of an Adjusted Mean is incorrect.
 10. You are reviewing a research paper draft written by a colleague. They ran a Two-Way ANOVA and found a non-significant $p$-value of $0.08$. Frustrated, they tell you: *"I'm just going to delete the age categories, plug exact age back in as a continuous covariate, and run an ANCOVA instead to see if that gets my $p$-value under $0.05$."* Explain why this practice is unethical and what this "fishing expedition" behavior is formally called.
 

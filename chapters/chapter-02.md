@@ -74,7 +74,7 @@ Once you have operationalized a concept into a measurable variable, you must eva
 
 
 
-**Reliability** refers to the consistency of your measurement. If you measure the same phenomenon multiple times under the same conditions, a reliable tool will give you the same result every time. Think of a bathroom scale; if you step on it three times in a row and get three wildly different numbers, the scale is not reliable. In a research setting, if a survey designed to measure anxiety gives the same student a completely different score depending on the day of the week, the survey lacks reliability.
+**Reliability** refers to the consistency of your measurement. If you measure the same phenomenon multiple times under the same conditions, a reliable tool will give you the same result every time. Think of a bathroom scale; if you step on it three times in a row and get three wildly different numbers, the scale is not reliable. In a research setting, if a survey designed to measure anxiety gives the same student a different score depending on the day of the week, the survey lacks reliability.
 
 
 
@@ -361,7 +361,7 @@ It is easy to mix up these two concepts because we often use them interchangeabl
 
 
 
-Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is completely invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your highly reliable proxy is completely invalid.
+Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your highly reliable proxy is invalid.
 
 ### The Causation Illusion in Observational Studies
 

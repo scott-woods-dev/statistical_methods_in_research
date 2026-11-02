@@ -404,7 +404,7 @@ Statistical software often includes a button for **automated model selection**. 
 
 
 
-These algorithms are completely blind to reality. They do not understand biology, psychology, or economics. They only see numbers. If you let the software build your model, you will often create nonsensical equations that suffer from severe overfitting.
+These algorithms are blind to reality. They do not understand biology, psychology, or economics. They only see numbers. If you let the software build your model, you will often create nonsensical equations that suffer from severe overfitting.
 
 
 

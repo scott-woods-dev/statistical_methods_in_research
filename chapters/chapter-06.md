@@ -184,7 +184,7 @@ We check these underlying assumptions through a process called **model diagnosti
 
 ### Independence
 
-The first requirement is that our samples must be completely independent of one another. This means the numerical score of one participant should have absolutely no influence on, or mathematical connection to, the score of another participant. This is primarily a design issue rather than something we check with a mathematical formula; a well-designed, randomized study usually ensures independence.
+The first requirement is that our samples must be independent of one another. This means the numerical score of one participant should have absolutely no influence on, or mathematical connection to, the score of another participant. This is primarily a design issue rather than something we check with a mathematical formula; a well-designed, randomized study usually ensures independence.
 
 
 
@@ -234,7 +234,7 @@ In Chapter 1, we learned how to build histograms to visualize shape.
 
 ![Figure 6.1: Distribution of the pooled residuals from the one-way ANOVA of writing scores by program track. The residuals are centered at zero and roughly bell-shaped, with a mild left tail. The smooth curve marks a normal distribution with the same mean and standard deviation.](../figures/chapter_06/fig_06_01_hist_residuals_histogram_concept.png){fig-alt="Histogram of the pooled ANOVA residuals, centered near zero with a roughly bell-shaped distribution and a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."}
 
-Histograms give us a quick, intuitive look at the residuals' shape. However, be careful: changing the software's bin width (the number of bars) can completely alter how a histogram looks. For this reason, never rely on a histogram as your only piece of evidence.
+Histograms give us a quick, intuitive look at the residuals' shape. However, be careful: changing the software's bin width (the number of bars) can alter how a histogram looks. For this reason, never rely on a histogram as your only piece of evidence.
 
 
 
@@ -314,7 +314,7 @@ For example, if the vocational track has a standard deviation of 8 points, and t
 
 
 
-For example, imagine a researcher comparing the reading scores of students in a highly selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically very similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is highly restricted or controlled while another is completely open, the equal variances assumption is highly likely to fail before the math even begins.
+For example, imagine a researcher comparing the reading scores of students in a highly selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically very similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is highly restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.
 
 
 
@@ -343,7 +343,7 @@ If we find a significant result in our `hsb.csv` dataset, we know the choice of 
 1. We do not know *which* specific groups are different from one another. Does the academic track score significantly higher than the general track, or is the major difference only between the academic and vocational tracks?
 2. We do not know *by how much* the scores differ. We may be observing a statistically significant difference that is of no importance in a practical, real-world application, so it's important to find and report the magnitude of the differences as well.
 
-An ANOVA is an excellent tool for detecting if a signal exists anywhere in your data, but it is completely blind to the details. To identify exactly which pairs of factor levels show a difference, and to measure the size of those differences, we have to conduct a second round of testing called **post hoc analysis**.
+An ANOVA is an excellent tool for detecting if a signal exists anywhere in your data, but it is blind to the details. To identify exactly which pairs of factor levels show a difference, and to measure the size of those differences, we have to conduct a second round of testing called **post hoc analysis**.
 
 ## 6.8 Post Hoc Analysis
 
@@ -462,7 +462,7 @@ Before we rush to calculate $p$-values, we must explore our data to ensure a sta
 
 
 
-We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational real-world data, uneven groups are completely normal and perfectly acceptable for an ANOVA.
+We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational real-world data, uneven groups are normal and perfectly acceptable for an ANOVA.
 
 
 
@@ -567,7 +567,7 @@ Because our $p$-value is far below our standard 5% significance level ($\alpha =
 
 
 
-**The Next Step:** Our global ANOVA is significant, but remember its limitation: it is completely blind to the details. We know that at least one pair of program tracks is different, but the $F$-statistic cannot tell us *which* ones, nor can it tell us *how large* those differences are in real-world terms. To finish our analysis and answer our research question completely, we must run our post hoc tests and calculate our effect sizes.
+**The Next Step:** Our global ANOVA is significant, but remember its limitation: it is blind to the details. We know that at least one pair of program tracks is different, but the $F$-statistic cannot tell us *which* ones, nor can it tell us *how large* those differences are in real-world terms. To finish our analysis and answer our research question completely, we must run our post hoc tests and calculate our effect sizes.
 
 ### Conclusion
 
@@ -633,7 +633,7 @@ This is perhaps the most understandable source of confusion when learning the AN
 
 
 
-During our data triage, we used a side-by-side boxplot to get a feel for our treatment groups. As we learned in Chapter 1, a boxplot is built using the **median** (the solid line inside the box) and the **Interquartile Range** (the box itself, representing the middle 50% of the data). However, remember what ANOVA actually stands for: Analysis of Variance. The mathematical engine of the ANOVA completely ignores the median and the IQR. Instead, it tests for differences between the group **means**, and it measures noise using **variances** (standard deviations).
+During our data triage, we used a side-by-side boxplot to get a feel for our treatment groups. As we learned in Chapter 1, a boxplot is built using the **median** (the solid line inside the box) and the **Interquartile Range** (the box itself, representing the middle 50% of the data). However, remember what ANOVA actually stands for: Analysis of Variance. The mathematical engine of the ANOVA ignores the median and the IQR. Instead, it tests for differences between the group **means**, and it measures noise using **variances** (standard deviations).
 
 
 
@@ -700,7 +700,7 @@ When the difference in spread is your actual research interest, you can use a to
 ### Interpretation
 
 1. A sports physiologist is studying the effect of three different recovery drinks on muscle soreness. Instead of running an ANOVA, the researcher decides to run three separate independent samples $t$-tests to compare the drinks against each other (Drink A vs. B, Drink A vs. C, and Drink B vs. C). Explain the mathematical danger of this approach and how it affects the researcher's Type I error rate.
-2. A sociologist runs a One-Way ANOVA comparing the annual income of residents across four different city neighborhoods. The software reports a $p$-value of $.01$. The sociologist writes in their report, "The results prove that the mean income of all four neighborhoods are completely different from one another." Explain why this interpretation of the alternative hypothesis is incorrect, and provide the accurate interpretation.
+2. A sociologist runs a One-Way ANOVA comparing the annual income of residents across four different city neighborhoods. The software reports a $p$-value of $.01$. The sociologist writes in their report, "The results prove that the mean income of all four neighborhoods are different from one another." Explain why this interpretation of the alternative hypothesis is incorrect, and provide the accurate interpretation.
 3. A clinical psychologist is preparing to run an ANOVA to compare anxiety reduction scores across three different therapy types. Before running the model, they check their descriptive statistics. The standard deviations for the three therapy groups are 4, 7, and 11. Apply the mathematical rule of thumb for equal variances to this data. Does this data pass the assumption? If not, what specific alternative test should the psychologist use?
 4. A marketing analyst finds a significant global ANOVA when comparing customer satisfaction scores across three store locations (North, South, and East). They follow up with a Tukey's HSD test and receive the following $p$-values: North vs. South ($p = .02$), North vs. East ($p = .45$), and South vs. East ($p = .04$). Interpret exactly which store locations have significantly different satisfaction scores based on this output.
 

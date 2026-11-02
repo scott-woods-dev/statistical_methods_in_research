@@ -14,7 +14,7 @@ For example, suppose a participant finishes a brief four-minute speed date. You 
 
 
 
-As you look at the completed scorecards, a new question emerges. When a participant fills out those six ratings, are they truly making six completely independent judgments in their head? Or are those six numbers actually being driven by just one or two deeper, subconscious themes?
+As you look at the completed scorecards, a new question emerges. When a participant fills out those six ratings, are they truly making six independent judgments in their head? Or are those six numbers actually being driven by just one or two deeper, subconscious themes?
 
 
 
@@ -26,7 +26,7 @@ Discovering these hidden groups within survey data is the exact purpose of **fac
 
 
 
-To explore how researchers uncover these hidden themes, you will analyze the `speed_dating.csv` dataset from the data subfolder (Gelman & Hill, 2007). You first encountered this dataset in Chapter 8 when we examined paired yes-or-no dating decisions. The data comes from experimental speed-dating events conducted with graduate and professional students at Columbia University. During these events, participants had four-minute conversations with partners of the opposite sex. After each four-minute interaction, both participants privately filled out a scorecard rating their partner on several attributes from 1 to 10. To ensure that every row represents a completely independent interaction, this file includes only the very first speed date from each session, giving us 276 unique pairs.   
+To explore how researchers uncover these hidden themes, you will analyze the `speed_dating.csv` dataset from the data subfolder (Gelman & Hill, 2007). You first encountered this dataset in Chapter 8 when we examined paired yes-or-no dating decisions. The data comes from experimental speed-dating events conducted with graduate and professional students at Columbia University. During these events, participants had four-minute conversations with partners of the opposite sex. After each four-minute interaction, both participants privately filled out a scorecard rating their partner on several attributes from 1 to 10. To ensure that every row represents an independent interaction, this file includes only the very first speed date from each session, giving us 276 unique pairs.   
 
 
 
@@ -61,7 +61,7 @@ Imagine you open `speed_dating.csv` from the data subfolder and examine the six 
 
 
 
-If people evaluated each of these six traits completely independently, the correlation matrix would be filled with numbers close to zero. Knowing that a female participant thought her date was intelligent would tell you nothing about whether she also thought he was sincere or ambitious. Similarly, if participants decided within the first ten seconds whether they liked their partner and blindly gave them the same score across all six categories, every correlation in the table would be extremely high across the board.
+If people evaluated each of these six traits independently, the correlation matrix would be filled with numbers close to zero. Knowing that a female participant thought her date was intelligent would tell you nothing about whether she also thought he was sincere or ambitious. Similarly, if participants decided within the first ten seconds whether they liked their partner and blindly gave them the same score across all six categories, every correlation in the table would be extremely high across the board.
 
 
 
@@ -96,7 +96,7 @@ Why are those three numbers slightly different if they are all being driven by t
 
 To understand unique variance, it helps to recognize that a variable can wander away from its group for two very different reasons. Because of this, statisticians further divide unique variance into two sub-categories:
 
-- **Specific variance**: Variation that is genuinely real and systematic, but completely unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on `SharedInterestsF`, even if they only gave them a 5 on `AttractiveF` and a 6 on `FunF`. That spike in `SharedInterestsF` is not random error; it reflects a genuine evaluation of a shared hobby that has nothing to do with general social appeal.
+- **Specific variance**: Variation that is genuinely real and systematic, but unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on `SharedInterestsF`, even if they only gave them a 5 on `AttractiveF` and a 6 on `FunF`. That spike in `SharedInterestsF` is not random error; it reflects a genuine evaluation of a shared hobby that has nothing to do with general social appeal.
 - **Measurement error**: Random noise caused by the imperfect nature of human surveys. Perhaps a participant is exhausted after talking to several strangers in a noisy room, misreads the 1 to 10 scale on their clipboard, or accidentally circles a 7 when they meant to circle an 8. Just like specific variance, random measurement error cannot be shared with the other variables in the dataset.   
 
 We can summarize how factor analysis views the total variability of any single survey item using a simple conceptual breakdown:
@@ -422,7 +422,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 1. A survey researcher runs an exploratory factor analysis on a set of workplace satisfaction questions. The software outputs a rotated factor matrix. For a question asking about "salary fairness," the factor loading on Factor 1 is 0.82. Explain in plain English what this number tells the researcher about the relationship between the survey question and the hidden concept.
 2. In that same factor analysis table, the question about "salary fairness" has a reported communality ($h^2$) of 0.74. What percentage of the variance in this specific question is unique or random measurement error, and what does that mean conceptually?
-3. A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts very high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp "elbow" bend, becoming completely flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?
+3. A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts very high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp "elbow" bend, becoming flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?
 
 ### Choosing a Method
 

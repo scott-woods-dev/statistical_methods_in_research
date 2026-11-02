@@ -128,7 +128,7 @@ If we calculate an $R^2$ of **65.12%** for our economic and environmental data, 
 
 
 
-As a new researcher, you might calculate an $R^2$ of 25% and feel disappointed. You might think, "My model leaves 75% of the variation completely unexplained; it must be a failure!"
+As a new researcher, you might calculate an $R^2$ of 25% and feel disappointed. You might think, "My model leaves 75% of the variation unexplained; it must be a failure!"
 
 
 
@@ -487,7 +487,7 @@ However, there is a common misconception about what this point estimate actually
 
 ### Predicting the Average vs. Predicting the Individual
 
-Just like we built an interval around our slope, we can build intervals around our predictions. But because regression allows us to predict both group averages and individual outcomes, we actually have two completely different types of intervals to choose from: Confidence Intervals and Prediction Intervals.
+Just like we built an interval around our slope, we can build intervals around our predictions. But because regression allows us to predict both group averages and individual outcomes, we actually have two different types of intervals to choose from: Confidence Intervals and Prediction Intervals.
 
 
 

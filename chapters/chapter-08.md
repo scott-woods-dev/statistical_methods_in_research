@@ -41,7 +41,7 @@ At the start of this chapter, we asked a key question: are any racial groups dis
 
 
 
-To determine if the numbers we see are unusual, we have to compare them against a theoretical baseline. In this scenario, our baseline is the demographic breakdown of the U.S. population provided by the Census Bureau. If fatal police encounters were completely random and unrelated to racial identity, we would expect the racial distribution of the incidents to mirror the general population.
+To determine if the numbers we see are unusual, we have to compare them against a theoretical baseline. In this scenario, our baseline is the demographic breakdown of the U.S. population provided by the Census Bureau. If fatal police encounters were random and unrelated to racial identity, we would expect the racial distribution of the incidents to mirror the general population.
 
 
 
@@ -80,7 +80,7 @@ As seen in Figure 8.1 above, the gaps between reality and our baseline expectati
 
 
 
-The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are very close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are massive, the test recognizes that the real-world data completely fails to fit our expected baseline.
+The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are very close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are massive, the test recognizes that the real-world data fails to fit our expected baseline.
 
 ## 8.3 Interpreting the Goodness-of-Fit and Post Hoc Analysis
 
@@ -438,7 +438,7 @@ In our speed dating data, the observations are explicitly **paired**. A single f
 
 
 
-Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the same environment. Standard Chi-Square math completely falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
+Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the same environment. Standard Chi-Square math falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
 
 ### Formulating the Hypotheses
 
@@ -464,7 +464,7 @@ McNemar's test relies on a highly clever, intuitive trick. When two people go on
 
 
 
-If we want to figure out if men say "yes" more often than women, the dates where they both agree (both yes or both no) are completely useless to us. Those agreements do not shift the overall balance in either direction.
+If we want to figure out if men say "yes" more often than women, the dates where they both agree (both yes or both no) are useless to us. Those agreements do not shift the overall balance in either direction.
 
 
 
@@ -735,7 +735,7 @@ When we evaluate any predictive rule, we get four distinct general outcomes. Let
 - **True Positive (The "Hit"):** In general research, this means your rule correctly identified an event that actually occurred. For our ICU data, the patient actually had an emergency admission, and our pulse rule correctly predicted it.
 - **True Negative (The "Correct Rejection"):** Generally, this means your rule correctly ignored something that did not happen. In our dataset, the patient had an elective admission, and our pulse rule correctly predicted it as a non-emergency.
 - **False Positive (The "False Alarm"):** Generally, your rule claimed an event happened, but it actually did not. Here, the patient had an elective admission, but our pulse rule incorrectly flagged them as an emergency.
-- **False Negative (The "Missed Case"):** Generally, an event truly happened, but your rule completely missed it. For our patients, they truly had an emergency admission, but our pulse rule failed to flag it.
+- **False Negative (The "Missed Case"):** Generally, an event truly happened, but your rule missed it. For our patients, they truly had an emergency admission, but our pulse rule failed to flag it.
 
 ### Sensitivity and Specificity
 

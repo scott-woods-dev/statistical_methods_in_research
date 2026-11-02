@@ -63,7 +63,7 @@ In the social sciences, the standard convention is to set $\alpha = .05$. This m
 - If $p-value < \alpha$, the evidence is strong enough. We **reject the null hypothesis** and conclude that the diet does have an effect on depression.
 - If $p-value \ge \alpha$, the evidence is too weak. We **fail to reject the null hypothesis**.
 
-*Note on phrasing:* Notice that we say we "fail to reject" the null hypothesis, rather than saying we "accept" it. A large p-value does not prove that the diet intervention is completely useless; it only means our specific sample did not provide enough evidence to confidently prove that it works. It is the statistical equivalent of a jury returning a verdict of "not guilty" rather than "innocent."
+*Note on phrasing:* Notice that we say we "fail to reject" the null hypothesis, rather than saying we "accept" it. A large p-value does not prove that the diet intervention is useless; it only means our specific sample did not provide enough evidence to confidently prove that it works. It is the statistical equivalent of a jury returning a verdict of "not guilty" rather than "innocent."
 
 
 
@@ -126,9 +126,9 @@ In many experimental designs, researchers measure the same people twice to see i
 
 ### Comparing Two Separate Groups: The Independent Sample t-Test
 
-The most common scenario in a randomized controlled experiment is comparing two completely separate groups of people against each other. Because a participant can only be in one group or the other, the groups have no overlap. For this, we use an **Independent Sample t-test**.
+The most common scenario in a randomized controlled experiment is comparing two separate groups of people against each other. Because a participant can only be in one group or the other, the groups have no overlap. For this, we use an **Independent Sample t-test**.
 
-- **Data Gathering and Format:** You collect data from two completely separate, unrelated groups. A participant can only belong to one group. The data format typically includes one column for the numerical measurement and a separate categorical column indicating which group the participant belongs to.
+- **Data Gathering and Format:** You collect data from two separate, unrelated groups. A participant can only belong to one group. The data format typically includes one column for the numerical measurement and a separate categorical column indicating which group the participant belongs to.
 - **The Research Question:** Did the diet intervention group improve significantly more than the control group?
 - **The Application:** This addresses the primary goal of our study. We take the change in depression scores (`CESDDiff`) and compare the average for the independent Diet group against the average for the independent Control group.
 
@@ -195,7 +195,7 @@ When we report our results, we typically use a 95% confidence interval. But what
 
 
 
-You might wonder why we do not simply use a 100% confidence interval. The reason is practicality. To be 100% certain that you caught the fish, you would have to cast a net that covers the entire lake. In statistics, a 100% confidence interval would have to be infinitely wide. An interval telling us that the true average is "somewhere between negative infinity and positive infinity" is completely useless for making decisions. We willingly accept a 5% chance of missing the true average in exchange for a narrower, highly informative range of numbers.
+You might wonder why we do not simply use a 100% confidence interval. The reason is practicality. To be 100% certain that you caught the fish, you would have to cast a net that covers the entire lake. In statistics, a 100% confidence interval would have to be infinitely wide. An interval telling us that the true average is "somewhere between negative infinity and positive infinity" is useless for making decisions. We willingly accept a 5% chance of missing the true average in exchange for a narrower, highly informative range of numbers.
 
 
 
@@ -317,7 +317,7 @@ At the end of the last section, we faced a critical issue. The diet group saw a 
 
 
 
-For this, we use the **Independent Sample t-test**. We use this test when we want to compare the averages of two completely separate, unrelated groups. Because a student can only be assigned to either the diet group or the control group, there is no overlap between them.
+For this, we use the **Independent Sample t-test**. We use this test when we want to compare the averages of two separate, unrelated groups. Because a student can only be assigned to either the diet group or the control group, there is no overlap between them.
 
 ### The Hypotheses (Human vs. Software Formatting)
 

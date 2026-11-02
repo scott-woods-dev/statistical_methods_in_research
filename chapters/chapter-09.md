@@ -278,7 +278,7 @@ An ROC curve is a visual summary of our model's performance across all possible 
 
 
 
-When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a completely useless model, one that is effectively just flipping a coin. If our model is actually learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
+When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a useless model, one that is effectively just flipping a coin. If our model is actually learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.
 
 ### Grading the Model: Area Under the Curve (AUC)
 
@@ -319,7 +319,7 @@ With standard linear regression, we used $R^2$ to determine the percentage of va
 
 
 
-While the underlying math is different, the conceptual interpretation is very similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to a completely empty baseline model that uses no predictors at all.
+While the underlying math is different, the conceptual interpretation is very similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to an empty baseline model that uses no predictors at all.
 
 
 
@@ -327,7 +327,7 @@ Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a pa
 
 
 
-Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a completely useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
+Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
 
 ### The Deviance Goodness-of-Fit Test
 
@@ -465,7 +465,7 @@ Do not let your readers assume that significant $p$-values guarantee a highly ac
 1. A sociologist builds a standard linear regression model to predict whether a citizen voted in the last election (1 = voted, 0 = did not vote) based on their annual income. The software generates a line of best fit. Explain the fundamental logical problem that will occur if the researcher tries to use this straight line to predict the voting behavior of extremely high-income citizens.
 2. A public health researcher runs a logistic regression to see how daily hours of sleep impact the odds of catching a cold. The software outputs an Odds Ratio of 0.88 for the sleep variable. Explain in plain English what this number means for a person's compounding risk for every additional hour of sleep they get.
 3. You are reviewing a logistic regression model predicting loan defaults. The model calculates the logit (log-odds) internally. Why do researchers and analysts generally rely on statistical software to convert these log-odds into predicted probabilities before presenting their findings to a bank manager?
-4. A graduate student runs a Deviance Goodness-of-Fit test for their logistic regression model and receives a $p$-value of 0.72. The student is devastated, assuming their model is completely useless because the $p$-value is not below 0.05. Explain the unique hypothesis structure of this specific test and why a large $p$-value is actually the desired result.
+4. A graduate student runs a Deviance Goodness-of-Fit test for their logistic regression model and receives a $p$-value of 0.72. The student is devastated, assuming their model is useless because the $p$-value is not below 0.05. Explain the unique hypothesis structure of this specific test and why a large $p$-value is actually the desired result.
 
 ### Choosing a Method
 
