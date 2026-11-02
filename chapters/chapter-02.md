@@ -38,7 +38,7 @@ Think of the transition this way: The goal is your destination (understanding hi
 
 
 
-This translation process is rarely simple, and there is never just one perfect route to your destination. A single research goal can spawn dozens of valid research questions depending on the creative approach of the researcher and the data available. For example, a team with the exact same goal of studying corporate hiring bias might decide to ask entirely different questions:
+This translation process is rarely simple, and there is never just one perfect route to your destination. A single research goal can spawn dozens of valid research questions depending on the creative approach of the researcher and the data available. For example, a team with the same goal of studying corporate hiring bias might decide to ask entirely different questions:
 
 - Do minority candidates receive lower starting salary offers than White candidates with the identical qualifications?
 - Are African-American employees promoted to managerial positions at the same rate as their White peers within their first five years of employment?
@@ -74,11 +74,11 @@ Once you have operationalized a concept into a measurable variable, you must eva
 
 
 
-**Reliability** refers to the consistency of your measurement. If you measure the exact same phenomenon multiple times under the same conditions, a reliable tool will give you the same result every time. Think of a bathroom scale; if you step on it three times in a row and get three wildly different numbers, the scale is not reliable. In a research setting, if a survey designed to measure anxiety gives the same student a completely different score depending on the day of the week, the survey lacks reliability.
+**Reliability** refers to the consistency of your measurement. If you measure the same phenomenon multiple times under the same conditions, a reliable tool will give you the same result every time. Think of a bathroom scale; if you step on it three times in a row and get three wildly different numbers, the scale is not reliable. In a research setting, if a survey designed to measure anxiety gives the same student a completely different score depending on the day of the week, the survey lacks reliability.
 
 
 
-**Validity** asks a more critical question: are you actually measuring what you claim to be measuring? A bathroom scale might be perfectly reliable by giving you the exact same number every time you step on it. However, if the scale is broken and always reads 50 pounds below your actual weight, it is not a valid measure of your body mass.
+**Validity** asks a more critical question: are you actually measuring what you claim to be measuring? A bathroom scale might be perfectly reliable by giving you the same number every time you step on it. However, if the scale is broken and always reads 50 pounds below your actual weight, it is not a valid measure of your body mass.
 
 
 
@@ -104,7 +104,7 @@ To explore this, we will use a new dataset: `amas_math_anxiety.csv`. This datase
 
 ### The Concept of Internal Consistency
 
-If these nine questions are truly measuring the exact same underlying concept (math anxiety), then a person's answers should be fairly similar across the board. If a student reports a "5" on being anxious about a pop quiz, we would expect them to also report a high number for taking a final exam. If their answers are wildly contradictory, our survey tool is broken.
+If these nine questions are truly measuring the same underlying concept (math anxiety), then a person's answers should be fairly similar across the board. If a student reports a "5" on being anxious about a pop quiz, we would expect them to also report a high number for taking a final exam. If their answers are wildly contradictory, our survey tool is broken.
 
 
 
@@ -161,7 +161,7 @@ To prove cause and effect, researchers must step out of the role of passive obse
 
 A well-designed experiment relies on three core principles:
 
-1. **Control:** Researchers must hold all outside variables constant so they do not interfere with the results. If you are testing a new plant fertilizer, you ensure all plants get the exact same amount of sunlight and water.
+1. **Control:** Researchers must hold all outside variables constant so they do not interfere with the results. If you are testing a new plant fertilizer, you ensure all plants get the same amount of sunlight and water.
 2. **Randomization:** Subjects or treatments must be assigned randomly. This ensures that any unavoidable natural differences between subjects are spread evenly across all groups, preventing hidden biases from skewing the results.
 3. **Replication:** The experiment must be conducted on a large enough number of subjects to ensure that the results are not just a statistical fluke.
 
@@ -194,7 +194,7 @@ We have moved from a broad research goal to a specific research question. Howeve
 A research question asks about a relationship in the real world. A statistical question asks about the numbers that represent that relationship. To qualify as a true statistical question, it must meet three strict requirements:
 
 1. **It must require gathering data.** You cannot answer a statistical question with a simple web search, a dictionary definition, or a philosophical argument. The only way to find the answer is to go out, collect data, and calculate a result.
-2. **It must account for variability.** The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the exact same callback rates. A statistical question expects and embraces this natural variation.
+2. **It must account for variability.** The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the same callback rates. A statistical question expects and embraces this natural variation.
 3. **It must identify a specific statistical measure.** The question must explicitly state what mathematical summary you are going to use to compare your groups. In Chapter 1, we learned about measures like the mean, median, and proportion. A statistical question forces you to declare exactly which of these you are hunting for.
 
 The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let's look at a few examples to see this translation process in action.
@@ -330,12 +330,12 @@ While setting the parameters equal to each other is how human beings naturally t
 
 
 
-If two groups are truly equal (as the null hypothesis claims), then subtracting one from the other must result in exactly zero. Therefore, you will almost always see statistical software output and advanced research papers format these exact same hypotheses by setting the *difference* to zero:
+If two groups are truly equal (as the null hypothesis claims), then subtracting one from the other must result in exactly zero. Therefore, you will almost always see statistical software output and advanced research papers format these same hypotheses by setting the *difference* to zero:
 
 - **Software Null Hypothesis ($H_0$):** $\pi_W - \pi_{AA} = 0$
 - **Software Alternative Hypothesis ($H_1$):** $\pi_W - \pi_{AA} \neq 0$
 
-Both formats are mathematically identical and mean the exact same thing. We will generally use the intuitive format ($\pi_W = \pi_{AA}$) when setting up our ideas, but be prepared to read the software format ($\pi_W - \pi_{AA} = 0$) when interpreting your final results.
+Both formats are mathematically identical and mean the same thing. We will generally use the intuitive format ($\pi_W = \pi_{AA}$) when setting up our ideas, but be prepared to read the software format ($\pi_W - \pi_{AA} = 0$) when interpreting your final results.
 
 
 
@@ -361,7 +361,7 @@ It is easy to mix up these two concepts because we often use them interchangeabl
 
 
 
-Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the exact same wrong answer every time), but it is completely invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your highly reliable proxy is completely invalid.
+Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is completely invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your highly reliable proxy is completely invalid.
 
 ### The Causation Illusion in Observational Studies
 
@@ -402,7 +402,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 ### Interpretation
 
-**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a very high resilience score. They take the exact same survey again on Tuesday, with no new academic events having occurred, but receive a very low resilience score. What measurement property is this new survey lacking? Explain your reasoning.
+**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a very high resilience score. They take the same survey again on Tuesday, with no new academic events having occurred, but receive a very low resilience score. What measurement property is this new survey lacking? Explain your reasoning.
 
 
 

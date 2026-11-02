@@ -84,11 +84,11 @@ When the mean is distorted by extreme outliers, we have to look for a different 
 
 
 
-Choosing the right nonparametric test follows the exact same logic you learned in earlier chapters. You just need to look at how your research is designed. Are your groups paired together or completely separate? How many groups are you comparing?
+Choosing the right nonparametric test follows the same logic you learned in earlier chapters. You just need to look at how your research is designed. Are your groups paired together or completely separate? How many groups are you comparing?
 
 
 
-- **Two Paired Groups:** Sometimes you measure the exact same people twice, like giving a pre-test and a post-test. Or, you might compare two naturally linked things, like the price of a specific textbook on Amazon versus the price of that exact same book at the campus bookstore. When your data is paired like this, and your sample size is small, you should use the **Wilcoxon Signed-Rank Test**. This is your safe alternative to the paired $t$-test.   
+- **Two Paired Groups:** Sometimes you measure the same people twice, like giving a pre-test and a post-test. Or, you might compare two naturally linked things, like the price of a specific textbook on Amazon versus the price of that same book at the campus bookstore. When your data is paired like this, and your sample size is small, you should use the **Wilcoxon Signed-Rank Test**. This is your safe alternative to the paired $t$-test.   
 - **Two Independent Groups:** Other times, you want to compare two completely separate groups of people who have no connection to one another. For example, you might want to compare the salaries of male professors to female professors. When you are comparing two independent groups, and extreme outliers make the median a better choice than the mean, you should use the **Mann-Whitney U Test**. This is your nonparametric alternative to the independent $t$-test.   
 - **Three or More Groups:** Finally, you might want to compare three or more distinct groups. For example, you might want to see if grade point averages differ across survey categories of drinking habits, like "Abstain," "Light," "Moderate," or "Heavy." Because these categories are ordinal variables, meaning they are ranked in a specific order, we cannot calculate a proper mean for them. To solve this, you should use the **Kruskal-Wallis Test**. This test evaluates differences across multiple groups by looking at how the data ranks, making it your safe alternative to the One-Way ANOVA.   
 
@@ -282,11 +282,11 @@ Just like with the Wilcoxon test, we can break this down piece by piece. First, 
 
 
 
-Below this, we see the hypotheses using the software format ($\eta_1 - \eta_2 = 0$). This is the exact same concept as the human-readable format we wrote earlier; it is just the software's mathematical way of asking if the difference between the two population medians is zero.   
+Below this, we see the hypotheses using the software format ($\eta_1 - \eta_2 = 0$). This is the same concept as the human-readable format we wrote earlier; it is just the software's mathematical way of asking if the difference between the two population medians is zero.   
 
 
 
-Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look completely different, they are mathematically linked and will always produce the exact same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
+Next, the output provides the test statistic and the $p$-value. You will notice the software labels the statistic as a "U-Value" of $4040.50$. This can be a major source of confusion for students, because some software reports a $W$ instead. Depending on which statistical software package you use, you might see a $U$ or a $W$. These letters represent two slightly different mathematical algorithms for adding up the data's ranks. While the raw numbers for $U$ and $W$ will look completely different, they are mathematically linked and will always produce the same $p$-value. You do not need to worry about converting one to the other. You can let the computer handle the math and focus directly on the $p$-value. 
 
 
 
@@ -409,7 +409,7 @@ To conclude this analysis formally in your Results section, you would pair your 
 
 ## 10.11 Measuring Correlation: Spearman's Rho
 
-Up to this point, we have used the nonparametric trick of rank-ordering to compare groups, whether those groups are paired, independent, or divided into multiple categories. But what if your research question is not about comparing groups at all? What if you want to measure the strength of a relationship between two variables, but your data is too skewed to trust a standard linear correlation? It turns out that the exact same rank-ordering trick can save your correlation analysis as well.
+Up to this point, we have used the nonparametric trick of rank-ordering to compare groups, whether those groups are paired, independent, or divided into multiple categories. But what if your research question is not about comparing groups at all? What if you want to measure the strength of a relationship between two variables, but your data is too skewed to trust a standard linear correlation? It turns out that the same rank-ordering trick can save your correlation analysis as well.
 
 
 
@@ -503,15 +503,15 @@ This time, the correlation coefficient is $-0.144$, indicating a negative associ
 
 
 
-Why did Spearman's Rho find a statistically significant effect when the Kruskal-Wallis test on the exact same data did not? It all comes back to statistical power. The Kruskal-Wallis test treats the drinking groups as nominal buckets; it does not mathematically know that "Moderate" comes after "Light." By throwing away that ordinal information, it lost the power to detect the descending trend. Spearman's Rho, however, specifically uses that rank-order, giving it the necessary power to find the signal in the noise.
+Why did Spearman's Rho find a statistically significant effect when the Kruskal-Wallis test on the same data did not? It all comes back to statistical power. The Kruskal-Wallis test treats the drinking groups as nominal buckets; it does not mathematically know that "Moderate" comes after "Light." By throwing away that ordinal information, it lost the power to detect the descending trend. Spearman's Rho, however, specifically uses that rank-order, giving it the necessary power to find the signal in the noise.
 
 
 
-However, this brings up a serious ethical warning that we will explore deeper in Chapter 13. You cannot just keep running different statistical tests on the exact same dataset until you finally find one that gives you a $p$-value under $0.05$. That practice is called **p-hacking**, and it artificially inflates your chances of making a Type I error (a false positive). Your choice of test must be driven by your specific research question and the structure of your data *before* you run the analysis, never by your desire to find a publishable, significant result.   
+However, this brings up a serious ethical warning that we will explore deeper in Chapter 13. You cannot just keep running different statistical tests on the same dataset until you finally find one that gives you a $p$-value under $0.05$. That practice is called **p-hacking**, and it artificially inflates your chances of making a Type I error (a false positive). Your choice of test must be driven by your specific research question and the structure of your data *before* you run the analysis, never by your desire to find a publishable, significant result.   
 
 
 
-Before we write our final conclusions, let's look closely at the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those exact same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
+Before we write our final conclusions, let's look closely at the effect size for our second test. In earlier chapters, we learned how to interpret the strength of a standard linear correlation using Cohen's guidelines. Those same benchmarks apply to Spearman's Rho. Because our coefficient is $-0.144$, it represents a weak association.
 
 
 
@@ -630,7 +630,7 @@ While they are highly flexible, these tools still have strict structural boundar
 
 ### Ignoring the Order of Your Categories
 
-When we analyzed the `student_lifestyle_sleep.csv` dataset, we compared student grade point averages across four `AlcoholUse` categories: Abstain, Light, Moderate, and Heavy. We initially used a Kruskal-Wallis test, which failed to find a significant result. We later used Spearman's Rho on the exact same data and found a statistically significant downward trend. Why did one test fail while the other succeeded?   
+When we analyzed the `student_lifestyle_sleep.csv` dataset, we compared student grade point averages across four `AlcoholUse` categories: Abstain, Light, Moderate, and Heavy. We initially used a Kruskal-Wallis test, which failed to find a significant result. We later used Spearman's Rho on the same data and found a statistically significant downward trend. Why did one test fail while the other succeeded?   
 
 
 
@@ -699,7 +699,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 ### Communicating Results
 
-11. A graduate student is desperate to find a significant result for their thesis. They run an independent samples t-test on their data and get p=.08. Disappointed, they run a Mann-Whitney U test on the exact same variables and get p=.06. Finally, they run Mood's Median test and get p=.04. They decide to only publish the results of Mood's test. Explain why this practice is mathematically dangerous and ethically wrong.
+11. A graduate student is desperate to find a significant result for their thesis. They run an independent samples t-test on their data and get p=.08. Disappointed, they run a Mann-Whitney U test on the same variables and get p=.06. Finally, they run Mood's Median test and get p=.04. They decide to only publish the results of Mood's test. Explain why this practice is mathematically dangerous and ethically wrong.
 
 12. A science journalist reads a study where a Mann-Whitney U test was used to compare the median household debt of two cities. The test yielded p=.001, so the journalist publishes the headline: "City A Residents Suffer from Massively Higher Debt than City B!" However, the actual difference in median debt between the two cities was only $45. Explain the critical statistical distinction the journalist failed to understand regarding p-values and effect sizes.
 

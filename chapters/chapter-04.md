@@ -76,7 +76,7 @@ Remember that these specific cutoffs are designed strictly for the behavioral an
 
 
 
-However, these exact same cutoffs would not apply in the physical sciences. The predictability of a cannonball's trajectory is governed by strict mathematical laws of physics. Because a cannonball has virtually no "free will" or unseen emotional factors influencing its flight, a physicist would expect a correlation incredibly close to 1.0. You must always judge the strength of your correlation based on the natural variability of the field you are studying.
+However, these same cutoffs would not apply in the physical sciences. The predictability of a cannonball's trajectory is governed by strict mathematical laws of physics. Because a cannonball has virtually no "free will" or unseen emotional factors influencing its flight, a physicist would expect a correlation incredibly close to 1.0. You must always judge the strength of your correlation based on the natural variability of the field you are studying.
 
 ### Testing for Correlation: Population vs. Sample ($\rho$)
 
@@ -122,7 +122,7 @@ If we calculate an $R^2$ of **65.12%** for our economic and environmental data, 
 >
 > You might be wondering why we suddenly switched from a lowercase $r$ to an uppercase $R$. In statistics, a lowercase $r$ specifically describes the simple relationship between exactly *two* variables. If you square that specific number, you mathematically get $r^2$.
 >
-> However, statisticians universally use the uppercase R-squared because it is a "future-proof" symbol. In the next chapter, we will build complex models that use several different variables at the exact same time. The uppercase R-squared is the overarching symbol used to represent the explained variation for those larger models. To keep things consistent, we get into the habit of using the uppercase letter right from the start. For our simple two-variable data, squaring your lowercase $r$ will always get you exactly R-squared.
+> However, statisticians universally use the uppercase R-squared because it is a "future-proof" symbol. In the next chapter, we will build complex models that use several different variables at the same time. The uppercase R-squared is the overarching symbol used to represent the explained variation for those larger models. To keep things consistent, we get into the habit of using the uppercase letter right from the start. For our simple two-variable data, squaring your lowercase $r$ will always get you exactly R-squared.
 
 **What is a "Good" R-Squared?**
 
@@ -400,15 +400,15 @@ This specific curve perfectly illustrates a concept known as the **law of dimini
 
 
 
-However, if an already incredibly wealthy nation (like Switzerland or Norway) increases its GDP per capita by that exact same $\$5,000$, the impact on health is practically invisible. They already have clean water and modern hospitals.
+However, if an already incredibly wealthy nation (like Switzerland or Norway) increases its GDP per capita by that same $\$5,000$, the impact on health is practically invisible. They already have clean water and modern hospitals.
 
 
 
-A linear regression model assumes a constant rate of change; it assumes $\$5,000$ buys the exact same amount of health everywhere in the world. Because human health does not work that way, a straight-line model will systematically fail.
+A linear regression model assumes a constant rate of change; it assumes $\$5,000$ buys the same amount of health everywhere in the world. Because human health does not work that way, a straight-line model will systematically fail.
 
 ### "Squishing" the Scale: The Log Transformation
 
-When researchers encounter a fundamentally curved relationship, they do not throw the data away. Furthermore, they do not need to invent a brand new, highly complex type of curved regression. Instead, they use a mathematical trick to **linearize** the data. This means they mathematically filter the data so that the severe curve straightens out, allowing them to safely use the exact same straight-line linear regression tools we have already learned.
+When researchers encounter a fundamentally curved relationship, they do not throw the data away. Furthermore, they do not need to invent a brand new, highly complex type of curved regression. Instead, they use a mathematical trick to **linearize** the data. This means they mathematically filter the data so that the severe curve straightens out, allowing them to safely use the same straight-line linear regression tools we have already learned.
 
 
 
@@ -459,7 +459,7 @@ If your model has successfully passed the L.I.N.E. diagnostic checks, you are fi
 
 
 
-In Chapter 3, we learned that sample statistics are just estimates of the true population parameter. Because every sample naturally varies, we used Confidence Intervals to create a mathematical net that we hope captures the true population average. That exact same logic applies to linear regression. Our software calculated a specific slope and intercept for our sample of 143 countries with a recorded GDP per capita, but our ultimate goal is to understand the true relationship in the broader world.
+In Chapter 3, we learned that sample statistics are just estimates of the true population parameter. Because every sample naturally varies, we used Confidence Intervals to create a mathematical net that we hope captures the true population average. That same logic applies to linear regression. Our software calculated a specific slope and intercept for our sample of 143 countries with a recorded GDP per capita, but our ultimate goal is to understand the true relationship in the broader world.
 
 ### Confidence Intervals for the Slope
 

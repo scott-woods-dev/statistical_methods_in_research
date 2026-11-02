@@ -214,7 +214,7 @@ To interpret this chart, you simply compare the sizes of the segments across the
 
 
 
-However, segmented bar charts have a major hidden drawback: they completely hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the exact same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people actually make up each group.
+However, segmented bar charts have a major hidden drawback: they completely hide the actual size of the groups. Looking at the chart, the "Normal" and "High" stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people actually make up each group.
 
 
 
@@ -344,7 +344,7 @@ For numerical variables, you have two primary choices: the median and the mean. 
 
 
 
-The **mean** is what most people think of when they hear the word "average." It is the exact same calculation you learned in grade school: you add up all the values and divide by the total number of observations. For instance, if you tracked a single student's `WeekdaySleep` over 5 weeknights and recorded 7, 6, 8, 7, and 7 hours, you calculate their mean sleep like this:
+The **mean** is what most people think of when they hear the word "average." It is the same calculation you learned in grade school: you add up all the values and divide by the total number of observations. For instance, if you tracked a single student's `WeekdaySleep` over 5 weeknights and recorded 7, 6, 8, 7, and 7 hours, you calculate their mean sleep like this:
 
 
 
@@ -379,7 +379,7 @@ Knowing the center of your data is only half the story. Imagine two students who
 
 
 
-They have the exact same center, but their sleep habits are completely different! We measure this inconsistency using **measures of spread**. 
+They have the same center, but their sleep habits are completely different! We measure this inconsistency using **measures of spread**. 
 
 
 
@@ -637,7 +637,7 @@ When researchers write their conclusions, they state their findings in plain Eng
 
 
 
-Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the exact same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
+Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range.  In professional research, you must **never report a measure of center without its matching measure of spread.**  Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A's in half their classes and C's in the rest. They have the same center, but their academic experiences are completely different! If you only report the center, you hide that reality.  When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group actually matched that typical experience. You will see this pairing in every APA-formatted conclusion.
 
 ### Preliminary Conclusion
 Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question. 

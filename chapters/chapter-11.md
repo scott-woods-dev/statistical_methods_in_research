@@ -73,7 +73,7 @@ Why do these scores move together in distinct clusters? Factor analysis operates
 
 
 
-Think of a hidden factor like a puppeteer holding the strings of several puppets at once. You sit in the audience and watch six puppets on a stage. You cannot see the puppeteers standing hidden above the curtain, just as you cannot directly see a participant's subconscious evaluation of "Social Appeal" or "Socioeconomic Status." However, when the first puppeteer pulls their hand up, three specific puppets (`AttractiveF`, `FunF`, and `SharedInterestsF`) all rise at the exact same time. A moment later, a second puppeteer pulls their hand up, and the other three puppets (`IntelligentF`, `AmbitiousF`, and `SincereF`) rise together. By carefully watching which puppets move in sync on stage, you can deduce how many puppeteers are hiding behind the curtain and which strings each one controls.   
+Think of a hidden factor like a puppeteer holding the strings of several puppets at once. You sit in the audience and watch six puppets on a stage. You cannot see the puppeteers standing hidden above the curtain, just as you cannot directly see a participant's subconscious evaluation of "Social Appeal" or "Socioeconomic Status." However, when the first puppeteer pulls their hand up, three specific puppets (`AttractiveF`, `FunF`, and `SharedInterestsF`) all rise at the same time. A moment later, a second puppeteer pulls their hand up, and the other three puppets (`IntelligentF`, `AmbitiousF`, and `SincereF`) rise together. By carefully watching which puppets move in sync on stage, you can deduce how many puppeteers are hiding behind the curtain and which strings each one controls.   
 
 
 
@@ -85,7 +85,7 @@ Factor analysis solves both problems at once. First, it serves as a tool for psy
 
 ### Shared Variance versus Unique Variance
 
-To figure out which survey questions belong to which hidden factor, factor analysis looks closely at the variability within each variable. Even when three questions are controlled by the same underlying factor, a participant will rarely write down the exact same number for all three. After a speed date, a female participant might give her partner an 8 for `FunF`, a 7 for `AttractiveF`, and a 6 for `SharedInterestsF`.
+To figure out which survey questions belong to which hidden factor, factor analysis looks closely at the variability within each variable. Even when three questions are controlled by the same underlying factor, a participant will rarely write down the same number for all three. After a speed date, a female participant might give her partner an 8 for `FunF`, a 7 for `AttractiveF`, and a 6 for `SharedInterestsF`.
 
 
 
@@ -115,7 +115,7 @@ If you want to hear the pure voices of the two singers, you do not want to crank
 
 
 
-Factor analysis does the exact same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (communality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared communality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
+Factor analysis does the same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (communality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared communality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
 
 ## 11.3 Reading Factor Analysis Tables
 
@@ -164,7 +164,7 @@ Once the software extracts the two hidden factors, how do you know which survey 
 
 
 
-Because a factor loading represents the correlation between a specific survey question and the underlying factor, you can interpret it using the exact same intuition you built for the correlation coefficient ($r$) in Chapter 4:   
+Because a factor loading represents the correlation between a specific survey question and the underlying factor, you can interpret it using the same intuition you built for the correlation coefficient ($r$) in Chapter 4:   
 
 - A factor loading close to $1$ (or $-1$) means the survey question is strongly tied to that hidden factor. Researchers say that the variable "loads heavily" onto that factor.   
 - A factor loading close to $0$ means the survey question has almost nothing to do with that hidden factor.
@@ -317,7 +317,7 @@ A scree chart plots these potential factors on the horizontal axis (from 1 to 6)
 
 
 
-Geologists use the word "scree" to describe the loose rubble and broken rocks that gather at the bottom of a steep cliff. When you look at a scree chart, you are looking for the exact same geological shape: a steep cliff face that eventually flattens out into a trail of rubble.
+Geologists use the word "scree" to describe the loose rubble and broken rocks that gather at the bottom of a steep cliff. When you look at a scree chart, you are looking for the same geological shape: a steep cliff face that eventually flattens out into a trail of rubble.
 
 
 
@@ -343,11 +343,11 @@ However, before you are allowed to collapse individual survey questions into a s
 
  
 
-This brings us directly back to Chapter 2. Recall that **Cronbach's alpha** is a mathematical metric used to evaluate **internal consistency** (how reliably a set of questions measures the exact same concept) before you create a **summated scale** (a single composite score created by adding or averaging multiple survey items together).  
+This brings us directly back to Chapter 2. Recall that **Cronbach's alpha** is a mathematical metric used to evaluate **internal consistency** (how reliably a set of questions measures the same concept) before you create a **summated scale** (a single composite score created by adding or averaging multiple survey items together).  
 
  
 
-Factor analysis and Cronbach's alpha are two halves of the exact same research workflow:
+Factor analysis and Cronbach's alpha are two halves of the same research workflow:
 
 1. **Factor analysis explores the data to discover the hidden clusters.** It tells you *which* variables belong together.   
 2. **Cronbach's alpha confirms the measurement quality of those specific clusters.** It shows that combining them into a single score is mathematically reliable.   
@@ -360,7 +360,7 @@ Combining survey items into a validated composite score also solves a major stru
 
 
 
-Recall the warning we discussed in Chapter 4 regarding linear regression models. The original ratings in `speed_dating.csv` are ordinal variables; participants were forced to choose whole numbers from 1 to 10. A single, isolated ordinal question is a mathematically weak variable because the true distance between a rating of "4" and "5" might not mean the exact same thing as the distance between an "8" and a "9" in the participant's mind.   
+Recall the warning we discussed in Chapter 4 regarding linear regression models. The original ratings in `speed_dating.csv` are ordinal variables; participants were forced to choose whole numbers from 1 to 10. A single, isolated ordinal question is a mathematically weak variable because the true distance between a rating of "4" and "5" might not mean the same thing as the distance between an "8" and a "9" in the participant's mind.   
 
 
 
@@ -374,7 +374,7 @@ As you begin running your own factor analyses, watch out for these three common 
 
 
 
-**1. Forcing a Structure When Everything is a Blur (The "Halo Effect")** Throughout this chapter, we analyzed the female participants' scorecards because their ratings naturally formed two distinct, clean neighborhoods. But what happens if you run the exact same analysis on the male participants' ratings?   
+**1. Forcing a Structure When Everything is a Blur (The "Halo Effect")** Throughout this chapter, we analyzed the female participants' scorecards because their ratings naturally formed two distinct, clean neighborhoods. But what happens if you run the same analysis on the male participants' ratings?   
 
 
 

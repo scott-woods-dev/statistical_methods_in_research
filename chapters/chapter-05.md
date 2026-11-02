@@ -16,7 +16,7 @@ To explore this complexity, we will use a sample of 1,000 live birth events. The
   - **`habit`**: A categorical variable indicating the mother's tobacco smoking status during pregnancy.
   - **`mature`**: A categorical variable indicating the mother's clinical age maturity status.
 
-In this chapter, you will learn how to expand your modeling toolkit. You will discover how to evaluate multiple overlapping variables at the exact same time to understand complex real-world systems.
+In this chapter, you will learn how to expand your modeling toolkit. You will discover how to evaluate multiple overlapping variables at the same time to understand complex real-world systems.
 
 ## 5.2 What is Multiple Regression?
 
@@ -83,7 +83,7 @@ When you run this new model, you will observe a structural shift in your primary
 
 
 
-Why did this happen? The multiple regression model is now controlling for gestational duration. It successfully neutralized the confounding variable. It is answering a much more specific and useful question. It asks: "If we only compare mothers whose pregnancies lasted the exact same number of weeks, does the number of prenatal visits still affect birth weight?" The answer is yes, but the effect is much smaller. The original positive slope was inflated by the confounding factor. Mothers with longer pregnancies made more visits, and longer pregnancies also produced heavier babies. The extra visits were partly a marker for longer gestation, so the simple slope gave them too much credit.
+Why did this happen? The multiple regression model is now controlling for gestational duration. It successfully neutralized the confounding variable. It is answering a much more specific and useful question. It asks: "If we only compare mothers whose pregnancies lasted the same number of weeks, does the number of prenatal visits still affect birth weight?" The answer is yes, but the effect is much smaller. The original positive slope was inflated by the confounding factor. Mothers with longer pregnancies made more visits, and longer pregnancies also produced heavier babies. The extra visits were partly a marker for longer gestation, so the simple slope gave them too much credit.
 
 
 
@@ -218,7 +218,7 @@ Therefore, the slope for the smoker indicator represents the average difference 
 
 
 
-Crucially, this difference assumes we are comparing mothers whose pregnancies lasted the exact same number of weeks. This allows us to isolate the unique impact of tobacco use on neonatal health, separated from the confounding effect of gestational duration.
+Crucially, this difference assumes we are comparing mothers whose pregnancies lasted the same number of weeks. This allows us to isolate the unique impact of tobacco use on neonatal health, separated from the confounding effect of gestational duration.
 
 
 
@@ -252,7 +252,7 @@ How do you interpret the categorical slopes? You must compare them directly to t
 
 
 
-The slope for the Bachelor's Degree is $0.15$. This means a mother with a Bachelor's Degree has a heavier infant on average. The baby weighs $0.15$ pounds more than a baby born to a mother with only a High School education. Remember, this interpretation assumes both pregnancies lasted the exact same number of weeks.
+The slope for the Bachelor's Degree is $0.15$. This means a mother with a Bachelor's Degree has a heavier infant on average. The baby weighs $0.15$ pounds more than a baby born to a mother with only a High School education. Remember, this interpretation assumes both pregnancies lasted the same number of weeks.
 
 
 
@@ -330,7 +330,7 @@ When an interaction is not significant, you should delete it from your model. Yo
 
 ## 5.9 Multicollinearity
 
-When we build multiple regression models, we want to add predictors that bring new, unique information to the table. But what happens if two predictors bring the exact same information?
+When we build multiple regression models, we want to add predictors that bring new, unique information to the table. But what happens if two predictors bring the same information?
 
 Imagine trying to predict a student's height using their left shoe size and their right shoe size. These two variables overlap almost entirely. If you put both into a model, the math gets confused. The variables fight each other for the credit.
 
@@ -557,7 +557,7 @@ But look at what happened to the slope for `Sex`. It shifted to 27.64. Furthermo
 
 
 
-Because this is still less than 0.05, the wage gap remains statistically significant. This is exactly what it means to **control for** a variable. The new slope of 27.64 represents the average pay difference between a man and a woman *even when they are the exact same age and hold the exact same degree status*. While the gap may have changed from our initial estimate, controlling for age and education establishes that the discrepancy is not just a statistical shadow cast by experience or degree status.
+Because this is still less than 0.05, the wage gap remains statistically significant. This is exactly what it means to **control for** a variable. The new slope of 27.64 represents the average pay difference between a man and a woman *even when they are the same age and hold the same degree status*. While the gap may have changed from our initial estimate, controlling for age and education establishes that the discrepancy is not just a statistical shadow cast by experience or degree status.
 
 ### Step 4: APA Reporting
 

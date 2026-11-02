@@ -33,7 +33,7 @@ Before we introduce our new methods, let's take a moment to look at the big pict
 
 
 
-The signal is the **between-groups variation**. This represents the differences in the response variable that are directly caused by your experimental treatment, like the shift in blood pressure caused by our mindset intervention. The noise is the **within-groups variation**. This is a catch-all bucket that holds every single difference your model cannot explain. It includes the natural, pre-existing differences among individuals inside the exact same treatment group, such as their age, baseline fitness, genetics, and daily stress levels.
+The signal is the **between-groups variation**. This represents the differences in the response variable that are directly caused by your experimental treatment, like the shift in blood pressure caused by our mindset intervention. The noise is the **within-groups variation**. This is a catch-all bucket that holds every single difference your model cannot explain. It includes the natural, pre-existing differences among individuals inside the same treatment group, such as their age, baseline fitness, genetics, and daily stress levels.
 
 
 
@@ -49,19 +49,19 @@ What if we know that a categorical variable, like age brackets, is causing a lar
 
 **The ANCOVA (Analysis of Covariance)**
 
-But what if our nuisance variable isn't a category, but a highly precise continuous number, like exact baseline blood pressure? Chopping exact numbers into arbitrary categories destroys valuable information. An ANCOVA solves this by mathematically blending the grouping power of an ANOVA with the continuous tracking of a multiple regression model. It uses that continuous baseline score to artificially level the playing field, mathematically calculating what the treatment group averages would look like if every single participant had started the study with the exact same blood pressure.
+But what if our nuisance variable isn't a category, but a highly precise continuous number, like exact baseline blood pressure? Chopping exact numbers into arbitrary categories destroys valuable information. An ANCOVA solves this by mathematically blending the grouping power of an ANOVA with the continuous tracking of a multiple regression model. It uses that continuous baseline score to artificially level the playing field, mathematically calculating what the treatment group averages would look like if every single participant had started the study with the same blood pressure.
 
 
 
 **Repeated Measures ANOVA**
 
-Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the exact same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
+Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we completely filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
 
 
 
 ## 7.3 The Two-Way ANOVA: Expanding the Model
 
-In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-way" because it looks at the effect of just *one* categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to look at two grouping variables at the exact same time? That is exactly what a **Two-Way ANOVA** does.
+In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-way" because it looks at the effect of just *one* categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to look at two grouping variables at the same time? That is exactly what a **Two-Way ANOVA** does.
 
 
 
@@ -122,7 +122,7 @@ An interaction plot maps out the averages for every possible combination of our 
 
 
 
-Here is how to read an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the exact same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
+Here is how to read an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.
 
 ![Figure 7.1: Interaction plot of post-intervention systolic blood pressure by condition and age group. The Under 40 line slopes down from control to informed, while the 40+ line slopes up, so the lines are not parallel. The single NA point marks the maid whose age was missing.](../figures/chapter_07/fig_07_01_line_interaction_syst2_condition_age.png){fig-alt="Interaction plot with condition on the x-axis and post-intervention systolic blood pressure on the y-axis. The Under 40 line falls from control to informed, the 40+ line rises, and a single NA point appears near the informed position. The 40+ line stays above the Under 40 line."}
 
@@ -152,7 +152,7 @@ Real-world data is messy. People skip survey questions, leave fields blank, and 
 
 ## 7.5 Two-Way ANOVA: Assumptions and Output Interpretation
 
-Before we can trust the results of a Two-Way ANOVA, we must ensure our data fits the tool. The required assumptions are the exact same as the One-Way ANOVA you learned in Chapter 6: independent samples, mutually exclusive groups, normality of residuals, and equal variances.
+Before we can trust the results of a Two-Way ANOVA, we must ensure our data fits the tool. The required assumptions are the same as the One-Way ANOVA you learned in Chapter 6: independent samples, mutually exclusive groups, normality of residuals, and equal variances.
 
 
 
@@ -251,7 +251,7 @@ Let's look at our mindset intervention using a highly precise nuisance variable:
 
 
 
-Instead of organizing the maids into "high baseline" and "low baseline" categories, an ANCOVA uses their exact baseline blood pressure as a continuous covariate. The mathematics of the ANCOVA use that exact baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the exact same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA isolates our primary research interest, giving us an incredibly clear look at the true effect of our psychological intervention.
+Instead of organizing the maids into "high baseline" and "low baseline" categories, an ANCOVA uses their exact baseline blood pressure as a continuous covariate. The mathematics of the ANCOVA use that exact baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA isolates our primary research interest, giving us an incredibly clear look at the true effect of our psychological intervention.
 
 
 
@@ -281,7 +281,7 @@ This is the most critical new assumption for an ANCOVA, and its name sounds far 
 
 
 
-Think about what an ANCOVA is trying to do: it wants to apply a single mathematical adjustment to level the playing field for everyone based on their starting baseline score. For that single mathematical adjustment to be fair, the covariate must behave the exact same way across all of your experimental groups.
+Think about what an ANCOVA is trying to do: it wants to apply a single mathematical adjustment to level the playing field for everyone based on their starting baseline score. For that single mathematical adjustment to be fair, the covariate must behave the same way across all of your experimental groups.
 
 
 
@@ -366,7 +366,7 @@ An ANCOVA also recalculates the averages for your groups. We call these new aver
 
 
 
-Remember, the goal of an ANCOVA is to simulate what would have happened if every single participant had started at the exact same baseline. The software calculates the overall average baseline blood pressure for the 66 maids with both a baseline and a final reading. Then, it mathematically adjusts every maid's final blood pressure score based on how far away they were from that starting average.
+Remember, the goal of an ANCOVA is to simulate what would have happened if every single participant had started at the same baseline. The software calculates the overall average baseline blood pressure for the 66 maids with both a baseline and a final reading. Then, it mathematically adjusts every maid's final blood pressure score based on how far away they were from that starting average.
 
 
 
@@ -375,7 +375,7 @@ Here are the adjusted means for our two groups:
 - **Control Group Adjusted Mean:** 125 mmHg
 - **Informed Group Adjusted Mean:** 120 mmHg
 
-If every maid had started the month with the exact same baseline blood pressure, the model estimates that the informed group would finish the month 5 points lower than the control group.
+If every maid had started the month with the same baseline blood pressure, the model estimates that the informed group would finish the month 5 points lower than the control group.
 
 
 
@@ -399,11 +399,11 @@ Seeing this shift, a skeptical researcher might pause and ask a very important q
 
 
 
-The short answer is absolutely not. If a researcher runs test after test on the exact same variables, desperately swapping out different statistical tools just hoping to stumble across a $p$-value under 0.05, they are artificially inflating their risk of a Type I error (a false positive). This dangerous practice is called **$p$-hacking**, and it is a major ethical violation in modern research. We will explore the mechanics and consequences of $p$-hacking extensively in Chapter 13.
+The short answer is absolutely not. If a researcher runs test after test on the same variables, desperately swapping out different statistical tools just hoping to stumble across a $p$-value under 0.05, they are artificially inflating their risk of a Type I error (a false positive). This dangerous practice is called **$p$-hacking**, and it is a major ethical violation in modern research. We will explore the mechanics and consequences of $p$-hacking extensively in Chapter 13.
 
 
 
-So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the exact same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a completely different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is a perfectly ethical, standard scientific practice.
+So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a completely different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is a perfectly ethical, standard scientific practice.
 
 ### The Independence Violation
 
@@ -415,7 +415,7 @@ However, think back to the core assumptions of a standard ANOVA from Chapter 6. 
 
 
 
-If we measure the exact same hotel maid twice (once at baseline and once four weeks later), those two data points are intrinsically linked. They share the same genetics, the same resting metabolic rate, and the same lifestyle habits. If we put both of her scores into a standard ANOVA, we violently break the independence assumption.
+If we measure the same hotel maid twice (once at baseline and once four weeks later), those two data points are intrinsically linked. They share the same genetics, the same resting metabolic rate, and the same lifestyle habits. If we put both of her scores into a standard ANOVA, we violently break the independence assumption.
 
 ### The Fix: The Within-Subjects Design
 
@@ -425,7 +425,7 @@ Everything we have done in this textbook so far has relied on **between-subjects
 
 
 
-A Repeated Measures ANOVA uses a **within-subjects design**. Instead of comparing different people, it measures the exact same person across multiple time points or conditions.
+A Repeated Measures ANOVA uses a **within-subjects design**. Instead of comparing different people, it measures the same person across multiple time points or conditions.
 
 
 
@@ -437,7 +437,7 @@ Because a Repeated Measures ANOVA filters out so much individual biological nois
 
 ### A Note on Longitudinal Studies
 
-Our hotel maid study is relatively simple because it only measures the participants twice: once at the beginning and once at the end. This before-and-after setup is the most basic form of a Repeated Measures ANOVA. But what if the researchers wanted to track the maids' health over a longer period, measuring their BMI at baseline, week 4, and week 8? When a study tracks the exact same participants across three or more time points, we are dealing with **longitudinal data**. 
+Our hotel maid study is relatively simple because it only measures the participants twice: once at the beginning and once at the end. This before-and-after setup is the most basic form of a Repeated Measures ANOVA. But what if the researchers wanted to track the maids' health over a longer period, measuring their BMI at baseline, week 4, and week 8? When a study tracks the same participants across three or more time points, we are dealing with **longitudinal data**. 
 
 
 
@@ -516,7 +516,7 @@ Our core research question was simple: Can changing a person's mindset about the
 
    
 
-3. **The Repeated Measures ANOVA:** Finally, we shifted our focus to Body Mass Index and used the ultimate noise-reduction tool: the within-subjects design. By measuring the exact same maids twice, we filtered out their baseline genetics entirely. Here, we found our prize: a statistically significant interaction between time and the experimental condition ($p = 0.003$). The informed maids' BMI dropped significantly over the four weeks, while the control group's BMI remained relatively static.
+3. **The Repeated Measures ANOVA:** Finally, we shifted our focus to Body Mass Index and used the ultimate noise-reduction tool: the within-subjects design. By measuring the same maids twice, we filtered out their baseline genetics entirely. Here, we found our prize: a statistically significant interaction between time and the experimental condition ($p = 0.003$). The informed maids' BMI dropped significantly over the four weeks, while the control group's BMI remained relatively static.
 
 
 
@@ -566,13 +566,13 @@ When researchers realize a background variable is creating noise, their first in
 
 **3. Treating "Before and After" Data as Independent Samples**
 
-If you measure a participant's anxiety on Tuesday and measure that exact same participant's anxiety again on Thursday, those are not two independent people. They share the same brain, genetics, and baseline stress levels. Tossing "Pre-Test" and "Post-Test" columns into a standard One-Way ANOVA violently violates the assumption of independence. You must use a Repeated Measures ANOVA to tell the software that the data points are biologically linked.
+If you measure a participant's anxiety on Tuesday and measure that same participant's anxiety again on Thursday, those are not two independent people. They share the same brain, genetics, and baseline stress levels. Tossing "Pre-Test" and "Post-Test" columns into a standard One-Way ANOVA violently violates the assumption of independence. You must use a Repeated Measures ANOVA to tell the software that the data points are biologically linked.
 
 
 
 **4. "Model Shopping" (The Fishing Expedition)**
 
-As we discussed in Section 7.9, having access to advanced tools can tempt researchers to behave unethically. A researcher might run a Two-Way ANOVA on blood pressure, see a $p$-value of $0.08$, and think: *“What if I swap this to an ANCOVA? What if I add a different covariate? What if I drop a group?”* Running multiple different models on the exact same response variable just to hunt for a $p$-value under $0.05$ is a form of $p$-hacking. Your experimental design should be chosen *before* you look at the results, not adjusted afterward to manufacture a success.
+As we discussed in Section 7.9, having access to advanced tools can tempt researchers to behave unethically. A researcher might run a Two-Way ANOVA on blood pressure, see a $p$-value of $0.08$, and think: *“What if I swap this to an ANCOVA? What if I add a different covariate? What if I drop a group?”* Running multiple different models on the same response variable just to hunt for a $p$-value under $0.05$ is a form of $p$-hacking. Your experimental design should be chosen *before* you look at the results, not adjusted afterward to manufacture a success.
 
 
 
@@ -588,12 +588,12 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 4. **Interaction Plot:** A visual graph used to spot interactions. If the lines are parallel, there is no interaction. If the lines converge, diverge, or cross, an interaction is occurring.
 5. **Blocking:** The practice of taking a known background nuisance variable and converting it into categorical groups (blocks) to reduce unexplained statistical noise.
 6. **ANCOVA (Analysis of Covariance):** A hybrid statistical tool that blends an ANOVA with multiple regression. It allows researchers to control for a continuous nuisance variable (a **covariate**) without destroying its precision by chopping it into blocks.
-7. **Adjusted Means:** Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the exact same baseline covariate score.
-8. **Homogeneity of Regression Slopes:** A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the exact same way (has parallel slopes) across all of your different experimental groups.
+7. **Adjusted Means:** Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the same baseline covariate score.
+8. **Homogeneity of Regression Slopes:** A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the same way (has parallel slopes) across all of your different experimental groups.
 9. **Between-Subjects Design:** An experimental setup where completely different groups of people are compared against one another (e.g., an informed group versus a control group).
-10. **Within-Subjects Design:** An experimental setup where the exact same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out massive amounts of biological and genetic noise.
+10. **Within-Subjects Design:** An experimental setup where the same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out massive amounts of biological and genetic noise.
 11. **Repeated Measures ANOVA:** The statistical test used to analyze a within-subjects design.
-12. **Longitudinal Data:** Data collected by tracking the exact same participants across three or more specific points in time.
+12. **Longitudinal Data:** Data collected by tracking the same participants across three or more specific points in time.
 
 
 
@@ -609,7 +609,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 ### Choosing a Method
 
 5. A political scientist is designing a study to see if a voter's preferred news source (Cable News, Social Media, or Print) and their geographic region (Urban, Suburban, or Rural) impact their score on a political polarization scale. Identify the response variable, the two factors, and determine how many unique "cells" (treatment groups) exist in this factorial design.
-6. A kinesiologist wants to know if a specific physical therapy routine increases joint mobility. Because human flexibility varies wildly due to genetics, the researcher measures the exact same 30 patients at baseline, after week 2, after week 4, and after week 6. Should the researcher use a Two-Way ANOVA, an ANCOVA, or a Repeated Measures ANOVA? Justify your choice based on the study design.
+6. A kinesiologist wants to know if a specific physical therapy routine increases joint mobility. Because human flexibility varies wildly due to genetics, the researcher measures the same 30 patients at baseline, after week 2, after week 4, and after week 6. Should the researcher use a Two-Way ANOVA, an ANCOVA, or a Repeated Measures ANOVA? Justify your choice based on the study design.
 7. An educational researcher is testing three different tutoring methods (Method A, B, and C) to see which one yields the highest final exam scores. However, they know that a student's baseline GPA heavily influences their final exam performance. They want to mathematically level the playing field using the exact numerical GPA of every student. Which specific statistical test should the researcher use?
 
 ### Communicating Results

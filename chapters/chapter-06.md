@@ -46,7 +46,7 @@ Other times, we simply observe pre-existing subgroups. In our high school datase
 
 
 
-Here is the beautiful part about the framework we'll develop in this chapter: the mathematical machinery behind the scenes does not care whether you actively applied a clinical treatment or simply divided your dataset into naturally occurring subgroups. Whether you are testing an active intervention (like a diet plan) or observing a built-in category (like an academic track), statisticians treat them as the exact same idea: we are simply comparing means across different categories.
+Here is the beautiful part about the framework we'll develop in this chapter: the mathematical machinery behind the scenes does not care whether you actively applied a clinical treatment or simply divided your dataset into naturally occurring subgroups. Whether you are testing an active intervention (like a diet plan) or observing a built-in category (like an academic track), statisticians treat them as the same idea: we are simply comparing means across different categories.
 
 ## 6.3 What is an ANOVA?
 
@@ -58,16 +58,16 @@ At its core, an **ANOVA** (which stands for Analysis of Variance) is a statistic
 
 
 
-If you are paying close attention, that name might sound a bit strange. Why are we talking about "variance" when our goal is to compare *averages* across different groups? In Chapter 1, we learned that the standard deviation is our primary measure of how spread out, or variable, our data is. **Variance** is simply another mathematical way to measure that exact same concept of variability. As we will see in the next section, the secret to comparing group averages actually lies in analyzing how the data's variability is spread out.
+If you are paying close attention, that name might sound a bit strange. Why are we talking about "variance" when our goal is to compare *averages* across different groups? In Chapter 1, we learned that the standard deviation is our primary measure of how spread out, or variable, our data is. **Variance** is simply another mathematical way to measure that same concept of variability. As we will see in the next section, the secret to comparing group averages actually lies in analyzing how the data's variability is spread out.
 
 
 
 So, what kinds of research designs actually lead to an ANOVA? It depends slightly on who you ask:
 
-- **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. Looking at our dataset, a statistician would ask: *Is the mean writing score the exact same in each of the three program tracks?*
+- **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. Looking at our dataset, a statistician would ask: *Is the mean writing score the same in each of the three program tracks?*
 - **The Researcher's Perspective:** Social science researchers often think of an ANOVA as a way to look for a broader relationship between a categorical variable and a numerical variable. A researcher would ask: *Does a student's choice of program track have a significant effect on their writing scores?*
 
-Both perspectives are perfectly valid, and both are answered using the exact same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.
+Both perspectives are perfectly valid, and both are answered using the same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.
 
 
 
@@ -101,11 +101,11 @@ If the program track truly has a major impact on writing performance, these thre
 
 
 
-Now, pretend we zoom in and look *only* at the students in the academic track. Do all of these students have the exact same writing score? Of course not. Even though they are in the exact same program, their scores will still bounce around. Some had a good night's sleep, others have test anxiety, and others simply have a natural talent for writing.
+Now, pretend we zoom in and look *only* at the students in the academic track. Do all of these students have the same writing score? Of course not. Even though they are in the same program, their scores will still bounce around. Some had a good night's sleep, others have test anxiety, and others simply have a natural talent for writing.
 
 
 
-This is the within-groups variation. It measures the natural, random differences among individuals who are in the exact same treatment group. Because this variation is caused by background factors we are not explicitly studying, we can think of it as our **noise**.
+This is the within-groups variation. It measures the natural, random differences among individuals who are in the same treatment group. Because this variation is caused by background factors we are not explicitly studying, we can think of it as our **noise**.
 
 ### The Core Logic of ANOVA
 
@@ -136,7 +136,7 @@ This approach is a statistical trap because it severely inflates our risk of mak
 
 
 
-If we run a single Welch's $t$-test, we safely cap our chance of a false positive at 5%. But if we run multiple tests on the exact same dataset, that risk compounds. It is like rolling a 20-sided die; rolling a "1" might be rare on a single toss, but if you roll it three times, your chances of seeing that "1" go up. By running three separate tests to compare our program tracks, our overall risk of a false positive jumps significantly higher than our acceptable 5% threshold.
+If we run a single Welch's $t$-test, we safely cap our chance of a false positive at 5%. But if we run multiple tests on the same dataset, that risk compounds. It is like rolling a 20-sided die; rolling a "1" might be rare on a single toss, but if you roll it three times, your chances of seeing that "1" go up. By running three separate tests to compare our program tracks, our overall risk of a false positive jumps significantly higher than our acceptable 5% threshold.
 
 
 
@@ -188,7 +188,7 @@ The first requirement is that our samples must be completely independent of one 
 
 
 
-**When Independence Fails:** This assumption typically collapses when researchers collect **longitudinal data**, which means they measure the exact same participants multiple times. For example, imagine a researcher wants to evaluate a new writing curriculum. Instead of comparing three different groups of students, they measure the *same* class of students in September, again in December, and a final time in May.
+**When Independence Fails:** This assumption typically collapses when researchers collect **longitudinal data**, which means they measure the same participants multiple times. For example, imagine a researcher wants to evaluate a new writing curriculum. Instead of comparing three different groups of students, they measure the *same* class of students in September, again in December, and a final time in May.
 
 
 
@@ -242,7 +242,7 @@ Histograms give us a quick, intuitive look at the residuals' shape. However, be 
 
 
 
-This is arguably your best diagnostic tool, though it takes a little practice to read. A normal probability plot provides the exact same visual insights as a closely related mathematical cousin called a **Q-Q plot** (Quantile-Quantile plot). While their underlying formulas are slightly different, they are functionally equivalent for our purposes, and you will often see software and researchers use the terms interchangeably.
+This is arguably your best diagnostic tool, though it takes a little practice to read. A normal probability plot provides the same visual insights as a closely related mathematical cousin called a **Q-Q plot** (Quantile-Quantile plot). While their underlying formulas are slightly different, they are functionally equivalent for our purposes, and you will often see software and researchers use the terms interchangeably.
 
 
 

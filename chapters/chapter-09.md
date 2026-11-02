@@ -144,7 +144,7 @@ This translation is the ultimate practical goal of logistic regression. We rely 
 
 ## 9.6 Multiple Logistic Regression
 
-In Chapter 5, we learned that social and medical outcomes are rarely driven by a single isolated factor. We use multiple variables to account for confounding factors and get a more accurate picture of reality. Logistic regression follows this exact same logic. We can add multiple predictors to our model to control for overlapping influences and generate highly specific predictions.  
+In Chapter 5, we learned that social and medical outcomes are rarely driven by a single isolated factor. We use multiple variables to account for confounding factors and get a more accurate picture of reality. Logistic regression follows this same logic. We can add multiple predictors to our model to control for overlapping influences and generate highly specific predictions.  
 
 
 
@@ -182,7 +182,7 @@ Furthermore, whenever we add multiple predictors, we must check for multicolline
 Now let's look at the Odds Ratios to understand the practical effect of these variables.
 
 - **Age:** The Odds Ratio for `Age` is $0.9666$. This means for every additional year of life, a patient retains roughly 96.7% of their baseline odds of survival, assuming their admission type stays the same. This translates to a 3.3% decrease in the odds of survival per year ($1.00 - 0.9666 = 0.0334$).
-- **Emergency:** The Odds Ratio for `Emergency` is $0.0860$. Because this is an indicator variable, it compares the $1$ group to the baseline $0$ group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the exact same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a massive 91.4% drop in the odds of survival ($1.00 - 0.0860 = 0.914$).  
+- **Emergency:** The Odds Ratio for `Emergency` is $0.0860$. Because this is an indicator variable, it compares the $1$ group to the baseline $0$ group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a massive 91.4% drop in the odds of survival ($1.00 - 0.0860 = 0.914$).  
 
 ### Predicting Probabilities for Specific Profiles
 
@@ -315,7 +315,7 @@ You can intuitively think of deviance as a measure of "badness of fit." A model 
 
 ### Deviance $R^2$ and Adjusted Deviance $R^2$
 
-With standard linear regression, we used $R^2$ to determine the percentage of variance in our outcome that was explained by our predictor variables. Because logistic regression involves binary outcomes, we cannot calculate variance in the exact same mathematical way. Instead, software provides a **Deviance $R^2$** (sometimes called a pseudo-$R^2$).  
+With standard linear regression, we used $R^2$ to determine the percentage of variance in our outcome that was explained by our predictor variables. Because logistic regression involves binary outcomes, we cannot calculate variance in the same mathematical way. Instead, software provides a **Deviance $R^2$** (sometimes called a pseudo-$R^2$).  
 
 
 
@@ -327,7 +327,7 @@ Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a pa
 
 
 
-Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a completely useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the exact same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
+Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a completely useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
 
 ### The Deviance Goodness-of-Fit Test
 

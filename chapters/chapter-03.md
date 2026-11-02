@@ -118,9 +118,9 @@ Sometimes, we only have one group of participants, and we want to compare their 
 
 ### Tracking Changes Over Time: The Matched Pair t-Test
 
-In many experimental designs, researchers measure the exact same people twice to see if an intervention had an effect. This is called a pre-test/post-test design. Because the two sets of measurements come from the exact same individuals, the data points are linked together. For this, we use a **Matched Pair t-test**.
+In many experimental designs, researchers measure the same people twice to see if an intervention had an effect. This is called a pre-test/post-test design. Because the two sets of measurements come from the same individuals, the data points are linked together. For this, we use a **Matched Pair t-test**.
 
-- **Data Gathering and Format:** You measure the exact same participants twice, or you measure naturally paired subjects like twins. The data format usually features two columns of numbers side-by-side for each participant, allowing the software to calculate the direct difference between those two time points.
+- **Data Gathering and Format:** You measure the same participants twice, or you measure naturally paired subjects like twins. The data format usually features two columns of numbers side-by-side for each participant, allowing the software to calculate the direct difference between those two time points.
 - **The Research Question:** Did the students who received the healthy food packages see a significant improvement in their depression scores over the three weeks?
 - **The Application:** We only look at the students in the Diet group. We compare their Day 1 score (`CESD1`) to their Day 21 score (`CESD21`). Because we are tracking within-subject improvements, the software actually calculates the difference between the two scores for every single student (the `CESDDiff` variable) and tests to see if that average difference is significantly different from zero.
 
@@ -245,7 +245,7 @@ Notice that we wrote the scores were significantly "higher" than 16. Remember th
 
 Now that we have established our students were experiencing elevated depression symptoms at the start of the study, we can move to our next research question. Did the students who received the healthy food packages see a significant improvement over the three weeks?
 
-To answer this, we use a **Matched Pair t-test**. We use this test whenever our data is paired or linked. In our case, we measured the exact same students twice (once on Day 1, and again on Day 21). We do not want to just compare the Day 1 average to the Day 21 average; we want to see exactly how much each individual student changed.
+To answer this, we use a **Matched Pair t-test**. We use this test whenever our data is paired or linked. In our case, we measured the same students twice (once on Day 1, and again on Day 21). We do not want to just compare the Day 1 average to the Day 21 average; we want to see exactly how much each individual student changed.
 
 By calculating the difference for every single student (which is already saved in our dataset as the `CESDDiff` variable), we compress those two timeframes into one single column of change scores. A negative `CESDDiff` score means a student's depression symptoms decreased, while a positive score means they got worse.
 
@@ -295,7 +295,7 @@ Because this entire confidence interval sits below zero (and does not include ze
 
 ### Reporting the Results
 
-When we report a Matched Pair t-test in APA format, we use the exact same structure as before. We report the descriptive statistics for the difference scores, the t-statistic (with our sample size minus one for the degrees of freedom), the p-value, and the confidence interval. Notice how the negative values in our descriptive statistics instantly tell the reader that the scores went down.
+When we report a Matched Pair t-test in APA format, we use the same structure as before. We report the descriptive statistics for the difference scores, the t-statistic (with our sample size minus one for the degrees of freedom), the p-value, and the confidence interval. Notice how the negative values in our descriptive statistics instantly tell the reader that the scores went down.
 
 
 
@@ -342,7 +342,7 @@ Looking at our data, the diet group's average change was -6.03 points, while the
 
 
 
-To find the standard error (the "noise"), the software has to combine the natural variability from *both* groups. This brings up an important assumption. Traditionally, this test assumed that both groups had the exact same amount of spread (or variance) in their data. In the real world, this is rarely true. For example, the control group might have wildly varying scores, while the diet group's scores might be tightly clustered together.
+To find the standard error (the "noise"), the software has to combine the natural variability from *both* groups. This brings up an important assumption. Traditionally, this test assumed that both groups had the same amount of spread (or variance) in their data. In the real world, this is rarely true. For example, the control group might have wildly varying scores, while the diet group's scores might be tightly clustered together.
 
 
 
@@ -584,7 +584,7 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 3. **The significance level ($\alpha$) sets the boundary.** It is the predetermined standard of evidence required to reject the null hypothesis, universally set at .05 in the social sciences.
 4. **Decisions carry the risk of error.** A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).
 5. **The Central Limit Theorem provides flexibility.** Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically $n \ge 30$).
-6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the exact same people over time, and an Independent Sample t-test to compare two entirely separate groups.
+6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two entirely separate groups.
 7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is actually large enough to matter in the real world.
 8. **Power Analysis prevents wasted effort.** Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.
 
@@ -677,7 +677,7 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 
 
 
-**14. Analyzing the Control Group:** We know the diet group's depression scores improved over the 21 days. But what happened to the control group over that exact same time period? Did their DASS depression scores naturally change?
+**14. Analyzing the Control Group:** We know the diet group's depression scores improved over the 21 days. But what happened to the control group over that same time period? Did their DASS depression scores naturally change?
 
 **a)** Filter or split your dataset so you are only analyzing the students assigned to the **Control** group.
 
@@ -714,6 +714,6 @@ If a researcher needs highly precise results, they want a very narrow net. Becau
 **17. Planning a Follow-Up Study:** The researchers are applying for a grant to run a massive follow-up study across multiple universities to see if their diet intervention works on a national scale. The grant committee requires them to mathematically justify exactly how many students they need to recruit.
 
 **a)** Based on the standard conventions discussed in this chapter, what significance level ($\alpha$) and statistical power should the researchers plug into their planning software?
-**b)** In the main text of this chapter, we calculated a Cohen's *d* of 0.53 for the difference in `CESDDiff` scores between the diet and control groups. If the researchers expect to see this exact same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test.
+**b)** In the main text of this chapter, we calculated a Cohen's *d* of 0.53 for the difference in `CESDDiff` scores between the diet and control groups. If the researchers expect to see this same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test.
 **c)** The grant committee pushes back. They argue that a Cohen's *d* of 0.53 is overly optimistic for a nationwide study, and they want to know the required sample size if the diet's effect is actually much smaller (a Cohen's *d* of 0.20). Use your software to calculate the new required sample size using this smaller expected effect.
 **d)** Compare the two sample sizes you just calculated. In your own words, explain why detecting a smaller effect requires significantly more participants. (Hint: Think back to the noise-canceling headphone metaphor).

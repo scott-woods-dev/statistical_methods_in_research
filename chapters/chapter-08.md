@@ -96,7 +96,7 @@ A significant Goodness-of-Fit test only tells you that the overall distributions
 
 
 
-In Chapters 4 and 6, we used **residuals** to measure the distance between our regression line or ANOVA model and the actual data points. We use the exact same concept here. For categorical data, statistical software can calculate a **standardized residual** for every single category. This number tells us exactly how much that specific group contributed to the overall significant result.
+In Chapters 4 and 6, we used **residuals** to measure the distance between our regression line or ANOVA model and the actual data points. We use the same concept here. For categorical data, statistical software can calculate a **standardized residual** for every single category. This number tells us exactly how much that specific group contributed to the overall significant result.
 
 
 
@@ -190,7 +190,7 @@ If a test shows that the variables are *not* independent, researchers will say t
 
 ### Formulating the Hypotheses
 
-If fleeing behavior and mental illness are truly independent, the percentage of subjects who attempt to flee by car, on foot, or not at all should be roughly the exact same regardless of their psychiatric history.
+If fleeing behavior and mental illness are truly independent, the percentage of subjects who attempt to flee by car, on foot, or not at all should be roughly the same regardless of their psychiatric history.
 
 
 
@@ -229,7 +229,7 @@ Just like the Goodness-of-Fit test, a significant Test for Independence only tel
 
 
 
-Because we are now working with two variables, the software will output a standardized residual for every single *combination* (or "cell") in our cross-tabulation. We apply the exact same rule of thumb we learned in Section 8.3: any residual outside the boundaries of $-2.0$ and $+2.0$ is a significant contributor to the relationship.
+Because we are now working with two variables, the software will output a standardized residual for every single *combination* (or "cell") in our cross-tabulation. We apply the same rule of thumb we learned in Section 8.3: any residual outside the boundaries of $-2.0$ and $+2.0$ is a significant contributor to the relationship.
 
 
 
@@ -290,7 +290,7 @@ For this test, our null hypothesis states that the categorical age profile is id
 
 
 
-When we say the distributions are identical, we practically mean that the proportion of people in any given age category is the exact same across both groups. For example, if we let $\pi_{\text{Elective}}$ represent the true proportion of elective patients who are under 50, and $\pi_{\text{Emergency}}$ represent the true proportion of emergency patients who are under 50, the null hypothesis assumes those two proportions are perfectly equal.
+When we say the distributions are identical, we practically mean that the proportion of people in any given age category is the same across both groups. For example, if we let $\pi_{\text{Elective}}$ represent the true proportion of elective patients who are under 50, and $\pi_{\text{Emergency}}$ represent the true proportion of emergency patients who are under 50, the null hypothesis assumes those two proportions are perfectly equal.
 
 
 
@@ -434,11 +434,11 @@ Earlier in this chapter, we defined "independence" as two categorical variables 
 
 
 
-In our speed dating data, the observations are explicitly **paired**. A single four-minute interaction generates two distinct data points: the male's decision and the female's decision. Because these two people experienced the exact same four minutes, their decisions are inherently connected.
+In our speed dating data, the observations are explicitly **paired**. A single four-minute interaction generates two distinct data points: the male's decision and the female's decision. Because these two people experienced the same four minutes, their decisions are inherently connected.
 
 
 
-Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the exact same environment. Standard Chi-Square math completely falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
+Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the same environment. Standard Chi-Square math completely falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
 
 ### Formulating the Hypotheses
 
@@ -658,7 +658,7 @@ Just like Cramér's $V$, we can classify the strength of an Odds Ratio. Statisti
 
 
 
-However, Odds Ratios have a unique quirk: they are centered around 1 (which means the odds are equal), but below one the odds ratio can only go down to zero, and above one it has no upper limit, leading to a counterintuitive imbalance. An Odds Ratio of 2.0 (doubling the odds) represents the exact same strength of effect as an Odds Ratio of 0.50 (halving the odds). They are just moving in opposite directions!
+However, Odds Ratios have a unique quirk: they are centered around 1 (which means the odds are equal), but below one the odds ratio can only go down to zero, and above one it has no upper limit, leading to a counterintuitive imbalance. An Odds Ratio of 2.0 (doubling the odds) represents the same strength of effect as an Odds Ratio of 0.50 (halving the odds). They are just moving in opposite directions!
 
 
 
@@ -836,7 +836,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 1. A public health researcher is analyzing a small sample of 40 patients to see if there is an association between a rare dietary supplement and a specific side effect. Looking at the raw cross-tabulation, every single cell has at least 6 people in it. However, when the software runs the Chi-Square Test for Independence, it flags a warning that an assumption has been violated. Explain the "Observed Count" trap and why this mathematical warning occurred.
 2. A sociologist surveys 500 randomly selected adults in a single city and asks them two questions: their primary news source (Cable, Print, or Social Media) and their voting frequency (Always, Sometimes, Rarely). They want to know if news source and voting frequency are connected. Another researcher takes 250 known Urban residents and 250 known Rural residents and compares their primary news sources. Explain which researcher should use the Test for Independence and which should use the Test for Homogeneity, and justify your answer based on their study designs.
-3. A criminal justice student wants to know if a police body camera alters a subject's behavior. They look at 100 encounters where a subject interacted with an officer *before* the officer turned their camera on, and then look at the exact same 100 subjects' behavior *after* the camera was activated. The student plans to put the "Before" and "After" behaviors into a standard Chi-Square Test for Homogeneity. Explain why this violates a core assumption, and state which test must be used instead.
+3. A criminal justice student wants to know if a police body camera alters a subject's behavior. They look at 100 encounters where a subject interacted with an officer *before* the officer turned their camera on, and then look at the same 100 subjects' behavior *after* the camera was activated. The student plans to put the "Before" and "After" behaviors into a standard Chi-Square Test for Homogeneity. Explain why this violates a core assumption, and state which test must be used instead.
 4. A medical clinic implements a new, highly sensitive screening test for a rare autoimmune disease. A patient tests positive and begins to panic, assuming the positive result has just proven that they have the disease. Using the concepts of the sensitivity/specificity trade-off, explain why the patient should not panic and describe the standard next step in clinical testing.
 
 ### Choosing a Method
