@@ -67,7 +67,7 @@ So, what kinds of research designs lead to an ANOVA? It depends slightly on who 
 - **The Statistician's Perspective:** Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. Looking at our dataset, a statistician would ask: *Is the mean writing score the same in each of the three program tracks?*
 - **The Researcher's Perspective:** Social science researchers often think of an ANOVA as a way to look for a broader relationship between a categorical variable and a numerical variable. A researcher would ask: *Does a student's choice of program track have a significant effect on their writing scores?*
 
-Both perspectives are perfectly valid, and both are answered using the same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.
+Both perspectives are valid, and both are answered using the same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.
 
 
 
@@ -126,7 +126,7 @@ We briefly touched on this in the introduction, but it is a question worth explo
 
 
 
-In our high school dataset, we want to look at writing scores across three distinct program tracks (general, academic, and vocational). It might seem perfectly logical to just run three separate independent sample $t$-tests:
+In our high school dataset, we want to look at writing scores across three distinct program tracks (general, academic, and vocational). It might seem logical to just run three separate independent sample $t$-tests:
 
 1. General versus Academic
 2. General versus Vocational
@@ -250,7 +250,7 @@ These plots line your actual residuals up against a theoretically perfect normal
 
 - **One Bend (A sharp hook or J-shape):** This indicates your residuals are severely skewed. This is a problem, and the normality assumption is violated.
 - **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or light tails. This is also a problem that violates the assumption.
-- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually perfectly fine! Human brains are incredibly good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
+- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually fine! Human brains are incredibly good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
 
 ![Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.](../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png){fig-alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."}
 
@@ -306,7 +306,7 @@ In Chapter 1, we learned that standard deviation is our primary measure of how s
 
 
 
-For example, if the vocational track has a standard deviation of 8 points, and the academic track has a standard deviation of 12 points, we are perfectly safe. The largest (12) is not more than double the smallest (8).
+For example, if the vocational track has a standard deviation of 8 points, and the academic track has a standard deviation of 12 points, we are safe. The largest (12) is not more than double the smallest (8).
 
 
 
@@ -462,7 +462,7 @@ Before we rush to calculate $p$-values, we must explore our data to ensure a sta
 
 
 
-We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational real-world data, uneven groups are normal and perfectly acceptable for an ANOVA.
+We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational real-world data, uneven groups are normal and acceptable for an ANOVA.
 
 
 
@@ -641,7 +641,7 @@ This creates a mismatch between what your eyes see on the graph and what the sof
 
 
 
-Why do researchers still use boxplots for ANOVAs? Because they are incredibly efficient at spotting severe skewness, floor/ceiling effects, and extreme outliers all at a single glance. They are fantastic for a quick data health check. However, you must remember that the visual "box" does not perfectly align with the mathematical "engine" of the test.
+Why do researchers still use boxplots for ANOVAs? Because they are incredibly efficient at spotting severe skewness, floor/ceiling effects, and extreme outliers all at a single glance. They are fantastic for a quick data health check. However, you must remember that the visual "box" does not align with the mathematical "engine" of the test.
 
 
 

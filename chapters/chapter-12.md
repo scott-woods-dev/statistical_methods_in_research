@@ -55,7 +55,7 @@ To preserve the timeline, we use a **time series plot**. A time series plot is e
 
 ![Figure 12.1: Weekly gym membership search index from May 2021 through May 2026 (262 weeks). The series trends upward and spikes every winter; the February 2026 spike reaches the maximum index value of 100. The distance between the summer baseline and the winter peak grows over time.](../figures/chapter_12/fig_12_01_line_gym_time_series.png){fig-alt="Line chart of weekly gym search interest over five years. A gradual upward trend with sharp winter peaks. Winter peaks are about 37 in the season ending 2022, 48 in 2023, 54 in 2024, 64 in 2025, and 100 in February 2026."}
 
-When we evaluate the time series plot for our fitness data, the power of visual analysis becomes immediately clear. First, we can see a positive long-term trend; the overall baseline of search interest is noticeably higher in 2026 than it was in 2021. Second, we see strong cyclical patterns. There is a sharp, distinct spike in search volume every single winter, perfectly aligning with the cultural phenomenon of New Year's fitness resolutions.  
+When we evaluate the time series plot for our fitness data, the power of visual analysis becomes immediately clear. First, we can see a positive long-term trend; the overall baseline of search interest is noticeably higher in 2026 than it was in 2021. Second, we see strong cyclical patterns. There is a sharp, distinct spike in search volume every single winter, aligning with the cultural phenomenon of New Year's fitness resolutions.  
 
  
 
@@ -63,7 +63,7 @@ Crucially, the time series plot reveals a structural change that simple summary 
 
 ### The Limits of Automated Tools
 
-Recognizing these expanding cyclical patterns matters because automated forecasting models often struggle to capture them perfectly. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict a *typical* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
+Recognizing these expanding cyclical patterns matters because automated forecasting models often struggle to capture them. For instance, if we push this dataset into an advanced predictive model (like an ARIMA forecast, which we will discuss later in the chapter), the algorithm will successfully recognize the winter cycle and predict another spike for the upcoming year. However, it may only predict a *typical* magnitude for that upcoming winter spike, failing to account for the fact that the spikes are growing larger over time. Human intuition and visual inspection remain critical safeguards against relying too heavily on automated algorithms.   
 
 ### A Hint at the Independence Violation
 

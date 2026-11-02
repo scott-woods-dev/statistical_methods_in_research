@@ -205,7 +205,7 @@ Because the interaction is **not** statistically significant, the stop sign turn
 - **Main Effect of Condition (`Cond`):** The $p$-value is $0.184$. When controlling for age blocks, the experimental condition does not have a statistically significant effect. (This makes perfect logical sense here, as we are looking at baseline blood pressure measured *before* the psychological intervention even started!)
 - **Main Effect of Age (`Age_Group`):** The $p$-value is $0.017$. This is well below our threshold! This tells us that age has a statistically significant main effect on blood pressure.
 
-This output perfectly demonstrates why we use a Two-Way ANOVA. By chopping the maids into age blocks, we successfully identified a major source of variation. We scooped that age-related variance out of the catch-all noise bucket and proved that it genuinely impacts blood pressure.
+This output demonstrates why we use a Two-Way ANOVA. By chopping the maids into age blocks, we successfully identified a major source of variation. We scooped that age-related variance out of the catch-all noise bucket and proved that it genuinely impacts blood pressure.
 
 
 
@@ -403,7 +403,7 @@ The short answer is absolutely not. If a researcher runs test after test on the 
 
 
 
-So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is a perfectly ethical, standard scientific practice.
+So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better $p$-value. Instead, we are looking at a different, unanalyzed biological variable to build a broader understanding of the maids' overall health. Analyzing a new metric to answer a valid research question is an ethical, standard scientific practice.
 
 ### The Independence Violation
 

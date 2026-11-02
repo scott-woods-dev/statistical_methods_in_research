@@ -482,7 +482,7 @@ When we calculate a numerical summary (like a mean or a standard deviation), we 
 
 
 
-If a number perfectly describes the entire population, we call it a **parameter**. For example, the true, exact average sleep time of every single college student in the country is a parameter. Because we can never measure everyone, parameters are almost always unknown values. 
+If a number describes the entire population, we call it a **parameter**. For example, the true, exact average sleep time of every single college student in the country is a parameter. Because we can never measure everyone, parameters are almost always unknown values. 
 
 
 

@@ -368,7 +368,7 @@ As you transition from simple models to multiple regression, the math becomes mo
 
 ### The "Low $R^2$ is a Failure" Trap
 
-In introductory math classes, textbook problems are designed to work out perfectly. You might expect an $R^2$ of $90\%$ or higher. But you are now doing real social science research. As you experimented with our birth weight dataset, you likely noticed that the highest $R^2$ we achieved was roughly $30\%$.
+In introductory math classes, textbook problems are designed to work out. You might expect an $R^2$ of $90\%$ or higher. But you are now doing real social science research. As you experimented with our birth weight dataset, you likely noticed that the highest $R^2$ we achieved was roughly $30\%$.
 
 
 
@@ -418,7 +418,7 @@ You are a human researcher, not a calculator. You must use your understanding of
 
 
 
-That perfectly caps off the conceptual lessons for this chapter. We have covered confounding variables, interpreting multiple slopes, binary and categorical predictors, interactions, multicollinearity, and the major conceptual traps.
+That caps off the conceptual lessons for this chapter. We have covered confounding variables, interpreting multiple slopes, binary and categorical predictors, interactions, multicollinearity, and the major conceptual traps.
 
 ### The "Bigger Slope Means Bigger Impact" Fallacy
 

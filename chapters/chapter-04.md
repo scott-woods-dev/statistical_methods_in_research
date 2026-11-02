@@ -396,7 +396,7 @@ Other relationships rise quickly but eventually hit a natural ceiling. A classic
 
 ![Figure 4.2: GDP per capita and life expectancy for 143 countries. Life expectancy rises steeply at low incomes and then levels off, the pattern called diminishing returns.](../figures/chapter_04/fig_04_02_scatter_gdp_life_expectancy_curve.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years at higher incomes."}
 
-This specific curve perfectly illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
+This specific curve illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
 
 
 

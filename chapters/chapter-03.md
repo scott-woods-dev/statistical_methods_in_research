@@ -45,7 +45,7 @@ Next, we look at the actual data we collected from our 75 students. We ask a cen
 
 This probability is called a **p-value**. The p-value measures the strength of the evidence in favor of our alternative hypothesis ($H_1$) by telling us how surprising our data would be if the null hypothesis were true.
 
-- A **large $p$-value** means our results are not very surprising. If the diet does nothing, seeing this kind of difference between the groups is perfectly normal random noise. We do not have enough evidence to claim the diet works.
+- A **large $p$-value** means our results are not very surprising. If the diet does nothing, seeing this kind of difference between the groups is normal random noise. We do not have enough evidence to claim the diet works.
 - A **small $p$-value** means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a large difference in depression scores purely by random luck are extremely small. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet works) is probably the better explanation.
 
 ### The Standard of Evidence: Significance Level ($\alpha$)
@@ -199,7 +199,7 @@ You might wonder why we do not simply use a 100% confidence interval. The reason
 
 
 
-For our students, our 95% confidence interval is [17.15, 23.78]. We are 95% confident that the true, overarching average depression score for this specific population of students falls somewhere between 17.15 and 23.78. Because our entire interval sits above the benchmark of 16 (and does not include it), that aligns perfectly with a significant p-value (i.e., where our p-value is less than .05).
+For our students, our 95% confidence interval is [17.15, 23.78]. We are 95% confident that the true, overarching average depression score for this specific population of students falls somewhere between 17.15 and 23.78. Because our entire interval sits above the benchmark of 16 (and does not include it), that aligns with a significant p-value (i.e., where our p-value is less than .05).
 
 ### Reporting the Results
 
@@ -277,7 +277,7 @@ $$\text{Difference} = \text{Post-Treatment} - \text{Pre-Treatment}$$
 
 
 
-Why do we do it this way? It keeps our real-world intuition perfectly aligned with the mathematics. If a student's depression score goes up over the three weeks, subtracting their Day 1 score from their Day 21 score will yield a positive number (an increase). If their depression score drops, the math yields a negative number (a decrease).
+Why do we do it this way? It keeps our real-world intuition aligned with the mathematics. If a student's depression score goes up over the three weeks, subtracting their Day 1 score from their Day 21 score will yield a positive number (an increase). If their depression score drops, the math yields a negative number (a decrease).
 
 In the context of our study, we are hoping to see negative difference scores. A negative number means the healthy diet intervention successfully reduced clinical depression symptoms.
 
@@ -291,7 +291,7 @@ The software also gives us a 95% confidence interval for the mean difference. Ba
 
 
 
-Because this entire confidence interval sits below zero (and does not include zero), we can confidently say the diet group experienced a real reduction in symptoms. This aligns perfectly with our calculated p-value of .001.
+Because this entire confidence interval sits below zero (and does not include zero), we can confidently say the diet group experienced a real reduction in symptoms. This aligns with our calculated p-value of .001.
 
 ### Reporting the Results
 

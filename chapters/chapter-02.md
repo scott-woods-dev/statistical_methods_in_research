@@ -373,7 +373,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 
 
-**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, perfectly controlled master experiment.
+**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, controlled master experiment.
 
 
 

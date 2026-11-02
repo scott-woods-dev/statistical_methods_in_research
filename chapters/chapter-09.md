@@ -258,7 +258,7 @@ By raising the bar for survival, more patients will fall into the "Predicted Dea
 
 ### The Illusion of $p$-values and Thoughtful Modeling
 
-This large gap between our significant $p$-values and our terrible specificity perfectly illustrates a core statistical truth: $p$-values only measure whether a relationship is better than random chance. A low $p$-value is strong evidence that a variable has *some* effect; it is absolutely not a measure of how useful the model is, how accurately it estimates reality, or whether it belongs in a clinical setting.
+This large gap between our significant $p$-values and our terrible specificity illustrates a core statistical truth: $p$-values only measure whether a relationship is better than random chance. A low $p$-value is strong evidence that a variable has *some* effect; it is absolutely not a measure of how useful the model is, how accurately it estimates reality, or whether it belongs in a clinical setting.
 
 
 
@@ -299,7 +299,7 @@ Our software output reports an Area Under the ROC Curve of 0.7491 for our two-va
 
 
 
-In a low-stakes social science survey, an AUC of 0.75 might be perfectly acceptable. However, in a high-stakes ICU environment, a "C-grade" model is not reliable enough for triage. This AUC value reinforces our conclusion from the confusion matrix: age and emergency status are important pieces of the puzzle, but they are not the entire picture.
+In a low-stakes social science survey, an AUC of 0.75 might be acceptable. However, in a high-stakes ICU environment, a "C-grade" model is not reliable enough for triage. This AUC value reinforces our conclusion from the confusion matrix: age and emergency status are important pieces of the puzzle, but they are not the entire picture.
 
 
 
