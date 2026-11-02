@@ -45,8 +45,8 @@ This glossary contains definitions for key terms used throughout the textbook.
 | chi-square test for homogeneity | A test that compares the distribution of one categorical variable across two or more separate populations to see whether the proportions are the same. |
 | chi-square test for independence | A test that asks whether two categorical variables measured in a single sample are associated, using a cross-tabulation of their counts. |
 | coefficient of determination | The proportion of variability in one variable that is explained by another, written $R^2$ and calculated by squaring the correlation $r$; often reported as a percentage. |
-| cohen's $d$ | A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies. |
-| communality | The proportion of a variable's variation that is shared with other variables because they measure the same underlying factor; also called communality. |
+| Cohen's $d$ | A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies. |
+| communality | The proportion of a variable's variation that is shared with other variables because they measure the same underlying factor. |
 | component | A summary variable produced by PCA, which compresses all variance, including unique variance and measurement error, into a smaller set of dimensions. |
 | confidence interval | A range of plausible values for a true population mean or difference, built from sample data; a 95% confidence interval (CI) comes from a procedure that captures the true value in about 95% of repeated samples. |
 | confidentiality | A privacy condition in which the researcher can link data to participants but promises to keep their identities secret. |
@@ -62,7 +62,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | correlation matrix | A table showing the correlation coefficient between every pair of variables in a set. |
 | covariate | A continuous background variable included in a model to adjust for its effect, such as a baseline score. |
 | Cramér's V | An association metric for categorical variables used when the cross-tabulation is larger than 2 by 2, ranging from 0 (no association) to 1 (perfect association). |
-| cronbach's alpha | A statistic (written $\alpha$) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research. |
+| Cronbach's alpha | A statistic (written $\alpha$) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research. |
 | cross-tabulation | A table that counts observations in each combination of categories for two categorical variables; also called a contingency table. |
 | cyclical patterns | Predictable, repeating fluctuations in a time series that occur at regular intervals; in social science this is often called seasonality. |
 | data governance | The overarching rules, policies, and standards that determine how data are collected, stored, and used. |
@@ -98,12 +98,12 @@ This glossary contains definitions for key terms used throughout the textbook.
 | Fisher's Exact Test | A test for categorical associations designed for small samples, used when an expected count falls below 5. |
 | floor effect | Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation. |
 | forecasting | Predicting future values of a time series from its historical patterns. |
-| f-statistic | The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value. |
-| glass's delta | An effect size that divides the difference between two group means by the control group's standard deviation, used when the two groups have different spreads. |
+| F-statistic | The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value. |
+| Glass's delta | An effect size that divides the difference between two group means by the control group's standard deviation, used when the two groups have different spreads. |
 | global ANOVA | The overall ANOVA F-test that asks whether any group means differ, before post hoc tests identify which specific pairs differ. |
 | grouping variable | A categorical variable used to divide observations into groups within a plot, often shown through different colors or shapes, so patterns can be compared across categories. |
 | halo effect | A cognitive bias in which a strong positive impression in one area leads a person to rate a target favorably across unrelated categories, producing a uniform blur of correlations. |
-| hedges' $g$ | A version of Cohen's $d$ with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as $d$. |
+| Hedges' $g$ | A version of Cohen's $d$ with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as $d$. |
 | histogram | A graph for a single numerical variable that groups values into adjacent bins with no gaps between bars; bar heights show how many observations fall in each bin. |
 | homogeneity of regression slopes | The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction. |
 | human subjects | People who participate in research and whose data or biological material are collected and analyzed. |
@@ -127,7 +127,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | latent construct | A hidden concept, such as social appeal or socioeconomic status, that is not measured directly but is inferred from several observed variables. |
 | law of diminishing returns | The pattern in which each additional unit of a predictor produces a smaller improvement in the outcome, creating a curve that rises sharply and then flattens. |
 | left-skewed | A distribution whose longer tail extends toward lower values; also called negatively skewed. |
-| Levene's test | A formal hypothesis test for equal group variances; the chapter recommends visual checks and the 2X rule instead, because using a test to gatekeep another test compounds error. |
+| Levene's test | A formal hypothesis test for equal group variances; this book recommends visual checks and the 2X rule instead, because using a test to gatekeep another test compounds error. |
 | leverage | The potential a data point has to pull a regression line toward itself, which is greatest when its predictor value sits at the extreme edge of the observed range. |
 | Likert scale | An ordinal survey scale, such as disagree, neutral, agree, whose categories have a clear order but unknown distances between them. |
 | linear correlation | A number $r$ between -1 and 1 that measures the direction and strength of a straight-line relationship between two numerical variables; the sign gives the direction and the distance from zero gives the strength. |
@@ -161,7 +161,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | mode | The most frequently occurring value in a dataset; the only measure of center appropriate for nominal data. |
 | model diagnostics | The checks researchers run to verify a model's assumptions, such as independence, mutually exclusive factor levels, normal residuals, and equal variances. |
 | monotonic | A relationship that consistently moves in one direction, either upward or downward, though it may curve; it cannot reverse direction. |
-| Mood's Median test | A non-parametric alternative to ANOVA used when group variances are unequal. |
+| Mood's Median test | A nonparametric alternative to ANOVA used when group variances are unequal. |
 | mosaic plot | A graph that displays the relationship between two categorical variables using rectangles whose areas correspond to the proportions of observations in each combination of categories. |
 | moving average (MA) | The ARIMA component that adjusts forecasts for recent random shocks or irregular movements. |
 | multicollinearity | Heavy overlap among predictors that makes it hard for a model to tell which variable is driving the change, producing unstable and unreliable slopes. |
@@ -174,11 +174,11 @@ This glossary contains definitions for key terms used throughout the textbook.
 | nominal variable | A categorical variable whose categories have no natural order (e.g., eye color, country of birth). |
 | nonparametric tests | Tests that do not require a normal distribution, typically by analyzing ranks instead of raw values; used for small samples, skewed data, or ordinal outcomes. |
 | non-resistant measure | A statistical measure that shifts noticeably when extreme values or outliers are present; the mean is an example. |
-| non-response bias | A type of bias that occurs when the people who choose not to complete a survey are fundamentally different from those who do, so the collected data do not represent the full group. |
+| non-response bias | A type of bias that occurs when the people who choose not to complete a survey are different from those who do, so the collected data do not represent the full group. |
 | normal curve | The symmetric, bell-shaped curve that describes a normal distribution, with most observations clustered near the center and becoming rarer toward the tails; also called the bell curve. |
 | normal distribution | A specific symmetric, unimodal "bell curve" shape common in nature and measurement data; about 68% of observations fall within one standard deviation of the mean, 95% within two, and 99.7% within three. |
 | normality | In regression, the assumption that the residuals form a roughly bell-shaped distribution; the raw predictor and response variables do not need to be normal. |
-| normality test | A formal hypothesis test, such as Anderson-Darling or Shapiro-Wilk, that checks whether residuals are normally distributed; a low p-value suggests non-normality, but the chapter treats these tests as a tiebreaker rather than a gatekeeper. |
+| normality test | A formal hypothesis test, such as Anderson-Darling or Shapiro-Wilk, that checks whether residuals are normally distributed; a low p-value suggests non-normality, but this book uses them only as a tiebreaker. |
 | nuisance variable | A background variable that affects the outcome but is not the main focus of the study; left uncontrolled, it adds noise to the comparison. |
 | null hypothesis | The default assumption of no effect, no difference, or no relationship, written $H_0$; it always uses exact equality ($=$) and stands unless the data provide strong evidence against it. |
 | numerical variable | A variable that takes on values representing quantities and supports arithmetic operations (e.g., GPA, age, hours studied). |
@@ -279,15 +279,15 @@ This glossary contains definitions for key terms used throughout the textbook.
 | Tukey's HSD | A post hoc test that compares every pair of group means while controlling the family-wise error rate; the standard choice when all pairwise comparisons matter. |
 | t-value | A predictor's slope divided by its standard error, used as a rough measure of signal strength; another name for the t-statistic. |
 | two-way ANOVA | An ANOVA that tests the effects of two categorical factors at once, including their main effects and interaction. |
-| type I error | A false alarm (a false positive): rejecting the null hypothesis when it is actually true; the significance level sets the rate at which this error occurs. |
-| type II error | A missed signal (a false negative): failing to reject the null hypothesis when a real effect exists, often because the study lacked enough evidence or statistical power to detect it. |
+| Type I error | A false alarm (a false positive): rejecting the null hypothesis when it is actually true; the significance level sets the rate at which this error occurs. |
+| Type II error | A missed signal (a false negative): failing to reject the null hypothesis when a real effect exists, often because the study lacked enough evidence or statistical power to detect it. |
 | unimodal | A distribution with one clear peak; the most common shape encountered in practice. |
 | unique variance | The proportion of a variable's variation that is not shared with other variables, made up of specific variance and measurement error; also called uniqueness. |
 | validity | Whether a measurement actually captures what you claim it is measuring; a measure can be reliable (consistent) yet still invalid if it is not measuring the intended concept. |
 | variance | A measure of spread equal to the average squared deviation from the mean; ANOVA partitions this variability into between-groups and within-groups parts. |
 | variance inflation factor (VIF) | A diagnostic for multicollinearity that measures how much a predictor's variance is inflated by its overlap with other predictors; values above 5 signal dangerous overlap. |
 | vulnerable populations | Groups whose ability to give free and informed consent may be compromised, such as prisoners, children, or students under institutional pressure. |
-| welch's t-test | A version of the independent sample t-test that adjusts the degrees of freedom when the two groups have unequal variances, producing a more trustworthy p-value. |
+| Welch's t-test | A version of the independent sample t-test that adjusts the degrees of freedom when the two groups have unequal variances, producing a more trustworthy p-value. |
 | Wilcoxon Signed-Rank Test | A nonparametric test for paired data that compares the median difference by ranking the within-pair differences; requires the differences to be roughly symmetric. |
 | within-groups variation | The part of total variation that measures the random differences among individuals inside the same group; in ANOVA it represents the noise. |
 | within-subjects design | A design in which the same participants are measured under multiple conditions or time points, so comparisons are made within each person. |

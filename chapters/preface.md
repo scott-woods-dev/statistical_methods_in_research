@@ -30,7 +30,7 @@ The book is organized into five units.
 
 
 
-**Unit V: Advanced Tools and Ethical Considerations** (Chapters 10-13) adds the tools that do not assume a normal distribution, then factor analysis and time series, and closes with the decisions that decide whether a study is trustworthy at all.
+**Unit V: Advanced Tools and Ethical Considerations** (Chapters 10-13) adds the tools that do not assume a normal distribution, then factor analysis and time series, and closes with the choices that determine whether a study is trustworthy.
 
 
 
@@ -71,7 +71,7 @@ The glossary at the back defines every term the book bolds in the prose. If a wo
 
 ## Accessibility
 
-This book was built to be usable by readers who use screen readers, screen magnification, keyboard navigation, or color-vision settings, and I treat that as part of the text rather than an add-on.
+This book was built to be usable by readers who use screen readers, screen magnification, keyboard navigation, or color-vision settings, and I treat accessibility as part of the text.
 
 - Every figure has alt text that describes what the figure shows, so the information is not locked behind an image.
 - Every table has a header row and a caption that names its content.
