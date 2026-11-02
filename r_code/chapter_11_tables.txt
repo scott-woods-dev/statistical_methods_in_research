@@ -1,7 +1,9 @@
+=== SAMPLE SIZES AFTER NA OMISSION ===
+Female ratings n = 238 
+Male ratings n = 236 
+
 === 1. CORRELATION MATRICES ===
-
 --- Female Ratings Correlation Matrix ---
-
                  AttractiveF SincereF IntelligentF  FunF AmbitiousF
 AttractiveF            1.000    0.246        0.226 0.543      0.209
 SincereF               0.246    1.000        0.563 0.387      0.393
@@ -18,7 +20,6 @@ AmbitiousF                  0.187
 SharedInterestsF            1.000
 
 --- Male Ratings Correlation Matrix ---
-
                  AttractiveM SincereM IntelligentM  FunM AmbitiousM
 AttractiveM            1.000    0.383        0.522 0.591      0.540
 SincereM               0.383    1.000        0.578 0.493      0.313
@@ -49,22 +50,16 @@ SharedInterestsF 0.135 0.672
 SS loadings    1.617 1.568
 Proportion Var 0.270 0.261
 Cumulative Var 0.270 0.531
-
-
-Commonalities (h2):
-
+Communalities (h2):
      AttractiveF         SincereF     IntelligentF             FunF 
            0.452            0.425            0.748            0.694 
       AmbitiousF SharedInterestsF 
            0.396            0.469 
-
 Uniquenesses (u2):
-
      AttractiveF         SincereF     IntelligentF             FunF 
            0.548            0.575            0.252            0.306 
       AmbitiousF SharedInterestsF 
            0.604            0.531 
-
 
 === 3. FEMALE RATINGS: ML WITH VARIMAX ===
 
@@ -81,18 +76,14 @@ SharedInterestsF 0.146 0.661
 SS loadings    1.609 1.578
 Proportion Var 0.268 0.263
 Cumulative Var 0.268 0.531
-
-Commonalities (h2):
-
+Communalities (h2):
      AttractiveF         SincereF     IntelligentF             FunF 
            0.444            0.431            0.753            0.700 
       AmbitiousF SharedInterestsF 
            0.400            0.459 
 
-
 === 4. MALE RATINGS: PAF WITH VARIMAX ===
-
-<Note to the AI reading this: R reported "maximum iteration exceeded" here>
+maximum iteration exceeded
 
 Loadings:
                  PA1   PA2  
@@ -107,9 +98,7 @@ SharedInterestsM 0.526 0.218
 SS loadings    2.267 1.249
 Proportion Var 0.378 0.208
 Cumulative Var 0.378 0.586
-
-Commonalities (h2):
-
+Communalities (h2):
      AttractiveM         SincereM     IntelligentM             FunM 
            0.573            0.893            0.595            0.597 
       AmbitiousM SharedInterestsM 
@@ -130,9 +119,7 @@ SharedInterestsF 0.085 0.827
 SS loadings    2.066 2.018
 Proportion Var 0.344 0.336
 Cumulative Var 0.344 0.681
-
 PCA Communalities (h2):
-
      AttractiveF         SincereF     IntelligentF             FunF 
            0.672            0.621            0.749            0.729 
       AmbitiousF SharedInterestsF 

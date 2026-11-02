@@ -157,8 +157,8 @@ values <- list(
     proportion_variance = round(pca_f$Vaccounted["Proportion Var", ], 3),
     note = paste(
       "Principal components analysis, two components with varimax rotation.",
-      "All Table 11.3 loadings and commonalities reproduce. The chapter's",
-      "comparison values also match: AmbitiousF commonality rises from 0.396",
+      "All Table 11.3 loadings and communalities reproduce. The chapter's",
+      "comparison values also match: AmbitiousF communality rises from 0.396",
       "under PAF to 0.622 under PCA, and SincereF rises from 0.425 to 0.621."
     )
   ),
