@@ -27,7 +27,7 @@ In Unit I, we learned how to visualize relationships between two numerical varia
 
 
 
-By the end of this chapter, you will learn how to measure the exact strength of these relationships using linear correlation. You will learn a formal four-step modeling process for building simple linear regression models to make real-world predictions. Finally, you will learn how to check your models for errors, identify extreme country-level outliers, and safely transform heavily skewed social science data so that your mathematical tools remain reliable.
+By the end of this chapter, you will learn how to measure the exact strength of these relationships using linear correlation. You will learn a formal four-step modeling process for building simple linear regression models to make predictions. Finally, you will learn how to check your models for errors, identify extreme country-level outliers, and safely transform heavily skewed social science data so that your mathematical tools remain reliable.
 
 
 
@@ -88,7 +88,7 @@ The sample statistic we just calculated is $r$. Its overarching population param
 
 
 
-Our null hypothesis acts as the skeptic, claiming there is absolutely no linear relationship in the real world:
+Our null hypothesis acts as the skeptic, claiming there is absolutely no linear relationship in the population:
 
 - $H_0: \rho = 0$
 
@@ -98,7 +98,7 @@ Our alternative hypothesis claims a real linear relationship does exist:
 
 If our statistical software gives us a $p$-value smaller than our significance level (typically .05), we can safely reject the null hypothesis. We must firmly establish that there is a non-zero linear correlation before we attempt to build a linear model.
 
-### Measuring Real-World Impact: The Coefficient of Determination ($R^2$)
+### Measuring Practical Impact: The Coefficient of Determination ($R^2$)
 
 While knowing that two variables are connected is helpful, researchers usually want to know how much one variable explains the other. To find this, we use the **coefficient of determination**, more commonly known as R-squared (written mathematically as $R^2$).
 
@@ -108,7 +108,7 @@ The math behind this tool is simple: to find $R^2$, you simply take your correla
 
 
 
-The coefficient of determination tells you the exact percentage of variability in one variable that can be mathematically explained by the other variable. Notice that we are not assigning "cause" or "effect" here; correlation does not care which variable comes first. We are simply measuring how much the two variables overlap in their real-world fluctuations.
+The coefficient of determination tells you the exact percentage of variability in one variable that can be mathematically explained by the other variable. Notice that we are not assigning "cause" or "effect" here; correlation does not care which variable comes first. We are simply measuring how much the two variables overlap in their fluctuations.
 
 
 
@@ -136,7 +136,7 @@ Context is everything. In physical sciences, where gravity and chemicals behave 
 
 
 
-By pairing $r$ and $R^2$, you give your readers a complete picture. The linear correlation ($r$) proves the relationship exists and tells you which direction it moves, while the coefficient of determination ($R^2$) tells you how much that relationship practically matters in the real world.
+By pairing $r$ and $R^2$, you give your readers a complete picture. The linear correlation ($r$) proves the relationship exists and tells you which direction it moves, while the coefficient of determination ($R^2$) tells you how much that relationship matters in practice.
 
 
 
@@ -151,7 +151,7 @@ Building a reliable model requires discipline. To ensure our predictions are tru
 1. **Choose a form:** First, we look at a scatterplot of our data to decide if a straight mathematical line makes logical sense for the shape we see.
 2. **Fit to data:** Next, we rely on our statistical software to calculate the exact mathematical line that best cuts through the center of our data points.
 3. **Assess accuracy:** We then perform diagnostic checks to see how much our data deviates from that perfect line, ensuring our tool does not have any hidden, systematic errors.
-4. **Use for inference:** Finally, if the model passes our checks, we use it to make real-world predictions and draw conclusions about our population.
+4. **Use for inference:** Finally, if the model passes our checks, we use it to make predictions and draw conclusions about our population.
 
 ### A Warning on Ordinal Variables
 
@@ -183,7 +183,7 @@ $$\text{Predicted Footprint} = \text{Intercept} + (\text{Slope} \times \text{GDP
 
 
 
-This equation might look intimidating, but it only contains two essential pieces of information that you need to interpret: the intercept and the slope. By translating these two numbers into plain English, you connect the abstract mathematics directly to real-world outcomes.
+This equation might look intimidating, but it only contains two essential pieces of information that you need to interpret: the intercept and the slope. By translating these two numbers into plain English, you connect the abstract mathematics directly to practical outcomes.
 
 ### Interpreting the Intercept
 
@@ -195,7 +195,7 @@ Suppose our software calculates an intercept of **1.672**. In plain English, thi
 
 
 
-As a researcher, you must always pause and ask if the intercept makes logical sense in the real world. Can a functioning nation have an economic output of exactly zero dollars? No. In many models, the intercept is just a mathematical anchor for the line and does not represent a realistic, observable scenario.
+As a researcher, you must always pause and ask if the intercept makes logical sense in practice. Can a functioning nation have an economic output of exactly zero dollars? No. In many models, the intercept is just a mathematical anchor for the line and does not represent a realistic, observable scenario.
 
 ### Interpreting the Slope
 
@@ -285,7 +285,7 @@ When a model fails this kind of diagnostic check, researchers don't throw the da
 
 
 
-The first three checks ensure that your regression line is structurally sound and unbiased. However, as we outlined in our four-step process, drawing the line is usually not the final goal; researchers ultimately want to use that line to make real-world predictions. To do that safely, we must pass one final check: the residuals must be roughly normally distributed.
+The first three checks ensure that your regression line is structurally sound and unbiased. However, as we outlined in our four-step process, drawing the line is usually not the final goal; researchers ultimately want to use that line to make predictions. To do that safely, we must pass one final check: the residuals must be roughly normally distributed.
 
 
 
@@ -362,7 +362,7 @@ When a researcher spots an influential point ruining their perfectly straight li
 
 
 
-You must resist the temptation to delete data simply because it makes your model look messy. Extreme data points often hold the most valuable scientific insights. A micro-state with great wealth and a uniquely small footprint isn't "bad data"; it is a real-world exception that might teach us how to build more sustainable economies.
+You must resist the temptation to delete data simply because it makes your model look messy. Extreme data points often hold the most valuable scientific insights. A micro-state with great wealth and a uniquely small footprint isn't "bad data"; it is an exception that might teach us how to build more sustainable economies.
 
 
 
@@ -455,7 +455,7 @@ By applying a log transformation to linearize the data, you allow your mathemati
 
 ## 4.8 Inference and Predictions
 
-If your model has successfully passed the L.I.N.E. diagnostic checks, you are finally ready for the fourth and final step of the modeling process: using the line to make real-world inferences.
+If your model has successfully passed the L.I.N.E. diagnostic checks, you are finally ready for the fourth and final step of the modeling process: using the line to make inferences.
 
 
 
@@ -471,11 +471,11 @@ To infer what the true population slope might be, we generate a 95% Confidence I
 
 
 
-Because this entire interval is positive (it does not cross zero), we have strong evidence that the true relationship is positive. We can confidently report: *We are 95% confident that in the real world, for every one-dollar increase in a country's GDP per capita, the true average ecological footprint increases by between 0.000217 and 0.000277 units.* 
+Because this entire interval is positive (it does not cross zero), we have strong evidence that the true relationship is positive. We can confidently report: *We are 95% confident that in the population, for every one-dollar increase in a country's GDP per capita, the true average ecological footprint increases by between 0.000217 and 0.000277 units.* 
 
 
 
-Simple scaling is mathematically valid here, so if we wanted to look at a more meaningful $10,000 change in GDP per capita, we simply multiply the confidence interval values by 10,000 as well: *We are 95% confident that in the real world, for every $10,000 increase in a country's GDP per capita, the true average ecological footprint increases by between 2.17 and 2.77 units.*
+Simple scaling is mathematically valid here, so if we wanted to look at a more meaningful $10,000 change in GDP per capita, we simply multiply the confidence interval values by 10,000 as well: *We are 95% confident that in the population, for every $10,000 increase in a country's GDP per capita, the true average ecological footprint increases by between 2.17 and 2.77 units.*
 
 ### Point Estimates: Predicting the Mean
 
@@ -582,7 +582,7 @@ a) Create a scatterplot of `GDPperCapita` (predictor variable on the x-axis) and
 b) Describe the visual relationship. Does it appear plausibly linear, or is there a severe curve?
 c) Does the visual trend suggest a positive or negative linear correlation?
 
-11. **Quantifying the Connection:** Use the linear correlation and coefficient of determination to measure exactly how strong the relationship is and how much real-world variation our predictor explains.
+11. **Quantifying the Connection:** Use the linear correlation and coefficient of determination to measure exactly how strong the relationship is and how much variation our predictor explains.
 a) Find the linear correlation ($r$) for `GDPperCapita` and `LOL`. Based on standard social science guidelines, is this a small, medium, or large effect?
 b) Find the coefficient of determination ($R^2$).
 c) Interpret the $R^2$ value in a single, plain-English sentence, being sure to name the specific variables involved.

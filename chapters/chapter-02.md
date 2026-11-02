@@ -30,7 +30,7 @@ Science begins with curiosity. In the social sciences, this curiosity often star
 
 
 
-While a broad goal provides direction, it is usually too abstract to test directly. Statistics requires precision. You cannot simply drop a vague concept like "discrimination" into a spreadsheet and expect a mathematical answer. We have to translate that overarching goal into a specific, measurable **research question**. A research question narrows the focus to a precise relationship between defined variables that we can observe and record in the real world.
+While a broad goal provides direction, it is usually too abstract to test directly. Statistics requires precision. You cannot simply drop a vague concept like "discrimination" into a spreadsheet and expect a mathematical answer. We have to translate that overarching goal into a specific, measurable **research question**. A research question narrows the focus to a precise relationship between defined variables that we can observe and record.
 
 
 
@@ -143,7 +143,7 @@ If we wanted to study hiring bias using an observational approach, we might part
 
 
 
-While observational studies are excellent for gathering large amounts of real-world data, they come with significant vulnerabilities. The primary issue is **bias**, which is a systematic distortion of the data that pushes results away from the truth. In survey design, bias can sneak in through poorly worded questions that lead respondents toward a specific answer, or through **non-response bias**, where the people who choose to ignore the survey are fundamentally different from those who fill it out.
+While observational studies are excellent for gathering large amounts of real data, they come with significant vulnerabilities. The primary issue is **bias**, which is a systematic distortion of the data that pushes results away from the truth. In survey design, bias can sneak in through poorly worded questions that lead respondents toward a specific answer, or through **non-response bias**, where the people who choose to ignore the survey are fundamentally different from those who fill it out.
 
 
 
@@ -173,7 +173,7 @@ Here is how they applied the three core principles: First, they applied extreme 
 
 
 
-By designing an experiment, the researchers effectively stripped away all the confounding noise of the real world. Because the resumes were identical in every way except for the randomly assigned names, any difference in the interview callback rate (`call`) could only be caused by one thing: the perceived race of the applicant.
+By designing an experiment, the researchers effectively stripped away all the confounding noise. Because the resumes were identical in every way except for the randomly assigned names, any difference in the interview callback rate (`call`) could only be caused by one thing: the perceived race of the applicant.
 
 
 
@@ -191,7 +191,7 @@ We have moved from a broad research goal to a specific research question. Howeve
 
 
 
-A research question asks about a relationship in the real world. A statistical question asks about the numbers that represent that relationship. To qualify as a true statistical question, it must meet three strict requirements:
+A research question asks about a relationship in the population. A statistical question asks about the numbers that represent that relationship. To qualify as a true statistical question, it must meet three strict requirements:
 
 1. **It must require gathering data.** You cannot answer a statistical question with a simple web search, a dictionary definition, or a philosophical argument. The only way to find the answer is to go out, collect data, and calculate a result.
 2. **It must account for variability.** The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the same callback rates. A statistical question expects and embraces this natural variation.
@@ -243,7 +243,7 @@ By forcing yourself to identify the specific measure (like a mean, median, or pr
 
 ## 2.8 Formalizing Hypotheses
 
-We have successfully translated our broad research interest into a specific statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?* The final step before we can analyze any data is to set up a formal framework for testing this question. In statistics, we do this by establishing two competing claims about the real world. We call these claims hypotheses.
+We have successfully translated our broad research interest into a specific statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?* The final step before we can analyze any data is to set up a formal framework for testing this question. In statistics, we do this by establishing two competing claims about the population. We call these claims hypotheses.
 
 ### The Null and Alternative Hypotheses
 
@@ -369,7 +369,7 @@ When researchers find a strong relationship in an observational study, it is tem
 
 
 
-Unless you personally controlled the environment and randomly assigned treatments in a formal experiment, you cannot prove causation. There are always hidden, confounding variables at play in the real world. Observational studies can only prove that two variables are connected or associated. A helpful way to frame this in your mind is to remember that observational studies describe *what* is happening, while randomized experiments test *why* it is happening.
+Unless you personally controlled the environment and randomly assigned treatments in a formal experiment, you cannot prove causation. There are always hidden, confounding variables at play in practice. Observational studies can only prove that two variables are connected or associated. A helpful way to frame this in your mind is to remember that observational studies describe *what* is happening, while randomized experiments test *why* it is happening.
 
 
 

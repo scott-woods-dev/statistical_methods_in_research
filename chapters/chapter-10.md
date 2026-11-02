@@ -214,7 +214,7 @@ When you need to compare two separate groups of people, your first instinct is l
 
   
 
-Let's explore this with a real-world scenario. Suppose you are investigating gender pay equity in higher education. You get a random sample of 200 postsecondary educators from the American Community Survey. You want to compare the annual teaching salary between professors self-identifying as male and female. Because no single professor belongs to both groups, you are working with two independent samples.   
+Let's explore this with a scenario. Suppose you are investigating gender pay equity in higher education. You get a random sample of 200 postsecondary educators from the American Community Survey. You want to compare the annual teaching salary between professors self-identifying as male and female. Because no single professor belongs to both groups, you are working with two independent samples.   
 
 ### Why a Standard Independent $t$-test Fails
 
@@ -648,7 +648,7 @@ The answer comes entirely down to the cost of flexibility. As we explored at the
 
 ## 10.16 Key Concepts
 
-When extreme skew, outliers, or ceiling effects distort the mean, traditional parametric tests lose their reliability. Nonparametric tests bypass these mathematical distortions by evaluating medians and rank-ordered data instead of raw numbers. This provides a safe, flexible framework for analyzing messy, real-world variables like income, risk behaviors, and ordinal survey responses.
+When extreme skew, outliers, or ceiling effects distort the mean, traditional parametric tests lose their reliability. Nonparametric tests bypass these mathematical distortions by evaluating medians and rank-ordered data instead of raw numbers. This provides a safe, flexible framework for analyzing messy variables like income, risk behaviors, and ordinal survey responses.
 
 
 

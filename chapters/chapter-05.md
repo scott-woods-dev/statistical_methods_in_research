@@ -16,7 +16,7 @@ To explore this complexity, we will use a sample of 1,000 live birth events. The
   - **`habit`**: A categorical variable indicating the mother's tobacco smoking status during pregnancy.
   - **`mature`**: A categorical variable indicating the mother's clinical age maturity status.
 
-In this chapter, you will learn how to expand your modeling toolkit. You will discover how to evaluate multiple overlapping variables at the same time to understand complex real-world systems.
+In this chapter, you will learn how to expand your modeling toolkit. You will discover how to evaluate multiple overlapping variables at the same time to understand complex systems.
 
 ## 5.2 What is Multiple Regression?
 
@@ -131,7 +131,7 @@ The slope for gestational duration (`weeks`) is $0.27201$. For every additional 
 
 
 
-Finally, look at the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful real-world interpretation for your research.
+Finally, look at the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful interpretation for your research.
 
 ## 5.5 Evaluating Predictors
 
@@ -412,9 +412,9 @@ This brings us to a hard lesson about real research. Sometimes, you should keep 
 
 
 
-For example, an economist might keep a specific financial metric in a model because economic theory demands it. A high p-value simply means this specific sample did not provide enough evidence to confirm the effect. It does not prove the variable is useless in the real world.
+For example, an economist might keep a specific financial metric in a model because economic theory demands it. A high p-value simply means this specific sample did not provide enough evidence to confirm the effect. It does not prove the variable is useless in practice.
 
-You are a human researcher, not a calculator. You must use your understanding of the real world to build your models. Always let logic, prior research, and scientific theory drive your choices, rather than relying on software autopilot.
+You are a human researcher, not a calculator. You must use your understanding of the subject matter to build your models. Always let logic, prior research, and scientific theory drive your choices, rather than relying on software autopilot.
 
 
 
@@ -470,7 +470,7 @@ Academic journals have strict page limits. Researchers do not have room to print
 
 
 
-Look at the footnote at the bottom of the table. A single star means the p-value is less than $0.05$. Two stars mean the p-value is less than $0.01$. Three stars mean the p-value is less than $0.001$. You can quickly scan the table for stars to see which variables are statistically significant. Remember that more stars simply indicate a stronger signal cutting through the noise. They do not necessarily mean the real-world effect is large.
+Look at the footnote at the bottom of the table. A single star means the p-value is less than $0.05$. Two stars mean the p-value is less than $0.01$. Three stars mean the p-value is less than $0.001$. You can quickly scan the table for stars to see which variables are statistically significant. Remember that more stars simply indicate a stronger signal cutting through the noise. They do not necessarily mean the practical effect is large.
 
 ### Step 2: Decoding the Parentheses
 

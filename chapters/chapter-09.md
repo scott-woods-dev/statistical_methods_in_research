@@ -79,7 +79,7 @@ The logit gives us a canvas suitable for a straight regression line. When you ru
 
 
 
-However, nobody communicates clinical risk using abstract log-odds. Because our regression estimates the logit directly, we will eventually have to reverse-transform these numbers to make useful, real-world predictions like probabilities. We will not worry about the math for that reverse transformation just yet. Our immediate next step is simply learning how to read the initial software output.
+However, nobody communicates clinical risk using abstract log-odds. Because our regression estimates the logit directly, we will eventually have to reverse-transform these numbers to make useful predictions like probabilities. We will not worry about the math for that reverse transformation just yet. Our immediate next step is simply learning how to read the initial software output.
 
 
 
@@ -140,7 +140,7 @@ Furthermore, the software provides a 95% Confidence Interval of $(0.713830, 0.83
 
 
 
-This translation is the ultimate practical goal of logistic regression. We rely on the raw slopes and Odds Ratios to understand *how* variables influence an outcome, but we use the software's predicted probabilities to *apply* the model to real-world decision-making. Once we can generate these specific probabilities, we can evaluate how accurate our model is when forced to make a prediction in the real world.
+This translation is the ultimate practical goal of logistic regression. We rely on the raw slopes and Odds Ratios to understand *how* variables influence an outcome, but we use the software's predicted probabilities to *apply* the model to decision-making. Once we can generate these specific probabilities, we can evaluate how accurate our model is when forced to make a prediction in practice.
 
 ## 9.6 Multiple Logistic Regression
 
@@ -208,7 +208,7 @@ Our model predicts that a 65-year-old admitted for an elective procedure has a h
 
 
 
-This is the power of multiple logistic regression. By controlling for multiple variables simultaneously, we can move beyond generalized risk factors and provide precise, contextual probabilities that can inform real-world decision-making.
+This is the power of multiple logistic regression. By controlling for multiple variables simultaneously, we can move beyond generalized risk factors and provide precise, contextual probabilities that can inform decision-making.
 
 ## 9.7 Model Diagnostics and Accuracy: The Confusion Matrix
 
@@ -262,7 +262,7 @@ This large gap between our significant $p$-values and our terrible specificity i
 
 
 
-That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is complex. A real-life triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
+That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is complex. A triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
 
 ## 9.8 Model Diagnostics and Accuracy: The ROC Curve and the AUC
 
@@ -289,7 +289,7 @@ Think of the AUC as a grading scale for your model's overall accuracy, ranging f
 - **0.50:** The model is guessing blindly (the diagonal line).
 - **0.70 to 0.80:** The model is acceptable, but leaves significant room for improvement.
 - **0.80 to 0.90:** The model is excellent.
-- **1.00:** The model is perfect (which rarely happens in real-world data).
+- **1.00:** The model is perfect (which rarely happens practice).
 
 Conceptually, the AUC tells us the probability that our model will correctly rank two random observations. If we randomly pick one patient who survived and one patient who died, the AUC is the probability that our model assigns a higher predicted survival percentage to the patient who lived.
 
@@ -398,7 +398,7 @@ Begin by stating the goal of the analysis and the variables used. Report the Dev
 
 
 
-For each predictor variable, you must report the test statistic (often a $z$-value in logistic regression) and the $p$-value to establish statistical significance. More importantly, you must report the Odds Ratio ($OR$) and its 95% Confidence Interval (CI) to communicate the practical effect size. Always translate the Odds Ratio into a plain-English percentage change or multiplier so the reader understands the real-world impact.
+For each predictor variable, you must report the test statistic (often a $z$-value in logistic regression) and the $p$-value to establish statistical significance. More importantly, you must report the Odds Ratio ($OR$) and its 95% Confidence Interval (CI) to communicate the practical effect size. Always translate the Odds Ratio into a plain-English percentage change or multiplier so the reader understands the practical impact.
 
 
 
@@ -428,7 +428,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 
 
 
-2. **Trusting the $p$-value over the Confusion Matrix:** A highly significant $p$-value only tells you a predictor is performing better than random chance. It absolutely does not mean the model is practically accurate or useful for real-world classification, as we saw with our model's terrible specificity.
+2. **Trusting the $p$-value over the Confusion Matrix:** A highly significant $p$-value only tells you a predictor is performing better than random chance. It absolutely does not mean the model is practically accurate or useful for classification, as we saw with our model's terrible specificity.
 
    
 
@@ -441,8 +441,8 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 1. **Logistic Regression for Binary Outcomes:** When a response variable has exactly two categorical outcomes (like surviving or dying), standard linear regression fails because its straight line will eventually predict impossible values outside the 0% to 100% probability bounds.
 2. **The Logit Bridge:** To use regression math on a binary outcome, we translate probabilities into odds, and then use the natural logarithm to create the **logit** (log-odds). This transformation centers the data at zero and stretches it infinitely in both directions, allowing the software to fit a model.
 3. **Interpreting Odds Ratios:** Raw regression slopes tell us the direction of a relationship, but statistical software converts these abstract numbers into interpretable Odds Ratios. An Odds Ratio acts as a compounding multiplicative factor, telling us how a one-unit increase in a predictor shrinks or grows the baseline odds of the outcome.
-4. **Predicted Probabilities:** The ultimate practical goal of a logistic model is translating the abstract logit back into an intuitive percentage. We rely entirely on software to generate these predicted probabilities for specific real-world profiles (e.g., a 65-year-old elective admission).
-5. **Evaluating Practical Accuracy:** A statistically significant $p$-value only shows a variable is performing better than random chance. To evaluate real-world usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model's true Sensitivity and Specificity.
+4. **Predicted Probabilities:** The ultimate practical goal of a logistic model is translating the abstract logit back into an intuitive percentage. We rely entirely on software to generate these predicted probabilities for specific profiles (e.g., a 65-year-old elective admission).
+5. **Evaluating Practical Accuracy:** A statistically significant $p$-value only shows a variable is performing better than random chance. To evaluate practical usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model's true Sensitivity and Specificity.
 6. **ROC Curves and AUC:** The Receiver Operating Characteristic (ROC) curve visualizes a model's trade-off between Sensitivity and False Positives across all possible decision thresholds. The Area Under the Curve (AUC) provides a single numerical grade (from 0.5 to 1.0) summarizing the model's overall ability to distinguish between the two outcomes.
 7. **Deviance and Fit:** Logistic regression measures predictive error using deviance rather than standard residuals. Deviance $R^2$ estimates the percentage reduction in error compared to a blind guess, while the Deviance Goodness-of-Fit test formally evaluates the structural fit of the curve (where a large $p$-value means we fail to reject the assumption that the model fits well).
 8. **The Rare Events Rule:** Having a large total sample size is not enough for logistic regression. The model specifically requires a sufficient number of occurrences of the least common outcome (roughly 10 to 15 occurrences per predictor variable) to calculate reliable slopes.

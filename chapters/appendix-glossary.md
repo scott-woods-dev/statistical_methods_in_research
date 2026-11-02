@@ -207,7 +207,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | post hoc test | A follow-up comparison run after a significant ANOVA to identify which specific groups differ while controlling the family-wise error rate; also called post hoc analysis. |
 | power analysis | The process of calculating, before a study begins, the sample size needed to detect an effect of a given size with a chosen level of statistical power. |
 | power curves | A graph showing how statistical power rises as sample size increases, with separate curves for different effect sizes. |
-| practical significance | Whether an effect is large enough to matter in the real world, judged from an effect size or confidence interval rather than from a p-value alone. |
+| practical significance | Whether an effect is large enough to matter in practice, judged from an effect size or confidence interval rather than from a p-value alone. |
 | predicted probability | The model's estimated probability that a specific observation has the outcome, produced by converting the logit back to a 0-to-1 scale. |
 | prediction interval | A range that is likely to contain the response value for a single new observation at a given predictor value; it is wider than a confidence interval for the mean because individuals vary more than averages. |
 | predictor variable | A variable used to predict or explain the response variable in a regression model; also called an independent variable. |

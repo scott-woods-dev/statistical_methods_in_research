@@ -6,7 +6,7 @@ Our first questions that we'll tackle in this chapter are simple but profound: A
 
 
 
-These are meaningful, real-world questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
+These are meaningful questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the "average" racial identity of a population. When a social scientist or investigative journalist looks at police use of force, the data that matters isn't always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.
 
 
 
@@ -80,7 +80,7 @@ As seen in Figure 8.1 above, the gaps between reality and our baseline expectati
 
 
 
-The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are large, the test recognizes that the real-world data fails to fit our expected baseline.
+The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are large, the test recognizes that the data fails to fit our expected baseline.
 
 ## 8.3 Interpreting the Goodness-of-Fit and Post Hoc Analysis
 
@@ -150,7 +150,7 @@ We have learned how to evaluate the distribution of a single categorical variabl
 
 
 
-Consider this real-world research question: Does experiencing acute mental distress alter how an individual reacts during a high-stakes police encounter? To answer this, we will evaluate two variables from our `fatal_police_shootings.csv` database simultaneously:
+Consider this research question: Does experiencing acute mental distress alter how an individual reacts during a high-stakes police encounter? To answer this, we will evaluate two variables from our `fatal_police_shootings.csv` database simultaneously:
 
 - **`flee`**: The subject's movement behavior, categorized as "Car," "Foot," or "Not fleeing."
 - **`signs_of_mental_illness`**: A categorical indicator of whether the individual had documented acute mental distress or a psychiatric history.
@@ -221,7 +221,7 @@ When we run this test, our statistical software evaluates the total gap between 
 
 
 
-This means the gap between the expected independent counts and our real-world counts is simply too large to be a random coincidence. Fleeing behavior and documented signs of mental illness are statistically associated.
+This means the gap between the expected independent counts and our observed counts is simply too large to be a random coincidence. Fleeing behavior and documented signs of mental illness are statistically associated.
 
 ### Post Hoc Analysis: Standardized Residuals in a Two-Way Table
 
@@ -341,7 +341,7 @@ Out of all six cells, only *one* crosses our significance threshold: the **Under
 
 
 
-This tells a fascinating real-world story. The profiles of older patients (those 50 to 69, and 70 or older) align relatively well with baseline expectations across both admission types. The entire significant result is being driven by the fact that the elective admission group has a severe, disproportionate lack of young patients compared to the emergency group.
+This tells a fascinating story. The profiles of older patients (those 50 to 69, and 70 or older) align relatively well with baseline expectations across both admission types. The entire significant result is being driven by the fact that the elective admission group has a severe, disproportionate lack of young patients compared to the emergency group.
 
 ### Communicating Results in APA Format
 
@@ -781,7 +781,7 @@ This analysis teaches us a critical lesson about predictive rules: they almost a
 
 
 
-In the real world, medical professionals and researchers manage this trade-off by using a two-stage testing process. When doctors screen for diseases like cancer, or when employers run initial drug tests, that first test is intentionally designed to have extremely high sensitivity. The primary goal of stage one is to make sure no true cases slip through the cracks.
+In practice, medical professionals and researchers manage this trade-off by using a two-stage testing process. When doctors screen for diseases like cancer, or when employers run initial drug tests, that first test is intentionally designed to have extremely high sensitivity. The primary goal of stage one is to make sure no true cases slip through the cracks.
 
 
 

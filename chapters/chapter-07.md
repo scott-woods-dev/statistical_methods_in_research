@@ -146,7 +146,7 @@ When researchers see missing values disrupting their clean age categories, the i
 
 
 
-Real-world data is messy. People skip survey questions, leave fields blank, and forget to write things down. Learning to leave missing data intact instead of hiding it to make a chart look prettier is a core part of ethical research.
+Real data is messy. People skip survey questions, leave fields blank, and forget to write things down. Learning to leave missing data intact instead of hiding it to make a chart look prettier is a core part of ethical research.
 
 
 
@@ -213,7 +213,7 @@ However, chopping a precise number like age into broad, arbitrary categories (li
 
 
 
-> **A Real-World Warning: When Assumptions Fail**
+> **A Practical Warning: When Assumptions Fail**
 >
 > If you were to generate a probability plot of the residuals for this model, you would see a distinct curve rather than a straight line. The baseline blood pressure data for our older maids is skewed.
 >
@@ -223,7 +223,7 @@ However, chopping a precise number like age into broad, arbitrary categories (li
 >
 > 
 >
-> So, what do researchers do when their data refuses to cooperate? Often, they reach for a tool you learned back in Chapter 4: **data transformation**. By applying a logarithmic transformation to the blood pressure variable, researchers can pull the right-skewed data closer to a normal bell curve. Once the transformed data passes the diagnostic checks, they can safely run the Two-Way ANOVA. For now, simply recognize that real-world data is messy, and checking your assumptions is what keeps your science honest.
+> So, what do researchers do when their data refuses to cooperate? Often, they reach for a tool you learned back in Chapter 4: **data transformation**. By applying a logarithmic transformation to the blood pressure variable, researchers can pull the right-skewed data closer to a normal bell curve. Once the transformed data passes the diagnostic checks, they can safely run the Two-Way ANOVA. For now, simply recognize that real data is messy, and checking your assumptions is what keeps your science honest.
 
 ## 7.6 The ANCOVA: Introducing Continuous Covariates
 
@@ -615,7 +615,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 ### Communicating Results
 
 8. A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant ($p = .54$). The journalist publishes an article with the headline: "New Antidepressant Proven Useless." Explain the fatal flaw in this communication.
-9. A fellow student is presenting their research on the effects of a new sleep medication. They ran an ANCOVA, controlling for the participants' baseline sleep hours. Pointing to the Adjusted Means (Estimated Marginal Means) table on their slide, they state, "As you can see, the actual, raw average sleep time for the medication group in the real world was exactly 8.2 hours." Explain why this interpretation of an Adjusted Mean is incorrect.
+9. A fellow student is presenting their research on the effects of a new sleep medication. They ran an ANCOVA, controlling for the participants' baseline sleep hours. Pointing to the Adjusted Means (Estimated Marginal Means) table on their slide, they state, "As you can see, the actual, raw average sleep time for the medication group was exactly 8.2 hours." Explain why this interpretation of an Adjusted Mean is incorrect.
 10. You are reviewing a research paper draft written by a colleague. They ran a Two-Way ANOVA and found a non-significant $p$-value of $0.08$. Frustrated, they tell you: *"I'm just going to delete the age categories, plug exact age back in as a continuous covariate, and run an ANCOVA instead to see if that gets my $p$-value under $0.05$."* Explain why this practice is unethical and what this "fishing expedition" behavior is formally called.
 
 ### Software Application

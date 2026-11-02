@@ -341,7 +341,7 @@ As we discussed when setting up our alternative hypothesis, a significant ANOVA 
 If we find a significant result in our `hsb.csv` dataset, we know the choice of program track matters, but we are left with two major blind spots:
 
 1. We do not know *which* specific groups are different from one another. Does the academic track score significantly higher than the general track, or is the major difference only between the academic and vocational tracks?
-2. We do not know *by how much* the scores differ. We may be observing a statistically significant difference that is of no importance in a practical, real-world application, so it's important to find and report the magnitude of the differences as well.
+2. We do not know *by how much* the scores differ. We may be observing a statistically significant difference that is of no importance in a practical application, so it's important to find and report the magnitude of the differences as well.
 
 An ANOVA is an excellent tool for detecting if a signal exists anywhere in your data, but it is blind to the details. To identify exactly which pairs of factor levels show a difference, and to measure the size of those differences, we have to conduct a second round of testing called **post hoc analysis**.
 
@@ -407,7 +407,7 @@ To be a responsible researcher, you must move beyond statistical significance an
 - **Confidence Intervals:** Look at the confidence interval for the difference between the two means. If the academic track scores higher than the general track, the confidence interval will tell you exactly how many points higher you can expect the population average to be.
 - **Effect Sizes:** Calculate **Cohen's $d$** for the specific pair of groups to determine if the difference is small, medium, or large.
 
-A statistically significant difference is only useful if it represents a meaningful, real-world impact.
+A statistically significant difference is only useful if it represents a meaningful, practical impact.
 
 ## 6.9 Guided Analysis
 
@@ -421,7 +421,7 @@ To translate our broad interest into a formal analysis, we will rely on the step
 
 
 
-**Step 1: The Research Goal** We start with our overarching, real-world objective: *We want to understand if a high school's academic tracking system creates disparities in core educational competencies.* 
+**Step 1: The Research Goal** We start with our overarching objective: *We want to understand if a high school's academic tracking system creates disparities in core educational competencies.* 
 
 
 
@@ -462,7 +462,7 @@ Before we rush to calculate $p$-values, we must explore our data to ensure a sta
 
 
 
-We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational real-world data, uneven groups are normal and acceptable for an ANOVA.
+We begin by looking at the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic ($n = 105$), general ($n = 45$), and vocational ($n = 50$). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational data, uneven groups are normal and acceptable for an ANOVA.
 
 
 
@@ -567,7 +567,7 @@ Because our $p$-value is far below our standard 5% significance level ($\alpha =
 
 
 
-**The Next Step:** Our global ANOVA is significant, but remember its limitation: it is blind to the details. We know that at least one pair of program tracks is different, but the $F$-statistic cannot tell us *which* ones, nor can it tell us *how large* those differences are in real-world terms. To finish our analysis and answer our research question completely, we must run our post hoc tests and calculate our effect sizes.
+**The Next Step:** Our global ANOVA is significant, but remember its limitation: it is blind to the details. We know that at least one pair of program tracks is different, but the $F$-statistic cannot tell us *which* ones, nor can it tell us *how large* those differences are in practical terms. To finish our analysis and answer our research question completely, we must run our post hoc tests and calculate our effect sizes.
 
 ### Conclusion
 
@@ -665,7 +665,7 @@ However, failing the equal variances requirement might actually be the most fasc
 
 
 
-Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a large variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound, real-world finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
+Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a large variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
 
 
 
@@ -681,7 +681,7 @@ When the difference in spread is your actual research interest, you can use a to
 6. **Diagnostics over Perfection:** When checking assumptions, we look for plausibility rather than perfect mathematical proof. We assume residuals are normal unless a Q-Q plot or histogram convinces us otherwise. We assume equal variances if our jitter plot looks relatively even and our largest standard deviation is no more than double our smallest.
 7. **The Global ANOVA is Blind:** A significant $F$-statistic and $p$-value from an ANOVA only tell you that a difference exists somewhere in the data. It cannot tell you which specific groups are different, nor can it tell you the size of the effect.
 8. **Post Hoc Analysis:** To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. **Tukey's HSD** is the standard for comparing every group to every other group. **Dunnett's test** is used when comparing multiple groups against a single control baseline.
-9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference matters in the real world.
+9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference matters in practice.
 
 ## 6.12 New Notation
 
@@ -732,6 +732,6 @@ c) State your conclusion to the global ANOVA in plain English. What does this re
 a) Run a Tukey's HSD test on your model. Report the adjusted $p$-values for the three specific comparisons: low vs. middle, low vs. high, and middle vs. high.
 b) Based on these $p$-values, which specific pairs of socioeconomic groups have significantly different mean math scores?
 c) Look closely at the low vs. middle comparison. Did it achieve statistical significance?
-14. **Practical Significance and Reporting:** A complete analysis requires measuring the real-world size of the differences and formatting them professionally.
+14. **Practical Significance and Reporting:** A complete analysis requires measuring the practical size of the differences and formatting them professionally.
 a) Calculate the pairwise Cohen's $d$ effect sizes for your groups. Report the effect size for the difference between the low SES and high SES groups. Is this effect considered small, moderate, or large?
 b) Write a final, APA-formatted conclusion paragraph summarizing this entire analysis. Be sure to start with a plain English claim, follow it with the global ANOVA results, and conclude with the post hoc findings (including the descriptive means and standard deviations for context).

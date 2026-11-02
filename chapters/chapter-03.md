@@ -21,7 +21,7 @@ But once we calculate our sample statistics, how do we make a definitive decisio
 
 
 
-By the end of this chapter, you will learn how to formally test these hypotheses and make rigorous, data-driven decisions. We will explore how to separate a true signal from random statistical noise, how to avoid making critical errors when weighing evidence, and how to determine not just whether an effect is mathematically real, but whether it is large enough to practically matter in the real world.
+By the end of this chapter, you will learn how to formally test these hypotheses and make rigorous, data-driven decisions. We will explore how to separate a true signal from random statistical noise, how to avoid making critical errors when weighing evidence, and how to determine not just whether an effect is mathematically real, but whether it is large enough to matter in practice.
 
 ## 3.2 The Core Concept & The Framework of Evidence
 
@@ -277,7 +277,7 @@ $$\text{Difference} = \text{Post-Treatment} - \text{Pre-Treatment}$$
 
 
 
-Why do we do it this way? It keeps our real-world intuition aligned with the mathematics. If a student's depression score goes up over the three weeks, subtracting their Day 1 score from their Day 21 score will yield a positive number (an increase). If their depression score drops, the math yields a negative number (a decrease).
+Why do we do it this way? It keeps our intuition aligned with the mathematics. If a student's depression score goes up over the three weeks, subtracting their Day 1 score from their Day 21 score will yield a positive number (an increase). If their depression score drops, the math yields a negative number (a decrease).
 
 In the context of our study, we are hoping to see negative difference scores. A negative number means the healthy diet intervention successfully reduced clinical depression symptoms.
 
@@ -330,7 +330,7 @@ However, the statistical software you use will likely report these hypotheses sl
 
 - $H_0: \mu_{\text{Diet}} - \mu_{\text{Control}} = 0$
 
-We acknowledge this "software" formatting because it theoretically expands possibilities (like allowing researchers to test if the diet group improved by exactly 5 points more than the control, rather than just testing for any difference). But in the overwhelming majority of real-world cases, researchers just want to know if a difference exists at all. Therefore, we will continue to use the "human" formatting, as it is the clearest way to think about the problem.
+We acknowledge this "software" formatting because it theoretically expands possibilities (like allowing researchers to test if the diet group improved by exactly 5 points more than the control, rather than just testing for any difference). But in the overwhelming majority of cases, researchers just want to know if a difference exists at all. Therefore, we will continue to use the "human" formatting, as it is the clearest way to think about the problem.
 
 ### The Mechanics and Unequal Variances
 
@@ -342,7 +342,7 @@ Looking at our data, the diet group's average change was -6.03 points, while the
 
 
 
-To find the standard error (the "noise"), the software has to combine the natural variability from *both* groups. This brings up an important assumption. Traditionally, this test assumed that both groups had the same amount of spread (or variance) in their data. In the real world, this is rarely true. For example, the control group might have wildly varying scores, while the diet group's scores might be tightly clustered together.
+To find the standard error (the "noise"), the software has to combine the natural variability from *both* groups. This brings up an important assumption. Traditionally, this test assumed that both groups had the same amount of spread (or variance) in their data. In practice, this is rarely true. For example, the control group might have wildly varying scores, while the diet group's scores might be tightly clustered together.
 
 
 
@@ -475,7 +475,7 @@ If your variable is measured in concrete, everyday units (like dollars, pounds, 
 
 
 
-For example, imagine we tested the diet intervention's impact on body weight. People intuitively understand what a drop of 10 pounds means. If our confidence interval tells us that the diet causes a reliable drop of between 5 and 10 pounds, the reader instantly understands the real-world impact. In cases with tangible units, a confidence interval provides an intuitive, practical range.
+For example, imagine we tested the diet intervention's impact on body weight. People intuitively understand what a drop of 10 pounds means. If our confidence interval tells us that the diet causes a reliable drop of between 5 and 10 pounds, the reader instantly understands the practical impact. In cases with tangible units, a confidence interval provides an intuitive, practical range.
 
 
 
@@ -512,7 +512,7 @@ Throughout this chapter, we have analyzed data that was already collected. But w
 
 ### The Concept of Statistical Power
 
-To understand power, we have to revisit the Type II error. A Type II error occurs when an intervention actually works in the real world, but your specific study fails to find enough mathematical evidence to prove it. In other words, you missed a true signal.
+To understand power, we have to revisit the Type II error. A Type II error occurs when an intervention actually works in practice, but your specific study fails to find enough mathematical evidence to prove it. In other words, you missed a true signal.
 
 
 
@@ -545,7 +545,7 @@ The most common use of power analysis is figuring out how many participants to r
 
 
 
-This is where the math meets the real world. How can a researcher know the effect size before they run the study? There are generally two ways to answer this:
+This is where the math meets practice. How can a researcher know the effect size before they run the study? There are generally two ways to answer this:
 
 
 
@@ -561,7 +561,7 @@ Researchers will often look at previous, similar studies to see what kind of eff
 
 
 
-Sometimes, researchers set their sample size based entirely on practical significance. They ask themselves, "What is the smallest difference that would matter in the real world?"
+Sometimes, researchers set their sample size based entirely on practical significance. They ask themselves, "What is the smallest difference that would matter in practice?"
 
 
 
@@ -585,7 +585,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 4. **Decisions carry the risk of error.** A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).
 5. **The Central Limit Theorem provides flexibility.** Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically $n \ge 30$).
 6. **Data collection dictates your tools.** Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two separate groups.
-7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is large enough to matter in the real world.
+7. **Statistical significance does not equal practical importance.** A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen's $d$) or look at the confidence interval to determine if the effect is large enough to matter in practice.
 8. **Power Analysis prevents wasted effort.** Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.
 
 
@@ -619,7 +619,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 
 
-**3.** Imagine a school district is deciding whether to implement an expensive new reading program. State what a Type I error and a Type II error would look like in this specific real-world scenario. Which error do you think would be worse for the school district, and why?
+**3.** Imagine a school district is deciding whether to implement an expensive new reading program. State what a Type I error and a Type II error would look like in this specific scenario. Which error do you think would be worse for the school district, and why?
 
 
 
@@ -705,7 +705,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 **a)** Based on the p-value, did the diet group experience a statistically significant difference in BMI change compared to the control group?
 
-**b)** Look at the sample means for both groups. In real-world terms, how much of a difference did the 21-day diet make on the students' BMI?
+**b)** Look at the sample means for both groups. In practical terms, how much of a difference did the 21-day diet make on the students' BMI?
 
 **c)** Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is essential for preventing researchers from making exaggerated claims about their studies.
 

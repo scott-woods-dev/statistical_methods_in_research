@@ -273,7 +273,7 @@ Once you move past the Principal Components Analysis software trap, your statist
 
 
 
-**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the real-world data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
+**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
 
 In practice, if your hidden constructs are strong and well-defined, both methods will produce nearly identical results. When we ran the female speed dating ratings using Maximum Likelihood behind the scenes, the loading for `IntelligentF` was $0.857$, compared to $0.853$ under Principal Axis Factoring. For most introductory survey research, you should select Principal Axis Factoring to avoid assumptions about normal distributions.   
 

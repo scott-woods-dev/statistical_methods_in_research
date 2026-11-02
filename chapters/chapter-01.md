@@ -26,7 +26,7 @@ The dataset `student_lifestyle_sleep.csv` included with this text has all this r
 
 
 
-By the end of this chapter, you will learn how to identify different types of variables, from descriptive categories to numerical measurements, build visual summaries, understand numerical summaries to find the typical student experience and how much students differ, describe the physical shape of your data, like the famous bell curve, and spot real-world data problems, like missing responses or heavily skewed results.
+By the end of this chapter, you will learn how to identify different types of variables, from descriptive categories to numerical measurements, build visual summaries, understand numerical summaries to find the typical student experience and how much students differ, describe the physical shape of your data, like the famous bell curve, and spot data problems, like missing responses or heavily skewed results.
 
 ## 1.2 Data Basics: Categorical vs. Numerical Variables
 
@@ -154,7 +154,7 @@ When data follows a normal curve, it implies a specific concentration: the vast 
 
 
 
-However, real-world data is often messy and leans heavily to one side. We call this **skewness**. 
+However, messy, real data often leans heavily to one side. We call this **skewness**. 
 
 
 
@@ -453,7 +453,7 @@ In research, we are almost always taking a small sample (like our 253 students) 
 
 
 
-If you took twenty different samples of 253 students, their sample means would all cluster tightly around the true, real-world university average. The sample medians would also cluster around the true middle, but they would "wobble" and vary a bit more from sample to sample because they are built on less information. 
+If you took twenty different samples of 253 students, their sample means would all cluster tightly around the true university average. The sample medians would also cluster around the true middle, but they would "wobble" and vary a bit more from sample to sample because they are built on less information. 
 
 
 
@@ -515,9 +515,9 @@ Because populations and samples are different concepts, we use different mathema
 
 : Table 1.4: Notation for populations and samples.
 
-## 1.13 Complications of Real-Life Data
+## 1.13 Complications of Messy, Real Data
 
-When you read a polished research paper, the data often seems perfect and neatly organized. However, in the real world, data collection is messy. Human beings forget to answer questions, measuring tools hit their limits, and participants sometimes hide the truth. Before you can trust the numerical summaries or visualizations you just learned to create, you must triage your data. This means actively hunting for real-world complications that might distort your findings.
+When you read a polished research paper, the data often seems perfect and neatly organized. However, in practice, data collection is messy. Human beings forget to answer questions, measuring tools hit their limits, and participants sometimes hide the truth. Before you can trust the numerical summaries or visualizations you just learned to create, you must triage your data. This means actively hunting for complications that might distort your findings.
 
 ### Missing Data and Bias
 
