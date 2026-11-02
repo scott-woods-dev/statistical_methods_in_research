@@ -250,7 +250,7 @@ These plots line your actual residuals up against a theoretically perfect normal
 
 - **One Bend (A sharp hook or J-shape):** This indicates your residuals are severely skewed. This is a problem, and the normality assumption is violated.
 - **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or light tails. This is also a problem that violates the assumption.
-- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually fine! Human brains are incredibly good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
+- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually fine! Human brains are good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
 
 ![Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.](../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png){fig-alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."}
 
@@ -367,7 +367,7 @@ If you read published research in economics, psychology, or sociology, you will 
 
 
 
-While you do not need to know how to calculate it, you should understand its reputation. Bonferroni is considered an incredibly conservative test. It is so aggressive at preventing Type I errors (false positives) that it severely inflates your risk of a Type II error, meaning it frequently misses real, meaningful differences. Because it requires an unreasonably high burden of proof, modern researchers generally prefer more balanced tools.
+While you do not need to know how to calculate it, you should understand its reputation. Bonferroni is considered a conservative test. It is so aggressive at preventing Type I errors (false positives) that it severely inflates your risk of a Type II error, meaning it frequently misses real, meaningful differences. Because it requires an unreasonably high burden of proof, modern researchers generally prefer more balanced tools.
 
 ### Tukey's HSD (Honestly Significant Difference)
 
@@ -641,7 +641,7 @@ This creates a mismatch between what your eyes see on the graph and what the sof
 
 
 
-Why do researchers still use boxplots for ANOVAs? Because they are incredibly efficient at spotting severe skewness, floor/ceiling effects, and extreme outliers all at a single glance. They are fantastic for a quick data health check. However, you must remember that the visual "box" does not align with the mathematical "engine" of the test.
+Why do researchers still use boxplots for ANOVAs? Because they are efficient at spotting severe skewness, floor/ceiling effects, and extreme outliers all at a single glance. They are fantastic for a quick data health check. However, you must remember that the visual "box" does not align with the mathematical "engine" of the test.
 
 
 
@@ -657,7 +657,7 @@ This is simply not true. The mathematical requirement is that the model's **resi
 
 ### Viewing Unequal Variances Solely as a "Failure"
 
-In Section 6.7, we checked to make sure our treatment groups had a roughly equal spread, warning that unequal variances break the mathematical machinery of a standard ANOVA. It is incredibly common for students to view this as a frustrating failure, a roadblock that forces them to use a less familiar alternative tool.
+In Section 6.7, we checked to make sure our treatment groups had a roughly equal spread, warning that unequal variances break the mathematical machinery of a standard ANOVA. It is common for students to view this as a frustrating failure, a roadblock that forces them to use a less familiar alternative tool.
 
 
 

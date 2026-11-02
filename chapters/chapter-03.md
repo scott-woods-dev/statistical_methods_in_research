@@ -372,7 +372,7 @@ With this conclusion, we have officially established that the diet intervention 
 
 
 
-You will notice we said the test "established" or "provided evidence" for the intervention's success, but we never said it "proved" the diet works. In mathematics, a proof guarantees 100% certainty. Statistics, on the other hand, is the science of probability and uncertainty. By setting our significance level ($\alpha$) at .05, we openly accepted a 5% risk of making a Type I error. Because there is always a tiny chance that our results are just an incredibly rare statistical fluke, we never claim to have mathematically proven anything. We simply state that the evidence is strong enough to confidently change our minds.
+You will notice we said the test "established" or "provided evidence" for the intervention's success, but we never said it "proved" the diet works. In mathematics, a proof guarantees 100% certainty. Statistics, on the other hand, is the science of probability and uncertainty. By setting our significance level ($\alpha$) at .05, we openly accepted a 5% risk of making a Type I error. Because there is always a tiny chance that our results are just a rare statistical fluke, we never claim to have mathematically proven anything. We simply state that the evidence is strong enough to confidently change our minds.
 
 
 

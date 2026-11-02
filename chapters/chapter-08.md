@@ -438,7 +438,7 @@ In our speed dating data, the observations are explicitly **paired**. A single f
 
 
 
-Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is incredibly awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the same environment. Standard Chi-Square math falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
+Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is awkward. We would fully expect that shared interaction to result in a pair of "no" responses. It isn't that the male's "no" directly caused the female's "no," but rather that the two decisions were born from the same environment. Standard Chi-Square math falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use **McNemar's Test**.
 
 ### Formulating the Hypotheses
 

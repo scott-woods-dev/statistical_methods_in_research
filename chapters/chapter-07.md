@@ -21,7 +21,7 @@ To evaluate whether this intervention worked, the researchers collected physiolo
 - **`BMI`**: A numerical variable representing the participant's baseline Body Mass Index.
 - **`BMI2`**: A numerical variable representing the participant's Body Mass Index four weeks later.
 
-We know from Chapter 6 that a standard One-Way ANOVA is a great tool for comparing groups. But human bodies are incredibly noisy data sources. A person's post-intervention blood pressure is heavily influenced by their age, their genetics, and their baseline resting health, not just our psychological intervention. If we run a basic One-Way ANOVA, all of that natural, pre-existing human variation gets dumped directly into our "within-groups variation" bucket. As we learned previously, that within-groups variation acts as our statistical noise. If the background noise is too loud, we will never be able to hear the signal of our intervention.
+We know from Chapter 6 that a standard One-Way ANOVA is a great tool for comparing groups. But human bodies are noisy data sources. A person's post-intervention blood pressure is heavily influenced by their age, their genetics, and their baseline resting health, not just our psychological intervention. If we run a basic One-Way ANOVA, all of that natural, pre-existing human variation gets dumped directly into our "within-groups variation" bucket. As we learned previously, that within-groups variation acts as our statistical noise. If the background noise is too loud, we will never be able to hear the signal of our intervention.
 
 
 
@@ -251,7 +251,7 @@ Let's look at our mindset intervention using a precise nuisance variable: baseli
 
 
 
-Instead of organizing the maids into "high baseline" and "low baseline" categories, an ANCOVA uses their exact baseline blood pressure as a continuous covariate. The mathematics of the ANCOVA use that exact baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA isolates our primary research interest, giving us an incredibly clear look at the true effect of our psychological intervention.
+Instead of organizing the maids into "high baseline" and "low baseline" categories, an ANCOVA uses their exact baseline blood pressure as a continuous covariate. The mathematics of the ANCOVA use that exact baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA isolates our primary research interest, giving us a clear look at the true effect of our psychological intervention.
 
 
 
@@ -433,7 +433,7 @@ Think about why this is so powerful. When we compare different people, we have t
 
 
 
-Because a Repeated Measures ANOVA filters out so much individual biological noise, it is incredibly efficient. It allows researchers to achieve a considerable amount of statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can show strong evidence that their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
+Because a Repeated Measures ANOVA filters out so much individual biological noise, it is efficient. It allows researchers to achieve a considerable amount of statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can show strong evidence that their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.
 
 ### A Note on Longitudinal Studies
 

@@ -96,7 +96,7 @@ Notice that because `DepressionStatus` is an ordinal variable, we keep the bars 
 
 
 
-However, what if you are working with a nominal variable that has a large number of categories? Imagine looking at data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be incredibly wide, cluttered, and hard to read.
+However, what if you are working with a nominal variable that has a large number of categories? Imagine looking at data from a college's tutoring and STEM resource center, tracking the "reason for visit" across dozens of different subjects. A standard bar plot would be wide, cluttered, and hard to read.
 
 
 
@@ -541,7 +541,7 @@ We already saw a **floor effect** with the `ClassesMissed` variable. A student c
 
 
 
-The opposite is a **ceiling effect**, which happens when data hits an absolute maximum limit. Look at the `GPA` variable. A student cannot score higher than a 4.0. If you give an incredibly easy exam where half the class scores 100%, the data piles up against the right wall of the graph, creating a left-skewed distribution. 
+The opposite is a **ceiling effect**, which happens when data hits an absolute maximum limit. Look at the `GPA` variable. A student cannot score higher than a 4.0. If you give an easy exam where half the class scores 100%, the data piles up against the right wall of the graph, creating a left-skewed distribution. 
 
 
 
@@ -564,7 +564,7 @@ Understanding these realities ensures you don't blindly trust a mean or a median
 As you begin working with real data, there are a few common traps that trip up almost every new researcher. Keep these in mind as you start your own analyses:
 
 * **Averaging numerical labels:** Sometimes, categories are recorded using numbers just to make data entry easier. For example, suppose a study records a student's college major using arbitrary codes: $1$ for Biology, $2$ for English, $3$ for Psychology, and $4$ for Business. Because these look like numbers, statistical software will happily let you calculate a mean. But what happens if you average a Biology major ($1$) and a Psychology major ($3$)? You get a $2$. Does that mean they combine to form an English major? No! The result is complete nonsense. Always check your variable dictionary before calculating summaries. If the number is just a placeholder for a label, you must use proportions or a bar plot, not a mean.
-* **Confusing bar plots with histograms:** They look incredibly similar, but they tell different stories. A bar plot is for *categorical* data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for *numerical* data, and the bars must touch to show that the numbers flow continuously along a number line.
+* **Confusing bar plots with histograms:** They look similar, but they tell different stories. A bar plot is for *categorical* data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for *numerical* data, and the bars must touch to show that the numbers flow continuously along a number line.
 * **Blindly trusting the mean:** It is tempting to calculate the mean and standard deviation for every numerical variable because they are the most famous statistics. However, if your data is heavily skewed (like `ClassesMissed`), the mean will not represent the "typical" student. Always look at the shape of your distribution in a histogram *before* you decide to report the mean or the median.
 
 ## 1.15 Key Concepts

@@ -262,7 +262,7 @@ This large gap between our significant $p$-values and our terrible specificity i
 
 
 
-That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is incredibly complex. A real-life triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
+That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is complex. A real-life triage model requires far more than just a patient's age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (`Pulse`, `SysBP`), or existing infections (`Infection`), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low $p$-values.  
 
 ## 9.8 Model Diagnostics and Accuracy: The ROC Curve and the AUC
 
@@ -432,7 +432,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 
    
 
-3. **Forgetting to check for outliers:** In standard linear regression, you always start with a scatterplot, which makes extreme outliers on the x-axis or y-axis immediately obvious. Because logistic regression forces the y-axis to be exactly 0 or 1, standard scatterplots look like two parallel horizontal lines of dots. This visual format makes outliers incredibly hard to spot. Researchers often forget to check their continuous predictors (like `Pulse` or `SysBP`) for extreme values before running the model, allowing a single extreme patient to invisibly warp the S-shaped probability curve. 
+3. **Forgetting to check for outliers:** In standard linear regression, you always start with a scatterplot, which makes extreme outliers on the x-axis or y-axis immediately obvious. Because logistic regression forces the y-axis to be exactly 0 or 1, standard scatterplots look like two parallel horizontal lines of dots. This visual format makes outliers hard to spot. Researchers often forget to check their continuous predictors (like `Pulse` or `SysBP`) for extreme values before running the model, allowing a single extreme patient to invisibly warp the S-shaped probability curve. 
 
 
 

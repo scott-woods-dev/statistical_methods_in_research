@@ -365,7 +365,7 @@ Remember the broken scale example. A scale that always reads exactly 10 pounds t
 
 ### The Causation Illusion in Observational Studies
 
-When researchers find a strong relationship in an observational study, it is incredibly tempting to jump straight to cause and effect. Even before we get to the mathematical formulas of testing, you must remember that your study design strictly limits the types of claims you can make.
+When researchers find a strong relationship in an observational study, it is tempting to jump straight to cause and effect. Even before we get to the mathematical formulas of testing, you must remember that your study design strictly limits the types of claims you can make.
 
 
 

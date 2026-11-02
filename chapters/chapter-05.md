@@ -372,7 +372,7 @@ In introductory math classes, textbook problems are designed to work out. You mi
 
 
 
-Do not view this as a failure. Humans are incredibly complex, messy, and unpredictable. In epidemiology and social science, explaining $30\%$ of the biological variation in birth weights using just a few survey questions is actually a big success. The remaining $70\%$ is simply the natural, unmeasured diversity of the human experience. Do not throw away a good model just because it does not look like a perfect math equation.
+Do not view this as a failure. Humans are complex, messy, and unpredictable. In epidemiology and social science, explaining $30\%$ of the biological variation in birth weights using just a few survey questions is actually a big success. The remaining $70\%$ is simply the natural, unmeasured diversity of the human experience. Do not throw away a good model just because it does not look like a perfect math equation.
 
 ### The Kitchen Sink Trap and Overfitting
 
@@ -422,7 +422,7 @@ That caps off the conceptual lessons for this chapter. We have covered confoundi
 
 ### The "Bigger Slope Means Bigger Impact" Fallacy
 
-When you look at a multiple regression equation, it is incredibly tempting to just look for the largest slope. You might assume the biggest number is the most important variable. You must avoid this trap.
+When you look at a multiple regression equation, it is tempting to just look for the largest slope. You might assume the biggest number is the most important variable. You must avoid this trap.
 
 
 

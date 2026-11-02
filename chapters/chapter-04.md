@@ -132,7 +132,7 @@ As a new researcher, you might calculate an $R^2$ of 25% and feel disappointed. 
 
 
 
-Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a big, valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is incredibly powerful for *explaining* broad, systemic trends in human behavior.
+Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a big, valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is powerful for *explaining* broad, systemic trends in human behavior.
 
 
 
@@ -207,7 +207,7 @@ Suppose our software calculates a slope of **0.000247**. Because this is a posit
 
 
 
-At first glance, a slope of 0.000247 looks incredibly weak. However, you must always remember your units! GDP is measured in individual dollars. A single, one-dollar raise in national wealth is practically invisible. But what if a country's GDP per capita increases by $\$10,000$? We would simply multiply our slope ($0.000247$) by $10,000$ to see that the country's footprint would increase by a noticeable $2.47$ units. This slope directly answers our research question: it tells us that, on average across the globe, heavier economic output is indeed associated with a larger environmental footprint.
+At first glance, a slope of 0.000247 looks weak. However, you must always remember your units! GDP is measured in individual dollars. A single, one-dollar raise in national wealth is practically invisible. But what if a country's GDP per capita increases by $\$10,000$? We would simply multiply our slope ($0.000247$) by $10,000$ to see that the country's footprint would increase by a noticeable $2.47$ units. This slope directly answers our research question: it tells us that, on average across the globe, heavier economic output is indeed associated with a larger environmental footprint.
 
 
 
@@ -400,7 +400,7 @@ This specific curve illustrates a concept known as the **law of diminishing retu
 
 
 
-However, if an already incredibly wealthy nation (like Switzerland or Norway) increases its GDP per capita by that same $\$5,000$, the impact on health is practically invisible. They already have clean water and modern hospitals.
+However, if an already wealthy nation (like Switzerland or Norway) increases its GDP per capita by that same $\$5,000$, the impact on health is practically invisible. They already have clean water and modern hospitals.
 
 
 

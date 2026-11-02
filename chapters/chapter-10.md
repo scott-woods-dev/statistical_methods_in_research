@@ -278,7 +278,7 @@ CI for Difference (-32, -2)
 Achieved Confidence 95.01%
 ```
 
-Just like with the Wilcoxon test, we can break this down piece by piece. First, the software provides the descriptive statistics. It is incredibly important to remember your dataset's coding keys here. Our dictionary tells us that for the `Sex` variable, $0$ represents female professors and $1$ represents male professors. It also notes that the `Salary` variable is recorded in thousands of dollars. Therefore, the output tells us there are 97 female professors with a sample median salary of $\$60,000$, and 103 male professors with a sample median salary of $\$75,000$. 
+Just like with the Wilcoxon test, we can break this down piece by piece. First, the software provides the descriptive statistics. It is important to remember your dataset's coding keys here. Our dictionary tells us that for the `Sex` variable, $0$ represents female professors and $1$ represents male professors. It also notes that the `Salary` variable is recorded in thousands of dollars. Therefore, the output tells us there are 97 female professors with a sample median salary of $\$60,000$, and 103 male professors with a sample median salary of $\$75,000$. 
 
 
 

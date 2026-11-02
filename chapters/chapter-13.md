@@ -198,7 +198,7 @@ In 2018, a prominent food researcher at Cornell University, famous for studies s
 
 
 
-This is a classic example of a failure in **analytic integrity**. Once your data is collected and safely stored, you must analyze it honestly. Modern statistical software makes it incredibly easy to run hundreds of tests in a matter of seconds. When a researcher abuses this power to hunt for a "successful" result, they are engaging in **p-hacking**. P-hacking is the unethical practice of manipulating your analysis until you artificially push a $p$-value below the 0.05 significance level.
+This is a classic example of a failure in **analytic integrity**. Once your data is collected and safely stored, you must analyze it honestly. Modern statistical software makes it easy to run hundreds of tests in a matter of seconds. When a researcher abuses this power to hunt for a "successful" result, they are engaging in **p-hacking**. P-hacking is the unethical practice of manipulating your analysis until you artificially push a $p$-value below the 0.05 significance level.
 
 
 
