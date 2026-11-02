@@ -1,6 +1,9 @@
 project:
   type: book
   output-dir: docs
+  resources:
+    - data/*.csv
+  post-render: tools/datasets/build_archive.sh
 
 filters:
   - filters/glossary.lua
@@ -38,6 +41,7 @@ book:
         - chapters/chapter-13.md
   appendices:
     - chapters/appendix-glossary.md
+    - chapters/appendix-datasets.md
 
 format:
   html:
