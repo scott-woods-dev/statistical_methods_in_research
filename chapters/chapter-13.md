@@ -1,6 +1,6 @@
 # Ethics in Statistics and Data Integrity
 
-## 13.1 Introduction
+## Introduction
 
 In 2014, Amazon built an experimental artificial intelligence system to review job applicant resumes (Dastin, 2018). The goal was to automate the hiring pipeline to quickly find the absolute best talent. They fed the algorithm ten years of resumes submitted to the company so the model could learn what a "successful" candidate looked like. However, the company soon realized they had a serious problem. Because the tech industry has historically been male-dominated, the algorithm "learned" that male candidates were mathematically preferable. It actively penalized resumes that included the word "women's" (such as a "women's chess club" or "women's track team") and systematically downgraded graduates of two all-women's colleges.
 
@@ -24,7 +24,7 @@ This is why statistical analysis requires a strict ethical infrastructure. Befor
 
 By the end of this chapter, you will understand the critical role of an **Institutional Review Board** (IRB) in safeguarding human subjects. We will take a behind-the-curtain look at how research protocols are evaluated for risk, equity, and compliance before a study ever begins. You will learn the strict difference between anonymity and confidentiality in data security. Finally, we will examine algorithmic accountability and the ethical dangers of analytical manipulation, exploring how practices like p-hacking, selective reporting, and unjustified one-sided tests betray the integrity of the scientific process.
 
-## 13.2 The Infrastructure of Ethics
+## The Infrastructure of Ethics
 
 In 2016, a team of researchers scraped the personal profiles of 70,000 users on the dating website OkCupid. They collected usernames, ages, genders, sexual orientations, political beliefs, and intimate answers to thousands of personal survey questions. The researchers then uploaded the entire dataset to an open, public repository for anyone to download and analyze. When confronted by outraged users and ethicists, the lead researcher defended the decision by arguing that the information was already accessible on the internet, so it was fair game for statistical analysis (Resnick, 2016).
 
@@ -66,7 +66,7 @@ The OkCupid researchers operated outside of strict data governance, and they fai
 
 Before we can calculate a single mean or build a regression model, we must establish a strong foundation of governance and stewardship. In the academic and medical communities, the primary mechanism for enforcing this infrastructure is a specialized committee designed specifically to evaluate research risk and protect human subjects.   
 
-## 13.3 The Institutional Review Board
+## The Institutional Review Board
 
 In 2014, researchers published the results of a large experiment conducted on nearly 700,000 Facebook users. Without asking for permission or informing anyone they were part of a study, the company intentionally manipulated users' news feeds. Some users were shown mostly positive posts, while others were flooded with negative and sad content. The goal was to see if emotions were contagious online. When the paper was published, the academic community and the public were horrified (Meyer, 2014). Because Facebook was operating as a private tech company rather than an academic institution, they had bypassed the strict ethical review processes that universities rely on to protect people.
 
@@ -88,7 +88,7 @@ When an IRB evaluates a protocol, they are specifically weighing three major con
 
 A behind-the-curtain look at an IRB reveals that they are not looking to block research; they are looking to calibrate safety. If you submit a protocol for an anonymous, harmless survey, the IRB might quickly issue an "exempt determination," allowing you to proceed with your work right away. But if your research touches on sensitive topics or vulnerable people, the board will step in to help you redesign your study so that the humans behind the numbers are treated with the respect they deserve.
 
-## 13.4 Data Security and Privacy
+## Data Security and Privacy
 
 In 2006, the internet provider AOL released a dataset of 20 million internet search queries from 650,000 users to help academic researchers. To protect users, AOL replaced all usernames with random identification numbers. They assumed the data was completely anonymous. However, journalists quickly noticed that user No. 4417749 frequently searched for landscapes in Lilburn, Georgia, along with several people who had the last name Arnold. Within days, they identified the user as a 62-year-old widow and published her identity (Barbaro & Zeller, 2006).
 
@@ -138,7 +138,7 @@ Conflating anonymity and confidentiality is a dangerous ethical mistake. If you 
 
 
 
-## 13.5 Algorithmic Accountability
+## Algorithmic Accountability
 
 In 2016, the investigative journalism organization ProPublica analyzed a widely used risk assessment algorithm called COMPAS. Judges across the United States used this software to predict the likelihood that a criminal defendant would re-offend. The program assigned each defendant a risk score from 1 to 10. ProPublica evaluated the scores of over 10,000 defendants in Florida. They then tracked what actually happened to these individuals over the next two years.
 
@@ -174,7 +174,7 @@ The only way to achieve algorithmic accountability is through absolute transpare
 
 In modern statistical research, secret algorithms are an ethical red flag. Good researchers promote transparency by openly publishing their methodologies. They share their statistical models and the exact analytical steps they used to reach their conclusions. They invite outside experts to audit their work to check for biases or errors. If you cannot explain exactly how your model reached a conclusion, or if you refuse to let others verify your work, you have broken the fundamental trust required in science.
 
-## 13.6 The Ethics of Omission
+## The Ethics of Omission
 
 In the early months of the COVID-19 pandemic in 2020, the Centers for Disease Control and Prevention (CDC) published surveillance data to track the spread of the virus. However, public health researchers soon noticed a serious problem: nearly half of the confirmed case reports were missing demographic information about race and ethnicity. Because early analyses simply omitted any patient with incomplete data, the official reports drastically underestimated the severity of the outbreak in Black and Hispanic communities (Labgold et al., 2021). The missing data was not just a clerical error; it actively hid a public health crisis and delayed targeted medical interventions.
 
@@ -192,7 +192,7 @@ Instead of just throwing incomplete records away, ethical researchers explore sa
 
 
 
-## 13.7 Analytic Integrity and p-Hacking
+## Analytic Integrity and p-Hacking
 
 In 2018, a prominent food researcher at Cornell University, famous for studies showing how plate size affects appetite, resigned after an investigation into his research practices. Leaked emails revealed that when a study's initial results failed to show statistical significance, the researcher instructed his lab to "deep dive" into the data. He told them to break the participants into smaller groups (men versus women, lunch versus dinner, or specific age brackets) and run tests until they found a result that was mathematically significant. This practice ultimately led to the retraction of over 50 published scientific papers (Resnick, & Belluz, 2018).
 
@@ -213,7 +213,7 @@ P-hacking rarely involves inventing fake data. Instead, it relies on deceptive a
 
 Ultimately, analytic integrity requires discipline. You must decide exactly what you are going to test before you look at the data, and you must honestly report the results you find, even if those results are boring.
 
-## 13.8 Common Mistakes / Misconceptions
+## Common Mistakes / Misconceptions
 
 As you conduct your first real research projects or critically evaluate other researchers' work, keep these misconceptions in mind:   
 
@@ -224,7 +224,7 @@ As you conduct your first real research projects or critically evaluate other re
 - **"Math is objective, so algorithms cannot be biased."** Beginners often assume that because computers run on numbers, they are immune to prejudice. It is a common mistake to trust an algorithm implicitly without questioning its training data. An algorithm does not invent its own morality; it will efficiently scale whatever human biases were present in the historical data it was fed. Treating an algorithm's output as unquestionable truth is an ethical failure.
 - **"Research ethics only matters if you are completely faking the data."** When people  think of scientific misconduct, they usually imagine researchers fabricating spreadsheets out of thin air. They often do not realize that deceptive analytical mechanics are just as damaging to the scientific record. Quietly dropping "messy" participants from the dataset through listwise deletion, hiding failed tests, or running a dozen analyses until a $p$-value dips below 0.05 are severe ethical violations. Integrity means reporting the truth of the data, even when the results are boring.
 
-## 13.9 Key Concepts
+## Key Concepts
 
 1. **Data Governance and Stewardship:** **Data governance** is the institutional framework of rules dictating how data is collected and stored, while **data stewardship** is the individual researcher's active, ethical responsibility to protect that data and the people it represents.   
 2. **The Institutional Review Board (IRB):** An IRB is an independent committee that evaluates research protocols before a study begins. Their primary goal is to protect **human subjects**, ensure the study does not exceed **minimal risk**, and safeguard **vulnerable populations** who may not be able to freely give consent.   
@@ -233,7 +233,7 @@ As you conduct your first real research projects or critically evaluate other re
 5. **The Ethics of Omission:** Cleaning a dataset requires careful **data triage**. Using **listwise deletion** to throw away incomplete records can severely bias your results by silencing specific demographics. Advanced techniques like **imputation** offer more ethical ways to handle missing responses.   
 6. **Analytic Integrity and P-Hacking:** **P-hacking** is the unethical practice of manipulating your analysis to artificially push a $p$-value below the 0.05 significance level. This includes using unjustified one-sided tests, selectively analyzing subgroups, failing to adjust for multiple comparisons, and weaponizing large sample sizes to claim non-existent practical effects.   
 
-## 13.10 References
+## References
 
 Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016, May 23). Machine bias. *ProPublica*. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
 
@@ -261,7 +261,7 @@ Resnick, B. (2016, May 12). Researchers just released profile data on 70,000 OkC
 
 Resnick, B., & Belluz, J. (2018, September 20). A top Cornell food researcher has had 15 studies retracted. That’s a lot. *Vox*. https://www.vox.com/science-and-health/2018/9/19/17879102/brian-wansink-cornell-food-brand-lab-retractions-jama
 
-## 13.11 Exercises
+## Exercises
 
 ### Section A: Vocabulary and Concept Application
 These questions test your understanding of the core ethical frameworks and definitions introduced in this chapter.

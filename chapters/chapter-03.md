@@ -1,6 +1,6 @@
 # Hypothesis Testing and Effect Sizes
 
-## 3.1 Introduction
+## Introduction
 
 In recent years, psychologists and public health officials have grown increasingly interested in the connection between what we eat and how we feel. Imagine a team of researchers wants to know if a short-term, healthy diet intervention can genuinely reduce clinical depression symptoms in young adults. To investigate, they recruit 75 college students who report both elevated depression symptoms and poor dietary habits. They randomly assign half the students to receive healthy food packages and dietary guidance, while the control group maintains their usual eating habits. After three weeks, the researchers measure the change in everyone's depression scores.
 
@@ -23,7 +23,7 @@ But once we calculate our sample statistics, how do we make a definitive decisio
 
 By the end of this chapter, you will learn how to formally test these hypotheses and make rigorous, data-driven decisions. We will explore how to separate a true signal from random statistical noise, how to avoid making critical errors when weighing evidence, and how to determine not just whether an effect is mathematically real, but whether it is large enough to matter in practice.
 
-## 3.2 The Core Concept & The Framework of Evidence
+## The Core Concept & The Framework of Evidence
 
 ### Signal vs. Noise
 
@@ -72,7 +72,7 @@ Recall that we set up our competing hypotheses in such a way that rejecting the 
 
 Whenever we make a decision about the null hypothesis, we can be wrong in one of two ways. A **Type I error** is a false alarm (a false positive): we reject the null hypothesis when it is actually true. The significance level sets this risk: at $\alpha = .05$, we accept a 5% chance of a false alarm. A **Type II error** is a missed signal (a false negative): we fail to reject the null hypothesis when a real effect exists. Section 3.9 covers statistical power, which is the tool for keeping this error rare.
 
-## 3.3 Foundations of the *t* - Test
+## Foundations of the *t* - Test
 
 We understand that a p-value helps us weigh evidence. However, to calculate that p-value, we need a reliable mathematical tool. For comparing averages, our primary tool is the **t-test**.
 
@@ -100,7 +100,7 @@ Before running a t-test, we always check two primary conditions:
 
 If our data passes these visual checks, or if our sample size is large enough to override minor shape issues, we can confidently proceed to choosing the specific type of t-test that fits our research design.
 
-## 3.4 Choosing the Right Tool
+## Choosing the Right Tool
 
 We now know that the t-test is our mathematical tool for comparing averages and calculating a p-value. However, there is not just one standard t-test. There is a small family of them, and choosing the correct one depends entirely on how we gathered our data.
 
@@ -134,7 +134,7 @@ The most common scenario in a randomized controlled experiment is comparing two 
 
 Once you understand how your data was gathered, choosing the right test becomes a simple process of elimination. In the next few sections, we will walk through exactly how to interpret the results for each of these three tests.
 
-## 3.5 Single Sample *t*-tests
+## Single Sample *t*-tests
 
 When we start a new research project, we often need to establish a baseline. Before we can evaluate whether our diet intervention improved the students' mental health, we first need to verify that our sample exhibited elevated depression symptoms to begin with.
 
@@ -241,7 +241,7 @@ Notice that we wrote the scores were significantly "higher" than 16. Remember th
 
 
 
-## 3.6 Matched Pair *t*-tests
+## Matched Pair *t*-tests
 
 Now that we have established our students were experiencing elevated depression symptoms at the start of the study, we can move to our next research question. Did the students who received the healthy food packages see a significant improvement over the three weeks?
 
@@ -311,7 +311,7 @@ You might look at that conclusion and think the study is finished. The diet grou
 
 Perhaps the end of the 21 days simply aligned with the end of midterm exams, meaning everyone on campus felt less depressed. To prove the healthy food packages were the reason behind the improvement, we have to compare the diet group against the control group. 
 
-## 3.7 Independent Sample *t*-tests
+## Independent Sample *t*-tests
 
 At the end of the last section, we faced a critical issue. The diet group saw a significant improvement in their depression scores, but we could not be absolutely certain the healthy food changes *caused* that improvement. To definitively answer our primary research question, we must compare the improvement in the diet group against the improvement in the control group.
 
@@ -390,7 +390,7 @@ The secret lies in the study's design. If the researchers had simply handed out 
 
 However, this was not a survey. This was a randomized controlled experiment. By randomly assigning students to either the diet group or the control group, the researchers equally distributed all of those invisible variables (like sleep, stress, or academic workload) across both groups. Random assignment strips away the outside noise. Because the only systematic difference between the two groups was the healthy food packages, we earn the rare privilege of using the word "cause."
 
-## 3.8 Beyond the p-value: Practical Significance and Effect Sizes
+## Beyond the p-value: Practical Significance and Effect Sizes
 
 We have successfully used hypothesis testing to establish that the healthy diet intervention works. Our independent sample t-test gave us a p-value of .024, which is smaller than our .05 significance level. Because of this, we say our results are **statistically significant**.
 
@@ -506,7 +506,7 @@ Here is what the fully polished, professional conclusion looks like for our inde
 
 > "A Welch's independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (*M* = -6.03, *SD* = 10.53) than the control group (*M* = 0.11, *SD* = 12.38), *t*(71.72) = -2.31, *p* = .024, 95% CI [-11.42, -0.85], *d* = 0.53."
 
-## 3.9 Power Analysis
+## Power Analysis
 
 Throughout this chapter, we have analyzed data that was already collected. But what happens before a study begins? How did the researchers in our diet intervention study know they needed exactly 75 students? They did not just guess, and they did not simply recruit as many people as possible. They calculated their required sample size using a process called **Power Analysis**.
 
@@ -577,7 +577,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 
 
-## 3.10 Key Concepts
+## Key Concepts
 
 1. **Hypothesis testing separates signal from noise.** It is a formal procedure used to determine if an observed effect in your sample is real (the signal) or just random natural variation (the noise).
 2. **The p-value weighs the evidence.** It tells you how surprising your data would be if the null hypothesis were absolutely true. A remarkably small p-value provides strong evidence that the null hypothesis is false.
@@ -590,7 +590,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 
 
-## 3.11 New Notation
+## New Notation
 
 | **Symbol** | **How it is read aloud**            | **What it represents in plain words**                        |
 | ---------- | ----------------------------------- | ------------------------------------------------------------ |
@@ -607,7 +607,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 
 
-## 3.12 Exercises
+## Exercises
 
 ### Interpretation
 

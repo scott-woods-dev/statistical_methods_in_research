@@ -42,6 +42,7 @@ book:
   appendices:
     - chapters/appendix-glossary.md
     - chapters/appendix-datasets.md
+    - chapters/appendix-index.md
 
 format:
   html:

@@ -1,0 +1,50 @@
+# Glossary terms left out of the index: basic vocabulary, labels, and parts of
+# larger entries. One term per line, exactly as in the glossary. Blank lines and
+# lines starting with # are ignored.
+sample
+population
+statistic
+parameter
+sample size
+proportion
+signal
+noise
+cell
+bin
+treatment
+treatment group
+factor
+factor level
+continuous variable
+discrete variable
+nominal variable
+ordinal variable
+numerical variable
+categorical variable
+binary outcome
+predictor variable
+response variable
+grouping variable
+observed variable
+bimodal
+unimodal
+multimodal
+modal
+symmetric
+left-skewed
+right-skewed
+true positive
+false positive
+true negative
+false negative
+t-value
+between-groups variation
+within-groups variation
+total variation
+confounding factor
+resistant measure
+non-resistant measure
+significance stars
+reliable estimator
+median difference
+proportion of variance

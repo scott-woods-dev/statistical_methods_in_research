@@ -1,0 +1,12 @@
+# Extra search phrases for a glossary term: "term | alias; alias". Aliases that
+# are all capitals match case-sensitively. Parenthetical acronyms in the glossary
+# (for example "(AUC)") are picked up without an entry here. Terms containing math
+# need an entry, because the script cannot search for $...$ text.
+adjusted deviance $R^2$ | adjusted deviance R-squared
+Cramér's V | Cramer's V
+adjusted $R^2$ | adjusted R-squared; adjusted R^2
+adjusted deviance $R^2$ | adjusted deviance R-squared; adjusted deviance R^2
+Cohen's $d$ | Cohen's d
+deviance $R^2$ | deviance R-squared; deviance R^2
+Hedges' $g$ | Hedges' g
+rare events rule | rare events

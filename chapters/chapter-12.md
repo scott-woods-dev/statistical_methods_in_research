@@ -1,6 +1,6 @@
 # Time Series Analysis
 
-## 12.1 Introduction
+## Introduction
 
 Throughout this book, we have largely studied static snapshots of data. However, the world is dynamic, and the systems we study in the social sciences change constantly. **Time series analysis** is a set of statistical techniques designed to evaluate data points collected in a specific chronological order over regular intervals.
 
@@ -31,7 +31,7 @@ By the end of this chapter, you will transition away from the visual tools we us
 
 
 
-## 12.2 The Purpose of Time Series Analysis
+## The Purpose of Time Series Analysis
 
 When we analyze data collected chronologically, our primary goal is to break the data down into understandable, predictable components. True time series analysis is much more sophisticated than simply placing time on the x-axis and drawing a line of best fit through the center of the data. While a simple linear regression model might show us a general upward trajectory, it smooths over the rich, dynamic reality of human behavior.
 
@@ -73,7 +73,7 @@ This deep, sequential connection is called **autocorrelation**, and it fundament
 
 
 
-## 12.3 The Independence Violation: Autocorrelation
+## The Independence Violation: Autocorrelation
 
 In our previous chapters on linear regression, we relied on a foundational assumption: independence. We assumed that each observation in a dataset was a separate, isolated event. If we survey one student about their sleep habits, their answer should not mechanically dictate the answer of the next student we randomly select.
 
@@ -121,7 +121,7 @@ When a regression model double-counts evidence like this, it becomes wildly over
 
 
 
-## 12.4 Forecasting: An Introduction to ARIMA Models
+## Forecasting: An Introduction to ARIMA Models
 
 Once we understand the overarching trajectory and the sequential momentum of our data, our next goal is often to predict the future. In time series analysis, predicting future values based on historical patterns is called **forecasting**.   
 
@@ -171,7 +171,7 @@ Finally, this forecast provides a perfect reminder of why human researchers must
 
 
 
-## 12.5 Common Mistakes / Misconceptions
+## Common Mistakes / Misconceptions
 
 As you go out and build your own time series plots and prediction models, keep these common mistakes in mind:
 
@@ -182,7 +182,7 @@ As you go out and build your own time series plots and prediction models, keep t
 
 
 
-## 12.6 Key Concepts
+## Key Concepts
 
 1. **The Architecture of Time:** Time series analysis is designed to evaluate chronologically ordered data by breaking it down into three distinct structural components: overarching trends, predictable cyclical patterns (seasonality), and random irregular movements.   
 2. **Preserving the Timeline:** We cannot use tools like histograms for sequential data because they destroy the chronological order. Instead, we rely on time series plots to visually trace the data over time.   
@@ -191,7 +191,7 @@ As you go out and build your own time series plots and prediction models, keep t
 5. **The Danger of Standard Regression:** Using a simple line of best fit on time series data ignores cyclical seasonality and autocorrelation, resulting in a model that is mathematically overconfident and practically flawed.   
 6. **Forecasting:** Specialized structural algorithms, like the ARIMA model, map historical trends and momentum to predict future values. However, these predictions are not guarantees, and their accompanying prediction intervals grow wider as they project further into the unknown future.   
 
-## 12.7 New Notation
+## New Notation
 
 | **Symbol** | **How it is read aloud** | **What it represents in plain words**                        |
 | ---------- | ------------------------ | ------------------------------------------------------------ |
@@ -201,7 +201,7 @@ As you go out and build your own time series plots and prediction models, keep t
 
 : Table 12.1: Notation introduced in this chapter.
 
-## 12.8 Exercises
+## Exercises
 
 ### Interpretation
 

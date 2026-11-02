@@ -1,6 +1,6 @@
 # Factor Analysis
 
-## 11.1 Introduction
+## Introduction
 
 Imagine a social psychologist wants to understand what drives human attraction during a first impression. You cannot simply walk up to someone after a date and measure their feelings with a physical ruler. Attraction, compatibility, and romantic appeal are abstract ideas. In the social sciences, we call these hidden, unobservable ideas **latent constructs** (underlying traits or concepts that cannot be measured directly, such as intelligence, anxiety, or social appeal).
 
@@ -47,7 +47,7 @@ By the end of this chapter, you will know how to use factor analysis to uncover 
 
 
 
-## 11.2 The Purpose of Factor Analysis: Uncovering Latent Constructs
+## The Purpose of Factor Analysis: Uncovering Latent Constructs
 
 When researchers design a survey, they often write dozens of questions to capture how people think, feel, or behave. However, individual survey questions are rarely the true target of the research. If a psychologist asks you ten different questions about your sleeping habits, your appetite, and your daily energy levels, they are not actually studying sleep or appetite in isolation. Instead, they care about the broader, hidden concept of clinical depression that sits behind those questions.
 
@@ -117,7 +117,7 @@ If you want to hear the pure voices of the two singers, you do not want to crank
 
 Factor analysis does the same thing with survey data. Suppose a psychologist wants to isolate the pure concept of "Socioeconomic Status" from the ratings of `IntelligentF`, `AmbitiousF`, and `SincereF`. Each of those three ratings contains a mix of the shared theme (communality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared communality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.   
 
-## 11.3 Reading Factor Analysis Tables
+## Reading Factor Analysis Tables
 
 Knowing that hidden factors exist in theory is helpful, but as a researcher, you need to know how to spot them in your software output. When you run a factor analysis in a program like SPSS, Minitab, or Stata, the software generates several diagnostic tables. To build your intuition step by step, we will walk through the two most important tables side by side: the correlation matrix and the rotated factor matrix.   
 
@@ -208,7 +208,7 @@ Once you have confirmed which variables load onto each factor, you are ready to 
 
 
 
-## 11.4 The Great Debate: Factor Analysis versus Principal Components Analysis
+## The Great Debate: Factor Analysis versus Principal Components Analysis
 
 If you open almost any major statistical software package and look for a drop-down menu labeled "Factor Analysis," you will encounter one of the most notorious software traps in the social sciences. In many programs, the default extraction method is not actually factor analysis at all. Instead, the default setting is a technique called **Principal Components Analysis (PCA)**.   
 
@@ -263,7 +263,7 @@ If your only goal is to shrink a large database of 1,000 variables down to 50 va
 
 
 
-## 11.5 Choosing Your Tools: Extraction Methods and Analysis Approaches
+## Choosing Your Tools: Extraction Methods and Analysis Approaches
 
 Once you move past the Principal Components Analysis software trap, your statistical software will present you with a list of true factor analysis methods. The two most common choices in the social sciences are Principal Axis Factoring and Maximum Likelihood.   
 
@@ -297,7 +297,7 @@ For example, suppose you want to demonstrate that the female ratings for `Attrac
 
 Because Confirmatory Factor Analysis is an advanced structural modeling technique, most introductory social science research relies entirely on Exploratory Factor Analysis. However, running an exploratory analysis leaves us with one unanswered question. If we are truly exploring the data from scratch, how did we know to tell the software to look for exactly two factors in Section 11.3?   
 
-## 11.6 Visualizing Factors: Scree Charts
+## Visualizing Factors: Scree Charts
 
 When you run an exploratory factor analysis, the software does not inherently know how many hidden concepts exist in your survey. If you do not know the answer either, how do you decide how many factors to extract? You rely on a visual diagnostic tool called a **scree chart** (a line graph that displays the amount of total variation each potential factor explains, allowing researchers to visually identify the optimal number of factors to keep).   
 
@@ -329,7 +329,7 @@ Figure 11.1 shows the scree chart for the six female partner ratings in `speed_d
 
 ![Figure 11.1: Scree chart for the six female partner ratings (n = 238). The first eigenvalue is 2.86 and the second is 1.22; the line then falls to 0.61 at Factor 3 and flattens across Factors 4 through 6. The elbow falls at Factor 3, so the first two factors are retained.](../figures/chapter_11/fig_11_01_line_scree_female_ratings.png){fig-alt="Line chart of eigenvalues for six factors from the female ratings. Values are 2.86, 1.22, 0.61, 0.54, 0.42, and 0.35. The line drops steeply through Factor 2 and flattens after Factor 3."}
 
-## 11.7 Revisiting Cronbach's Alpha: Validating the Scale
+## Revisiting Cronbach's Alpha: Validating the Scale
 
 Once you use a scree chart to extract your factors and a rotated factor matrix to name them, what do you do with the results?   
 
@@ -416,7 +416,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 : Table 11.4: Chapter 11 notation guide.
 
-## 11.8 Exercises
+## Exercises
 
 ### Interpretation
 

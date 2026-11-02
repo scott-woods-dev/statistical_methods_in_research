@@ -1,6 +1,6 @@
 # Multiple Regression for Complex Systems
 
-## 5.1 Introduction
+## Introduction
 
 Imagine you are a researcher investigating neonatal health. You want to understand what factors correlate with an infant's birth weight. In Chapter 4, you learned how to model a relationship between two variables using simple linear regression. However, human biology and social systems are rarely that simple. A baby's birth weight is not determined by just one factor.
 
@@ -18,7 +18,7 @@ To explore this complexity, we will use a sample of 1,000 live birth events. The
 
 In this chapter, you will learn how to expand your modeling toolkit. You will discover how to evaluate multiple overlapping variables at the same time to understand complex systems.
 
-## 5.2 What is Multiple Regression?
+## What is Multiple Regression?
 
 In previous chapters, you used simple linear regression to predict a single outcome. You relied on just one predictor to make that estimate. We must now upgrade that tool.
 
@@ -42,7 +42,7 @@ We call this overlapping interference a **confounding factor**. A confounding fa
 
 To fix this bias, we must build a multiple regression model. We add gestational duration (`weeks`) to our equation alongside prenatal visits. By adding multiple predictors, we can account for confounding factors and get an accurate picture of what is truly driving the outcome.
 
-## 5.3 What "Controlling For" a Variable Means
+## What "Controlling For" a Variable Means
 
 When you read news articles about medical research, you often see a specific phrase. The article might say, "Researchers found a link between a new medication and lower blood pressure, even after controlling for age and diet." But what does that mean?
 
@@ -89,7 +89,7 @@ Why did this happen? The multiple regression model is now controlling for gestat
 
 By adding predictors, we strip away the confounding noise. This allows us to see how one specific variable behaves when all other factors in the model are frozen in place.
 
-## 5.4 Evaluating the Model
+## Evaluating the Model
 
 You just built a multiple regression model to neutralize a confounding factor. However, before you analyze individual variables, you must consider the big picture. Does your new complex model explain anything useful?
 
@@ -133,7 +133,7 @@ The slope for gestational duration (`weeks`) is $0.27201$. For every additional 
 
 Finally, turn to the starting value, which is the intercept of $-3.596$. By definition, the regression intercept is the predicted outcome when all of your predictors are exactly zero. In this model, that means predicting the birth weight for a mother who made zero prenatal visits and was pregnant for zero weeks. This is biologically impossible. Therefore, this specific intercept simply anchors the math behind the scenes. It has no meaningful interpretation for your research.
 
-## 5.5 Evaluating Predictors
+## Evaluating Predictors
 
 Once you build a multiple regression model, you might wonder which variable is doing the most work. You might be tempted to just look for the largest slope. You must avoid this common trap.
 
@@ -172,7 +172,7 @@ Now consider `weeks`. The T-Value is $19.26$. The gestational duration signal is
 
 Both variables are statistically significant predictors of birth weight. Comparing the T-values reveals the true story: gestational duration provides a much stronger and clearer signal than the number of prenatal visits.
 
-## 5.6 Binary Predictors
+## Binary Predictors
 
 Up to this point, all of our predictors have been numerical variables. But what if we want to include a category? In social science research, we frequently need to control for group membership or behavioral choices.
 
@@ -222,7 +222,7 @@ Crucially, this difference assumes we are comparing mothers whose pregnancies la
 
 
 
-## 5.7 Categorical Predictors
+## Categorical Predictors
 
 The `habit` variable is a binary predictor because it only has two possible answers. But what happens if a survey asks a question with three or more possible categories?
 
@@ -268,7 +268,7 @@ By using indicator variables, you can incorporate complex survey responses into 
 
 
 
-## 5.8 Interactions
+## Interactions
 
 So far, we have assumed that our predictors act independently. We assumed that the penalty for smoking is exactly the same for every mother, regardless of her age. However, social and biological factors often intertwine.
 
@@ -328,7 +328,7 @@ In this model, the p-value for the `mature` $\times$ `smoker` interaction is $0.
 
 When an interaction is not significant, you should delete it from your model. You then rerun the analysis using only the main effects. Once you have that simpler model, you can safely read the p-values for the individual variables again.
 
-## 5.9 Multicollinearity
+## Multicollinearity
 
 When we build multiple regression models, we want to add predictors that bring new, unique information to the table. But what happens if two predictors bring the same information?
 
@@ -362,7 +362,7 @@ When we check the software diagnostics, the VIF is only $1.93$.
 
 This is a perfect example of why we rely on data rather than assumptions. While the parents' ages are related, they do not overlap enough to break the model. The VIF is well below the danger zone of $5$. The model can safely distinguish between the two variables.
 
-## 5.10 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you transition from simple models to multiple regression, the math becomes more complex. Here are the most common traps researchers fall into when analyzing multiple variables at once.
 
@@ -436,7 +436,7 @@ When you add categorical variables to a model, the software creates on-and-off s
 
 That slope only exists in comparison to the hidden baseline group. If your baseline is a High School education, the Bachelor's Degree slope only tells you the difference between those two specific groups. It does not represent the entire population average.
 
-## 5.11 Reading Published Research
+## Reading Published Research
 
 When you read social science journals, you will rarely see a single regression equation. Instead, researchers use a **side-by-side model comparison table**. This format allows you to watch the math change as new control variables are added.
 
@@ -504,7 +504,7 @@ Finally, examine the bottom rows of the table. You want to see if the added comp
 
 Let's check the Adjusted $R^2$. In Model 1, education alone only explained $12\%$ of the variation in starting salaries. By Model 3, the Adjusted $R^2$ climbs to $38\%$. This steady increase proves that adding experience and parental income was theoretically justified. The full model gives us a much more accurate and honest picture of reality. Be suspicious of more complex models that end up have lower Adjusted $R^2$, as that typically means the additional complexity did not add utility to the model.
 
-## 5.12 Guided Analysis: The Wage Gap
+## Guided Analysis: The Wage Gap
 
 To bring all of these concepts together, we will walk through a complete research scenario. We will explore the gender wage gap in higher education using the `college_teacher_salary_2023.csv` dataset. This dataset contains a random sample of 200 postsecondary educators in the United States.
 
@@ -569,7 +569,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 
 > "A multiple regression was conducted to predict annual teaching salary from biological sex, age, and doctoral degree status. The overall model was statistically significant, *F*(3, 196) = 18.49, *p* < .001, with an Adjusted $R^2$ of .21. While age (*p* = .017) and holding a PhD (*p* < .001) were significant positive predictors of salary, biological sex was also a significant predictor (*p* = .003) when controlling for these factors."
 
-## 5.13 Key Concepts
+## Key Concepts
 
 1. **Multiple regression** expands our modeling toolkit by allowing us to predict a continuous numerical outcome using two or more predictors simultaneously.
 2. Adding predictors allows us to account for **confounding factors** and cure **omitted variable bias**.
@@ -581,7 +581,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 8. **Multicollinearity** happens when predictors overlap heavily and fight for credit in the equation. It is tracked using the **Variance Inflation Factor (VIF)**, where values above 5 signal a dangerous overlap.
 9. **Adjusted $R^2$** penalizes a model for adding useless variables. It is the best metric for evaluating multiple regression accuracy and helps prevent researchers from **overfitting** their models to random noise.
 
-## 5.14 New Notation
+## New Notation
 
 | **Symbol**         | **How it is read aloud**               | **What it represents in plain words**                        |
 | ------------------ | -------------------------------------- | ------------------------------------------------------------ |
@@ -590,7 +590,7 @@ Here is how you would write an APA-formatted conclusion for our analysis:
 
 : Table 5.8: Notation introduced in this chapter.
 
-## 5.15 Exercises
+## Exercises
 
 ### Interpretation
 

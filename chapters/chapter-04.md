@@ -1,6 +1,6 @@
 # Correlation and Simple Linear Regression
 
-## 4.1 Introduction
+## Introduction
 
 
 
@@ -31,7 +31,7 @@ By the end of this chapter, you will learn how to measure the exact strength of 
 
 
 
-## 4.2 First Things First: Linear Correlation and the Coefficient of Determination
+## First Things First: Linear Correlation and the Coefficient of Determination
 
 In our initial explorations of data, we learned that scatterplots are the perfect visual tool for exploring the relationship between two numerical variables. For our current analysis, we want to map the raw connection between a country's economic baseline and its physical strain on the environment. To do this, we will pair `GDPperCapita` with `Footprint`.
 
@@ -140,7 +140,7 @@ By pairing $r$ and $R^2$, you give your readers a complete picture. The linear c
 
 
 
-## 4.3 Foundations of Modeling: The Four-Step Process
+## Foundations of Modeling: The Four-Step Process
 
 Knowing that a strong correlation exists between two variables is a good starting point. However, researchers usually want to do more than point out a connection; they want to build a mathematical tool that can make actual predictions. We call this tool a statistical model.
 
@@ -169,7 +169,7 @@ However, in the social sciences, researchers often combine many ordinal question
 
 But tread carefully: a broad 10-point scale is not a statistical "get out of jail free" card. As we learned in Chapter 2, before you can safely treat any composite ordinal score as a true numerical variable, you must rigorously establish its **reliability** and **validity**. You must prove that your survey consistently yields the same results under the same conditions (reliability) and that it genuinely measures the abstract concept you claim it measures (validity). Only after those foundational design checks are passed can we safely use a variable like the Ladder of Life as the response variable in our modeling process.
 
-## 4.4 Fitting the Model: The Regression Line
+## Fitting the Model: The Regression Line
 
 Now that we understand the four-step process, let us put it into action. For our primary application, we want to know if the wealth of a society can predict its environmental impact. We will build a model using a country's GDP per capita (our predictor variable, or $x$) to predict its ecological footprint (our response variable, or $y$).
 
@@ -219,7 +219,7 @@ If you want to know how strong the relationship is, you must check your linear c
 
 
 
-## 4.5 Model Diagnostics: Checking Our Work
+## Model Diagnostics: Checking Our Work
 
 We have chosen a linear form, and our software has calculated the exact mathematical line that best fits the relationship between a country's wealth and its ecological footprint. It is tempting to take our slope and intercept, declare victory, and immediately start making predictions. However, we are only on the third step of our four-step modeling process.
 
@@ -308,7 +308,7 @@ If a model's errors follow this predictable, normal pattern, statisticians can r
 > - **N**ormality (The errors form a rough bell curve)
 > - **E**qual Variance (The vertical spread of the dots remains constant)
 
-## 4.6 The Anomalies: Outliers and Influential Points
+## The Anomalies: Outliers and Influential Points
 
 When we first introduced the concept of outliers in Chapter 1, we defined them simply as data points that were unusually high or low compared to the rest of a single variable. But in linear regression, the definition of an anomaly becomes a bit more complex.
 
@@ -374,7 +374,7 @@ If you make this choice, you must do so with perfect ethical transparency. Stand
 
 
 
-## 4.7 Handling Curves: Logarithmic Transformations
+## Handling Curves: Logarithmic Transformations
 
 Throughout this chapter, we have firmly established that linear regression requires a straight-line relationship. Our first and most important diagnostic check is to verify that the pattern in our scatterplot does not curve.
 
@@ -453,7 +453,7 @@ By applying a log transformation to linearize the data, you allow your mathemati
 
 
 
-## 4.8 Inference and Predictions
+## Inference and Predictions
 
 If your model has successfully passed the L.I.N.E. diagnostic checks, you are finally ready for the fourth and final step of the modeling process: using the line to make inferences.
 
@@ -520,7 +520,7 @@ Notice how much wider the Prediction Interval is than the Confidence Interval! T
 
 It is relatively easy for a model to predict the steady, reliable average of a large group of countries. It is mathematically much harder to predict the behavior of one single, unique country with its own distinct culture, politics, and geography. Because predicting an individual carries far more uncertainty, the Prediction Interval must cast a much wider net to maintain that 95% level of confidence.
 
-## 4.9 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you begin applying regression analysis to your own research, keep these common pitfalls in mind:
 
@@ -529,7 +529,7 @@ As you begin applying regression analysis to your own research, keep these commo
 - **The "Bigger Slope is Better" Fallacy:** New researchers often see a large slope coefficient and assume it represents a stronger influence than a smaller slope. This is incorrect. Slope represents the rate of change based on the units of measurement (e.g., dollars vs. thousands of dollars). To judge the strength of the relationship, use the correlation ($r$).
 - **Extrapolation:** A regression line is only valid within the boundaries of the data you collected. Using that line to predict values far outside your observed range (like predicting the life expectancy of a hypothetical nation with one billion dollars of GDP) is a gamble, not science.
 
-## 4.10 Key Concepts
+## Key Concepts
 
 1. **Linear Correlation ($r$):** Measures the direction and strength of a straight-line relationship between two numerical variables (range: -1 to 1).
 2. **Coefficient of Determination ($R^2$):** Tells you the percentage of variation in the response variable explained by the predictor variable.
@@ -540,7 +540,7 @@ As you begin applying regression analysis to your own research, keep these commo
 7. **Log Transformation:** A method to "linearize" curved (fundamentally exponential) relationships so they can be analyzed using standard linear regression tools.
 8. Confidence and Prediction Intervals: When making predictions at a particular $x$ value, a Confidence Interval will tell you where you can expect to find the average, and the Prediction Interval will tell you where you can expect to find an new, unobserved individual value.
 
-## 4.11 New Notation
+## New Notation
 
 | **Symbol** | **Read Aloud** | **Represents in Plain English**                              |
 | ---------- | -------------- | ------------------------------------------------------------ |
@@ -553,7 +553,7 @@ As you begin applying regression analysis to your own research, keep these commo
 
 : Table 4.1: Notation used in this chapter, with how each symbol is read aloud.
 
-## 4.12 Exercises
+## Exercises
 
 ### Interpretation
 

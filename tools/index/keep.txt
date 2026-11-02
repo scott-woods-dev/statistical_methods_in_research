@@ -1,0 +1,8 @@
+# Terms with no substantively discussed section that still belong in the index.
+# They list their three most-mentioned sections. One term per line.
+normal distribution
+chi-square statistic
+normality test
+predicted probability
+paired data
+algorithmic bias

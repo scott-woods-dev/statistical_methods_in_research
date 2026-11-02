@@ -1,6 +1,6 @@
 # From Research Questions to Formal Hypotheses
 
-## 2.1 Introduction
+## Introduction
 
 Suppose you want to investigate whether systemic racial discrimination exists within corporate hiring. This is a serious social question, but how do you reliably measure bias? You cannot simply ask employers if their hiring practices are discriminatory. Instead, you need a measurable, objective signal of their behavior.
 
@@ -24,7 +24,7 @@ While the original experimental data file contains 63 different columns of infor
 
 In this chapter, you will learn how to take a broad research interest, like evaluating hiring bias, and translate it into a concrete statistical framework. By the end of this chapter, you will know how to transform abstract concepts into measurable variables, evaluate the quality of your data gathering methods, and construct formal null and alternative hypotheses to rigorously evaluate your claims.
 
-## 2.2 The Scientific Process
+## The Scientific Process
 
 Science begins with curiosity. In the social sciences, this curiosity often starts as a broad **research goal**, which we define as a general statement about the phenomenon you want to understand. In our motivating example, the researchers had a clear goal. They wanted to investigate whether systemic racial discrimination manifests within corporate hiring pipelines.
 
@@ -52,7 +52,7 @@ This is why the transition from a vague interest to a concrete question is the f
 
 
 
-## 2.3 Operationalization of Variables and Proxy Variables
+## Operationalization of Variables and Proxy Variables
 
 When we have a specific research question, we face a new challenge. How do we measure the things we want to study? Concepts like "racial bias" or "labor market interest" are abstract. You cannot put them on a scale or measure them with a ruler.
 
@@ -68,7 +68,7 @@ Sometimes, a concept is so abstract or difficult to observe that we cannot measu
 
 In our motivating study, the researchers wanted to measure how an applicant's race affected an employer's response. However, an employer reviewing a resume does not see the applicant in person. How could the researchers introduce the concept of race onto a piece of paper? They operationalized perceived racial identity using a proxy variable: the applicant's first name. By randomly assigning names statistically associated with White or African-American individuals (recorded in the `first_name` variable of our dataset), they created a measurable, observable proxy for the abstract concept of perceived race.
 
-## 2.4 Measurement Quality: Reliability and Validity
+## Measurement Quality: Reliability and Validity
 
 Once you have operationalized a concept into a measurable variable, you must evaluate the quality of that measurement. Just because you can measure something does not mean you are measuring it well. We judge measurement quality using two foundational concepts: reliability and validity.
 
@@ -88,7 +88,7 @@ Let's identify the outcome variable in our resume dataset, `call`. The researche
 
 However, you must recognize the limits of validity. Is the `call` variable a valid measure of *ultimate hiring rates* or *starting salary*? No. An employer might call a candidate for an interview but harbor hidden biases that prevent them from ultimately offering the job. A measure is only valid for the specific, narrow phenomenon it captures. This is why you must always align your final research conclusions strictly with the variables you actually measured.
 
-## 2.5 Internal Consistency and Cronbach's Alpha
+## Internal Consistency and Cronbach's Alpha
 
 In the previous section, we used the example of a bathroom scale to understand reliability. Physical measurements are usually straightforward. But how do you measure a psychological construct that you cannot physically weigh, like "math anxiety"?
 
@@ -123,7 +123,7 @@ Cronbach's alpha gives us a final value that generally ranges from $0$ to $1$.
 
 In the social sciences, researchers generally look for a Cronbach's alpha of **0.70 or higher** before they consider a summated scale to be reliable enough to use in a study. For the math anxiety data, we would find a Cronbach's alpha well above $0.80$. Because the scale exceeds the $0.70$ threshold, we have the mathematical green light to sum those nine items into a single, reliable "Math Anxiety" composite score for each participant.
 
-## 2.6 Methods of Data Gathering
+## Methods of Data Gathering
 
 Once you have defined your research question and decided exactly how to measure your variables, you face a logistical hurdle. How do you go out into the world and collect the data? In the social sciences, researchers generally choose between two primary methods of data gathering: observational studies and controlled experiments.
 
@@ -185,7 +185,7 @@ This is why randomized, controlled experiments are considered the gold standard 
 
 
 
-## 2.7 Translating Research Questions into Statistical Questions
+## Translating Research Questions into Statistical Questions
 
 We have moved from a broad research goal to a specific research question. However, we are still not quite ready to apply our mathematical tools. This next transition is often one of the most challenging steps in the entire research process. We must translate our specific research question into a formal **statistical question**.
 
@@ -241,7 +241,7 @@ By forcing yourself to identify the specific measure (like a mean, median, or pr
 
 
 
-## 2.8 Formalizing Hypotheses
+## Formalizing Hypotheses
 
 We have successfully translated our broad research interest into a specific statistical question: *Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?* The final step before we can analyze any data is to set up a formal framework for testing this question. In statistics, we do this by establishing two competing claims about the population. We call these claims hypotheses.
 
@@ -343,7 +343,7 @@ With these formal mathematical statements locked in place, our research blueprin
 
 
 
-## 2.9 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you begin translating your own research ideas into formal statistical frameworks, watch out for these three common traps.
 
@@ -377,7 +377,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 
 
-## 2.10 Key Concepts
+## Key Concepts
 
 1. The scientific process requires translating a broad research goal into a specific, measurable research question before gathering any data.
 2. **Operationalization** is the process of defining exactly how you will measure an abstract concept, often requiring a **proxy variable** if the concept cannot be observed directly.
@@ -389,7 +389,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 8. The **alternative hypothesis** ($H_1$) represents the claim of a significant effect or difference. It is established only when the data provides overwhelming evidence.
 9. Modern ethical research expects two-sided hypothesis testing (using $\neq$), checking for an effect in any direction before determining its specific size.
 
-## 2.11 New Notation
+## New Notation
 
 | **Symbol** | **Read Aloud As**      | **What it Represents**                                       |
 | ---------- | ---------------------- | ------------------------------------------------------------ |
@@ -398,7 +398,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 : Table 2.2: Notation for the null and alternative hypotheses.
 
-## 2.12 Chapter Exercises
+## Chapter Exercises
 
 ### Interpretation
 

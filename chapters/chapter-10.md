@@ -1,6 +1,6 @@
 # Nonparametric Tests
 
-## 10.1 Introduction
+## Introduction
 
 Up to this point, you have relied on a core set of statistical tools to answer your research questions. You have used $t$-tests to compare group averages, ANOVA to evaluate multiple treatments, and linear regression to track relationships. However, these traditional methods come with strict mathematical assumptions. They often require normally distributed data, large sample sizes, and continuous numerical measurements. 
 
@@ -32,7 +32,7 @@ In this chapter, we will explore five common research scenarios where a standard
    - *Why standard tests fail:* Graduate students make up a tiny proportion of our sample. When you cross-tabulate the data, the expected cell counts for graduate students drop below the minimum threshold of five, making a Chi-Square test invalid.   
    - *The solution:* **Fisher's Exact Test**, which evaluates categorical associations without requiring a minimum expected cell count, allowing you to analyze small or unbalanced samples safely. 
 
-## 10.2 The Core Concept: When to Switch to Nonparametric Options
+## The Core Concept: When to Switch to Nonparametric Options
 
 We have just previewed specific scenarios where our standard tools fall apart. But what exactly is breaking under the hood? Traditional models (like $t$-tests and ANOVA) are called parametric tests because they make strict assumptions about the parameters of your population. When those assumptions fail, your results lose their validity.
 
@@ -54,7 +54,7 @@ As a researcher, you will primarily encounter three scenarios where traditional 
 
 
 
-## 10.3 The Cost of Flexibility: Statistical Power
+## The Cost of Flexibility: Statistical Power
 
 If nonparametric tests are so flexible and safe, why don't we just use them all the time? Why did we spend the last several chapters stressing the importance of bell curves and equal variances?
 
@@ -70,7 +70,7 @@ In statistics, there is a strict trade-off between flexibility and power. Parame
 
 If you use a nonparametric test, you will need a larger effect size or a larger sample to prove your case compared to a traditional test. This is why statisticians view these tests as a hierarchy. We always want to use the most powerful test our data can safely handle. If the assumptions fail, we drop down to the next safest alternative, accepting a slight loss in power to keep our results mathematically valid. And if the assumptions for *that* test fail, the field of statistics is deep enough that there is almost always another tool we can drop down to, though it will cost us even more power.
 
-## 10.4 Choosing Between Tests for a Median
+## Choosing Between Tests for a Median
 
 In earlier chapters, we used the paired $t$-test, the independent samples $t$-test, and the One-Way ANOVA. All of those tests have one thing in common. They evaluate the mean. But what happens when the mean stops making sense?   
 
@@ -92,7 +92,7 @@ Choosing the right nonparametric test follows the same logic you learned in earl
 - **Two Independent Groups:** Other times, you want to compare two separate groups of people who have no connection to one another. For example, you might want to compare the salaries of male professors to female professors. When you are comparing two independent groups, and extreme outliers make the median a better choice than the mean, you should use the **Mann-Whitney U Test**. This is your nonparametric alternative to the independent $t$-test.   
 - **Three or More Groups:** Finally, you might want to compare three or more distinct groups. For example, you might want to see if grade point averages differ across survey categories of drinking habits, like "Abstain," "Light," "Moderate," or "Heavy." Because these categories are ordinal variables, meaning they are ranked in a specific order, we cannot calculate a proper mean for them. To solve this, you should use the **Kruskal-Wallis Test**. This test evaluates differences across multiple groups by comparing how the data ranks, making it your safe alternative to the One-Way ANOVA.   
 
-## 10.5 The Wilcoxon Signed-Rank Test
+## The Wilcoxon Signed-Rank Test
 
 When you are working with paired data, your instinct is likely to reach for the paired $t$-test. But as we discussed earlier, traditional tests have strict boundaries. The **Wilcoxon Signed-Rank Test** is your nonparametric alternative for evaluating paired, within-subject differences when your sample size is too small to assume a normal distribution.   
 
@@ -148,7 +148,7 @@ $H_1: Median_{\text{Amazon}} \neq Median_{\text{Bookstore}}$ (The median price o
 
 With our hypotheses clearly defined and our nonparametric tool selected, we are ready to feed our data into our statistical software and evaluate the results.
 
-## 10.6 Interpreting Software Output for the Wilcoxon Signed-Rank Test
+## Interpreting Software Output for the Wilcoxon Signed-Rank Test
 
 When you run the Wilcoxon Signed-Rank Test using the `textbook_prices.csv` dataset, the software evaluates the differences between the two prices for each textbook. Here is a typical results table generated by a program like Minitab:   
 
@@ -208,7 +208,7 @@ For example, a complete write-up in a research journal would look like this: "Th
 
 
 
-## 10.7 The Mann-Whitney U Test
+## The Mann-Whitney U Test
 
 When you need to compare two separate groups of people, your first instinct is likely to use the independent samples $t$-test. However, just like the paired $t$-test, the independent $t$-test requires the mean to be a reliable measure of the center. When your data is heavily skewed, the mean loses its meaning, and you must switch to a nonparametric alternative. The **Mann-Whitney U Test** is your tool for comparing two independent groups when extreme outliers make a median a much more accurate reflection of the typical subject. 
 
@@ -258,7 +258,7 @@ With our hypotheses formalized and our nonparametric tool selected, we are ready
 
 
 
-## 10.8 Interpreting Software Output for the Mann-Whitney U Test
+## Interpreting Software Output for the Mann-Whitney U Test
 
 When you run the Mann-Whitney U Test using the `college_teacher_salary_2023.csv` dataset, the software evaluates the salaries of the male and female professors independently. Here are the results generated by our statistical software:   
 
@@ -306,7 +306,7 @@ Finally, we must communicate these findings clearly in a formal report. Just lik
 
 
 
-## 10.9 The Kruskal-Wallis Test
+## The Kruskal-Wallis Test
 
 When you want to compare three or more distinct groups, your standard parametric tool is the One-Way ANOVA. However, ANOVA relies heavily on comparing the means of your groups. If your numerical data is heavily skewed or bounded, those means will not accurately reflect your typical subjects.   
 
@@ -360,7 +360,7 @@ With our hypotheses established, we can run the Kruskal-Wallis test in our stati
 
 
 
-## 10.10 Interpreting Software Output for the Kruskal-Wallis Test
+## Interpreting Software Output for the Kruskal-Wallis Test
 
 When you run a Kruskal-Wallis test using the `student_lifestyle_sleep.csv` dataset, the software pools all the grade point averages, ranks them, and then checks how those ranks are distributed across the four different `AlcoholUse` categories. Consider the results generated by statistical software like Minitab:   
 
@@ -407,7 +407,7 @@ To conclude this analysis formally in your Results section, you would pair your 
 
 > A Kruskal-Wallis test was conducted to determine if typical academic performance differs across alcohol consumption categories. While the sample medians suggested a descending trend in GPA as alcohol use increased (Abstain $Mdn = 3.40$, Light $Mdn = 3.30$, Moderate $Mdn = 3.25$, Heavy $Mdn = 3.10$), this difference was not statistically significant, $H(3) = 5.46$, $p = .141$.
 
-## 10.11 Measuring Correlation: Spearman's Rho
+## Measuring Correlation: Spearman's Rho
 
 Up to this point, we have used the nonparametric trick of rank-ordering to compare groups, whether those groups are paired, independent, or divided into multiple categories. But what if your research question is not about comparing groups at all? What if you want to measure the strength of a relationship between two variables, but your data is too skewed to trust a standard linear correlation? It turns out that the same rank-ordering trick can save your correlation analysis as well.
 
@@ -469,7 +469,7 @@ With our hypotheses set, we can run Spearman's Rho in our statistical software a
 
 
 
-## 10.12 Interpreting Software Output for Spearman's Rho
+## Interpreting Software Output for Spearman's Rho
 
 When you run Spearman's Rho using the `cc_risk.csv` dataset, the software ranks the ages of the 437 students, ranks their monthly drinking days, and evaluates the correlation between those ranks. Here are the results generated by the software:   
 
@@ -529,7 +529,7 @@ When you are ready to report your findings, you condense this information into a
 
 > A Spearman's rank-order correlation was run to determine the relationship between ordinal alcohol consumption categories and student GPA. There was a statistically significant, weak negative correlation between alcohol consumption level and academic performance, $r_s = -.144$, $p = .022$, 95% CI $[-.263, -.021]$.
 
-## 10.13 Evaluating Categorical Associations: Fisher's Exact Test
+## Evaluating Categorical Associations: Fisher's Exact Test
 
 Up to this point, we have focused entirely on numerical data, finding ways to safely evaluate medians and rank-order correlations. But what happens when your outcome is categorical?
 
@@ -579,7 +579,7 @@ With our hypotheses formalized and the expected cell count problem resolved, we 
 
 
 
-## 10.14 Interpreting Software Output for Fisher's Exact Test
+## Interpreting Software Output for Fisher's Exact Test
 
 When you run Fisher's Exact Test using the `college_backpacks.csv` dataset, the software builds a cross-tabulation table to organize the categorical frequencies. Here are the results generated by the software:   
 
@@ -616,7 +616,7 @@ When writing your formal conclusion, you pair the raw counts from your cross-tab
 
 > A Fisher's exact test was conducted to determine if the proportion of students experiencing back problems differs between graduate and undergraduate students. While 32 out of 97 undergraduates reported back problems compared to 0 out of 3 graduate students, this difference was not statistically significant, $p = .549$.
 
-## 10.15 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you begin incorporating nonparametric tests into your research toolkit, there are a few common traps that frequently catch new analysts. Avoiding these pitfalls will ensure your research remains mathematically rigorous and logically sound.
 
@@ -646,7 +646,7 @@ The answer comes entirely down to the cost of flexibility. As we explored at the
 
 
 
-## 10.16 Key Concepts
+## Key Concepts
 
 When extreme skew, outliers, or ceiling effects distort the mean, traditional parametric tests lose their reliability. Nonparametric tests bypass these mathematical distortions by evaluating medians and rank-ordered data instead of raw numbers. This provides a safe, flexible framework for analyzing messy variables like income, risk behaviors, and ordinal survey responses.
 
@@ -662,7 +662,7 @@ Every parametric tool in your research toolkit has a nonparametric equivalent. Y
 
 While these tests evaluate ranks rather than raw averages, your final interpretation logic remains unchanged. You still rely on a $p$-value to determine statistical significance and effect size to measure practical impact. You must continually remind yourself that a low $p$-value provides strong evidence, not a strong effect. Furthermore, a non-significant result represents only an absence of mathematical evidence in your specific sample, never proof that the null hypothesis is inherently true.
 
-## 10.17 New Notation
+## New Notation
 
 | **Symbol** | **Name**                          | **Description**                                              |
 | ---------- | --------------------------------- | ------------------------------------------------------------ |
@@ -675,7 +675,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 : Table 10.1: Notation introduced in this chapter.
 
-## 10.18 Exercises
+## Exercises
 
 ### Interpretation
 

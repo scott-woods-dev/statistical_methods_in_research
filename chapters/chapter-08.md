@@ -1,6 +1,6 @@
 # Categorical Data Analysis
 
-## 8.1 Introduction
+## Introduction
 
 Our first questions that we'll tackle in this chapter are simple but profound: Are any racial groups more likely to be involved in a fatal police shooting than others? If so, which ones?
 
@@ -35,7 +35,7 @@ We will start this chapter by answering our opening question, learning how to co
 
 
 
-## 8.2 Single Variable Patterns: The Chi-Square Goodness-of-Fit Test
+## Single Variable Patterns: The Chi-Square Goodness-of-Fit Test
 
 At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what "proportionate" looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot rely on the raw counts alone. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.
 
@@ -82,7 +82,7 @@ As seen in Figure 8.1 above, the gaps between reality and our baseline expectati
 
 The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are large, the test recognizes that the data fails to fit our expected baseline.
 
-## 8.3 Interpreting the Goodness-of-Fit and Post Hoc Analysis
+## Interpreting the Goodness-of-Fit and Post Hoc Analysis
 
 When you run this test, the resulting $p$-value operates exactly as it did for the numerical tests we learned in previous chapters. A low p-value means there is strong evidence of a difference between the racial distribution of victims of police shootings and the racial distribution of Americans as a whole.
 
@@ -144,7 +144,7 @@ Notice how the statistics are embedded directly into the narrative sentence. The
 
 
 
-## 8.4 Two Categorical Variable Relationships: The Chi-Square Test for Independence
+## Two Categorical Variable Relationships: The Chi-Square Test for Independence
 
 We have learned how to evaluate the distribution of a single categorical variable against an outside baseline. But what if we want to know if two distinct categorical variables inside our dataset are connected to one another?
 
@@ -215,7 +215,7 @@ The difference lies in how the software calculates the baseline. Since we are no
 
 Looking at the graph above, we can visually inspect the relationship. By converting our raw counts into percentages, we create a level playing field. If the variables were perfectly independent, the colored blocks in the "Documented Illness" column would perfectly match the colored blocks in the "No Documented Illness" column. Any visual mismatch is a "gap" that the Chi-Square test will measure.
 
-## 8.5 Interpreting the Test for Independence and Post Hoc Analysis
+## Interpreting the Test for Independence and Post Hoc Analysis
 
 When we run this test, our statistical software evaluates the total gap between our observed combinations and the mathematically independent expectations. For our data, we get a test statistic of $\chi^2 = 274.08$ and a $p$-value that is practically zero ($p < 0.001$). Because the $p$-value is significantly smaller than the standard $0.05$ threshold, we reject $H_0$.
 
@@ -255,7 +255,7 @@ Again, the purpose here is to make an easily interpretable description of our re
 
 
 
-## 8.6 Comparing Populations: The Chi-Square Test for Homogeneity
+## Comparing Populations: The Chi-Square Test for Homogeneity
 
 It is easy to confuse the Test for Independence with our next tool, the **Chi-Square Test for Homogeneity**. The mathematical engine calculating the "gap" under the hood is actually identical, but the *research design* is fundamentally different.
 
@@ -315,7 +315,7 @@ If the null hypothesis is true, the percentage breakdown of the three age groups
 
 To run the test, the statistical software combines both groups to figure out the "average" age profile for the entire ICU. It then uses that overall average as the expected baseline, applying it to both populations to measure how far reality deviated from that shared, homogeneous expectation.
 
-## 8.7 Interpreting the Test for Homogeneity and Post Hoc Analysis
+## Interpreting the Test for Homogeneity and Post Hoc Analysis
 
 When our statistical software analyzes the cross-tabulated ICU data, it outputs a test statistic of $\chi^2 = 9.39$ alongside a $p$-value of $0.009$. Because our $p$-value falls below our standard $0.05$ threshold, we have significant statistical evidence that the age profile for elective ICU admissions is not the same as the age profile for emergency ICU admissions.
 
@@ -349,7 +349,7 @@ The formatting rules for the Test for Homogeneity mirror our previous tests. Bas
 
 > A Chi-Square Test for Homogeneity was conducted to compare the age profiles of patients admitted to the ICU for elective versus emergency procedures. The results indicated that the age distributions were significantly different between the two populations, $\chi^2(2, N = 200) = 9.39$, $p = .009$. A post hoc analysis of standardized residuals revealed that this difference was primarily driven by a significant under-representation of patients under 50 years old within the elective admissions group.
 
-## 8.8 Choosing the Right Chi-Square Test and Checking Assumptions
+## Choosing the Right Chi-Square Test and Checking Assumptions
 
 Before we move on to new methods, let's take a moment to organize the three Chi-Square tests we have just learned. Because the mathematical engine underneath all three tests is identical, statistical software will happily run whichever test you click. The software does not know how you gathered your data; it relies entirely on you to choose the correct framework.
 
@@ -409,7 +409,7 @@ If your software alerts you that an expected count has fallen below 5, the stand
 
 > **The "Observed Count" Trap:** It is tempting to just rely on your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap! Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.
 
-## 8.9 Dependent Categorical Data: McNemar's Test
+## Dependent Categorical Data: McNemar's Test
 
 We are now ready to tackle a slightly more complex question, although just why this is complex needs some explanation: Are men more likely to ask for a second date than women?
 
@@ -470,7 +470,7 @@ If we want to figure out if men say "yes" more often than women, the dates where
 
 McNemar's test essentially ignores all the interactions where the couple agreed. Instead, it looks strictly at the "disagreements." As seen in Figure 8.4 above, we observe 83 instances where only the man said yes, compared to 64 instances where only the woman said yes. The mathematics our statistical software is doing for us acts as a balancing scale, checking to see if those two disagreement piles are roughly equal. If one group is significantly "heavier" than the other, the test will flag it as a meaningful difference.
 
-## 8.10 Interpreting McNemar's Test
+## Interpreting McNemar's Test
 
 When we run McNemar's test in our statistical software, we evaluate the $p$-value exactly as we always have.
 
@@ -500,7 +500,7 @@ For McNemar's test, our software provides the $\chi^2$ test statistic, the degre
 
 > A McNemar's test was conducted to determine if there was a significant difference in the proportion of male and female participants who desired a second date following a four-minute interaction. The results indicated that there was no statistically significant difference in the match decision rates between males and females, $\chi^2(1, N = 276) = 2.20$, $p = .138$.
 
-## 8.11 Quantifying the Relationship: Association Metrics
+## Quantifying the Relationship: Association Metrics
 
 In Chapter 3, we learned a fundamental lesson about hypothesis testing: a $p$-value only tells you if an effect exists; it does not tell you how large or important that effect is. A tiny $p$-value only means we have a mountain of evidence that the variables are connected.
 
@@ -585,7 +585,7 @@ When you write up your final conclusions for a research paper, you should append
 
 > A Chi-Square Test for Independence was conducted to evaluate the relationship between weapon group (gun, unarmed, or other weapon) and the immediate threat level of the encounter. The results indicated a significant association between the two variables, $\chi^2(4, N = 5963) = 812.74$, $p < .001$, Cramér's $V = .261$.
 
-## 8.12 Quantifying Risk: Relative Risk and Odds Ratios
+## Quantifying Risk: Relative Risk and Odds Ratios
 
 In the previous section, we used Cramér's $V$ to measure the overall strength of an association. However, knowing that a relationship is "strong" does not always give us the practical, directional information we need.
 
@@ -712,7 +712,7 @@ To do that, we need a predictive regression model. However, standard linear regr
 
 
 
-## 8.13 Evaluating a Classification: Sensitivity and Specificity
+## Evaluating a Classification: Sensitivity and Specificity
 
 In the previous section, we measured how much a condition (like infection) *impacts* the odds of an outcome. Now, we will explore how we can use information to *predict* an outcome.
 
@@ -787,7 +787,7 @@ In practice, medical professionals and researchers manage this trade-off by usin
 
 Because of this built-in high sensitivity, the first test naturally produces a large number of false positives. If that initial screen comes back positive, clinicians do not immediately jump to conclusions. Instead, they order a second, often more expensive follow-up test. This second test is designed to have extremely high specificity, allowing doctors to correctly weed out all the false alarms generated by the first round. Calculating these metrics gives us a transparent view of exactly how many people a rule is helping, and how many it is unnecessarily alerting.
 
-## 8.14 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 1. **The "Observed Count" Trap**
 
@@ -805,7 +805,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
    Relative Risk scales with how our brains process percentages, but Odds Ratios do not. An Odds Ratio of 2.0 means the *odds* are doubled, but that does not necessarily mean the event is twice as likely to happen in terms of raw probability. Never translate an Odds Ratio directly into a percentage chance.
 
-## 8.15 Key Concepts
+## Key Concepts
 
 - **Chi-Square Goodness-of-Fit:** A test used to compare a single categorical variable from a single sample against a known external baseline (like a historical average or census data).
 - **Chi-Square Test for Independence:** A test used to evaluate whether two distinct categorical variables gathered from a single sample overlap in a systematic, associated way.
@@ -817,7 +817,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 - **Relative Risk vs. Odds Ratios:** Relative Risk offers an intuitive comparison of probabilities between two groups. Odds Ratios compare the odds of an event, which is mathematically required for retrospective studies and serves as the foundation for future regression models.
 - **Sensitivity and Specificity:** Metrics derived from a Confusion Matrix to evaluate predictive rules. Sensitivity measures the true positive rate (successfully catching target cases), while specificity measures the true negative rate (successfully avoiding false alarms).
 
-## 8.16 New Notation
+## New Notation
 
 | **Symbol**   | **Meaning**               | **Context**                                                  |
 | ------------ | ------------------------- | ------------------------------------------------------------ |
@@ -830,7 +830,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 
 : Table 8.7: Notation used in this chapter, with how each symbol is read aloud.
 
-## 8.17 Exercises
+## Exercises
 
 ### Interpretation
 

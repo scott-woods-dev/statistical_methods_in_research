@@ -1,6 +1,6 @@
 # The One-Way ANOVA
 
-## 6.1 Introduction
+## Introduction
 
 In our previous chapters, we spent a lot of time exploring how to compare groups. For instance, in Chapter 3, you learned how to use an independent sample $t$-test to determine if a numerical variable's average differed significantly between two distinct groups, such as a diet intervention group and a control group. But the social world is rarely limited to simple either-or comparisons. What happens when we want to compare outcomes across three, four, or even more groups at the same time?
 
@@ -21,7 +21,7 @@ To explore this, we will use the `hsb.csv` dataset, which contains a random samp
 
 By the end of this chapter, you will learn how to partition the variation in a dataset to see if it stems from the program track or just random individual differences. You will also learn how to validate the underlying assumptions of the ANOVA model, and, if a significant difference is found, how to responsibly pinpoint exactly which groups differ from one another using post hoc tests without compromising your standards of evidence.
 
-## 6.2 What Do We Mean by Experimental Design?
+## What Do We Mean by Experimental Design?
 
 When you hear the phrase "experimental design," you might picture scientists in white coats mixing chemicals in a sterile laboratory. But in the social sciences, economics, and psychology, experimental design is rarely about test tubes. Instead, it is about how we structure our observations to compare different conditions, interventions, or pre-existing groups.
 
@@ -48,7 +48,7 @@ Other times, we simply observe pre-existing subgroups. In our high school datase
 
 Here is the beautiful part about the framework we'll develop in this chapter: the mathematical machinery behind the scenes does not care whether you actively applied a clinical treatment or simply divided your dataset into naturally occurring subgroups. Whether you are testing an active intervention (like a diet plan) or observing a built-in category (like an academic track), statisticians treat them as the same idea: we are simply comparing means across different categories.
 
-## 6.3 What is an ANOVA?
+## What is an ANOVA?
 
 Now that we have our vocabulary, we can introduce the tool we use to analyze this data: the **ANOVA**.
 
@@ -71,7 +71,7 @@ Both perspectives are valid, and both are answered using the same ANOVA framewor
 
 
 
-## 6.4 Partitioning Variation
+## Partitioning Variation
 
 If we want to know whether the academic program track affects a student's writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this large pile of differences the **total variation**.
 
@@ -120,7 +120,7 @@ Think back to Chapter 3, where we first discussed the idea of separating signal 
 
 By simply asking "how much of the spread is caused by the groups versus how much is just random human nature," the ANOVA gives us a powerful, mathematically rigorous way to evaluate our research question.
 
-## 6.5 Why Not Independent Sample $t$-Tests?
+## Why Not Independent Sample $t$-Tests?
 
 We briefly touched on this in the introduction, but it is a question worth exploring deeply: if we just want to compare group averages, why not use the Welch's independent sample $t$-test we covered in Chapter 3?
 
@@ -142,7 +142,7 @@ If we run a single Welch's $t$-test, we safely cap our chance of a false positiv
 
 An ANOVA solves this problem by acting as a single, overarching umbrella test. It assesses the differences between multiple categorical treatment groups simultaneously in one mathematical step. Because it only runs a single test, our Type I error rate stays locked safely at 5%.
 
-## 6.6 Fitting the One-Way Model
+## Fitting the One-Way Model
 
 Now that we know the ANOVA is the right tool to avoid inflated error rates, let's set up the formal statistical framework to assess the structural variation in standardized writing performance scores (`write`) across our three student tracking programs. When we fit a One-Way ANOVA model, we are essentially building a formal hypothesis test to see if the between-groups variation is significantly larger than the within-groups variation.
 
@@ -174,7 +174,7 @@ If your statistical software produces a $p$-value that is smaller than your sign
 
 However, notice how vague that alternative hypothesis is. A significant ANOVA tells you that a difference exists between at least one pair of groups, but it does not tell you *which* pair. Is the academic track scoring higher than the general track? Is the vocational track scoring lower than the academic track? The initial ANOVA model cannot answer those questions directly. Before we can pinpoint exactly which pairs differ (a process called post hoc analysis), we first have to pause and make sure our ANOVA model is mathematically valid.
 
-## 6.7 Model Diagnostics
+## Model Diagnostics
 
 Before we can confidently use an ANOVA to draw conclusions from our data, we have to make sure the data fits the tool. Just as we learned in Chapter 3, statistical tests are built on mathematical foundations that require certain conditions to be met. If we apply a test to data that violates these core rules, our $p$-values become unreliable and our conclusions fall apart.
 
@@ -345,7 +345,7 @@ If we find a significant result in our `hsb.csv` dataset, we know the choice of 
 
 An ANOVA is an excellent tool for detecting if a signal exists anywhere in your data, but it is blind to the details. To identify exactly which pairs of factor levels show a difference, and to measure the size of those differences, we have to conduct a second round of testing called **post hoc analysis**.
 
-## 6.8 Post Hoc Analysis
+## Post Hoc Analysis
 
 If your ANOVA produces a significant $p$-value, you know that at least one pair of program tracks has a statistically different mean writing score. To find out exactly which groups differ, we must run a follow-up analysis called a **post hoc test** (Latin for "after this").
 
@@ -409,7 +409,7 @@ To be a responsible researcher, you must move beyond statistical significance an
 
 A statistically significant difference is only useful if it represents a meaningful, practical impact.
 
-## 6.9 Guided Analysis
+## Guided Analysis
 
 ### The Research Interest
 
@@ -603,7 +603,7 @@ To complete our research cycle, we must summarize our findings in a formal, prof
 
 Congratulations! You have just completed a full, mathematically rigorous analysis of variance, from the initial exploratory graphs to the final APA-formatted conclusion.
 
-## 6.10 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you learn to use the One-Way ANOVA, you will likely encounter a few common conceptual hurdles. Avoiding these traps will make you a much more confident data analyst.
 
@@ -671,7 +671,7 @@ Think back to the intuition we built regarding our observational high school dat
 
 When the difference in spread is your actual research interest, you can use a tool called **Levene’s test**. Earlier, we strongly advised against using formal hypothesis tests just to see if you are allowed to run an ANOVA. But if your actual research question is, *"Does the variation in writing scores differ significantly between program tracks?"*, Levene's test is the perfect tool. In this scenario, Levene's test isn't being used as a diagnostic hurdle. It is the primary analysis answering your question. A significant $p$-value from Levene's test can be a meaningful, publishable result in its own right, proving that a categorical factor significantly affects the variability of a population.
 
-## 6.11 Key Concepts
+## Key Concepts
 
 1. **Vocabulary of Experimental Design:** When comparing groups, the numerical outcome you measure is the **response variable**, and the categorical grouping mechanism is the **factor** (or treatment variable). The specific categories are the **factor levels**, and the actual participants in those categories make up the **treatment groups**.
 2. **The Purpose of ANOVA:** An Analysis of Variance (ANOVA) is used to compare the means of a numerical variable across three or more categorical groups. We use a single overarching ANOVA rather than multiple independent $t$-tests to prevent inflating our risk of a Type I error (a false positive).
@@ -683,7 +683,7 @@ When the difference in spread is your actual research interest, you can use a to
 8. **Post Hoc Analysis:** To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. **Tukey's HSD** is the standard for comparing every group to every other group. **Dunnett's test** is used when comparing multiple groups against a single control baseline.
 9. **Practical Significance:** Just like a $t$-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen's $d$ to determine if the statistical difference matters in practice.
 
-## 6.12 New Notation
+## New Notation
 
 | **Symbol**  | **How it is read aloud**                                     | **What it represents in plain words**                        |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -695,7 +695,7 @@ When the difference in spread is your actual research interest, you can use a to
 
 ---
 
-## 6.13 Exercises
+## Exercises
 
 ### Interpretation
 

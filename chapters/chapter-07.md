@@ -1,6 +1,6 @@
 # Advanced Experimental Designs
 
-## 7.1 Introduction
+## Introduction
 
 In 2007, researchers at Harvard University asked an intriguing question: Can your mindset alone change your objective physical health? To find out, they designed a psychological experiment involving 75 female hotel maids (Crum & Langer, 2007).
 
@@ -27,7 +27,7 @@ We know from Chapter 6 that a standard One-Way ANOVA is a great tool for compari
 
 In this chapter, you will learn how to use advanced experimental designs to strategically filter out that noise. By the end of this chapter, you will understand how to categorize participants to control for nuisance variables, how to use continuous baseline measurements to mathematically level the playing field, and how to measure participants against themselves to maximize your statistical power to observe real effects in your experiments.
 
-## 7.2 The Evolution of Experimental Design
+## The Evolution of Experimental Design
 
 Before we introduce our new methods, let's take a moment to survey the big picture. In Chapter 6, you learned that a standard ANOVA works by a process called partitioning variation. It takes all the chaotic differences in your dataset and splits them into two specific buckets: the signal and the noise.
 
@@ -59,7 +59,7 @@ Finally, what if the biggest source of noise is simply the large, uncontrollable
 
 
 
-## 7.3 The Two-Way ANOVA: Expanding the Model
+## The Two-Way ANOVA: Expanding the Model
 
 In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-way" because it tests the effect of just *one* categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to study two grouping variables at the same time? That is exactly what a **Two-Way ANOVA** does.
 
@@ -112,7 +112,7 @@ This level of complexity is usually a nightmare to untangle and explain to an au
 
 
 
-## 7.4 Two-Way ANOVA: Visualizing and Understanding Interactions
+## Two-Way ANOVA: Visualizing and Understanding Interactions
 
 When we run a Two-Way ANOVA, the very first thing we want to do is look at a picture of our data. Our brains are much better at spotting patterns in shapes than in tables of numbers. To do this, we use a specific graph called an **interaction plot**.
 
@@ -150,7 +150,7 @@ Real data is messy. People skip survey questions, leave fields blank, and forget
 
 
 
-## 7.5 Two-Way ANOVA: Assumptions and Output Interpretation
+## Two-Way ANOVA: Assumptions and Output Interpretation
 
 Before we can trust the results of a Two-Way ANOVA, we must ensure our data fits the tool. The required assumptions are the same as the One-Way ANOVA you learned in Chapter 6: independent samples, mutually exclusive groups, normality of residuals, and equal variances.
 
@@ -225,7 +225,7 @@ However, chopping a precise number like age into broad, arbitrary categories (li
 >
 > So, what do researchers do when their data refuses to cooperate? Often, they reach for a tool you learned back in Chapter 4: **data transformation**. By applying a logarithmic transformation to the blood pressure variable, researchers can pull the right-skewed data closer to a normal bell curve. Once the transformed data passes the diagnostic checks, they can safely run the Two-Way ANOVA. For now, simply recognize that real data is messy, and checking your assumptions is what keeps your science honest.
 
-## 7.6 The ANCOVA: Introducing Continuous Covariates
+## The ANCOVA: Introducing Continuous Covariates
 
 Let's take a step back and consider what the researchers are trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (`Cond`) significantly changed the maids' physical health.
 
@@ -255,7 +255,7 @@ Instead of organizing the maids into "high baseline" and "low baseline" categori
 
 
 
-## 7.7 ANCOVA: Crucial Assumptions
+## ANCOVA: Crucial Assumptions
 
 Because an ANCOVA is a hybrid tool that blends an ANOVA with linear regression, it inherits the rules from both methods.
 
@@ -318,7 +318,7 @@ Because $0.198$ is well above our $\alpha = 0.05$ threshold, we do not have evid
 
 That means we have successfully passed the homogeneity of regression slopes assumption, and we are now mathematically cleared to run the actual ANCOVA model and interpret our final results.
 
-## 7.8 ANCOVA: Output Interpretation and Adjusted Means
+## ANCOVA: Output Interpretation and Adjusted Means
 
 Now that we have verified our covariate behaves fairly across both groups, we can confidently move on to the final ANCOVA results. 
 
@@ -389,7 +389,7 @@ This brings us all the way back to Chapter 3: the difference between a sample an
 
 To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will cover the ultimate design for eliminating individual biological noise: the Repeated Measures ANOVA.
 
-## 7.9 Repeated Measures ANOVA: The Within-Subjects Design
+## Repeated Measures ANOVA: The Within-Subjects Design
 
 Before we introduce our final model, we need to address a shift in our data. So far, we have looked exclusively at the maids' systolic blood pressure. For this next analysis, we are going to evaluate a different health metric: Body Mass Index, tracking the change from their baseline (`BMI`) to their post-intervention score (`BMI2`).
 
@@ -445,7 +445,7 @@ Analyzing longitudinal data introduces new statistical complexities because the 
 
 
 
-## 7.10 Repeated Measures ANOVA: Output Interpretation
+## Repeated Measures ANOVA: Output Interpretation
 
 Now that we understand how a within-subjects design uses participants as their own baseline, let's turn to the final results for our hotel maids. We want to know if the mindset intervention (`Cond`) caused a change in Body Mass Index over the four-week period (`Time`).
 
@@ -498,7 +498,7 @@ We can formally conclude that simply informing hotel maids that their daily labo
 
 
 
-## 7.11 Putting It All Together: Summary and APA Reporting
+## Putting It All Together: Summary and APA Reporting
 
 We just worked through the hotel maid study using three different advanced statistical designs. Before we wrap up the chapter, let's summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.
 
@@ -546,7 +546,7 @@ In scientific research, honesty is paramount. If you run a test and it fails its
 
 > A repeated measures ANOVA was conducted to evaluate the effect of a psychological mindset intervention on Body Mass Index (BMI) over a four-week period. The results revealed a statistically significant interaction between the passage of time and the experimental condition, *F*(1, 71) = 9.66, *p* = .003. While there was no significant main effect of the experimental condition between the groups overall, *F*(1, 71) = 1.00, *p* = .321, the informed group experienced a significantly different trajectory in BMI over the four weeks compared to the uninformed control group.
 
-## 7.12 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 Advanced experimental designs are powerful tools, but with that power comes a higher risk of user error. When researchers transition from basic tests to complex models, they often fall into a few predictable traps. Here are the most common mistakes to watch out for:
 
@@ -580,7 +580,7 @@ As we discussed in Section 7.9, having access to advanced tools can tempt resear
 
 An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a baseline covariate mathematically levels the playing field, but it cannot fix a fundamentally broken experiment. If your initial sample was terribly biased, or if your measurement tools were wildly inaccurate (poor validity), an ANCOVA will simply give you a sophisticated, mathematically adjusted wrong answer.
 
-## 7.13 Key Concepts
+## Key Concepts
 
 1. **Factorial Design:** An experimental design that categorizes participants by two or more categorical factors at the same time (e.g., condition and age group).
 2. **Main Effect:** The independent, isolated impact of just *one* variable in a factorial design, temporarily pretending the other variable does not exist.
@@ -597,7 +597,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 
 
 
-## 7.14 Exercises
+## Exercises
 
 ### Interpretation
 

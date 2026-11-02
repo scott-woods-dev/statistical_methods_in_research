@@ -1,6 +1,6 @@
 # Understanding Data through Measures and Visualizations
 
-## 1.1 Introduction
+## Introduction
 
 Imagine you are a university researcher investigating student well-being. You want to understand how sleep, stress, and lifestyle choices impact academic performance. To answer this, you collect data from 253 college students over a single semester. You record their average weekday and weekend sleep hours, semester GPA, and classes missed. You also give them standard psychological screenings to measure depression, anxiety, and stress levels.
 
@@ -28,7 +28,7 @@ The dataset `student_lifestyle_sleep.csv` included with this text has all this r
 
 By the end of this chapter, you will learn how to identify different types of variables, from descriptive categories to numerical measurements, build visual summaries, understand numerical summaries to find the typical student experience and how much students differ, describe the physical shape of your data, like the famous bell curve, and spot data problems, like missing responses or heavily skewed results.
 
-## 1.2 Data Basics: Categorical vs. Numerical Variables
+## Data Basics: Categorical vs. Numerical Variables
 
 When you open `student_lifestyle_sleep.csv`, you will see a large grid of information. Each row represents a single student in the study. Each column represents a specific piece of information we recorded about them.
 
@@ -70,7 +70,7 @@ Why does this distinction matter? Because the type of variable you have entirely
 
 ---
 
-## 1.3 Visualizing Single Variables: Categorical Data
+## Visualizing Single Variables: Categorical Data
 
 Suppose you want to understand the baseline mental health of the students in our study. Before exploring how mental health affects grades, you first need to know how prevalent different levels of depression are among the 253 participants. 
 
@@ -112,7 +112,7 @@ A Pareto chart is a bar chart for nominal data where the bars are sorted in desc
 
 
 
-## 1.4 Visualizing Single Variables: Quantitative Data
+## Visualizing Single Variables: Quantitative Data
 
 Now that we can visualize categories, how do we handle numbers? Suppose we want to know how much sleep our 253 students get on average during the week. If we examine the `WeekdaySleep` variable, we see exact measurements like 6.5 hours, 7.2 hours, and 8.0 hours.
 
@@ -132,7 +132,7 @@ We visualize this grouping using a **histogram**.
 
 At first glance, a histogram looks a lot like a bar chart. But notice one major visual difference: there are no gaps between the bars. In a bar chart, the gaps remind us that categories are separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.
 
-## 1.5 Distribution Shapes and The Normal Curve
+## Distribution Shapes and The Normal Curve
 
 When you look at a histogram, you are looking at the **distribution** of your data. The distribution tells you what values are common, what values are rare, and how the data is spread out from lowest to highest. We often describe distributions by their physical shape.
 
@@ -172,7 +172,7 @@ Conversely, if the tail stretches to the left, the data is **left-skewed** (or n
 
 While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Strict's class is strongly right-skewed, the "tail" stretches toward the higher grades (A and B), meaning the biggest peak of the class is piled up at the lower end (D and F). If Professor Kuhlman's class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.
 
-## 1.6 Visualizing Relationships: Two Numerical Variables
+## Visualizing Relationships: Two Numerical Variables
 
 Up to this point, we have only studied variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But most research questions are about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?
 
@@ -192,7 +192,7 @@ When you look at a scatterplot, you are looking for a trend. Do the dots form a 
 
 The cloud here drifts upward: countries with higher GDP per capita tend to have higher life expectancy. If we look closely, we can see that life expectancy rises steeply at low GDP per capita, then levels off.  This "bend" in the relationship makes our analysis later in Chapter 4 slightly more complex, but the point here is that we can immediately recognize that shape of the relationship in the scatterplot. For now, just keep in mind that a trend does not have to be a straight line to be a trend.
 
-## 1.7 Visualizing Relationships: Two Categorical Variables
+## Visualizing Relationships: Two Categorical Variables
 
 What if the relationship we want to explore doesn't involve numbers at all? Suppose we want to see if there is a connection between a student's `Stress` level (Normal or High) and their `AlcoholUse` (Abstain, Light, Moderate, Heavy). 
 
@@ -240,7 +240,7 @@ Second, look at the *height*. We slice those vertical columns horizontally based
 
 By combining width (group size) and height (group rate), the total *area* of each resulting block tells you the exact proportion of your total sample that falls into that specific combination. While mosaic plots take a little more time to read than a simple bar chart, they are worth the effort because they show every group's size and rate without hiding any data.
 
-## 1.8 Visualizing Relationships: Mixed and Complex Data
+## Visualizing Relationships: Mixed and Complex Data
 
 In reality, research questions are rarely confined to just two simple variables of the same type. You will often need to mix categorical and numerical data, or compare three variables at once, to uncover the true story in your dataset.
 
@@ -310,7 +310,7 @@ A bubble plot is just a scatterplot where the size of the dot changes based on a
 
 
 
-## 1.9 Describing Data Numerically: Measures of Center
+## Describing Data Numerically: Measures of Center
 
 Visualizing your data is fantastic for seeing the big picture. However, eventually, you need to report exact numbers in your research paper. We call these numerical summaries **descriptive statistics**. 
 
@@ -373,7 +373,7 @@ But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,
 
 : Table 1.2: A guide to choosing a measure of center from the data type and the question you are asking.
 
-## 1.10 Measures of Spread and Position
+## Measures of Spread and Position
 
 Knowing the center of your data is only half the story. Imagine two students who both have a mean `WeekdaySleep` of 7 hours. Student A gets exactly 7 hours of sleep every single night. Student B gets 4 hours one night, 10 hours the next, and 7 hours the night after. 
 
@@ -416,7 +416,7 @@ Do you remember the box plots we used to visualize the `GPA` of different depres
 
 
 
-## 1.11 Matching the Measure to the Shape
+## Matching the Measure to the Shape
 
 Now that you have a complete toolkit of numerical summaries, how do you know which ones to use in your research paper? You usually do not report all of them. Instead, the physical shape of your data dictates which measures are appropriate.
 
@@ -468,7 +468,7 @@ Because the mean is mathematically more stable and consistent, we always prefer 
 
 : Table 1.3: A guide to reporting center and spread from the shape of the distribution.
 
-## 1.12 Populations and Samples: The Source of Our Data
+## Populations and Samples: The Source of Our Data
 
 Let's return to our `student_lifestyle_sleep.csv` dataset. Why did the researchers only study 253 students? If they want to understand how sleep affects college academic performance, wouldn't it be better to study *every* college student? Of course it would! But tracking down millions of students, securing their consent, and monitoring their sleep for two weeks is physically and financially impossible. 
 
@@ -515,7 +515,7 @@ Because populations and samples are different concepts, we use different mathema
 
 : Table 1.4: Notation for populations and samples.
 
-## 1.13 Complications of Messy, Real Data
+## Complications of Messy, Real Data
 
 When you read a polished research paper, the data often seems perfect and neatly organized. However, in practice, data collection is messy. Human beings forget to answer questions, measuring tools hit their limits, and participants sometimes hide the truth. Before you can trust the numerical summaries or visualizations you just learned to create, you must triage your data. This means actively hunting for complications that might distort your findings.
 
@@ -559,7 +559,7 @@ Similarly, we might face **truncated data**, where certain values are entirely c
 
 Understanding these realities ensures you don't blindly trust a mean or a median without first considering the human element behind the numbers.
 
-## 1.14 Common Mistakes and Misconceptions
+## Common Mistakes and Misconceptions
 
 As you begin working with real data, there are a few common traps that trip up almost every new researcher. Keep these in mind as you start your own analyses:
 
@@ -567,7 +567,7 @@ As you begin working with real data, there are a few common traps that trip up a
 * **Confusing bar plots with histograms:** They look similar, but they tell different stories. A bar plot is for *categorical* data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for *numerical* data, and the bars must touch to show that the numbers flow continuously along a number line.
 * **Blindly trusting the mean:** It is tempting to calculate the mean and standard deviation for every numerical variable because they are the most famous statistics. However, if your data is heavily skewed (like `ClassesMissed`), the mean will not represent the "typical" student. Always look at the shape of your distribution in a histogram *before* you decide to report the mean or the median.
 
-## 1.15 Key Concepts
+## Key Concepts
 
 1. **Variables come in two main types.** Categorical variables place individuals into descriptive groups (nominal or ordinal). Numerical variables record measurable quantities where math makes logical sense.
 2. **Visualizations must match the data type.** Use bar plots and Pareto charts for single categorical variables. Use histograms to see the shape and spread of single numerical variables.
@@ -576,7 +576,7 @@ As you begin working with real data, there are a few common traps that trip up a
 5. **Statistics estimate parameters.** We calculate known statistics (like a sample mean, $\bar{x}$) from our small, manageable sample to make educated guesses about the unknown parameters (like a population mean, $\mu$) of the large population.
 6. **Real data is messy.** Always check for missing data, bias, and physical limits (floor and ceiling effects) before you trust the story your numbers are telling you.
 
-## 1.16 Guided Analysis: Putting It All Together
+## Guided Analysis: Putting It All Together
 
 We have covered a lot of ground in this chapter. To see how these tools work together, let's walk through a complete, preliminary analysis using our dataset of 253 college students. 
 
@@ -650,7 +650,7 @@ Now, we translate our statistical findings back into plain English (using APA fo
 
 Notice two things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to *our sample*. We have not proven that anxiety causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.
 
-## 1.17 Exercises
+## Exercises
 
 ### Interpretation
 
