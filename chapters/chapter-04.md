@@ -72,7 +72,7 @@ Just like we used Cohen’s $d$ in Chapter 3 to judge the practical size of a di
 - **$r \approx 0.30$**: A medium relationship.
 - **$r \approx 0.50$ or higher**: A large, strong relationship.
 
-Remember that these specific cutoffs are designed strictly for the behavioral and social sciences. Why? Because the predictability of human behavior, biological growth, and social structures contains massive amounts of inherent, natural variability. We rarely see perfectly tight straight lines when studying people.
+Remember that these specific cutoffs are designed strictly for the behavioral and social sciences. Why? Because the predictability of human behavior, biological growth, and social structures contains large amounts of inherent, natural variability. We rarely see perfectly tight straight lines when studying people.
 
 
 
@@ -112,7 +112,7 @@ The coefficient of determination tells you the exact percentage of variability i
 
 
 
-Let's ground this in our research scenario. A country's ecological footprint naturally varies from nation to nation. Why does one society require a massive biological surface area to support its consumption, while another requires very little? There are dozens of reasons for this variation: local climate, agricultural efficiency, environmental regulations, cultural consumption habits, and the overall economy.
+Let's ground this in our research scenario. A country's ecological footprint naturally varies from nation to nation. Why does one society require a large biological surface area to support its consumption, while another requires very little? There are dozens of reasons for this variation: local climate, agricultural efficiency, environmental regulations, cultural consumption habits, and the overall economy.
 
 
 
@@ -132,7 +132,7 @@ As a new researcher, you might calculate an $R^2$ of 25% and feel disappointed. 
 
 
 
-Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a massive, valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is incredibly powerful for *explaining* broad, systemic trends in human behavior.
+Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a big, valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is incredibly powerful for *explaining* broad, systemic trends in human behavior.
 
 
 
@@ -293,11 +293,11 @@ We need to be precise about what we are actually checking here. We are **not** r
 
 
 
-What does this mean in plain English? It means that most of the time, our model should only make small, routine errors (landing near the center of the bell curve). It should only rarely make massive, catastrophic errors (landing in the extreme tails of the curve).
+What does this mean in plain English? It means that most of the time, our model should only make small, routine errors (landing near the center of the bell curve). It should only rarely make catastrophic errors (landing in the extreme tails of the curve).
 
 
 
-If a model's errors follow this predictable, normal pattern, statisticians can rely on the probability rules from Unit I to build mathematically sound "error bars" (like confidence intervals) around their future predictions. If the errors are wildly skewed (meaning the model routinely makes massive overestimations but never makes massive underestimations), we can still use the line as a basic summary of the data, but we lose the mathematical right to use it as a reliable tool for forecasting the future.
+If a model's errors follow this predictable, normal pattern, statisticians can rely on the probability rules from Unit I to build mathematically sound "error bars" (like confidence intervals) around their future predictions. If the errors are wildly skewed (meaning the model routinely makes large overestimations but never makes large underestimations), we can still use the line as a basic summary of the data, but we lose the mathematical right to use it as a reliable tool for forecasting the future.
 
 > **The L.I.N.E. Checklist**
 >
@@ -314,7 +314,7 @@ When we first introduced the concept of outliers in Chapter 1, we defined them s
 
 
 
-In a regression model, an **outlier** is a data point that strays far away from the regression line. It doesn't necessarily have an extreme raw value; rather, it breaks the *pattern* established by the rest of the data. For example, a country with an average GDP but a massively high ecological footprint would have a large residual, making it an outlier for our specific model.
+In a regression model, an **outlier** is a data point that strays far away from the regression line. It doesn't necessarily have an extreme raw value; rather, it breaks the *pattern* established by the rest of the data. For example, a country with an average GDP but a high ecological footprint would have a large residual, making it an outlier for our specific model.
 
 
 
@@ -334,7 +334,7 @@ Now, imagine a heavy adult sits on the extreme far edge of the seesaw. Their pos
 
 
 
-In linear regression, if a data point sits at the extreme far edge of the x-axis (meaning it has an exceptionally rare, massive predictor value), it has high statistical **leverage**. If that point also strays away from the overall pattern, it will act like a magnet, physically dragging the entire regression line toward itself. When a point has enough leverage to significantly alter the model's slope or intercept, we call it an **influential point**.
+In linear regression, if a data point sits at the extreme far edge of the x-axis (meaning it has an exceptionally rare, large predictor value), it has high statistical **leverage**. If that point also strays away from the overall pattern, it will act like a magnet, physically dragging the entire regression line toward itself. When a point has enough leverage to significantly alter the model's slope or intercept, we call it an **influential point**.
 
 ### Finding the Magnets in Our Data
 
@@ -362,7 +362,7 @@ When a researcher spots an influential point ruining their perfectly straight li
 
 
 
-You must resist the temptation to delete data simply because it makes your model look messy. Extreme data points often hold the most valuable scientific insights. A micro-state with massive wealth and a uniquely small footprint isn't "bad data"; it is a real-world exception that might teach us how to build more sustainable economies.
+You must resist the temptation to delete data simply because it makes your model look messy. Extreme data points often hold the most valuable scientific insights. A micro-state with great wealth and a uniquely small footprint isn't "bad data"; it is a real-world exception that might teach us how to build more sustainable economies.
 
 
 
@@ -396,7 +396,7 @@ Other relationships rise quickly but eventually hit a natural ceiling. A classic
 
 ![Figure 4.2: GDP per capita and life expectancy for 143 countries. Life expectancy rises steeply at low incomes and then levels off, the pattern called diminishing returns.](../figures/chapter_04/fig_04_02_scatter_gdp_life_expectancy_curve.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years at higher incomes."}
 
-This specific curve illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
+This specific curve illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a dramatic spike in the nation's average life expectancy.
 
 
 
@@ -412,7 +412,7 @@ When researchers encounter a fundamentally curved relationship, they do not thro
 
 
 
-The most common tool for linearizing data is a **logarithmic transformation** (often called a log transform). You do not need to memorize the complex algebra behind logarithms. Conceptually, taking the logarithm of a variable simply "squishes" its scale. It pulls the massive, extreme numbers on the right side of the graph tightly inward, while gently stretching out the smaller numbers on the left.
+The most common tool for linearizing data is a **logarithmic transformation** (often called a log transform). You do not need to memorize the complex algebra behind logarithms. Conceptually, taking the logarithm of a variable simply "squishes" its scale. It pulls the extreme numbers on the right side of the graph tightly inward, while gently stretching out the smaller numbers on the left.
 
 
 
@@ -443,7 +443,7 @@ Because we mathematically altered the data, we can no longer interpret the slope
 Let's translate our new slope (**13.54**) into plain English using concrete numbers:
 
 - **Scenario A:** Imagine a poor developing nation grows its economy from **$\$1,000$** per person to **$\$10,000$** per person. Because their wealth just multiplied by 10, our model predicts their average life expectancy will increase by **13.54 years**.
-- **Scenario B:** Now, imagine an already comfortable, developed nation grows its economy from **$\$10,000$** per person to **$\$100,000$** per person. Even though this requires a massive influx of $\$90,000$ per person, they have still only multiplied their wealth by 10. Therefore, our model predicts their average life expectancy will *also* increase by exactly **13.54 years**.
+- **Scenario B:** Now, imagine an already comfortable, developed nation grows its economy from **$\$10,000$** per person to **$\$100,000$** per person. Even though this requires an influx of $\$90,000$ per person, they have still only multiplied their wealth by 10. Therefore, our model predicts their average life expectancy will *also* increase by exactly **13.54 years**.
 
 These scenarios capture the law of diminishing returns: In Scenario A, it only cost $\$9,000$ to buy 13.5 years of life. In Scenario B, it cost $\$90,000$ to buy that same 13.5 years of life.
 

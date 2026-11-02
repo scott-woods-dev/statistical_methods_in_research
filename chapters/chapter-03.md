@@ -487,7 +487,7 @@ If your variable is measured in abstract units, the confidence interval loses mu
 
 
 
-In our study, the confidence interval for the difference between the two groups' depression scores was [-11.42, -0.85]. To a clinical psychologist who uses the CESD scale every day, a potential 11-point drop might be deeply meaningful. But to the average reader, or even a researcher from a different field, abstract survey points mean very little. Is a 5-point drop a massive life change, or barely noticeable?
+In our study, the confidence interval for the difference between the two groups' depression scores was [-11.42, -0.85]. To a clinical psychologist who uses the CESD scale every day, a potential 11-point drop might be deeply meaningful. But to the average reader, or even a researcher from a different field, abstract survey points mean very little. Is a 5-point drop a big life change, or barely noticeable?
 
 
 
@@ -537,7 +537,7 @@ To see how these elements interact, researchers often look at visualizations cal
 When you look at a power curve, you will notice two universal rules:
 
 - **Larger sample sizes yield higher power.** As you move to the right along the horizontal axis, the curve goes up. More participants mean less statistical noise, which makes it much easier to detect a true signal.
-- **Larger effect sizes are easier to detect.** If a diet pill causes a massive 50-pound weight loss, you only need a few people to notice it works. If the pill only causes a 1-pound weight loss, you need hundreds of participants to separate that tiny signal from natural weight fluctuations. On the graph, the curve for a "large effect" will reach the 80% power mark much faster than the curve for a "small effect."
+- **Larger effect sizes are easier to detect.** If a diet pill causes a 50-pound weight loss, you only need a few people to notice it works. If the pill only causes a 1-pound weight loss, you need hundreds of participants to separate that tiny signal from natural weight fluctuations. On the graph, the curve for a "large effect" will reach the 80% power mark much faster than the curve for a "small effect."
 
 ### Finding the Minimum Sample Size
 
@@ -611,7 +611,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 ### Interpretation
 
-**1.** A researcher conducts a massive study with 50,000 participants to see if a new study method improves test scores. The software reports a p-value of .001, but the average test score only improved by 0.2 points on a 100-point exam. Explain the difference between statistical significance and practical significance in this context.
+**1.** A researcher conducts a study with 50,000 participants to see if a new study method improves test scores. The software reports a p-value of .001, but the average test score only improved by 0.2 points on a 100-point exam. Explain the difference between statistical significance and practical significance in this context.
 
 
 
@@ -711,7 +711,7 @@ If a researcher needs precise results, they want a narrow net. Because larger sa
 
 
 
-**17. Planning a Follow-Up Study:** The researchers are applying for a grant to run a massive follow-up study across multiple universities to see if their diet intervention works on a national scale. The grant committee requires them to mathematically justify exactly how many students they need to recruit.
+**17. Planning a Follow-Up Study:** The researchers are applying for a grant to run a large follow-up study across multiple universities to see if their diet intervention works on a national scale. The grant committee requires them to mathematically justify exactly how many students they need to recruit.
 
 **a)** Based on the standard conventions discussed in this chapter, what significance level ($\alpha$) and statistical power should the researchers plug into their planning software?
 **b)** In the main text of this chapter, we calculated a Cohen's *d* of 0.53 for the difference in `CESDDiff` scores between the diet and control groups. If the researchers expect to see this same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test.

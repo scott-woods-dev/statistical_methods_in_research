@@ -103,7 +103,7 @@ Next, you must assess the model's accuracy. In Chapter 4, you used $R^2$ for thi
 
 
 
-At this point, you might be tempted to add more variables to push that percentage higher. In the modern era of data science, computing power is cheap and datasets are massive. It is easy to throw dozens of predictors into a model just to see what sticks. However, regular $R^2$ has a mathematical flaw. It will always increase when you add a new variable, even if that variable is complete nonsense.
+At this point, you might be tempted to add more variables to push that percentage higher. In the modern era of data science, computing power is cheap and datasets are large. It is easy to throw dozens of predictors into a model just to see what sticks. However, regular $R^2$ has a mathematical flaw. It will always increase when you add a new variable, even if that variable is complete nonsense.
 
 
 
@@ -372,7 +372,7 @@ In introductory math classes, textbook problems are designed to work out. You mi
 
 
 
-Do not view this as a failure. Humans are incredibly complex, messy, and unpredictable. In epidemiology and social science, explaining $30\%$ of the biological variation in birth weights using just a few survey questions is actually a massive success. The remaining $70\%$ is simply the natural, unmeasured diversity of the human experience. Do not throw away a good model just because it does not look like a perfect math equation.
+Do not view this as a failure. Humans are incredibly complex, messy, and unpredictable. In epidemiology and social science, explaining $30\%$ of the biological variation in birth weights using just a few survey questions is actually a big success. The remaining $70\%$ is simply the natural, unmeasured diversity of the human experience. Do not throw away a good model just because it does not look like a perfect math equation.
 
 ### The Kitchen Sink Trap and Overfitting
 

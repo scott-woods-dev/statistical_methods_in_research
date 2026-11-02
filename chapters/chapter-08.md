@@ -80,7 +80,7 @@ As seen in Figure 8.1 above, the gaps between reality and our baseline expectati
 
 
 
-The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are massive, the test recognizes that the real-world data fails to fit our expected baseline.
+The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are large, the test recognizes that the real-world data fails to fit our expected baseline.
 
 ## 8.3 Interpreting the Goodness-of-Fit and Post Hoc Analysis
 
@@ -395,7 +395,7 @@ However, that mathematical engine has one major weakness. What happens if your e
 
 
 
-If you observe 5 people but only expected 1, your raw gap is 4. When the software divides that gap by the tiny expected count of 1, it acts like a mathematical magnifying glass, blowing the test statistic out of proportion. This scaling issue tricks the software into thinking there is a massive, highly significant difference when it is actually just a random quirk of a small sample. This directly inflates your risk of making a Type I error (a false positive).
+If you observe 5 people but only expected 1, your raw gap is 4. When the software divides that gap by the tiny expected count of 1, it acts like a mathematical magnifying glass, blowing the test statistic out of proportion. This scaling issue tricks the software into thinking there is a highly significant difference when it is actually just a random quirk of a small sample. This directly inflates your risk of making a Type I error (a false positive).
 
 
 
@@ -512,7 +512,7 @@ To see why this matters, let's look at two variables from our `fatal_police_shoo
 
 
 
-Because our dataset contains over 6,000 observations, almost any slight variation from perfect mathematical independence is going to trigger a significant $p$-value. The $p$-value will tell us that weapon type and threat level are associated, but it will not answer the practical question: Does knowing the weapon type give us a massive amount of information about the resulting threat level, or just a tiny bit?
+Because our dataset contains over 6,000 observations, almost any slight variation from perfect mathematical independence is going to trigger a significant $p$-value. The $p$-value will tell us that weapon type and threat level are associated, but it will not answer the practical question: Does knowing the weapon type give us a large amount of information about the resulting threat level, or just a tiny bit?
 
 
 

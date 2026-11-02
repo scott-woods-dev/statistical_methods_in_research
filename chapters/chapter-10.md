@@ -76,7 +76,7 @@ In earlier chapters, we used the paired $t$-test, the independent samples $t$-te
 
 
 
-Let's look at a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a massive pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the large amount of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
+Let's look at a real survey example about risky behaviors, like how many days a month a student drinks alcohol. If you look at the data, most students will report zero days. However, a tiny handful of students will report drinking almost every single day. Statisticians call this **zero-inflated** data. Your dataset is buried under a large pile of zeros. Because the mean tries to balance out every single number, that small group of heavy drinkers pulls the average up, while the large amount of zeros drags it back down. The mean gets trapped in a mathematical middle ground that does not actually represent a typical student.   
 
 
 
@@ -421,7 +421,7 @@ Consider a research scenario using our `cc_risk.csv` dataset, which contains sur
 
 ### Why Standard Linear Correlation Fails
 
-Variables tracking risky behaviors like alcohol consumption are almost always zero-inflated. A significant plurality of students will report zero drinking days, creating a massive pile of data at the bottom of the scale, while a tiny handful of students will report drinking nearly every day.   
+Variables tracking risky behaviors like alcohol consumption are almost always zero-inflated. A significant plurality of students will report zero drinking days, creating a large pile of data at the bottom of the scale, while a tiny handful of students will report drinking nearly every day.   
 
 
 
@@ -701,7 +701,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 11. A graduate student is desperate to find a significant result for their thesis. They run an independent samples t-test on their data and get p=.08. Disappointed, they run a Mann-Whitney U test on the same variables and get p=.06. Finally, they run Mood's Median test and get p=.04. They decide to only publish the results of Mood's test. Explain why this practice is mathematically dangerous and ethically wrong.
 
-12. A science journalist reads a study where a Mann-Whitney U test was used to compare the median household debt of two cities. The test yielded p=.001, so the journalist publishes the headline: "City A Residents Suffer from Massively Higher Debt than City B!" However, the actual difference in median debt between the two cities was only $45. Explain the critical statistical distinction the journalist failed to understand regarding p-values and effect sizes.
+12. A science journalist reads a study where a Mann-Whitney U test was used to compare the median household debt of two cities. The test yielded p=.001, so the journalist publishes the headline: "City A Residents Suffer from Higher Debt than City B!" However, the actual difference in median debt between the two cities was only $45. Explain the critical statistical distinction the journalist failed to understand regarding p-values and effect sizes.
 
 13. You are peer-reviewing a research paper. The author writes the following conclusion: "A Mann-Whitney U test indicated that the median time spent studying is significantly different between freshmen and seniors, W=542.50, p=.014, 95% CI [15,45]." Explain what critical piece of practical information is missing from this write-up, and how the author should fix it.
 

@@ -182,7 +182,7 @@ Furthermore, whenever we add multiple predictors, we must check for multicolline
 Now let's look at the Odds Ratios to understand the practical effect of these variables.
 
 - **Age:** The Odds Ratio for `Age` is $0.9666$. This means for every additional year of life, a patient retains roughly 96.7% of their baseline odds of survival, assuming their admission type stays the same. This translates to a 3.3% decrease in the odds of survival per year ($1.00 - 0.9666 = 0.0334$).
-- **Emergency:** The Odds Ratio for `Emergency` is $0.0860$. Because this is an indicator variable, it compares the $1$ group to the baseline $0$ group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a massive 91.4% drop in the odds of survival ($1.00 - 0.0860 = 0.914$).  
+- **Emergency:** The Odds Ratio for `Emergency` is $0.0860$. Because this is an indicator variable, it compares the $1$ group to the baseline $0$ group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a 91.4% drop in the odds of survival ($1.00 - 0.0860 = 0.914$).  
 
 ### Predicting Probabilities for Specific Profiles
 
@@ -323,7 +323,7 @@ While the underlying math is different, the conceptual interpretation is similar
 
 
 
-Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a patient's age and emergency admission status reduced the model's predictive error by roughly 13.5%. While this is an improvement over guessing blindly, it leaves a massive amount of deviance unexplained.
+Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a patient's age and emergency admission status reduced the model's predictive error by roughly 13.5%. While this is an improvement over guessing blindly, it leaves a large amount of deviance unexplained.
 
 
 
@@ -470,7 +470,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 ### Choosing a Method
 
 5. A medical researcher wants to predict the stage of a patient's cancer (Stage I, Stage II, Stage III, or Stage IV) using their white blood cell count and age. Explain why a standard binary logistic regression is the wrong tool for this analysis, and state the name of the advanced technique the researcher should seek out in their software.
-6. An ecologist has a massive dataset of 5,000 trees in a local forest. They want to predict whether a tree is infected with a rare fungus (1 = infected, 0 = healthy) using four continuous predictors: soil acidity, water proximity, tree height, and trunk diameter. Upon reviewing the data, they realize only 12 trees out of the 5,000 actually have the fungus. Explain the mathematical danger of proceeding with a multiple logistic regression model.
+6. An ecologist has a dataset of 5,000 trees in a local forest. They want to predict whether a tree is infected with a rare fungus (1 = infected, 0 = healthy) using four continuous predictors: soil acidity, water proximity, tree height, and trunk diameter. Upon reviewing the data, they realize only 12 trees out of the 5,000 actually have the fungus. Explain the mathematical danger of proceeding with a multiple logistic regression model.
 7. A university administrator wants to predict whether a student will drop out after their freshman year (yes or no). They want to simultaneously control for the student's high school GPA, their financial aid amount, and whether they live on campus or off campus. Which specific statistical tool should the administrator use?
 
 ### Communicating Results

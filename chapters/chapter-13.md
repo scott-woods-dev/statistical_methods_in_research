@@ -90,7 +90,7 @@ A behind-the-curtain look at an IRB reveals that they are not looking to block r
 
 ## 13.4 Data Security and Privacy
 
-In 2006, the internet provider AOL released a massive dataset of 20 million internet search queries from 650,000 users to help academic researchers. To protect users, AOL replaced all usernames with random identification numbers. They assumed the data was completely anonymous. However, journalists quickly noticed that user No. 4417749 frequently searched for landscapes in Lilburn, Georgia, along with several people who had the last name Arnold. Within days, they identified the user as a 62-year-old widow and published her identity (Barbaro & Zeller, 2006).
+In 2006, the internet provider AOL released a dataset of 20 million internet search queries from 650,000 users to help academic researchers. To protect users, AOL replaced all usernames with random identification numbers. They assumed the data was completely anonymous. However, journalists quickly noticed that user No. 4417749 frequently searched for landscapes in Lilburn, Georgia, along with several people who had the last name Arnold. Within days, they identified the user as a 62-year-old widow and published her identity (Barbaro & Zeller, 2006).
 
 
 
@@ -278,7 +278,7 @@ Read the following research scenarios. Identify the specific ethical or analytic
 6. A hospital uses a machine learning algorithm to predict which patients will require intensive care. The algorithm was trained exclusively on data from the 1990s, when the hospital served a primarily wealthy, fully insured demographic. What is the ethical danger of deploying this algorithm on today's general population?
 7. A professor requires her introductory psychology students to participate in her clinical trial for a new anxiety medication, stating that anyone who refuses will automatically fail the course. Which specific Institutional Review Board guideline is the professor violating?
 8. A researcher collects data on college binge drinking. She stores the spreadsheet containing the students' names, dorm rooms, and drinking habits on her personal laptop and frequently works on the data at a public coffee shop. Is this a failure of data governance or data stewardship? Explain your reasoning.
-9. A researcher studying a new weight-loss pill uses a massive sample size of 400,000 participants. The test returns a $p$-value of 0.001. However, the average weight loss was only 0.1 pounds over six months. Explain how the researcher might weaponize this $p$-value to mislead the public.
+9. A researcher studying a new weight-loss pill uses a sample size of 400,000 participants. The test returns a $p$-value of 0.001. However, the average weight loss was only 0.1 pounds over six months. Explain how the researcher might weaponize this $p$-value to mislead the public.
 
 ### Section C: IRB Protocol Review
 

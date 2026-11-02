@@ -73,7 +73,7 @@ Both perspectives are valid, and both are answered using the same ANOVA framewor
 
 ## 6.4 Partitioning Variation
 
-If we want to know whether the academic program track affects a student's writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this massive pile of differences the **total variation**.
+If we want to know whether the academic program track affects a student's writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this large pile of differences the **total variation**.
 
 
 
@@ -547,7 +547,7 @@ The **$F$-statistic** ($21.27$) represents the mathematical ratio of our between
 
 
 
-With simpler tools, like the independent sample $t$-test in Chapter 3, you could generally assume that a larger number meant a stronger effect. The $F$-statistic is much more complex. A raw score of $21.27$ might represent a massive, undeniable signal in one study, but it could be mathematically insignificant in a different study.
+With simpler tools, like the independent sample $t$-test in Chapter 3, you could generally assume that a larger number meant a stronger effect. The $F$-statistic is much more complex. A raw score of $21.27$ might represent an undeniable signal in one study, but it could be mathematically insignificant in a different study.
 
 
 
@@ -665,7 +665,7 @@ However, failing the equal variances requirement might actually be the most fasc
 
 
 
-Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a massive variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound, real-world finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
+Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a large variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound, real-world finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
 
 
 
@@ -712,8 +712,8 @@ When the difference in spread is your actual research interest, you can use a to
 
 ### Communicating Results
 
-8. A fellow student is presenting their research on the physical endurance of athletes playing different sports. They used an ANOVA to compare the stamina scores of runners, swimmers, and cyclists. The student points to a massive $F$-statistic of 42.5 on their slide and concludes, "Because the $F$-statistic is 42.5, we know the actual stamina scores between these groups differ by over 40 points." Explain the fatal flaw in this communication.
-9. A journalist reads a published ANOVA study comparing the reading comprehension scores of thousands of elementary students using three different phonics programs. The study reports a highly significant $p$-value ($p < .001$), but the Cohen's $d$ effect sizes for the differences between the programs are all around 0.05. The journalist publishes an article with the headline: "Revolutionary Phonics Program Creates Massive Advantage for Students." Explain why this headline is flawed.
+8. A fellow student is presenting their research on the physical endurance of athletes playing different sports. They used an ANOVA to compare the stamina scores of runners, swimmers, and cyclists. The student points to an $F$-statistic of 42.5 on their slide and concludes, "Because the $F$-statistic is 42.5, we know the actual stamina scores between these groups differ by over 40 points." Explain the fatal flaw in this communication.
+9. A journalist reads a published ANOVA study comparing the reading comprehension scores of thousands of elementary students using three different phonics programs. The study reports a highly significant $p$-value ($p < .001$), but the Cohen's $d$ effect sizes for the differences between the programs are all around 0.05. The journalist publishes an article with the headline: "Revolutionary Phonics Program Creates Large Advantage for Students." Explain why this headline is flawed.
 10. You are reviewing a research paper draft written by a colleague. They explain that they threw away their plan to run an ANOVA because they created a histogram of their entire response variable, and it had three distinct peaks instead of a single perfect bell curve. Explain the "myth of raw data normality" to your colleague and tell them exactly what they should have checked instead.
 
 ### Software Application

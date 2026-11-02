@@ -158,7 +158,7 @@ However, real-world data is often messy and leans heavily to one side. We call t
 
 
 
-Let's look at the `ClassesMissed` variable. In the histogram of this numerical data, we see a massive peak at zero, with a long "tail" stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
+Let's look at the `ClassesMissed` variable. In the histogram of this numerical data, we see a large peak at zero, with a long "tail" stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this **right-skewed** (or positively skewed). The data has a strong **floor effect**, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.
 
 
 
@@ -356,11 +356,11 @@ You will often hear that the mean is "flawed" because it gets pulled in the dire
 
 
 
-Consider a town council looking at resident income to forecast tax revenue. Income is notoriously right-skewed, with a few massive outliers pulling the mean significantly higher than the median. If the council wants to know what a "typical" middle-class family earns, they should look at the median. 
+Consider a town council looking at resident income to forecast tax revenue. Income is notoriously right-skewed, with a few large outliers pulling the mean significantly higher than the median. If the council wants to know what a "typical" middle-class family earns, they should look at the median. 
 
 
 
-But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,000 new people move to the town, the council can confidently plan for $2,000,000 in new revenue ($2,000 multiplied by 1,000 people). You cannot do this math with a median! The mean mathematically accounts for the total sum of the data. Those ultra-wealthy outliers who pay massive taxes provide real money that the town gets to spend. The mean's "smoothing out" effect spreads those extreme values across everyone. When you need to calculate totals or aggregates, its sensitivity to outliers is a feature, not a bug.
+But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,000 new people move to the town, the council can confidently plan for $2,000,000 in new revenue ($2,000 multiplied by 1,000 people). You cannot do this math with a median! The mean mathematically accounts for the total sum of the data. Those ultra-wealthy outliers who pay large taxes provide real money that the town gets to spend. The mean's "smoothing out" effect spreads those extreme values across everyone. When you need to calculate totals or aggregates, its sensitivity to outliers is a feature, not a bug.
 
 ### Choosing the Right Measure of Center
 
@@ -441,7 +441,7 @@ You might be wondering: if the median resists messy outliers so well, why don't 
 
 
 
-The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a massive amount of information.
+The answer comes down to **reliability** and how much information each measure uses. Think about how we find the median for `WeekdaySleep`. We line up all 253 students in order and find the person exactly in the middle. We ignore the actual sleep hours of the other 252 students. We don't care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a large amount of information.
 
 
 
@@ -573,7 +573,7 @@ As you begin working with real data, there are a few common traps that trip up a
 2. **Visualizations must match the data type.** Use bar plots and Pareto charts for single categorical variables. Use histograms to see the shape and spread of single numerical variables.
 3. **Relationships require specific plots.** Use scatterplots to compare two numerical variables, mosaic plots to compare two categorical variables, and box plots to compare a numerical variable across different categories.
 4. **The shape dictates the summary.** If a distribution is roughly symmetric (bell-shaped), report the mean and standard deviation. If it is skewed or has extreme outliers, report the median and the Interquartile Range (IQR). 
-5. **Statistics estimate parameters.** We calculate known statistics (like a sample mean, $\bar{x}$) from our small, manageable sample to make educated guesses about the unknown parameters (like a population mean, $\mu$) of the massive population.
+5. **Statistics estimate parameters.** We calculate known statistics (like a sample mean, $\bar{x}$) from our small, manageable sample to make educated guesses about the unknown parameters (like a population mean, $\mu$) of the large population.
 6. **Real data is messy.** Always check for missing data, bias, and physical limits (floor and ceiling effects) before you trust the story your numbers are telling you.
 
 ## 1.16 Guided Analysis: Putting It All Together

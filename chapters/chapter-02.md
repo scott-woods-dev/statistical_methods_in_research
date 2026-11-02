@@ -233,11 +233,11 @@ Finally, suppose a sociologist asks this research question: Do public university
 
 
 
-The outcome variable here is student debt. Like sleep hours, debt is numerical. However, financial data is almost never symmetric. As we discussed in Chapter 1, financial distributions are usually heavily right-skewed. Most students will have a moderate amount of debt, but a handful of students might have massive outliers due to expensive graduate programs or medical school. If we used the mean, those few massive outliers would artificially pull the average upward, painting a misleading picture of the typical student. To protect our analysis from those outliers, we need a resistant measure of center. Therefore, the median is the safest and most appropriate choice. Our final statistical question becomes: *Is the median student debt of public university graduates different from the median student debt of private university graduates?*
+The outcome variable here is student debt. Like sleep hours, debt is numerical. However, financial data is almost never symmetric. As we discussed in Chapter 1, financial distributions are usually heavily right-skewed. Most students will have a moderate amount of debt, but a handful of students might have large outliers due to expensive graduate programs or medical school. If we used the mean, those few large outliers would artificially pull the average upward, painting a misleading picture of the typical student. To protect our analysis from those outliers, we need a resistant measure of center. Therefore, the median is the safest and most appropriate choice. Our final statistical question becomes: *Is the median student debt of public university graduates different from the median student debt of private university graduates?*
 
 
 
-By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are doing yourself a massive favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.
+By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are doing yourself a big favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.
 
 
 
@@ -373,7 +373,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 
 
-**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, controlled master experiment.
+**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling large amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, controlled master experiment.
 
 
 

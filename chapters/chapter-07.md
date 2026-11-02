@@ -55,7 +55,7 @@ But what if our nuisance variable isn't a category, but a precise continuous num
 
 **Repeated Measures ANOVA**
 
-Finally, what if the biggest source of noise is simply the massive, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
+Finally, what if the biggest source of noise is simply the large, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.
 
 
 
@@ -65,7 +65,7 @@ In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called "one-wa
 
 
 
-Let's think about the design of our hotel maid study. We want to know if the mindset intervention (`Cond`) lowered the maids' post-intervention systolic blood pressure (`Syst2`). However, basic biology tells us that age also has a massive impact on blood pressure. If we ignore age, the natural blood pressure difference between a 22-year-old and a 60-year-old gets dumped straight into our statistical noise bucket. This background noise makes the true signal of our psychological intervention much harder to detect.
+Let's think about the design of our hotel maid study. We want to know if the mindset intervention (`Cond`) lowered the maids' post-intervention systolic blood pressure (`Syst2`). However, basic biology tells us that age also has a large impact on blood pressure. If we ignore age, the natural blood pressure difference between a 22-year-old and a 60-year-old gets dumped straight into our statistical noise bucket. This background noise makes the true signal of our psychological intervention much harder to detect.
 
 
 
@@ -104,7 +104,7 @@ Because interactions complicate our interpretations, you might be wondering what
 
 
 
-Adding a third factor creates a **Three-Way ANOVA**. While software can easily calculate this, it is a serious  struggle to interpret it. A Three-Way ANOVA generates three separate main effects, three separate two-way interactions, and one massive three-way interaction. To interpret a three-way interaction, you have to answer a dizzying question: *Does the interaction between age and mindset change depending on the shift the maid is working?* 
+Adding a third factor creates a **Three-Way ANOVA**. While software can easily calculate this, it is a serious  struggle to interpret it. A Three-Way ANOVA generates three separate main effects, three separate two-way interactions, and one three-way interaction. To interpret a three-way interaction, you have to answer a dizzying question: *Does the interaction between age and mindset change depending on the shift the maid is working?* 
 
 
 
@@ -344,7 +344,7 @@ To read this table, we simply look at each row one at a time.
 
 **1. Did the covariate help?**
 
-First, we look at the row for our baseline covariate (`Syst`). The $p$-value is exceptionally small ($p < .001$). This confirms what we suspected: a maid's baseline blood pressure is a massive, statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a massive source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.
+First, we look at the row for our baseline covariate (`Syst`). The $p$-value is exceptionally small ($p < .001$). This confirms what we suspected: a maid's baseline blood pressure is a statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a large source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.
 
 
 
@@ -504,7 +504,7 @@ We just worked through the hotel maid study using three different advanced stati
 
 ### The Story of the Data
 
-Our core research question was simple: Can changing a person's mindset about their daily labor physically alter their health? To answer this, we had to fight through the massive background noise of human biology.
+Our core research question was simple: Can changing a person's mindset about their daily labor physically alter their health? To answer this, we had to fight through the background noise of human biology.
 
 
 
@@ -512,7 +512,7 @@ Our core research question was simple: Can changing a person's mindset about the
 
    
 
-2. **The ANCOVA:** Next, we upgraded our tool. Instead of chopping age into blocks, we used exact baseline systolic blood pressure as a continuous covariate to predict post-intervention blood pressure. The ANCOVA successfully leveled the playing field, proving that baseline blood pressure is a massive predictor of final blood pressure. However, even after filtering out that noise, the 5-point adjusted drop for the informed group was not statistically significant ($p = 0.107$). We could not confidently prove the intervention changed blood pressure.
+2. **The ANCOVA:** Next, we upgraded our tool. Instead of chopping age into blocks, we used exact baseline systolic blood pressure as a continuous covariate to predict post-intervention blood pressure. The ANCOVA successfully leveled the playing field, proving that baseline blood pressure is a strong predictor of final blood pressure. However, even after filtering out that noise, the 5-point adjusted drop for the informed group was not statistically significant ($p = 0.107$). We could not confidently prove the intervention changed blood pressure.
 
    
 
@@ -591,7 +591,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 7. **Adjusted Means:** Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the same baseline covariate score.
 8. **Homogeneity of Regression Slopes:** A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the same way (has parallel slopes) across all of your different experimental groups.
 9. **Between-Subjects Design:** An experimental setup where different groups of people are compared against one another (e.g., an informed group versus a control group).
-10. **Within-Subjects Design:** An experimental setup where the same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out massive amounts of biological and genetic noise.
+10. **Within-Subjects Design:** An experimental setup where the same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out large amounts of biological and genetic noise.
 11. **Repeated Measures ANOVA:** The statistical test used to analyze a within-subjects design.
 12. **Longitudinal Data:** Data collected by tracking the same participants across three or more specific points in time.
 
@@ -614,7 +614,7 @@ An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a ba
 
 ### Communicating Results
 
-8. A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a massive, statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant ($p = .54$). The journalist publishes an article with the headline: "New Antidepressant Proven Useless." Explain the fatal flaw in this communication.
+8. A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant ($p = .54$). The journalist publishes an article with the headline: "New Antidepressant Proven Useless." Explain the fatal flaw in this communication.
 9. A fellow student is presenting their research on the effects of a new sleep medication. They ran an ANCOVA, controlling for the participants' baseline sleep hours. Pointing to the Adjusted Means (Estimated Marginal Means) table on their slide, they state, "As you can see, the actual, raw average sleep time for the medication group in the real world was exactly 8.2 hours." Explain why this interpretation of an Adjusted Mean is incorrect.
 10. You are reviewing a research paper draft written by a colleague. They ran a Two-Way ANOVA and found a non-significant $p$-value of $0.08$. Frustrated, they tell you: *"I'm just going to delete the age categories, plug exact age back in as a continuous covariate, and run an ANCOVA instead to see if that gets my $p$-value under $0.05$."* Explain why this practice is unethical and what this "fishing expedition" behavior is formally called.
 
