@@ -30,7 +30,7 @@ In 2016, a team of researchers scraped the personal profiles of 70,000 users on 
 
 
 
-This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated highly personal human experiences as free raw materials to be mined, ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
+This case highlights a catastrophic failure in the ethical handling of information. The researchers confused *accessible* data with *ethical* data. They treated personal human experiences as free raw materials to be mined, ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.
 
 
 
@@ -98,7 +98,7 @@ The AOL incident is a textbook failure in data security. Simply deleting a name 
 
  
 
-**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or highly specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is very low.
+**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is very low.
 
 
 
@@ -110,7 +110,7 @@ The AOL incident is a textbook failure in data security. Simply deleting a name 
 | :--- | :--- | :--- |
 | Can the researcher link the data to a person? | No | Yes |
 | Can anyone outside the research team link it? | No | No, if the safeguards hold |
-| What identifying information is collected? | None, including names, emails, and highly specific demographics | Identifying information is collected but protected |
+| What identifying information is collected? | None, including names, emails, and specific demographics | Identifying information is collected but protected |
 | Example | An unsigned paper survey dropped into a locked box | A diet and depression study matched by participant code, with the master key stored separately |
 | Promise to participants | No one, including the researcher, can identify you | The researcher can identify you but will not disclose your identity |
 | Main risk | Re-identification from combined details | A lost key or a data breach |
@@ -121,13 +121,13 @@ To understand what good confidentiality looks like in practice, let's walk throu
 
 
 
-How do you keep this highly sensitive information safe? In the past, an Institutional Review Board might have required you to lock the paper forms in a heavy filing cabinet and store the audio files on an "air-gapped" USB drive kept in a safe. However, physical drives are easily lost, stolen, or corrupted. Today, review boards generally prefer that you use an institutionally authenticated cloud provider, such as a secure university Google Drive or Dropbox account. These platforms offer enterprise-level encryption, require strict password authentication, and track exactly who logs in to view the files.
+How do you keep this sensitive information safe? In the past, an Institutional Review Board might have required you to lock the paper forms in a heavy filing cabinet and store the audio files on an "air-gapped" USB drive kept in a safe. However, physical drives are easily lost, stolen, or corrupted. Today, review boards generally prefer that you use an institutionally authenticated cloud provider, such as a secure university Google Drive or Dropbox account. These platforms offer enterprise-level encryption, require strict password authentication, and track exactly who logs in to view the files.
 
 
 
 A secure data workflow requires you to actively protect the information at every step:
 
-- **Gathering:** You collect the signed paper consent forms and record the audio. At this moment, the data is highly vulnerable because it exists on physical, easily accessible media.
+- **Gathering:** You collect the signed paper consent forms and record the audio. At this moment, the data is vulnerable because it exists on physical, easily accessible media.
 - **Transferring:** As soon as the interview ends, you scan the paper forms and upload the audio files directly to your secure cloud folder. You immediately delete the raw audio from the portable recorder so it cannot be found if you drop the device on your way home.
 - **De-identification:** You type out the interview transcripts. Instead of using the student's name, you **de-identify** the data by assigning them a random code (e.g., "Participant 04"). You create a separate "master key" document that links "Participant 04" to the student's real name.
 - **Storage:** You store this master key in a different, restricted cloud folder from the transcripts. Finally, you lock the original paper consent forms in a secure campus office, or securely shred them if your institutional policy allows for digital-only records.

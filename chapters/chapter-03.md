@@ -195,7 +195,7 @@ When we report our results, we typically use a 95% confidence interval. But what
 
 
 
-You might wonder why we do not simply use a 100% confidence interval. The reason is practicality. To be 100% certain that you caught the fish, you would have to cast a net that covers the entire lake. In statistics, a 100% confidence interval would have to be infinitely wide. An interval telling us that the true average is "somewhere between negative infinity and positive infinity" is useless for making decisions. We willingly accept a 5% chance of missing the true average in exchange for a narrower, highly informative range of numbers.
+You might wonder why we do not simply use a 100% confidence interval. The reason is practicality. To be 100% certain that you caught the fish, you would have to cast a net that covers the entire lake. In statistics, a 100% confidence interval would have to be infinitely wide. An interval telling us that the true average is "somewhere between negative infinity and positive infinity" is useless for making decisions. We willingly accept a 5% chance of missing the true average in exchange for a narrower, informative range of numbers.
 
 
 
@@ -475,7 +475,7 @@ If your variable is measured in concrete, everyday units (like dollars, pounds, 
 
 
 
-For example, imagine we tested the diet intervention's impact on body weight. People intuitively understand what a drop of 10 pounds means. If our confidence interval tells us that the diet causes a reliable drop of between 5 and 10 pounds, the reader instantly understands the real-world impact. In cases with tangible units, a confidence interval provides a highly intuitive, practical range.
+For example, imagine we tested the diet intervention's impact on body weight. People intuitively understand what a drop of 10 pounds means. If our confidence interval tells us that the diet causes a reliable drop of between 5 and 10 pounds, the reader instantly understands the real-world impact. In cases with tangible units, a confidence interval provides an intuitive, practical range.
 
 
 
@@ -573,7 +573,7 @@ Finally, researchers sometimes plan their sample size around their confidence in
 
 
 
-If a researcher needs highly precise results, they want a very narrow net. Because larger sample sizes reduce statistical noise, recruiting more participants shrinks the margin of error. A researcher can tell their software, "I want to be 95% confident in my results, and I want my margin of error to be no wider than 2 points." The software will then calculate the exact sample size needed to guarantee that level of precision.
+If a researcher needs precise results, they want a very narrow net. Because larger sample sizes reduce statistical noise, recruiting more participants shrinks the margin of error. A researcher can tell their software, "I want to be 95% confident in my results, and I want my margin of error to be no wider than 2 points." The software will then calculate the exact sample size needed to guarantee that level of precision.
 
 
 

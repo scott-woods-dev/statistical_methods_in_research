@@ -366,7 +366,7 @@ But suppose the council knows the *mean* tax revenue is $2,000 per person. If 1,
 
 | Measure        | Best For (Data Type)             | What it tells us                                             |
 | :------------- | :------------------------------- | :----------------------------------------------------------- |
-| **Mean**       | Numerical (Symmetric)            | The mathematical balancing point of the data. It is highly sensitive to extreme outliers, making it excellent for understanding the *total* impact or aggregate of a group, but sometimes misleading for describing a single "typical" individual. |
+| **Mean**       | Numerical (Symmetric)            | The mathematical balancing point of the data. It is sensitive to extreme outliers, making it excellent for understanding the *total* impact or aggregate of a group, but sometimes misleading for describing a single "typical" individual. |
 | **Median**     | Numerical (Skewed or Outliers)   | The exact middle position of the data. Half the values are higher, and half are lower. It is resistant to extreme outliers, making it the best choice for describing the "typical" everyday experience of an individual. |
 | **Mode**       | Categorical (Nominal or Ordinal) | The single most frequent outcome or common category in your dataset. |
 | **Proportion** | Categorical                      | The fraction or percentage of the total group that belongs to a specific category. It tells you the "part" compared to the "whole" and is always a value between 0 and 1 (or 0% and 100%). |
@@ -422,7 +422,7 @@ Now that you have a complete toolkit of numerical summaries, how do you know whi
 
 
 
-Because the mean and standard deviation mathematically use every single data point, they act like a physical balancing point. This makes them highly sensitive to extreme values. In our right-skewed `ClassesMissed` data, the few students who missed 15 classes will pull the mean significantly higher. Those extreme numbers will also artificially inflate the standard deviation. If you report the mean and standard deviation here, it will look like the "typical" student missed far more classes than they actually did!
+Because the mean and standard deviation mathematically use every single data point, they act like a physical balancing point. This makes them sensitive to extreme values. In our right-skewed `ClassesMissed` data, the few students who missed 15 classes will pull the mean significantly higher. Those extreme numbers will also artificially inflate the standard deviation. If you report the mean and standard deviation here, it will look like the "typical" student missed far more classes than they actually did!
 
 
 
@@ -437,7 +437,7 @@ To choose the right summary, look at your histogram and follow this rule:
 
 ### The Reliability of the Mean
 
-You might be wondering: if the median resists messy outliers so well, why don't we just use it all the time? Why ever risk using the highly sensitive mean? 
+You might be wondering: if the median resists messy outliers so well, why don't we just use it all the time? Why ever risk using the sensitive mean? 
 
 
 
@@ -581,7 +581,7 @@ As you begin working with real data, there are a few common traps that trip up a
 We have covered a lot of ground in this chapter. To see how these tools work together, let's walk through a complete, preliminary analysis using our dataset of 253 college students. 
 
 ### The Research Interest
-Student well-being is a major focus for universities. We know that college can be highly stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with anxiety find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.
+Student well-being is a major focus for universities. We know that college can be stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with anxiety find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.
 
 ### The Research Question
 Can we translate that broad interest into a specific question we can answer with our data? 
@@ -664,7 +664,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 ### Choosing a Method
 
-**5.** A sociologist is studying the starting salaries of recent graduates. They know that while most graduates start around $45,000, a few land highly lucrative tech jobs paying over $150,000. Which measure of center (mean or median) and which measure of spread (standard deviation or IQR) should they report to accurately describe the typical graduate's experience?
+**5.** A sociologist is studying the starting salaries of recent graduates. They know that while most graduates start around $45,000, a few land lucrative tech jobs paying over $150,000. Which measure of center (mean or median) and which measure of spread (standard deviation or IQR) should they report to accurately describe the typical graduate's experience?
 
 **6.** You have collected data on the number of hours students spend studying per week and their preferred study location (Library, Dorm, Coffee Shop). You want to see if study hours differ depending on the location. Which visualization tool is the most appropriate for this comparison?
 

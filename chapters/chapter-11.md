@@ -269,7 +269,7 @@ Once you move past the Principal Components Analysis software trap, your statist
 
 
 
-**Principal Axis Factoring (PAF)** is a highly dependable extraction method that makes very few assumptions about the shape of your data. This makes it the gold standard for analyzing ordinal, Likert-style survey responses, like the 1 to 10 partner ratings in the `speed_dating.csv` dataset. Because human survey data is rarely perfectly symmetrical and often clumps toward one extreme, Principal Axis Factoring is the safest and most reliable default choice for exploratory research.   
+**Principal Axis Factoring (PAF)** is a dependable extraction method that makes very few assumptions about the shape of your data. This makes it the gold standard for analyzing ordinal, Likert-style survey responses, like the 1 to 10 partner ratings in the `speed_dating.csv` dataset. Because human survey data is rarely perfectly symmetrical and often clumps toward one extreme, Principal Axis Factoring is the safest and most reliable default choice for exploratory research.   
 
 
 

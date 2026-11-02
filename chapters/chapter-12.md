@@ -10,7 +10,7 @@ Before we look at our data, it is important to understand the goals of time seri
 
  
 
-There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only look at a linear trend, we miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is highly connected to what happened yesterday. 
+There are two major reasons. First, a simple straight line might show a general upward or downward trend, but it ignores recurring cycles. Human behavior, economics, and nature rarely move in a perfectly straight line. If we only look at a linear trend, we miss the reality that retail sales surge every December or that depression metrics shift during winter months. Second, linear regression relies on the assumption that every data point is independent. Chronological data inherently violates this assumption. What happens today is connected to what happened yesterday. 
 
   
 
@@ -127,7 +127,7 @@ Once we understand the overarching trajectory and the sequential momentum of our
 
 
 
-While there are many forecasting algorithms, one of the most common structural models used in research is the **ARIMA** model. ARIMA stands for AutoRegressive Integrated Moving Average. While the mathematics behind this model are complex, its conceptual form is highly intuitive. Instead of trying to force a single straight line through messy data, an ARIMA model breaks the data down into pieces, analyzes the behavior of each piece, and then reassembles them to project the next chronological steps.   
+While there are many forecasting algorithms, one of the most common structural models used in research is the **ARIMA** model. ARIMA stands for AutoRegressive Integrated Moving Average. While the mathematics behind this model are complex, its conceptual form is intuitive. Instead of trying to force a single straight line through messy data, an ARIMA model breaks the data down into pieces, analyzes the behavior of each piece, and then reassembles them to project the next chronological steps.   
 
 
 

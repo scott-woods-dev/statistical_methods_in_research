@@ -34,7 +34,7 @@ While a broad goal provides direction, it is usually too abstract to test direct
 
 
 
-Think of the transition this way: The goal is your destination (understanding hiring bias), and the research question is the exact route you will take to get there. To build that route, you have to ask yourself what physical evidence would prove or disprove your idea. You have to move from an invisible concept to visible, countable data points. For the resume study, the researchers translated their broad goal into a highly specific question: Do identical resumes receive different interview callback rates depending on whether the applicant's first name sounds White or African-American?
+Think of the transition this way: The goal is your destination (understanding hiring bias), and the research question is the exact route you will take to get there. To build that route, you have to ask yourself what physical evidence would prove or disprove your idea. You have to move from an invisible concept to visible, countable data points. For the resume study, the researchers translated their broad goal into a specific question: Do identical resumes receive different interview callback rates depending on whether the applicant's first name sounds White or African-American?
 
 
 
@@ -82,7 +82,7 @@ Once you have operationalized a concept into a measurable variable, you must eva
 
 
 
-Let's look at the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a highly valid measure of *initial* labor market interest.
+Let's look at the outcome variable in our resume dataset, `call`. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a valid measure of *initial* labor market interest.
 
 
 
@@ -121,7 +121,7 @@ Cronbach's alpha gives us a final value that generally ranges from $0$ to $1$.
 - **0 indicates no internal consistency:** The survey questions have nothing in common; the respondents are essentially answering randomly.
 - **1 indicates perfect internal consistency:** The questions perfectly align with one another.
 
-In the social sciences, researchers generally look for a Cronbach's alpha of **0.70 or higher** before they consider a summated scale to be reliable enough to use in a study. For the math anxiety data, we would find a Cronbach's alpha well above $0.80$. Because the scale exceeds the $0.70$ threshold, we have the mathematical green light to sum those nine items into a single, highly reliable "Math Anxiety" composite score for each participant.
+In the social sciences, researchers generally look for a Cronbach's alpha of **0.70 or higher** before they consider a summated scale to be reliable enough to use in a study. For the math anxiety data, we would find a Cronbach's alpha well above $0.80$. Because the scale exceeds the $0.70$ threshold, we have the mathematical green light to sum those nine items into a single, reliable "Math Anxiety" composite score for each participant.
 
 ## 2.6 Methods of Data Gathering
 
@@ -289,7 +289,7 @@ To help keep these concepts straight as we move into actual testing, here is a s
 
 : Table 2.1: Summary of the universal rules governing the null and alternative hypotheses.
 
-*Note on two-sided testing: By strictly using the "does not equal" sign ($\neq$) for our alternative hypothesis, we are conducting a "two-sided" test. This means we are keeping our minds open to the effect moving in either direction. For example, if we only check to see if a treatment is better than a placebo, we would miss the possibility that it's actually worse than a placebo. Once we prove an effect exists, we will use other tools (like confidence intervals and effect sizes) to talk about the specific direction and magnitude of that effect. Choosing to only look in one direction before the test begins is a highly discouraged practice in modern research.*
+*Note on two-sided testing: By strictly using the "does not equal" sign ($\neq$) for our alternative hypothesis, we are conducting a "two-sided" test. This means we are keeping our minds open to the effect moving in either direction. For example, if we only check to see if a treatment is better than a placebo, we would miss the possibility that it's actually worse than a placebo. Once we prove an effect exists, we will use other tools (like confidence intervals and effect sizes) to talk about the specific direction and magnitude of that effect. Choosing to only look in one direction before the test begins is a discouraged practice in modern research.*
 
 ### Stating the Hypotheses with Parameters
 
@@ -353,7 +353,7 @@ Perhaps the most frequent mistake researchers make when first learning to write 
 
 
 
-More importantly, the scientific method strictly requires you to set your hypotheses *before* you collect or analyze your data. While exploring a dataset to see what interesting patterns emerge (known as exploratory analysis) is a valuable tool for generating future research ideas, it is not hypothesis testing. If you dig through a dataset, find a surprising difference between two groups, and then write a hypothesis pretending you predicted that difference all along, you are violating the scientific process. This practice can lead to highly unethical research because it tricks the mathematical formulas into finding "significant" results that are actually just random flukes. We will explore the dangers of this practice, often called p-hacking, in our final chapter on statistics and ethics.
+More importantly, the scientific method strictly requires you to set your hypotheses *before* you collect or analyze your data. While exploring a dataset to see what interesting patterns emerge (known as exploratory analysis) is a valuable tool for generating future research ideas, it is not hypothesis testing. If you dig through a dataset, find a surprising difference between two groups, and then write a hypothesis pretending you predicted that difference all along, you are violating the scientific process. This practice can lead to unethical research because it tricks the mathematical formulas into finding "significant" results that are actually just random flukes. We will explore the dangers of this practice, often called p-hacking, in our final chapter on statistics and ethics.
 
 ### Confusing Reliability with Validity in Proxy Variables
 
@@ -361,7 +361,7 @@ It is easy to mix up these two concepts because we often use them interchangeabl
 
 
 
-Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your highly reliable proxy is invalid.
+Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like "employer interest" using a proxy variable like "interview callbacks," validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer looks at a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your reliable proxy is invalid.
 
 ### The Causation Illusion in Observational Studies
 
@@ -373,7 +373,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 
 
-**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build highly convincing arguments for cause and effect, even without a single, perfectly controlled master experiment.
+**A Note on Modern Causal Research:** While a single observational study cannot prove causation, modern statistical software has popularized a technique called **meta-analysis**. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling massive amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, perfectly controlled master experiment.
 
 
 

@@ -250,7 +250,7 @@ These plots line your actual residuals up against a theoretically perfect normal
 
 - **One Bend (A sharp hook or J-shape):** This indicates your residuals are severely skewed. This is a problem, and the normality assumption is violated.
 - **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or very light tails. This is also a problem that violates the assumption.
-- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually perfectly fine! Human brains are incredibly good at finding patterns in random noise. A highly wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
+- **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually perfectly fine! Human brains are incredibly good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
 
 ![Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.](../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png){fig-alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."}
 
@@ -282,7 +282,7 @@ If one program track has writing scores that are tightly clustered together, but
 
 #### The "Hypothesis Test" Trap
 
-If you search the internet or look through statistical software menus, you will likely find formal hypothesis tests designed specifically to check for equal variances. It is highly recommended that you avoid using them.
+If you search the internet or look through statistical software menus, you will likely find formal hypothesis tests designed specifically to check for equal variances. It is recommended that you avoid using them.
 
 
 
@@ -314,7 +314,7 @@ For example, if the vocational track has a standard deviation of 8 points, and t
 
 
 
-For example, imagine a researcher comparing the reading scores of students in a highly selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically very similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is highly restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.
+For example, imagine a researcher comparing the reading scores of students in a selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically very similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.
 
 
 
@@ -394,7 +394,7 @@ Let's consider the "general" academic track to be our standard baseline. We only
 1. General (Baseline) versus Academic
 2. General (Baseline) versus Vocational
 
-By intentionally skipping the comparison between the academic and vocational tracks, Dunnett's test saves statistical power (our ability to find differences when they exist). It is highly efficient and is the preferred post hoc test whenever your experimental design includes a clear control group.
+By intentionally skipping the comparison between the academic and vocational tracks, Dunnett's test saves statistical power (our ability to find differences when they exist). It is efficient and is the preferred post hoc test whenever your experimental design includes a clear control group.
 
 ### The Post Hoc to the Post Hoc: Practical Significance
 
@@ -454,7 +454,7 @@ Think about how these students ended up in their respective program tracks. The 
 
 
 
-For example, the academic track often acts as a highly filtered, selective program. Because of this restriction, we might expect those students to perform very similarly to one another, resulting in tightly clustered scores. Conversely, the general track acts as a catch-all for a wide variety of students, meaning their scores might be wildly spread out. Because the students were not randomly assigned, we are at a much higher risk of violating the **equal variances** assumption, making our upcoming data triage and diagnostic checks absolutely critical.
+For example, the academic track often acts as a filtered, selective program. Because of this restriction, we might expect those students to perform very similarly to one another, resulting in tightly clustered scores. Conversely, the general track acts as a catch-all for a wide variety of students, meaning their scores might be wildly spread out. Because the students were not randomly assigned, we are at a much higher risk of violating the **equal variances** assumption, making our upcoming data triage and diagnostic checks absolutely critical.
 
 ### Data Triage and Exploratory Analysis
 
@@ -665,11 +665,11 @@ However, failing the equal variances requirement might actually be the most fasc
 
 
 
-Think back to the intuition we built regarding our observational high school data. If a highly selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a massive variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound, real-world finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
+Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a massive variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound, real-world finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the *consistency* of an outcome is much more important than discovering it alters the average.
 
 
 
-When the difference in spread is your actual research interest, you can use a tool called **Levene’s test**. Earlier, we strongly advised against using formal hypothesis tests just to see if you are allowed to run an ANOVA. But if your actual research question is, *"Does the variation in writing scores differ significantly between program tracks?"*, Levene's test is the perfect tool. In this scenario, Levene's test isn't being used as a diagnostic hurdle. It is the primary analysis answering your question. A significant $p$-value from Levene's test can be a highly meaningful, publishable result in its own right, proving that a categorical factor significantly affects the variability of a population.
+When the difference in spread is your actual research interest, you can use a tool called **Levene’s test**. Earlier, we strongly advised against using formal hypothesis tests just to see if you are allowed to run an ANOVA. But if your actual research question is, *"Does the variation in writing scores differ significantly between program tracks?"*, Levene's test is the perfect tool. In this scenario, Levene's test isn't being used as a diagnostic hurdle. It is the primary analysis answering your question. A significant $p$-value from Levene's test can be a meaningful, publishable result in its own right, proving that a categorical factor significantly affects the variability of a population.
 
 ## 6.11 Key Concepts
 

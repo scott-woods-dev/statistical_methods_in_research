@@ -132,7 +132,7 @@ As a new researcher, you might calculate an $R^2$ of 25% and feel disappointed. 
 
 
 
-Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a massive, highly valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is incredibly powerful for *explaining* broad, systemic trends in human behavior.
+Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect $R^2$ values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a massive, valuable finding. While an $R^2$ of 25% might not be strong enough to perfectly *predict* the exact lifespan of one specific person, it is incredibly powerful for *explaining* broad, systemic trends in human behavior.
 
 
 
@@ -257,7 +257,7 @@ When evaluating a residual plot, researchers look for three specific conditions 
 
 **2. Equal Variance (Homoscedasticity)** This intimidating statistical word simply means "same scatter" or "same spread." As you move from left to right across the residual plot, the vertical spread of the dots should remain relatively constant, forming an even band of noise.
 
-If the dots start tightly clustered on the left but fan out into a wide megaphone or cone shape on the right, you have a violation called *heteroscedasticity* (unequal spread). In the context of our data, this would mean our model is highly accurate at predicting the footprints of poorer nations, but its predictions become wildly unreliable and scattered for the wealthiest nations.
+If the dots start tightly clustered on the left but fan out into a wide megaphone or cone shape on the right, you have a violation called *heteroscedasticity* (unequal spread). In the context of our data, this would mean our model is accurate at predicting the footprints of poorer nations, but its predictions become wildly unreliable and scattered for the wealthiest nations.
 
 
 
@@ -408,7 +408,7 @@ A linear regression model assumes a constant rate of change; it assumes $\$5,000
 
 ### "Squishing" the Scale: The Log Transformation
 
-When researchers encounter a fundamentally curved relationship, they do not throw the data away. Furthermore, they do not need to invent a brand new, highly complex type of curved regression. Instead, they use a mathematical trick to **linearize** the data. This means they mathematically filter the data so that the severe curve straightens out, allowing them to safely use the same straight-line linear regression tools we have already learned.
+When researchers encounter a fundamentally curved relationship, they do not throw the data away. Furthermore, they do not need to invent a brand new, complex type of curved regression. Instead, they use a mathematical trick to **linearize** the data. This means they mathematically filter the data so that the severe curve straightens out, allowing them to safely use the same straight-line linear regression tools we have already learned.
 
 
 

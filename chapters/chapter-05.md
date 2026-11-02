@@ -336,7 +336,7 @@ Imagine trying to predict a student's height using their left shoe size and thei
 
 
 
-This disruptive overlap is called **multicollinearity**. When multicollinearity is present, the model cannot figure out which variable is driving the change. As a result, the slopes become highly unstable and unreliable.
+This disruptive overlap is called **multicollinearity**. When multicollinearity is present, the model cannot figure out which variable is driving the change. As a result, the slopes become unstable and unreliable.
 
 
 

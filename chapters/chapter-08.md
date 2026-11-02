@@ -72,7 +72,7 @@ It does this by calculating the "expected" counts for every category if the null
 
 
 
-As seen in Figure 8.1 above, the gaps between reality and our baseline expectation are highly visible:
+As seen in Figure 8.1 above, the gaps between reality and our baseline expectation are visible:
 
 - **Black Individuals:** We observed 1,528 records in the dataset. However, if the total incidents strictly followed the 12.1% Census baseline, we would only expect there to be about 725 records. Reality is noticeably higher than the baseline expectation.
 - **White Individuals:** We observed 2,919 records. Based on the 57.8% Census baseline, we expected about 3,466 records. Reality is lower than the baseline expectation.
@@ -174,7 +174,7 @@ Let's look at the cross-tabulation for our mental illness and fleeing data:
 
 : Table 8.1: Cross-tabulation of fleeing behavior by documented mental illness status (N = 5,750).
 
-Reading this table is highly intuitive. If we want to know how many subjects with documented mental illness attempted to flee on foot, we find the "Documented Illness" row, move over to the "Foot" column, and find that there were exactly 105 occurrences.
+Reading this table is intuitive. If we want to know how many subjects with documented mental illness attempted to flee on foot, we find the "Documented Illness" row, move over to the "Foot" column, and find that there were exactly 105 occurrences.
 
 ### Terms to Know: Independence and Association
 
@@ -453,7 +453,7 @@ As usual, the null hypothesis assumes there is no difference between the two dep
 
 ### The Intuition Behind the Test
 
-McNemar's test relies on a highly clever, intuitive trick. When two people go on a date, there are exactly four possible categorical outcomes:
+McNemar's test relies on a clever, intuitive trick. When two people go on a date, there are exactly four possible categorical outcomes:
 
 1. They both say no.
 2. They both say yes.
@@ -484,7 +484,7 @@ What does this mean in plain English? Even though we observed a slight imbalance
 
 ### Post Hoc Analysis for McNemar's Test
 
-Because McNemar's test looks at a highly constrained scenario (comparing a simple binary "yes or no" choice between two dependent groups), it operates entirely within a $2 \times 2$ framework.
+Because McNemar's test looks at a constrained scenario (comparing a simple binary "yes or no" choice between two dependent groups), it operates entirely within a $2 \times 2$ framework.
 
 
 
@@ -591,7 +591,7 @@ In the previous section, we used Cramér's $V$ to measure the overall strength o
 
 
 
-In fields like medicine, public health, and criminology, researchers do not just want to know if two variables are connected. They want to answer a highly specific question: *How much more likely is a specific outcome if a specific condition is present?*
+In fields like medicine, public health, and criminology, researchers do not just want to know if two variables are connected. They want to answer a specific question: *How much more likely is a specific outcome if a specific condition is present?*
 
 
 
@@ -611,7 +611,7 @@ When our statistical software calculates the Relative Risk for our ICU data, it 
 
 
 
-Because this number is less than $1.0$, it means the condition (infection) reduces the likelihood of the outcome (survival). We can interpret this in two highly intuitive ways:
+Because this number is less than $1.0$, it means the condition (infection) reduces the likelihood of the outcome (survival). We can interpret this in two intuitive ways:
 
 - **As a factor:** Patients admitted with a suspected infection are 0.83 times as likely to survive their ICU stay compared to patients admitted without an infection.
 - **As a percentage:** Patients with an infection are 83% as likely to survive. This represents a 17% decrease in the probability of survival compared to the baseline group.
@@ -749,7 +749,7 @@ In any research context, sensitivity is your rule's ability to find the exact th
 
 
 
-For our ICU triage rule, it asks: *Of all the people who were actually emergency admissions, what percentage did our rule correctly catch?* If a rule has high sensitivity, it is highly effective at identifying the target cases. A low sensitivity means the rule is missing too many actual events.
+For our ICU triage rule, it asks: *Of all the people who were actually emergency admissions, what percentage did our rule correctly catch?* If a rule has high sensitivity, it is effective at identifying the target cases. A low sensitivity means the rule is missing too many actual events.
 
 
 
@@ -814,7 +814,7 @@ Because of this built-in high sensitivity, the first test naturally produces a l
 - **Standardized Residuals:** The post hoc tool used after a significant Chi-Square test. Any cell with a residual outside the boundaries of $-2.0$ and $+2.0$ is considered a significant contributor to the relationship.
 - **The Expected Count Rule:** To avoid inflating the risk of a Type I error, every *expected* count calculated by your software must be at least 5. This is driven by overall averages, not just raw observed counts.
 - **Association Metrics:** Effect sizes for categorical data. Phi ($\phi$) is strictly for $2 \times 2$ tables, while Cramér's $V$ is used for any cross-tabulation larger than $2 \times 2$.
-- **Relative Risk vs. Odds Ratios:** Relative Risk offers a highly intuitive comparison of probabilities between two groups. Odds Ratios compare the odds of an event, which is mathematically required for retrospective studies and serves as the foundation for future regression models.
+- **Relative Risk vs. Odds Ratios:** Relative Risk offers an intuitive comparison of probabilities between two groups. Odds Ratios compare the odds of an event, which is mathematically required for retrospective studies and serves as the foundation for future regression models.
 - **Sensitivity and Specificity:** Metrics derived from a Confusion Matrix to evaluate predictive rules. Sensitivity measures the true positive rate (successfully catching target cases), while specificity measures the true negative rate (successfully avoiding false alarms).
 
 ## 8.16 New Notation

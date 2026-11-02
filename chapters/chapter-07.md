@@ -49,7 +49,7 @@ What if we know that a categorical variable, like age brackets, is causing a lar
 
 **The ANCOVA (Analysis of Covariance)**
 
-But what if our nuisance variable isn't a category, but a highly precise continuous number, like exact baseline blood pressure? Chopping exact numbers into arbitrary categories destroys valuable information. An ANCOVA solves this by mathematically blending the grouping power of an ANOVA with the continuous tracking of a multiple regression model. It uses that continuous baseline score to artificially level the playing field, mathematically calculating what the treatment group averages would look like if every single participant had started the study with the same blood pressure.
+But what if our nuisance variable isn't a category, but a precise continuous number, like exact baseline blood pressure? Chopping exact numbers into arbitrary categories destroys valuable information. An ANCOVA solves this by mathematically blending the grouping power of an ANOVA with the continuous tracking of a multiple regression model. It uses that continuous baseline score to artificially level the playing field, mathematically calculating what the treatment group averages would look like if every single participant had started the study with the same blood pressure.
 
 
 
@@ -209,7 +209,7 @@ This output perfectly demonstrates why we use a Two-Way ANOVA. By chopping the m
 
 
 
-However, chopping a highly precise number like age into broad, arbitrary categories (like "Under 40" and "40+") is not always the best strategy. In the next section, we will look at a method that allows us to control for background noise without throwing away our exact numbers.
+However, chopping a precise number like age into broad, arbitrary categories (like "Under 40" and "40+") is not always the best strategy. In the next section, we will look at a method that allows us to control for background noise without throwing away our exact numbers.
 
 
 
@@ -239,7 +239,7 @@ In the previous sections, we tried to clear that fog using a Two-Way ANOVA. We c
 
 
 
-Imagine two maids in our "Under 40" block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are very different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a highly precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision.
+Imagine two maids in our "Under 40" block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are very different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision.
 
 
 
@@ -247,7 +247,7 @@ To solve this issue with information loss, statisticians use an **ANCOVA** (Anal
 
 
 
-Let's look at our mindset intervention using a highly precise nuisance variable: baseline systolic blood pressure (`Syst`). We know that a maid's blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.
+Let's look at our mindset intervention using a precise nuisance variable: baseline systolic blood pressure (`Syst`). We know that a maid's blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.
 
 
 
@@ -524,7 +524,7 @@ The Harvard researchers ultimately proved their hypothesis: changing your mindse
 
 ### Writing the Results in APA Format
 
-When you read or write academic journal articles, you will rarely see raw software output tables. Instead, researchers translate those tables into highly structured, plain-English paragraphs using guidelines from the American Psychological Association (APA).
+When you read or write academic journal articles, you will rarely see raw software output tables. Instead, researchers translate those tables into structured, plain-English paragraphs using guidelines from the American Psychological Association (APA).
 
 
 
@@ -578,7 +578,7 @@ As we discussed in Section 7.9, having access to advanced tools can tempt resear
 
 **5. Assuming "Controlling For" Fixes Bad Data**
 
-An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a baseline covariate mathematically levels the playing field, but it cannot fix a fundamentally broken experiment. If your initial sample was terribly biased, or if your measurement tools were wildly inaccurate (poor validity), an ANCOVA will simply give you a highly sophisticated, mathematically adjusted wrong answer.
+An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a baseline covariate mathematically levels the playing field, but it cannot fix a fundamentally broken experiment. If your initial sample was terribly biased, or if your measurement tools were wildly inaccurate (poor validity), an ANCOVA will simply give you a sophisticated, mathematically adjusted wrong answer.
 
 ## 7.13 Key Concepts
 
