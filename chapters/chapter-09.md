@@ -96,7 +96,7 @@ When you run a logistic regression model, your software will output a familiar-l
 
 
 
-Because log-odds are very abstract, researchers typically treat this raw slope strictly as a directional signal. Let's apply this to the `Age` variable in our dataset, which measures the patient's age in years. In our output table, the raw coefficient for age is -0.0275. The negative sign immediately tells us the direction of the relationship: as age increases, the log-odds of survival decrease. Older age is associated with lower survival rates.  
+Because log-odds are abstract, researchers typically treat this raw slope strictly as a directional signal. Let's apply this to the `Age` variable in our dataset, which measures the patient's age in years. In our output table, the raw coefficient for age is -0.0275. The negative sign immediately tells us the direction of the relationship: as age increases, the log-odds of survival decrease. Older age is associated with lower survival rates.  
 
 However, telling a doctor that a patient's log-odds of survival drop by 0.0275 each year is not practically useful. To make these numbers interpretable, statistical software automatically converts these raw slopes into an **Odds Ratio**.  
 
@@ -204,7 +204,7 @@ Let's generate the predicted probabilities of survival for a 65-year-old patient
 
 : Table 9.6: Predicted probability of survival for a 65-year-old emergency admission from the age and emergency model.
 
-Our model predicts that a 65-year-old admitted for an elective procedure has a very high $0.964350$, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to $0.699344$, or roughly 69.9%.
+Our model predicts that a 65-year-old admitted for an elective procedure has a high $0.964350$, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to $0.699344$, or roughly 69.9%.
 
 
 
@@ -311,7 +311,7 @@ In Chapters 4 and 5, you learned to evaluate standard regression models by looki
 
 
 
-You can intuitively think of deviance as a measure of "badness of fit." A model with high deviance is making predictions that are very far away from the actual outcomes. A perfect model that predicts every single outcome correctly would have a deviance of zero. When we build a logistic regression model, our software is mathematically working behind the scenes to find the probability curve that results in the lowest possible deviance.
+You can intuitively think of deviance as a measure of "badness of fit." A model with high deviance is making predictions that are far away from the actual outcomes. A perfect model that predicts every single outcome correctly would have a deviance of zero. When we build a logistic regression model, our software is mathematically working behind the scenes to find the probability curve that results in the lowest possible deviance.
 
 ### Deviance $R^2$ and Adjusted Deviance $R^2$
 
@@ -319,7 +319,7 @@ With standard linear regression, we used $R^2$ to determine the percentage of va
 
 
 
-While the underlying math is different, the conceptual interpretation is very similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to an empty baseline model that uses no predictors at all.
+While the underlying math is different, the conceptual interpretation is similar. Deviance $R^2$ tells us how much our model reduced the total error (the deviance) compared to an empty baseline model that uses no predictors at all.
 
 
 
@@ -335,7 +335,7 @@ As a final structural check, researchers often look at the **Deviance Goodness-o
 
 
 
-We have to be very careful interpreting the $p$-value for this specific test because the hypotheses feel backward compared to what you are used to. In most tests, researchers are hunting for a small $p$-value to prove an effect exists. However, for a goodness-of-fit test:
+We have to be careful interpreting the $p$-value for this specific test because the hypotheses feel backward compared to what you are used to. In most tests, researchers are hunting for a small $p$-value to prove an effect exists. However, for a goodness-of-fit test:
 
 - $H_0$: The model is a good fit for the data.
 - $H_1$: The model is a poor fit for the data.  

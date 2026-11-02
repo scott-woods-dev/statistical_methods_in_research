@@ -156,7 +156,7 @@ Here is the actual mathematical output for our model predicting neonatal birth w
 
 : Table 5.3: Coefficients, standard errors, and T-values for the two predictors in the model in Table 5.2.
 
-The slope for `visits` is $0.02489$. The slope for `weeks` is $0.27201$. It looks like `weeks` has a much larger effect. But remember, a prenatal visit and a week of pregnancy are very different units.
+The slope for `visits` is $0.02489$. The slope for `weeks` is $0.27201$. It looks like `weeks` has a much larger effect. But remember, a prenatal visit and a week of pregnancy are different units.
 
 
 

@@ -99,7 +99,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | floor effect | Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation. |
 | forecasting | Predicting future values of a time series from its historical patterns. |
 | f-statistic | The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value. |
-| glass's delta | An effect size that divides the difference between two group means by the control group's standard deviation, used when the two groups have very different spreads. |
+| glass's delta | An effect size that divides the difference between two group means by the control group's standard deviation, used when the two groups have different spreads. |
 | global ANOVA | The overall ANOVA F-test that asks whether any group means differ, before post hoc tests identify which specific pairs differ. |
 | grouping variable | A categorical variable used to divide observations into groups within a plot, often shown through different colors or shapes, so patterns can be compared across categories. |
 | halo effect | A cognitive bias in which a strong positive impression in one area leads a person to rate a target favorably across unrelated categories, producing a uniform blur of correlations. |
@@ -246,7 +246,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | signal | The portion of variation that reflects the real effect being studied, such as differences between group means; in ANOVA it is the between-groups variation. |
 | significance level | The threshold of evidence, written $\alpha$ and usually set at .05, that a researcher requires before rejecting the null hypothesis. |
 | significance stars | Symbols such as `*`, `**`, and `***` placed next to coefficients in journal tables to mark p-values below common thresholds (.05, .01, and .001). |
-| Sign Test | A very flexible nonparametric test for paired data that compares the direction of within-pair differences; used when the Wilcoxon symmetry assumption fails. |
+| Sign Test | A flexible nonparametric test for paired data that compares the direction of within-pair differences; used when the Wilcoxon symmetry assumption fails. |
 | simple structure | A clean factor pattern in which each observed variable loads strongly on one factor and weakly on the others. |
 | single sample t-test | A t-test that compares the mean of one sample against a known, fixed benchmark, such as a national average or a clinical cutoff. |
 | skewness | The extent to which a distribution is asymmetric, with a longer tail extending toward one side; right-skewed distributions trail toward high values and left-skewed distributions toward low values. |

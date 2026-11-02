@@ -412,7 +412,7 @@ Imagine you run a study with 10,000 students and find that a new therapy reduces
 
 
 
-But does a 0.1-point drop on a 60-point clinical depression scale change a student's life? Probably not. The mathematical evidence for the effect is very strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
+But does a 0.1-point drop on a 60-point clinical depression scale change a student's life? Probably not. The mathematical evidence for the effect is strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.
 
 
 
@@ -456,8 +456,8 @@ A Cohen's $d$ of 0.53 represents a medium, practically significant effect. We ca
 
 While Cohen's $d$ is the standard, your software might offer a few other variations:
 
-- **Hedges' $g$:** This is essentially Cohen's $d$ with a slight mathematical correction for smaller sample sizes (usually when your total group is under 20 people). It is very common and interpreted exactly the same way.
-- **Glass's Delta:** This is used when the standard deviations of your two groups are very different. Instead of combining the spread of both groups, it only divides the difference by the control group's standard deviation.
+- **Hedges' $g$:** This is essentially Cohen's $d$ with a slight mathematical correction for smaller sample sizes (usually when your total group is under 20 people). It is common and interpreted exactly the same way.
+- **Glass's Delta:** This is used when the standard deviations of your two groups are different. Instead of combining the spread of both groups, it only divides the difference by the control group's standard deviation.
 
 Regardless of which specific letter your software uses, the goal remains the same. You always want to pair your p-value (to show the effect is real) with an effect size (to show the effect matters).
 
@@ -573,7 +573,7 @@ Finally, researchers sometimes plan their sample size around their confidence in
 
 
 
-If a researcher needs precise results, they want a very narrow net. Because larger sample sizes reduce statistical noise, recruiting more participants shrinks the margin of error. A researcher can tell their software, "I want to be 95% confident in my results, and I want my margin of error to be no wider than 2 points." The software will then calculate the exact sample size needed to guarantee that level of precision.
+If a researcher needs precise results, they want a narrow net. Because larger sample sizes reduce statistical noise, recruiting more participants shrinks the margin of error. A researcher can tell their software, "I want to be 95% confident in my results, and I want my margin of error to be no wider than 2 points." The software will then calculate the exact sample size needed to guarantee that level of precision.
 
 
 

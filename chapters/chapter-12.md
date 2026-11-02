@@ -117,7 +117,7 @@ Because autocorrelation creates momentum, the data points are essentially copyin
 
 
 
-When a regression model double-counts evidence like this, it becomes wildly overconfident. It artificially shrinks the standard errors, falsely inflates the test statistics, and produces p-values that look very "significant" but are mathematically meaningless. To make accurate, honest predictions about the future, we must abandon simple straight lines and adopt specialized models built specifically to handle the momentum of intertwined data.
+When a regression model double-counts evidence like this, it becomes wildly overconfident. It artificially shrinks the standard errors, falsely inflates the test statistics, and produces p-values that look "significant" but are mathematically meaningless. To make accurate, honest predictions about the future, we must abandon simple straight lines and adopt specialized models built specifically to handle the momentum of intertwined data.
 
 
 

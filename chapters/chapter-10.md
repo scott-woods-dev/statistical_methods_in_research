@@ -64,7 +64,7 @@ The answer comes down to **statistical power**. In research, power is your abili
 
 
 
-In statistics, there is a strict trade-off between flexibility and power. Parametric tests (like the $t$-test) are very powerful, but they buy that power by making strict assumptions about your data, like requiring a normal distribution. Because nonparametric tests (like the ones in this chapter) throw away those strict assumptions, they lose some of that raw power.
+In statistics, there is a strict trade-off between flexibility and power. Parametric tests (like the $t$-test) are powerful, but they buy that power by making strict assumptions about your data, like requiring a normal distribution. Because nonparametric tests (like the ones in this chapter) throw away those strict assumptions, they lose some of that raw power.
 
 
 
@@ -170,7 +170,7 @@ While the format looks slightly different than a traditional $t$-test, the under
 
 
 
-Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a very common choice in statistical software. The program is testing whether that true population median difference is zero. 
+Notice that the software uses the Greek letter eta ($\eta$) for the population median. There is no universally agreed-upon mathematical symbol for a population median, but $\eta$ is a common choice in statistical software. The program is testing whether that true population median difference is zero. 
 
   
 
@@ -385,7 +385,7 @@ Notice that as the alcohol consumption level increases, the sample median GPA st
 
 
 
-However, we must look at the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" happens when two or more students have the same GPA, which is very common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
+However, we must look at the inferential statistics to see if this sample pattern represents a true mathematical reality in the broader population. In the bottom section of the output, you will notice two rows: one adjusted for ties, and one not. A "tie" happens when two or more students have the same GPA, which is common. Because they have the same GPA, they have to share the same rank. Software mathematically adjusts the final calculation to account for this sharing. You should always use the "Adjusted for ties" row when it is provided.
 
 
 
@@ -413,7 +413,7 @@ Up to this point, we have used the nonparametric trick of rank-ordering to compa
 
 
 
-When researchers want to measure the relationship between two numerical variables, their default tool is standard linear correlation, which produces the correlation coefficient $r$. However, standard correlation evaluates how closely the raw data points cluster around a straight line of best fit. Because that line of best fit acts as a moving average, it is very sensitive to outliers and severe skew. When your data is heavily distorted, you must switch to a nonparametric alternative called **Spearman's Rho**. 
+When researchers want to measure the relationship between two numerical variables, their default tool is standard linear correlation, which produces the correlation coefficient $r$. However, standard correlation evaluates how closely the raw data points cluster around a straight line of best fit. Because that line of best fit acts as a moving average, it is sensitive to outliers and severe skew. When your data is heavily distorted, you must switch to a nonparametric alternative called **Spearman's Rho**. 
 
   
 
@@ -479,7 +479,7 @@ N      Correlation    95% CI for ρ       P-Value
 437    -0.029         (-0.123, 0.065)    0.543
 ```
 
-This output is condensed, but it gives us exactly what we need. The correlation coefficient is $-0.029$. Just like standard linear correlation, this number falls on a scale from $-1$ to $1$. A value of $-0.029$ is very close to zero, suggesting there is virtually no relationship between a student's age and their drinking frequency in our sample.   
+This output is condensed, but it gives us exactly what we need. The correlation coefficient is $-0.029$. Just like standard linear correlation, this number falls on a scale from $-1$ to $1$. A value of $-0.029$ is close to zero, suggesting there is virtually no relationship between a student's age and their drinking frequency in our sample.   
 
 
 
@@ -622,7 +622,7 @@ As you begin incorporating nonparametric tests into your research toolkit, there
 
 ### Assuming "Nonparametric" Means "No Rules"
 
-Because nonparametric tests are often introduced as the "fix" for broken data, it is very tempting to view them as a mathematical free pass. Researchers often assume that because these tests do not require a perfect, normal bell curve, they have absolutely no assumptions at all. This is fundamentally untrue.
+Because nonparametric tests are often introduced as the "fix" for broken data, it is tempting to view them as a mathematical free pass. Researchers often assume that because these tests do not require a perfect, normal bell curve, they have absolutely no assumptions at all. This is fundamentally untrue.
 
 
 
@@ -638,7 +638,7 @@ The Kruskal-Wallis test is designed to handle basic nominal categories, meaning 
 
 ### Using Nonparametric Tests as the Default
 
-Once researchers discover that nonparametric tests are safer for skewed data and bypass the stress of checking for perfect normality, they often ask a very logical question: "Why don't I just use these tests for everything?"
+Once researchers discover that nonparametric tests are safer for skewed data and bypass the stress of checking for perfect normality, they often ask a logical question: "Why don't I just use these tests for everything?"
 
 
 
@@ -693,7 +693,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 8. A physical therapist is measuring the flexibility of patients (using a continuous numerical scale) across three different physical therapy clinics. The flexibility scores suffer from a severe ceiling effect, meaning the data is heavily left-skewed. Which specific nonparametric test should the therapist use to see if typical flexibility differs across the three clinics?
 
-9. A college administrator wants to know if the proportion of students who use the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is very small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
+9. A college administrator wants to know if the proportion of students who use the writing center differs between nursing majors and engineering majors. They survey a random sample, but because the nursing program is small, the cross-tabulation table results in several expected cell counts dropping below five. Which specific statistical tool must the administrator use to safely evaluate this categorical relationship?
 
 10. A market researcher is comparing customer satisfaction scores across four different membership tiers: Free, Basic, Premium, and VIP. The satisfaction scores are severely skewed. Explain why using a Kruskal-Wallis test on this data might result in a loss of statistical power, and which nonparametric test the researcher should use instead to use the ordinal nature of the membership tiers.
 

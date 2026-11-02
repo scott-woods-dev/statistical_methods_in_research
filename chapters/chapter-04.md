@@ -207,7 +207,7 @@ Suppose our software calculates a slope of **0.000247**. Because this is a posit
 
 
 
-At first glance, a slope of 0.000247 looks incredibly weak. However, you must always remember your units! GDP is measured in individual dollars. A single, one-dollar raise in national wealth is practically invisible. But what if a country's GDP per capita increases by $\$10,000$? We would simply multiply our slope ($0.000247$) by $10,000$ to see that the country's footprint would increase by a very noticeable $2.47$ units. This slope directly answers our research question: it tells us that, on average across the globe, heavier economic output is indeed associated with a larger environmental footprint.
+At first glance, a slope of 0.000247 looks incredibly weak. However, you must always remember your units! GDP is measured in individual dollars. A single, one-dollar raise in national wealth is practically invisible. But what if a country's GDP per capita increases by $\$10,000$? We would simply multiply our slope ($0.000247$) by $10,000$ to see that the country's footprint would increase by a noticeable $2.47$ units. This slope directly answers our research question: it tells us that, on average across the globe, heavier economic output is indeed associated with a larger environmental footprint.
 
 
 
@@ -314,7 +314,7 @@ When we first introduced the concept of outliers in Chapter 1, we defined them s
 
 
 
-In a regression model, an **outlier** is a data point that strays far away from the regression line. It doesn't necessarily have an extreme raw value; rather, it breaks the *pattern* established by the rest of the data. For example, a country with an average GDP but a massively high ecological footprint would have a very large residual, making it an outlier for our specific model.
+In a regression model, an **outlier** is a data point that strays far away from the regression line. It doesn't necessarily have an extreme raw value; rather, it breaks the *pattern* established by the rest of the data. For example, a country with an average GDP but a massively high ecological footprint would have a large residual, making it an outlier for our specific model.
 
 
 
@@ -330,7 +330,7 @@ If a child sits perfectly in the middle of the seesaw, their weight doesn't tilt
 
 
 
-Now, imagine a very heavy adult sits on the extreme far edge of the seesaw. Their position gives them immense leverage, and the entire board aggressively tilts toward them.
+Now, imagine a heavy adult sits on the extreme far edge of the seesaw. Their position gives them immense leverage, and the entire board aggressively tilts toward them.
 
 
 
@@ -342,7 +342,7 @@ Let's look for these anomalies in our global dataset. When modeling ecological f
 
 
 
-Because these specific nations have very high GDP per capita (giving them substantial leverage) and unique consumption patterns, they can single-handedly pull the global regression line steeper or flatter than it rightfully should be for the rest of the world.
+Because these specific nations have high GDP per capita (giving them substantial leverage) and unique consumption patterns, they can single-handedly pull the global regression line steeper or flatter than it rightfully should be for the rest of the world.
 
 ### Measuring the Magnet: Cook's Distance
 
@@ -396,7 +396,7 @@ Other relationships rise quickly but eventually hit a natural ceiling. A classic
 
 ![Figure 4.2: GDP per capita and life expectancy for 143 countries. Life expectancy rises steeply at low incomes and then levels off, the pattern called diminishing returns.](../figures/chapter_04/fig_04_02_scatter_gdp_life_expectancy_curve.png){fig-alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years at higher incomes."}
 
-This specific curve perfectly illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a very poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
+This specific curve perfectly illustrates a concept known as the **law of diminishing returns**. Think about it in plain English: if a poor nation increases its GDP per capita by $\$5,000$, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single $\$5,000$ increase will cause a massive, dramatic spike in the nation's average life expectancy.
 
 
 
@@ -442,7 +442,7 @@ Because we mathematically altered the data, we can no longer interpret the slope
 
 Let's translate our new slope (**13.54**) into plain English using concrete numbers:
 
-- **Scenario A:** Imagine a very poor developing nation grows its economy from **$\$1,000$** per person to **$\$10,000$** per person. Because their wealth just multiplied by 10, our model predicts their average life expectancy will increase by **13.54 years**.
+- **Scenario A:** Imagine a poor developing nation grows its economy from **$\$1,000$** per person to **$\$10,000$** per person. Because their wealth just multiplied by 10, our model predicts their average life expectancy will increase by **13.54 years**.
 - **Scenario B:** Now, imagine an already comfortable, developed nation grows its economy from **$\$10,000$** per person to **$\$100,000$** per person. Even though this requires a massive influx of $\$90,000$ per person, they have still only multiplied their wealth by 10. Therefore, our model predicts their average life expectancy will *also* increase by exactly **13.54 years**.
 
 These scenarios capture the law of diminishing returns: In Scenario A, it only cost $\$9,000$ to buy 13.5 years of life. In Scenario B, it cost $\$90,000$ to buy that same 13.5 years of life.

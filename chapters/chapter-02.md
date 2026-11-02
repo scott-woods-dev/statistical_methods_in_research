@@ -402,7 +402,7 @@ Unless you personally controlled the environment and randomly assigned treatment
 
 ### Interpretation
 
-**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a very high resilience score. They take the same survey again on Tuesday, with no new academic events having occurred, but receive a very low resilience score. What measurement property is this new survey lacking? Explain your reasoning.
+**1.** A psychologist develops a new questionnaire to measure "student resilience" in the face of academic setbacks. A student takes the survey on Monday and receives a high resilience score. They take the same survey again on Tuesday, with no new academic events having occurred, but receive a low resilience score. What measurement property is this new survey lacking? Explain your reasoning.
 
 
 

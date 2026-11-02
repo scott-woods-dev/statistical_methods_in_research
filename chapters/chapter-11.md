@@ -94,7 +94,7 @@ Why are those three numbers slightly different if they are all being driven by t
 1. **Communality**: The proportion of a variable's variation that is shared with the other variables in the analysis because they all measure the same underlying factor. If a participant feels an immediate spark of social chemistry with her date, that central impression pushes up her ratings for `AttractiveF`, `FunF`, and `SharedInterestsF` simultaneously. That shared upward push is the communality.   
 2. **Unique variance**: The proportion of a variable's variation that belongs strictly to that single question and is not shared with any other variable in the dataset.
 
-To understand unique variance, it helps to recognize that a variable can wander away from its group for two very different reasons. Because of this, statisticians further divide unique variance into two sub-categories:
+To understand unique variance, it helps to recognize that a variable can wander away from its group for two different reasons. Because of this, statisticians further divide unique variance into two sub-categories:
 
 - **Specific variance**: Variation that is genuinely real and systematic, but unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on `SharedInterestsF`, even if they only gave them a 5 on `AttractiveF` and a 6 on `FunF`. That spike in `SharedInterestsF` is not random error; it reflects a genuine evaluation of a shared hobby that has nothing to do with general social appeal.
 - **Measurement error**: Random noise caused by the imperfect nature of human surveys. Perhaps a participant is exhausted after talking to several strangers in a noisy room, misreads the 1 to 10 scale on their clipboard, or accidentally circles a 7 when they meant to circle an 8. Just like specific variance, random measurement error cannot be shared with the other variables in the dataset.   
@@ -273,7 +273,7 @@ Once you move past the Principal Components Analysis software trap, your statist
 
 
 
-**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is very powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the real-world data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
+**Maximum Likelihood (ML)** is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the real-world data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.   
 
 In practice, if your hidden constructs are strong and well-defined, both methods will produce nearly identical results. When we ran the female speed dating ratings using Maximum Likelihood behind the scenes, the loading for `IntelligentF` was $0.857$, compared to $0.853$ under Principal Axis Factoring. For most introductory survey research, you should select Principal Axis Factoring to avoid assumptions about normal distributions.   
 
@@ -303,7 +303,7 @@ When you run an exploratory factor analysis, the software does not inherently kn
 
 
 
-If you give your software a survey with six variables, the software will initially calculate six potential factors. It builds these factors in a very specific order:
+If you give your software a survey with six variables, the software will initially calculate six potential factors. It builds these factors in a specific order:
 
 1. **Factor 1** is designed to capture the maximum possible amount of shared variation across all the survey items.
 2. **Factor 2** looks at whatever variation is left over and captures as much of that remaining chunk as possible.
@@ -422,7 +422,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 1. A survey researcher runs an exploratory factor analysis on a set of workplace satisfaction questions. The software outputs a rotated factor matrix. For a question asking about "salary fairness," the factor loading on Factor 1 is 0.82. Explain in plain English what this number tells the researcher about the relationship between the survey question and the hidden concept.
 2. In that same factor analysis table, the question about "salary fairness" has a reported communality ($h^2$) of 0.74. What percentage of the variance in this specific question is unique or random measurement error, and what does that mean conceptually?
-3. A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts very high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp "elbow" bend, becoming flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?
+3. A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp "elbow" bend, becoming flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?
 
 ### Choosing a Method
 
@@ -434,7 +434,7 @@ A common mistake is believing that because the grouping is mathematically valid,
 
 7. You run a factor analysis on a political survey. The software groups three questions together into "Factor 1." You decide to name this cluster "Authoritarian Tendencies" in your final report. A colleague argues that because the software proved the math, your chosen name must be scientifically accurate. Explain the logical flaw in your colleague's argument.
 8. You have successfully used factor analysis to group four survey questions into a "Life Satisfaction" cluster. You are ready to average those four questions together into a single composite score so you can use it in a multiple regression model. Explain to your research advisor why you must run a Cronbach's alpha test before calculating that average.
-9. During a presentation, you project your rotated factor matrix onto the screen. A member of the audience notices that almost every survey question has a very high loading (above 0.60) on exactly one factor, and near-zero loadings on all the other factors. The audience member asks what this pattern is called. Name the pattern and explain why it is the ultimate goal of a factor rotation.
+9. During a presentation, you project your rotated factor matrix onto the screen. A member of the audience notices that almost every survey question has a high loading (above 0.60) on exactly one factor, and near-zero loadings on all the other factors. The audience member asks what this pattern is called. Name the pattern and explain why it is the ultimate goal of a factor rotation.
 
 ### Software Application
 

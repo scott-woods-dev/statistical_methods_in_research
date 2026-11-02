@@ -239,7 +239,7 @@ In the previous sections, we tried to clear that fog using a Two-Way ANOVA. We c
 
 
 
-Imagine two maids in our "Under 40" block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are very different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision.
+Imagine two maids in our "Under 40" block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision.
 
 
 
@@ -395,7 +395,7 @@ Before we introduce our final model, we need to address a shift in our data. So 
 
 
 
-Seeing this shift, a skeptical researcher might pause and ask a very important question: *If our first test on blood pressure failed to show a significant result, are we just allowed to keep running tests on the dataset until we find a result we like?*
+Seeing this shift, a skeptical researcher might pause and ask an important question: *If our first test on blood pressure failed to show a significant result, are we just allowed to keep running tests on the dataset until we find a result we like?*
 
 
 

@@ -27,7 +27,7 @@ When you hear the phrase "experimental design," you might picture scientists in 
 
 
 
-To work through these designs, we need to establish a shared vocabulary. When we set up a study to compare groups, we use very specific terms to describe our variables:
+To work through these designs, we need to establish a shared vocabulary. When we set up a study to compare groups, we use specific terms to describe our variables:
 
 - **Response variable**: This is the numerical outcome we are ultimately trying to measure or predict. In our high school dataset (`hsb.csv`), the response variable is the student's standardized writing score (`write`).
 - **Factor** (or **treatment variable**): This is the categorical variable that divides our sample into the distinct groups we want to compare. In our running example, the factor is the academic program track (`prog`).
@@ -113,7 +113,7 @@ Once the ANOVA has successfully partitioned the data into these two pieces, it s
 
 
 
-Think back to Chapter 3, where we first discussed the idea of separating signal from noise. The ANOVA asks a very intuitive question: Is the signal loud enough to be heard over the noise?
+Think back to Chapter 3, where we first discussed the idea of separating signal from noise. The ANOVA asks an intuitive question: Is the signal loud enough to be heard over the noise?
 
 - **If the between-groups variation is much larger than the within-groups variation**, the differences between the program tracks are large enough to drown out the natural, random differences between individual students. In this case, the ANOVA will produce a very small $p$-value, providing strong evidence that the program track genuinely affects writing scores.
 - **If the within-groups variation is larger than the between-groups variation**, the noise drowns out the signal. The students' scores are bouncing around so randomly that any minor differences we see between the group averages are likely just due to random chance. In this case, we will fail to reject the null hypothesis.
@@ -152,7 +152,7 @@ Just like the tests in previous chapters, we start with a skeptical baseline. Th
 
 - $H_0$: The true mean writing score is exactly the same across all three program tracks ($\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}$).
 
-The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a very common pitfall.
+The alternative hypothesis ($H_1$) carries the burden of proof, claiming that an effect exists. Because we are looking at three groups simultaneously, getting this wording right matters, and it is the source of a common pitfall.
 
 - $H_1$: At least one pair of program tracks shows a significant difference in their true mean writing scores.
 
@@ -212,7 +212,7 @@ Because those specific students now belong to two treatment groups simultaneousl
 
 ### Normality
 
-The third assumption focuses on the shape of our distribution, but there is a very common misconception here. You will often hear people say, or read in older textbooks, that "the data must follow a normal distribution" or "the data must form a perfect bell curve." This is technically a much stricter requirement than we actually need. In reality, the ANOVA only strictly requires that the **residuals** are roughly normal.
+The third assumption focuses on the shape of our distribution, but there is a common misconception here. You will often hear people say, or read in older textbooks, that "the data must follow a normal distribution" or "the data must form a perfect bell curve." This is technically a much stricter requirement than we actually need. In reality, the ANOVA only strictly requires that the **residuals** are roughly normal.
 
 
 
@@ -249,7 +249,7 @@ This is arguably your best diagnostic tool, though it takes a little practice to
 These plots line your actual residuals up against a theoretically perfect normal distribution. If your residuals are reasonably normal, the dots will tightly hug the straight diagonal reference line. If the residuals are not normal, the dots will pull away from the line. To prevent over-analyzing minor bumps, researchers use a simple visual rule of thumb based on how many "bends" the dots make:
 
 - **One Bend (A sharp hook or J-shape):** This indicates your residuals are severely skewed. This is a problem, and the normality assumption is violated.
-- **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or very light tails. This is also a problem that violates the assumption.
+- **Two Bends (An S-curve):** This indicates your residuals have heavy tails (lots of extreme outliers) or light tails. This is also a problem that violates the assumption.
 - **Three or More Bends (A wiggly snake):** Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually perfectly fine! Human brains are incredibly good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.
 
 ![Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.](../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png){fig-alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."}
@@ -298,11 +298,11 @@ While you might be tempted to use a boxplot here, boxplots can be misleading for
 
 #### The Mathematical Check: The 2X Rule of Thumb
 
-Because visual checks can sometimes feel a bit subjective, we pair our jitter plot with a very simple mathematical safety check.
+Because visual checks can sometimes feel a bit subjective, we pair our jitter plot with a simple mathematical safety check.
 
 
 
-In Chapter 1, we learned that standard deviation is our primary measure of how spread out our data is. The ANOVA is a very forgiving tool, meaning it can tolerate some differences in spread without failing. To ensure we are safely within that tolerance, we use the following rule: **Find the standard deviation for each of your groups. If the largest standard deviation is no more than double (2X) the smallest standard deviation, there is likely no cause for concern**.
+In Chapter 1, we learned that standard deviation is our primary measure of how spread out our data is. The ANOVA is a forgiving tool, meaning it can tolerate some differences in spread without failing. To ensure we are safely within that tolerance, we use the following rule: **Find the standard deviation for each of your groups. If the largest standard deviation is no more than double (2X) the smallest standard deviation, there is likely no cause for concern**.
 
 
 
@@ -314,7 +314,7 @@ For example, if the vocational track has a standard deviation of 8 points, and t
 
 
 
-For example, imagine a researcher comparing the reading scores of students in a selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically very similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.
+For example, imagine a researcher comparing the reading scores of students in a selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.
 
 
 
@@ -363,7 +363,7 @@ The difference lies in the mathematical machinery. Standard $t$-tests are blind 
 
 ### A Brief Warning: The Bonferroni Correction
 
-If you read published research in economics, psychology, or sociology, you will inevitably see researchers use a post hoc method called the **Bonferroni correction**. It is very common because it has historically been the default setting in many statistical software packages.
+If you read published research in economics, psychology, or sociology, you will inevitably see researchers use a post hoc method called the **Bonferroni correction**. It is common because it has historically been the default setting in many statistical software packages.
 
 
 
@@ -454,7 +454,7 @@ Think about how these students ended up in their respective program tracks. The 
 
 
 
-For example, the academic track often acts as a filtered, selective program. Because of this restriction, we might expect those students to perform very similarly to one another, resulting in tightly clustered scores. Conversely, the general track acts as a catch-all for a wide variety of students, meaning their scores might be wildly spread out. Because the students were not randomly assigned, we are at a much higher risk of violating the **equal variances** assumption, making our upcoming data triage and diagnostic checks absolutely critical.
+For example, the academic track often acts as a filtered, selective program. Because of this restriction, we might expect those students to perform similarly to one another, resulting in tightly clustered scores. Conversely, the general track acts as a catch-all for a wide variety of students, meaning their scores might be wildly spread out. Because the students were not randomly assigned, we are at a much higher risk of violating the **equal variances** assumption, making our upcoming data triage and diagnostic checks absolutely critical.
 
 ### Data Triage and Exploratory Analysis
 
@@ -609,11 +609,11 @@ As you learn to use the One-Way ANOVA, you will likely encounter a few common co
 
 ### The "Significant vs. Non-Significant" Trap
 
-When reading your post hoc results, it is very tempting to use flawed, everyday logic to compare your groups.
+When reading your post hoc results, it is tempting to use flawed, everyday logic to compare your groups.
 
 
 
-Imagine you are testing two new clinical treatments (Treatment A and Treatment B) against a standard placebo control. Your post hoc analysis reveals that Treatment A is significantly better than the placebo ($p = .048$), but Treatment B is not quite significantly better than the placebo ($p = .052$). A very common mistake is to look at these two results and confidently conclude, "Therefore, Treatment A is significantly better than Treatment B."
+Imagine you are testing two new clinical treatments (Treatment A and Treatment B) against a standard placebo control. Your post hoc analysis reveals that Treatment A is significantly better than the placebo ($p = .048$), but Treatment B is not quite significantly better than the placebo ($p = .052$). A common mistake is to look at these two results and confidently conclude, "Therefore, Treatment A is significantly better than Treatment B."
 
 
 
@@ -629,7 +629,7 @@ To quote a famous statistical maxim: *The difference between "significant" and "
 
 ### Mixing Up Measures: Boxplots vs. The Math
 
-This is perhaps the most understandable source of confusion when learning the ANOVA because it stems from the very tools we use to visualize our data.
+This is perhaps the most understandable source of confusion when learning the ANOVA because it stems from the tools we use to visualize our data.
 
 
 

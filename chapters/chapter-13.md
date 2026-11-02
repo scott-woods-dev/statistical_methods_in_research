@@ -98,7 +98,7 @@ The AOL incident is a textbook failure in data security. Simply deleting a name 
 
  
 
-**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is very low.
+**Anonymity** means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is low.
 
 
 

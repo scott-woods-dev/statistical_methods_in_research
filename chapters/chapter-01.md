@@ -150,7 +150,7 @@ Often, that single peak sits right in the middle, and the left and right sides r
 
 
 
-When data follows a normal curve, it implies a very specific concentration: the vast majority of your data is clustered right around the center. As you move further away from the center in either direction, outcomes become increasingly rare. Many natural human traits, like height and baseline sleep needs, follow this predictable shape.
+When data follows a normal curve, it implies a specific concentration: the vast majority of your data is clustered right around the center. As you move further away from the center in either direction, outcomes become increasingly rare. Many natural human traits, like height and baseline sleep needs, follow this predictable shape.
 
 
 
@@ -336,7 +336,7 @@ This tells you that 15% of the sample experiences severe depression. Notice that
 
 
 
-If you simply want to state the single most common category, you report the **mode**. For categorical data, this can be a very useful metric for understanding what the most common outcome is, or what we can expect to see most often. In general, the mode is not as useful for numerical data, as it usually is just the value that happened to appear more than once in the data set.
+If you simply want to state the single most common category, you report the **mode**. For categorical data, this can be an useful metric for understanding what the most common outcome is, or what we can expect to see most often. In general, the mode is not as useful for numerical data, as it usually is just the value that happened to appear more than once in the data set.
 
 
 
@@ -453,7 +453,7 @@ In research, we are almost always taking a small sample (like our 253 students) 
 
 
 
-If you took twenty different samples of 253 students, their sample means would all cluster very tightly around the true, real-world university average. The sample medians would also cluster around the true middle, but they would "wobble" and vary a bit more from sample to sample because they are built on less information. 
+If you took twenty different samples of 253 students, their sample means would all cluster tightly around the true, real-world university average. The sample medians would also cluster around the true middle, but they would "wobble" and vary a bit more from sample to sample because they are built on less information. 
 
 
 
@@ -478,7 +478,7 @@ This reality introduces the most fundamental division in statistics: the **popul
 
 ### Parameters vs. Statistics
 
-When we calculate a numerical summary (like a mean or a standard deviation), we have to be very clear about who we are summarizing. 
+When we calculate a numerical summary (like a mean or a standard deviation), we have to be clear about who we are summarizing. 
 
 
 
@@ -688,7 +688,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 **12.** Create a histogram of the `WeekdaySleep` variable and a separate histogram for the `ClassesMissed` variable. Describe the physical shape of both distributions. Do you notice any floor or ceiling effects? 
 
-**13.** Calculate the mean and the median for the `GPA` variable. Are the numbers similar or very different? Based on the rule for matching measures to shapes, does the relationship between this mean and median make sense for a variable capped at 4.0?
+**13.** Calculate the mean and the median for the `GPA` variable. Are the numbers similar or different? Based on the rule for matching measures to shapes, does the relationship between this mean and median make sense for a variable capped at 4.0?
 
 **14.** Generate side-by-side box plots to compare `GPA` across the different categories of `ClassYear` (1 = First Year, 2 = Sophomore, 3 = Junior, 4 = Senior). Which class year appears to have the highest median GPA? Which class year shows the widest spread (IQR) in their grades?
 
