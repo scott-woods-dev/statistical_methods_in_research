@@ -1,0 +1,187 @@
+# Proportions and Reliability {#sec-ch02}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_02.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+Chapter 2 of the textbook shows how the outcome variable decides the statistical measure: a yes/no outcome calls for a proportion. It also introduces Cronbach's alpha, the check that lets you add survey items into one score. In this chapter you will calculate proportions, for one group and for two groups side by side, then calculate Cronbach's alpha and build the combined score.
+
+**Get the script:** [Download the Chapter 2 script, `chapter_02.R`](scripts/chapter_02.R), and save it in the same folder as your data.
+
+## The data
+
+This chapter uses two datasets. Download both into the same folder as the script:
+
+- [Download `youth_risk_2007.csv`](../data/youth_risk_2007.csv), survey answers from 13,387 American high school students about riding with a driver who had been drinking.
+- [Download `amas_math_anxiety.csv`](../data/amas_math_anxiety.csv), answers from 2,200 adults to the nine-item Abbreviated Math Anxiety Scale (AMAS), the scale used in the textbook chapter.
+
+The variables used in this chapter:
+
+| Variable | Dataset | What it records |
+| :--- | :--- | :--- |
+| `ride.alc.driver` | `youth_risk_2007.csv` | Riding with a Drunk Driver (RDD) indicator within the past 30 days ($1 = \text{yes, rode with a driver who had been drinking}$, $0 = \text{no}$). |
+| `smoke` | `youth_risk_2007.csv` | Lifetime tobacco experimentation indicator ($1 = \text{yes, has tried smoking cigarettes (even a few puffs)}$, $0 = \text{no}$). |
+| `item_1`, `item_3`, `item_6`, `item_7`, `item_9` | `amas_math_anxiety.csv` | The five math learning anxiety items, each rated on a $1 \text{ to } 5$ scale where a value of $1$ indicates low anxiety and $5$ indicates high anxiety. |
+
+: Variables used in this chapter {tbl-colwidths="[28,24,48]"}
+
+## Load the package and the data
+
+This chapter uses the `psych` package for Cronbach's alpha. If you have not installed it yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+::: {.callout-note title="Message: The following objects are masked"}
+If you loaded `ggplot2` earlier in the same session, loading `psych` prints a message like this one:
+
+```
+Attaching package: 'psych'
+
+The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha
+```
+
+This is a message, not an error. It means both packages have a function called `alpha()`, and R will use the one from the package loaded last. The script writes `psych::alpha()` to make sure R uses the right one (see [Cronbach's alpha](#sec-ch02-alpha)).
+:::
+
+```{r read-youth}
+```
+
+## A proportion for one variable
+
+A **proportion** is the share of observations in one category: the count in that category divided by the total. Start by counting with `table()`:
+
+```{r count-one}
+```
+
+The first table gives the counts: 9,210 students answered 0 (no) and 4,177 answered 1 (yes). The second gives the proportions: 0.312, or about 31.2%, of these students rode with a driver who had been drinking.
+
+The names on top of each table (0 and 1) are the codes stored in the data. Check the dataset's key to see what each code means.
+
+For a variable coded 0 and 1, the mean is the same as the proportion of 1s, which gives you a one-line shortcut:
+
+```{r mean-of-01}
+```
+
+::: {.callout-tip title="With your own data"}
+Change `ride.alc.driver` to your categorical variable. `table()` works for any number of categories and for categories stored as words, such as **Bus**, **Car**, and **Walk**. The `mean()` shortcut works only for a variable coded 0 and 1; if it gives `NA`, add `na.rm = TRUE` as in [Chapter 1](chapter-01.qmd#sec-ch01).
+:::
+
+## Proportions for two groups
+
+To compare a proportion across groups, count every combination of the two variables. Put the group variable first (it becomes the rows) and the outcome second (it becomes the columns):
+
+```{r count-two}
+```
+
+In the first table, the rows are `smoke` (0 = never tried smoking, 1 = has tried smoking) and the columns are `ride.alc.driver` (0 = no, 1 = yes). In the second table, each row adds up to 1. Read across a row: among students who had never tried smoking, 0.184 (18.4%) rode with a driver who had been drinking; among students who had tried smoking, 0.420 (42.0%) did.
+
+::: {.callout-warning title="Common error: the rows do not add up to 1"}
+**What you see**
+
+```{r}
+round(prop.table(ride_by_smoke, margin = 2), 3)
+```
+
+**What it means:** `margin = 2` divides by the *column* totals, so each column adds up to 1 instead of each row. These numbers answer a different question ("of the students who rode with a drinking driver, what share had smoked?").
+
+**How to fix it:** use `margin = 1`, and put the group variable first inside `table()`, so each row is one group.
+:::
+
+::: {.callout-note title="Blank cells are left out"}
+`table()` skips blank cells without telling you. Here 388 students left `smoke` blank, so the two-group table counts 12,999 students instead of 13,387. Add the counts in a table to see how many rows it used.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your group variable first and your outcome variable second inside `table()`, and keep `margin = 1`.
+:::
+
+## Cronbach's alpha {#sec-ch02-alpha}
+
+Cronbach's alpha checks whether a set of survey items measures one thing consistently enough to add the items together. Read the anxiety data, then pick out the items that belong to one scale. The AMAS has two parts; this example uses the five items on anxiety about *learning* math.
+
+```{r read-anxiety}
+```
+
+```{r choose-items}
+```
+
+The square brackets choose part of a dataset. Inside them, the space before the comma picks rows and the part after the comma picks columns. Leaving the row part empty keeps every row, so `anxiety[, c("item_1", "item_3")]` means "all rows, just these two columns."
+
+::: {.callout-warning title="Common error: object 'item_1' not found"}
+**What you see**
+
+```{r}
+#| error: true
+anxiety[, c(item_1, item_3)]
+```
+
+**What it means:** without quotation marks, R looks for something stored under the name `item_1`, finds nothing, and stops.
+
+**How to fix it:** put each column name inside quotation marks, as in `c("item_1", "item_3")`.
+:::
+
+Now calculate alpha:
+
+```{r alpha}
+```
+
+R prints a lot. The two places to look:
+
+- **The first table**, under `raw_alpha`: Cronbach's alpha for the whole set of items. Here it is 0.91, above the 0.70 the textbook uses as the threshold.
+- **Reliability if an item is dropped**, under `raw_alpha`: what alpha would be with that one item removed. If removing an item would *raise* alpha noticeably, that item does not fit well with the others. Here every value is 0.91 or lower, so every item helps.
+
+You can ignore the other columns.
+
+::: {.callout-warning title="Common error: Unknown colour name"}
+**What you see** (the list of numbers is much longer)
+
+```
+Error: Unknown colour name: c(5, 2, 1, 1, 2, 2, 4, 1, 1, 1, ...
+```
+
+**What it means:** you wrote `alpha()` without `psych::` in front, and R used the `alpha()` from `ggplot2`, which sets how see-through a color is. It has nothing to do with Cronbach's alpha.
+
+**How to fix it:** write `psych::alpha()`, as in the script.
+:::
+
+::: {.callout-warning title="Common error: items were negatively correlated"}
+**What you see**
+
+```{r}
+#| results: hide
+# A copy of the items with item_1 flipped, so 1 becomes 5 and
+# 5 becomes 1, to show the warning.
+flipped_items <- learning_items
+flipped_items$item_1 <- 6 - flipped_items$item_1
+psych::alpha(flipped_items)
+```
+
+**What it means:** one item runs in the opposite direction from the others. This happens when a survey includes items worded the other way (for example, "I feel calm during math tests"), where a high score means *low* anxiety. Left as is, the item pulls alpha down (in this example, to about 0.59).
+
+**How to fix it:** reverse the item before calculating alpha. For a 1 to 5 scale, subtract each answer from 6, as in `items$item_1 <- 6 - items$item_1`, so 1 becomes 5 and 5 becomes 1. For a 1 to 7 scale, subtract from 8.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your item names inside `c()`, each in quotation marks, and give the set a name that describes it. Report the `raw_alpha` value from the first table.
+:::
+
+## Composite score
+
+Once alpha shows the items fit together, add each person's answers into one score. `rowSums()` adds across each row, and the `<-` arrow stores the result as a new column in the dataset:
+
+```{r composite}
+```
+
+Each person now has a learning anxiety score from 5 (an answer of 1 on all five items) to 25 (an answer of 5 on all five). The average is about 8.9. The new column works like any other: use `anxiety$learning_score` in `mean()`, or put `learning_score` in a `ggplot()` histogram from Chapter 1.
+
+::: {.callout-tip title="With your own data"}
+Choose a name for the new score after the `$`, and put the items you checked with alpha inside `rowSums()`. If any item has blank cells, `rowSums()` gives `NA` for those people; add `na.rm = TRUE` only if your study's instructions say to score people with missing answers.
+:::
