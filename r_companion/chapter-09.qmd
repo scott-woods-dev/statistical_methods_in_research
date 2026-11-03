@@ -81,6 +81,23 @@ The line `(439 observations deleted due to missingness)` tells you how many stud
 Look for `(Dispersion parameter for binomial family taken to be 1)` near the bottom of the output. If it says `gaussian` instead, you left out `family = binomial`, and R fit an ordinary regression without any error or warning. Add the argument and run the model again.
 :::
 
+## Graph the probability curve
+
+A graph shows what the model predicts at every age. It puts each student's answer (0 or 1) on a scatterplot, then draws the predicted probability as a curve with its 95% confidence band:
+
+```{r curve}
+#| fig-cap: "Each student's answer by age, with the fitted probability curve and its 95% confidence band."
+#| fig-alt: "Scatterplot of having tried smoking against age, from 14 to 18 years, for 12,948 students. Faint gray dots form two horizontal rows, one at 1 for students who had tried smoking and one at 0 for students who had not, each split into five patches, one per age; the patches at ages 14 and 18 are lighter because fewer students were those ages. A blue curve rises almost in a straight line from a probability of 0.41 at age 14 to 0.64 at age 18. A shaded 95% confidence band surrounds the curve but is so narrow it is barely wider than the line."
+```
+
+The faint dots along the top are students who had tried smoking (1), and the dots along the bottom are students who had not (0); the darker a patch of dots, the more students it holds, so ages 14 and 18 look lighter only because fewer students were those ages. The curve rises from a probability of 0.41 at age 14 to 0.64 at age 18. The band is so narrow it is barely wider than the line, because almost 13,000 students went into the model; with a smaller sample, it would be much wider.
+
+The graph also shows what the slope means. The log-odds slope (0.237) and the odds ratio (1.27) are the same for every extra year of age, but the probability does not rise by a fixed amount each year. A logistic curve is [an S shape](../chapters/chapter-09.html#the-core-concept-moving-beyond-2x2-tables), steepest at a probability of 0.50 and flattening toward 0 and 1. Ages 14 to 18 cover only the middle of the S, where it is nearly straight, so each year here adds about 6 percentage points (5.8 from 14 to 15, and 5.6 from 17 to 18). If a predictor pushed the probabilities close to 0 or 1, the same odds ratio would add much less probability per unit near the ends.
+
+::: {.callout-tip title="With your own data"}
+Change the dataset and the variables in `subset()`, the predictor's name and range in `data.frame()`, the model's name in `predict()`, and the variable names, title, and labels in `ggplot()`. Keep the range inside your data, so the curve does not extrapolate. For a predictor with many different values, such as income, set `width = 0` in `position_jitter()` so the dots stay at their real values.
+:::
+
 ## Multiple logistic regression
 
 List the predictors after the `~`, joined with `+` signs, as in Chapter 5:

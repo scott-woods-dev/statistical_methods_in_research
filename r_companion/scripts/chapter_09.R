@@ -3,7 +3,8 @@
 # Statistical Methods in Research
 #
 # What this script makes:
-#   1. A simple logistic regression, with its odds ratio
+#   1. A simple logistic regression, with its odds ratio and a
+#      graph of its probability curve
 #   2. A multiple logistic regression, with odds ratios, their 95%
 #      confidence intervals, and VIF
 #   3. Predicted probabilities for specific profiles
@@ -57,6 +58,60 @@ summary(age_model)
 # The odds ratios: exp() turns each slope into an odds ratio.
 # CHANGE THIS: your model's name
 exp(coef(age_model))
+
+
+## ---- curve ----
+# A GRAPH of the simple model: each student's answer (0 or 1),
+# the fitted probability curve, and its 95% confidence band.
+#    First keep the students with both values, so the graph uses
+#    the same students as the model.
+# CHANGE THIS: your dataset, your outcome, and your predictor
+graph_data <- subset(youth, !is.na(smoke) & !is.na(age4))
+
+#    A grid of ages to draw the curve along: seq() counts from
+#    14 to 18 in steps of 0.1.
+# CHANGE THIS: your predictor's name, and its lowest and highest
+#              values in your data
+age_curve <- data.frame(age4 = seq(14, 18, by = 0.1))
+
+#    predict() with type = "link" gives the predicted log-odds at
+#      each age, and se.fit = TRUE adds their standard errors.
+#    plogis() turns log-odds into probabilities. The band reaches
+#      1.96 standard errors (a 95% band) either side of the curve
+#      on the log-odds scale before it is turned into
+#      probabilities, so it always stays between 0 and 1.
+# CHANGE THIS: your model's name (in the first line)
+age_pred <- predict(age_model, newdata = age_curve,
+                    type = "link", se.fit = TRUE)
+age_curve$prob <- plogis(age_pred$fit)
+age_curve$lower <- plogis(age_pred$fit - 1.96 * age_pred$se.fit)
+age_curve$upper <- plogis(age_pred$fit + 1.96 * age_pred$se.fit)
+
+#    position_jitter() spreads the 0s and 1s out so they do not
+#      sit on top of each other: width = 0.3 moves each dot up to
+#      0.3 years left or right, height = 0.04 moves it a little
+#      up or down, and seed = 1 makes the spread the same every
+#      time you run it.
+#    alpha = 0.05 makes each dot faint, so crowded places look
+#      darker. size = 1 makes the dots small.
+#    geom_ribbon() shades the band between lower and upper, and
+#      geom_line() draws the curve on top of it.
+# CHANGE THIS: your variable names, your title, and your axis
+#              labels
+ggplot() +
+  geom_point(data = graph_data, aes(x = age4, y = smoke),
+             position = position_jitter(width = 0.3,
+                                        height = 0.04, seed = 1),
+             alpha = 0.05, size = 1) +
+  geom_ribbon(data = age_curve,
+              aes(x = age4, ymin = lower, ymax = upper),
+              fill = "#0072B2", alpha = 0.3) +
+  geom_line(data = age_curve, aes(x = age4, y = prob),
+            color = "#0072B2", linewidth = 1) +
+  labs(title = "Probability of Having Tried Smoking, by Age",
+       x = "Age (years)",
+       y = "Probability of having tried smoking") +
+  theme_minimal(base_size = 14)
 
 
 ## ---- multiple ----

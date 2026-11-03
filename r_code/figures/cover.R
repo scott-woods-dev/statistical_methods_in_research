@@ -64,7 +64,7 @@ covers <- list(
     accent = "#6FD3AE",
     ci_fill = book_palette[["bluish_green"]],   # #009E73
     pi_fill = "#3FBF8F",
-    title = c("R", "Companion"),
+    title = c("R Companion"),
     subtitle = "STATISTICAL METHODS IN RESEARCH"
   )
 )
