@@ -59,7 +59,7 @@ round(season_test$residuals, 2)
 
 
 ## ---- independence ----
-# 2. TEST FOR INDEPENDENCE: are two categorical variables related?
+# 2. test FOR INDEPENDENCE: are two categorical variables related?
 #    table(rows, columns) builds the cross-tabulation.
 #    prop.table(..., margin = 1) turns each row into proportions,
 #      as in Chapter 2, so the rows can be compared.
@@ -93,7 +93,7 @@ cramers_v(power_table, adjust = FALSE)
 
 
 ## ---- mcnemar ----
-# 3. McNEMAR'S TEST: the same people answer two yes/no questions.
+# 3. McNEMAR'S test: the same people answer two yes/no questions.
 #    Here the two "questions" are whether each student sleeps at
 #    least 8 hours on a school night and on a non-school night.
 #    ifelse(test, "Yes", "No") gives "Yes" for each row where the

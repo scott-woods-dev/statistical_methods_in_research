@@ -25,7 +25,7 @@ The variables used in this chapter:
 | `ride.alc.driver` | Categorical | Riding with a Drunk Driver (RDD) indicator within the past 30 days ($1 = \text{yes, rode with a driver who had been drinking}$, $0 = \text{no}$). |
 | `age4` | Categorical | The respondent's age in years, restricted to adolescent age brackets (**14**, **15**, **16**, **17**, or **18** years old). |
 
-: Variables from `youth_risk_2007.csv` used in this chapter {tbl-colwidths="[20,17,63]"}
+: Variables from `youth_risk_2007.csv` used in this chapter {tbl-colwidths="[23,17,60]"}
 
 `age4` holds ages in whole years, so the models below use it as a number: each slope is the change for one more year of age.
 

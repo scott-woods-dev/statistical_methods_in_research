@@ -1,0 +1,159 @@
+# Nonparametric Tests {#sec-ch10}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_10.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter runs the five nonparametric tests from Chapter 10 of the textbook: the Wilcoxon signed-rank test, the Mann-Whitney U test, the Kruskal-Wallis test, Spearman's rho, and Fisher's exact test. All five are built into R, so there are no packages to load. As the textbook stresses, report the medians alongside each test, so every section starts with them.
+
+**Get the script:** [Download the Chapter 10 script, `chapter_10.R`](scripts/chapter_10.R), and save it in the same folder as your data.
+
+## The data
+
+This chapter uses two datasets. Download both into the same folder as the script:
+
+- [Download `weight_loss_incentive.csv`](../data/weight_loss_incentive.csv), the weight loss experiment from Chapter 3.
+- [Download `census_at_school.csv`](../data/census_at_school.csv), the high school survey from Chapter 1.
+
+The variables used in this chapter:
+
+| Variable | Dataset | What it records |
+| :--- | :--- | :--- |
+| `WeightLoss` | `weight_loss_incentive.csv` | Net weight change at the end of the 4-month treatment period (baseline weight minus month 4 weight, in pounds). Positive values indicate weight loss. |
+| `Month7Loss` | `weight_loss_incentive.csv` | Net weight change at the 7-month mark, after a 3-month unmonitored follow-up (baseline weight minus month 7 weight, in pounds). Positive values indicate weight loss. |
+| `TextsSent` | `census_at_school.csv` | The estimated number of text messages the student sent during the previous day. |
+| `Gender` | `census_at_school.csv` | The individual's gender (**Female** or **Male**). |
+| `HWHours` | `census_at_school.csv` | The total number of hours the student spent doing homework over the last week. |
+| `SchoolPressure` | `census_at_school.csv` | The amount of pressure the student feels due to schoolwork, stored in the file as **None**, **Very little**, **Some**, or **A lot**. |
+| `GetToSchool` | `census_at_school.csv` | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**, where Walk includes bicycles and skateboards). |
+
+: Variables used in this chapter {tbl-colwidths="[21,41,38]"}
+
+## Wilcoxon signed-rank test
+
+The question: did participants keep their weight off between month 4 and month 7? Each participant has both measurements, so they are paired.
+
+Some participants are missing one of the two measurements. Keep only the people with both, so the medians and the test use the same people:
+
+```{r read-weight}
+```
+
+```{r complete-pairs}
+```
+
+32 participants have both measurements. Then the medians:
+
+```{r wilcoxon-medians}
+```
+
+The median weight loss was 7.5 pounds at month 4 and 6 pounds at month 7, and the median difference (month 4 minus month 7) was 4.75 pounds. Then the test, with `paired = TRUE`:
+
+```{r wilcoxon}
+```
+
+| What you report | Where it is in the output | In this example |
+| :--- | :--- | :--- |
+| Test statistic, $W$ | `V` | 311 |
+| p-value | `p-value` | .379 |
+| 95% confidence interval | under `95 percent confidence interval` | [−3.5, 8.0] |
+
+: Where each Wilcoxon value appears in R's output
+
+The p-value is far above .05, and the interval includes 0, so the difference between month 4 and month 7 is not statistically significant.
+
+::: {.callout-note title="Ignore the (pseudo)median"}
+R's `sample estimates` line shows a `(pseudo)median` of 2.5. It is a different kind of estimate that the textbook does not use. Report the median of the differences from `median()` above instead. R also prints the confidence interval's ends with many decimal places (`-3.500013`); round them to the precision of your data.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the dataset and the two measurements in `subset()`, the `median()` lines, and `wilcox.test()`. Keep the two measurements in the same order everywhere, so the differences all subtract the same way.
+:::
+
+## Mann-Whitney U test
+
+The question: do female and male students send different numbers of texts? Text counts are very skewed (most students send a few dozen a day, and one reported 1,000), so the medians tell the story better than the means.
+
+```{r read-students}
+```
+
+```{r mann-whitney}
+```
+
+The median female student sent 30 texts the previous day; the median male student sent 20. The test: $U = 38178$, *p* < .001, 95% CI [5, 15]. The interval is positive because R subtracts in the order of the groups, **Female** minus **Male**: female students sent more texts.
+
+::: {.callout-note title="R calls it W"}
+R labels the statistic `W`, but its value is the $U$ statistic that the textbook reports. As the textbook explains, different programs use different labels for this test's statistic.
+:::
+
+::: {.callout-warning title="Common error: grouping factor must have exactly 2 levels"}
+**What you see**
+
+```{r}
+#| error: true
+wilcox.test(TextsSent ~ GetToSchool, data = students)
+```
+
+**What it means:** `GetToSchool` has three groups, and the Mann-Whitney test compares exactly two.
+
+**How to fix it:** for three or more groups, use the Kruskal-Wallis test below. To compare just two of the groups, keep those two with `subset()` and `%in%`, as in Chapter 6.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the numerical variable, the group variable, and the dataset in both lines.
+:::
+
+## Kruskal-Wallis test
+
+The question: do students who feel different amounts of school pressure spend different amounts of time on homework? First put the groups in order, as in Chapter 6, and look at each group's size and median:
+
+```{r order-pressure}
+```
+
+The medians rise from 0.25 hours a week for students who feel no pressure to 5 hours for those who feel some or a lot. Then the test:
+
+```{r kruskal}
+```
+
+R labels the $H$ statistic `Kruskal-Wallis chi-squared`, and it is the version adjusted for ties, the one the textbook uses: $H(3) = 101.29$, *p* < .001. Homework time differs across the pressure groups.
+
+::: {.callout-tip title="With your own data"}
+Change the group variable and its groups in `factor()`, then the numerical variable, the group variable, and the dataset in `table()`, `tapply()`, and `kruskal.test()`.
+:::
+
+## Spearman's rho
+
+The textbook uses Spearman's rho for an ordered categorical variable, such as school pressure. To use the groups in a correlation, first turn them into ranks with `as.integer()`, which gives each group its place in the order you set. Then run `cor.test()` from Chapter 4 with `method = "spearman"`:
+
+```{r spearman}
+```
+
+$r_s = .40$, *p* < .001: students who feel more school pressure tend to spend more time on homework. Ignore the `S` statistic; the textbook reports $r_s$ and the p-value.
+
+R does not print a confidence interval for Spearman's rho. These three lines calculate the interval the textbook reports:
+
+```{r spearman-ci}
+```
+
+The 95% CI is [.32, .47].
+
+::: {.callout-tip title="With your own data"}
+If both of your variables are numerical, skip the `as.integer()` line and put your two variables straight into `cor.test()`. If one is an ordered categorical variable, set its order with `factor()` first, so the ranks go from lowest to highest.
+:::
+
+## Fisher's exact test
+
+Chapter 8 of this companion showed that the chi-square test for gender and travel to school gives the warning `Chi-squared approximation may be incorrect`, because few students walk. Fisher's exact test is the textbook's answer for small expected counts:
+
+```{r fisher}
+```
+
+Fisher's exact test has no test statistic, so report the proportions and the p-value: 14.6% of male students and 7.7% of female students take the bus to school, and the test finds the travel pattern differs by gender, *p* = .043.
+
+::: {.callout-tip title="With your own data"}
+Change the two variables in `table()`. `fisher.test()` works on a 2 × 2 table or a larger one, as here.
+:::

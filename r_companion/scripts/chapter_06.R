@@ -118,7 +118,7 @@ TukeyHSD(bp_model)
 
 
 ## ---- dunnett ----
-# 6. DUNNETT'S TEST: compares each group only to the control.
+# 6. DUNNETT'S test: compares each group only to the control.
 #    emmeans(model, "BMI") calculates each group's mean from the
 #      model. The name in quotes is your group variable.
 #    method = "trt.vs.ctrl" means "each treatment versus the

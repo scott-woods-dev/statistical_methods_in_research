@@ -30,7 +30,7 @@ The variables used in this chapter:
 | `Group` | `weight_loss_incentive.csv` | The experimental group assignment for the participant (**Control** or **Incentive**). |
 | `Month7Loss` | `weight_loss_incentive.csv` | Net weight change measured at the 7-month mark, which includes a 3-month unmonitored follow-up phase ($\text{Baseline Weight} - \text{Month 7 Weight}$ in pounds). Positive values indicate weight loss; negative values indicate weight gain. |
 
-: Variables used in this chapter {tbl-colwidths="[16,32,52]"}
+: Variables used in this chapter {tbl-colwidths="[21,41,38]"}
 
 ## Load the package and the data
 

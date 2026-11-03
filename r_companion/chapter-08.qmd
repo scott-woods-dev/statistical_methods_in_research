@@ -34,7 +34,7 @@ The variables used in this chapter:
 | `SystolicBP` | `smoking_bmi_bp.csv` | The individual's systolic blood pressure, measured in millimeters of mercury (mmHg). |
 | `BMI` | `smoking_bmi_bp.csv` | Body Mass Index weight classification category based on clinical ranges (**Normal**, **Overweight**, or **Obese**). |
 
-: Variables used in this chapter {tbl-colwidths="[18,30,52]"}
+: Variables used in this chapter {tbl-colwidths="[22,31,47]"}
 
 ## Load the package and the data
 
