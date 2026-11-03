@@ -1,0 +1,278 @@
+# Getting Set Up {.unnumbered #sec-ch00}
+
+This chapter gets R working on your computer. By the end, you will have run your first script, read a dataset, and loaded a package.
+
+You need two free programs:
+
+- **R** does the calculations. You will rarely look at it directly.
+- **RStudio** is the window you work in. It sends your code to R and shows you the results.
+
+Install R first, then RStudio. If you cannot install software on your computer, skip to [Using RStudio in a web browser](#sec-posit) and use RStudio in your web browser instead.
+
+## Install R
+
+Choose your computer's operating system. The choice applies to every set of tabs in this chapter.
+
+::: {.panel-tabset group="os"}
+
+### Windows {.unnumbered .unlisted}
+
+1. Go to <https://cran.r-project.org>.
+2. Click **Download R for Windows**, then **base**, then the **Download R** link at the top of the page (it includes a version number, such as `R-4.5.1`).
+3. Open the downloaded file. If Windows asks whether to allow this app to make changes to your device, click **Yes**.
+4. Click **Next** on every screen to accept the standard settings, then **Finish**.
+
+### Mac {.unnumbered .unlisted}
+
+1. Find out which kind of chip your Mac has: open the Apple menu, choose **About This Mac**, and look at the line labeled **Chip** or **Processor**. It says either "Apple" (M1, M2, and so on) or "Intel."
+
+   <!-- SCREENSHOT S07: 00_mac_chip_mac.png -->
+2. Go to <https://cran.r-project.org> and click **Download R for macOS**.
+3. Download the `.pkg` file that matches your chip: the one labeled for Apple silicon (`arm64`) if your chip says Apple, or the one labeled for Intel (`x86_64`) if it says Intel.
+4. Open the downloaded file and click **Continue** through each screen, then **Install**. Enter your Mac password if asked.
+
+::: {.callout-note title="You do not need XQuartz"}
+The R download page mentions XQuartz, a program that a few specialized packages need. Nothing in this companion uses it, so you can skip it.
+:::
+
+::: {.callout-warning title="Common error: R will not install or will not open"}
+**What you see:** the installer stops with a message that the software cannot be installed, or R installs but will not open.
+
+**What it means:** you most likely downloaded the version for the other kind of chip.
+
+**How to fix it:** check your chip again (step 1), download the matching file, and install it.
+:::
+
+:::
+
+## Install RStudio
+
+::: {.panel-tabset group="os"}
+
+### Windows {.unnumbered .unlisted}
+
+1. Go to <https://posit.co/download/rstudio-desktop/>.
+2. Skip the "Install R" step on that page (you just did it) and click the button to download RStudio Desktop for Windows.
+3. Open the downloaded file, click **Yes** if Windows asks for permission, and click **Next** through each screen, then **Finish**.
+4. Open RStudio from the Start menu.
+
+### Mac {.unnumbered .unlisted}
+
+1. Go to <https://posit.co/download/rstudio-desktop/>.
+2. Skip the "Install R" step on that page (you just did it) and click the button to download RStudio Desktop for macOS.
+3. Open the downloaded `.dmg` file. A window opens showing the RStudio icon and your Applications folder.
+4. Drag the RStudio icon onto the Applications folder.
+5. Open your Applications folder and double-click **RStudio**. If your Mac asks whether you are sure you want to open an app downloaded from the internet, click **Open**.
+
+<!-- SCREENSHOT S08: 00_rstudio_drag_mac.png -->
+
+::: {.callout-warning title="Common error: RStudio disappears after a restart"}
+**What you see:** RStudio worked yesterday, but today you cannot find it.
+
+**What it means:** RStudio was opened straight from the downloaded `.dmg` window instead of being copied into Applications first.
+
+**How to fix it:** open the `.dmg` file again, drag RStudio onto the Applications folder, and from now on open it from Applications.
+:::
+
+:::
+
+::: {.callout-warning title="Common error: you opened R instead of RStudio"}
+**What you see:** a plain window with a few lines of text about the R version and copyright, and a `>` symbol, but none of the panes described below.
+
+<!-- SCREENSHOT S01: 00_r_not_rstudio_win.png -->
+<!-- SCREENSHOT S02: 00_r_not_rstudio_mac.png -->
+
+**What it means:** both programs are now on your computer, and you opened R by mistake.
+
+**How to fix it:** close that window and open **RStudio**. You never need to open R yourself; RStudio starts it for you.
+:::
+
+## A tour of RStudio
+
+RStudio opens with three panes. Once you open a script (in the next section), a fourth appears in the upper left:
+
+| Position | Pane | What it is for |
+| :--- | :--- | :--- |
+| Upper left | **Source** | Your script: the code you write and save. |
+| Lower left | **Console** | Where R runs your code and prints the results. |
+| Upper right | **Environment** | The datasets and values R is holding right now. |
+| Lower right | **Files, Plots, Packages, Help** | Your folders, your graphs, your packages, and R's help pages, each on its own tab. |
+
+: The four panes of RStudio, in their standard positions
+
+<!-- SCREENSHOT S03: 00_rstudio_panes.png -->
+
+## Make a folder for your work
+
+Make one folder for everything in this course, for example a folder called `Stats R` inside Documents. Save every dataset and every script into it. When R looks for a file, it looks in one folder at a time, so keeping everything together prevents most "file not found" problems.
+
+::: {.callout-warning title="Common error: the downloaded file has a different name"}
+**What you see:** the file in your folder is called `census_at_school (1).csv` or `census_at_school.csv.csv` instead of `census_at_school.csv`.
+
+**What it means:** your browser added `(1)` because you downloaded the file twice, or Windows is hiding the `.csv` ending and you typed it in again while renaming.
+
+**How to fix it:** rename the file so it matches the name in the script exactly. If Excel opens the file after you download it, close Excel without saving, since saving from Excel can change the file.
+:::
+
+## Your first script
+
+A **script** is a text file of R code that you can save, rerun, and change later.
+
+1. In RStudio, choose **File > New File > R Script**. The Source pane opens in the upper left.
+2. Type this line into it:
+
+   ```r
+   2 + 2
+   ```
+
+3. With your cursor on that line, press **Ctrl + Enter** (Windows) or **Cmd + Return** (Mac). You can also click the **Run** button at the top of the Source pane.
+4. Look in the Console. R prints the answer:
+
+   ```
+   [1] 4
+   ```
+
+   The `[1]` only means "first value." The answer is 4.
+
+   <!-- SCREENSHOT S04: 00_first_script.png -->
+
+5. Save the script with **File > Save**, into your course folder, with a name like `practice.R`.
+
+To run a single line, put your cursor on it and press **Ctrl + Enter** or **Cmd + Return**. To run several lines, highlight them first and then press the same keys.
+
+::: {.callout-warning title="Common error: a + sign in the Console instead of an answer"}
+**What you see**
+
+```
+> mean(c(1, 2, 3)
++
+```
+
+**What it means:** the `>` symbol means R is ready for a new command. A `+` at the start of the line means R is still waiting for the end of the last one, usually a closing parenthesis `)` or quotation mark `"` that is missing.
+
+**How to fix it:** click in the Console and press **Esc** to cancel. Then fix the line in your script so every `(` has a matching `)` and every `"` has a partner, and run it again.
+:::
+
+## Set the working directory
+
+The **working directory** is the folder where R looks for files. Point it at your course folder every time you open RStudio:
+
+1. Make sure your script is saved in your course folder.
+2. Choose **Session > Set Working Directory > To Source File Location**.
+
+To check, type `list.files()` in the Console and press **Enter**. R lists the files in your working directory, and your dataset should be among them.
+
+<!-- SCREENSHOT S05: 00_set_working_directory.png -->
+
+## Install and load packages {#sec-packages}
+
+A **package** is a free add-on that gives R new abilities, such as drawing graphs. There are two steps, and they are easy to mix up:
+
+- **Install** a package once, the same way you install an app on your phone.
+- **Load** a package every time you open RStudio, the same way you open the app each time you use it.
+
+To install the packages this companion uses, copy this line into the **Console** (not your script) and press **Enter**:
+
+```r
+install.packages(c("ggplot2", "psych", "car",
+                   "emmeans", "pROC", "forecast"))
+```
+
+`c()` combines several names into one list, so one command installs all six packages. The command runs across two lines; copy both lines together.
+
+R downloads the packages and prints many lines of progress, which can take a few minutes. When the `>` symbol returns, it is done. You never need to run this line again on this computer.
+
+::: {.callout-note title="Questions R may ask while installing"}
+- **"Would you like to use a personal library instead?"** Type `yes` and press **Enter**, both times if it asks twice.
+- **"Do you want to install from sources the packages which need compilation?"** Type `no` and press **Enter**.
+- On Windows, a warning that **Rtools is required** can be ignored. You do not need Rtools.
+:::
+
+To load a package, put a `library()` line at the top of your script. Every chapter script already starts with the lines it needs:
+
+```r
+library(ggplot2)
+```
+
+Notice that `install.packages()` needs quotation marks around the name and `library()` does not.
+
+::: {.callout-warning title="Common error: there is no package called ..."}
+**What you see**
+
+```{r}
+#| error: true
+library(ggplot2x)
+```
+
+**What it means:** the package is not installed (or its name is misspelled, as it is here).
+
+**How to fix it:** check the spelling, then run `install.packages("ggplot2")` in the Console with the correct name, and run the `library()` line again.
+:::
+
+::: {.callout-warning title="Common error: could not find function ..."}
+**What you see**
+
+```
+> ggplot(students, aes(x = Sleep1))
+Error in ggplot(students, aes(x = Sleep1)) :
+  could not find function "ggplot"
+```
+
+**What it means:** the package is installed but not loaded. This happens when you open RStudio and run a graph before running the `library()` line.
+
+**How to fix it:** run the `library()` lines at the top of the script first, then run your graph again.
+:::
+
+## Read a dataset
+
+[Download `census_at_school.csv`](../data/census_at_school.csv) into your course folder. Then type this line into your script and run it:
+
+```{r}
+#| results: hide
+students <- read.csv("census_at_school.csv")
+```
+
+This line reads the file and stores it under the name `students`. The `<-` arrow means "store what is on the right under the name on the left." In the Environment pane, `students` now appears with **500 obs. of 35 variables**: 500 rows (students) and 35 columns (variables).
+
+<!-- SCREENSHOT S06: 00_environment_students.png -->
+
+::: {.callout-note title="Shortcut for the arrow"}
+Press **Alt** and the minus key together (Windows) or **Option** and the minus key (Mac) to type ` <- ` in one step.
+:::
+
+::: {.callout-warning title="Common error: cannot open file ... No such file or directory"}
+**What you see**
+
+```{r}
+#| error: true
+students <- read.csv("census_at_scool.csv")
+```
+
+**What it means:** R looked in your working directory and did not find a file with that exact name.
+
+**How to fix it:** check three things, in this order:
+
+1. The file name in your script is spelled exactly right, including `.csv` and the quotation marks (this example is missing an "h").
+2. The working directory is set (Session > Set Working Directory > To Source File Location).
+3. The file is really in your course folder: run `list.files()` and look for it.
+:::
+
+You are set up. Continue to [Chapter 1](chapter-01.qmd#sec-ch01) to make your first graph.
+
+## Using RStudio in a web browser (Posit Cloud) {#sec-posit}
+
+If you cannot install R on your computer (for example, a Chromebook, a tablet with a keyboard, or a computer you do not own), you can use **Posit Cloud**, which runs RStudio in a web browser. Everything in this companion works the same way there, with two differences, noted below.
+
+1. Go to <https://posit.cloud> and sign up for a free account.
+2. Click **New Project**, then **New RStudio Project**. RStudio opens in your browser after a short wait.
+3. To add a dataset or script, click **Upload** in the Files pane (lower right), choose the file, and click **OK**.
+4. Install the packages with the `install.packages()` line from [Install and load packages](#sec-packages).
+
+The two differences:
+
+- **You do not need to set the working directory.** The project folder already is the working directory, so uploaded files are found automatically.
+- **Packages are installed once per project**, not once per computer. If you start a new project, install the packages again. Using one project for the whole course avoids this.
+
+The free plan limits how many hours per month you can use Posit Cloud; check the current limits on its website. Save your scripts often, and download them (Files pane, **More > Export**) to keep a copy.
+
+<!-- SCREENSHOT S09: 00_posit_cloud_upload.png -->

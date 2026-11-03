@@ -11,7 +11,7 @@
 
 cd "$(dirname "$0")/../.." || exit 2
 
-FILES=(chapters/*.md index.md data/*.md)
+FILES=(chapters/*.md index.md data/*.md r_companion/*.qmd r_companion/*.md)
 ALLOW=tools/style/allow.txt
 
 # Emit "file:line:text" for every line outside fenced code blocks.

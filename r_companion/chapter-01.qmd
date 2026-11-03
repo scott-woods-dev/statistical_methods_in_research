@@ -1,0 +1,255 @@
+# Graphs and Summaries {#sec-ch01}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_01.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+In this chapter you will make five of the graphs from Chapter 1 of the textbook (a bar chart, a histogram, side-by-side box plots, and two scatterplots) and calculate a mean and a median.
+
+Every graph in this chapter uses the same recipe, so once you have made the first one, the rest are small changes to it.
+
+**Get the script:** [Download the Chapter 1 script, `chapter_01.R`](scripts/chapter_01.R), and save it in the same folder as your data. It holds all of the code in this chapter, so you can run each piece as you read instead of typing it.
+
+## The data
+
+The examples use `census_at_school.csv`, a sample of 500 high school seniors in Pennsylvania. [Download `census_at_school.csv`](../data/census_at_school.csv) into the same folder as the script. To use your own dataset, you will copy the steps here and change the marked lines.
+
+The variables used in this chapter:
+
+| Variable | Type | What it records |
+| :--- | :--- | :--- |
+| `GetToSchool` | Categorical | Main mode of transportation used to get to school (**Bus**, **Car**, or **Walk**, where Walk includes bicycles and skateboards). |
+| `Sleep1` | Numerical | The typical number of hours of sleep the student gets on a school night. |
+| `TravelTime` | Numerical | The time it takes the student to travel to school, recorded in minutes. |
+| `Armspan` | Numerical | The student's armspan measured in centimeters. |
+| `Height` | Numerical | The student's height measured in centimeters. |
+| `Year` | Categorical | The year the student submitted their data (**2023** or **2024**). |
+| `Gender` | Categorical | The individual's gender (**Female** or **Male**). |
+
+: Variables from `census_at_school.csv` used in this chapter {tbl-colwidths="[20,15,65]"}
+
+## Load the package and the data
+
+Start every script the same way: load the packages, then read the data. If you have not installed `ggplot2` yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+```{r read-data}
+```
+
+The `<-` arrow stores the data under the name `students`. From now on, `students` means "the whole dataset." The list of names is your spelling reference: R treats `Sleep1` and `sleep1` as two different things, so copy names exactly as they appear here.
+
+::: {.callout-tip title="With your own data"}
+Change the file name inside the quotes to your dataset's file name, such as `"student_lifestyle_sleep.csv"`. You can keep the name `students`, or choose a name that describes your data (if you do, change it everywhere it appears). Run `names(students)` again and keep the new list handy; the variable names in the graphs below will change to match it.
+:::
+
+## Picking out one variable with `$`
+
+Many R commands work on one variable at a time. The `$` sign picks one variable (one column) out of a dataset: `students$TravelTime` means "the `TravelTime` column of `students`." Read it as "students, the TravelTime column."
+
+```{r dollar-sign}
+```
+
+These are the travel times, in minutes, of the first six students in the dataset.
+
+You will use `$` with commands such as `mean()` and `median()`. Inside `ggplot()` you do not need it: you name the dataset once at the start, and `ggplot()` looks up each variable name in that dataset.
+
+::: {.callout-warning title="Common error: NULL"}
+**What you see**
+
+```{r}
+head(students$travelTime)
+```
+
+**What it means:** `NULL` means "nothing there." R found no column called `travelTime` (with a lowercase "t"), so it has nothing to show. R does not stop with an error here, which makes this one easy to miss.
+
+**How to fix it:** check the spelling after the `$` against `names(students)`.
+:::
+
+## Bar chart
+
+A bar chart shows how many observations fall in each category of a categorical variable.
+
+```{r bar-chart}
+#| fig-cap: "Bar chart of how students get to school."
+#| fig-alt: "Bar chart with three bars: about 55 students take the bus, about 438 go by car, and 7 walk. The car bar is far taller than the other two."
+```
+
+Every graph in this companion is built from the same four parts, joined with `+` signs:
+
+1. `ggplot(students, aes(x = GetToSchool))` names the data and the variable to plot.
+2. `geom_bar()` says what kind of graph to draw. Each graph type has its own `geom_` (you will see `geom_histogram()`, `geom_boxplot()`, and `geom_point()` next).
+3. `labs()` writes the title and axis labels. Anything inside quotes is printed as you typed it.
+4. `theme_minimal(base_size = 14)` gives a plain background and readable text.
+
+The settings inside the parentheses, such as `fill = "#0072B2"` and `base_size = 14`, are called **arguments**. The comments in the script explain each one, including the ones you can leave as they are.
+
+::: {.callout-note title="About the colors"}
+Codes such as `"#0072B2"` (blue) and `"#D55E00"` (vermillion, a red-orange) come from the Okabe-Ito palette, the same colors the textbook uses. They were chosen so that people with color blindness can tell them apart. The top of the script lists more of them. You can also type a plain color name, such as `"darkgreen"`.
+:::
+
+::: {.callout-warning title="Common error: object not found"}
+**What you see**
+
+```{r}
+#| error: true
+ggplot(students, aes(x = gettoschool)) +
+  geom_bar()
+```
+
+**What it means:** R could not find a variable called `gettoschool`. The real name is `GetToSchool`, with capital letters.
+
+**How to fix it:** copy the variable name exactly from the `names(students)` list, including capital letters, numbers, and underscores.
+:::
+
+::: {.callout-warning title="Common error: Cannot use `+` with a single argument"}
+**What you see**
+
+```{r}
+#| error: true
+#| fig-alt: "An empty gray graph area with Sleep1 on the horizontal axis and no bars."
+ggplot(students, aes(x = Sleep1))
+  + geom_histogram()
+```
+
+**What it means:** the `+` has to come at the *end* of a line. When a line ends without `+`, R thinks the command is finished, draws an empty graph, and then does not know what to do with the `+` on the next line.
+
+**How to fix it:** move each `+` to the end of the line above it, as in the examples.
+:::
+
+## Histogram
+
+A histogram shows the shape of a numerical variable. Use it to describe shape (Chapter 1 of the textbook covers skew and floor and ceiling effects).
+
+```{r histogram}
+#| fig-cap: "Histogram of hours of sleep on a school night."
+#| fig-alt: "Histogram of school-night sleep, from 3 to 14 hours. Most students sleep between 5 and 9 hours, with the tallest bar at 7 hours. One student reports 14 hours, far to the right of everyone else."
+```
+
+`binwidth` sets how wide each bar is, in the units of your variable. Here each bar covers 1 hour of sleep.
+
+::: {.callout-note title="Message: Pick better value with binwidth"}
+If you leave out `binwidth`, R picks 30 bars on its own and prints this message:
+
+```
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+This is a message, not an error; the graph still draws. Adding `binwidth` removes the message and usually gives a clearer graph.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change `Sleep1` to your numerical variable, and update the title and x-axis label. Choose a `binwidth` in your variable's units: 1 works for counts such as classes missed, but a GPA needs something smaller, such as 0.25. Try a few values and keep the one that shows the shape most clearly. For a second variable, copy the whole block and change it again.
+:::
+
+## Mean and median
+
+`mean()` and `median()` each take one variable, picked out with the `$` sign.
+
+```{r mean-median}
+```
+
+The average travel time is about 11.3 minutes, and the median is 9 minutes. The number after `[1]` is the answer (the `[1]` only means "first value").
+
+::: {.callout-warning title="Common error: the answer is NA"}
+**What you see**
+
+```{r mean-missing}
+```
+
+**What it means:** `NA` stands for "not available." Some students left `Armspan` blank, and R will not average a column with blanks in it unless you tell it to skip them.
+
+**How to fix it:** add `na.rm = TRUE` ("NA remove") inside the parentheses.
+
+```{r mean-missing-fix}
+```
+
+A misspelled variable name also gives `NA`, with a warning:
+
+```{r}
+mean(students$sleep1)
+```
+
+If you see this warning, check the spelling against `names(students)`.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change `TravelTime` to your variable in both lines. If either answer is `NA`, your variable has blank cells; add `na.rm = TRUE` as shown in the box above.
+:::
+
+## Side-by-side box plots
+
+Side-by-side box plots compare a numerical variable across groups. This one compares school-night sleep for the two survey years.
+
+```{r box-plot}
+#| fig-cap: "Box plots of school-night sleep for each survey year."
+#| fig-alt: "Two box plots of school-night sleep. Both years have a median of 7 hours. The 2023 box runs from 6 to 7 hours, with separate points at 3, 4, 9, and 14 hours. The 2024 box is wider, running from 6 to 8 hours, with whiskers from 3 to 9.5 hours and no separate points."
+```
+
+`Year` is stored as a number, but it is a categorical variable: 2023 and 2024 are group names, not amounts. Wrapping it in `factor()` tells R to treat it as groups.
+
+::: {.callout-warning title="Common error: only one box appears"}
+**What you see**
+
+```{r}
+#| fig-alt: "A single wide box plot spanning the whole graph, instead of one box per year."
+ggplot(students, aes(x = Year, y = Sleep1)) +
+  geom_boxplot()
+```
+
+**What it means:** without `factor()`, R reads `Year` as an ordinary number and draws one box for everyone. The warning about `aes(group = ...)` is R's hint that something is off.
+
+**How to fix it:** wrap the group variable in `factor()`, as in `aes(x = factor(Year), y = Sleep1)`.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your group variable inside `factor()` and your numerical variable after `y =`, then update the labels. If your groups are stored as numbers (for example, a class year coded 1 to 4), you need `factor()`. If they are stored as words, such as **Bus** and **Car**, `factor()` does no harm, so you can always keep it.
+:::
+
+## Scatterplot
+
+A scatterplot shows how two numerical variables move together, with one dot per student.
+
+```{r scatterplot}
+#| fig-cap: "Scatterplot of armspan against height."
+#| fig-alt: "Scatterplot of armspan against height. Heights run from about 147 to 198 centimeters and armspans from about 133 to 210 centimeters. The dots rise from lower left to upper right in a fairly tight band: taller students tend to have longer armspans."
+```
+
+The variable after `x =` goes on the horizontal axis, and the variable after `y =` goes on the vertical axis.
+
+::: {.callout-note title="Warning: Removed 34 rows containing missing values"}
+R prints this warning because 34 students have a blank `Armspan`, so it has no place to put their dots. The graph is still correct; it just shows the 466 students with both measurements. With your own data, the number in the warning tells you how many rows were left out.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change both variables and all three labels. Put the variable you think of as the explanation (the predictor) after `x =`, and the outcome after `y =`.
+:::
+
+## Scatterplot with groups
+
+Adding a third variable takes two more words inside `aes()`. Here each gender gets its own color *and* its own shape, so the groups can be told apart in black and white or by readers who do not see color differences.
+
+```{r scatterplot-groups}
+#| fig-cap: "Scatterplot of armspan against height, with gender shown by color and shape."
+#| fig-alt: "Scatterplot of armspan against height, with female students as circles and male students as triangles. Both groups follow the same rising pattern. Most female students are between about 155 and 173 centimeters tall and sit in the lower left; most male students are between about 170 and 187 centimeters and sit in the upper right, with overlap in the middle."
+```
+
+`scale_color_manual()` picks the colors, one for each group, in alphabetical order of the group names: Female gets the first color (blue), and Male gets the second (vermillion). With three groups, add a third color from the list at the top of the script.
+
+The legend title comes from `color =` and `shape =` inside `labs()`. Give both the same title so R shows one legend instead of two.
+
+## Saving a graph
+
+To put a graph in a paper or assignment, either click **Export** above the graph in the Plots pane and choose **Save as Image**, or run `ggsave()` right after the graph:
+
+```{r save-graph}
+#| eval: false
+```
+
+`width = 7` and `height = 4.5` set the size of the picture in inches; 7 inches is about the width of a printed page. The file appears in your working directory (the same folder as your script), where you can attach it to your assignment.

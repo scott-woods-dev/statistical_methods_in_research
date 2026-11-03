@@ -1,0 +1,86 @@
+project:
+  type: book
+  output-dir: _book
+  post-render: tools/publish.sh
+  # Render only the book pages; STANDARDS.md and the scripts are not pages.
+  render:
+    - index.qmd
+    - chapter-00.qmd
+    - chapter-01.qmd
+  resources:
+    - scripts/*.R
+
+book:
+  title: "R Companion"
+  subtitle: "Statistical Methods in Research"
+  author: "Scott Woods"
+  date: today
+  chapters:
+    - index.qmd
+    - chapter-00.qmd
+    - chapter-01.qmd
+
+# Code runs with the data folder as the working directory, so the scripts read
+# each CSV by its bare file name, exactly as students do.
+knitr:
+  opts_knit:
+    root.dir: ../data
+
+execute:
+  echo: true
+  warning: true
+  message: true
+  freeze: false
+
+format:
+  html:
+    theme:
+      - cosmo
+      - ../custom.scss
+      - companion.scss
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+    fig-width: 7
+    fig-height: 4.5
+    # The textbook's accessibility fixes (landmark labels, link names,
+    # keyboard access to scrolling code blocks).
+    include-after-body:
+      - ../includes/a11y.html
+  pdf:
+    documentclass: book
+    # One-sided, chapters start on any page: no blank pages, since students
+    # read the PDF on screen.
+    classoption: [oneside, openany]
+    mainfont: Times New Roman
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    # Number chapters and sections only; the Windows and Mac tab headings
+    # (level 3) stay unnumbered and out of the table of contents.
+    number-depth: 1
+    code-overflow: wrap
+    fig-width: 6.5
+    fig-height: 4.25
+    # Links are colored and each web link also gets a footnote with its
+    # address, so a link is never marked by color alone.
+    colorlinks: true
+    linkcolor: blue
+    urlcolor: blue
+    links-as-notes: true
+    include-in-header:
+      text: |
+        % Wrap long code and output lines at the margin instead of running
+        % off the page.
+        \usepackage{fvextra}
+        \fvset{breaklines=true, breakanywhere=true}
+        \let\verbatim\relax
+        \let\endverbatim\relax
+        \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere,fontsize=\small}
+        % Callouts: bold titles, and never split across two pages.
+        \AtBeginDocument{%
+          \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\small}%
+          \tcbset{fonttitle=\bfseries, breakable/.style={}}%
+        }

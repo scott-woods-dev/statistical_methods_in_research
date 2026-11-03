@@ -25,3 +25,7 @@ Rplots.pdf
 
 /.quarto/
 **/*.quarto_ipynb
+
+# R companion (Quarto cache)
+/r_companion/.quarto/
+/r_companion/_book/

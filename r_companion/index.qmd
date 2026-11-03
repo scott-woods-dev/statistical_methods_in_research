@@ -1,0 +1,30 @@
+# Welcome {.unnumbered}
+
+This companion shows you how to use R to get the graphs and values each textbook chapter covers, for your coursework and for your own research. You do not need any coding experience, and you do not need to become an R programmer. You need to copy our code, change a few marked lines, and run it.
+
+The textbook explains the statistics; this companion explains the clicks and the code. Each companion chapter matches the textbook chapter with the same number.
+
+## How to use each chapter
+
+1. Read the textbook chapter first.
+2. Download the chapter's script and the dataset into one folder on your computer.
+3. Open the script in RStudio and run it, following along with the companion chapter. Your output should match what you see here.
+4. To use your own data, find the lines marked `# CHANGE THIS:` and put in your dataset and variables.
+
+## The boxes you will see
+
+::: {.callout-warning title="Common error"}
+A mistake many students make at this step: what R shows you, what it means, and how to fix it. If something goes wrong, check the nearest one of these boxes first.
+:::
+
+::: {.callout-tip title="With your own data"}
+Which lines to change to run this step on your own dataset, and anything to watch for when you do.
+:::
+
+::: {.callout-note title="Note"}
+An optional extra, such as a keyboard shortcut or a message you can ignore.
+:::
+
+## Before you start
+
+If R and RStudio are not on your computer yet, start with [Getting Set Up](chapter-00.qmd#sec-ch00). If you cannot install software (for example, on a Chromebook or a library computer), the same chapter shows you how to use RStudio in a web browser instead.
