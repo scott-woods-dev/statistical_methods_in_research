@@ -175,10 +175,10 @@ To install the packages this companion uses, copy this line into the **Console**
 
 ```r
 install.packages(c("ggplot2", "psych", "car", "effectsize",
-                   "emmeans", "pROC", "forecast"))
+                   "emmeans", "pROC", "forecast", "DescTools"))
 ```
 
-`c()` combines several names into one list, so one command installs all seven packages. The command runs across two lines; copy both lines together.
+`c()` combines several names into one list, so one command installs all eight packages. The command runs across two lines; copy both lines together.
 
 R downloads the packages and prints many lines of progress, which can take a few minutes. When the `>` symbol returns, it is done. You never need to run this line again on this computer.
 

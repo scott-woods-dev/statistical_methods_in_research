@@ -8,15 +8,16 @@
 #      confidence intervals, and VIF
 #   3. Predicted probabilities for specific profiles
 #   4. Deviance R-squared and adjusted deviance R-squared
-#   5. A confusion matrix, with sensitivity and specificity
-#   6. An ROC curve and its AUC
+#   5. The Hosmer-Lemeshow goodness-of-fit test
+#   6. A confusion matrix, with sensitivity and specificity
+#   7. An ROC curve and its AUC
 #
 # Before you run it:
 #   - Put this script and youth_risk_2007.csv in the same folder.
 #   - In RStudio, choose
 #     Session > Set Working Directory > To Source File Location.
-#   - Install ggplot2, car, and pROC once, if you have not already
-#     (see Getting Set Up).
+#   - Install ggplot2, car, pROC, and DescTools once, if you have
+#     not already (see Getting Set Up).
 # ==================================================================
 
 
@@ -114,8 +115,34 @@ predict(youth_model, newdata = profiles, type = "response")
   (youth_model$null.deviance / youth_model$df.null)
 
 
+## ---- hosmer-lemeshow ----
+# 5. HOSMER-LEMESHOW TEST, from the DescTools package.
+#    DescTools:: tells R which package the function comes from,
+#      so you do not need a library() line for it.
+#    fit = the predicted probabilities, and obs = the actual 0/1
+#      outcomes, for the people the model used. The model stores
+#      both: $fitted.values and $y.
+#    $C keeps the standard version of the test (the function also
+#      calculates a second version, $H).
+# CHANGE THIS: your model's name (in both places), and a name for
+#              the result
+hl <- DescTools::HosmerLemeshowTest(fit = youth_model$fitted.values,
+                                    obs = youth_model$y)$C
+hl
+
+
+## ---- hosmer-lemeshow-groups ----
+# The share of 1s in each group: what actually happened, then what
+# the model predicted.
+#    prop.table(..., margin = 1) turns each row into proportions,
+#      as in Chapter 2; [, 2] keeps the column for the 1s.
+# CHANGE THIS: your result's name, in both lines
+round(prop.table(hl$observed, margin = 1)[, 2], 2)
+round(prop.table(hl$expected, margin = 1)[, 2], 2)
+
+
 ## ---- confusion ----
-# 5. CONFUSION MATRIX.
+# 6. CONFUSION MATRIX.
 #    fitted() gives each person's predicted probability; store it
 #      as a new column.
 #    ifelse(... > 0.5, 1, 0) predicts 1 when the probability is
@@ -138,7 +165,7 @@ confusion["0", "0"] / sum(confusion[, "0"])
 
 
 ## ---- roc ----
-# 6. ROC CURVE AND AUC.
+# 7. ROC CURVE AND AUC.
 #    roc(actual, predicted) compares what happened with the
 #      predicted probabilities, at every possible threshold.
 # CHANGE THIS: your outcome and your predicted probabilities

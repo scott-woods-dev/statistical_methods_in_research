@@ -53,9 +53,11 @@ season_test
 ## ---- gof-post-hoc ----
 # The expected counts (check that each one is at least 5) and the
 # standardized residuals, rounded to 2 decimal places.
+#    $stdres holds the standardized residuals. Use $stdres, not
+#      $residuals, which holds a different kind of residual.
 # CHANGE THIS: your test's name, in both lines
 season_test$expected
-round(season_test$residuals, 2)
+round(season_test$stdres, 2)
 
 
 ## ---- independence ----
@@ -80,7 +82,7 @@ power_test
 # round(..., 1) rounds to 1 decimal place.
 # CHANGE THIS: your test's name, in both lines
 round(power_test$expected, 1)
-round(power_test$residuals, 2)
+round(power_test$stdres, 2)
 
 
 ## ---- cramers-v ----

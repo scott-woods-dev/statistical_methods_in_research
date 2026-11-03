@@ -78,9 +78,13 @@ Two more pieces of the test's results finish the analysis:
 ```
 
 - **`$expected`** gives the expected counts. Every one must be at least 5, the textbook's assumption check. Here each is 125.
-- **`$residuals`** gives the standardized residuals. Using the textbook's rule of thumb (outside $-2$ to $+2$), Fall (5.10) and Summer (4.83) are chosen more often than expected, and Spring ($-5.37$) and Winter ($-4.56$) less often.
+- **`$stdres`** gives the standardized residuals. Using the textbook's rule of thumb (outside $-2$ to $+2$), Fall (5.89) and Summer (5.58) are chosen more often than expected, and Spring ($-6.20$) and Winter ($-5.27$) less often.
 
 The `$` works here the same way it does for a dataset: it picks out one part of the test's results by name.
+
+::: {.callout-warning title="Check: `$stdres`, not `$residuals`"}
+The results also include `$residuals`, which R prints without any warning. These are a different kind of residual, and they come out smaller than the standardized residuals (here, Fall would be 5.10 instead of 5.89), so the $\pm 2$ rule does not apply to them. Always use `$stdres`.
+:::
 
 ::: {.callout-tip title="With your own data"}
 Change the variable inside `table()`, then list one expected proportion for each category in alphabetical order. Use `table()` first to see the order R uses, and count the categories so the list has one proportion per category.
@@ -98,7 +102,7 @@ Super strength stands out: 13% of male students chose it, compared with 2% of fe
 ```{r independence-post-hoc}
 ```
 
-Every expected count is at least 5 (the smallest is 16.8), so the assumption holds. Only one column has standardized residuals outside $-2$ to $+2$: male students chose Super strength more often than expected (3.46) and female students less often ($-3.33$). The other cells fall inside the range.
+Every expected count is at least 5 (the smallest is 16.8), so the assumption holds. Three columns have standardized residuals outside $-2$ to $+2$. Male students chose Super strength (4.98) and Freeze time (2.45) more often than expected, and Telepathy less often ($-2.85$); female students show the opposite pattern. Fly and Invisibility fall inside the range. With two rows, each cell's residual is the exact opposite of the one below it, so reading one row is enough.
 
 ::: {.callout-note title="The test for homogeneity uses the same code"}
 The textbook's test for homogeneity differs from the test for independence in the study design (how the data were collected), not the calculations. In R, both use exactly the same `table()` and `chisq.test()` lines. Put the populations you are comparing in the rows.

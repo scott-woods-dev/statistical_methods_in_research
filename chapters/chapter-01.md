@@ -21,8 +21,8 @@ The dataset `student_lifestyle_sleep.csv` included with this text has all this r
 * **`GPA`**: A numerical variable recording the student's cumulative Grade Point Average at the end of the semester.
 * **`ClassesMissed`**: A numerical variable recording the total number of class lectures the student missed during the semester.
 * **`ClassYear`**: A categorical variable indicating the student's current academic standing ($1 = \text{First Year}$, $2 = \text{Sophomore}$, $3 = \text{Junior}$, $4 = \text{Senior}$).
-* **`DepressionStatus`**: A categorical variable showing the student's classification based on a standard psychological screening (with levels of **Normal**, **Moderate**, or **Severe**).
-* **`AnxietyStatus`**: A categorical variable showing the student's classification based on a standard psychological screening (with levels of **Normal**, **Moderate**, or **Severe**).
+* **`DepressionStatus`**: A categorical variable showing the student's classification based on a standard psychological screening (with levels of **normal**, **moderate**, or **severe**).
+* **`AnxietyStatus`**: A categorical variable showing the student's classification based on a standard psychological screening (with levels of **normal**, **moderate**, or **severe**).
 
 
 
@@ -194,7 +194,7 @@ The cloud here drifts upward: countries with higher GDP per capita tend to have 
 
 ## Visualizing Relationships: Two Categorical Variables
 
-What if the relationship we want to explore doesn't involve numbers at all? Suppose we want to see if there is a connection between a student's `Stress` level (Normal or High) and their `AlcoholUse` (Abstain, Light, Moderate, Heavy). 
+What if the relationship we want to explore doesn't involve numbers at all? Suppose we want to see if there is a connection between a student's `Stress` level (normal or high) and their `AlcoholUse` (Abstain, Light, Moderate, Heavy). 
 
 
 
