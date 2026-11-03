@@ -83,6 +83,7 @@ This index points you to the sections that discuss each topic. The section where
 ## E {.unnumbered}
 
 - effect size: **[3.8](chapter-03.md#beyond-the-p-value-practical-significance-and-effect-sizes)**, [3.9](chapter-03.md#power-analysis), [6.8](chapter-06.md#post-hoc-analysis), [8.12](chapter-08.md#quantifying-risk-relative-risk-and-odds-ratios)
+- epsilon-squared ($\varepsilon^2$): **[10.10](chapter-10.md#interpreting-software-output-for-the-kruskal-wallis-test)**
 - equal variance (homoscedasticity): **[4.5](chapter-04.md#model-diagnostics-checking-our-work)**, [6.7](chapter-06.md#model-diagnostics), [6.9](chapter-06.md#guided-analysis)
 - ethics of omission: **[13.6](chapter-13.md#the-ethics-of-omission)**
 - expected count: **[8.8](chapter-08.md#choosing-the-right-chi-square-test-and-checking-assumptions)**
@@ -169,7 +170,7 @@ This index points you to the sections that discuss each topic. The section where
 - measurement error: **[11.2](chapter-11.md#the-purpose-of-factor-analysis-uncovering-latent-constructs)**
 - measures of center: **[1.9](chapter-01.md#describing-data-numerically-measures-of-center)**
 - measures of spread: **[1.10](chapter-01.md#measures-of-spread-and-position)**
-- median: **[1.9](chapter-01.md#describing-data-numerically-measures-of-center)**, [1.11](chapter-01.md#matching-the-measure-to-the-shape), [1.16](chapter-01.md#guided-analysis-putting-it-all-together), [10.5](chapter-10.md#the-wilcoxon-signed-rank-test), [10.6](chapter-10.md#interpreting-software-output-for-the-wilcoxon-signed-rank-test), [10.7](chapter-10.md#the-mann-whitney-u-test), [10.8](chapter-10.md#interpreting-software-output-for-the-mann-whitney-u-test), [10.9](chapter-10.md#the-kruskal-wallis-test), [10.10](chapter-10.md#interpreting-software-output-for-the-kruskal-wallis-test)
+- median: **[1.9](chapter-01.md#describing-data-numerically-measures-of-center)**, [1.11](chapter-01.md#matching-the-measure-to-the-shape), [1.16](chapter-01.md#guided-analysis-putting-it-all-together), [2.7](chapter-02.md#translating-research-questions-into-statistical-questions), [10.5](chapter-10.md#the-wilcoxon-signed-rank-test), [10.6](chapter-10.md#interpreting-software-output-for-the-wilcoxon-signed-rank-test), [10.7](chapter-10.md#the-mann-whitney-u-test), [10.9](chapter-10.md#the-kruskal-wallis-test), [10.10](chapter-10.md#interpreting-software-output-for-the-kruskal-wallis-test)
 - minimal risk: **[13.3](chapter-13.md#the-institutional-review-board)**
 - mode: **[1.9](chapter-01.md#describing-data-numerically-measures-of-center)**
 - model diagnostics: [4.5](chapter-04.md#model-diagnostics-checking-our-work), **[6.7](chapter-06.md#model-diagnostics)**, [9.7](chapter-09.md#model-diagnostics-and-accuracy-the-confusion-matrix), [9.8](chapter-09.md#model-diagnostics-and-accuracy-the-roc-curve-and-the-auc), [9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)
@@ -207,7 +208,7 @@ This index points you to the sections that discuss each topic. The section where
 
 ## P {.unnumbered}
 
-- paired data: [10.5](chapter-10.md#the-wilcoxon-signed-rank-test)
+- paired data: [10.5](chapter-10.md#the-wilcoxon-signed-rank-test), [10.6](chapter-10.md#interpreting-software-output-for-the-wilcoxon-signed-rank-test)
 - Pareto chart: **[1.3](chapter-01.md#visualizing-single-variables-categorical-data)**
 - parsimony: **[7.3](chapter-07.md#the-two-way-anova-expanding-the-model)**
 - partitioning variation: **[6.4](chapter-06.md#partitioning-variation)**
@@ -245,6 +246,7 @@ This index points you to the sections that discuss each topic. The section where
 - research question: [1.16](chapter-01.md#guided-analysis-putting-it-all-together), **[2.2](chapter-02.md#the-scientific-process)**, [2.7](chapter-02.md#translating-research-questions-into-statistical-questions), [3.4](chapter-03.md#choosing-the-right-tool), [5.12](chapter-05.md#guided-analysis-the-wage-gap), [6.9](chapter-06.md#guided-analysis)
 - residual: **[4.5](chapter-04.md#model-diagnostics-checking-our-work)**, [6.7](chapter-06.md#model-diagnostics), [7.5](chapter-07.md#two-way-anova-assumptions-and-output-interpretation), [8.3](chapter-08.md#interpreting-the-goodness-of-fit-and-post-hoc-analysis), [8.5](chapter-08.md#interpreting-the-test-for-independence-and-post-hoc-analysis), [8.7](chapter-08.md#interpreting-the-test-for-homogeneity-and-post-hoc-analysis)
 - residual plot: **[4.5](chapter-04.md#model-diagnostics-checking-our-work)**
+- Rosenthal's $r$: **[10.6](chapter-10.md#interpreting-software-output-for-the-wilcoxon-signed-rank-test)**
 - rotation: **[11.3](chapter-11.md#reading-factor-analysis-tables)**
 
 ## S {.unnumbered}

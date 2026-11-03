@@ -9,4 +9,5 @@ adjusted deviance $R^2$ | adjusted deviance R-squared; adjusted deviance R^2
 Cohen's $d$ | Cohen's d
 deviance $R^2$ | deviance R-squared; deviance R^2
 Hedges' $g$ | Hedges' g
+Rosenthal's $r$ | Rosenthal's r
 rare events rule | rare events
