@@ -16,6 +16,7 @@ project:
     - chapter-08.qmd
     - chapter-09.qmd
     - chapter-10.qmd
+    - chapter-11.qmd
   resources:
     - scripts/*.R
 
@@ -37,6 +38,7 @@ book:
     - chapter-08.qmd
     - chapter-09.qmd
     - chapter-10.qmd
+    - chapter-11.qmd
 
 # Code runs with the data folder as the working directory, so the scripts read
 # each CSV by its bare file name, exactly as students do.

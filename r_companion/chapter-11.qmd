@@ -1,0 +1,128 @@
+# Factor Analysis {#sec-ch11}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_11.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter follows the factor analysis workflow from Chapter 11 of the textbook: look at the correlation matrix, choose the number of factors with a scree chart, extract and rotate the factors, read the factor matrix, and check each factor's items with Cronbach's alpha.
+
+**Get the script:** [Download the Chapter 11 script, `chapter_11.R`](scripts/chapter_11.R), and save it in the same folder as your data.
+
+## The data
+
+[Download `amas_math_anxiety.csv`](../data/amas_math_anxiety.csv) into the same folder as the script. It holds answers from 2,200 adults to the nine-item Abbreviated Math Anxiety Scale (AMAS), which you used for Cronbach's alpha in Chapter 2. The question in this chapter: do the nine items measure one kind of math anxiety, or more than one?
+
+The variables used in this chapter:
+
+| Variable | Type | What it records |
+| :--- | :--- | :--- |
+| `item_1` to `item_9` | Numerical | Anxiety ratings for nine math situations (such as listening to a lecture or taking an exam), each recorded on a $1 \text{ to } 5$ scale where a value of $1$ indicates low anxiety and $5$ indicates high anxiety. |
+
+: Variables from `amas_math_anxiety.csv` used in this chapter {tbl-colwidths="[24,15,61]"}
+
+The data key describes the situation behind each item. Keep it open as you read the results: naming the factors means reading what their items have in common.
+
+## Load the packages and the data
+
+This chapter uses `ggplot2` for the scree chart and `psych` for the factor analysis and Cronbach's alpha. If either is not installed yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+The message about `%+%` and `alpha` is the one explained in [Chapter 2](chapter-02.qmd#sec-ch02-alpha), and you can ignore it.
+
+A factor analysis uses every column you give it, so keep only the survey items. This file holds nothing but the nine items, but most datasets have other columns too, so the script shows how to pick the items out:
+
+```{r read-data}
+```
+
+::: {.callout-warning title="Common error: 'x' must be numeric"}
+**What you see**
+
+```{r}
+#| error: true
+students <- read.csv("census_at_school.csv")
+cor(students)
+```
+
+**What it means:** the dataset includes columns that are not numbers (such as `Gender`), and a correlation needs numbers.
+
+**How to fix it:** keep only the item columns, as in the `items <- amas[, c(...)]` line, and use `items` from then on.
+:::
+
+## Correlation matrix
+
+```{r correlations}
+```
+
+Each number is the correlation between two items, and the diagonal of 1.00s is each item with itself. Two neighborhoods show up: items 2, 4, 5, and 8 correlate 0.67 to 0.80 with each other, and items 1, 3, 6, 7, and 9 correlate 0.59 to 0.80, while most correlations between the two groups are lower (0.35 to 0.61).
+
+## Scree chart
+
+The eigenvalues measure how much variation each potential factor explains, largest first. Store them in a small dataset with the factor numbers and plot them:
+
+```{r scree}
+#| fig-cap: "Scree chart of the eigenvalues for the nine AMAS items."
+#| fig-alt: "Line chart with factor number 1 to 9 along the bottom and eigenvalue up the side. The line starts at 5.68 for Factor 1, drops steeply to 1.19 at Factor 2 and 0.50 at Factor 3, then flattens, falling slowly to 0.19 at Factor 9. The elbow is at Factor 3."
+```
+
+The line drops steeply from Factor 1 to Factor 2, bends at Factor 3, and then flattens into rubble. The elbow is at Factor 3, so keep the two factors before it.
+
+::: {.callout-tip title="With your own data"}
+Change the `9` in `1:9` (in two places) to the number of items you kept. If they do not match, R stops with `arguments imply differing number of rows`.
+:::
+
+## Factor analysis
+
+`fa()` from the `psych` package runs the factor analysis. Set the number of factors from the scree chart, `fm = "pa"` for principal axis factoring, and `rotate = "varimax"` for varimax rotation:
+
+```{r paf}
+```
+
+The output matches the layout of the textbook's Table 11.2, with the factors labeled `PA1` and `PA2`:
+
+- **Loadings.** With `sort = TRUE`, the items are grouped by the factor they load on most. Items 1, 3, 6, 7, and 9 load on `PA1` (0.64 to 0.84), and items 2, 4, 5, and 8 load on `PA2` (0.69 to 0.86). Using the textbook's 0.40 benchmark, two items also load on the other factor: item 9 (0.45 on `PA2`) and item 5 (0.41 on `PA1`). Each still loads much more strongly on its own factor, but the structure is not perfectly simple.
+- **Naming the factors.** The `PA1` items are about learning math (lectures, the board, a new chapter); the `PA2` items are about being evaluated (tests, quizzes, a difficult homework load). These match the AMAS's two published parts, learning anxiety and evaluation anxiety.
+- **`Proportion Var`** is each factor's share of the total variance: 36.1% for `PA1` and 33.9% for `PA2`. `Cumulative Var` shows the total, 70.1%.
+
+Ignore the `SS loadings` row. The communalities ($h^2$) and uniquenesses ($u^2$) come next:
+
+```{r communality}
+```
+
+The communalities run from 0.50 (item 1) to 0.83 (item 4), so the two factors explain at least half of every item's variance. Each uniqueness is 1 minus the communality.
+
+::: {.callout-note title="Check: warnings from fa()"}
+`fa()` sometimes prints a warning, for example about a "Heywood case." Do not skip past it: copy the warning, and check the communalities, which should fall between 0 and 1.
+:::
+
+### Maximum likelihood
+
+For maximum likelihood, change `fm = "pa"` to `fm = "ml"`:
+
+```{r ml}
+```
+
+The loadings are within about 0.02 of the principal axis results, and the items group the same way. As the textbook says, when the factors are strong, both methods give nearly the same answer. (`ML2` and `ML1` are just the factor labels; maximum likelihood numbers them in a different order.)
+
+::: {.callout-tip title="With your own data"}
+Change the number after `nfactors =` to the number of factors from your scree chart, and keep `fm = "pa"` for Likert-type survey items, as the textbook recommends. For items scored in opposite directions (where a high rating means *less* of the trait), the loading has a minus sign; read its size the same way.
+:::
+
+## Cronbach's alpha for each factor
+
+Finally, check each factor's items with Cronbach's alpha before you combine them into a score, as in Chapter 2:
+
+```{r alpha}
+```
+
+Both factors are reliable: 0.91 for the learning items and 0.91 for the evaluation items, well above the 0.70 threshold. You can now build a composite score for each factor with `rowSums()`, as in Chapter 2.
+
+::: {.callout-tip title="With your own data"}
+List the items that loaded on each factor inside `c()`, one line per factor. Add a line for each extra factor.
+:::
