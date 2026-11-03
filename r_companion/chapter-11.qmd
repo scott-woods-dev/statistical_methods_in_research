@@ -86,7 +86,7 @@ Change the `9` in `1:9` (in two places) to the number of items you kept. If they
 
 The output matches the layout of the textbook's Table 11.2, with the factors labeled `PA1` and `PA2`:
 
-- **Loadings.** With `sort = TRUE`, the items are grouped by the factor they load on most. Items 1, 3, 6, 7, and 9 load on `PA1` (0.64 to 0.84), and items 2, 4, 5, and 8 load on `PA2` (0.69 to 0.86). Using the textbook's 0.40 benchmark, two items also load on the other factor: item 9 (0.45 on `PA2`) and item 5 (0.41 on `PA1`). Each still loads much more strongly on its own factor, but the structure is not perfectly simple.
+- **Loadings.** With `sort = TRUE`, the items are grouped by the factor they load on most. Items 1, 3, 6, 7, and 9 load on `PA1` (0.64 to 0.84), and items 2, 4, 5, and 8 load on `PA2` (0.69 to 0.86). Using the common 0.40 benchmark (a loading of 0.40 or more makes an item a meaningful member of a factor), two items also load on the other factor: item 9 (0.45 on `PA2`) and item 5 (0.41 on `PA1`). Each still loads much more strongly on its own factor, but the structure is not perfectly simple.
 - **Naming the factors.** The `PA1` items are about learning math (lectures, the board, a new chapter); the `PA2` items are about being evaluated (tests, quizzes, a difficult homework load). These match the AMAS's two published parts, learning anxiety and evaluation anxiety.
 - **`Proportion Var`** is each factor's share of the total variance: 36.1% for `PA1` and 33.9% for `PA2`. `Cumulative Var` shows the total, 70.1%.
 
@@ -111,7 +111,7 @@ For maximum likelihood, change `fm = "pa"` to `fm = "ml"`:
 The loadings are within about 0.02 of the principal axis results, and the items group the same way. As the textbook says, when the factors are strong, both methods give nearly the same answer. (`ML2` and `ML1` are just the factor labels; maximum likelihood numbers them in a different order.)
 
 ::: {.callout-tip title="With your own data"}
-Change the number after `nfactors =` to the number of factors from your scree chart, and keep `fm = "pa"` for Likert-type survey items, as the textbook recommends. For items scored in opposite directions (where a high rating means *less* of the trait), the loading has a minus sign; read its size the same way.
+Change the number after `nfactors =` to the number of factors from your scree chart, and keep `fm = "pa"` for Likert-type survey items: principal axis factoring makes few assumptions about the shape of your data, and survey answers are rarely symmetrical. For items scored in opposite directions (where a high rating means *less* of the trait), the loading has a minus sign; read its size the same way.
 :::
 
 ## Cronbach's alpha for each factor

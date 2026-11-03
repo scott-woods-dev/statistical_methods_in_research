@@ -102,7 +102,7 @@ Both predictors are significant, *p* < .001, each while holding the other consta
 Both VIFs are 1.00, so the predictors do not overlap.
 
 ::: {.callout-note title="confint() or confint.default()?"}
-`confint.default()` gives the confidence intervals the textbook reports. You may see `confint()` in other R guides; it prints `Waiting for profiling to be done...` and gives slightly different intervals by a different method. Use `confint.default()` to match the textbook.
+`confint.default()` gives Wald intervals, the kind most statistics programs report (and the textbook uses). You may see `confint()` in other R guides. It uses a different method that refits the model many times to find each interval's ends; the message `Waiting for profiling to be done...` only means R is doing that work. Its intervals are a little more accurate in small samples. With a large sample, the two agree closely; use `confint.default()` to match the textbook.
 :::
 
 ::: {.callout-tip title="With your own data"}
@@ -133,7 +133,7 @@ The model reduced the deviance by 6.1% compared with a model with no predictors 
 
 ## Hosmer-Lemeshow goodness-of-fit test
 
-The Hosmer-Lemeshow test sorts the people into groups by their predicted probability and compares how many 1s each group actually had with how many the model predicted. As the textbook explains, its hypotheses run backward: a large p-value means you have no evidence that the model fits poorly.
+The Hosmer-Lemeshow test sorts the people into groups by their predicted probability and compares how many 1s each group actually had with how many the model predicted. Some software also reports a deviance goodness-of-fit test, but its p-value is unreliable when each combination of predictor values belongs to only a few people; grouping lets Hosmer-Lemeshow hold up in that situation. As the textbook explains, its hypotheses run backward: a large p-value means you have no evidence that the model fits poorly.
 
 ```{r hosmer-lemeshow}
 ```
@@ -204,7 +204,7 @@ strict["1", "1"] / sum(strict[, "1"])
 ```{r roc}
 ```
 
-The AUC is 0.66. On the textbook's grading scale, that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.
+The AUC is 0.66. On the common grading scale, that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.
 
 ::: {.callout-note title="Messages: Setting levels and Setting direction"}
 `roc()` reports which outcome it treated as the event (`case = 1`) and that the event should have the higher predicted probabilities. Both are what you want for a 0/1 outcome, so you can ignore the messages.

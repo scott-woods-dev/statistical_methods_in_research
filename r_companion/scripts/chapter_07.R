@@ -26,9 +26,9 @@ library(ggplot2)
 library(car)
 library(emmeans)
 
-# This setting makes R calculate the main effects the way the
-# textbook does (Type III sums of squares need it). Run it once,
-# before fitting any model. You do not need to change it.
+# This setting makes R calculate the main effects with Type III
+# sums of squares, which do not depend on the order of the factors.
+# Run it once, before fitting any model. You do not need to change it.
 options(contrasts = c("contr.sum", "contr.poly"))
 
 
@@ -84,8 +84,8 @@ ggplot(pressure, aes(x = BMI, y = SystolicBP, color = Smoker,
 # THE TWO-WAY ANOVA.
 #    BMI * Smoker includes both factors and their interaction,
 #      as in Chapter 5.
-#    Anova(..., type = 3) from the car package prints the table
-#      the textbook uses (Type III).
+#    Anova(..., type = 3) from the car package prints the Type III
+#      table.
 # CHANGE THIS: your numerical variable, your two factors, your
 #              dataset, and a name for your model
 pressure_model <- lm(SystolicBP ~ BMI * Smoker, data = pressure)

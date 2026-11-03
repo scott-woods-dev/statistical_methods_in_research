@@ -48,7 +48,7 @@ The variables used in this chapter:
 
 The output has the same layout as a *t*-test:
 
-- **The correlation $r$** is the number under `cor` at the bottom: 0.66, a large positive relationship between height and foot length by the textbook's guidelines.
+- **The correlation $r$** is the number under `cor` at the bottom: 0.66, a large positive relationship between height and foot length by the usual social science guidelines (0.50 or higher is large).
 - **The p-value** is on the `t =` line. Here it is below .001 (see [Reading p-value < 2.2e-16](chapter-03.qmd#sec-ch03) in Chapter 3), so you reject $H_0: \rho = 0$.
 - **The 95% confidence interval for $\rho$** is under `95 percent confidence interval`: [0.60, 0.70].
 
@@ -148,7 +148,7 @@ Change the dataset name before each `$` and the model name inside `fitted()` and
 
 ## Influential points: Cook's distance
 
-Cook's distance measures how much each point moves the regression line. The textbook treats a value above 1 as highly influential.
+Cook's distance measures how much each point moves the regression line. A common rule of thumb treats a value above 1 as highly influential.
 
 ```{r cooks}
 ```

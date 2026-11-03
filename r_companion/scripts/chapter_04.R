@@ -104,7 +104,7 @@ ggplot(students, aes(x = residual)) +
 ## ---- cooks ----
 # 5. COOK'S DISTANCE: one value for each row.
 #    max() shows the largest one.
-#    which(... > 1) lists the rows above 1, the textbook's cutoff.
+#    which(... > 1) lists the rows above 1, the common cutoff.
 # CHANGE THIS: your model name inside cooks.distance()
 cooks <- cooks.distance(foot_model)
 max(cooks)

@@ -87,9 +87,9 @@ round(power_test$stdres, 2)
 
 ## ---- cramers-v ----
 # CRAMER'S V, from the effectsize package.
-#    adjust = FALSE gives the standard Cramer's V that the textbook
-#    uses. (Leaving it out gives a slightly smaller,
-#    bias-adjusted version.)
+#    adjust = FALSE gives the standard Cramer's V, the version the
+#    cutoffs in Table 8.3 are for. (Leaving it out gives a slightly
+#    smaller, bias-adjusted version.)
 # CHANGE THIS: your table's name
 cramers_v(power_table, adjust = FALSE)
 

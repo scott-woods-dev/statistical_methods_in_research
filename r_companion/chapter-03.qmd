@@ -63,7 +63,7 @@ Every *t*-test in R prints the same layout. Here is where to find each value you
 
 : Where each value appears in R's t-test output
 
-The line `alternative hypothesis: true mean is not equal to 8` confirms R ran the two-sided test, with $H_1$ using $\neq$, which the textbook uses by default. R does this unless you tell it otherwise, so leave that setting alone.
+The line `alternative hypothesis: true mean is not equal to 8` confirms R ran the two-sided test, with $H_1$ using $\neq$, so the test can find an effect in either direction. R does this unless you tell it otherwise, so leave that setting alone.
 
 ::: {.callout-note title="Reading p-value < 2.2e-16"}
 `2.2e-16` is R's way of writing a very small number: move the decimal point 16 places to the left, so 0.00000000000000022. R does not print p-values smaller than this, so it writes `< 2.2e-16` instead. In a report, write *p* < .001.
@@ -108,7 +108,7 @@ Change the numerical variable and the group variable in both lines. The third ar
 
 ## Welch's independent sample t-test
 
-An independent sample *t*-test compares the means of two separate groups. R runs Welch's version, the one the textbook recommends, unless you tell it otherwise.
+An independent sample *t*-test compares the means of two separate groups. R runs Welch's version unless you tell it otherwise. Welch's version adjusts for groups with different spreads, so its p-value stays reliable whether or not the spreads match.
 
 ```{r welch}
 ```
@@ -144,7 +144,7 @@ Cohen's *d* measures how large the difference between the two groups is, in stan
 ```{r cohens-d}
 ```
 
-Cohen's *d* is $-1.27$, a large effect by the textbook's guidelines. As with the *t*-test, the sign only reflects the alphabetical order of the groups; judge the size from the number without its minus sign. The line `Estimated using pooled SD` means the standard deviation combines both groups, as the textbook describes.
+Cohen's *d* is $-1.27$, a large effect by the usual rules of thumb (about 0.2 is small, 0.5 medium, and 0.8 large). As with the *t*-test, the sign only reflects the alphabetical order of the groups; judge the size from the number without its minus sign. The line `Estimated using pooled SD` means the standard deviation combines both groups, so the difference is measured against the spread of everyone in the study.
 
 ::: {.callout-note title="Warning: Missing values detected. NAs dropped."}
 Two participants have a blank `WeightLoss`, so `cohens_d()` leaves them out and says so. The *t*-test leaves them out too, without saying anything.

@@ -123,7 +123,7 @@ Add your categorical predictor after a `+`. To set the baseline, change the vari
 ```{r vif}
 ```
 
-All three VIFs are close to 1, far below the textbook's danger zone of 5, so the predictors do not overlap enough to cause problems.
+All three VIFs are close to 1, far below the usual danger zone of 5 (above 5, predictors overlap so much that the model cannot tell which one deserves the credit), so the predictors do not overlap enough to cause problems.
 
 ::: {.callout-warning title="Common error: model contains fewer than 2 terms"}
 **What you see**
@@ -140,7 +140,7 @@ vif(one_predictor)
 :::
 
 ::: {.callout-note title="GVIF for categorical predictors"}
-If your model includes a categorical predictor with three or more groups, `vif()` prints a table headed `GVIF` instead, with one row per variable. Read the `GVIF` column the same way, with the textbook's cutoff of 5.
+If your model includes a categorical predictor with three or more groups, `vif()` prints a table headed `GVIF` instead, with one row per variable. Read the `GVIF` column the same way, with the same cutoff of 5.
 :::
 
 ::: {.callout-tip title="With your own data"}
@@ -154,7 +154,7 @@ An interaction asks whether the effect of one predictor depends on another. Join
 ```{r interaction}
 ```
 
-The interaction row is named after both variables, joined with a colon: `Sex:Married`. Following the textbook's rules:
+The interaction row is named after both variables, joined with a colon: `Sex:Married`. Read it in three steps:
 
 1. **Check the interaction's p-value first.** Here it is $1.07 \times 10^{-8}$ (printed `1.07e-08`), well below .05, so the interaction is significant and stays in the model.
 2. **Ignore the p-values of `Sex` and `Married` on their own**, because they no longer test a general effect. Keep both variables in the model anyway (the hierarchy rule); the `*` does this for you.

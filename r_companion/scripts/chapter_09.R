@@ -177,8 +177,8 @@ auc(youth_roc)
 # The ROC curve.
 #    ggroc() draws it as a ggplot, so the usual + layers work.
 #    legacy.axes = TRUE puts the false positive rate (1 minus
-#      specificity) along the bottom, as in the textbook. Leave
-#      it as is.
+#      specificity) along the bottom, the usual way to draw an ROC
+#      curve. Leave it as is.
 #    geom_abline() adds the diagonal "coin flip" line: intercept
 #      = 0 and slope = 1 start it at the corner and run it at 45
 #      degrees. linetype = "dashed" makes it dashed.

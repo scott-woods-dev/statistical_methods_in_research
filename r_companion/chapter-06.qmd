@@ -67,7 +67,7 @@ misspelled
 
 ## Check equal variances
 
-The textbook uses two checks for equal variances: the 2X rule and a jitter plot. Start with each group's mean and standard deviation:
+Check equal variances with a rule of thumb and a picture: the 2X rule and a jitter plot. You may see formal tests for equal variances elsewhere; they tend to be overly sensitive, and using a hypothesis test to decide whether you may run a hypothesis test goes in a circle. Start with each group's mean and standard deviation:
 
 ```{r group-stats}
 ```
