@@ -5,3 +5,12 @@
 .callout .callout-title-container {
   font-weight: 700;
 }
+
+/* Wrap long R output lines (errors, warnings) instead of cutting them off
+   at the edge of the box, so beginners see the whole message. */
+.cell-output pre code,
+.cell-output-stderr pre code,
+.cell-output-error pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

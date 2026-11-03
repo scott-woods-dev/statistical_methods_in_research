@@ -1,0 +1,209 @@
+# t-Tests, Effect Sizes, and Power {#sec-ch03}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_03.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter runs the three *t*-tests from Chapter 3 of the textbook (single sample, matched pair, and Welch's independent sample), then calculates Cohen's *d* and the sample size a study needs for 80% power. Along the way you will learn to keep only one group's rows, which you need whenever a question is about one group.
+
+**Get the script:** [Download the Chapter 3 script, `chapter_03.R`](scripts/chapter_03.R), and save it in the same folder as your data.
+
+## The data
+
+This chapter uses two datasets. Download both into the same folder as the script:
+
+- [Download `census_at_school.csv`](../data/census_at_school.csv), the high school survey from Chapter 1.
+- [Download `weight_loss_incentive.csv`](../data/weight_loss_incentive.csv), a randomized experiment with 38 participants testing whether cash rewards help people lose weight.
+
+The variables used in this chapter:
+
+| Variable | Dataset | What it records |
+| :--- | :--- | :--- |
+| `Sleep1` | `census_at_school.csv` | The typical number of hours of sleep the student gets on a school night. |
+| `Sleep2` | `census_at_school.csv` | The typical number of hours of sleep the student gets on a non-school night (weekends/holidays). |
+| `WeightLoss` | `weight_loss_incentive.csv` | Net weight change measured at the end of the active 4-month treatment period ($\text{Baseline Weight} - \text{Month 4 Weight}$ in pounds). Positive values indicate weight loss; negative values indicate weight gain. |
+| `Group` | `weight_loss_incentive.csv` | The experimental group assignment for the participant (**Control** or **Incentive**). |
+| `Month7Loss` | `weight_loss_incentive.csv` | Net weight change measured at the 7-month mark, which includes a 3-month unmonitored follow-up phase ($\text{Baseline Weight} - \text{Month 7 Weight}$ in pounds). Positive values indicate weight loss; negative values indicate weight gain. |
+
+: Variables used in this chapter {tbl-colwidths="[18,27,55]"}
+
+## Load the package and the data
+
+The *t*-tests are built into R. Cohen's *d* comes from the `effectsize` package; if you have not installed it yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+```{r read-students}
+```
+
+Before any *t*-test, check the shape of your variable with a histogram (Chapter 1) to judge whether the test's requirements are met, as the textbook describes.
+
+## Single sample t-test
+
+A single sample *t*-test compares the mean of one variable to a fixed benchmark. Here the question is whether high school seniors sleep a different amount on school nights than the 8 hours often recommended for teenagers.
+
+```{r one-sample}
+```
+
+Every *t*-test in R prints the same layout. Here is where to find each value you report:
+
+| What you report | Where it is in the output | In this example |
+| :--- | :--- | :--- |
+| *t* statistic | `t =` | $-23.58$ |
+| Degrees of freedom | `df =` | 499 |
+| p-value | `p-value =` | below .001 (see the note below) |
+| 95% confidence interval | the two numbers under `95 percent confidence interval` | [6.69, 6.89] |
+| Sample mean | under `sample estimates` | 6.79 hours |
+
+: Where each value appears in R's t-test output
+
+The line `alternative hypothesis: true mean is not equal to 8` confirms R ran the two-sided test, with $H_1$ using $\neq$, which the textbook uses by default. R does this unless you tell it otherwise, so leave that setting alone.
+
+::: {.callout-note title="Reading p-value < 2.2e-16"}
+`2.2e-16` is R's way of writing a very small number: move the decimal point 16 places to the left, so 0.00000000000000022. R does not print p-values smaller than this, so it writes `< 2.2e-16` instead. In a report, write *p* < .001.
+
+The same shorthand appears elsewhere: `5.9e-04` means 0.00059.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the variable after the `$`, and put your benchmark after `mu =`. The benchmark comes from outside your data: a published average, a clinical cutoff, or a value set before you collected the data.
+:::
+
+## Matched pair t-test
+
+A matched pair *t*-test compares two measurements taken on the same people, such as before and after. Here each student reported their sleep on non-school nights (`Sleep2`) and on school nights (`Sleep1`).
+
+```{r paired}
+```
+
+R subtracts the second variable from the first, row by row. Here that is non-school-night sleep minus school-night sleep, so the mean difference of 2.09 means students sleep about 2 hours more on non-school nights. The values to report are in the same places as before.
+
+This is the same test as running a single sample *t*-test on the difference scores with `mu = 0`. If your dataset already has a difference column (such as a "change" variable), you can test that column with the code from the previous section instead.
+
+::: {.callout-tip title="With your own data"}
+Put your two measurements in the order you want them subtracted: usually the later measurement first, so a positive difference means an increase. Both variables must come from the same people, in the same rows.
+:::
+
+## Group means and standard deviations
+
+To report two groups in APA style, you need each group's mean and standard deviation. `tapply()` splits a variable by group and calculates something for each part:
+
+```{r read-weight}
+```
+
+```{r group-stats}
+```
+
+The control group lost an average of 3.92 pounds and the incentive group lost 15.68 pounds.
+
+::: {.callout-tip title="With your own data"}
+Change the numerical variable and the group variable in both lines. The third argument is the calculation: `mean`, `sd`, or `median` (with no parentheses after it).
+:::
+
+## Welch's independent sample t-test
+
+An independent sample *t*-test compares the means of two separate groups. R runs Welch's version, the one the textbook recommends, unless you tell it otherwise.
+
+```{r welch}
+```
+
+The values to report are in the same places as before. Two things are new:
+
+- **The degrees of freedom have decimals** (33.28 here). That is normal for Welch's test; report them as printed, rounded to two places.
+- **The order of the groups:** R puts the groups in alphabetical order (Control, then Incentive) and subtracts the second from the first. The confidence interval [$-18.05$, $-5.46$] is negative because the control group lost less weight than the incentive group.
+
+The `~` sign (called a tilde) means "split by": `WeightLoss ~ Group` reads "WeightLoss, split by Group." Because `data = weight` names the dataset, you do not need `$`.
+
+::: {.callout-warning title="Common error: grouping factor must have exactly 2 levels"}
+**What you see**
+
+```{r}
+#| error: true
+t.test(Sleep1 ~ GetToSchool, data = students)
+```
+
+**What it means:** a *t*-test compares exactly two groups, and `GetToSchool` has three (**Bus**, **Car**, and **Walk**).
+
+**How to fix it:** keep only two groups first (see [A t-test for one group only](#sec-ch03-subset) for how `subset()` works), or use a test built for three or more groups, the one-way ANOVA in Chapter 6.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your numerical variable before the `~`, your group variable after it, and your dataset after `data =`. The group variable must have exactly two groups.
+:::
+
+## Cohen's d
+
+Cohen's *d* measures how large the difference between the two groups is, in standard deviations. It is written the same way as the *t*-test:
+
+```{r cohens-d}
+```
+
+Cohen's *d* is $-1.27$, a large effect by the textbook's guidelines. As with the *t*-test, the sign only reflects the alphabetical order of the groups; judge the size from the number without its minus sign. The line `Estimated using pooled SD` means the standard deviation combines both groups, as the textbook describes.
+
+::: {.callout-note title="Warning: Missing values detected. NAs dropped."}
+Two participants have a blank `WeightLoss`, so `cohens_d()` leaves them out and says so. The *t*-test leaves them out too, without saying anything.
+:::
+
+::: {.callout-tip title="With your own data"}
+Copy the variables and dataset from your `t.test()` line.
+:::
+
+## A t-test for one group only {#sec-ch03-subset}
+
+Some questions are about one group: for example, whether the incentive group kept the weight off at the 7-month follow-up. First keep only that group's rows with `subset()`, then test the smaller dataset.
+
+```{r subset}
+```
+
+The new dataset `incentive` has 19 rows, one per participant in the incentive group. They were still about 7.8 pounds lighter than at the start of the study, 95% CI [1.12, 14.48]. The degrees of freedom are 14, not 18, because 4 of these participants have a blank `Month7Loss`.
+
+::: {.callout-warning title="Common error: extra argument will be disregarded"}
+**What you see**
+
+```{r}
+wrong <- subset(weight, Group = "Incentive")
+nrow(wrong)
+```
+
+**What it means:** with one equals sign, R does not compare anything. It ignores the condition and keeps all 38 rows, so any test on `wrong` uses both groups.
+
+**How to fix it:** use two equals signs, `==`, which means "is exactly."
+:::
+
+::: {.callout-warning title="Common error: not enough 'x' observations"}
+**What you see**
+
+```{r}
+#| error: true
+wrong <- subset(weight, Group == "incentive")
+nrow(wrong)
+t.test(wrong$Month7Loss, mu = 0)
+```
+
+**What it means:** no rows matched, so the new dataset is empty (0 rows) and there is nothing to test. The group is spelled **Incentive**, with a capital I.
+
+**How to fix it:** copy the group name exactly as it appears in the data. To see the spellings, run `table(weight$Group)`.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the dataset, the group variable, and the group name (inside quotes). Run `nrow()` on the result to check that the number of rows makes sense before you run the test.
+:::
+
+## Sample size for a power of 80%
+
+Before a study, a power analysis tells you how many participants you need. `power.t.test()` takes everything except the sample size and fills in the one value you leave out:
+
+```{r power}
+```
+
+To detect a medium effect ($d = 0.5$) with 80% power at $\alpha = .05$, you need 63.77 participants in each group. Always round up: 64 per group, or 128 in total. The note at the bottom is a reminder that `n` counts one group, not the whole study.
+
+::: {.callout-tip title="With your own data"}
+Put the effect size you expect after `delta =`, as a Cohen's *d* from past research or from the smallest effect that would matter in practice. If you know the effect in your variable's own units instead (for example, a 4-point drop on a scale with a standard deviation of 11.5), put the raw difference after `delta =` and the standard deviation after `sd =`.
+:::

@@ -62,8 +62,11 @@ apart, and what students download is what they read.
   in that order (at most four). Filled shapes (bars, boxes) get a black
   outline. Each script's header lists the codes. Never use the palette's
   yellow or orange for points or lines on white; they are too faint.
-- **Packages:** `ggplot2`, `psych`, `car`, `emmeans`, `pROC`, `forecast`, and
-  base R. Add one only when no listed package does the job.
+- **Packages:** `ggplot2`, `psych`, `car`, `effectsize`, `emmeans`, `pROC`,
+  `forecast`, and base R. Add one only when no listed package does the job, and
+  add it to the install line in Getting Set Up. (`effectsize` was added for
+  Cohen's *d* because `psych::cohen.d()` fails on a single variable in psych
+  2.6.9.)
 
 ## Guide chapters
 
