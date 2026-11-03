@@ -45,6 +45,14 @@ spearman_ci <- function(rho, n, level = 0.95) {
   c(tanh(z - zq * se), tanh(z + zq * se))
 }
 
+# Rosenthal's r: the z behind a two-sided normal-approximation p-value,
+# divided by the square root of N (pairs for paired data).
+z_from_p <- function(p) qnorm(p / 2)
+rosenthal_r <- function(p, n) abs(z_from_p(p)) / sqrt(n)
+
+# Epsilon-squared for Kruskal-Wallis: H / (N - 1).
+epsilon_squared <- function(h, n) unname(h) / (n - 1)
+
 # ---- Wilcoxon signed-rank: textbook prices ---------------------------------
 
 tb_diff <- textbooks$Bookstore - textbooks$Amazon
@@ -85,6 +93,11 @@ mw_u <- unname(mw$statistic)
 mw_rank_sum_female <- mw_u + length(salary_female) *
   (length(salary_female) + 1) / 2
 
+# Exercise 17: salary by PhD.
+mw_phd <- wilcox.test(
+  Salary ~ PhD, data = salary, correct = FALSE, exact = FALSE
+)
+
 # ---- Kruskal-Wallis: GPA by alcohol use ------------------------------------
 
 lifestyle <- lifestyle %>%
@@ -103,6 +116,9 @@ kw_counts <- table(lifestyle$AlcoholUse)
 kw_n <- nrow(lifestyle)
 kw_unadjusted <- 12 / (kw_n * (kw_n + 1)) *
   sum(kw_counts * (kw_means - (kw_n + 1) / 2)^2)
+
+# Exercise 18: weekday sleep by anxiety status.
+kw_sleep <- kruskal.test(WeekdaySleep ~ AnxietyStatus, data = lifestyle)
 
 # ---- Spearman: age and drinking days ---------------------------------------
 
@@ -153,15 +169,17 @@ values <- list(
     normal_ci_no_correction = unname(tb_normal$conf.int),
     normal_p_with_correction = tb_normal_corrected$p.value,
     achieved_confidence = tb_achieved,
+    z = z_from_p(tb_normal$p.value),
+    rosenthal_r = rosenthal_r(tb_normal$p.value, nrow(textbooks)),
     note = paste(
       "The chapter reports the sample medians (bookstore 126.00, Amazon",
-      "95.50) and the sample median difference (36.00). The 34.5 value in",
-      "the original output was Minitab's Hodges-Lehmann estimate; the",
-      "chapter does not use it. The test values match R's normal",
-      "approximation without a continuity correction: p = 0.00192 and CI",
-      "[17.0, 58.0]. The achieved confidence is the exact coverage of that",
-      "interval (0.9493). R's exact test gives p = 0.00076 and CI [15.0,",
-      "58.5]."
+      "95.50), the sample median difference (36.00), z = -3.10, and",
+      "Rosenthal's r = |z| / sqrt(16 pairs) = .78. The 34.5 value in the",
+      "original output was Minitab's Hodges-Lehmann estimate; the chapter",
+      "does not use it. The test values match R's normal approximation",
+      "without a continuity correction (p = 0.00192). The CI [17.0, 58.0]",
+      "and achieved confidence (0.9493) are recorded but no longer",
+      "reported. R's exact test gives p = 0.00076."
     )
   ),
   mann_whitney_salary = list(
@@ -175,11 +193,16 @@ values <- list(
     p = mw$p.value,
     difference_in_location = unname(mw$estimate),
     ci = unname(mw$conf.int),
+    z = z_from_p(mw$p.value),
+    rosenthal_r = rosenthal_r(mw$p.value, nrow(salary)),
+    exercise_17_phd_rosenthal_r = rosenthal_r(mw_phd$p.value, nrow(salary)),
     note = paste(
       "Sex is 0 = female and 1 = male; Salary is in thousands of dollars.",
       "R reports U = 4040.5, which is the statistic now printed in the",
       "chapter. Minitab's W = 8793.5 is the rank sum for the female group,",
-      "which equals U + 97*98/2. The p-value and CI agree."
+      "which equals U + 97*98/2. The chapter reports z = -2.33 and",
+      "Rosenthal's r = |z| / sqrt(200) = .17; the CI is recorded but no",
+      "longer reported. Exercise 17 (Salary by PhD) gives r = .51."
     )
   ),
   kruskal_wallis_gpa = list(
@@ -192,10 +215,17 @@ values <- list(
     h_unadjusted_for_ties = kw_unadjusted,
     df = unname(kw$parameter),
     p = kw$p.value,
+    epsilon_squared = epsilon_squared(kw$statistic, kw_n),
+    exercise_18_sleep_epsilon_squared = epsilon_squared(
+      kw_sleep$statistic,
+      sum(!is.na(lifestyle$WeekdaySleep) & !is.na(lifestyle$AnxietyStatus))
+    ),
     note = paste(
       "R's kruskal.test always applies the tie correction. The unadjusted",
       "statistic is 5.44 and the adjusted statistic is 5.46, matching the",
-      "two rows in the chapter's output."
+      "two rows in the chapter's output. Epsilon-squared = H / (N - 1) =",
+      "5.46 / 252 = .02. Exercise 18 (WeekdaySleep by AnxietyStatus) gives",
+      ".02."
     )
   ),
   spearman_age_daysdrink = list(
@@ -266,21 +296,21 @@ save_book_values(
       "Paired differences are Bookstore - Amazon. The chapter reports the",
       "sample medians (126.00 and 95.50) and the sample median difference",
       "(36.00). The test values use the normal approximation without a",
-      "continuity correction (W = 128, p = .002, CI [17, 58]); the",
-      "achieved confidence is the exact coverage of that interval, 94.93%.",
-      "Minitab's 34.5 is a Hodges-Lehmann estimate, which this text does",
-      "not cover. R's exact test gives p = .0008 and CI [15, 58.5]."
+      "continuity correction (W = 128, z = -3.10, p = .002). Effect size",
+      "is Rosenthal's r with N = pairs (.78). The chapter reports no",
+      "confidence interval. Minitab's 34.5 is a Hodges-Lehmann estimate,",
+      "which this text does not cover. R's exact test gives p = .0008."
     ),
     salary = paste(
       "Sex is 0 = female and 1 = male; Salary is in thousands of dollars.",
       "The Mann-Whitney test uses the normal approximation without a",
-      "continuity correction. R's U is 4040.5; Minitab's W is the female",
-      "rank sum, 8793.5."
+      "continuity correction (z = -2.33, r = .17, no CI reported). R's U",
+      "is 4040.5; Minitab's W is the female rank sum, 8793.5."
     ),
     kruskal = paste(
       "R's kruskal.test applies the tie correction (H = 5.4603, p = .141).",
-      "The unadjusted H is 5.44. AlcoholUse levels are Abstain, Light,",
-      "Moderate, Heavy."
+      "The unadjusted H is 5.44; epsilon-squared is H / (N - 1) = .02.",
+      "AlcoholUse levels are Abstain, Light, Moderate, Heavy."
     ),
     spearman = paste(
       "Rank correlations use cor.test(method = 'spearman', exact = FALSE)",
@@ -291,9 +321,9 @@ save_book_values(
     software_differences = paste(
       "Textbook prices: the chapter uses the CSV medians and the sample",
       "median difference. Minitab reports a Hodges-Lehmann estimate (34.5)",
-      "in the same field; this text does not cover that estimate. The p and",
-      "CI match R's normal approximation without continuity correction, not",
-      "R's exact test. Salary: Minitab reports W as the female rank sum",
+      "in the same field; this text does not cover that estimate. The p",
+      "matches R's normal approximation without continuity correction, not",
+      "R's exact test; z comes from that p. Salary: Minitab reports W as the female rank sum",
       "(8793.5); the chapter reports R's U (4040.5). Both give the same",
       "p-value."
     )
@@ -315,9 +345,13 @@ cat("Textbook exact p:", tb_exact$p.value,
 cat("Salary medians:", median(salary_female), median(salary_male),
     " U:", mw_u, " W(rank sum):", mw_rank_sum_female,
     " p:", mw$p.value, " CI:", unname(mw$conf.int), "\n")
+cat("Rosenthal r: textbooks", rosenthal_r(tb_normal$p.value, 16),
+    " salary", rosenthal_r(mw$p.value, nrow(salary)),
+    " PhD", rosenthal_r(mw_phd$p.value, nrow(salary)), "\n")
 cat("Kruskal H:", unname(kw$statistic),
     " unadjusted:", kw_unadjusted,
-    " p:", kw$p.value, "\n")
+    " p:", kw$p.value,
+    " epsilon2:", epsilon_squared(kw$statistic, kw_n), "\n")
 cat("Spearman age/drinks rho:", unname(sp_age$estimate),
     " p:", sp_age$p.value, " CI:", sp_age_ci, "\n")
 cat("Spearman alcohol/GPA rho:", unname(sp_alcohol$estimate),

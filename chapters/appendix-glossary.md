@@ -79,6 +79,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | distribution | The pattern of how values of a variable are spread across its range; described by center, spread, shape, and unusual observations. |
 | Dunnett's test | A post hoc test that compares several groups against one designated baseline group, saving power by skipping comparisons among the other groups. |
 | effect size | A standardized number describing how large a difference or relationship is, independent of sample size, used to judge whether a statistically significant result is large enough to matter. |
+| epsilon-squared ($\varepsilon^2$) | An effect size for the Kruskal-Wallis Test: the share of the variation in the ranks that the groups account for, read like $R^2$. |
 | equal variance (homoscedasticity) | The assumption that the vertical spread of residuals stays roughly constant across the range of the predictor variable; a fan or cone shape signals heteroscedasticity. |
 | ethics of omission | The ethical responsibility attached to decisions about which data to keep, drop, or treat as missing, because those choices determine whose experiences count. |
 | expected count | The count a chi-square test would expect in a cell if the null hypothesis were true; every expected count should be at least 5 for the standard test to be trustworthy. |
@@ -235,6 +236,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | resistant measure | A statistical measure not strongly influenced by extreme values or outliers; the median is an example. |
 | response variable | The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement. |
 | right-skewed | A distribution whose longer tail extends toward higher values; also called positively skewed. |
+| Rosenthal's $r$ | An effect size for the Wilcoxon Signed-Rank and Mann-Whitney U tests: the absolute $z$-value divided by the square root of the sample size, read with the same guidelines as a correlation. |
 | rotation | A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying communality. |
 | sample | A subset of a population, the portion from which you collect data. |
 | sample size | The number of observations in a sample, usually written $n$; larger samples reduce random error and increase statistical power. |

@@ -160,10 +160,8 @@ Null hypothesis        H₀: η = 0
 Alternative hypothesis H₁: η ≠ 0
 
 Wilcoxon Statistic =  128.00
+Z-Value = -3.10
 P-Value = 0.002
-
-CI for η = (17,58)
-Achieved Confidence = 94.93%
 ```
 
 While the format looks slightly different than a traditional $t$-test, the underlying logic is exactly the same. First, instead of calculating the mean difference, the software reports the sample **median difference**. This tells us that, in our specific sample of $n = 16$ textbooks, the campus bookstore was typically $\$36.00$ more expensive than Amazon. Below this, you will see the formal hypotheses. 
@@ -178,11 +176,15 @@ Next, the output provides the test statistic and the $p$-value. Just as a $t$-te
 
 
 
-Finally, the output gives us a confidence interval of $(17, 58)$. We can be confident that for all required courses at this university, the true median price difference between the campus bookstore and Amazon is between $\$17$ and $\$58$. You might also notice the "Achieved Confidence" is listed as $94.93\%$. This is a quirk unique to nonparametric tests. Traditional tests use smooth, continuous bell curves, allowing the math to precisely target exactly $95\%$. Because nonparametric tests rely on ranking data (moving in discrete, whole-number jumps like first, second, and third place), the math sometimes cannot land directly on a perfect $95\%$. The software gets as close as it mathematically can. For all practical purposes in social science research, you interpret this exactly like a standard $95\%$ confidence interval.   
+Finally, you need an effect size. The $p$-value tells you how strong the evidence is, but not how large the difference is in practical terms. For the Wilcoxon test (and the Mann-Whitney test later in this chapter), researchers usually report **Rosenthal's $r$**, which turns the $z$-value from the output into an effect size:
+
+$$r = \frac{|z|}{\sqrt{N}}$$
+
+The formula shows why the evidence and the effect can disagree. A larger sample pushes $z$ up, making the evidence stronger, and dividing by $\sqrt{N}$ takes the sample size back out, leaving only the size of the effect. For paired data, $N$ is the number of pairs, here the 16 textbooks. (Some sources count both prices, 32, which makes $r$ smaller; counting pairs matches the number of textbooks you actually sampled.) Because $|z|$ has no sign, $r$ runs from 0 to 1, and you read it with the same guidelines you used for a correlation in Chapter 4: about 0.10 is small, 0.30 medium, and 0.50 large. For our textbooks, $r = 3.10 / \sqrt{16} = .78$, a large effect. Not every program prints the $z$-value; the R Companion shows how to get it.
 
 
 
-By putting this all together, we can write a clear conclusion that answers our initial research question without relying on strict parametric assumptions. We have significant evidence that there is a difference in median textbook prices between the two retailers ($p = 0.002$). Furthermore, we can be confident that the typical required textbook is between $\$17$ and $\$58$ more expensive at the campus bookstore compared to Amazon.
+By putting this all together, we can write a clear conclusion that answers our initial research question without relying on strict parametric assumptions. We have significant evidence that there is a difference in median textbook prices between the two retailers ($p = 0.002$). Furthermore, the effect is large ($r = .78$), so the price gap between the two retailers matters in practical terms as well.
 
 
 
@@ -190,9 +192,9 @@ A formal APA-formatted conclusion condenses your research question, the practica
 
 
 
-> A Wilcoxon signed-rank test indicated that the median price of required textbooks is significantly different between the campus bookstore and Amazon, $W = 128.00$, $p = .002$, 95% CI $[17, 58]$. 
+> A Wilcoxon signed-rank test indicated that the median price of required textbooks is significantly different between the campus bookstore and Amazon, $W = 128.00$, $z = -3.10$, $p = .002$, $r = .78$. 
 
-Notice how this single sentence provides the reader with the specific test used, the practical result, the test statistic, the strength of the evidence, and the bounds of our confidence.
+Notice how this single sentence provides the reader with the specific test used, the practical result, the test statistic, the strength of the evidence, and the size of the effect.
 
 
 
@@ -204,7 +206,7 @@ In a real research paper, you never let a statistical sentence stand on its own.
 
 
 
-For example, a complete write-up in a research journal would look like this: "The median price of required textbooks was higher at the campus bookstore ($Mdn = \$126.00$) than on Amazon ($Mdn = \$95.50$). A Wilcoxon signed-rank test indicated that this difference is statistically significant, $W = 128.00$, $p = .002$, 95% CI $[17, 58]$." This approach ensures your reader understands both the practical reality of the data and the rigorous math supporting it.
+For example, a complete write-up in a research journal would look like this: "The median price of required textbooks was higher at the campus bookstore ($Mdn = \$126.00$) than on Amazon ($Mdn = \$95.50$). A Wilcoxon signed-rank test indicated that this difference is statistically significant, $W = 128.00$, $z = -3.10$, $p = .002$, $r = .78$." This approach ensures your reader understands both the practical reality of the data and the rigorous math supporting it.
 
 
 
@@ -272,10 +274,8 @@ Null hypothesis        H₀: η₁ - η₂ = 0
 Alternative hypothesis H₁: η₁ - η₂ ≠ 0
 
 U-Value: 4040.50
+Z-Value: -2.33
 P-Value: 0.020
-
-CI for Difference (-32, -2)
-Achieved Confidence 95.01%
 ```
 
 Just like with the Wilcoxon test, we can break this down piece by piece. First, the software provides the descriptive statistics. It is important to remember your dataset's coding keys here. Our dictionary tells us that for the `Sex` variable, $0$ represents female professors and $1$ represents male professors. It also notes that the `Salary` variable is recorded in thousands of dollars. Therefore, the output tells us there are 97 female professors with a sample median salary of $\$60,000$, and 103 male professors with a sample median salary of $\$75,000$. 
@@ -294,7 +294,7 @@ Our $p$-value is $0.020$. Because this is below our standard $0.05$ significance
 
 
 
-The output also provides a confidence interval for the difference, ranging from $-32$ to $-2$. At first glance, a negative salary difference might look confusing. Those negative signs are just telling us the order for the subtraction for the groups. Because it subtracted the male median from the female median ($60 - 75 = -15$), the entire interval is negative. If it had subtracted the female median from the male median, we would have had a positive interval: $75 - 60 = 15$. In plain English, we can be $95\%$ confident that the true median salary for female professors is between $\$2,000$ and $\$32,000$ lower than the median salary for male professors. You will also see the "Achieved Confidence" is $95.01\%$, which is just the software getting as mathematically close to a perfect $95\%$ as it can while using rank-ordered data.
+To measure the size of the effect, calculate Rosenthal's $r$ the same way as for the Wilcoxon test. For two independent groups, $N$ is everyone in the study, here 200 professors, so $r = 2.33 / \sqrt{200} = .17$, a small effect. This is the textbook example in reverse: there, 16 textbooks were enough to show a large effect, and here a sample of 200 gives enough evidence to call a small effect statistically significant. The two groups' salaries overlap a great deal, even though the medians differ by $\$15,000$.
 
 
 
@@ -302,7 +302,7 @@ Finally, we must communicate these findings clearly in a formal report. Just lik
 
 
 
-> The median annual salary for male professors ($Mdn = \$75,000$) was higher than the median annual salary for female professors ($Mdn = \$60,000$). A Mann-Whitney U test indicated that this difference is statistically significant, $U = 4040.50$, $p = .020$, 95% CI $[-32, -2]$.
+> The median annual salary for male professors ($Mdn = \$75,000$) was higher than the median annual salary for female professors ($Mdn = \$60,000$). A Mann-Whitney U test indicated that this difference is statistically significant, $U = 4040.50$, $z = -2.33$, $p = .020$, $r = .17$.
 
 
 
@@ -393,6 +393,14 @@ The software gives us a test statistic, labeled here as an $H$-Value, of $5.46$.
 
 
 
+The Kruskal-Wallis test has its own effect size, **epsilon-squared** ($\varepsilon^2$). It is the share of the variation in the ranks that the groups account for, the same idea as $R^2$ in Chapter 4. Most software does not print it, but you can get it from the $H$-value and the sample size:
+
+$$\varepsilon^2 = \frac{H}{N - 1}$$
+
+For our students, $\varepsilon^2 = 5.46 / 252 = .02$: drinking category accounts for about 2% of the variation in GPA ranks. The usual guidelines call about 0.01 small, 0.06 medium, and 0.14 large, so this is a small effect. Report it even when the test is not significant, so your reader can see how large the effect was in your sample.
+
+
+
 This non-significant result provides an important lesson in statistical research. A $p$-value of $0.141$ means we do not have enough mathematical evidence to confidently claim that a difference exists in the broader population. However, we must be especially careful not to state that this proves the null hypothesis is true. An absence of evidence is not evidence of absence. We have not proven that GPA is identical across all populations; we simply failed to find a strong enough signal in this specific sample of 253 students to rule out random sampling error. 
 
   
@@ -405,7 +413,7 @@ To conclude this analysis formally in your Results section, you would pair your 
 
 
 
-> A Kruskal-Wallis test was conducted to determine if typical academic performance differs across alcohol consumption categories. While the sample medians suggested a descending trend in GPA as alcohol use increased (Abstain $Mdn = 3.40$, Light $Mdn = 3.30$, Moderate $Mdn = 3.25$, Heavy $Mdn = 3.10$), this difference was not statistically significant, $H(3) = 5.46$, $p = .141$.
+> A Kruskal-Wallis test was conducted to determine if typical academic performance differs across alcohol consumption categories. While the sample medians suggested a descending trend in GPA as alcohol use increased (Abstain $Mdn = 3.40$, Light $Mdn = 3.30$, Moderate $Mdn = 3.25$, Heavy $Mdn = 3.10$), this difference was not statistically significant, $H(3) = 5.46$, $p = .141$, $\varepsilon^2 = .02$.
 
 ## Measuring Correlation: Spearman's Rho
 
@@ -670,6 +678,8 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 | $W$        | Wilcoxon / Mann-Whitney Statistic | The test statistic for the Wilcoxon Signed-Rank test. Depending on your software, it is also frequently used to report the Mann-Whitney test. |
 | $U$        | Mann-Whitney Statistic            | The traditional test statistic for the Mann-Whitney U test. You report either $U$ or $W$ depending entirely on what your software provides. |
 | $H$        | Kruskal-Wallis Statistic          | The test statistic generated when comparing the medians of three or more independent groups. |
+| $r$        | Rosenthal's $r$                   | The effect size for the Wilcoxon Signed-Rank and Mann-Whitney U tests, calculated from the $z$-value and the sample size. Read it with the same guidelines as a correlation. |
+| $\varepsilon^2$ | Epsilon-Squared              | The effect size for the Kruskal-Wallis test: the share of the variation in the ranks that the groups account for. |
 | $\rho_s$   | Population Spearman Correlation   | The Greek letter rho, representing the true rank-order correlation in the broader population. Used when writing formal hypotheses. |
 | $r_s$      | Sample Spearman Correlation       | The statistic used to report the rank-order correlation of your specific sample. This is the symbol you use for formal APA formatting. |
 
@@ -679,7 +689,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 ### Interpretation
 
-1. A researcher runs a Wilcoxon Signed-Rank test to compare the prices of textbooks between the campus bookstore and Amazon. The software generates a 95% confidence interval for the difference of (−45,−12). Explain what these negative numbers represent in plain English, and how the researcher can tell which retailer is more expensive just from the software's subtraction method.
+1. A researcher runs a Wilcoxon Signed-Rank test on 25 pairs of measurements. The software reports $z = -2.50$ and $p = .012$. Calculate Rosenthal's $r$, describe the size of the effect, and explain what the effect size tells the reader that the p-value does not.
 2. A sociologist uses a Mann-Whitney U test to compare the annual income of two different neighborhoods. The test yields a highly significant result (p=.003), proving that Neighborhood A has a higher median income than Neighborhood B. However, when the sociologist calculates the arithmetic means, Neighborhood B has a higher mean income. Explain how it is mathematically possible for Neighborhood A to have a higher median but a lower mean, and why the median is the more accurate reflection of the typical resident.
 3. You are reviewing the software output for a Kruskal-Wallis test evaluating the grade point averages of students across different majors. You notice a row labeled "Adjusted for ties." Explain what a "tie" means in the context of rank-ordering numerical data like GPA, and why the software must mathematically adjust for it.
 4. A classmate runs Fisher's Exact test to analyze the relationship between major and dropout status in a highly unbalanced sample. They are confused because the software output only provides a p-value and does not report a test statistic (like a Chi-Square value or a t-value). Explain why Fisher's Exact test does not require a traditional test statistic to generate a p-value.
@@ -703,7 +713,7 @@ While these tests evaluate ranks rather than raw averages, your final interpreta
 
 12. A science journalist reads a study where a Mann-Whitney U test was used to compare the median household debt of two cities. The test yielded p=.001, so the journalist publishes the headline: "City A Residents Suffer from Higher Debt than City B!" However, the actual difference in median debt between the two cities was only $45. Explain the critical statistical distinction the journalist failed to understand regarding p-values and effect sizes.
 
-13. You are peer-reviewing a research paper. The author writes the following conclusion: "A Mann-Whitney U test indicated that the median time spent studying is significantly different between freshmen and seniors, W=542.50, p=.014, 95% CI [15,45]." Explain what critical piece of practical information is missing from this write-up, and how the author should fix it.
+13. You are peer-reviewing a research paper. The author writes the following conclusion: "A Mann-Whitney U test indicated that the median time spent studying is significantly different between freshmen and seniors, W=542.50, z=-2.46, p=.014, r=.28." Explain what critical piece of practical information is missing from this write-up, and how the author should fix it.
 
 14. A researcher runs a Kruskal-Wallis test to compare the median reaction times of drivers across three different age groups. The test yields a p-value of 0.22. The researcher concludes their report by writing, "This test proves that driving reaction times are exactly the same across all age groups." Explain the logical error in this conclusion and provide a more accurate way to phrase this finding.
 
@@ -716,19 +726,19 @@ For this section, you will use statistical software to analyze the datasets prov
 16. Wilcoxon Signed-Rank Test: Using the `textbook_prices.csv` dataset, you want to verify the findings from our chapter example. Run a Wilcoxon Signed-Rank test comparing the campus bookstore prices to the Amazon prices. 
 
     a) Report the p-value. 
-    b) Report the 95% confidence interval for the median difference. 
+    b) Calculate the effect size, Rosenthal's $r$, using the number of textbooks as $N$. 
     c) Write a complete, formal APA conclusion for this test, making sure to include the descriptive medians in a preceding sentence.
 
 17. Mann-Whitney U Test: Using the `college_teacher_salary_2023.csv` dataset, you want to investigate whether professors with a doctoral degree earn more than those without one. The dataset codes `PhD` as 1 for a PhD or equivalent terminal degree and 0 otherwise. Run a Mann-Whitney U test predicting `Salary` using `PhD`. 
 
     a) Report the sample median salary for both groups. 
-    b) Report the test statistic (W or U, depending on your software) and the p-value. 
+    b) Report the test statistic (W or U, depending on your software), the p-value, and Rosenthal's $r$. 
     c) Based on the p-value, do you have significant evidence of a pay disparity between professors with and without a PhD?
 
 18. Kruskal-Wallis Test: Using the `student_lifestyle_sleep.csv` dataset, you want to see if students with different `AnxietyStatus` categories (normal, moderate, severe) get a different amount of weekday sleep (`WeekdaySleep`). Run a Kruskal-Wallis test predicting `WeekdaySleep` using `AnxietyStatus`. 
 
     a) Report the median weekday sleep hours for each of the three anxiety categories. 
-    b) Find the p-value adjusted for ties. Is there a statistically significant difference in median sleep hours across the anxiety levels? 
+    b) Find the p-value adjusted for ties and epsilon-squared. Is there a statistically significant difference in median sleep hours across the anxiety levels? 
     c) Write a complete, formal APA conclusion for this test, remembering to include the descriptive sample medians.
 
 19. Spearman's Rho: Using the `student_lifestyle_sleep.csv` dataset, you want to measure the relationship between a student's GPA and the number of classes they missed (`ClassesMissed`). Run a Spearman's rank-order correlation between `GPA` and `ClassesMissed`. 

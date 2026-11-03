@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_10.R")
 options(width = 68)
 ```
 
-This chapter runs the five nonparametric tests from Chapter 10 of the textbook: the Wilcoxon signed-rank test, the Mann-Whitney U test, the Kruskal-Wallis test, Spearman's rho, and Fisher's exact test. All five are built into R, so there are no packages to load. As the textbook stresses, report the medians alongside each test, so every section starts with them.
+This chapter runs the five nonparametric tests from Chapter 10 of the textbook: the Wilcoxon signed-rank test, the Mann-Whitney U test, the Kruskal-Wallis test, Spearman's rho, and Fisher's exact test. All five are built into R, so there are no packages to load. Report the medians and the effect size alongside each test, since the test alone does not show which group is higher or by how much, so every section starts with them.
 
 **Get the script:** [Download the Chapter 10 script, `chapter_10.R`](scripts/chapter_10.R), and save it in the same folder as your data.
 
@@ -60,18 +60,21 @@ The median weight loss was 7.5 pounds at month 4 and 6 pounds at month 7, and th
 | :--- | :--- | :--- |
 | Test statistic, $W$ | `V` | 311 |
 | p-value | `p-value` | .379 |
-| 95% confidence interval | under `95 percent confidence interval` | [−3.5, 8.0] |
+| Effect size, $r$ | calculated below | .16 |
 
 : Where each Wilcoxon value appears in R's output
 
-The p-value is far above .05, and the interval includes 0, so the difference between month 4 and month 7 is not statistically significant.
+The p-value is far above .05, so the difference between month 4 and month 7 is not statistically significant.
 
-::: {.callout-note title="Ignore the (pseudo)median"}
-R's `sample estimates` line shows a `(pseudo)median` of 2.5. It is a different kind of estimate that the textbook does not use. Report the median of the differences from `median()` above instead. R also prints the confidence interval's ends with many decimal places (`-3.500013`); round them to the precision of your data.
-:::
+R does not print the effect size, Rosenthal's $r$. These lines calculate it from the p-value, with $n$ as the number of pairs:
+
+```{r wilcoxon-r}
+```
+
+$r = .16$, a small effect.
 
 ::: {.callout-tip title="With your own data"}
-Change the dataset and the two measurements in `subset()`, the `median()` lines, and `wilcox.test()`. Keep the two measurements in the same order everywhere, so the differences all subtract the same way.
+Change the dataset and the two measurements in `subset()`, the `median()` lines, and `wilcox.test()`, then the result's name and `n` in the effect size lines. Keep the two measurements in the same order everywhere, so the differences all subtract the same way.
 :::
 
 ## Mann-Whitney U test
@@ -84,7 +87,12 @@ The question: do female and male students send different numbers of texts? Text 
 ```{r mann-whitney}
 ```
 
-The median female student sent 30 texts the previous day; the median male student sent 20. The test: $U = 38178$, *p* < .001, 95% CI [5, 15]. The interval is positive because R subtracts in the order of the groups, **Female** minus **Male**: female students sent more texts.
+The median female student sent 30 texts the previous day; the median male student sent 20. The test: $U = 38178$, *p* < .001. The medians show the direction: female students sent more texts. Then the effect size, calculated the same way as for the Wilcoxon test, with $n$ as the number of people in both groups together:
+
+```{r mann-whitney-r}
+```
+
+$r = .19$, a small effect: the difference is real, but the two groups overlap a great deal.
 
 ::: {.callout-note title="R calls it W"}
 R labels the statistic `W`, but its value is the $U$ statistic that the textbook reports. As the textbook explains, different programs use different labels for this test's statistic.
@@ -104,7 +112,7 @@ wilcox.test(TextsSent ~ GetToSchool, data = students)
 :::
 
 ::: {.callout-tip title="With your own data"}
-Change the numerical variable, the group variable, and the dataset in both lines.
+Change the numerical variable, the group variable, and the dataset in both lines, then the result's name and `n` in the effect size lines.
 :::
 
 ## Kruskal-Wallis test
@@ -119,22 +127,29 @@ The medians rise from 0.25 hours a week for students who feel no pressure to 5 h
 ```{r kruskal}
 ```
 
-R labels the $H$ statistic `Kruskal-Wallis chi-squared`, and it is the version adjusted for ties, the one the textbook uses: $H(3) = 101.29$, *p* < .001. Homework time differs across the pressure groups.
+R labels the $H$ statistic `Kruskal-Wallis chi-squared`, and it is the version adjusted for ties (students with the same value share a rank, and the adjustment accounts for that sharing): $H(3) = 101.29$, *p* < .001. Homework time differs across the pressure groups.
+
+R does not print the effect size, epsilon-squared. These lines calculate it from $H$:
+
+```{r kruskal-epsilon}
+```
+
+$\varepsilon^2 = 0.20$, a large effect: the pressure groups account for about 20% of the variation in homework-time ranks. R prints the label `Kruskal-Wallis chi-squared` above the number because the value came from that part of the results; the number itself is $\varepsilon^2$.
 
 ::: {.callout-tip title="With your own data"}
-Change the group variable and its groups in `factor()`, then the numerical variable, the group variable, and the dataset in `table()`, `tapply()`, and `kruskal.test()`.
+Change the group variable and its groups in `factor()`, then the numerical variable, the group variable, and the dataset in `table()`, `tapply()`, and `kruskal.test()`, and the result's name and `n` in the effect size lines.
 :::
 
 ## Spearman's rho
 
-The textbook uses Spearman's rho for an ordered categorical variable, such as school pressure. To use the groups in a correlation, first turn them into ranks with `as.integer()`, which gives each group its place in the order you set. Then run `cor.test()` from Chapter 4 with `method = "spearman"`:
+Spearman's rho works for an ordered categorical variable, such as school pressure, because it uses only the ranks. Unlike Kruskal-Wallis, which treats the groups as separate buckets, it uses their order, which gives it more power. To use the groups in a correlation, first turn them into ranks with `as.integer()`, which gives each group its place in the order you set. Then run `cor.test()` from Chapter 4 with `method = "spearman"`:
 
 ```{r spearman}
 ```
 
-$r_s = .40$, *p* < .001: students who feel more school pressure tend to spend more time on homework. Ignore the `S` statistic; the textbook reports $r_s$ and the p-value.
+$r_s = .40$, *p* < .001: students who feel more school pressure tend to spend more time on homework. Ignore the `S` statistic; it is a step in calculating the p-value, while $r_s$ is the number your reader can interpret.
 
-R does not print a confidence interval for Spearman's rho. These three lines calculate the interval the textbook reports:
+R does not print a confidence interval for Spearman's rho. These three lines calculate one with the usual method (Fisher's $z$ transformation):
 
 ```{r spearman-ci}
 ```
@@ -147,7 +162,7 @@ If both of your variables are numerical, skip the `as.integer()` line and put yo
 
 ## Fisher's exact test
 
-Chapter 8 of this companion showed that the chi-square test for gender and travel to school gives the warning `Chi-squared approximation may be incorrect`, because few students walk. Fisher's exact test is the textbook's answer for small expected counts:
+Chapter 8 of this companion showed that the chi-square test for gender and travel to school gives the warning `Chi-squared approximation may be incorrect`, because few students walk. Fisher's exact test handles small expected counts, because it has no minimum expected count:
 
 ```{r fisher}
 ```
