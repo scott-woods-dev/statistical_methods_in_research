@@ -1,13 +1,18 @@
 # =============================================================================
-# Book cover: "Statistical Methods in Research"
+# Book covers: "Statistical Methods in Research" and its R Companion
 #
 # Run from the project root:
 #   Rscript r_code/figures/cover.R
 #
-# Writes three files:
-#   images/cover.png              6 x 9 in at 300 dpi, for EPUB and web
-#   images/cover.pdf              6 x 9 in vector, the cover artwork
-#   images/cover_title_page.pdf   letter-size vector, the PDF title page
+# Writes three files for each book, the textbook in images/ and the companion
+# in r_companion/images/:
+#   cover.png              6 x 9 in at 300 dpi, for the web
+#   cover.pdf              6 x 9 in vector, the cover artwork
+#   cover_title_page.pdf   letter-size vector, the PDF title page
+#
+# Both covers share the layout and the motif. The companion uses the
+# bluish-green family of the same Okabe-Ito palette so the two books are easy
+# to tell apart; its title band keeps white text above 4.5:1 contrast.
 #
 # The letter version is the same design scaled to the book's PDF page size,
 # with the motif widened to the page. The PDF format in _quarto.yml replaces
@@ -31,15 +36,38 @@ assert_book_font()
 # ---- Page profiles ----------------------------------------------------------
 
 # Three horizontal fields: a strong top band for the title, white behind the
-# motif, and a pale band for the author. The bands reuse the two blues of the
+# motif, and a pale band for the author. The bands reuse the colors of the
 # motif, so the page reads as one system.
 COVER_BG <- "#FFFFFF"
-BAND_TOP <- book_palette[["blue"]]      # #0072B2
-BAND_BOTTOM <- "#E4F0F8"
 TITLE_FAMILY <- "Inter SemiBold"
 TITLE_COL <- "#FFFFFF"
 SUBTITLE_COL <- "#FFFFFF"
-ACCENT <- book_palette[["sky_blue"]]
+
+# One entry per book: its colors, its title lines, its subtitle, and where its
+# files go. Title lines are bottom aligned, so a two-line title sits just above
+# the subtitle like the three-line one.
+covers <- list(
+  textbook = list(
+    dir = "images",
+    band_top = book_palette[["blue"]],          # #0072B2, white text 5.2:1
+    band_bottom = "#E4F0F8",
+    accent = book_palette[["sky_blue"]],
+    ci_fill = book_palette[["blue"]],
+    pi_fill = book_palette[["sky_blue"]],
+    title = c("Statistical", "Methods in", "Research"),
+    subtitle = "A CONCEPTUAL APPROACH"
+  ),
+  companion = list(
+    dir = "r_companion/images",
+    band_top = "#007A57",                       # dark bluish green, 5.4:1
+    band_bottom = "#E2F3EC",
+    accent = "#6FD3AE",
+    ci_fill = book_palette[["bluish_green"]],   # #009E73
+    pi_fill = "#3FBF8F",
+    title = c("R", "Companion"),
+    subtitle = "STATISTICAL METHODS IN RESEARCH"
+  )
+)
 
 # The letter page is the book page scaled by 11 / 9 = 1.222. Every vertical
 # measure and type size scales with it; the motif takes the extra width.
@@ -106,14 +134,14 @@ pts <- data.frame(
   y = y + stats::runif(n, -0.030, 0.030)
 )
 
-motif <- ggplot() +
+make_motif <- function(cv) ggplot() +
   geom_ribbon(
     data = grid_x, aes(x = x, ymin = pi_lo, ymax = pi_hi),
-    fill = book_palette[["sky_blue"]], alpha = 0.16
+    fill = cv$pi_fill, alpha = 0.16
   ) +
   geom_ribbon(
     data = grid_x, aes(x = x, ymin = ci_lo, ymax = ci_hi),
-    fill = book_palette[["blue"]], alpha = 0.24
+    fill = cv$ci_fill, alpha = 0.24
   ) +
   geom_point(
     data = pts, aes(x = x, y = y),
@@ -141,7 +169,7 @@ tracked <- function(x, gap = " ") {
 
 # ---- Page composition -------------------------------------------------------
 
-draw_cover <- function(p) {
+draw_cover <- function(p, cv) {
   grid.newpage()
   grid.rect(gp = gpar(fill = COVER_BG, col = NA))
 
@@ -150,7 +178,7 @@ draw_cover <- function(p) {
     x = unit(0, "npc"), y = unit(p$h - p$band_top_h, "in"),
     width = unit(1, "npc"), height = unit(p$band_top_h, "in"),
     just = c("left", "bottom"),
-    gp = gpar(fill = BAND_TOP, col = NA)
+    gp = gpar(fill = cv$band_top, col = NA)
   )
 
   # Bottom band behind the author
@@ -158,16 +186,17 @@ draw_cover <- function(p) {
     x = unit(0, "npc"), y = unit(0, "in"),
     width = unit(1, "npc"), height = unit(p$band_bottom_h, "in"),
     just = c("left", "bottom"),
-    gp = gpar(fill = BAND_BOTTOM, col = NA)
+    gp = gpar(fill = cv$band_bottom, col = NA)
   )
 
-  # Title, three lines, top aligned
-  title_lines <- c("Statistical", "Methods in", "Research")
+  # Title, up to three lines, bottom aligned to the three-line layout
+  title_lines <- cv$title
+  shift <- (3 - length(title_lines)) * p$title_lead
   for (i in seq_along(title_lines)) {
     grid.text(
       title_lines[i],
       x = unit(p$margin, "in"),
-      y = unit(p$title_top - (i - 1) * p$title_lead, "in"),
+      y = unit(p$title_top - shift - (i - 1) * p$title_lead, "in"),
       just = c("left", "top"),
       gp = gpar(fontfamily = TITLE_FAMILY, fontsize = p$title_size,
                 col = TITLE_COL, lineheight = 0.95)
@@ -176,7 +205,7 @@ draw_cover <- function(p) {
 
   # Subtitle and accent rule
   grid.text(
-    tracked("A CONCEPTUAL APPROACH"),
+    tracked(cv$subtitle),
     x = unit(p$margin, "in"), y = unit(p$subtitle_y, "in"),
     just = c("left", "center"),
     gp = gpar(fontfamily = BOOK_FONT, fontsize = p$subtitle_size,
@@ -186,7 +215,7 @@ draw_cover <- function(p) {
     x = unit(p$margin, "in"), y = unit(p$rule_y, "in"),
     width = unit(p$rule_w, "in"), height = unit(p$rule_h, "in"),
     just = c("left", "center"),
-    gp = gpar(fill = ACCENT, col = NA)
+    gp = gpar(fill = cv$accent, col = NA)
   )
 
   # Motif, bled slightly left and right, centered in the white field
@@ -194,7 +223,7 @@ draw_cover <- function(p) {
     x = unit(p$w / 2, "in"), y = unit(p$motif_y, "in"),
     width = unit(p$motif_w, "in"), height = unit(p$motif_h, "in")
   ))
-  grid.draw(ggplotGrob(motif))
+  grid.draw(ggplotGrob(make_motif(cv)))
   popViewport()
 
   # Author
@@ -207,40 +236,37 @@ draw_cover <- function(p) {
   )
 }
 
-write_page <- function(file, p, device, ...) {
-  device(file, width = p$w, height = p$h, ...)
-  draw_cover(p)
-  invisible(grDevices::dev.off())
-}
-
 # ---- Write the files --------------------------------------------------------
-
-dir.create("images", showWarnings = FALSE)
 
 book <- page_profile("book")
 letter <- page_profile("letter")
 
-ragg::agg_png(
-  "images/cover.png", width = book$w, height = book$h, units = "in",
-  res = BOOK_DPI, background = COVER_BG
-)
-draw_cover(book)
-invisible(grDevices::dev.off())
+for (cv in covers) {
+  dir.create(cv$dir, showWarnings = FALSE, recursive = TRUE)
 
-grDevices::cairo_pdf("images/cover.pdf", width = book$w, height = book$h,
-                     family = BOOK_FONT, onefile = FALSE)
-draw_cover(book)
-invisible(grDevices::dev.off())
+  ragg::agg_png(
+    file.path(cv$dir, "cover.png"), width = book$w, height = book$h,
+    units = "in", res = BOOK_DPI, background = COVER_BG
+  )
+  draw_cover(book, cv)
+  invisible(grDevices::dev.off())
 
-grDevices::cairo_pdf("images/cover_title_page.pdf", width = letter$w,
-                     height = letter$h, family = BOOK_FONT, onefile = FALSE)
-draw_cover(letter)
-invisible(grDevices::dev.off())
+  grDevices::cairo_pdf(file.path(cv$dir, "cover.pdf"), width = book$w,
+                       height = book$h, family = BOOK_FONT, onefile = FALSE)
+  draw_cover(book, cv)
+  invisible(grDevices::dev.off())
 
-message(
-  "Wrote images/cover.png (", book$w * BOOK_DPI, " x ", book$h * BOOK_DPI,
-  " px), images/cover.pdf, and images/cover_title_page.pdf"
-)
+  grDevices::cairo_pdf(file.path(cv$dir, "cover_title_page.pdf"),
+                       width = letter$w, height = letter$h,
+                       family = BOOK_FONT, onefile = FALSE)
+  draw_cover(letter, cv)
+  invisible(grDevices::dev.off())
+
+  message(
+    "Wrote ", cv$dir, "/cover.png (", book$w * BOOK_DPI, " x ",
+    book$h * BOOK_DPI, " px), cover.pdf, and cover_title_page.pdf"
+  )
+}
 
 # ---- Console summary --------------------------------------------------------
 

@@ -108,3 +108,18 @@ format:
           \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\small}%
           \tcbset{fonttitle=\bfseries, breakable/.style={}}%
         }
+        % Cover title page, as in the textbook. The stock title page is
+        % replaced by a blank page, and the cover PDF is painted full bleed
+        % behind it. Regenerate the artwork with Rscript r_code/figures/cover.R
+        % from the repository root.
+        \usepackage{graphicx}
+        \usepackage{eso-pic}
+        \renewcommand{\maketitle}{%
+          \begin{titlepage}
+            \thispagestyle{empty}%
+            \null
+            \AddToShipoutPictureBG*{%
+              \includegraphics[width=\paperwidth,height=\paperheight]{images/cover_title_page.pdf}%
+            }%
+          \end{titlepage}%
+        }
