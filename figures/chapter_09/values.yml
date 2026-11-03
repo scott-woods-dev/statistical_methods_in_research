@@ -1,5 +1,5 @@
 chapter: 9
-source: r_code/chapter_09.r
+source: r_code/figures/chapter_09.R
 script: r_code/figures/chapter_09.R
 conventions:
   outcome: Survive = 1 means survived to discharge; Survive = 0 means died in the
@@ -33,9 +33,6 @@ conventions:
     5.0%; AUC 0.7491; deviance R-squared 13.53%; Hosmer-Lemeshow chi-square 4.00 on
     8 df, p = 0.857. The text uses VIF 1.01 and adjusted deviance R-squared 12.65%,
     R''s values with p = all parameters. Minitab reports 12.53% for the adjusted value.'
-  reference_script: r_code/chapter_09.r fits Survive ~ Pulse as its baseline model
-    and does not fit Survive ~ Age, so it does not reproduce Table 9.1 or the 65-year-old
-    prediction. This script fits the Age model the prose uses.
 values:
   data:
     icu_rows: 200

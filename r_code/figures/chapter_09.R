@@ -27,9 +27,7 @@ assert_book_font()
 icu <- read_csv("data/icu_data.csv", show_col_types = FALSE)
 
 # ---- Models -----------------------------------------------------------------
-# The chapter's simple model (Table 9.1) uses Age. The reference script
-# r_code/chapter_09.r instead fits Survive ~ Pulse as its baseline model; the
-# discrepancy is recorded in the values registry below.
+# The chapter's simple model (Table 9.1) uses Age.
 
 simple_age <- glm(Survive ~ Age, data = icu, family = binomial)
 full_model <- glm(Survive ~ Emergency + Age, data = icu, family = binomial)
@@ -539,14 +537,9 @@ save_book_values(
       "13.53%; Hosmer-Lemeshow chi-square 4.00 on 8 df, p = 0.857. The",
       "text uses VIF 1.01 and adjusted deviance R-squared 12.65%, R's values",
       "with p = all parameters. Minitab reports 12.53% for the adjusted value."
-    ),
-    reference_script = paste(
-      "r_code/chapter_09.r fits Survive ~ Pulse as its baseline model and",
-      "does not fit Survive ~ Age, so it does not reproduce Table 9.1 or the",
-      "65-year-old prediction. This script fits the Age model the prose uses."
     )
   ),
-  source = "r_code/chapter_09.r"
+  source = "r_code/figures/chapter_09.R"
 )
 
 # ---- Console summary --------------------------------------------------------

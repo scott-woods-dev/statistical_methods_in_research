@@ -191,7 +191,7 @@ fp <- conf_matrix["1", "0"]
 sensitivity <- tp / (tp + fn)
 specificity <- tn / (tn + fp)
 
-# ---- Reference tests in r_code/chapter_08.r --------------------------------
+# ---- Further chapter tests ------------------------------------------------
 
 fps_body <- fps %>% filter(flee %in% c("Car", "Foot", "Not fleeing"))
 body_table <- table(fps_body$flee, fps_body$body_camera)
@@ -689,9 +689,8 @@ save_book_values(
       "and columns are actual."
     ),
     software = paste(
-      "r_code/chapter_08.r calls DescTools::CramerV() and epitools for the risk",
-      "measures. Those packages are not installed here, so this script reproduces",
-      "the same quantities with base R table(), chisq.test(), and mcnemar.test()."
+      "This script calculates Cramer's V and the risk measures with base R",
+      "table(), chisq.test(), and mcnemar.test()."
     ),
     note = paste(
       "The chapter's Cramer's V example was replaced with a 3 x 3 grouping",
@@ -699,5 +698,5 @@ save_book_values(
       "247 of 297 expected counts below 5."
     )
   ),
-  source = "r_code/chapter_08.r"
+  source = "r_code/figures/chapter_08.R"
 )

@@ -396,7 +396,7 @@ as_value_rows <- function(x) {
 #' @param values Named list of values, grouped by table or figure.
 #' @param conventions Named list describing contrasts, SS type, and other
 #'   calculation choices that affect the numbers.
-#' @param source Path to the reference script that produces the models.
+#' @param source Path to the script that produces the values.
 #' @param quiet Suppress the confirmation message.
 save_book_values <- function(chapter, values, conventions = NULL,
                              source = NULL, quiet = FALSE) {

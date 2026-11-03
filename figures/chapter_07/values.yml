@@ -1,14 +1,13 @@
 chapter: 7
-source: r_code/chapter_07.r
+source: r_code/figures/chapter_07.R
 script: r_code/figures/chapter_07.R
 conventions:
   contrasts: contr.sum
   ss_type: III
-  note: r_code/chapter_07.r sets options(contrasts = c('contr.sum', 'contr.poly')).
-    The chapter tables use Type III SS. Type II or treatment contrasts give different
-    main-effect and covariate rows, so these values are the reference for checking
-    the chapter. The reference script's twoway_fit uses Syst2; Table 7.1's baseline
-    Syst model is fit here with the same convention.
+  note: This script sets options(contrasts = c('contr.sum', 'contr.poly')). The chapter
+    tables use Type III SS. Type II or treatment contrasts give different main-effect
+    and covariate rows, so these values are the reference for checking the chapter.
+    Table 7.1's baseline Syst model is fit with the same convention.
   rm: Table 7.4 uses Method A, the car::Anova multivariate output. Method B, the long-format
     aov, gives Time F = 16.632; the difference is the SS calculation, not a data error.
 values:

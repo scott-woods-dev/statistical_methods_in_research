@@ -113,8 +113,8 @@ save_book_fig(
 # =============================================================================
 # Chapter 7 values
 #
-# r_code/chapter_07.r sets sum-to-zero contrasts and uses Type III SS. The same
-# setup is reproduced here so figures/chapter_07/values.yml records the exact
+# The chapter uses sum-to-zero contrasts and Type III SS. This script sets
+# them up so figures/chapter_07/values.yml records the exact
 # values reported in the chapter, the model call behind each one, and the
 # calculation conventions. Regenerate the values with:
 #   Rscript r_code/figures/chapter_07.R
@@ -291,12 +291,11 @@ save_book_values(
     contrasts = "contr.sum",
     ss_type = "III",
     note = paste(
-      "r_code/chapter_07.r sets options(contrasts = c('contr.sum',",
+      "This script sets options(contrasts = c('contr.sum',",
       "'contr.poly')). The chapter tables use Type III SS. Type II or",
       "treatment contrasts give different main-effect and covariate rows,",
       "so these values are the reference for checking the chapter.",
-      "The reference script's twoway_fit uses Syst2; Table 7.1's baseline",
-      "Syst model is fit here with the same convention."
+      "Table 7.1's baseline Syst model is fit with the same convention."
     ),
     rm = paste(
       "Table 7.4 uses Method A, the car::Anova multivariate output. Method B,",
@@ -304,5 +303,5 @@ save_book_values(
       "calculation, not a data error."
     )
   ),
-  source = "r_code/chapter_07.r"
+  source = "r_code/figures/chapter_07.R"
 )
