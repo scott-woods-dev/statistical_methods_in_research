@@ -75,7 +75,6 @@ This glossary contains definitions for key terms used throughout the textbook.
 | descriptive statistics | Numerical summaries that describe a dataset, such as the mean, median, standard deviation, and proportion. |
 | deviance | A measure of badness of fit in logistic regression, analogous to residual error; lower values mean predictions are closer to the observed outcomes. |
 | deviance $R^2$ | A pseudo-$R^2$ for logistic regression that measures how much the model reduces deviance compared with a model with no predictors. |
-| deviance goodness-of-fit test | A test of whether a logistic model's predicted probabilities fit the observed outcomes; unlike most tests, a large p-value is the desired result because the null hypothesis says the model fits well. |
 | discrete variable | A numerical variable that takes on distinct, separate values, typically counts (e.g., number of siblings). |
 | distribution | The pattern of how values of a variable are spread across its range; described by center, spread, shape, and unusual observations. |
 | Dunnett's test | A post hoc test that compares several groups against one designated baseline group, saving power by skipping comparisons among the other groups. |
@@ -106,6 +105,7 @@ This glossary contains definitions for key terms used throughout the textbook.
 | Hedges' $g$ | A version of Cohen's $d$ with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as $d$. |
 | histogram | A graph for a single numerical variable that groups values into adjacent bins with no gaps between bars; bar heights show how many observations fall in each bin. |
 | homogeneity of regression slopes | The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction. |
+| Hosmer-Lemeshow goodness-of-fit test | A test of whether a logistic model's predicted probabilities fit the observed outcomes; unlike most tests, a large p-value is the desired result because the null hypothesis says the model fits well. |
 | human subjects | People who participate in research and whose data or biological material are collected and analyzed. |
 | hypothesis testing | A formal procedure for deciding whether an observed effect is real or could plausibly be explained by random variation, by weighing the data against a null hypothesis. |
 | imputation | Replacing a missing value with a statistically estimated value so that the observation can be kept in the analysis. |

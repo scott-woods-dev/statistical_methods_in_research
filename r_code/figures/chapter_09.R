@@ -148,7 +148,14 @@ n_parameters <- length(coef(full_model))
 adjusted_deviance_r2 <- 1 - (1 - deviance_r2) * (nrow(icu) - 1) /
   (nrow(icu) - n_parameters)
 
-gof_p <- pchisq(residual_deviance, df_residual, lower.tail = FALSE)
+# Hosmer-Lemeshow goodness-of-fit test (10 groups by predicted probability).
+# The ungrouped deviance test, pchisq(deviance, df.residual), is not valid for
+# individual 0/1 outcomes, so the chapter reports Hosmer-Lemeshow instead.
+hl_test <- DescTools::HosmerLemeshowTest(full_model$fitted.values,
+                                         full_model$y)$C
+hl_chisq <- unname(hl_test$statistic)
+hl_df <- unname(hl_test$parameter)
+hl_p <- hl_test$p.value
 
 # ---- Figure 9.1: survival outcome against pulse -----------------------------
 
@@ -411,7 +418,9 @@ values <- list(
     n_parameters = n_parameters,
     deviance_r2 = deviance_r2,
     adjusted_deviance_r2 = adjusted_deviance_r2,
-    gof_p = gof_p
+    hosmer_lemeshow_chisq = hl_chisq,
+    hosmer_lemeshow_df = hl_df,
+    hosmer_lemeshow_p = hl_p
   ),
   prediction_profiles_age65 = pred_profiles,
   classification_threshold_50 = list(
@@ -504,8 +513,8 @@ save_book_values(
       "deviance R-squared uses the same adjustment as summary(lm)",
       "$adj.r.squared: 1 - (1 - R-squared)(n - 1)/(n - p) with p = 3, the",
       "intercept plus the two predictors. The result is 0.1265. The",
-      "goodness-of-fit p-value is pchisq(residual deviance, residual df,",
-      "lower.tail = FALSE)."
+      "Hosmer-Lemeshow test is DescTools::HosmerLemeshowTest(fitted, y)$C,",
+      "with 10 groups."
     ),
     software_differences = paste(
       "Minitab's adjusted deviance R-squared uses a different penalty and",
@@ -527,7 +536,7 @@ save_book_values(
       "65-year-old fitted 0.780442 with CI (0.713830, 0.835130); 65-year-old",
       "elective 0.964350 and emergency 0.699344; confusion matrix 159/38/2/1;",
       "sensitivity 99.4%; specificity 5.0%; AUC 0.7491; deviance R-squared",
-      "13.53%; goodness-of-fit chi-square 173.08 on 197 df, p = 0.890. The",
+      "13.53%; Hosmer-Lemeshow chi-square 4.00 on 8 df, p = 0.857. The",
       "text uses VIF 1.01 and adjusted deviance R-squared 12.65%, R's values",
       "with p = all parameters. Minitab reports 12.53% for the adjusted value."
     ),
@@ -553,7 +562,8 @@ cat("Age OR (full):",
 cat("VIF Age:", round(vif_age, 4), " Emergency:", round(vif_emergency, 4), "\n")
 cat("Deviance R2:", round(deviance_r2, 5),
     " Adjusted:", round(adjusted_deviance_r2, 5),
-    " GOF p:", round(gof_p, 4), "\n")
+    " Hosmer-Lemeshow:", round(hl_chisq, 2), "on", hl_df, "df, p =",
+    round(hl_p, 4), "\n")
 cat("65-year-old simple fit:", round(pred_age65$fitted, 6),
     " CI:", round(pred_age65$ci_low, 6), round(pred_age65$ci_high, 6), "\n")
 cat("65-year-old elective:", round(pred_profiles$fitted[1], 6),

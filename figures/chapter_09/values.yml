@@ -17,8 +17,8 @@ conventions:
   deviance: 'Deviance R-squared = 1 - residual deviance/null deviance. Adjusted deviance
     R-squared uses the same adjustment as summary(lm) $adj.r.squared: 1 - (1 - R-squared)(n
     - 1)/(n - p) with p = 3, the intercept plus the two predictors. The result is
-    0.1265. The goodness-of-fit p-value is pchisq(residual deviance, residual df,
-    lower.tail = FALSE).'
+    0.1265. The Hosmer-Lemeshow test is DescTools::HosmerLemeshowTest(fitted, y)$C,
+    with 10 groups.'
   software_differences: 'Minitab''s adjusted deviance R-squared uses a different penalty
     and reports 12.53% for this model; its VIF is 1.01, matching car::vif. The chapter
     uses the R values: VIF 1.01 and adjusted deviance R-squared 12.65%.'
@@ -30,8 +30,8 @@ conventions:
     model Age OR 0.9666 and Emergency OR 0.0860; VIF 1.01 from car::vif; 65-year-old
     fitted 0.780442 with CI (0.713830, 0.835130); 65-year-old elective 0.964350 and
     emergency 0.699344; confusion matrix 159/38/2/1; sensitivity 99.4%; specificity
-    5.0%; AUC 0.7491; deviance R-squared 13.53%; goodness-of-fit chi-square 173.08
-    on 197 df, p = 0.890. The text uses VIF 1.01 and adjusted deviance R-squared 12.65%,
+    5.0%; AUC 0.7491; deviance R-squared 13.53%; Hosmer-Lemeshow chi-square 4.00 on
+    8 df, p = 0.857. The text uses VIF 1.01 and adjusted deviance R-squared 12.65%,
     R''s values with p = all parameters. Minitab reports 12.53% for the adjusted value.'
   reference_script: r_code/chapter_09.r fits Survive ~ Pulse as its baseline model
     and does not fit Survive ~ Age, so it does not reproduce Table 9.1 or the 65-year-old
@@ -117,7 +117,9 @@ values:
     n_parameters: 3
     deviance_r2: 0.1353177
     adjusted_deviance_r2: 0.1265392
-    gof_p: 0.8895077
+    hosmer_lemeshow_chisq: 3.9983491
+    hosmer_lemeshow_df: 8.0
+    hosmer_lemeshow_p: 0.8572724
   prediction_profiles_age65:
   - age: 65.0
     emergency: 0.0

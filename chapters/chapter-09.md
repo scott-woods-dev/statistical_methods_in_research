@@ -329,9 +329,9 @@ Our model output reports a Deviance $R^2$ of 13.53%. This means that adding a pa
 
 Furthermore, you may recall from Chapter 5 that adding *any* variable to a model, even a useless one, will mathematically force the standard $R^2$ to increase. To combat this, we use the Adjusted $R^2$, which applies a mathematical penalty for every variable you add to the model. The **Adjusted Deviance $R^2$** does the same thing for logistic regression. Our Adjusted Deviance $R^2$ drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.  
 
-### The Deviance Goodness-of-Fit Test
+### The Hosmer-Lemeshow Goodness-of-Fit Test
 
-As a final structural check, researchers often consult the **Deviance Goodness-of-Fit test**. This test formally evaluates whether the model's predicted probabilities adequately align with the actual observed outcomes.
+As a final structural check, researchers often consult the **Hosmer-Lemeshow Goodness-of-Fit test**. This test formally evaluates whether the model's predicted probabilities adequately align with the actual observed outcomes. Some software also reports a Deviance Goodness-of-Fit test, but its $p$-value is unreliable when each combination of predictor values belongs to only a few patients, as happens whenever a predictor like age is measured in exact years. The Hosmer-Lemeshow test holds up in exactly that situation, which is why we use it here.
 
 
 
@@ -344,7 +344,7 @@ Because the null hypothesis ($H_0$) assumes the model fits well, we actually *wa
 
 
 
-In our software output, the Deviance Goodness-of-Fit test yields a $p$-value of 0.890. Because 0.890 is much larger than a standard alpha level of 0.05, we fail to reject the null hypothesis. We have no evidence that the model is structurally flawed.
+In our software output, the Hosmer-Lemeshow test yields a $p$-value of 0.857. Because 0.857 is much larger than a standard alpha level of 0.05, we fail to reject the null hypothesis. We have no evidence that the model is structurally flawed.
 
 
 
@@ -390,7 +390,7 @@ When writing up your findings for publication or research reports, you must comb
 
 
 
-Begin by stating the goal of the analysis and the variables used. Report the Deviance $R^2$ to indicate how much error the model reduced. If you reference the Deviance Goodness-of-Fit test, report the Chi-Square statistic ($\chi^2$), the degrees of freedom, and the $p$-value, reminding the reader that a non-significant $p$-value indicates a good structural fit.
+Begin by stating the goal of the analysis and the variables used. Report the Deviance $R^2$ to indicate how much error the model reduced. If you reference the Hosmer-Lemeshow test, report the Chi-Square statistic ($\chi^2$), the degrees of freedom, and the $p$-value, reminding the reader that a non-significant $p$-value indicates a good structural fit.
 
 
 
@@ -412,7 +412,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 
 **Example Write-Up**
 
-> A multiple logistic regression was conducted to determine the effects of patient age and emergency admission status on the probability of surviving an ICU stay. The overall model explained 13.53% of the deviance in survival outcomes. The Deviance Goodness-of-Fit test indicated that the model was structurally sound, $\chi^2(197) = 173.08, p = .890$.  
+> A multiple logistic regression was conducted to determine the effects of patient age and emergency admission status on the probability of surviving an ICU stay. The overall model explained 13.53% of the deviance in survival outcomes. The Hosmer-Lemeshow test indicated that the model was structurally sound, $\chi^2(8) = 4.00, p = .857$.  
 >
 > 
 >
@@ -444,7 +444,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 4. **Predicted Probabilities:** The ultimate practical goal of a logistic model is translating the abstract logit back into an intuitive percentage. We rely entirely on software to generate these predicted probabilities for specific profiles (e.g., a 65-year-old elective admission).
 5. **Evaluating Practical Accuracy:** A statistically significant $p$-value only shows a variable is performing better than random chance. To evaluate practical usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model's true Sensitivity and Specificity.
 6. **ROC Curves and AUC:** The Receiver Operating Characteristic (ROC) curve visualizes a model's trade-off between Sensitivity and False Positives across all possible decision thresholds. The Area Under the Curve (AUC) provides a single numerical grade (from 0.5 to 1.0) summarizing the model's overall ability to distinguish between the two outcomes.
-7. **Deviance and Fit:** Logistic regression measures predictive error using deviance rather than standard residuals. Deviance $R^2$ estimates the percentage reduction in error compared to a blind guess, while the Deviance Goodness-of-Fit test formally evaluates the structural fit of the curve (where a large $p$-value means we fail to reject the assumption that the model fits well).
+7. **Deviance and Fit:** Logistic regression measures predictive error using deviance rather than standard residuals. Deviance $R^2$ estimates the percentage reduction in error compared to a blind guess, while the Hosmer-Lemeshow test formally evaluates the structural fit of the curve (where a large $p$-value means we fail to reject the assumption that the model fits well).
 8. **The Rare Events Rule:** Having a large total sample size is not enough for logistic regression. The model specifically requires a sufficient number of occurrences of the least common outcome (roughly 10 to 15 occurrences per predictor variable) to calculate reliable slopes.
 
 ## New Notation
@@ -465,7 +465,7 @@ Do not let your readers assume that significant $p$-values guarantee an accurate
 1. A sociologist builds a standard linear regression model to predict whether a citizen voted in the last election (1 = voted, 0 = did not vote) based on their annual income. The software generates a line of best fit. Explain the fundamental logical problem that will occur if the researcher tries to use this straight line to predict the voting behavior of extremely high-income citizens.
 2. A public health researcher runs a logistic regression to see how daily hours of sleep impact the odds of catching a cold. The software outputs an Odds Ratio of 0.88 for the sleep variable. Explain in plain English what this number means for a person's compounding risk for every additional hour of sleep they get.
 3. You are reviewing a logistic regression model predicting loan defaults. The model calculates the logit (log-odds) internally. Why do researchers and analysts generally rely on statistical software to convert these log-odds into predicted probabilities before presenting their findings to a bank manager?
-4. A graduate student runs a Deviance Goodness-of-Fit test for their logistic regression model and receives a $p$-value of 0.72. The student is devastated, assuming their model is useless because the $p$-value is not below 0.05. Explain the unique hypothesis structure of this specific test and why a large $p$-value is actually the desired result.
+4. A graduate student runs a Hosmer-Lemeshow goodness-of-fit test for their logistic regression model and receives a $p$-value of 0.72. The student is devastated, assuming their model is useless because the $p$-value is not below 0.05. Explain the unique hypothesis structure of this specific test and why a large $p$-value is actually the desired result.
 
 ### Choosing a Method
 
@@ -486,7 +486,6 @@ For this section, you will use statistical software to analyze the `icu_data.csv
 11. **Simple Logistic Regression: Evaluating Infection Status**: You want to determine if an infection at the time of admission significantly impacts a patient's survival status at discharge.
 a) Run a simple logistic regression predicting `Survive` using `Infection`. Does the presence of an infection have a statistically significant effect on survival? Report the $p$-value.
 b) Locate the Odds Ratio for `Infection`. Because this is an indicator variable comparing the infected group to the uninfected baseline group, interpret this Odds Ratio as a percentage decrease in the odds of survival.
-c) Evaluate the Deviance Goodness-of-Fit test for this model. Report the $p$-value. Do you have any evidence that this simple model is structurally flawed?
 
 
 12. **Multiple Logistic Regression: Adding Physiological Metrics**: You want to see if the patient's age and their systolic blood pressure provide unique predictive value for survival.
@@ -494,6 +493,7 @@ a) Run a multiple logistic regression predicting `Survive` using `Age` and `SysB
 b) Check the Variance Inflation Factor (VIF) for both variables. Do you have any concerns about multicollinearity?
 c) Use your software to generate a predicted probability of survival for a 50-year-old patient with a systolic blood pressure of 120. Report the fitted probability.
 d) Use your software to generate a predicted probability for an 80-year-old patient with the same systolic blood pressure of 120. Report the fitted probability and compare it to the younger patient.
+e) Evaluate the Hosmer-Lemeshow goodness-of-fit test for this model. Report the $p$-value. Do you have any evidence that this model is structurally flawed?
 
 
 13. **Model Diagnostics: The Confusion Matrix and AUC**: You want to evaluate the practical accuracy of the two-variable model you built in Question 12 (predicting `Survive` using `Age` and `SysBP`).

@@ -75,8 +75,7 @@ This index points you to the sections that discuss each topic. The section where
 - degrees of freedom: **[3.5](chapter-03.md#single-sample-t-tests)**, [6.9](chapter-06.md#guided-analysis), [8.3](chapter-08.md#interpreting-the-goodness-of-fit-and-post-hoc-analysis)
 - de-identification: **[13.4](chapter-13.md#data-security-and-privacy)**
 - descriptive statistics: **[1.9](chapter-01.md#describing-data-numerically-measures-of-center)**, [3.5](chapter-03.md#single-sample-t-tests), [3.8](chapter-03.md#beyond-the-p-value-practical-significance-and-effect-sizes)
-- deviance: **[9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)**, [9.12](chapter-09.md#communicating-results-in-apa-format)
-- deviance goodness-of-fit test: **[9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)**
+- deviance: **[9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)**
 - deviance $R^2$: **[9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)**
 - distribution: **[1.5](chapter-01.md#distribution-shapes-and-the-normal-curve)**, [6.7](chapter-06.md#model-diagnostics), [8.2](chapter-08.md#single-variable-patterns-the-chi-square-goodness-of-fit-test), [8.3](chapter-08.md#interpreting-the-goodness-of-fit-and-post-hoc-analysis)
 - Dunnett's test: **[6.8](chapter-06.md#post-hoc-analysis)**
@@ -112,6 +111,7 @@ This index points you to the sections that discuss each topic. The section where
 - Hedges' $g$: **[3.8](chapter-03.md#beyond-the-p-value-practical-significance-and-effect-sizes)**
 - histogram: **[1.4](chapter-01.md#visualizing-single-variables-quantitative-data)**, [6.7](chapter-06.md#model-diagnostics)
 - homogeneity of regression slopes: **[7.7](chapter-07.md#ancova-crucial-assumptions)**
+- Hosmer-Lemeshow goodness-of-fit test: **[9.9](chapter-09.md#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit)**
 - human subjects: **[13.3](chapter-13.md#the-institutional-review-board)**
 - hypothesis testing: **[3.2](chapter-03.md#the-core-concept-the-framework-of-evidence)**
 
