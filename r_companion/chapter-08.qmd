@@ -1,0 +1,216 @@
+# Categorical Data Analysis {#sec-ch08}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_08.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter runs the categorical tests from Chapter 8 of the textbook: the chi-square goodness-of-fit test, the test for independence (and its twin, the test for homogeneity), McNemar's test, and the three ways the textbook measures a categorical relationship: Cramér's *V*, relative risk with the odds ratio, and sensitivity with specificity. Most of it uses two functions built into R, `table()` and `chisq.test()`.
+
+**Get the script:** [Download the Chapter 8 script, `chapter_08.R`](scripts/chapter_08.R), and save it in the same folder as your data.
+
+## The data
+
+This chapter uses three datasets. Download all three into the same folder as the script:
+
+- [Download `census_at_school.csv`](../data/census_at_school.csv), the high school survey from Chapter 1.
+- [Download `acs_2023.csv`](../data/acs_2023.csv), the American Community Survey data from Chapter 5.
+- [Download `smoking_bmi_bp.csv`](../data/smoking_bmi_bp.csv), the blood pressure data from Chapter 6.
+
+The variables used in this chapter:
+
+| Variable | Dataset | What it records |
+| :--- | :--- | :--- |
+| `Season` | `census_at_school.csv` | The student's favorite season, stored in the file as **Fall**, **Spring**, **Summer**, or **Winter**. |
+| `Gender` | `census_at_school.csv` | The individual's gender (**Female** or **Male**). |
+| `Superpower` | `census_at_school.csv` | The superpower the student desires most (**Fly**, **Freeze time**, **Invisibility**, **Super strength**, or **Telepathy**). |
+| `Sleep1`, `Sleep2` | `census_at_school.csv` | The typical number of hours of sleep the student gets on a school night (`Sleep1`) and on a non-school night (`Sleep2`). |
+| `USCitizen` | `acs_2023.csv` | Citizenship status ($1 = \text{citizen}$, $0 = \text{noncitizen}$). |
+| `HealthInsurance` | `acs_2023.csv` | Health insurance coverage status ($1 = \text{have health insurance}$, $0 = \text{no health insurance}$). |
+| `SystolicBP` | `smoking_bmi_bp.csv` | The individual's systolic blood pressure, measured in millimeters of mercury (mmHg). |
+| `BMI` | `smoking_bmi_bp.csv` | Body Mass Index weight classification category based on clinical ranges (**Normal**, **Overweight**, or **Obese**). |
+
+: Variables used in this chapter {tbl-colwidths="[18,30,52]"}
+
+## Load the package and the data
+
+This chapter uses the `effectsize` package for Cramér's *V*. If you have not installed it yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+```{r read-students}
+```
+
+## Goodness-of-fit test
+
+The question: are all four seasons equally popular as students' favorite? A goodness-of-fit test compares the counts in one categorical variable to a set of expected proportions. Count the categories with `table()`, then give `chisq.test()` the proportions you expect:
+
+```{r gof}
+```
+
+The proportions after `p =` must be in the same order as the categories in the table, which R puts in alphabetical order (Fall, Spring, Summer, Winter). Here every season gets 0.25. With a published baseline, such as the Census proportions in the textbook, you would type those proportions instead.
+
+The result: $\chi^2(3, N = 500) = 98.93$, *p* < .001. The `df` in the output is the degrees of freedom, and *N* is the total of the counts. The seasons are not equally popular.
+
+::: {.callout-warning title="Common error: probabilities must sum to 1"}
+**What you see**
+
+```{r}
+#| error: true
+chisq.test(season_counts, p = c(0.25, 0.25, 0.25, 0.20))
+```
+
+**What it means:** the proportions after `p =` add up to 0.95, not 1.
+
+**How to fix it:** check your proportions and make sure they add up to exactly 1. If they come from a published source and only miss 1 because of rounding, add `rescale.p = TRUE` inside `chisq.test()`, as the textbook's code does, and R scales them up to 1 for you.
+:::
+
+### Expected counts and standardized residuals
+
+Two more pieces of the test's results finish the analysis:
+
+```{r gof-post-hoc}
+```
+
+- **`$expected`** gives the expected counts. Every one must be at least 5, the textbook's assumption check. Here each is 125.
+- **`$residuals`** gives the standardized residuals. Using the textbook's rule of thumb (outside $-2$ to $+2$), Fall (5.10) and Summer (4.83) are chosen more often than expected, and Spring ($-5.37$) and Winter ($-4.56$) less often.
+
+The `$` works here the same way it does for a dataset: it picks out one part of the test's results by name.
+
+::: {.callout-tip title="With your own data"}
+Change the variable inside `table()`, then list one expected proportion for each category in alphabetical order. Use `table()` first to see the order R uses, and count the categories so the list has one proportion per category.
+:::
+
+## Test for independence
+
+The question: are gender and desired superpower related? Build the cross-tabulation with `table()`, putting one variable in the rows and the other in the columns. Row proportions, from Chapter 2, make the rows easier to compare:
+
+```{r independence}
+```
+
+Super strength stands out: 13% of male students chose it, compared with 2% of female students. The test: $\chi^2(4, N = 500) = 36.97$, *p* < .001, so gender and desired superpower are related.
+
+```{r independence-post-hoc}
+```
+
+Every expected count is at least 5 (the smallest is 16.8), so the assumption holds. Only one column has standardized residuals outside $-2$ to $+2$: male students chose Super strength more often than expected (3.46) and female students less often ($-3.33$). The other cells fall inside the range.
+
+::: {.callout-note title="The test for homogeneity uses the same code"}
+The textbook's test for homogeneity differs from the test for independence in the study design (how the data were collected), not the calculations. In R, both use exactly the same `table()` and `chisq.test()` lines. Put the populations you are comparing in the rows.
+:::
+
+::: {.callout-warning title="Common error: Chi-squared approximation may be incorrect"}
+**What you see**
+
+```{r}
+chisq.test(table(students$Gender, students$GetToSchool))
+```
+
+**What it means:** this is a warning, not an error, so R still prints a result. It means at least one expected count is below 5 (here, very few students walk to school), so the p-value cannot be trusted. Check with `$expected` to see which cells are too small.
+
+**How to fix it:** do not report this p-value. The textbook's options are to combine small categories into larger, meaningful ones (as it does with the `armed` variable), or to use Fisher's Exact Test from Chapter 10.
+:::
+
+### Cramér's V
+
+`cramers_v()` measures the strength of the relationship:
+
+```{r cramers-v}
+```
+
+$V = 0.27$. The smaller variable, `Gender`, has 2 categories, so read the "2 Categories" row of the textbook's Table 8.3: 0.27 is above the 0.10 cutoff for a small effect but below the 0.30 cutoff for a medium effect, so the association is small. The 95% CI is a range of likely values; its upper end is always printed as 1.00, and the note under the table says so. You can ignore it.
+
+::: {.callout-tip title="With your own data"}
+Put your two categorical variables inside `table()`, then change the table name in `chisq.test()` and `cramers_v()`. Count the categories in each variable, and use the smaller count to pick the row of Table 8.3. For a 2 × 2 table, the same function gives Phi.
+:::
+
+## McNemar's test
+
+McNemar's test is for paired yes/no answers: the same people, two times or two questions. The question here: is the share of students who sleep at least 8 hours different on school nights and non-school nights?
+
+The data hold hours of sleep, not yes/no answers, so the first two lines create the yes/no columns with `ifelse()`. If your data already have two yes/no columns, skip those lines.
+
+```{r mcnemar}
+```
+
+The two disagreement cells are what the test compares: 332 students sleep 8 hours or more only on non-school nights, and 10 only on school nights. $\chi^2(1, N = 500) = 301.29$, *p* < .001, so students are much more likely to reach 8 hours on non-school nights. As the textbook says, no post hoc test is needed: compare those two cells to see which way the difference goes.
+
+::: {.callout-note title="Continuity correction"}
+The output's title says "with continuity correction." That is a small adjustment R makes by default for a 2 × 2 table; the textbook's results use it too, so you do not need to change anything.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put the two yes/no columns in `table()`, in the same order as they happened. The labels before each `=` are names for the table and can be anything.
+:::
+
+## Relative risk and the odds ratio
+
+The question: compared with citizens, how likely are noncitizens to have health insurance? Both variables are coded 0 and 1. Put the groups you are comparing in the rows and the outcome in the columns, then turn each row into proportions, the risk of each outcome:
+
+```{r read-acs}
+```
+
+```{r risk-table}
+```
+
+73.7% of noncitizens (row `0`) and 92.2% of citizens (row `1`) have health insurance (column `1`).
+
+**Relative risk** divides one group's risk by the baseline group's risk. Square brackets pick one cell: the row name first, then the column name, each in quotes.
+
+```{r relative-risk}
+```
+
+The relative risk is 0.80: noncitizens are 80% as likely as citizens to have health insurance. Using the textbook's flipping trick, $1 / 0.80 = 1.25$: citizens are 1.25 times as likely to be insured.
+
+**The odds ratio** divides one group's odds by the baseline group's odds. Each group's odds is its risk of the outcome divided by its risk of not having it:
+
+```{r odds-ratio}
+```
+
+The first line gives each group's odds: about 2.8 insured noncitizens for every uninsured one, and about 11.8 for citizens. The odds ratio is 0.24 (the `0` printed above it is just the label of the group it came from). In the "Odds Ratio < 1.0" column of the textbook's Table 8.5, 0.24 is beyond the 0.29 cutoff for a medium effect but not as far as 0.11 for a large one, so it is a medium effect.
+
+::: {.callout-warning title="Common error: subscript out of bounds"}
+**What you see**
+
+```{r}
+#| error: true
+risk["No", "1"]
+```
+
+**What it means:** the table has no row called `No`. The row and column names must match the table exactly; here they are `0` and `1`, because that is how the variables are coded.
+
+**How to fix it:** look at the printed table and copy its row and column names, keeping the quotes.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your group variable first in `table()` and your outcome second. Then, in the relative risk and odds ratio lines, change the names in quotes: your group's row, your baseline group's row, and your outcome's column. If your variables use words instead of 0 and 1, use those words, spelled exactly as in the table.
+:::
+
+## Sensitivity and specificity
+
+Sensitivity and specificity describe how well a yes/no rule predicts what actually happens. In this example, the rule predicts high blood pressure for everyone in the Obese BMI group, and the outcome is a systolic reading of 140 mmHg or higher. Two `ifelse()` lines create the predicted and actual columns, and `table()` builds the confusion matrix, with the predictions in the rows:
+
+```{r read-pressure}
+```
+
+```{r rule}
+```
+
+Then divide the cells:
+
+```{r sens-spec}
+```
+
+- **Sensitivity** is 0.49: of the 253 people who actually had high blood pressure, the rule caught 124, or 49%.
+- **Specificity** is 0.68: of the 247 people who did not, the rule correctly left 167 alone, or 68%.
+
+The rule misses about half of the people with high blood pressure, so on its own, BMI category is a weak screening rule for it.
+
+::: {.callout-tip title="With your own data"}
+Write your rule in the first `ifelse()` and your outcome in the second. Comparisons you can use include `==` (equal to), `>=` (at least), `>` (greater than), `<=` (at most), and `<` (less than). If your data already have a predicted column and an actual column, skip the `ifelse()` lines and put those columns in `table()`, predictions first.
+:::
