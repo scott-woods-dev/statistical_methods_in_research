@@ -107,13 +107,13 @@ As a general rule of thumb, any standardized residual outside the boundaries of 
 
 When we produce the standardized residuals for our police shooting data, we get the following results:
 
-- **Black:** $+29.8$
+- **Black:** $+31.9$
 - **Native American:** $+7.4$
-- **Hispanic:** $-1.65$
-- **White:** $-9.2$
-- **Asian:** $-13.2$
+- **Hispanic:** $-1.84$
+- **Asian:** $-13.7$
+- **White:** $-14.8$
 
-The Hispanic category has a residual of $-1.65$. Because this falls between $-2.0$ and $+2.0$, we conclude that the number of Hispanic individuals in the database aligns relatively well with general population expectations.
+The Hispanic category has a residual of $-1.84$. Because this falls between $-2.0$ and $+2.0$, we conclude that the number of Hispanic individuals in the database aligns relatively well with general population expectations.
 
 
 
@@ -237,9 +237,9 @@ When we check the residuals for individuals with documented signs of mental illn
 
 
 
-- **Mental Illness (Yes) & Fleeing (Car):** A significant negative residual of $-9.81$.
-- **Mental Illness (Yes) & Fleeing (Foot):** A significant negative residual of $-6.72$.
-- **Mental Illness (Yes) & Fleeing (Not fleeing):** A significant positive residual of $+8.17$.
+- **Mental Illness (Yes) & Fleeing (Car):** A significant negative residual of $-12.43$.
+- **Mental Illness (Yes) & Fleeing (Foot):** A significant negative residual of $-8.33$.
+- **Mental Illness (Yes) & Fleeing (Not fleeing):** A significant positive residual of $+16.46$.
 
 
 
@@ -327,17 +327,17 @@ Now we know the age profiles are different, but are *all* the age groups drastic
 
 **Elective Admissions Residuals:**
 
-- Under 50: $-2.18$
-- 50 to 69: $0.80$
-- 70 or older: $1.22$
+- Under 50: $-3.03$
+- 50 to 69: $1.18$
+- 70 or older: $1.73$
 
 **Emergency Admissions Residuals:**
 
-- Under 50: $1.31$
-- 50 to 69: $-0.48$
-- 70 or older: $-0.73$
+- Under 50: $3.03$
+- 50 to 69: $-1.18$
+- 70 or older: $-1.73$
 
-Out of all six cells, only *one* crosses our significance threshold: the **Under 50** category in the **Elective Admissions** group has a residual of $-2.18$.
+Out of all six cells, only *two* cross our significance threshold, and both are in the **Under 50** category: the **Elective Admissions** group has a residual of $-3.03$, and the **Emergency Admissions** group has a residual of $+3.03$. With only two groups, the residuals in each age column are mirror images: a shortage of young patients in one group is a surplus in the other.
 
 
 
@@ -347,7 +347,7 @@ This tells a fascinating story. The profiles of older patients (those 50 to 69, 
 
 The formatting rules for the Test for Homogeneity mirror our previous tests. Based on our cross-tabulation, we know we have $N = 200$ total patients in our sample.
 
-> A Chi-Square Test for Homogeneity was conducted to compare the age profiles of patients admitted to the ICU for elective versus emergency procedures. The results indicated that the age distributions were significantly different between the two populations, $\chi^2(2, N = 200) = 9.39$, $p = .009$. A post hoc analysis of standardized residuals revealed that this difference was primarily driven by a significant under-representation of patients under 50 years old within the elective admissions group.
+> A Chi-Square Test for Homogeneity was conducted to compare the age profiles of patients admitted to the ICU for elective versus emergency procedures. The results indicated that the age distributions were significantly different between the two populations, $\chi^2(2, N = 200) = 9.39$, $p = .009$. A post hoc analysis of standardized residuals revealed that this difference was primarily driven by a significant under-representation of patients under 50 years old within the elective admissions group and a matching over-representation within the emergency admissions group.
 
 ## Choosing the Right Chi-Square Test and Checking Assumptions
 

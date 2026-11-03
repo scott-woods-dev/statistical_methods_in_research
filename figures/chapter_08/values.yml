@@ -47,27 +47,27 @@ values:
       Race: Asian
       Observed: 105.0
       Expected: 353.7521008
-      Residual: -13.2256566
+      Residual: -13.6555749
     - race_code: B
       Race: Black
       Observed: 1528.0
       Expected: 725.4915966
-      Residual: 29.7943144
+      Residual: 31.8897679
     - race_code: H
       Race: Hispanic
       Observed: 1066.0
       Expected: 1121.2142857
-      Residual: -1.6489487
+      Residual: -1.8394793
     - race_code: 'N'
       Race: Native American
       Observed: 90.0
       Expected: 41.9705882
-      Residual: 7.4136954
+      Residual: 7.4411029
     - race_code: W
       Race: White
       Observed: 2919.0
       Expected: 3465.5714286
-      Residual: -9.2845209
+      Residual: -14.812971
   independence_mental_illness_flee:
     test: chisq.test(table(signs_of_mental_illness, flee))
     'n': 5750
@@ -96,22 +96,22 @@ values:
     residuals:
     - mental_illness: 'FALSE'
       flee: Car
-      residual: 5.5192638
+      residual: 12.4323758
     - mental_illness: 'TRUE'
       flee: Car
-      residual: -9.8122464
+      residual: -12.4323758
     - mental_illness: 'FALSE'
       flee: Foot
-      residual: 3.7775881
+      residual: 8.3317103
     - mental_illness: 'TRUE'
       flee: Foot
-      residual: -6.715864
+      residual: -8.3317103
     - mental_illness: 'FALSE'
       flee: Not fleeing
-      residual: -4.5981017
+      residual: -16.4596363
     - mental_illness: 'TRUE'
       flee: Not fleeing
-      residual: 8.1745878
+      residual: 16.4596363
   homogeneity_icu_age:
     test: chisq.test(table(Admission_Type, Age_Category))
     'n': 200
@@ -140,22 +140,22 @@ values:
     residuals:
     - admission_type: Elective
       age_category: Under 50
-      residual: -2.1838027
+      residual: -3.0337177
     - admission_type: Emergency
       age_category: Under 50
-      residual: 1.3112716
+      residual: 3.0337177
     - admission_type: Elective
       age_category: 50 to 69
-      residual: 0.7958489
+      residual: 1.183721
     - admission_type: Emergency
       age_category: 50 to 69
-      residual: -0.4778701
+      residual: -1.183721
     - admission_type: Elective
       age_category: 70 or older
-      residual: 1.2238202
+      residual: 1.7310894
     - admission_type: Emergency
       age_category: 70 or older
-      residual: -0.7348469
+      residual: -1.7310894
   mcnemar_speed_dating:
     test: mcnemar.test(table(DecisionM, DecisionF))
     'n': 276
@@ -253,31 +253,31 @@ values:
     residuals:
     - armed_group: Gun
       threat_level: Attack
-      residual: 9.0006415
+      residual: 25.4718955
     - armed_group: Unarmed
       threat_level: Attack
-      residual: -7.0984552
+      residual: -12.8304937
     - armed_group: Other weapon
       threat_level: Attack
-      residual: -9.3706544
+      residual: -19.6774755
     - armed_group: Gun
       threat_level: Other
-      residual: -12.5656914
+      residual: -24.5965405
     - armed_group: Unarmed
       threat_level: Other
-      residual: 7.471962
+      residual: 9.3414439
     - armed_group: Other weapon
       threat_level: Other
-      residual: 14.2339239
+      residual: 20.6739726
     - armed_group: Gun
       threat_level: Undetermined
-      residual: -2.7293372
+      residual: -4.4659387
     - armed_group: Unarmed
       threat_level: Undetermined
-      residual: 12.8403689
+      residual: 13.4191433
     - armed_group: Other weapon
       threat_level: Undetermined
-      residual: -2.2069572
+      residual: -2.6795455
     note: 'The raw armed field is collapsed to Gun, Unarmed, and Other weapon: Gun
       is armed == ''gun'', Unarmed is armed == ''unarmed'', and every other retained
       entry is Other weapon. Cases coded missing, ''undetermined'', or ''unknown weapon''

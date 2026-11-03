@@ -42,7 +42,7 @@ print(gof_test$expected)
 
 # 1. Calculate the standardized residuals
 # gof_test is the chisq.test object from your previous chunk
-residuals <- gof_test$residuals
+residuals <- gof_test$stdres
 print("--- Standardized Residuals ---")
 print(round(residuals, 2))
 
@@ -137,7 +137,7 @@ print("--- Test for Independence ---")
 print(ind_test_mi)
 
 print("--- Standardized Residuals ---")
-print(round(ind_test_mi$residuals, 2))
+print(round(ind_test_mi$stdres, 2))
 
 # ------------------------------------------------------------------------------
 # 8.4 Dependent Categorical Data: McNemar's Test
@@ -295,7 +295,7 @@ print("--- Chi-Square Test for Homogeneity ---")
 print(homog_test)
 
 print("--- Standardized Residuals ---")
-print(round(homog_test$residuals, 2))
+print(round(homog_test$stdres, 2))
 
 # 5. Build the Grouped Bar Chart (Proportions within Populations)
 # Calculate proportions within each Admission Type to allow fair visual comparison

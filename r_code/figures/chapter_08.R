@@ -51,7 +51,7 @@ race_df <- data.frame(
   ),
   Observed = as.numeric(observed_race),
   Expected = as.numeric(gof_test$expected),
-  Residual = as.numeric(gof_test$residuals),
+  Residual = as.numeric(gof_test$stdres),
   row.names = NULL
 )
 
@@ -161,7 +161,7 @@ fps_armed <- fps %>%
 assoc_table <- table(fps_armed$Armed_Group, fps_armed$Threat)
 assoc_test <- chisq.test(assoc_table)
 assoc_expected <- assoc_test$expected
-assoc_residuals <- assoc_test$residuals
+assoc_residuals <- assoc_test$stdres
 cramers_v <- sqrt(
   as.numeric(assoc_test$statistic) /
     (sum(assoc_table) * (min(dim(assoc_table)) - 1))
@@ -472,12 +472,12 @@ save_book_fig(
 
 ind_df <- as.data.frame(ind_table)
 names(ind_df) <- c("mental_illness", "flee", "count")
-ind_res <- as.data.frame(ind_test$residuals)
+ind_res <- as.data.frame(ind_test$stdres)
 names(ind_res) <- c("mental_illness", "flee", "residual")
 
 homog_df <- as.data.frame(homog_table)
 names(homog_df) <- c("admission_type", "age_category", "count")
-homog_res <- as.data.frame(homog_test$residuals)
+homog_res <- as.data.frame(homog_test$stdres)
 names(homog_res) <- c("admission_type", "age_category", "residual")
 
 mcnemar_df <- as.data.frame(mcnemar_table)
