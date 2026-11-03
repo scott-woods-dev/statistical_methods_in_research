@@ -1,0 +1,133 @@
+# Time Series Analysis {#sec-ch12}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_12.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter reproduces the time series analysis from Chapter 12 of the textbook: a time series line plot, the lag-1 autocorrelation with its scatterplot, and an ARIMA forecast. It uses the textbook's own example, so you can check every value against the chapter.
+
+**Get the script:** [Download the Chapter 12 script, `chapter_12.R`](scripts/chapter_12.R), and save it in the same folder as your data.
+
+## The data
+
+[Download `gym_membership_searches.csv`](../data/gym_membership_searches.csv) into the same folder as the script. It holds 262 weeks of U.S. Google search interest in "gym membership," from May 2021 to May 2026.
+
+The variables used in this chapter:
+
+| Variable | Type | What it records |
+| :--- | :--- | :--- |
+| `Week` | Categorical | The starting date for the week of data collection, recorded in MM-DD-YY format (ranging from 05-16-21 to 05-17-26). |
+| `gym membership` | Numerical | The normalized search interest index for the phrase "gym membership." Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak. |
+
+: Variables from `gym_membership_searches.csv` used in this chapter {tbl-colwidths="[22,15,63]"}
+
+## Load the packages and the data
+
+This chapter uses `ggplot2` for the graphs and `forecast` for the ARIMA model. If either is not installed yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+```{r read-data}
+```
+
+::: {.callout-note title="Column names with spaces"}
+The file calls the second column `gym membership`, with a space, but `names()` shows `gym.membership`. `read.csv()` replaces spaces (and other characters R cannot use in a name) with dots, so use the dotted name in your code. Always check `names()` after reading a file.
+:::
+
+### Turn the text into dates
+
+`head()` shows that `Week` holds text such as `05-16-21`. Turn it into real dates, so R puts the weeks in time order. The `format` describes how the dates are written: `%m` is the month, `%d` the day, and `%y` a two-digit year, joined by dashes as in the file.
+
+```{r dates}
+```
+
+R now prints the dates year first (`2021-05-16`), which is how R always displays dates.
+
+::: {.callout-warning title="Common error: every date turns into NA"}
+**What you see**
+
+```{r}
+wrong <- read.csv("gym_membership_searches.csv")
+head(as.Date(wrong$Week, format = "%m/%d/%y"))
+```
+
+**What it means:** this format uses slashes, but the dates in the file use dashes, so R cannot read any of them. R gives no error or warning, just `NA`.
+
+**How to fix it:** look at a few dates with `head()` and copy their exact pattern into `format`: the order of month, day, and year; dashes or slashes; and `%y` for a two-digit year or `%Y` for a four-digit year.
+:::
+
+## Time series line plot
+
+Time goes along the bottom, and `geom_line()` joins the weeks in order:
+
+```{r line-plot}
+#| fig-cap: "Weekly gym membership search index, May 2021 to May 2026."
+#| fig-alt: "Line plot of weekly search interest in gym memberships from 2021 to 2026, on a 0 to 100 index. The line rises to a sharp peak every winter and falls back through the spring and summer. The winter peaks grow over the years, from 37 at the start of 2022 to the record of 100 in February 2026, and the summer lows also creep upward, from about 21 to about 39."
+```
+
+The plot shows the two patterns the textbook describes: a spike every winter and a slow upward trend across the five years.
+
+::: {.callout-tip title="With your own data"}
+Change the date column and the measurement in `aes()`, and update the labels. If your time column holds years or week numbers (plain numbers) instead of dates, skip the `as.Date()` step.
+:::
+
+## Lag-1 autocorrelation
+
+To compare each week with the week before, create a lag-1 column: a copy of the measurement shifted down one row, so each row also holds the previous week's value.
+
+```{r lag}
+```
+
+Read across a row: in row 3 (May 30), the search index was 29, and `lag_1` holds 26, the value from the week before. The first row has `NA` in `lag_1`, because no week came before it. Then the correlation between the two columns:
+
+```{r autocorrelation}
+```
+
+The lag-1 autocorrelation is $r = 0.92$, the same value as in the textbook: each week's search interest is very close to the previous week's.
+
+```{r lag-plot}
+#| fig-cap: "Lag-1 scatterplot of this week's gym membership search index against the previous week's."
+#| fig-alt: "Scatterplot with the previous week's search index along the bottom and this week's index up the side, both running from about 20 to 100. The points form a tight band rising from lower left to upper right around a dashed straight line. The band is narrow below about 50 and spreads out above it, where the winter spikes start and end."
+```
+
+The points form a tight band around the line: strong momentum from one week to the next.
+
+::: {.callout-tip title="With your own data"}
+Change the dataset name in all three places on the `lag_1` line, and your measurement. The rest of the code then works as it is, with your measurement's name in `cor()` and the plot.
+:::
+
+## ARIMA forecast
+
+First, turn the measurement into a time series with `ts()`, which needs to know how many measurements there are per year and when the series starts. The first week in the data, May 16, 2021, is the 20th week of 2021:
+
+```{r ts}
+```
+
+`auto.arima()` from the `forecast` package tries many ARIMA models and keeps the one that fits best:
+
+```{r arima}
+```
+
+The selected model is `ARIMA(1,1,1)(0,0,1)[52]`, the one the textbook reports: an ARIMA(1,1,1) with a seasonal term that repeats every 52 weeks. You do not need to interpret the coefficients; the forecast is what you use.
+
+```{r forecast}
+```
+
+The highest forecast value is 70.3, the winter peak the textbook describes, below the 2026 record of 100.
+
+```{r forecast-plot}
+#| fig-cap: "Weekly gym membership search index with a 52-week ARIMA forecast and its 80% and 95% prediction intervals."
+#| fig-alt: "Line plot of the weekly search index from 2021 to mid-2026, followed by a one-year forecast. The forecast line continues from the last data point, stays near 60 through the rest of 2026, and rises to a winter peak of about 70 in early 2027. Two shaded bands surround the forecast, a darker inner band for the 80% interval and a lighter outer band for the 95% interval, and both widen the further ahead the forecast goes."
+```
+
+The forecast continues past the last week of data. The darker band is the 80% prediction interval and the lighter band the 95% interval; both widen the further ahead the forecast goes, as the textbook explains.
+
+::: {.callout-tip title="With your own data"}
+In `ts()`, set `frequency` to the number of measurements per year (12 for monthly data) and `start` to your first year and the position of your first measurement in that year (for monthly data starting in March 2018, `c(2018, 3)`). Then set `h` to how many measurements ahead you want to forecast, such as 12 for one year of monthly data.
+:::
