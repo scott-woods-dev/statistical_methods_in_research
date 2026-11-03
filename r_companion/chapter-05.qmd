@@ -1,0 +1,167 @@
+# Multiple Regression {#sec-ch05}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_05.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter builds the multiple regression models from Chapter 5 of the textbook: several numerical predictors, a binary predictor, a categorical predictor with three or more groups, and an interaction. It also checks for multicollinearity with VIF. Everything you learned about `lm()` and `summary()` in Chapter 4 still applies; a multiple regression just has more predictors after the `~`.
+
+**Get the script:** [Download the Chapter 5 script, `chapter_05.R`](scripts/chapter_05.R), and save it in the same folder as your data.
+
+## The data
+
+[Download `acs_2023.csv`](../data/acs_2023.csv) into the same folder as the script. It holds 2023 American Community Survey answers from 10,000 U.S. adults.
+
+The variables used in this chapter:
+
+| Variable | Type | What it records |
+| :--- | :--- | :--- |
+| `Income` | Numerical | Total wages and salary earned over the past 12 months, recorded in thousands of dollars (e.g., a value of $50$ means $\$50,000$). |
+| `HoursWk` | Numerical | The average number of hours the individual works per week. |
+| `Age` | Numerical | The individual's age in years. |
+| `Sex` | Categorical | The individual's sex ($1 = \text{male}$, $0 = \text{female}$). |
+| `Married` | Categorical | Marital status ($1 = \text{married}$, $0 = \text{not married}$). |
+| `Race` | Categorical | The individual's racial identity (**Asian**, **Black**, **White**, or **Other**). |
+
+: Variables from `acs_2023.csv` used in this chapter {tbl-colwidths="[18,17,65]"}
+
+## Load the package and the data
+
+This chapter uses the `car` package for VIF. If you have not installed it yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+::: {.callout-note title="Message: Loading required package: carData"}
+`car` loads a companion package of example datasets when it starts. This message is normal.
+:::
+
+Many people in the survey did not work last year, so they have 0 hours and no wages. The examples keep only the people who worked, using `subset()` from Chapter 3:
+
+```{r read-data}
+```
+
+That leaves 5,862 workers.
+
+## Two numerical predictors
+
+List the predictors after the `~`, joined with `+` signs:
+
+```{r two-predictors}
+```
+
+The output has the same layout as in Chapter 4, with one row per predictor. Read it in the order the textbook does:
+
+1. **Is the model useful at all?** The last line gives the F-statistic and its p-value for the whole model: $F(2, 5859) = 404.4$, *p* < .001.
+2. **How much does it explain?** Use `Adjusted R-squared`, not `Multiple R-squared`, for a multiple regression: 0.121, or 12.1% of the variation in income.
+3. **What does each predictor do?** Read its `Estimate` while the others are held constant. Each extra hour worked per week goes with 1.71 more in income (in thousands, so about \$1,710 a year), for workers of the same age.
+4. **Which predictor gives the stronger signal?** Compare the `t value` column, not the slopes, because the predictors use different units. Hours worked ($t = 24.82$) gives a stronger signal than age ($t = 11.35$).
+
+::: {.callout-tip title="With your own data"}
+Change the response, the predictors, the dataset, and the model's name. You can list as many predictors as you need, each joined with `+`.
+:::
+
+## A binary predictor
+
+A predictor with two groups goes into the model like any other. `Sex` is coded 1 = male and 0 = female, so female is the baseline group and the slope is the difference for men:
+
+```{r binary}
+```
+
+The `Sex` row shows a slope of 9.62: men earned about \$9,620 more than women who worked the same hours and were the same age, *p* < .001.
+
+::: {.callout-tip title="With your own data"}
+Add your binary predictor after another `+`. If it is coded 0 and 1, the group coded 0 is the baseline. If it is stored as words (such as **Control** and **Treatment**), R uses the first word in alphabetical order as the baseline and names the row after the other group, for example `GroupTreatment`.
+:::
+
+## A categorical predictor
+
+A predictor with three or more groups needs one indicator variable for every group except the baseline. When the groups are stored as words, R makes the indicators for you:
+
+```{r categorical}
+```
+
+R chose **Asian** as the baseline, because it comes first alphabetically, and made one row each for `RaceBlack`, `RaceOther`, and `RaceWhite`. Each slope compares that group with the baseline. As the textbook warns, every comparison depends on which group is the baseline, so always say which one it is.
+
+To choose the baseline yourself, turn the variable into a factor and name the baseline with `relevel()`:
+
+```{r baseline}
+```
+
+Now **White** is the baseline, and the rows compare each other group with White workers of the same hours, age, and sex. The model itself has not changed: $R^2$ is the same, and only the comparisons are different.
+
+::: {.callout-warning title="Common error: 'ref' must be an existing level"}
+**What you see**
+
+```{r}
+#| error: true
+relevel(factor(workers$Race), ref = "white")
+```
+
+**What it means:** no group is spelled `white`. Group names must match the data exactly, including capital letters.
+
+**How to fix it:** check the spellings with `table(workers$Race)` and copy the group name exactly.
+:::
+
+::: {.callout-note title="Groups stored as numbers"}
+If your groups are stored as numbers (for example, 1 = high school, 2 = bachelor's degree, 3 = graduate degree), R treats them as amounts and fits a single slope, which is the problem the textbook describes. Wrap the variable in `factor()` inside the model, as in `lm(Income ~ HoursWk + factor(Education), data = workers)`, and R makes the indicators instead. A variable coded only 0 and 1, like `Sex`, works either way.
+:::
+
+::: {.callout-tip title="With your own data"}
+Add your categorical predictor after a `+`. To set the baseline, change the variable name (in both places on the `relevel()` line) and the group name after `ref =`, then fit the model again.
+:::
+
+## Multicollinearity: VIF
+
+`vif()`, from the `car` package, gives one variance inflation factor for each predictor:
+
+```{r vif}
+```
+
+All three VIFs are close to 1, far below the textbook's danger zone of 5, so the predictors do not overlap enough to cause problems.
+
+::: {.callout-warning title="Common error: model contains fewer than 2 terms"}
+**What you see**
+
+```{r}
+#| error: true
+one_predictor <- lm(Income ~ Age, data = workers)
+vif(one_predictor)
+```
+
+**What it means:** VIF measures overlap *between* predictors, so it needs a model with at least two.
+
+**How to fix it:** run `vif()` on a model with two or more predictors.
+:::
+
+::: {.callout-note title="GVIF for categorical predictors"}
+If your model includes a categorical predictor with three or more groups, `vif()` prints a table headed `GVIF` instead, with one row per variable. Read the `GVIF` column the same way, with the textbook's cutoff of 5.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the model name inside `vif()`.
+:::
+
+## Interactions
+
+An interaction asks whether the effect of one predictor depends on another. Joining two predictors with `*` puts both of them in the model *and* their interaction:
+
+```{r interaction}
+```
+
+The interaction row is named after both variables, joined with a colon: `Sex:Married`. Following the textbook's rules:
+
+1. **Check the interaction's p-value first.** Here it is $1.07 \times 10^{-8}$ (printed `1.07e-08`), well below .05, so the interaction is significant and stays in the model.
+2. **Ignore the p-values of `Sex` and `Married` on their own**, because they no longer test a general effect. Keep both variables in the model anyway (the hierarchy rule); the `*` does this for you.
+3. **Read the slopes as switches.** For women (`Sex` = 0), being married goes with 13.52 more in income (about \$13,520). For men (`Sex` = 1), add the interaction too: $13.52 + 20.84 = 34.36$, about \$34,360. The income difference for married people is much larger for men than for women.
+
+If the interaction had *not* been significant, you would remove it (write `Sex + Married` instead of `Sex * Married`), fit the model again, and then read the p-values for the individual variables.
+
+::: {.callout-tip title="With your own data"}
+Join the two predictors you think interact with `*`, and keep any other predictors joined with `+`. Find the row whose name has a colon, and check its p-value before anything else.
+:::
