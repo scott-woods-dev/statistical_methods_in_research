@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_08.R")
 options(width = 68)
 ```
 
-This chapter runs the categorical tests from Chapter 8 of the textbook: the chi-square goodness-of-fit test, the test for independence (and its twin, the test for homogeneity), McNemar's test, and the three ways the textbook measures a categorical relationship: Cramér's *V*, relative risk with the odds ratio, and sensitivity with specificity. Most of it uses two functions built into R, `table()` and `chisq.test()`.
+This chapter runs the categorical tests from [Chapter 8 of the textbook](../chapters/chapter-08.html): the chi-square goodness-of-fit test, the test for independence (and its twin, the test for homogeneity), McNemar's test, and the three ways the textbook measures a categorical relationship: Cramér's *V*, relative risk with the odds ratio, and sensitivity with specificity. Most of it uses two functions built into R, `table()` and `chisq.test()`.
 
 **Get the script:** [Download the Chapter 8 script, `chapter_08.R`](scripts/chapter_08.R), and save it in the same folder as your data.
 
@@ -53,7 +53,7 @@ The question: are all four seasons equally popular as students' favorite? A good
 ```{r gof}
 ```
 
-The proportions after `p =` must be in the same order as the categories in the table, which R puts in alphabetical order (Fall, Spring, Summer, Winter). Here every season gets 0.25. With a published baseline, such as the Census proportions in the textbook, you would type those proportions instead.
+The proportions after `p =` must be in the same order as the categories in the table, which R puts in alphabetical order (Fall, Spring, Summer, Winter). Here every season gets 0.25. With a published baseline, such as [the Census proportions in the textbook](../chapters/chapter-08.html#single-variable-patterns-the-chi-square-goodness-of-fit-test), you would type those proportions instead.
 
 The result: $\chi^2(3, N = 500) = 98.93$, *p* < .001. The `df` in the output is the degrees of freedom, and *N* is the total of the counts. The seasons are not equally popular.
 
@@ -77,8 +77,8 @@ Two more pieces of the test's results finish the analysis:
 ```{r gof-post-hoc}
 ```
 
-- **`$expected`** gives the expected counts. Every one must be at least 5, the usual rule of thumb; below 5, the p-value is no longer trustworthy. Here each is 125.
-- **`$stdres`** gives the standardized residuals, which work like z-scores. A common rule of thumb flags any value outside $-2$ to $+2$. Fall (5.89) and Summer (5.58) are chosen more often than expected, and Spring ($-6.20$) and Winter ($-5.27$) less often.
+- **`$expected`** gives the expected counts. Every one must be at least 5, [the usual rule of thumb](../chapters/chapter-08.html#the-required-assumption-expected-counts); below 5, the p-value is no longer trustworthy. Here each is 125.
+- **`$stdres`** gives the standardized residuals, which work like z-scores. [A common rule of thumb](../chapters/chapter-08.html#post-hoc-analysis-standardized-residuals) flags any value outside $-2$ to $+2$. Fall (5.89) and Summer (5.58) are chosen more often than expected, and Spring ($-6.20$) and Winter ($-5.27$) less often.
 
 The `$` works here the same way it does for a dataset: it picks out one part of the test's results by name.
 
@@ -105,7 +105,7 @@ Super strength stands out: 13% of male students chose it, compared with 2% of fe
 Every expected count is at least 5 (the smallest is 16.8), so the assumption holds. Three columns have standardized residuals outside $-2$ to $+2$. Male students chose Super strength (4.98) and Freeze time (2.45) more often than expected, and Telepathy less often ($-2.85$); female students show the opposite pattern. Fly and Invisibility fall inside the range. With two rows, each cell's residual is the exact opposite of the one below it, so reading one row is enough.
 
 ::: {.callout-note title="The test for homogeneity uses the same code"}
-The textbook's test for homogeneity differs from the test for independence in the study design (how the data were collected), not the calculations. In R, both use exactly the same `table()` and `chisq.test()` lines. Put the populations you are comparing in the rows.
+The textbook's [test for homogeneity](../chapters/chapter-08.html#comparing-populations-the-chi-square-test-for-homogeneity) differs from the test for independence in the study design (how the data were collected), not the calculations. In R, both use exactly the same `table()` and `chisq.test()` lines. Put the populations you are comparing in the rows.
 :::
 
 ::: {.callout-warning title="Common error: Chi-squared approximation may be incorrect"}
@@ -117,7 +117,7 @@ chisq.test(table(students$Gender, students$GetToSchool))
 
 **What it means:** this is a warning, not an error, so R still prints a result. It means at least one expected count is below 5 (here, very few students walk to school), so the p-value cannot be trusted. Check with `$expected` to see which cells are too small.
 
-**How to fix it:** do not report this p-value. You have two options: combine small categories into larger, meaningful ones (as the textbook does with the `armed` variable), or use Fisher's Exact Test from Chapter 10, which has no minimum expected count.
+**How to fix it:** do not report this p-value. You have two options: combine small categories into larger, meaningful ones ([as the textbook does with the `armed` variable](../chapters/chapter-08.html#interpreting-the-metric)), or use Fisher's Exact Test from Chapter 10, which has no minimum expected count.
 :::
 
 ### Cramér's V
@@ -136,7 +136,7 @@ $V = 0.27$. Cramér's V cutoffs depend on the size of the table, because more ca
 | 4 | 0.06 | 0.17 | 0.29 |
 | 5 | 0.05 | 0.15 | 0.25 |
 
-: Cutoffs for Cramér's V (Table 8.3 in the textbook)
+: Cutoffs for Cramér's V ([Table 8.3 in the textbook](../chapters/chapter-08.html#interpreting-the-metric))
 
 `Gender` has 2 categories, so use the first row: 0.27 is above the 0.10 cutoff for a small effect but below the 0.30 cutoff for a medium effect, so the association is small. The 95% CI is a range of likely values; its upper end is always printed as 1.00, and the note under the table says so. You can ignore it.
 
@@ -153,7 +153,7 @@ The data hold hours of sleep, not yes/no answers, so the first two lines create 
 ```{r mcnemar}
 ```
 
-The two disagreement cells are what the test compares: 332 students sleep 8 hours or more only on non-school nights, and 10 only on school nights. $\chi^2(1, N = 500) = 301.29$, *p* < .001, so students are much more likely to reach 8 hours on non-school nights. As the textbook says, no post hoc test is needed: compare those two cells to see which way the difference goes.
+The two disagreement cells are what the test compares: 332 students sleep 8 hours or more only on non-school nights, and 10 only on school nights. $\chi^2(1, N = 500) = 301.29$, *p* < .001, so students are much more likely to reach 8 hours on non-school nights. As the textbook says, [no post hoc test is needed](../chapters/chapter-08.html#post-hoc-analysis-for-mcnemars-test): compare those two cells to see which way the difference goes.
 
 ::: {.callout-note title="Continuity correction"}
 The output's title says "with continuity correction." That is a small adjustment R makes by default for a 2 × 2 table, where the chi-square p-value otherwise comes out a little too small. It also matches the textbook's results, so you do not need to change anything.
@@ -180,7 +180,7 @@ The question: compared with citizens, how likely are noncitizens to have health 
 ```{r relative-risk}
 ```
 
-The relative risk is 0.80: noncitizens are 80% as likely as citizens to have health insurance. Using the textbook's flipping trick, $1 / 0.80 = 1.25$: citizens are 1.25 times as likely to be insured.
+The relative risk is 0.80: noncitizens are 80% as likely as citizens to have health insurance. Using the textbook's [flipping trick](../chapters/chapter-08.html#the-intuitive-choice-relative-risk), $1 / 0.80 = 1.25$: citizens are 1.25 times as likely to be insured.
 
 **The odds ratio** divides one group's odds by the baseline group's odds. Each group's odds is its risk of the outcome divided by its risk of not having it:
 
@@ -197,7 +197,7 @@ Cohen's effect size cutoffs have been translated to the odds ratio scale. Use th
 | Medium | 3.50 | 0.29 |
 | Large | 9.00 | 0.11 |
 
-: Effect size cutoffs for odds ratios (Table 8.5 in the textbook)
+: Effect size cutoffs for odds ratios ([Table 8.5 in the textbook](../chapters/chapter-08.html#interpreting-the-strength-of-an-odds-ratio))
 
 In the "Odds ratio < 1.0" column, 0.24 is beyond the 0.29 cutoff for a medium effect but not as far as 0.11 for a large one, so it is a medium effect.
 

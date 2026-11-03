@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_01.R")
 options(width = 68)
 ```
 
-In this chapter you will make five of the graphs from Chapter 1 of the textbook (a bar chart, a histogram, side-by-side box plots, and two scatterplots) and calculate a mean and a median.
+In this chapter you will make five of the graphs from [Chapter 1 of the textbook](../chapters/chapter-01.html) (a bar chart, a histogram, side-by-side box plots, and two scatterplots) and calculate a mean and a median.
 
 Every graph in this chapter uses the same recipe, so once you have made the first one, the rest are small changes to it.
 
@@ -125,7 +125,7 @@ ggplot(students, aes(x = Sleep1))
 
 ## Histogram
 
-A histogram shows the shape of a numerical variable. Use it to describe shape (Chapter 1 of the textbook covers skew and floor and ceiling effects).
+A histogram shows the shape of a numerical variable. Use it to describe shape (Chapter 1 of the textbook covers [skew](../chapters/chapter-01.html#distribution-shapes-and-the-normal-curve) and [floor and ceiling effects](../chapters/chapter-01.html#floor-and-ceiling-effects)).
 
 ```{r histogram}
 #| fig-cap: "Histogram of hours of sleep on a school night."

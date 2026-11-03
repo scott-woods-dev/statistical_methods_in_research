@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_12.R")
 options(width = 68)
 ```
 
-This chapter reproduces the time series analysis from Chapter 12 of the textbook: a time series line plot, the lag-1 autocorrelation with its scatterplot, and an ARIMA forecast. It uses the textbook's own example, so you can check every value against the chapter.
+This chapter reproduces the time series analysis from [Chapter 12 of the textbook](../chapters/chapter-12.html): a time series line plot, the lag-1 autocorrelation with its scatterplot, and an ARIMA forecast. It uses the textbook's own example, so you can check every value against the chapter.
 
 **Get the script:** [Download the Chapter 12 script, `chapter_12.R`](scripts/chapter_12.R), and save it in the same folder as your data.
 
@@ -71,7 +71,7 @@ Time goes along the bottom, and `geom_line()` joins the weeks in order:
 #| fig-alt: "Line plot of weekly search interest in gym memberships from 2021 to 2026, on a 0 to 100 index. The line rises to a sharp peak every winter and falls back through the spring and summer. The winter peaks grow over the years, from 37 at the start of 2022 to the record of 100 in February 2026, and the summer lows also creep upward, from about 21 to about 39."
 ```
 
-The plot shows the two patterns the textbook describes: a spike every winter and a slow upward trend across the five years.
+The plot shows [the two patterns the textbook describes](../chapters/chapter-12.html#visualizing-time-the-time-series-plot): a spike every winter and a slow upward trend across the five years.
 
 ::: {.callout-tip title="With your own data"}
 Change the date column and the measurement in `aes()`, and update the labels. If your time column holds years or week numbers (plain numbers) instead of dates, skip the `as.Date()` step.
@@ -89,7 +89,7 @@ Read across a row: in row 3 (May 30), the search index was 29, and `lag_1` holds
 ```{r autocorrelation}
 ```
 
-The lag-1 autocorrelation is $r = 0.92$, the same value as in the textbook: each week's search interest is very close to the previous week's.
+The lag-1 autocorrelation is $r = 0.92$, [the same value as in the textbook](../chapters/chapter-12.html#the-independence-violation-autocorrelation): each week's search interest is very close to the previous week's.
 
 ```{r lag-plot}
 #| fig-cap: "Lag-1 scatterplot of this week's gym membership search index against the previous week's."
@@ -114,7 +114,7 @@ First, turn the measurement into a time series with `ts()`, which needs to know 
 ```{r arima}
 ```
 
-The selected model is `ARIMA(1,1,1)(0,0,1)[52]`, the one the textbook reports: an ARIMA(1,1,1) with a seasonal term that repeats every 52 weeks. You do not need to interpret the coefficients; the forecast is what you use.
+The selected model is `ARIMA(1,1,1)(0,0,1)[52]`, [the one the textbook reports](../chapters/chapter-12.html#forecasting-the-fitness-data): an ARIMA(1,1,1) with a seasonal term that repeats every 52 weeks. You do not need to interpret the coefficients; the forecast is what you use.
 
 ```{r forecast}
 ```

@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_10.R")
 options(width = 68)
 ```
 
-This chapter runs the five nonparametric tests from Chapter 10 of the textbook: the Wilcoxon signed-rank test, the Mann-Whitney U test, the Kruskal-Wallis test, Spearman's rho, and Fisher's exact test. All five are built into R, so there are no packages to load. Report the medians and the effect size alongside each test, since the test alone does not show which group is higher or by how much, so every section starts with them.
+This chapter runs the five nonparametric tests from [Chapter 10 of the textbook](../chapters/chapter-10.html): the Wilcoxon signed-rank test, the Mann-Whitney U test, the Kruskal-Wallis test, Spearman's rho, and Fisher's exact test. All five are built into R, so there are no packages to load. Report the medians and the effect size alongside each test, since the test alone does not show which group is higher or by how much, so every section starts with them.
 
 **Get the script:** [Download the Chapter 10 script, `chapter_10.R`](scripts/chapter_10.R), and save it in the same folder as your data.
 
@@ -66,7 +66,7 @@ The median weight loss was 7.5 pounds at month 4 and 6 pounds at month 7, and th
 
 The p-value is far above .05, so the difference between month 4 and month 7 is not statistically significant.
 
-R does not print the effect size, Rosenthal's $r$. These lines calculate it from the p-value, with $n$ as the number of pairs:
+R does not print [the effect size, Rosenthal's $r$](../chapters/chapter-10.html#interpreting-software-output-for-the-wilcoxon-signed-rank-test). These lines calculate it from the p-value, with $n$ as the number of pairs:
 
 ```{r wilcoxon-r}
 ```
@@ -95,7 +95,7 @@ The median female student sent 30 texts the previous day; the median male studen
 $r = .19$, a small effect: the difference is real, but the two groups overlap a great deal.
 
 ::: {.callout-note title="R calls it W"}
-R labels the statistic `W`, but its value is the $U$ statistic that the textbook reports. As the textbook explains, different programs use different labels for this test's statistic.
+R labels the statistic `W`, but its value is the $U$ statistic that the textbook reports. As the textbook explains, [different programs use different labels](../chapters/chapter-10.html#interpreting-software-output-for-the-mann-whitney-u-test) for this test's statistic.
 :::
 
 ::: {.callout-warning title="Common error: grouping factor must have exactly 2 levels"}
@@ -129,7 +129,7 @@ The medians rise from 0.25 hours a week for students who feel no pressure to 5 h
 
 R labels the $H$ statistic `Kruskal-Wallis chi-squared`, and it is the version adjusted for ties (students with the same value share a rank, and the adjustment accounts for that sharing): $H(3) = 101.29$, *p* < .001. Homework time differs across the pressure groups.
 
-R does not print the effect size, epsilon-squared. These lines calculate it from $H$:
+R does not print [the effect size, epsilon-squared](../chapters/chapter-10.html#interpreting-software-output-for-the-kruskal-wallis-test). These lines calculate it from $H$:
 
 ```{r kruskal-epsilon}
 ```
@@ -142,7 +142,7 @@ Change the group variable and its groups in `factor()`, then the numerical varia
 
 ## Spearman's rho
 
-Spearman's rho works for an ordered categorical variable, such as school pressure, because it uses only the ranks. Unlike Kruskal-Wallis, which treats the groups as separate buckets, it uses their order, which gives it more power. To use the groups in a correlation, first turn them into ranks with `as.integer()`, which gives each group its place in the order you set. Then run `cor.test()` from Chapter 4 with `method = "spearman"`:
+Spearman's rho works for an ordered categorical variable, such as school pressure, because it uses only the ranks. Unlike Kruskal-Wallis, [which treats the groups as separate buckets](../chapters/chapter-10.html#ignoring-the-order-of-your-categories), it uses their order, which gives it more power. To use the groups in a correlation, first turn them into ranks with `as.integer()`, which gives each group its place in the order you set. Then run `cor.test()` from Chapter 4 with `method = "spearman"`:
 
 ```{r spearman}
 ```

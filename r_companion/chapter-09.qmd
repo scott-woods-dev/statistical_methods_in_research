@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_09.R")
 options(width = 68)
 ```
 
-This chapter fits the logistic regression models from Chapter 9 of the textbook and gets the values the textbook uses to judge them: odds ratios with confidence intervals, VIF, predicted probabilities, deviance $R^2$, the Hosmer-Lemeshow goodness-of-fit test, a confusion matrix, and an ROC curve with its AUC. The function is `glm()`, which works almost exactly like `lm()` from Chapters 4 and 5.
+This chapter fits the logistic regression models from [Chapter 9 of the textbook](../chapters/chapter-09.html) and gets the values the textbook uses to judge them: odds ratios with confidence intervals, VIF, predicted probabilities, deviance $R^2$, the Hosmer-Lemeshow goodness-of-fit test, a confusion matrix, and an ROC curve with its AUC. The function is `glm()`, which works almost exactly like `lm()` from Chapters 4 and 5.
 
 **Get the script:** [Download the Chapter 9 script, `chapter_09.R`](scripts/chapter_09.R), and save it in the same folder as your data.
 
@@ -70,7 +70,7 @@ pressure$SmokerYes <- ifelse(pressure$Smoker == "Yes", 1, 0)
 ```{r simple}
 ```
 
-The `Coefficients` table has the same columns as the textbook's Table 9.1, apart from the odds ratios, which come next. Read it in two steps:
+The `Coefficients` table has the same columns as [the textbook's Table 9.1](../chapters/chapter-09.html#interpreting-the-output-slopes-and-odds-ratios), apart from the odds ratios, which come next. Read it in two steps:
 
 1. **The slope's sign and p-value.** The `Estimate` for `age4` is 0.237, a log-odds slope: positive, so older students were more likely to have tried smoking, *p* < .001.
 2. **The odds ratio.** `exp(coef())` turns each slope into an odds ratio. For `age4` it is 1.267: each extra year of age multiplies the odds of having tried smoking by 1.27, a 26.7% increase in the odds. Ignore the `(Intercept)` odds ratio.
@@ -88,7 +88,7 @@ List the predictors after the `~`, joined with `+` signs, as in Chapter 5:
 ```{r multiple}
 ```
 
-Both predictors are significant, *p* < .001, each while holding the other constant. For the odds ratios with their 95% confidence intervals, in the layout of the textbook's Table 9.4:
+Both predictors are significant, *p* < .001, each while holding the other constant. For the odds ratios with their 95% confidence intervals, in the layout of [the textbook's Table 9.4](../chapters/chapter-09.html#interpreting-the-odds-ratios):
 
 ```{r odds-ratios}
 ```
@@ -129,11 +129,11 @@ R does not print the deviance $R^2$, but it stores the pieces needed to calculat
 ```{r deviance-r2}
 ```
 
-The model reduced the deviance by 6.1% compared with a model with no predictors (adjusted deviance $R^2$ also 6.1%, since the sample is large). The predictors are significant, but they leave most of the deviance unexplained, the same pattern the textbook describes for its ICU model.
+The model reduced the deviance by 6.1% compared with a model with no predictors (adjusted deviance $R^2$ also 6.1%, since the sample is large). The predictors are significant, but they leave most of the deviance unexplained, [the same pattern the textbook describes for its ICU model](../chapters/chapter-09.html#deviance-r2-and-adjusted-deviance-r2).
 
 ## Hosmer-Lemeshow goodness-of-fit test
 
-The Hosmer-Lemeshow test sorts the people into groups by their predicted probability and compares how many 1s each group actually had with how many the model predicted. Some software also reports a deviance goodness-of-fit test, but its p-value is unreliable when each combination of predictor values belongs to only a few people; grouping lets Hosmer-Lemeshow hold up in that situation. As the textbook explains, its hypotheses run backward: a large p-value means you have no evidence that the model fits poorly.
+The Hosmer-Lemeshow test sorts the people into groups by their predicted probability and compares how many 1s each group actually had with how many the model predicted. Some software also reports a deviance goodness-of-fit test, but its p-value is unreliable when each combination of predictor values belongs to only a few people; grouping lets Hosmer-Lemeshow hold up in that situation. As the textbook explains, [its hypotheses run backward](../chapters/chapter-09.html#the-hosmer-lemeshow-goodness-of-fit-test): a large p-value means you have no evidence that the model fits poorly.
 
 ```{r hosmer-lemeshow}
 ```
@@ -151,7 +151,7 @@ Before you conclude that the model fits badly, look at how big the differences a
 ```{r hosmer-lemeshow-groups}
 ```
 
-Each label is the range of predicted probabilities in that group, such as `(0.499,0.556]` for students the model gave a 50% to 56% chance. In every group, the model's prediction is within about 4 percentage points of what happened (for example, 0.53 actual and 0.56 predicted in the fourth group). With 12,948 students, the test is powerful enough to call even differences this small significant. This is the textbook's warning about sample size and practical significance: a p-value measures the strength of the evidence, not the size of the problem. With a large sample, report the test, and judge the fit by comparing the two lines as well.
+Each label is the range of predicted probabilities in that group, such as `(0.499,0.556]` for students the model gave a 50% to 56% chance. In every group, the model's prediction is within about 4 percentage points of what happened (for example, 0.53 actual and 0.56 predicted in the fourth group). With 12,948 students, the test is powerful enough to call even differences this small significant. This is [the textbook's warning about sample size and practical significance](../chapters/chapter-03.html#the-limitation-of-the-p-value): a p-value measures the strength of the evidence, not the size of the problem. With a large sample, report the test, and judge the fit by comparing the two lines as well.
 
 ::: {.callout-tip title="With your own data"}
 Change the model's name in both places in the `HosmerLemeshowTest()` line. If your model has a continuous predictor (as the textbook's ICU model has age), you will get the full 10 groups and 8 degrees of freedom, and no warning.
@@ -164,7 +164,7 @@ Change the model's name in both places in the `HosmerLemeshowTest()` line. If yo
 ```{r confusion}
 ```
 
-At the 50% threshold, the model's sensitivity is 0.52 (it caught 52% of the students who had tried smoking) and its specificity is 0.71 (it correctly identified 71% of those who had not). To try a different threshold, as the textbook describes, change the `0.5` in the `ifelse()` line and run the lines below it again.
+At the 50% threshold, the model's sensitivity is 0.52 (it caught 52% of the students who had tried smoking) and its specificity is 0.71 (it correctly identified 71% of those who had not). [To try a different threshold](../chapters/chapter-09.html#adjusting-the-threshold), as the textbook describes, change the `0.5` in the `ifelse()` line and run the lines below it again.
 
 ::: {.callout-warning title="Common error: replacement has 12948 rows, data has 13387"}
 **What you see**
@@ -204,7 +204,7 @@ strict["1", "1"] / sum(strict[, "1"])
 ```{r roc}
 ```
 
-The AUC is 0.66. On the common grading scale, that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.
+The AUC is 0.66. On [the common grading scale](../chapters/chapter-09.html#grading-the-model-area-under-the-curve-auc), that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.
 
 ::: {.callout-note title="Messages: Setting levels and Setting direction"}
 `roc()` reports which outcome it treated as the event (`case = 1`) and that the event should have the higher predicted probabilities. Both are what you want for a 0/1 outcome, so you can ignore the messages.

@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_04.R")
 options(width = 68)
 ```
 
-This chapter follows the four-step modeling process from Chapter 4 of the textbook: measure the correlation, fit a regression line, check the residuals, and use the model for intervals and predictions. It ends with a log transformation for a relationship that curves.
+This chapter follows the four-step modeling process from [Chapter 4 of the textbook](../chapters/chapter-04.html): measure the correlation, fit a regression line, check the residuals, and use the model for intervals and predictions. It ends with a log transformation for a relationship that curves.
 
 **Get the script:** [Download the Chapter 4 script, `chapter_04.R`](scripts/chapter_04.R), and save it in the same folder as your data.
 
@@ -48,7 +48,7 @@ The variables used in this chapter:
 
 The output has the same layout as a *t*-test:
 
-- **The correlation $r$** is the number under `cor` at the bottom: 0.66, a large positive relationship between height and foot length by the usual social science guidelines (0.50 or higher is large).
+- **The correlation $r$** is the number under `cor` at the bottom: 0.66, a large positive relationship between height and foot length by [the usual social science guidelines](../chapters/chapter-04.html#measuring-strength-and-direction-linear-correlation-r) (0.50 or higher is large).
 - **The p-value** is on the `t =` line. Here it is below .001 (see [Reading p-value < 2.2e-16](chapter-03.qmd#sec-ch03) in Chapter 3), so you reject $H_0: \rho = 0$.
 - **The 95% confidence interval for $\rho$** is under `95 percent confidence interval`: [0.60, 0.70].
 
@@ -106,7 +106,7 @@ A **residual** is the actual value minus the predicted value. Store both as new 
 ```{r residuals}
 ```
 
-The **residual plot** puts the predicted values across and the residuals up and down. Use it for the textbook's linearity and equal variance checks:
+The **residual plot** puts the predicted values across and the residuals up and down. Use it for the textbook's [linearity and equal variance checks](../chapters/chapter-04.html#the-three-diagnostic-checks):
 
 ```{r residual-plot}
 #| fig-cap: "Residual plot for the foot length model."
@@ -148,7 +148,7 @@ Change the dataset name before each `$` and the model name inside `fitted()` and
 
 ## Influential points: Cook's distance
 
-Cook's distance measures how much each point moves the regression line. A common rule of thumb treats a value above 1 as highly influential.
+Cook's distance measures how much each point moves the regression line. [A common rule of thumb](../chapters/chapter-04.html#measuring-the-magnet-cooks-distance) treats a value above 1 as highly influential.
 
 ```{r cooks}
 ```
@@ -168,7 +168,7 @@ Read the slope's row (`Height`): we are 95% confident that, in the population, e
 
 ## Predictions
 
-To predict from the model, set up the predictor value in a small dataset, then ask `predict()` for one of the two intervals the textbook describes:
+To predict from the model, set up the predictor value in a small dataset, then ask `predict()` for one of [the two intervals the textbook describes](../chapters/chapter-04.html#predicting-the-average-vs.-predicting-the-individual):
 
 ```{r predict}
 ```
@@ -190,7 +190,7 @@ predict(foot_model, new_student, interval = "confidence")
 :::
 
 ::: {.callout-tip title="With your own data"}
-Change the predictor's name and value inside `data.frame()`, and the model name. Predict only within the range of predictor values in your data; the textbook explains why predictions outside that range are risky.
+Change the predictor's name and value inside `data.frame()`, and the model name. Predict only within the range of predictor values in your data; the textbook explains [why predictions outside that range are risky](../chapters/chapter-04.html#common-mistakes-and-misconceptions).
 :::
 
 ## Log transformation
@@ -217,7 +217,7 @@ The curve is gone. Fit the model the same way, with `log10()` around the predict
 ```{r log-model}
 ```
 
-$R^2$ is 0.525, or 52.5%, compared with 35.6% for a straight line on the original scale (the square of their correlation, 0.60). The slope, 13.39, is read as the textbook describes for a base-10 log: each time a country's footprint multiplies by 10, predicted life expectancy rises by about 13.4 years.
+$R^2$ is 0.525, or 52.5%, compared with 35.6% for a straight line on the original scale (the square of their correlation, 0.60). The slope, 13.39, is read as the textbook describes [for a base-10 log](../chapters/chapter-04.html#interpreting-a-transformed-model): each time a country's footprint multiplies by 10, predicted life expectancy rises by about 13.4 years.
 
 ::: {.callout-warning title="Common error: NaNs produced"}
 **What you see**

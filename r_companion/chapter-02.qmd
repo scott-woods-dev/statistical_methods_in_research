@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_02.R")
 options(width = 68)
 ```
 
-Chapter 2 of the textbook shows how the outcome variable decides the statistical measure: a yes/no outcome calls for a proportion. It also introduces Cronbach's alpha, the check that lets you add survey items into one score. In this chapter you will calculate proportions, for one group and for two groups side by side, then calculate Cronbach's alpha and build the combined score.
+[Chapter 2 of the textbook](../chapters/chapter-02.html) shows how the outcome variable decides the statistical measure: a yes/no outcome calls for a proportion. It also introduces Cronbach's alpha, the check that lets you add survey items into one score. In this chapter you will calculate proportions, for one group and for two groups side by side, then calculate Cronbach's alpha and build the combined score.
 
 **Get the script:** [Download the Chapter 2 script, `chapter_02.R`](scripts/chapter_02.R), and save it in the same folder as your data.
 
@@ -135,7 +135,7 @@ Now calculate alpha:
 
 R prints a lot. The two places to look:
 
-- **The first table**, under `raw_alpha`: Cronbach's alpha for the whole set of items. Here it is 0.91, above 0.70, the value researchers generally look for before they add items into one score.
+- **The first table**, under `raw_alpha`: Cronbach's alpha for the whole set of items. Here it is 0.91, above 0.70, [the value researchers generally look for](../chapters/chapter-02.html#cronbachs-alpha-alpha) before they add items into one score.
 - **Reliability if an item is dropped**, under `raw_alpha`: what alpha would be with that one item removed. If removing an item would *raise* alpha noticeably, that item does not fit well with the others. Here every value is 0.91 or lower, so every item helps.
 
 You can ignore the other columns.

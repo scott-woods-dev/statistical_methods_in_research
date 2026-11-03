@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_06.R")
 options(width = 68)
 ```
 
-This chapter follows the one-way ANOVA from Chapter 6 of the textbook from start to finish: check the equal variances and normality assumptions, run the global ANOVA, then find which groups differ with Tukey's HSD or Dunnett's test and measure the size of a difference with Cohen's *d*.
+This chapter follows the one-way ANOVA from [Chapter 6 of the textbook](../chapters/chapter-06.html) from start to finish: check the equal variances and normality assumptions, run the global ANOVA, then find which groups differ with Tukey's HSD or Dunnett's test and measure the size of a difference with Cohen's *d*.
 
 **Get the script:** [Download the Chapter 6 script, `chapter_06.R`](scripts/chapter_06.R), and save it in the same folder as your data.
 
@@ -67,7 +67,7 @@ misspelled
 
 ## Check equal variances
 
-Check equal variances with a rule of thumb and a picture: the 2X rule and a jitter plot. You may see formal tests for equal variances elsewhere; they tend to be overly sensitive, and using a hypothesis test to decide whether you may run a hypothesis test goes in a circle. Start with each group's mean and standard deviation:
+Check equal variances with a rule of thumb and a picture: the 2X rule and a jitter plot. You may see formal tests for equal variances elsewhere; [they tend to be overly sensitive](../chapters/chapter-06.html#the-hypothesis-test-trap), and using a hypothesis test to decide whether you may run a hypothesis test goes in a circle. Start with each group's mean and standard deviation:
 
 ```{r group-stats}
 ```
@@ -105,7 +105,7 @@ The `BMI` row holds the values to report:
 
 : Where each value appears in the ANOVA table
 
-So $F(2, 497) = 19.02$, *p* < .001: at least one BMI category has a different mean systolic blood pressure. As the textbook stresses, this does not say which ones; that is the job of the post hoc tests below.
+So $F(2, 497) = 19.02$, *p* < .001: at least one BMI category has a different mean systolic blood pressure. As the textbook stresses, [this does not say which ones](../chapters/chapter-06.html#a-common-pitfall-different-from-the-others); that is the job of the post hoc tests below.
 
 ::: {.callout-note title="Check: Df of 1 for the groups"}
 If the group variable's row shows `Df` of 1 when you have three or more groups, R treated your groups as a number. This happens when groups are stored as codes such as 1, 2, and 3. Wrap the variable in `factor()` (as in [Put the groups in order](#sec-ch06-order)) and run `aov()` again. The between-groups degrees of freedom should be the number of groups minus 1.
@@ -120,7 +120,7 @@ Store the model's residuals as a new column, as in Chapter 4, and draw a normal 
 #| fig-alt: "Normal Q-Q plot of the residuals. The dots follow the straight reference line closely from the lower left to the upper right, bending only slightly away from it at both ends, with no sharp hooks."
 ```
 
-The dots follow the reference line closely, bending only slightly at the ends, so the residuals are reasonably normal. What would fail this check, as the textbook describes, is dots that pull sharply away from the line in a hook at one or both ends.
+The dots follow the reference line closely, bending only slightly at the ends, so the residuals are reasonably normal. What would fail this check, as the textbook describes, is dots that pull sharply away from the line in [a hook at one or both ends](../chapters/chapter-06.html#normality).
 
 ::: {.callout-tip title="With your own data"}
 Change the dataset name and the model name in the first line. The plot code itself does not change.

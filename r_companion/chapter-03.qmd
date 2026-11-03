@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_03.R")
 options(width = 68)
 ```
 
-This chapter runs the three *t*-tests from Chapter 3 of the textbook (single sample, matched pair, and Welch's independent sample), then calculates Cohen's *d* and the sample size a study needs for 80% power. Along the way you will learn to keep only one group's rows, which you need whenever a question is about one group.
+This chapter runs the three *t*-tests from [Chapter 3 of the textbook](../chapters/chapter-03.html) (single sample, matched pair, and Welch's independent sample), then calculates Cohen's *d* and the sample size a study needs for 80% power. Along the way you will learn to keep only one group's rows, which you need whenever a question is about one group.
 
 **Get the script:** [Download the Chapter 3 script, `chapter_03.R`](scripts/chapter_03.R), and save it in the same folder as your data.
 
@@ -42,7 +42,7 @@ The *t*-tests are built into R. Cohen's *d* comes from the `effectsize` package;
 ```{r read-students}
 ```
 
-Before any *t*-test, check the shape of your variable with a histogram (Chapter 1) to judge whether the test's requirements are met, as the textbook describes.
+Before any *t*-test, check the shape of your variable with a histogram (Chapter 1) to judge whether [the test's requirements](../chapters/chapter-03.html#checking-the-tools-requirements) are met, as the textbook describes.
 
 ## Single sample t-test
 
@@ -63,7 +63,7 @@ Every *t*-test in R prints the same layout. Here is where to find each value you
 
 : Where each value appears in R's t-test output
 
-The line `alternative hypothesis: true mean is not equal to 8` confirms R ran the two-sided test, with $H_1$ using $\neq$, so the test can find an effect in either direction. R does this unless you tell it otherwise, so leave that setting alone.
+The line `alternative hypothesis: true mean is not equal to 8` confirms R ran the two-sided test, with $H_1$ using $\neq$, so the test can [find an effect in either direction](../chapters/chapter-02.html#hypothesis-universals-a-summary). R does this unless you tell it otherwise, so leave that setting alone.
 
 ::: {.callout-note title="Reading p-value < 2.2e-16"}
 `2.2e-16` is R's way of writing a very small number: move the decimal point 16 places to the left, so 0.00000000000000022. R does not print p-values smaller than this, so it writes `< 2.2e-16` instead. In a report, write *p* < .001.
@@ -108,7 +108,7 @@ Change the numerical variable and the group variable in both lines. The third ar
 
 ## Welch's independent sample t-test
 
-An independent sample *t*-test compares the means of two separate groups. R runs Welch's version unless you tell it otherwise. Welch's version adjusts for groups with different spreads, so its p-value stays reliable whether or not the spreads match.
+An independent sample *t*-test compares the means of two separate groups. R runs Welch's version unless you tell it otherwise. Welch's version [adjusts for groups with different spreads](../chapters/chapter-03.html#the-mechanics-and-unequal-variances), so its p-value stays reliable whether or not the spreads match.
 
 ```{r welch}
 ```
@@ -144,7 +144,7 @@ Cohen's *d* measures how large the difference between the two groups is, in stan
 ```{r cohens-d}
 ```
 
-Cohen's *d* is $-1.27$, a large effect by the usual rules of thumb (about 0.2 is small, 0.5 medium, and 0.8 large). As with the *t*-test, the sign only reflects the alphabetical order of the groups; judge the size from the number without its minus sign. The line `Estimated using pooled SD` means the standard deviation combines both groups, so the difference is measured against the spread of everyone in the study.
+Cohen's *d* is $-1.27$, a large effect by [the usual rules of thumb](../chapters/chapter-03.html#interpreting-cohens-d) (about 0.2 is small, 0.5 medium, and 0.8 large). As with the *t*-test, the sign only reflects the alphabetical order of the groups; judge the size from the number without its minus sign. The line `Estimated using pooled SD` means the standard deviation combines both groups, so the difference is measured against the spread of everyone in the study.
 
 ::: {.callout-note title="Warning: Missing values detected. NAs dropped."}
 Two participants have a blank `WeightLoss`, so `cohens_d()` leaves them out and says so. The *t*-test leaves them out too, without saying anything.

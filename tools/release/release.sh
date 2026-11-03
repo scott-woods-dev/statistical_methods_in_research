@@ -3,12 +3,12 @@
 # failure. Report-only: it never edits prose, data, or figures.
 #
 #   tools/release/release.sh            full routine (renders; takes minutes)
-#   tools/release/release.sh --fast     steps 1 to 4 only (no render, no scan)
+#   tools/release/release.sh --fast     steps 1 to 4 only (no render, links, or scan)
 #
 # Steps: 1 tree, 2 style, 3 figures and values, 4 generated files,
-# 5 render, 6 accessibility, 7 summary. WARN hits from the style check are
+# 5 render, 6 companion links, 7 accessibility, 8 summary. WARN hits from the style check are
 # counted and reported; they never fail the release.
-# Step 6 needs playwright, @axe-core/playwright, and Chromium (see FIGURES.md).
+# Step 7 needs playwright, @axe-core/playwright, and Chromium (see FIGURES.md).
 
 cd "$(dirname "$0")/../.." || exit 2
 
@@ -74,7 +74,8 @@ fi
 
 if [ "$FAST" = 1 ]; then
   skip "5 render" "--fast"
-  skip "6 accessibility" "--fast"
+  skip "6 links" "--fast"
+  skip "7 accessibility" "--fast"
   summary
   exit 0
 fi
@@ -90,7 +91,12 @@ PDF=$(ls docs/*.pdf 2>/dev/null | head -n 1)
 PAGES=$([ -n "$PDF" ] && pdfinfo "$PDF" 2>/dev/null | awk '/^Pages:/{print $2}')
 pass "5 render" "PDF ${PAGES:-?} pages"
 
-# 6. Accessibility, desktop and phone width. Pages: the landing page plus every
+# 6. Companion links into the textbook. Section ids come from the heading text,
+# so a renamed heading breaks a link silently; check them against the render.
+bash tools/links/check_companion_links.sh >"$LOG" 2>&1 || fail "6 links" "broken companion links"
+pass "6 links" "$(tail -n 1 "$LOG" | sed -E 's/.*: //')"
+
+# 7. Accessibility, desktop and phone width. Pages: the landing page plus every
 # file in chapters/, so the list cannot drift from the book.
 PAGES_LIST=("/")
 for f in chapters/*.md; do PAGES_LIST+=("/chapters/$(basename "$f" .md).html"); done
@@ -100,10 +106,10 @@ sleep 1
 export NODE_PATH
 NODE_PATH=$(npm root -g)
 node tools/a11y/scan.cjs --base http://localhost:8765 "${PAGES_LIST[@]}" >"$LOG" 2>&1 \
-  || fail "6 accessibility" "desktop width"
+  || fail "7 accessibility" "desktop width"
 VW=390 VH=844 node tools/a11y/scan.cjs --base http://localhost:8765 "${PAGES_LIST[@]}" >"$LOG" 2>&1 \
-  || fail "6 accessibility" "phone width"
-pass "6 accessibility" "${#PAGES_LIST[@]} pages at 1280 and 390 wide"
+  || fail "7 accessibility" "phone width"
+pass "7 accessibility" "${#PAGES_LIST[@]} pages at 1280 and 390 wide"
 
-# 7. Summary
+# 8. Summary
 summary

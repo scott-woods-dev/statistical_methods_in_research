@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_05.R")
 options(width = 68)
 ```
 
-This chapter builds the multiple regression models from Chapter 5 of the textbook: several numerical predictors, a binary predictor, a categorical predictor with three or more groups, and an interaction. It also checks for multicollinearity with VIF. Everything you learned about `lm()` and `summary()` in Chapter 4 still applies; a multiple regression just has more predictors after the `~`.
+This chapter builds the multiple regression models from [Chapter 5 of the textbook](../chapters/chapter-05.html): several numerical predictors, a binary predictor, a categorical predictor with three or more groups, and an interaction. It also checks for multicollinearity with VIF. Everything you learned about `lm()` and `summary()` in Chapter 4 still applies; a multiple regression just has more predictors after the `~`.
 
 **Get the script:** [Download the Chapter 5 script, `chapter_05.R`](scripts/chapter_05.R), and save it in the same folder as your data.
 
@@ -55,7 +55,7 @@ List the predictors after the `~`, joined with `+` signs:
 ```{r two-predictors}
 ```
 
-The output has the same layout as in Chapter 4, with one row per predictor. Read it in the order the textbook does:
+The output has the same layout as in Chapter 4, with one row per predictor. Read it in [the order the textbook does](../chapters/chapter-05.html#evaluating-the-model):
 
 1. **Is the model useful at all?** The last line gives the F-statistic and its p-value for the whole model: $F(2, 5859) = 404.4$, *p* < .001.
 2. **How much does it explain?** Use `Adjusted R-squared`, not `Multiple R-squared`, for a multiple regression: 0.121, or 12.1% of the variation in income.
@@ -86,7 +86,7 @@ A predictor with three or more groups needs one indicator variable for every gro
 ```{r categorical}
 ```
 
-R chose **Asian** as the baseline, because it comes first alphabetically, and made one row each for `RaceBlack`, `RaceOther`, and `RaceWhite`. Each slope compares that group with the baseline. As the textbook warns, every comparison depends on which group is the baseline, so always say which one it is.
+R chose **Asian** as the baseline, because it comes first alphabetically, and made one row each for `RaceBlack`, `RaceOther`, and `RaceWhite`. Each slope compares that group with the baseline. As the textbook warns, [every comparison depends on which group is the baseline](../chapters/chapter-05.html#forgetting-the-baseline-group), so always say which one it is.
 
 To choose the baseline yourself, turn the variable into a factor and name the baseline with `relevel()`:
 
@@ -109,7 +109,7 @@ relevel(factor(workers$Race), ref = "white")
 :::
 
 ::: {.callout-note title="Groups stored as numbers"}
-If your groups are stored as numbers (for example, 1 = high school, 2 = bachelor's degree, 3 = graduate degree), R treats them as amounts and fits a single slope, which is the problem the textbook describes. Wrap the variable in `factor()` inside the model, as in `lm(Income ~ HoursWk + factor(Education), data = workers)`, and R makes the indicators instead. A variable coded only 0 and 1, like `Sex`, works either way.
+If your groups are stored as numbers (for example, 1 = high school, 2 = bachelor's degree, 3 = graduate degree), R treats them as amounts and fits a single slope, which is [the problem the textbook describes](../chapters/chapter-05.html#categorical-predictors). Wrap the variable in `factor()` inside the model, as in `lm(Income ~ HoursWk + factor(Education), data = workers)`, and R makes the indicators instead. A variable coded only 0 and 1, like `Sex`, works either way.
 :::
 
 ::: {.callout-tip title="With your own data"}
@@ -123,7 +123,7 @@ Add your categorical predictor after a `+`. To set the baseline, change the vari
 ```{r vif}
 ```
 
-All three VIFs are close to 1, far below the usual danger zone of 5 (above 5, predictors overlap so much that the model cannot tell which one deserves the credit), so the predictors do not overlap enough to cause problems.
+All three VIFs are close to 1, far below [the usual danger zone of 5](../chapters/chapter-05.html#multicollinearity) (above 5, predictors overlap so much that the model cannot tell which one deserves the credit), so the predictors do not overlap enough to cause problems.
 
 ::: {.callout-warning title="Common error: model contains fewer than 2 terms"}
 **What you see**
@@ -154,7 +154,7 @@ An interaction asks whether the effect of one predictor depends on another. Join
 ```{r interaction}
 ```
 
-The interaction row is named after both variables, joined with a colon: `Sex:Married`. Read it in three steps:
+The interaction row is named after both variables, joined with a colon: `Sex:Married`. [Read it in three steps](../chapters/chapter-05.html#interactions):
 
 1. **Check the interaction's p-value first.** Here it is $1.07 \times 10^{-8}$ (printed `1.07e-08`), well below .05, so the interaction is significant and stays in the model.
 2. **Ignore the p-values of `Sex` and `Married` on their own**, because they no longer test a general effect. Keep both variables in the model anyway (the hierarchy rule); the `*` does this for you.

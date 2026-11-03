@@ -9,7 +9,7 @@ knitr::read_chunk("../r_companion/scripts/chapter_07.R")
 options(width = 68)
 ```
 
-This chapter runs the three designs from Chapter 7 of the textbook: a two-way ANOVA with an interaction plot, an ANCOVA with adjusted means, and a repeated measures ANOVA. All three print an ANOVA table with the same layout, and all three follow the same stop sign rule: check the interaction first, because a significant interaction changes what the main effects mean.
+This chapter runs the three designs from [Chapter 7 of the textbook](../chapters/chapter-07.html): a two-way ANOVA with an interaction plot, an ANCOVA with adjusted means, and a repeated measures ANOVA. All three print an ANOVA table with the same layout, and all three follow the same [stop sign rule](../chapters/chapter-07.html#the-stop-sign): check the interaction first, because a significant interaction changes what the main effects mean.
 
 **Get the script:** [Download the Chapter 7 script, `chapter_07.R`](scripts/chapter_07.R), and save it in the same folder as your data.
 
@@ -60,7 +60,7 @@ The question: does systolic blood pressure depend on BMI category, on smoking, o
 
 ### Check the cells
 
-Check a two-way ANOVA's assumptions at the level of the **cells**, the subgroups formed by crossing the two factors (here, 3 BMI groups × 2 smoking groups = 6 cells), because the model treats each cell as its own group. Putting both factors inside `list()` makes `tapply()` calculate one value per cell:
+Check a two-way ANOVA's assumptions [at the level of the **cells**](../chapters/chapter-07.html#two-way-anova-assumptions-and-output-interpretation), the subgroups formed by crossing the two factors (here, 3 BMI groups × 2 smoking groups = 6 cells), because the model treats each cell as its own group. Putting both factors inside `list()` makes `tapply()` calculate one value per cell:
 
 ```{r cell-stats}
 ```
@@ -105,7 +105,7 @@ The question: do female and male students differ in foot length once height is t
 
 ### Check the slopes
 
-The key ANCOVA assumption is that the covariate relates to the response the same way in every group, so that one adjustment is fair to all of them. Test it with the covariate-by-group interaction:
+The [key ANCOVA assumption](../chapters/chapter-07.html#ancova-crucial-assumptions) is that the covariate relates to the response the same way in every group, so that one adjustment is fair to all of them. Test it with the covariate-by-group interaction:
 
 ```{r slopes-check}
 ```
