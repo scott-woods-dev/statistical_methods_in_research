@@ -13,7 +13,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | **Variable Name** | **Data Type** | **Description and Coding Keys**                              |
 | ----------------- | ------------- | ------------------------------------------------------------ |
 | `SystolicBP`      | Numerical     | The individual's systolic blood pressure, measured in millimeters of mercury (mmHg). |
-| `Smoker`          | Categorical   | Tobacco cigarette smoking status ($1 = \text{yes}$, $0 = \text{no}$). |
+| `Smoker`          | Categorical   | Tobacco cigarette smoking status (**Yes** or **No**). |
 | `BMI`             | Categorical   | Body Mass Index weight classification category based on clinical ranges (**Normal**, **Overweight**, or **Obese**). |
 
 ------

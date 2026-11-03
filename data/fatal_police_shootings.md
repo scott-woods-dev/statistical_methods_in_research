@@ -16,14 +16,14 @@ A comma-separated values (`.csv`) file containing **6,421 observations** (rows) 
 | `manner_of_death`         | Categorical   | Clinical manner of death specification (**shot** or **shot and Tasered**). |
 | `armed`                   | Categorical   | Indicates the type of weapon or implement the individual possessed that responding officers believed could inflict physical harm (e.g., gun, knife, unarmed, undetermined). |
 | `age`                     | Numerical     | The age of the individual in years.                          |
-| `gender`                  | Categorical   | The gender identity of the individual (**M** = Male, **F** = Female, or non-binary/transgender tracking matching public records). |
+| `gender`                  | Categorical   | The gender identity of the individual (**M** = Male or **F** = Female). |
 | `race`                    | Categorical   | The racial or ethnic background of the individual, coded as: **W** = White, non-Hispanic **B** = Black, non-Hispanic **H** = Hispanic **A** = Asian **N** = Native American **O** = Other / Unknown |
 | `city`                    | Categorical   | The municipality or county where the fatal shooting took place. |
 | `state`                   | Categorical   | The two-letter postal abbreviation for the U.S. state where the incident occurred. |
-| `signs_of_mental_illness` | Categorical   | Indicator of acute mental distress or psychiatric history ($1 = \text{documented signs or history of mental illness}$, $0 = \text{no documented signs}$). |
+| `signs_of_mental_illness` | Categorical   | Indicator of acute mental distress or psychiatric history (**True** = documented signs or history of mental illness, **False** = no documented signs). |
 | `threat_level`            | Categorical   | Classification of the immediate threat posed by the individual: **attack** = Highest threat level (e.g., firing a weapon, direct physical assault) **other** = Significant threat but not a direct assault **undetermined** = Insufficient data to evaluate threat |
-| `flee`                    | Categorical   | The individual's movement behavior during the encounter (**Car**, **Foot**, or **Not fleeing**). |
-| `body_camera`             | Categorical   | Indicates whether a responding officer was equipped with an active body-worn camera during the incident ($1 = \text{yes}$, $0 = \text{no}$). |
+| `flee`                    | Categorical   | The individual's movement behavior during the encounter (**Car**, **Foot**, **Not fleeing**, or **Other**). |
+| `body_camera`             | Categorical   | Indicates whether a responding officer was equipped with an active body-worn camera during the incident (**True** or **False**). |
 
 ------
 

@@ -86,11 +86,11 @@ Keller, B., Park, S., & Zhang, J. (2022). *A new four-arm within-study compariso
 | `mage`            | Numerical     | The biological mother's age in years.                        |
 | `mature`          | Categorical   | Clinical maturity status classification of the mother (e.g., **younger mom** or **mature mom**). |
 | `weeks`           | Numerical     | Total gestational length of the pregnancy recorded in weeks. |
-| `premie`          | Categorical   | Gestational maturity classification of the infant at birth (**full-term** or **premie**). |
+| `premie`          | Categorical   | Gestational maturity classification of the infant at birth (**full term** or **premie**). |
 | `visits`          | Numerical     | The total number of prenatal medical or hospital visits made by the mother during the pregnancy. |
 | `gained`          | Numerical     | Total physical weight gained by the mother during the pregnancy, measured in pounds. |
 | `weight`          | Numerical     | The final birth weight of the infant, measured in pounds.    |
-| `lowbirthweight`  | Categorical   | Clinical birth weight classification ($1 = \text{low birthweight}$, $0 = \text{not low birthweight}$). |
+| `lowbirthweight`  | Categorical   | Clinical birth weight classification (**low** or **not low**). |
 | `sex`             | Categorical   | The biological sex assigned to the infant at birth (**female** or **male**). |
 | `habit`           | Categorical   | Tobacco smoking status of the mother during pregnancy (**nonsmoker** or **smoker**). |
 | `marital`         | Categorical   | Marital status of the mother at the time of delivery (**married** or **not married**). |
@@ -156,7 +156,7 @@ The primary objective of the original study was to examine the relationships bet
 | `Activity`        | Categorical   | The student's self-reported favorite physical activity or sport. |
 | `Music`           | Categorical   | The student's favorite genre of music.                       |
 | `BirthMonth`      | Categorical   | The month the student was born.                              |
-| `Season`          | Categorical   | The student's favorite season (**Autumn**, **Spring**, **Summer**, or **Winter**). |
+| `Season`          | Categorical   | The student's favorite season (**Fall**, **Spring**, **Summer**, or **Winter**). |
 | `Allergies`       | Categorical   | Whether the student has known allergies (**Yes** or **No**). |
 | `Vegetarian`      | Categorical   | Whether the student follows a vegetarian diet (**Yes** or **No**). |
 | `FavFood`         | Categorical   | The student's favorite food category.                        |
@@ -165,7 +165,7 @@ The primary objective of the original study was to examine the relationships bet
 | `Sleep1`          | Numerical     | The typical number of hours of sleep the student gets on a school night. |
 | `Sleep2`          | Numerical     | The typical number of hours of sleep the student gets on a non-school night (weekends/holidays). |
 | `Occupants`       | Numerical     | The total number of people living in the student's primary home. |
-| `Communicate`     | Categorical   | The method the student uses most often to communicate with friends (e.g., Text, FaceTime, In-Person). |
+| `Communicate`     | Categorical   | The method the student uses most often to communicate with friends (**Cell phone**, **In person**, **Internet Chat/Message**, **Social Media**, **Telephone**, **Text messaging**, or **Other**). |
 | `TextsSent`       | Numerical     | The estimated number of text messages the student sent during the previous day. |
 | `HangHours`       | Numerical     | The total number of hours the student spent hanging out with friends over the last week. |
 | `HWHours`         | Numerical     | The total number of hours the student spent doing homework over the last week. |
@@ -173,7 +173,7 @@ The primary objective of the original study was to examine the relationships bet
 | `ComputerHours`   | Numerical     | The total number of hours the student spent using a computer for non-gaming purposes over the last week. |
 | `TVHours`         | Numerical     | The total number of hours the student spent watching TV/streaming services over the last week. |
 | `WorkHours`       | Numerical     | The total number of hours the student spent working at a paid job over the last week. |
-| `SchoolPressure`  | Categorical   | The student's subjective assessment of the amount of pressure they feel due to schoolwork (e.g., None, Very Little, Some, A Lot). |
+| `SchoolPressure`  | Categorical   | The student's subjective assessment of the amount of pressure they feel due to schoolwork (**None**, **Very little**, **Some**, or **A lot**). |
 | `Superpower`      | Categorical   | The superpower the student desires most (**Fly**, **Freeze time**, **Invisibility**, **Super strength**, or **Telepathy**). |
 | `Preference`      | Categorical   | The life outcome the student would prefer most if they could only choose one (**Famous**, **Happy**, **Healthy**, or **Rich**). |
 
@@ -285,14 +285,14 @@ To track changes in mental health, the researchers recorded scores across two di
 | `manner_of_death`         | Categorical   | Clinical manner of death specification (**shot** or **shot and Tasered**). |
 | `armed`                   | Categorical   | Indicates the type of weapon or implement the individual possessed that responding officers believed could inflict physical harm (e.g., gun, knife, unarmed, undetermined). |
 | `age`                     | Numerical     | The age of the individual in years.                          |
-| `gender`                  | Categorical   | The gender identity of the individual (**M** = Male, **F** = Female, or non-binary/transgender tracking matching public records). |
+| `gender`                  | Categorical   | The gender identity of the individual (**M** = Male or **F** = Female). |
 | `race`                    | Categorical   | The racial or ethnic background of the individual, coded as: **W** = White, non-Hispanic **B** = Black, non-Hispanic **H** = Hispanic **A** = Asian **N** = Native American **O** = Other / Unknown |
 | `city`                    | Categorical   | The municipality or county where the fatal shooting took place. |
 | `state`                   | Categorical   | The two-letter postal abbreviation for the U.S. state where the incident occurred. |
-| `signs_of_mental_illness` | Categorical   | Indicator of acute mental distress or psychiatric history ($1 = \text{documented signs or history of mental illness}$, $0 = \text{no documented signs}$). |
+| `signs_of_mental_illness` | Categorical   | Indicator of acute mental distress or psychiatric history (**True** = documented signs or history of mental illness, **False** = no documented signs). |
 | `threat_level`            | Categorical   | Classification of the immediate threat posed by the individual: **attack** = Highest threat level (e.g., firing a weapon, direct physical assault) **other** = Significant threat but not a direct assault **undetermined** = Insufficient data to evaluate threat |
-| `flee`                    | Categorical   | The individual's movement behavior during the encounter (**Car**, **Foot**, or **Not fleeing**). |
-| `body_camera`             | Categorical   | Indicates whether a responding officer was equipped with an active body-worn camera during the incident ($1 = \text{yes}$, $0 = \text{no}$). |
+| `flee`                    | Categorical   | The individual's movement behavior during the encounter (**Car**, **Foot**, **Not fleeing**, or **Other**). |
+| `body_camera`             | Categorical   | Indicates whether a responding officer was equipped with an active body-worn camera during the incident (**True** or **False**). |
 
 : Variables in `fatal_police_shootings.csv`, with data type and coding key.
 
@@ -499,7 +499,7 @@ Biometric and physiological markers (including weight, body mass index, body fat
 | **Variable Name** | **Data Type** | **Description and Coding Keys**                              |
 | :----------------------------- | :-------------- | :------------------------------------------------------ |
 | `SystolicBP`      | Numerical     | The individual's systolic blood pressure, measured in millimeters of mercury (mmHg). |
-| `Smoker`          | Categorical   | Tobacco cigarette smoking status ($1 = \text{yes}$, $0 = \text{no}$). |
+| `Smoker`          | Categorical   | Tobacco cigarette smoking status (**Yes** or **No**). |
 | `BMI`             | Categorical   | Body Mass Index weight classification category based on clinical ranges (**Normal**, **Overweight**, or **Obese**). |
 
 : Variables in `smoking_bmi_bp.csv`, with data type and coding key.
@@ -575,7 +575,7 @@ During an event, participants engaged in individual, four-minute "speed dates" w
 | `AlcoholUse`       | Categorical   | Self-reported frequency of alcohol consumption (**Abstain**, **Light**, **Moderate**, or **Heavy**). |
 | `Drinks`           | Numerical     | The average number of alcoholic drinks consumed per week.    |
 | `WeekdaySleep`     | Numerical     | The average number of hours of sleep the student gets on weekday nights. |
-| `WeekendSleep`     | Numerical     | The average bedtime on weekend nights, recorded as a decimal value (e.g., $24.0 = \text{midnight}$, $24.5 = \text{12:30 AM}$, $25.0 = \text{1:00 AM}$). |
+| `WeekendSleep`     | Numerical     | The average number of hours of sleep the student gets on weekend nights. |
 
 : Variables in `student_lifestyle_sleep.csv`, with data type and coding key.
 

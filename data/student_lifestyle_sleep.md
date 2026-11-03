@@ -22,7 +22,7 @@ A comma-separated values (`.csv`) file containing **253 observations** (rows) an
 | `AlcoholUse`       | Categorical   | Self-reported frequency of alcohol consumption (**Abstain**, **Light**, **Moderate**, or **Heavy**). |
 | `Drinks`           | Numerical     | The average number of alcoholic drinks consumed per week.    |
 | `WeekdaySleep`     | Numerical     | The average number of hours of sleep the student gets on weekday nights. |
-| `WeekendSleep`     | Numerical     | The average bedtime on weekend nights, recorded as a decimal value (e.g., $24.0 = \text{midnight}$, $24.5 = \text{12:30 AM}$, $25.0 = \text{1:00 AM}$). |
+| `WeekendSleep`     | Numerical     | The average number of hours of sleep the student gets on weekend nights. |
 
 ------
 

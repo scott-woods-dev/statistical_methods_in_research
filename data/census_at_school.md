@@ -27,7 +27,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | `Activity`        | Categorical   | The student's self-reported favorite physical activity or sport. |
 | `Music`           | Categorical   | The student's favorite genre of music.                       |
 | `BirthMonth`      | Categorical   | The month the student was born.                              |
-| `Season`          | Categorical   | The student's favorite season (**Autumn**, **Spring**, **Summer**, or **Winter**). |
+| `Season`          | Categorical   | The student's favorite season (**Fall**, **Spring**, **Summer**, or **Winter**). |
 | `Allergies`       | Categorical   | Whether the student has known allergies (**Yes** or **No**). |
 | `Vegetarian`      | Categorical   | Whether the student follows a vegetarian diet (**Yes** or **No**). |
 | `FavFood`         | Categorical   | The student's favorite food category.                        |
@@ -36,7 +36,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | `Sleep1`          | Numerical     | The typical number of hours of sleep the student gets on a school night. |
 | `Sleep2`          | Numerical     | The typical number of hours of sleep the student gets on a non-school night (weekends/holidays). |
 | `Occupants`       | Numerical     | The total number of people living in the student's primary home. |
-| `Communicate`     | Categorical   | The method the student uses most often to communicate with friends (e.g., Text, FaceTime, In-Person). |
+| `Communicate`     | Categorical   | The method the student uses most often to communicate with friends (**Cell phone**, **In person**, **Internet Chat/Message**, **Social Media**, **Telephone**, **Text messaging**, or **Other**). |
 | `TextsSent`       | Numerical     | The estimated number of text messages the student sent during the previous day. |
 | `HangHours`       | Numerical     | The total number of hours the student spent hanging out with friends over the last week. |
 | `HWHours`         | Numerical     | The total number of hours the student spent doing homework over the last week. |
@@ -44,7 +44,7 @@ A comma-separated values (`.csv`) file containing **500 observations** (rows) an
 | `ComputerHours`   | Numerical     | The total number of hours the student spent using a computer for non-gaming purposes over the last week. |
 | `TVHours`         | Numerical     | The total number of hours the student spent watching TV/streaming services over the last week. |
 | `WorkHours`       | Numerical     | The total number of hours the student spent working at a paid job over the last week. |
-| `SchoolPressure`  | Categorical   | The student's subjective assessment of the amount of pressure they feel due to schoolwork (e.g., None, Very Little, Some, A Lot). |
+| `SchoolPressure`  | Categorical   | The student's subjective assessment of the amount of pressure they feel due to schoolwork (**None**, **Very little**, **Some**, or **A lot**). |
 | `Superpower`      | Categorical   | The superpower the student desires most (**Fly**, **Freeze time**, **Invisibility**, **Super strength**, or **Telepathy**). |
 | `Preference`      | Categorical   | The life outcome the student would prefer most if they could only choose one (**Famous**, **Happy**, **Healthy**, or **Rich**). |
 

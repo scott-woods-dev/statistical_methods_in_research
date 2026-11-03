@@ -16,11 +16,11 @@ A comma-separated values (`.csv`) file containing **1,000 observations** (rows) 
 | `mage`            | Numerical     | The biological mother's age in years.                        |
 | `mature`          | Categorical   | Clinical maturity status classification of the mother (e.g., **younger mom** or **mature mom**). |
 | `weeks`           | Numerical     | Total gestational length of the pregnancy recorded in weeks. |
-| `premie`          | Categorical   | Gestational maturity classification of the infant at birth (**full-term** or **premie**). |
+| `premie`          | Categorical   | Gestational maturity classification of the infant at birth (**full term** or **premie**). |
 | `visits`          | Numerical     | The total number of prenatal medical or hospital visits made by the mother during the pregnancy. |
 | `gained`          | Numerical     | Total physical weight gained by the mother during the pregnancy, measured in pounds. |
 | `weight`          | Numerical     | The final birth weight of the infant, measured in pounds.    |
-| `lowbirthweight`  | Categorical   | Clinical birth weight classification ($1 = \text{low birthweight}$, $0 = \text{not low birthweight}$). |
+| `lowbirthweight`  | Categorical   | Clinical birth weight classification (**low** or **not low**). |
 | `sex`             | Categorical   | The biological sex assigned to the infant at birth (**female** or **male**). |
 | `habit`           | Categorical   | Tobacco smoking status of the mother during pregnancy (**nonsmoker** or **smoker**). |
 | `marital`         | Categorical   | Marital status of the mother at the time of delivery (**married** or **not married**). |
