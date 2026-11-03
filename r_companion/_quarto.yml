@@ -9,6 +9,7 @@ project:
     - chapter-01.qmd
     - chapter-02.qmd
     - chapter-03.qmd
+    - chapter-04.qmd
   resources:
     - scripts/*.R
 
@@ -23,6 +24,7 @@ book:
     - chapter-01.qmd
     - chapter-02.qmd
     - chapter-03.qmd
+    - chapter-04.qmd
 
 # Code runs with the data folder as the working directory, so the scripts read
 # each CSV by its bare file name, exactly as students do.
@@ -78,13 +80,15 @@ format:
       text: |
         % Wrap long code and output lines at the margin instead of running
         % off the page.
+        % Applied at the start of the document because Quarto's later
+        % preamble resets the verbatim environment.
         \usepackage{fvextra}
         \fvset{breaklines=true, breakanywhere=true}
-        \let\verbatim\relax
-        \let\endverbatim\relax
-        \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere,fontsize=\small}
         % Callouts: bold titles, and never split across two pages.
         \AtBeginDocument{%
+          \let\verbatim\relax
+          \let\endverbatim\relax
+          \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere,fontsize=\small}%
           \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\small}%
           \tcbset{fonttitle=\bfseries, breakable/.style={}}%
         }

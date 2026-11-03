@@ -1,0 +1,236 @@
+# Correlation and Simple Linear Regression {#sec-ch04}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_04.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter follows the four-step modeling process from Chapter 4 of the textbook: measure the correlation, fit a regression line, check the residuals, and use the model for intervals and predictions. It ends with a log transformation for a relationship that curves.
+
+**Get the script:** [Download the Chapter 4 script, `chapter_04.R`](scripts/chapter_04.R), and save it in the same folder as your data.
+
+## The data
+
+This chapter uses two datasets. Download both into the same folder as the script:
+
+- [Download `census_at_school.csv`](../data/census_at_school.csv), the high school survey from Chapter 1.
+- [Download `happy_planet_index_2024.csv`](../data/happy_planet_index_2024.csv), measurements for 147 countries, the dataset from the textbook chapter.
+
+The variables used in this chapter:
+
+| Variable | Dataset | What it records |
+| :--- | :--- | :--- |
+| `Height` | `census_at_school.csv` | The student's height measured in centimeters. |
+| `Foot` | `census_at_school.csv` | The student's foot length measured in centimeters. |
+| `Footprint` | `happy_planet_index_2024.csv` | Ecological footprint per capita. This measures the biological surface area required to support a country's consumption and absorb its waste. |
+| `LifeExpectancy` | `happy_planet_index_2024.csv` | The average life expectancy of a resident in years. |
+
+: Variables used in this chapter {tbl-colwidths="[20,30,50]"}
+
+## Load the package and the data
+
+```{r load-packages}
+```
+
+```{r read-students}
+```
+
+## Correlation
+
+`cor.test()` calculates the linear correlation $r$ between two numerical variables and tests whether the population correlation $\rho$ is different from 0.
+
+```{r correlation}
+```
+
+The output has the same layout as a *t*-test:
+
+- **The correlation $r$** is the number under `cor` at the bottom: 0.66, a large positive relationship between height and foot length by the textbook's guidelines.
+- **The p-value** is on the `t =` line. Here it is below .001 (see [Reading p-value < 2.2e-16](chapter-03.qmd#sec-ch03) in Chapter 3), so you reject $H_0: \rho = 0$.
+- **The 95% confidence interval for $\rho$** is under `95 percent confidence interval`: [0.60, 0.70].
+
+::: {.callout-tip title="With your own data"}
+Change the two variables. Draw their scatterplot first (Chapter 1) to check that the relationship looks like a straight line, because $r$ only measures straight-line relationships. Blank cells are left out automatically.
+:::
+
+## Fit the regression line
+
+`lm()` (short for "linear model") fits the regression line. Store the model under a name so you can use it in the steps that follow, then print it with `summary()`:
+
+```{r fit-model}
+```
+
+The `~` works the same way as in Chapter 3. Put the response ($y$) before it and the predictor ($x$) after it: `Foot ~ Height` reads "Foot, predicted by Height."
+
+The summary is long. Here is where to find what you need:
+
+| What you need | Where it is in the output | In this example |
+| :--- | :--- | :--- |
+| Intercept | `(Intercept)` row, `Estimate` column | $-2.92$ |
+| Slope | the predictor's row (`Height`), `Estimate` column | 0.163 |
+| p-value for the slope | the predictor's row, last column, `Pr(>|t|)` | below .001 |
+| $R^2$ | `Multiple R-squared` near the bottom | 0.4308, or 43.1% |
+
+: Where each value appears in the regression summary
+
+So the regression equation is: predicted foot length $= -2.92 + 0.163 \times$ height. Each extra centimeter of height goes with a foot about 0.16 cm longer, and height explains 43.1% of the variation in foot length.
+
+::: {.callout-note title="The stars and the scientific notation"}
+The stars after each p-value (`***`) are R's shorthand for how small the p-value is; the `Signif. codes` line underneath is their key. You can ignore them and report the p-value itself. `<2e-16` is the same very small number explained in Chapter 3; report it as *p* < .001.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the response, the predictor, the dataset, and the model's name. Use the same model name in every step below.
+:::
+
+## Scatterplot with the regression line
+
+`geom_smooth(method = "lm")` adds the fitted line to a scatterplot:
+
+```{r scatter-line}
+#| fig-cap: "Scatterplot of foot length against height, with the regression line."
+#| fig-alt: "Scatterplot of foot length against height for 500 students, with heights from about 147 to 198 centimeters and foot lengths from 18 to 33 centimeters. The dots rise from lower left to upper right, and a straight black regression line runs through their middle, from about 21 centimeters at the shortest heights to about 29 at the tallest."
+```
+
+::: {.callout-note title="Message: geom_smooth() using formula = 'y ~ x'"}
+This message only confirms that the line is a straight-line regression of your y variable on your x variable. You can ignore it.
+:::
+
+## Check the residuals
+
+A **residual** is the actual value minus the predicted value. Store both as new columns in the dataset, so you can plot them:
+
+```{r residuals}
+```
+
+The **residual plot** puts the predicted values across and the residuals up and down. Use it for the textbook's linearity and equal variance checks:
+
+```{r residual-plot}
+#| fig-cap: "Residual plot for the foot length model."
+#| fig-alt: "Residual plot with predicted foot length from about 21 to 29 centimeters across and residuals from about minus 6 to plus 7 centimeters up and down, with a dashed horizontal line at zero. The dots form an even band around the line with no curve, and the spread stays about the same from left to right. The dots line up in slanted stripes because the foot lengths were recorded in whole and half centimeters."
+```
+
+Here the dots form an even band around the dashed line: no curve, and no megaphone shape. The slanted stripes come from foot lengths recorded to the nearest half centimeter, not from a problem with the model.
+
+For the normality check, draw a histogram of the residuals, the same way you drew histograms in Chapter 1:
+
+```{r residual-histogram}
+#| fig-cap: "Histogram of the residuals from the foot length model."
+#| fig-alt: "Histogram of the residuals, centered at zero and roughly bell shaped, with most residuals between minus 3 and plus 3 centimeters and a few reaching out to about minus 6 and plus 7."
+```
+
+The residuals form a rough bell curve centered at 0, which passes the check.
+
+::: {.callout-warning title="Common error: replacement has fewer rows than data"}
+If your response or predictor has blank cells, `lm()` leaves those rows out, so the model has fewer residuals than the dataset has rows, and storing them as a new column stops with an error like this one (shown with `Armspan`, which has 34 blank cells):
+
+```{r}
+#| error: true
+armspan_model <- lm(Armspan ~ Height, data = students)
+students$arm_residual <- resid(armspan_model)
+```
+
+**How to fix it:** add `na.action = na.exclude` inside `lm()`. The model is the same, but `fitted()` and `resid()` then put a blank in each row that was left out, so the columns line up:
+
+```{r}
+armspan_model <- lm(Armspan ~ Height, data = students,
+                    na.action = na.exclude)
+students$arm_residual <- resid(armspan_model)
+```
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the dataset name before each `$` and the model name inside `fitted()` and `resid()`, then the labels on both graphs. In the histogram, choose a `binwidth` that suits your residuals' units.
+:::
+
+## Influential points: Cook's distance
+
+Cook's distance measures how much each point moves the regression line. The textbook treats a value above 1 as highly influential.
+
+```{r cooks}
+```
+
+The largest Cook's distance is 0.03, far below 1. `named integer(0)` means no rows are above 1, so no single student is pulling the line.
+
+::: {.callout-tip title="With your own data"}
+Change the model name. If `which()` lists rows, the numbers are row numbers in your dataset. To see those rows, put the numbers in square brackets, for example `students[c(12, 40), ]`.
+:::
+
+## Confidence interval for the slope
+
+```{r confint}
+```
+
+Read the slope's row (`Height`): we are 95% confident that, in the population, each extra centimeter of height goes with a foot between 0.146 and 0.179 centimeters longer, on average. The columns `2.5 %` and `97.5 %` are the two ends of a 95% interval.
+
+## Predictions
+
+To predict from the model, set up the predictor value in a small dataset, then ask `predict()` for one of the two intervals the textbook describes:
+
+```{r predict}
+```
+
+For students 170 cm tall, the predicted foot length is 24.78 cm (`fit`). The confidence interval for the *mean* foot length of all such students is [24.61, 24.95]. The prediction interval for *one* such student is much wider, [21.03, 28.53], because individuals vary more than averages do. `lwr` and `upr` are the lower and upper ends.
+
+::: {.callout-warning title="Common error: object 'Height' not found"}
+**What you see**
+
+```{r}
+#| error: true
+new_student <- data.frame(height = 170)
+predict(foot_model, new_student, interval = "confidence")
+```
+
+**What it means:** the name inside `data.frame()` has to match the predictor's name in the model exactly. Here it is `height` instead of `Height`.
+
+**How to fix it:** copy the predictor's name from your `lm()` line.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the predictor's name and value inside `data.frame()`, and the model name. Predict only within the range of predictor values in your data; the textbook explains why predictions outside that range are risky.
+:::
+
+## Log transformation
+
+When a scatterplot curves, a log transformation of the predictor can straighten it. Load the second dataset and draw the original scatterplot:
+
+```{r read-planet}
+```
+
+```{r curve}
+#| fig-cap: "Scatterplot of life expectancy against ecological footprint for 147 countries."
+#| fig-alt: "Scatterplot of life expectancy against ecological footprint for 147 countries, with footprints from 0.2 to 42 and life expectancies from about 52 to 86 years. The dots climb steeply at small footprints, then level off: past a footprint of about 10, life expectancy stays near 70 to 85 years. The pattern is a curve, not a straight line."
+```
+
+The dots climb steeply and then level off, a curve of diminishing returns. Plot the base-10 log of the predictor instead by putting `log10()` around it:
+
+```{r log-scatter}
+#| fig-cap: "Scatterplot of life expectancy against the base-10 log of ecological footprint, with the regression line."
+#| fig-alt: "Scatterplot of life expectancy against the base-10 log of ecological footprint, with log values from about minus 0.7 to 1.6. The dots now rise along a fairly straight band, and a straight black regression line runs through them from about 54 years at the left to about 85 years at the right."
+```
+
+The curve is gone. Fit the model the same way, with `log10()` around the predictor:
+
+```{r log-model}
+```
+
+$R^2$ is 0.525, or 52.5%, compared with 35.6% for a straight line on the original scale (the square of their correlation, 0.60). The slope, 13.39, is read as the textbook describes for a base-10 log: each time a country's footprint multiplies by 10, predicted life expectancy rises by about 13.4 years.
+
+::: {.callout-warning title="Common error: NaNs produced"}
+**What you see**
+
+```{r}
+log10(c(10, 1, 0, -5))
+```
+
+**What it means:** the logarithm only exists for numbers above 0. `log10(0)` is `-Inf` (minus infinity) and the log of a negative number is `NaN` ("not a number"), so `lm()` cannot use those rows.
+
+**How to fix it:** a log transformation only works for a predictor whose values are all above 0. If yours includes 0 or negative values, the textbook's log transformation is not the right tool for that variable.
+:::
+
+::: {.callout-tip title="With your own data"}
+Put your predictor inside `log10()` in both the scatterplot and the model, and change the response and dataset. Interpret the slope as the change in the response each time the predictor multiplies by 10.
+:::
