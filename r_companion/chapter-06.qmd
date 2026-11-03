@@ -33,6 +33,10 @@ This chapter uses three packages: `ggplot2` for the graphs, `emmeans` for Dunnet
 ```{r load-packages}
 ```
 
+::: {.callout-note title="Message: Welcome to emmeans"}
+`emmeans` prints a welcome note when it loads. The message is normal, and you can ignore it.
+:::
+
 ```{r read-data}
 ```
 
