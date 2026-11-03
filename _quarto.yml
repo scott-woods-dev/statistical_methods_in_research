@@ -68,6 +68,33 @@ format:
         \usepackage{eso-pic}
         \captionsetup[figure]{labelformat=empty}
         \captionsetup[table]{labelformat=empty}
+        % Running headers. The book class prints them in capitals on one line,
+        % so long titles ran into the page number. Print them in normal
+        % capitalization instead (\MakeUppercase is switched off while each
+        % mark is stored), and scale any title still too wide for the line,
+        % minus room for the page number, down to fit.
+        \makeatletter
+        \let\sm@markboth\markboth
+        \let\sm@markright\markright
+        \renewcommand\markboth[2]{\begingroup\let\MakeUppercase\@firstofone
+          \sm@markboth{#1}{#2}\endgroup}
+        \renewcommand\markright[1]{\begingroup\let\MakeUppercase\@firstofone
+          \sm@markright{#1}\endgroup}
+        \let\@mkboth\markboth
+        \newlength\sm@hdrmax
+        \newsavebox\sm@hdrbox
+        \newcommand\sm@fithdr[1]{%
+          \setlength\sm@hdrmax{\textwidth}\addtolength\sm@hdrmax{-2.5em}%
+          \sbox\sm@hdrbox{\slshape #1}%
+          \ifdim\wd\sm@hdrbox>\sm@hdrmax
+            \resizebox{\sm@hdrmax}{!}{\usebox\sm@hdrbox}%
+          \else\usebox\sm@hdrbox\fi}
+        \def\@evenhead{\thepage\hfil\sm@fithdr{\leftmark}}
+        \def\@oddhead{\sm@fithdr{\rightmark}\hfil\thepage}
+        \g@addto@macro\ps@headings{%
+          \def\@evenhead{\thepage\hfil\sm@fithdr{\leftmark}}%
+          \def\@oddhead{\sm@fithdr{\rightmark}\hfil\thepage}}
+        \makeatother
         % Cover title page. The stock title page is replaced by a blank page,
         % and the cover PDF is painted full bleed behind it. The starred
         % \AddToShipoutPictureBG applies to the current page only.
