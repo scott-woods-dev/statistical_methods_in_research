@@ -110,10 +110,12 @@ pass "6 companion" "PDF ${CPAGES:-?} pages"
 bash tools/links/check_companion_links.sh >"$LOG" 2>&1 || fail "7 links" "broken companion links"
 pass "7 links" "$(tail -n 1 "$LOG" | sed -E 's/.*: //')"
 
-# 8. Accessibility, desktop and phone width. Pages: the landing page plus every
-# file in chapters/, so the list cannot drift from the book.
+# 8. Accessibility, desktop and phone width. Pages: the landing page, every
+# file in chapters/, and every companion page (r_companion/*.qmd), so the list
+# cannot drift from either book.
 PAGES_LIST=("/")
 for f in chapters/*.md; do PAGES_LIST+=("/chapters/$(basename "$f" .md).html"); done
+for f in r_companion/*.qmd; do PAGES_LIST+=("/companion/$(basename "$f" .qmd).html"); done
 python3 -m http.server 8765 -d docs >/dev/null 2>&1 &
 SERVER_PID=$!
 sleep 1
