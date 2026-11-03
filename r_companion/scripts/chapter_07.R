@@ -28,7 +28,8 @@ library(emmeans)
 
 # This setting makes R calculate the main effects with Type III
 # sums of squares, which do not depend on the order of the factors.
-# Run it once, before fitting any model. You do not need to change it.
+# Run it once, before fitting any model. You do not need to change
+# it.
 options(contrasts = c("contr.sum", "contr.poly"))
 
 

@@ -94,6 +94,11 @@ format:
     links-as-notes: true
     include-in-header:
       text: |
+        % Tables are unnumbered, as on the web and in the textbook, so a
+        % caption such as "Table 8.3 in the textbook" never sits beside a
+        % different companion number.
+        \usepackage{caption}
+        \captionsetup[table]{labelformat=empty}
         % Wrap long code and output lines at the margin instead of running
         % off the page.
         % Applied at the start of the document because Quarto's later

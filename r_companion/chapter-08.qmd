@@ -141,7 +141,7 @@ $V = 0.27$. Cramér's V cutoffs depend on the size of the table, because more ca
 `Gender` has 2 categories, so use the first row: 0.27 is above the 0.10 cutoff for a small effect but below the 0.30 cutoff for a medium effect, so the association is small. The 95% CI is a range of likely values; its upper end is always printed as 1.00, and the note under the table says so. You can ignore it.
 
 ::: {.callout-tip title="With your own data"}
-Put your two categorical variables inside `table()`, then change the table name in `chisq.test()` and `cramers_v()`. Count the categories in each variable, and use the smaller count to pick the row of Table 8.3. For a 2 × 2 table, the same function gives Phi.
+Put your two categorical variables inside `table()`, then change the table name in `chisq.test()` and `cramers_v()`. Count the categories in each variable, and use the smaller count to pick the row of the cutoff table above. For a 2 × 2 table, the same function gives Phi.
 :::
 
 ## McNemar's test
