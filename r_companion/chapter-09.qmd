@@ -1,0 +1,198 @@
+# Logistic Regression {#sec-ch09}
+
+```{r}
+#| label: setup
+#| include: false
+# The code below comes from the chapter script, piece by piece.
+knitr::read_chunk("../r_companion/scripts/chapter_09.R")
+# Wrap R's printed output to fit the page.
+options(width = 68)
+```
+
+This chapter fits the logistic regression models from Chapter 9 of the textbook and gets the values the textbook uses to judge them: odds ratios with confidence intervals, VIF, predicted probabilities, deviance $R^2$, a confusion matrix, and an ROC curve with its AUC. The function is `glm()`, which works almost exactly like `lm()` from Chapters 4 and 5.
+
+**Get the script:** [Download the Chapter 9 script, `chapter_09.R`](scripts/chapter_09.R), and save it in the same folder as your data.
+
+## The data
+
+[Download `youth_risk_2007.csv`](../data/youth_risk_2007.csv) into the same folder as the script. It holds answers from 13,387 high school students to the 2007 Youth Risk Behavior Survey, which you used in Chapter 2. The question in this chapter: which students are more likely to have tried smoking?
+
+The variables used in this chapter:
+
+| Variable | Type | What it records |
+| :--- | :--- | :--- |
+| `smoke` | Categorical | Lifetime tobacco experimentation indicator ($1 = \text{yes, has tried smoking cigarettes (even a few puffs)}$, $0 = \text{no}$). |
+| `ride.alc.driver` | Categorical | Riding with a Drunk Driver (RDD) indicator within the past 30 days ($1 = \text{yes, rode with a driver who had been drinking}$, $0 = \text{no}$). |
+| `age4` | Categorical | The respondent's age in years, restricted to adolescent age brackets (**14**, **15**, **16**, **17**, or **18** years old). |
+
+: Variables from `youth_risk_2007.csv` used in this chapter {tbl-colwidths="[20,17,63]"}
+
+`age4` holds ages in whole years, so the models below use it as a number: each slope is the change for one more year of age.
+
+## Load the packages and the data
+
+This chapter uses three packages: `ggplot2` for the ROC curve's look, `car` for VIF, and `pROC` for the ROC curve and its AUC. If any is not installed yet, go back to [Install and load packages](chapter-00.qmd#sec-packages) in Getting Set Up.
+
+```{r load-packages}
+```
+
+::: {.callout-note title="Messages when car and pROC load"}
+`car` loads its companion package of example datasets, as in Chapter 5. `pROC` prints a citation note and says that some of its functions are "masked from 'package:stats'." That means `pROC` has its own versions of three functions with the same names. Nothing in this companion uses them, so you can ignore the message.
+:::
+
+```{r read-data}
+```
+
+The outcome is coded 0 and 1, as logistic regression needs, and 388 students did not answer the question (`<NA>`).
+
+::: {.callout-warning title="Common error: y values must be 0 <= y <= 1"}
+**What you see**
+
+```{r}
+#| error: true
+pressure <- read.csv("smoking_bmi_bp.csv")
+glm(Smoker ~ BMI, data = pressure, family = binomial)
+```
+
+**What it means:** the outcome is stored as words (`Yes` and `No`), not as 0 and 1.
+
+**How to fix it:** create a 0/1 version of the outcome with `ifelse()` from Chapter 8, with 1 for the event you are predicting, and use the new column in `glm()`:
+
+```r
+pressure$SmokerYes <- ifelse(pressure$Smoker == "Yes", 1, 0)
+```
+:::
+
+## Simple logistic regression
+
+`glm()` takes the outcome before the `~` and the predictor after it, like `lm()`. Two extra arguments make it a logistic regression that handles missing values:
+
+```{r simple}
+```
+
+The `Coefficients` table has the same columns as the textbook's Table 9.1, apart from the odds ratios, which come next. Read it in two steps:
+
+1. **The slope's sign and p-value.** The `Estimate` for `age4` is 0.237, a log-odds slope: positive, so older students were more likely to have tried smoking, *p* < .001.
+2. **The odds ratio.** `exp(coef())` turns each slope into an odds ratio. For `age4` it is 1.267: each extra year of age multiplies the odds of having tried smoking by 1.27, a 26.7% increase in the odds. Ignore the `(Intercept)` odds ratio.
+
+The line `(439 observations deleted due to missingness)` tells you how many students were left out because they were missing the outcome or the predictor.
+
+::: {.callout-note title="Check: the family line"}
+Look for `(Dispersion parameter for binomial family taken to be 1)` near the bottom of the output. If it says `gaussian` instead, you left out `family = binomial`, and R fit an ordinary regression without any error or warning. Add the argument and run the model again.
+:::
+
+## Multiple logistic regression
+
+List the predictors after the `~`, joined with `+` signs, as in Chapter 5:
+
+```{r multiple}
+```
+
+Both predictors are significant, *p* < .001, each while holding the other constant. For the odds ratios with their 95% confidence intervals, in the layout of the textbook's Table 9.4:
+
+```{r odds-ratios}
+```
+
+- **`ride.alc.driver`:** students who had ridden with a driver who had been drinking had 3.18 times the odds of having tried smoking, 95% CI [2.94, 3.45], compared with students of the same age who had not.
+- **`age4`:** each extra year of age multiplies the odds by 1.26 (a 26% increase), 95% CI [1.22, 1.30], for students with the same answer about riding with a drinking driver.
+
+```{r vif}
+```
+
+Both VIFs are 1.00, so the predictors do not overlap.
+
+::: {.callout-note title="confint() or confint.default()?"}
+`confint.default()` gives the confidence intervals the textbook reports. You may see `confint()` in other R guides; it prints `Waiting for profiling to be done...` and gives slightly different intervals by a different method. Use `confint.default()` to match the textbook.
+:::
+
+::: {.callout-tip title="With your own data"}
+Change the outcome, the predictors, the dataset, and the model's name. Use the model's name in the odds ratio and VIF lines too. A categorical predictor stored as words works as in Chapter 5: R makes the indicator variables and names each row after its group.
+:::
+
+## Predicted probabilities
+
+To predict the probability for specific people, build a small table of profiles with `data.frame()`. It needs one column for each predictor, named exactly as in the model:
+
+```{r predict}
+```
+
+A 16-year-old who had not ridden with a drinking driver has a predicted probability of 0.44 (44%) of having tried smoking; a 16-year-old who had has a probability of 0.72 (72%). The `1` and `2` above the probabilities are the row numbers of the profiles.
+
+::: {.callout-tip title="With your own data"}
+Give `data.frame()` one column per predictor, using the predictor names from your model, and list one value per profile inside each `c()`. Every column needs the same number of values. For a categorical predictor stored as words, type the group name in quotes, such as `Group = c("Control", "Treatment")`.
+:::
+
+## Deviance R-squared
+
+R does not print the deviance $R^2$, but it stores the pieces needed to calculate it. The first line gives the deviance $R^2$, and the second the adjusted deviance $R^2$:
+
+```{r deviance-r2}
+```
+
+The model reduced the deviance by 6.1% compared with a model with no predictors (adjusted deviance $R^2$ also 6.1%, since the sample is large). The predictors are significant, but they leave most of the deviance unexplained, the same pattern the textbook describes for its ICU model.
+
+## Confusion matrix
+
+`fitted()` gives each student's predicted probability. Store it as a new column, turn it into a 0/1 prediction with a 50% threshold, and cross-tabulate the predictions against what actually happened:
+
+```{r confusion}
+```
+
+At the 50% threshold, the model's sensitivity is 0.52 (it caught 52% of the students who had tried smoking) and its specificity is 0.71 (it correctly identified 71% of those who had not). To try a different threshold, as the textbook describes, change the `0.5` in the `ifelse()` line and run the lines below it again.
+
+::: {.callout-warning title="Common error: replacement has 12948 rows, data has 13387"}
+**What you see**
+
+```{r}
+#| error: true
+no_exclude <- glm(smoke ~ ride.alc.driver + age4, data = youth,
+                  family = binomial)
+youth$prob <- fitted(no_exclude)
+```
+
+**What it means:** without `na.action = na.exclude`, the model leaves out the rows with missing values completely, so it has fewer predictions than the dataset has rows.
+
+**How to fix it:** add `na.action = na.exclude` inside `glm()` and fit the model again. The missing rows then get `NA` as their prediction, and the column fits.
+:::
+
+::: {.callout-warning title="Common error: subscript out of bounds"}
+**What you see**
+
+```{r}
+#| error: true
+strict <- table(Predicted = ifelse(youth$prob > 0.9, 1, 0),
+                Actual = youth$smoke)
+strict
+strict["1", "1"] / sum(strict[, "1"])
+```
+
+**What it means:** no student has a predicted probability over 0.9, so every prediction is 0 and the table has no row named `1`. The same thing happens at the 50% threshold when the outcome is rare or very common, as with the textbook's ICU model, where nearly everyone is predicted to survive.
+
+**How to fix it:** print the confusion matrix before calculating. If it has only one row, the rule never predicts the other outcome; try a threshold closer to the middle of the predicted probabilities.
+:::
+
+## ROC curve and AUC
+
+`roc()` compares the actual outcomes with the predicted probabilities at every possible threshold, and `auc()` gives the area under the curve:
+
+```{r roc}
+```
+
+The AUC is 0.66. On the textbook's grading scale, that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.
+
+::: {.callout-note title="Messages: Setting levels and Setting direction"}
+`roc()` reports which outcome it treated as the event (`case = 1`) and that the event should have the higher predicted probabilities. Both are what you want for a 0/1 outcome, so you can ignore the messages.
+:::
+
+Draw the ROC curve with `ggroc()`, which makes a ggplot:
+
+```{r roc-plot}
+#| fig-cap: "ROC curve for the logistic regression of ever smoking on riding with a drinking driver and age."
+#| fig-alt: "ROC curve with the false positive rate along the bottom and sensitivity up the side, both from 0 to 1. A solid curve bows up and to the left of a dashed diagonal line that runs from the lower left corner to the upper right. The curve stays modestly above the diagonal the whole way, matching an AUC of 0.66."
+```
+
+The curve bows above the dashed "coin flip" diagonal, but not far toward the top-left corner, which matches the modest AUC.
+
+::: {.callout-tip title="With your own data"}
+Put your outcome and your predicted probability column inside `roc()`, then change the name inside `auc()` and `ggroc()`, and update the title.
+:::

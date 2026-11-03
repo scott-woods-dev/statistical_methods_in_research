@@ -145,7 +145,7 @@ This is a message, not an error; the graph still draws. Adding `binwidth` remove
 :::
 
 ::: {.callout-tip title="With your own data"}
-Change `Sleep1` to your numerical variable, and update the title and x-axis label. Choose a `binwidth` in your variable's units: 1 works for counts such as classes missed, but a GPA needs something smaller, such as 0.25. Try a few values and keep the one that shows the shape most clearly. For a second variable, copy the whole block and change it again.
+Change `Sleep1` to your numerical variable, and update the title and x-axis label. Choose a `binwidth` in your variable's units: 1 works for counts such as classes missed, but a GPA needs something smaller, such as 0.25. Try a few values and keep the one that shows the shape best. For a second variable, copy the whole block and change it again.
 :::
 
 ## Mean and median
