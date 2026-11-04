@@ -77,7 +77,7 @@ freq "highly" '\bhighly\b' 6 23
 freq "very" '\bvery\b' 7 22
 freq "perfectly" '\bperfectly\b' 9 36
 freq "entirely" '\bentirely\b' 4 30
-freq "massive" '\bmassive(ly)?\b' 0 0
+freq "massive" '\bmassive(ly)?\b' 1 2
 freq "incredibly" '\bincredibl[ey]\b' 1 2
 freq "real world" '\breal[- ](world|life)\b' 1 2
 freq "look at" "\\b(look(s|ed|ing)? at|let(?:'|\\xE2\\x80\\x99)s look)\\b" 11 71

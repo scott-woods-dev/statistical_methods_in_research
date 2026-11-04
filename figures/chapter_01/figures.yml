@@ -4,9 +4,9 @@ figures:
   type: bar
   caption: Depression screening status among 253 students, ordered from normal to
     severe.
-  alt: Bar chart of depression screening status for 253 students. The Normal bar is
-    tallest at 209 students, Moderate is 34, and Severe is 10. Bars are ordered Normal,
-    Moderate, Severe.
+  alt: Bar chart of depression screening status for 253 students. The normal bar is
+    tallest at 209 students, moderate is 34, and severe is 10. Bars are ordered normal,
+    moderate, severe.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
@@ -139,11 +139,11 @@ figures:
 - id: 1.9b
   file: fig_01_09b_box_gpa_by_depression.png
   type: box
-  caption: GPA by depression screening status for 253 students. The Severe group has
+  caption: GPA by depression screening status for 253 students. The severe group has
     the lowest median and third quartile.
-  alt: Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression
-    groups. Median GPA is 3.25 in the Normal group, 3.33 in the Moderate group, and
-    3.04 in the Severe group. The third quartile is 3.50, 3.60, and 3.35. The Moderate
+  alt: Side-by-side box plots of GPA for the normal, moderate, and severe depression
+    groups. Median GPA is 3.25 in the normal group, 3.33 in the moderate group, and
+    3.04 in the severe group. The third quartile is 3.50, 3.60, and 3.35. The moderate
     group has the widest middle 50%.
   width_in: 6.5
   height_in: 4.25
@@ -207,17 +207,17 @@ figures:
 - id: '1.13'
   file: fig_01_13_box_classes_missed_by_anxiety.png
   type: box
-  caption: Classes missed by anxiety screening status for 253 students. The Severe
+  caption: Classes missed by anxiety screening status for 253 students. The severe
     group has a higher median and a wider middle 50%.
-  alt: Side-by-side box plots of classes missed for the Normal, Moderate, and Severe
-    anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate
-    group, and 4.5 in the Severe group. The Severe group also has the widest middle
+  alt: Side-by-side box plots of classes missed for the normal, moderate, and severe
+    anxiety groups. Median classes missed is 1 in the normal group, 1 in the moderate
+    group, and 4.5 in the severe group. The severe group also has the widest middle
     50%, from 1.5 to 6.25.
   width_in: 6.5
   height_in: 4.25
   dpi: 300.0
   script: r_code/figures/chapter_01.R
-  author_note: The Severe anxiety group has 16 students, so its box describes a small
+  author_note: The severe anxiety group has 16 students, so its box describes a small
     sample. The figure compares the groups in this sample; it is not a population
     estimate.
   colour_audit:

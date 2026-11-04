@@ -341,7 +341,8 @@ names(tukey) <- c(
 cohen_d <- function(g1, g2) {
   a <- group_summary[group_summary$prog == g1, ]
   b <- group_summary[group_summary$prog == g2, ]
-  abs(a$mean - b$mean) / ((a$sd + b$sd) / 2)
+  pooled_sd <- sqrt(((a$n - 1) * a$sd^2 + (b$n - 1) * b$sd^2) / (a$n + b$n - 2))
+  abs(a$mean - b$mean) / pooled_sd
 }
 cohen_d_table <- data.frame(
   comparison = c(
@@ -389,8 +390,8 @@ values <- list(
   ),
   cohen_d = list(
     note = paste(
-      "Absolute mean difference divided by the average of the two group",
-      "standard deviations."
+      "Absolute mean difference divided by the pooled standard deviation",
+      "of the two groups."
     ),
     comparisons = cohen_d_table
   )

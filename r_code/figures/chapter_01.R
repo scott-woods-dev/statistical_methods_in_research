@@ -33,12 +33,12 @@ sl <- read_csv(
     DepressionStatus = factor(
       DepressionStatus,
       levels = c("normal", "moderate", "severe"),
-      labels = c("Normal", "Moderate", "Severe")
+      labels = c("normal", "moderate", "severe")
     ),
     AnxietyStatus = factor(
       AnxietyStatus,
       levels = c("normal", "moderate", "severe"),
-      labels = c("Normal", "Moderate", "Severe")
+      labels = c("normal", "moderate", "severe")
     ),
     Stress = factor(
       Stress, levels = c("normal", "high"), labels = c("Normal", "High")
@@ -108,9 +108,9 @@ save_book_fig(
   chapter = 1, id = "1.2", type = "bar", slug = "depression_status",
   caption = "Depression screening status among 253 students, ordered from normal to severe.",
   alt = paste(
-    "Bar chart of depression screening status for 253 students. The Normal",
-    "bar is tallest at 209 students, Moderate is 34, and Severe is 10.",
-    "Bars are ordered Normal, Moderate, Severe."
+    "Bar chart of depression screening status for 253 students. The normal",
+    "bar is tallest at 209 students, moderate is 34, and severe is 10.",
+    "Bars are ordered normal, moderate, severe."
   ),
   direct_labels = TRUE
 )
@@ -406,12 +406,12 @@ p19b <- ggplot(sl, aes(x = DepressionStatus, y = GPA)) +
 save_book_fig(
   p19b,
   chapter = 1, id = "1.9b", type = "box", slug = "gpa_by_depression",
-  caption = "GPA by depression screening status for 253 students. The Severe group has the lowest median and third quartile.",
+  caption = "GPA by depression screening status for 253 students. The severe group has the lowest median and third quartile.",
   alt = paste(
-    "Side-by-side box plots of GPA for the Normal, Moderate, and Severe",
-    "depression groups. Median GPA is 3.25 in the Normal group, 3.33 in the",
-    "Moderate group, and 3.04 in the Severe group. The third quartile is",
-    "3.50, 3.60, and 3.35. The Moderate group has the widest middle 50%."
+    "Side-by-side box plots of GPA for the normal, moderate, and severe",
+    "depression groups. Median GPA is 3.25 in the normal group, 3.33 in the",
+    "moderate group, and 3.04 in the severe group. The third quartile is",
+    "3.50, 3.60, and 3.35. The moderate group has the widest middle 50%."
   ),
   match = "Side-by-side box plots showing GPA",
   direct_labels = TRUE
@@ -563,16 +563,16 @@ p115 <- ggplot(sl, aes(x = AnxietyStatus, y = ClassesMissed)) +
 save_book_fig(
   p115,
   chapter = 1, id = "1.13", type = "box", slug = "classes_missed_by_anxiety",
-  caption = "Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.",
+  caption = "Classes missed by anxiety screening status for 253 students. The severe group has a higher median and a wider middle 50%.",
   alt = paste(
-    "Side-by-side box plots of classes missed for the Normal, Moderate, and",
-    "Severe anxiety groups. Median classes missed is 1 in the Normal group,",
-    "1 in the Moderate group, and 4.5 in the Severe group. The Severe group",
+    "Side-by-side box plots of classes missed for the normal, moderate, and",
+    "severe anxiety groups. Median classes missed is 1 in the normal group,",
+    "1 in the moderate group, and 4.5 in the severe group. The severe group",
     "also has the widest middle 50%, from 1.5 to 6.25."
   ),
   direct_labels = TRUE,
   author_note = paste(
-    "The Severe anxiety group has 16 students, so its box describes a small",
+    "The severe anxiety group has 16 students, so its box describes a small",
     "sample. The figure compares the groups in this sample; it is not a",
     "population estimate."
   )
@@ -661,7 +661,7 @@ values <- list(
   ),
   figure_1_9b = list(
     note = paste(
-      "GPA by depression status. The Moderate median is 3.325, displayed as",
+      "GPA by depression status. The moderate median is 3.325, displayed as",
       "3.33 in the figure and alt text."
     ),
     summaries = gpa_summary

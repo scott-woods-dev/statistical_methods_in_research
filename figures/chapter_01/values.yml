@@ -17,11 +17,11 @@ values:
   figure_1_2:
     note: Depression screening counts.
     counts:
-    - DepressionStatus: Normal
+    - DepressionStatus: normal
       'n': 209
-    - DepressionStatus: Moderate
+    - DepressionStatus: moderate
       'n': 34
-    - DepressionStatus: Severe
+    - DepressionStatus: severe
       'n': 10
   figure_1_3:
     note: Illustrative tutoring counts; no dataset exists.
@@ -105,20 +105,20 @@ values:
       'n': 5
       share: 0.0892857
   figure_1_9b:
-    note: GPA by depression status. The Moderate median is 3.325, displayed as 3.33
+    note: GPA by depression status. The moderate median is 3.325, displayed as 3.33
       in the figure and alt text.
     summaries:
-    - DepressionStatus: Normal
+    - DepressionStatus: normal
       'n': 209
       median: 3.25
       q1: 3.0
       q3: 3.5
-    - DepressionStatus: Moderate
+    - DepressionStatus: moderate
       'n': 34
       median: 3.325
       q1: 3.01
       q3: 3.6
-    - DepressionStatus: Severe
+    - DepressionStatus: severe
       'n': 10
       median: 3.035
       q1: 3.0
@@ -128,17 +128,17 @@ values:
   figure_1_15:
     note: Classes missed by anxiety status.
     summaries:
-    - AnxietyStatus: Normal
+    - AnxietyStatus: normal
       'n': 181
       median: 1.0
       q1: 0.0
       q3: 3.0
-    - AnxietyStatus: Moderate
+    - AnxietyStatus: moderate
       'n': 56
       median: 1.0
       q1: 0.0
       q3: 2.25
-    - AnxietyStatus: Severe
+    - AnxietyStatus: severe
       'n': 16
       median: 4.5
       q1: 1.5

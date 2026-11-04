@@ -84,7 +84,7 @@ To visualize a single categorical variable, we use a **bar plot**. A bar plot dr
 
 
 
-![Figure 1.2: Depression screening status among 253 students, ordered from normal to severe.](../figures/chapter_01/fig_01_02_bar_depression_status.png){fig-alt="Bar chart of depression screening status for 253 students. The Normal bar is tallest at 209 students, Moderate is 34, and Severe is 10. Bars are ordered Normal, Moderate, Severe."}
+![Figure 1.2: Depression screening status among 253 students, ordered from normal to severe.](../figures/chapter_01/fig_01_02_bar_depression_status.png){fig-alt="Bar chart of depression screening status for 253 students. The normal bar is tallest at 209 students, moderate is 34, and severe is 10. Bars are ordered normal, moderate, severe."}
 
 
 
@@ -92,7 +92,7 @@ When interpreting a bar plot, you are primarily looking for the most common and 
 
 
 
-Notice that because `DepressionStatus` is an ordinal variable, we keep the bars in their natural progression (Normal $\rightarrow$ Moderate $\rightarrow$ Severe). Sorting them by height would scramble the meaning!
+Notice that because `DepressionStatus` is an ordinal variable, we keep the bars in their natural progression (normal $\rightarrow$ moderate $\rightarrow$ severe). Sorting them by height would scramble the meaning!
 
 
 
@@ -258,15 +258,15 @@ The best tool for this job is a **box plot** (sometimes called a box-and-whisker
 
 
 
-![Figure 1.9b: GPA by depression screening status for 253 students. The Severe group has the lowest median and third quartile.](../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png){fig-alt="Side-by-side box plots of GPA for the Normal, Moderate, and Severe depression groups. Median GPA is 3.25 in the Normal group, 3.33 in the Moderate group, and 3.04 in the Severe group. The third quartile is 3.50, 3.60, and 3.35. The Moderate group has the widest middle 50%."}
+![Figure 1.9b: GPA by depression screening status for 253 students. The severe group has the lowest median and third quartile.](../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png){fig-alt="Side-by-side box plots of GPA for the normal, moderate, and severe depression groups. Median GPA is 3.25 in the normal group, 3.33 in the moderate group, and 3.04 in the severe group. The third quartile is 3.50, 3.60, and 3.35. The moderate group has the widest middle 50%."}
 
 
 
-A box plot takes a numerical distribution and boils it down to its most essential parts: a box that contains the middle 50% of the students, a line inside the box for the median (the exact center value when data is placed in numerical order), and lines (whiskers) reaching out to the extremes. By placing a box plot for "Normal," "Moderate," and "Severe" right next to each other, you can easily compare the typical GPA across different mental health statuses.
+A box plot takes a numerical distribution and boils it down to its most essential parts: a box that contains the middle 50% of the students, a line inside the box for the median (the exact center value when data is placed in numerical order), and lines (whiskers) reaching out to the extremes. By placing a box plot for "normal," "moderate," and "severe" right next to each other, you can easily compare the typical GPA across different mental health statuses.
 
 
 
-In this sample, the Severe group has the lowest median GPA (3.04, compared with 3.25 for Normal and 3.33 for Moderate), so there may be a relationship there worth investigating. The Moderate group's median is slightly above the Normal group's, so the pattern is not a steady decline from Normal to Moderate to Severe.
+In this sample, the severe group has the lowest median GPA (3.04, compared with 3.25 for normal and 3.33 for moderate), so there may be a relationship there worth investigating. The moderate group's median is slightly above the normal group's, so the pattern is not a steady decline from normal to moderate to severe.
 
 
 
@@ -601,18 +601,18 @@ To visualize the relationship between a categorical variable and a numerical var
 
 
 
-![Figure 1.13: Classes missed by anxiety screening status for 253 students. The Severe group has a higher median and a wider middle 50%.](../figures/chapter_01/fig_01_13_box_classes_missed_by_anxiety.png){fig-alt="Side-by-side box plots of classes missed for the Normal, Moderate, and Severe anxiety groups. Median classes missed is 1 in the Normal group, 1 in the Moderate group, and 4.5 in the Severe group. The Severe group also has the widest middle 50%, from 1.5 to 6.25."}
+![Figure 1.13: Classes missed by anxiety screening status for 253 students. The severe group has a higher median and a wider middle 50%.](../figures/chapter_01/fig_01_13_box_classes_missed_by_anxiety.png){fig-alt="Side-by-side box plots of classes missed for the normal, moderate, and severe anxiety groups. Median classes missed is 1 in the normal group, 1 in the moderate group, and 4.5 in the severe group. The severe group also has the widest middle 50%, from 1.5 to 6.25."}
 
 
 
-The box plot shows where the groups differ: the Normal and Moderate groups both have a median of 1 class missed, and their boxes overlap heavily. The Severe group is different. Its median is 4.5 classes missed, and its middle 50% runs from 1.5 to 6.25, so both the center and the spread are larger. The Severe group has only 16 students, so this comparison describes our sample and is not a precise estimate for all students with severe anxiety.
+The box plot shows where the groups differ: the normal and moderate groups both have a median of 1 class missed, and their boxes overlap heavily. The severe group is different. Its median is 4.5 classes missed, and its middle 50% runs from 1.5 to 6.25, so both the center and the spread are larger. The severe group has only 16 students, so this comparison describes our sample and is not a precise estimate for all students with severe anxiety.
 
 ### Numerical Summaries
 | Anxiety Status | Median Classes Missed | Interquartile Range (IQR) |
 | :------------- | :-------------------- | :------------------------ |
-| **Normal**     | 1.0                   | 3.0                       |
-| **Moderate**   | 1.0                   | 2.25                      |
-| **Severe**     | 4.5                   | 4.75                      |
+| **normal**     | 1.0                   | 3.0                       |
+| **moderate**   | 1.0                   | 2.25                      |
+| **severe**     | 4.5                   | 4.75                      |
 
 : Table 1.5: Numerical summaries of classes missed by anxiety status.
 
@@ -656,7 +656,7 @@ Notice two things about this conclusion. First, it uses the data to tell a clear
 
 **1.** A university health center publishes a report stating that the mean number of alcoholic drinks consumed per week by undergraduate students is 4.2, with a median of 1.0. What does the large difference between the mean and the median tell you about the shape of this data? Why is the median so much lower?
 
-**2.** You are reviewing a mosaic plot that compares student housing (On-Campus vs. Off-Campus) and anxiety levels (Normal, Moderate, Severe). The vertical block for "On-Campus" is twice as wide as the block for "Off-Campus." Within the "On-Campus" block, the segment for "Severe" anxiety is relatively small. What do the width of the blocks and the height of the segments tell you?
+**2.** You are reviewing a mosaic plot that compares student housing (On-Campus vs. Off-Campus) and anxiety levels (normal, moderate, severe). The vertical block for "On-Campus" is twice as wide as the block for "Off-Campus." Within the "On-Campus" block, the segment for "severe" anxiety is relatively small. What do the width of the blocks and the height of the segments tell you?
 
 **3.** Two professors teach different sections of the same introductory psychology course. Professor A's final exam grades have a mean of 75 and a standard deviation of 4. Professor B's final exam grades have a mean of 75 and a standard deviation of 12. If a student wants a predictable, consistent classroom environment, which professor should they choose and why?
 

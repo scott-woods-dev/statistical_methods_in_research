@@ -468,7 +468,7 @@ Here is the simplified output for our analysis:
 
 To interpret this table, we follow the same rule you learned in Section 7.5: **always check the interaction first**.
 
-### 1. The Interaction Effect (`Cond * Time`)
+### The Interaction Effect (`Cond * Time`)
 
 Look at the interaction row. The $p$-value is $0.003$. Because this is well below our $\alpha = 0.05$ standard of evidence, we have a statistically significant interaction!
 
@@ -476,11 +476,11 @@ Look at the interaction row. The $p$-value is $0.003$. Because this is well belo
 
 In a Repeated Measures design, a significant interaction between time and condition is the ultimate prize. It means that the *change over time* was fundamentally different depending on which group the participant was in. The informed maids' BMI did not follow the same timeline trajectory as the control maids' BMI. This interaction provides the mathematical proof that our psychological intervention did something.
 
-### 2. The Main Effect of Time (`Time`)
+### The Main Effect of Time (`Time`)
 
 Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The $p$-value is $< 0.001$. This tells us that, if we ignored the intervention and lumped all 73 maids with both BMI readings together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.
 
-### 3. The Main Effect of Condition (`Cond`)
+### The Main Effect of Condition (`Cond`)
 
 Finally, look at the main effect for the experimental condition. The $p$-value is $0.321$. This tells us that, if we ignored the four-week timeline and just averaged everyone's baseline and final scores together, the informed group and the control group did not have significantly different BMIs overall.
 

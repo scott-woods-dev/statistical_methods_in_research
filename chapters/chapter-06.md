@@ -581,8 +581,8 @@ When we command our software to run Tukey's test, it simultaneously compares all
 
 Here is what the post hoc output reveals:
 
-- **Academic vs. Vocational:** Our visual intuition from the boxplot was correct! The software confirms a statistically significant difference here ($p < .001$). The practical significance is exceptionally large ($d = 1.10$), meaning the average academic student scores more than a full standard deviation higher than the average vocational student.
-- **Academic vs. General:** The academic track also significantly outperforms the general track ($p = .005$). This difference represents a moderate practical effect ($d = 0.57$).
+- **Academic vs. Vocational:** Our visual intuition from the boxplot was correct! The software confirms a statistically significant difference here ($p < .001$). The practical significance is exceptionally large ($d = 1.13$), meaning the average academic student scores more than a full standard deviation higher than the average vocational student.
+- **Academic vs. General:** The academic track also significantly outperforms the general track ($p = .005$). This difference represents a moderate practical effect ($d = 0.59$).
 - **General vs. Vocational:** When we looked at the initial boxplot, these two groups overlapped quite a bit, making it hard to guess if a difference truly existed. This is exactly why we rely on mathematical testing rather than just our eyes. Tukey's HSD confirms that the general track does score significantly higher than the vocational track ($p = .029$), though the practical difference between them is moderate ($d = 0.49$).
 
 In a rare and statistically neat outcome, every single program track is significantly different from all the others!
@@ -595,7 +595,7 @@ To complete our research cycle, we must summarize our findings in a formal, prof
 >
 > 
 >
-> Post hoc comparisons using Tukey's HSD test indicated that students in the academic track scored significantly higher (*M* = 56.3, *SD* = 7.94) than both students in the general track (*M* = 51.3, *SD* = 9.40), *p* = .005, *d* = 0.57, and students in the vocational track (*M* = 46.8, *SD* = 9.32), *p* < .001, *d* = 1.10. Furthermore, students in the general track scored significantly higher than those in the vocational track, *p* = .029, *d* = 0.49.
+> Post hoc comparisons using Tukey's HSD test indicated that students in the academic track scored significantly higher (*M* = 56.3, *SD* = 7.94) than both students in the general track (*M* = 51.3, *SD* = 9.40), *p* = .005, *d* = 0.59, and students in the vocational track (*M* = 46.8, *SD* = 9.32), *p* < .001, *d* = 1.13. Furthermore, students in the general track scored significantly higher than those in the vocational track, *p* = .029, *d* = 0.49.
 >
 > 
 >
@@ -713,7 +713,7 @@ When the difference in spread is your actual research interest, you can use a to
 ### Communicating Results
 
 8. A fellow student is presenting their research on the physical endurance of athletes playing different sports. They used an ANOVA to compare the stamina scores of runners, swimmers, and cyclists. The student points to an $F$-statistic of 42.5 on their slide and concludes, "Because the $F$-statistic is 42.5, we know the actual stamina scores between these groups differ by over 40 points." Explain the fatal flaw in this communication.
-9. A journalist reads a published ANOVA study comparing the reading comprehension scores of thousands of elementary students using three different phonics programs. The study reports a highly significant $p$-value ($p < .001$), but the Cohen's $d$ effect sizes for the differences between the programs are all around 0.05. The journalist publishes an article with the headline: "Revolutionary Phonics Program Creates Large Advantage for Students." Explain why this headline is flawed.
+9. A journalist reads a published ANOVA study comparing the reading comprehension scores of thousands of elementary students using three different phonics programs. The study reports a highly significant $p$-value ($p < .001$), but the Cohen's $d$ effect sizes for the differences between the programs are all around 0.05. The journalist publishes an article with the headline: "Revolutionary Phonics Program Creates Massive Advantage for Students." Explain why this headline is flawed.
 10. You are reviewing a research paper draft written by a colleague. They explain that they threw away their plan to run an ANOVA because they created a histogram of their entire response variable, and it had three distinct peaks instead of a single perfect bell curve. Explain the "myth of raw data normality" to your colleague and tell them exactly what they should have checked instead.
 
 ### Software Application

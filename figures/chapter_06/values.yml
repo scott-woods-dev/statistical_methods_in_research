@@ -79,12 +79,12 @@ values:
       p_adjusted: 3.3685142e-09
       comparison: vocational-academic
   cohen_d:
-    note: Absolute mean difference divided by the average of the two group standard
-      deviations.
+    note: Absolute mean difference divided by the pooled standard deviation of the
+      two groups.
     comparisons:
     - comparison: academic vs general
-      d: 0.5678768
+      d: 0.5860226
     - comparison: academic vs vocational
-      d: 1.1003463
+      d: 1.1294882
     - comparison: general vs vocational
-      d: 0.4886946
+      d: 0.4888012
