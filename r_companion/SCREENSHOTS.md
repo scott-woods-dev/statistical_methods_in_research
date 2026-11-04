@@ -32,15 +32,6 @@ caption and alt text, places it at its marker, and renders the chapter.
 
 | ID | File name | System | What to show | What to mark |
 | :--- | :--- | :--- | :--- | :--- |
-| S01 | `00_r_not_rstudio_win.png` | Windows | R's own window (open **R**, not RStudio, from the Start menu) | Nothing |
-| S02 | `00_r_not_rstudio_mac.png` | Mac | R's own window (open **R** from Applications, not RStudio) | Nothing |
-| S03 | `00_rstudio_panes.png` | Either | RStudio with a new script open, so all four panes show | Label each pane: Source, Console, Environment, Files/Plots |
-| S04 | `00_first_script.png` | Either | A script containing `2 + 2`, after running it, with `[1] 4` in the Console | The **Run** button, and the `[1] 4` answer |
-| S05 | `00_set_working_directory.png` | Either | The **Session** menu open, with **Set Working Directory** expanded | **To Source File Location** |
-| S06 | `00_environment_students.png` | Either | The Environment pane after running `students <- read.csv("census_at_school.csv")` | The line `students  500 obs. of 35 variables` |
-| S07 | `00_mac_chip_mac.png` | Mac | The **About This Mac** window | The **Chip** (or **Processor**) line |
-| S08 | `00_rstudio_drag_mac.png` | Mac | The window that opens from the RStudio `.dmg`, with the RStudio icon and the Applications folder | An arrow from the RStudio icon to Applications |
-| S09 | `00_posit_cloud_upload.png` | Browser | The Files pane in a Posit Cloud project | The **Upload** button |
 
 Download pages (CRAN, Posit) are left as text on purpose: websites change more
 often than RStudio does, and the steps name exactly what to click.

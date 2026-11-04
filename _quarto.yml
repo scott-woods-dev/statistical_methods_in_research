@@ -13,6 +13,10 @@ book:
   subtitle: "A Conceptual Approach"
   author: "Scott Woods"
   date: today
+  navbar:
+    right:
+      - text: "R Companion"
+        href: companion/index.html
   chapters:
     - index.md
     - chapters/preface.md

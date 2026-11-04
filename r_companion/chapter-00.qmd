@@ -26,7 +26,7 @@ Choose your computer's operating system. The choice applies to every set of tabs
 
 1. Find out which kind of chip your Mac has: open the Apple menu, choose **About This Mac**, and look at the line labeled **Chip** or **Processor**. It says either "Apple" (M1, M2, and so on) or "Intel."
 
-   <!-- SCREENSHOT S07: 00_mac_chip_mac.png -->
+   ![The About This Mac window, with the chip listed.](images/chapter_00/00_mac_chip_mac.png){fig-alt="The About This Mac window for a MacBook Air. Below the laptop picture, the Chip line reads Apple M3. The serial number is blurred."}
 2. Go to <https://cran.r-project.org> and click **Download R for macOS**.
 3. Download the `.pkg` file that matches your chip: the one labeled for Apple silicon (`arm64`) if your chip says Apple, or the one labeled for Intel (`x86_64`) if it says Intel.
 4. Open the downloaded file and click **Continue** through each screen, then **Install**. Enter your Mac password if asked.
@@ -64,7 +64,7 @@ The R download page mentions XQuartz, a program that a few specialized packages 
 4. Drag the RStudio icon onto the Applications folder.
 5. Open your Applications folder and double-click **RStudio**. If your Mac asks whether you are sure you want to open an app downloaded from the internet, click **Open**.
 
-<!-- SCREENSHOT S08: 00_rstudio_drag_mac.png -->
+![The RStudio installer window on a Mac.](images/chapter_00/00_rstudio_drag_mac.png){fig-alt="The window that opens from the RStudio download on a Mac. The RStudio icon is on the right and a shortcut to the Applications folder is on the left. Drag the RStudio icon onto the Applications folder."}
 
 ::: {.callout-warning title="Common error: RStudio disappears after a restart"}
 **What you see:** RStudio worked yesterday, but today you cannot find it.
@@ -79,8 +79,7 @@ The R download page mentions XQuartz, a program that a few specialized packages 
 ::: {.callout-warning title="Common error: you opened R instead of RStudio"}
 **What you see:** a plain window with a few lines of text about the R version and copyright, and a `>` symbol, but none of the panes described below.
 
-<!-- SCREENSHOT S01: 00_r_not_rstudio_win.png -->
-<!-- SCREENSHOT S02: 00_r_not_rstudio_mac.png -->
+![The plain R window, which looks like a terminal.](images/chapter_00/00_r_not_rstudio.png){fig-alt="R opened on its own. A plain text window shows the R version, copyright and license notices, and a few lines about contributors and demos, ending with a > prompt and a cursor. There are no panes, buttons, or menus like those in RStudio."}
 
 **What it means:** both programs are now on your computer, and you opened R by mistake.
 
@@ -100,7 +99,7 @@ RStudio opens with three panes. Once you open a script (in the next section), a 
 
 : The four panes of RStudio, in their standard positions
 
-<!-- SCREENSHOT S03: 00_rstudio_panes.png -->
+![The four panes of RStudio, labeled Source, Console, Environment, and Files/Plots.](images/chapter_00/00_rstudio_panes.png){fig-alt="RStudio with an empty script open. The Source pane, labeled in red, fills the upper left and holds the blank script. The Console pane is below it in the lower left. The Environment pane is in the upper right and says "Environment is empty." The Files, Plots, Packages, and Help tabs share the lower right pane, labeled Files/Plots."}
 
 ## Make a folder for your work
 
@@ -134,7 +133,7 @@ A **script** is a text file of R code that you can save, rerun, and change later
 
    The `[1]` only means "first value." The answer is 4.
 
-   <!-- SCREENSHOT S04: 00_first_script.png -->
+   ![A script containing 2+2, after running it, with the answer in the Console.](images/chapter_00/00_first_script.png){fig-alt="RStudio after running a one-line script. The script 2+2 is in the Source pane, with a red arrow pointing to the Run button above it. In the Console below, the line 2+2 is followed by the answer [1] 4, marked by a second red arrow."}
 
 5. Save the script with **File > Save**, into your course folder, with a name like `practice.R`.
 
@@ -162,7 +161,7 @@ The **working directory** is the folder where R looks for files. Point it at you
 
 To check, type `list.files()` in the Console and press **Enter**. R lists the files in your working directory, and your dataset should be among them.
 
-<!-- SCREENSHOT S05: 00_set_working_directory.png -->
+![The Session menu with Set Working Directory expanded.](images/chapter_00/00_set_working_directory.png){fig-alt="RStudio with the Session menu open. Set Working Directory is highlighted, and its submenu lists three choices: To Source File Location, To Files Pane Location, and Choose Directory. To Source File Location is the first and is highlighted."}
 
 ## Install and load packages {#sec-packages}
 
@@ -234,7 +233,7 @@ students <- read.csv("census_at_school.csv")
 
 This line reads the file and stores it under the name `students`. The `<-` arrow means "store what is on the right under the name on the left." In the Environment pane, `students` now appears with **500 obs. of 35 variables**: 500 rows (students) and 35 columns (variables).
 
-<!-- SCREENSHOT S06: 00_environment_students.png -->
+![The Environment pane after reading the dataset into students.](images/chapter_00/00_environment_students.png){fig-alt="RStudio after running students <- read.csv("census_at_school.csv"). The script is in the Source pane. In the Environment pane at upper right, a red arrow points to the new line students, 500 obs. of 35 variables."}
 
 ::: {.callout-note title="Shortcut for the arrow"}
 Press **Alt** and the minus key together (Windows) or **Option** and the minus key (Mac) to type ` <- ` in one step.
@@ -274,5 +273,3 @@ The two differences:
 - **Packages are installed once per project**, not once per computer. If you start a new project, install the packages again. Using one project for the whole course avoids this.
 
 The free plan limits how many hours per month you can use Posit Cloud; check the current limits on its website. Save your scripts often, and download them (Files pane, **More > Export**) to keep a copy.
-
-<!-- SCREENSHOT S09: 00_posit_cloud_upload.png -->

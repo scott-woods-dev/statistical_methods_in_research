@@ -90,6 +90,18 @@
     });
   }
 
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
   function matchVisibleNames() {
     var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
     Array.prototype.forEach.call(sidebarLinks, function (link) {
@@ -131,6 +143,7 @@
     labelLandmarks();
     labelToggles();
     labelSidebarSections();
+    fixNavbarToggler();
     matchVisibleNames();
 
     if (!labelPageNav()) {

@@ -29,3 +29,6 @@ Rplots.pdf
 # R companion (Quarto cache)
 /r_companion/.quarto/
 /r_companion/_book/
+
+# Image viewer metadata
+.comments/

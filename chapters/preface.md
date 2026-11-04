@@ -55,7 +55,7 @@ You do not need calculus, and you do not need to have written code before. Every
 
 ## How to Use This Book
 
-Work the examples with the data the chapter names. Every dataset used in the book is available alongside it, so you can run the same analysis and compare your output with the printed result. Copying an answer teaches you very little; reproducing it teaches you where your understanding is thin.
+Work the examples with the data the chapter names. Every dataset used in the book is available alongside it, so you can run the same analysis and compare your output with the printed result. The R companion has a matching chapter for each chapter here (through Chapter 12), with scripts you can download and run, and it shows you how to swap in your own data. Copying an answer teaches you very little; reproducing it teaches you where your understanding is thin.
 
 
 

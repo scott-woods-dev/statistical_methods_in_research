@@ -17,4 +17,6 @@
 
 ::: {.content-visible when-format="html"}
 **Download:** [All datasets as one ZIP archive](data/statmethods-datasets.zip)
+
+**R companion:** [Step-by-step R code for every chapter](companion/index.html), with downloadable scripts, for students who have never written code.
 :::
