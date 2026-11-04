@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Hypothesis Testing and Effect Sizes – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-04.html" rel="next">
+<link href="../chapters/chapter-02.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#the-core-concept-the-framework-of-evidence" id="toc-the-core-concept-the-framework-of-evidence" class="nav-link" data-scroll-target="#the-core-concept-the-framework-of-evidence"><span class="header-section-number">3.2</span> The Core Concept &amp; The Framework of Evidence</a>
+  <ul class="collapse">
+  <li><a href="#signal-vs.-noise" id="toc-signal-vs.-noise" class="nav-link" data-scroll-target="#signal-vs.-noise"><span class="header-section-number">3.2.1</span> Signal vs.&nbsp;Noise</a></li>
+  <li><a href="#measuring-the-evidence-the-p-value" id="toc-measuring-the-evidence-the-p-value" class="nav-link" data-scroll-target="#measuring-the-evidence-the-p-value"><span class="header-section-number">3.2.2</span> Measuring the Evidence: The p-value</a></li>
+  <li><a href="#the-standard-of-evidence-significance-level-alpha" id="toc-the-standard-of-evidence-significance-level-alpha" class="nav-link" data-scroll-target="#the-standard-of-evidence-significance-level-alpha"><span class="header-section-number">3.2.3</span> The Standard of Evidence: Significance Level (<span class="math inline">\(\alpha\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#foundations-of-the-t---test" id="toc-foundations-of-the-t---test" class="nav-link" data-scroll-target="#foundations-of-the-t---test"><span class="header-section-number">3.3</span> Foundations of the <em>t</em> - Test</a>
+  <ul class="collapse">
+  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem"><span class="header-section-number">3.3.1</span> The Central Limit Theorem</a></li>
+  <li><a href="#checking-the-tools-requirements" id="toc-checking-the-tools-requirements" class="nav-link" data-scroll-target="#checking-the-tools-requirements"><span class="header-section-number">3.3.2</span> Checking the Tool’s Requirements</a></li>
+  </ul></li>
+  <li><a href="#choosing-the-right-tool" id="toc-choosing-the-right-tool" class="nav-link" data-scroll-target="#choosing-the-right-tool"><span class="header-section-number">3.4</span> Choosing the Right Tool</a>
+  <ul class="collapse">
+  <li><a href="#comparing-to-a-benchmark-the-single-sample-t-test" id="toc-comparing-to-a-benchmark-the-single-sample-t-test" class="nav-link" data-scroll-target="#comparing-to-a-benchmark-the-single-sample-t-test"><span class="header-section-number">3.4.1</span> Comparing to a Benchmark: The Single Sample t-Test</a></li>
+  <li><a href="#tracking-changes-over-time-the-matched-pair-t-test" id="toc-tracking-changes-over-time-the-matched-pair-t-test" class="nav-link" data-scroll-target="#tracking-changes-over-time-the-matched-pair-t-test"><span class="header-section-number">3.4.2</span> Tracking Changes Over Time: The Matched Pair t-Test</a></li>
+  <li><a href="#comparing-two-separate-groups-the-independent-sample-t-test" id="toc-comparing-two-separate-groups-the-independent-sample-t-test" class="nav-link" data-scroll-target="#comparing-two-separate-groups-the-independent-sample-t-test"><span class="header-section-number">3.4.3</span> Comparing Two Separate Groups: The Independent Sample t-Test</a></li>
+  </ul></li>
+  <li><a href="#single-sample-t-tests" id="toc-single-sample-t-tests" class="nav-link" data-scroll-target="#single-sample-t-tests"><span class="header-section-number">3.5</span> Single Sample <em>t</em>-tests</a>
+  <ul class="collapse">
+  <li><a href="#the-hypotheses" id="toc-the-hypotheses" class="nav-link" data-scroll-target="#the-hypotheses"><span class="header-section-number">3.5.1</span> The Hypotheses</a></li>
+  <li><a href="#the-mechanics-calculating-the-t-statistic" id="toc-the-mechanics-calculating-the-t-statistic" class="nav-link" data-scroll-target="#the-mechanics-calculating-the-t-statistic"><span class="header-section-number">3.5.2</span> The Mechanics: Calculating the <em>t</em>-statistic</a></li>
+  <li><a href="#the-confidence-interval" id="toc-the-confidence-interval" class="nav-link" data-scroll-target="#the-confidence-interval"><span class="header-section-number">3.5.3</span> The Confidence Interval</a></li>
+  <li><a href="#reporting-the-results" id="toc-reporting-the-results" class="nav-link" data-scroll-target="#reporting-the-results"><span class="header-section-number">3.5.4</span> Reporting the Results</a></li>
+  <li><a href="#a-closer-look-at-the-conclusion" id="toc-a-closer-look-at-the-conclusion" class="nav-link" data-scroll-target="#a-closer-look-at-the-conclusion"><span class="header-section-number">3.5.5</span> A Closer Look at the Conclusion</a></li>
+  </ul></li>
+  <li><a href="#matched-pair-t-tests" id="toc-matched-pair-t-tests" class="nav-link" data-scroll-target="#matched-pair-t-tests"><span class="header-section-number">3.6</span> Matched Pair <em>t</em>-tests</a>
+  <ul class="collapse">
+  <li><a href="#the-hypotheses-1" id="toc-the-hypotheses-1" class="nav-link" data-scroll-target="#the-hypotheses-1"><span class="header-section-number">3.6.1</span> The Hypotheses</a></li>
+  <li><a href="#calculating-the-difference-score" id="toc-calculating-the-difference-score" class="nav-link" data-scroll-target="#calculating-the-difference-score"><span class="header-section-number">3.6.2</span> Calculating the Difference Score</a></li>
+  <li><a href="#the-mechanics-and-confidence-interval" id="toc-the-mechanics-and-confidence-interval" class="nav-link" data-scroll-target="#the-mechanics-and-confidence-interval"><span class="header-section-number">3.6.3</span> The Mechanics and Confidence Interval</a></li>
+  <li><a href="#reporting-the-results-1" id="toc-reporting-the-results-1" class="nav-link" data-scroll-target="#reporting-the-results-1"><span class="header-section-number">3.6.4</span> Reporting the Results</a></li>
+  <li><a href="#the-need-for-a-control-group" id="toc-the-need-for-a-control-group" class="nav-link" data-scroll-target="#the-need-for-a-control-group"><span class="header-section-number">3.6.5</span> The Need for a Control Group</a></li>
+  </ul></li>
+  <li><a href="#independent-sample-t-tests" id="toc-independent-sample-t-tests" class="nav-link" data-scroll-target="#independent-sample-t-tests"><span class="header-section-number">3.7</span> Independent Sample <em>t</em>-tests</a>
+  <ul class="collapse">
+  <li><a href="#the-hypotheses-human-vs.-software-formatting" id="toc-the-hypotheses-human-vs.-software-formatting" class="nav-link" data-scroll-target="#the-hypotheses-human-vs.-software-formatting"><span class="header-section-number">3.7.1</span> The Hypotheses (Human vs.&nbsp;Software Formatting)</a></li>
+  <li><a href="#the-mechanics-and-unequal-variances" id="toc-the-mechanics-and-unequal-variances" class="nav-link" data-scroll-target="#the-mechanics-and-unequal-variances"><span class="header-section-number">3.7.2</span> The Mechanics and Unequal Variances</a></li>
+  <li><a href="#reporting-the-results-2" id="toc-reporting-the-results-2" class="nav-link" data-scroll-target="#reporting-the-results-2"><span class="header-section-number">3.7.3</span> Reporting the Results</a></li>
+  <li><a href="#a-note-on-statistical-language-prove-and-cause" id="toc-a-note-on-statistical-language-prove-and-cause" class="nav-link" data-scroll-target="#a-note-on-statistical-language-prove-and-cause"><span class="header-section-number">3.7.4</span> A Note on Statistical Language: “Prove” and “Cause”</a></li>
+  </ul></li>
+  <li><a href="#beyond-the-p-value-practical-significance-and-effect-sizes" id="toc-beyond-the-p-value-practical-significance-and-effect-sizes" class="nav-link" data-scroll-target="#beyond-the-p-value-practical-significance-and-effect-sizes"><span class="header-section-number">3.8</span> Beyond the p-value: Practical Significance and Effect Sizes</a>
+  <ul class="collapse">
+  <li><a href="#the-limitation-of-the-p-value" id="toc-the-limitation-of-the-p-value" class="nav-link" data-scroll-target="#the-limitation-of-the-p-value"><span class="header-section-number">3.8.1</span> The Limitation of the p-value</a></li>
+  <li><a href="#measuring-the-impact-effect-sizes" id="toc-measuring-the-impact-effect-sizes" class="nav-link" data-scroll-target="#measuring-the-impact-effect-sizes"><span class="header-section-number">3.8.2</span> Measuring the Impact: Effect Sizes</a></li>
+  <li><a href="#interpreting-cohens-d" id="toc-interpreting-cohens-d" class="nav-link" data-scroll-target="#interpreting-cohens-d"><span class="header-section-number">3.8.3</span> Interpreting Cohen’s <span class="math inline">\(d\)</span></a></li>
+  <li><a href="#other-effect-sizes-you-might-see" id="toc-other-effect-sizes-you-might-see" class="nav-link" data-scroll-target="#other-effect-sizes-you-might-see"><span class="header-section-number">3.8.4</span> Other Effect Sizes You Might See</a></li>
+  <li><a href="#best-practices-when-to-emphasize-which-measure" id="toc-best-practices-when-to-emphasize-which-measure" class="nav-link" data-scroll-target="#best-practices-when-to-emphasize-which-measure"><span class="header-section-number">3.8.5</span> Best Practices: When to Emphasize Which Measure</a></li>
+  <li><a href="#the-complete-apa-conclusion" id="toc-the-complete-apa-conclusion" class="nav-link" data-scroll-target="#the-complete-apa-conclusion"><span class="header-section-number">3.8.6</span> The Complete APA Conclusion</a></li>
+  </ul></li>
+  <li><a href="#power-analysis" id="toc-power-analysis" class="nav-link" data-scroll-target="#power-analysis"><span class="header-section-number">3.9</span> Power Analysis</a>
+  <ul class="collapse">
+  <li><a href="#the-concept-of-statistical-power" id="toc-the-concept-of-statistical-power" class="nav-link" data-scroll-target="#the-concept-of-statistical-power"><span class="header-section-number">3.9.1</span> The Concept of Statistical Power</a></li>
+  <li><a href="#the-balancing-act" id="toc-the-balancing-act" class="nav-link" data-scroll-target="#the-balancing-act"><span class="header-section-number">3.9.2</span> The Balancing Act</a></li>
+  <li><a href="#visualizing-power-curves" id="toc-visualizing-power-curves" class="nav-link" data-scroll-target="#visualizing-power-curves"><span class="header-section-number">3.9.3</span> Visualizing Power Curves</a></li>
+  <li><a href="#finding-the-minimum-sample-size" id="toc-finding-the-minimum-sample-size" class="nav-link" data-scroll-target="#finding-the-minimum-sample-size"><span class="header-section-number">3.9.4</span> Finding the Minimum Sample Size</a></li>
+  <li><a href="#planning-for-precision-margin-of-error" id="toc-planning-for-precision-margin-of-error" class="nav-link" data-scroll-target="#planning-for-precision-margin-of-error"><span class="header-section-number">3.9.5</span> Planning for Precision (Margin of Error)</a></li>
+  </ul></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">3.10</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">3.11</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.12</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">3.12.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">3.12.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">3.12.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">3.12.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In recent years, psychologists and public health officials have grown increasingly interested in the connection between what we eat and how we feel. Imagine a team of researchers wants to know if a short-term, healthy diet intervention can genuinely reduce clinical depression symptoms in young adults. To investigate, they recruit 75 college students who report both elevated depression symptoms and poor dietary habits. They randomly assign half the students to receive healthy food packages and dietary guidance, while the control group maintains their usual eating habits. After three weeks, the researchers measure the change in everyone’s depression scores.</p>
+<p>Throughout this chapter, we will explore this exact scenario using the <code>depression_diet_treatment.csv</code> dataset. While the researchers collected a variety of physiological and psychological metrics, we will focus exclusively on four key variables:</p>
+<ul>
+<li><strong><code>Group</code></strong>: A categorical variable indicating the experimental group assignment for the student (either <strong>Control</strong> or <strong>Diet</strong>).</li>
+<li><strong><code>CESD1</code></strong>: A numerical variable representing the Center for Epidemiologic Studies Depression Scale (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity.</li>
+<li><strong><code>CESD21</code></strong>: A numerical variable representing the CESD score measured at the conclusion of the study on Day 21.</li>
+<li><strong><code>CESDDiff</code></strong>: A numerical variable representing the change in the CESD depression score over the 21 days (calculated as Day 21 minus Day 1). A negative value indicates an improvement in symptoms.</li>
+</ul>
+<p>In Chapter 1, we learned how to visualize this kind of data and calculate numerical summaries, like the mean change in depression scores for both groups. In Chapter 2, we learned how to translate the overarching research question into formal statistical hypotheses. We know how to set up our null hypothesis (<span class="math inline">\(H_0\)</span>), which is the baseline assumption that the diet has absolutely no effect, and our alternative hypothesis (<span class="math inline">\(H_1\)</span>), which is the claim that the diet intervention works.</p>
+<p>But once we calculate our sample statistics, how do we make a definitive decision? If the diet group’s depression scores drop by an average of a few points more than the control group, is that solid proof that the intervention was a success? Or could that difference just be a random fluke, a bit of natural variation in our specific sample of 75 students?</p>
+<p>By the end of this chapter, you will learn how to formally test these hypotheses and make rigorous, data-driven decisions. We will explore how to separate a true signal from random statistical noise, how to avoid making critical errors when weighing evidence, and how to determine not just whether an effect is mathematically real, but whether it is large enough to matter in practice.</p>
+</section>
+<section id="the-core-concept-the-framework-of-evidence" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-core-concept-the-framework-of-evidence"><span class="header-section-number">3.2</span> The Core Concept &amp; The Framework of Evidence</h2>
+<section id="signal-vs.-noise" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="signal-vs.-noise"><span class="header-section-number">3.2.1</span> Signal vs.&nbsp;Noise</h3>
+<p>When we scan the raw data from our dietary intervention study, we might see that the students in the healthy diet group experienced a larger drop in their depression scores than those in the control group. But how do we know if that difference is meaningful? In any experiment involving human beings, there will always be natural variation. Some students will organically feel better over a three-week period, some will feel worse, and hundreds of other factors, like academic stress or sleep, could influence those scores on any given day. This background variation is what statisticians call “noise.”</p>
+<p><a href="appendix-glossary.html#glossary-term-hypothesis-testing" class="glossary-link" data-definition="A formal procedure for deciding whether an observed effect is real or could plausibly be explained by random variation, by weighing the data against a null hypothesis." aria-describedby="glossary-tooltip" data-term="hypothesis testing">Hypothesis testing</a> is our formal procedure for separating the true effect of an intervention (the “signal”) from the natural, random variation in the world (the “noise”). We want to know if the diet’s effect is loud enough to be reliably heard over the background noise of everyday student life.</p>
+</section>
+<section id="measuring-the-evidence-the-p-value" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="measuring-the-evidence-the-p-value"><span class="header-section-number">3.2.2</span> Measuring the Evidence: The p-value</h3>
+<p>To figure out if we have a real signal, statistical tests use a bit of a logical trick: they ask us to temporarily assume that the null hypothesis (<span class="math inline">\(H_0\)</span>) is absolutely true. For our study, that means we’ll start by assuming that the healthy diet intervention has no impact on depression scores whatsoever, which is our null hypothesis. (Recall that the null hypothesis represents the belief that there is no effect, while the alternative hypothesis represents the belief that there is an effect.)</p>
+<p>Next, we examine the actual data we collected from our 75 students. We ask a central question: <em>If the diet truly does nothing, how likely is it that we would see a difference between our groups as large as the one we observed?</em></p>
+<p>This probability is called a <a href="appendix-glossary.html#glossary-term-p-value" class="glossary-link" data-definition="The probability of seeing data at least as surprising as yours if the null hypothesis were true; a small p-value means the data would be unusual under H₀ and counts as evidence against it." aria-describedby="glossary-tooltip" data-term="p-value">p-value</a>. The p-value measures the strength of the evidence in favor of our alternative hypothesis (<span class="math inline">\(H_1\)</span>) by telling us how surprising our data would be if the null hypothesis were true.</p>
+<ul>
+<li>A <strong>large <span class="math inline">\(p\)</span>-value</strong> means our results are not very surprising. If the diet does nothing, seeing this kind of difference between the groups is normal random noise. We do not have enough evidence to claim the diet works.</li>
+<li>A <strong>small <span class="math inline">\(p\)</span>-value</strong> means our results are extremely surprising. If the diet truly does nothing, the chances of seeing such a large difference in depression scores purely by random luck are extremely small. Because the data is so unlikely under the null hypothesis, it gives us strong evidence that our alternative hypothesis (the diet works) is probably the better explanation.</li>
+</ul>
+</section>
+<section id="the-standard-of-evidence-significance-level-alpha" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="the-standard-of-evidence-significance-level-alpha"><span class="header-section-number">3.2.3</span> The Standard of Evidence: Significance Level (<span class="math inline">\(\alpha\)</span>)</h3>
+<p>If a small <span class="math inline">\(p\)</span>-value tells us we have evidence against the null hypothesis, exactly how small does it need to be before we are convinced? We need a clear threshold, a line in the sand, set before we ever analyze the data.</p>
+<p>This threshold is called the <a href="appendix-glossary.html#glossary-term-significance-level" class="glossary-link" data-definition="The threshold of evidence, written α and usually set at .05, that a researcher requires before rejecting the null hypothesis." aria-describedby="glossary-tooltip" data-term="significance level">significance level</a>, denoted by the Greek letter alpha (<span class="math inline">\(\alpha\)</span>). The significance level represents the required standard of evidence we demand before we are willing to change our minds about the null hypothesis being true.</p>
+<p>In the social sciences, the standard convention is to set <span class="math inline">\(\alpha = .05\)</span>. This means that in order to claim the diet intervention works, the probability of seeing our results purely by random chance must be less than 5%.</p>
+<ul>
+<li>If <span class="math inline">\(p-value &lt; \alpha\)</span>, the evidence is strong enough. We <strong>reject the null hypothesis</strong> and conclude that the diet does have an effect on depression.</li>
+<li>If <span class="math inline">\(p-value \ge \alpha\)</span>, the evidence is too weak. We <strong>fail to reject the null hypothesis</strong>.</li>
+</ul>
+<p><em>Note on phrasing:</em> Notice that we say we “fail to reject” the null hypothesis, rather than saying we “accept” it. A large p-value does not prove that the diet intervention is useless; it only means our specific sample did not provide enough evidence to confidently prove that it works. It is the statistical equivalent of a jury returning a verdict of “not guilty” rather than “innocent.”</p>
+<p>Recall that we set up our competing hypotheses in such a way that rejecting the null hypothesis means the same thing as supporting the alternative hypothesis. In other words, if we reject the claim that the diet has no effect on depression (our null hypothesis), that is the same as supporting the claim that the diet has an effect on depression (our alternative hypothesis).</p>
+<p>Whenever we make a decision about the null hypothesis, we can be wrong in one of two ways. A <a href="appendix-glossary.html#glossary-term-type-i-error" class="glossary-link" data-definition="A false alarm (a false positive): rejecting the null hypothesis when it is actually true; the significance level sets the rate at which this error occurs." aria-describedby="glossary-tooltip" data-term="Type I error">Type I error</a> is a false alarm (a false positive): we reject the null hypothesis when it is actually true. The significance level sets this risk: at <span class="math inline">\(\alpha = .05\)</span>, we accept a 5% chance of a false alarm. A <a href="appendix-glossary.html#glossary-term-type-ii-error" class="glossary-link" data-definition="A missed signal (a false negative): failing to reject the null hypothesis when a real effect exists, often because the study lacked enough evidence or statistical power to detect it." aria-describedby="glossary-tooltip" data-term="Type II error">Type II error</a> is a missed signal (a false negative): we fail to reject the null hypothesis when a real effect exists. Section 3.9 covers statistical power, which is the tool for keeping this error rare.</p>
+</section>
+</section>
+<section id="foundations-of-the-t---test" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="foundations-of-the-t---test"><span class="header-section-number">3.3</span> Foundations of the <em>t</em> - Test</h2>
+<p>We understand that a p-value helps us weigh evidence. However, to calculate that p-value, we need a reliable mathematical tool. For comparing averages, our primary tool is the <a href="appendix-glossary.html#glossary-term-t-test" class="glossary-link" data-definition="A family of hypothesis tests for comparing means, including the single sample, matched pair, and independent sample versions." aria-describedby="glossary-tooltip" data-term="t-test">t-test</a>.</p>
+<section id="the-central-limit-theorem" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="the-central-limit-theorem"><span class="header-section-number">3.3.1</span> The Central Limit Theorem</h3>
+<p>To understand how a t-test works, study Figure 3.1. This histogram shows what would happen if we repeated our diet intervention study thousands of times. Suppose we gathered thousands of different groups of 75 students, gave them the same healthy diet, and calculated the mean change in their depression scores (<code>CESDDiff</code>) every single time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_03/fig_03_01_hist_sampling_distribution_cesddiff.png" class="img-fluid figure-img" alt="Histogram of 10,000 simulated sample means of CESDDiff, each from 75 students drawn from the diet group. The bars form a symmetric bell shape centered near -6 points, with almost all sample means between about -8.4 and -3.8."></p>
+<figcaption>Figure 3.1: Simulated sampling distribution of the mean CESDDiff for 10,000 samples of 75 students drawn from the observed diet-group change scores. The histogram forms a symmetric bell shape centered near -6.03 points, with a normal curve overlaid.</figcaption>
+</figure>
+</div>
+<p>As you can see in the graph, a fascinating pattern emerges. The most common results pile up in the middle around the true underlying average, and extreme flukes taper off symmetrically on both sides. This shape is the classic, symmetrical bell curve that we call a normal distribution in statistics.</p>
+<p>This visual phenomenon is driven by the <a href="appendix-glossary.html#glossary-term-central-limit-theorem" class="glossary-link" data-definition="The theorem that the distribution of sample means approaches a predictable bell curve as sample size grows, regardless of the shape of the original data; this is what allows t-tests to work with skewed data when the sample is large enough." aria-describedby="glossary-tooltip" data-term="central limit theorem">Central Limit Theorem</a>. It is the engine that drives most of the statistical tests in this book. The theorem guarantees that if your sample size is sufficiently large, the distribution of your sample means will form a predictable bell curve. This mathematical predictability is exactly what allows the t-test to calculate how surprising our specific sample’s result is, which in turn gives us our precise p-value.</p>
+</section>
+<section id="checking-the-tools-requirements" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="checking-the-tools-requirements"><span class="header-section-number">3.3.2</span> Checking the Tool’s Requirements</h3>
+<p>Because the t-test relies on this predictable mathematical shape, we have to make sure our data fits the tool before we trust the resulting p-value. Using a t-test on data that violates its core rules is like trying to measure a curved road with a stiff wooden ruler; the tool simply will not give you an accurate number.</p>
+<p>Before running a t-test, we always check two primary conditions:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-independence" class="glossary-link" data-definition="In study design, the assumption that observations do not influence one another; in categorical data, the property that knowing one variable’s category gives no information about another (the opposite of association)." aria-describedby="glossary-tooltip" data-term="independence">Independence</a><strong>:</strong> The data points must be independent of one another. In our study, one student’s change in depression score should not directly cause a change in another student’s score. Using a randomized experimental design is the best way to ensure this independence.</li>
+<li><a href="appendix-glossary.html#glossary-term-normality" class="glossary-link" data-definition="In regression, the assumption that the residuals form a roughly bell-shaped distribution; the raw predictor and response variables do not need to be normal." aria-describedby="glossary-tooltip" data-term="normality">Normality</a><strong>:</strong> The mathematics behind the t-test require your sample averages to form that predictable bell curve. If your original, raw data looks roughly bell-shaped and symmetric, this happens automatically. We check this by looking at a visual plot of the data.</li>
+<li><strong>The Sample Size Exception:</strong> What if your raw data looks messy or skewed? This is where the Central Limit Theorem helps us. If your sample size is large enough, the theorem guarantees the t-test will still work properly. A common rule of thumb is a sample size (<span class="math inline">\(n\)</span>) of at least 30. There is a catch, however. If the original data is severely skewed or has extreme outliers, an <span class="math inline">\(n\)</span> of 30 is not a magical fix. You might need a significantly larger sample size before you can safely trust the p-value.</li>
+</ul>
+<p>If our data passes these visual checks, or if our sample size is large enough to override minor shape issues, we can confidently proceed to choosing the specific type of t-test that fits our research design.</p>
+</section>
+</section>
+<section id="choosing-the-right-tool" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="choosing-the-right-tool"><span class="header-section-number">3.4</span> Choosing the Right Tool</h2>
+<p>We now know that the t-test is our mathematical tool for comparing averages and calculating a p-value. However, there is not just one standard t-test. There is a small family of them, and choosing the correct one depends entirely on how we gathered our data.</p>
+<p>In Chapter 2, we discussed how the structure of a research study dictates how we analyze the results. In our diet intervention study, we can ask three distinctly different research questions. Each question requires a different variation of the t-test.</p>
+<section id="comparing-to-a-benchmark-the-single-sample-t-test" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="comparing-to-a-benchmark-the-single-sample-t-test"><span class="header-section-number">3.4.1</span> Comparing to a Benchmark: The Single Sample t-Test</h3>
+<p>Sometimes, we only have one group of participants, and we want to compare their average to a known, static number. This number is often a national average, a historical baseline, or a clinical threshold. For this, we use a <a href="appendix-glossary.html#glossary-term-single-sample-t-test" class="glossary-link" data-definition="A t-test that compares the mean of one sample against a known, fixed benchmark, such as a national average or a clinical cutoff." aria-describedby="glossary-tooltip" data-term="single sample t-test">Single Sample t-test</a>.</p>
+<ul>
+<li><strong>Data Gathering and Format:</strong> You collect a single numerical measurement from one isolated group of participants. There is no control group or second measurement. You compare this single column of sample data against an external, predetermined value.</li>
+<li><strong>The Research Question:</strong> At the very beginning of the study, were our 75 students experiencing severe depression compared to the general population?</li>
+<li><strong>The Application:</strong> We take the baseline depression scores (<code>CESD1</code>) for all 75 students and calculate their average. We then run a Single Sample t-test to see if our sample’s average is significantly different from a well-known clinical benchmark score (like a score of 16, which often indicates clinical depression).</li>
+</ul>
+</section>
+<section id="tracking-changes-over-time-the-matched-pair-t-test" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="tracking-changes-over-time-the-matched-pair-t-test"><span class="header-section-number">3.4.2</span> Tracking Changes Over Time: The Matched Pair t-Test</h3>
+<p>In many experimental designs, researchers measure the same people twice to see if an intervention had an effect. This is called a pre-test/post-test design. Because the two sets of measurements come from the same individuals, the data points are linked together. For this, we use a <a href="appendix-glossary.html#glossary-term-matched-pair-t-test" class="glossary-link" data-definition="A t-test for data in which each observation in one group is linked to a specific observation in another, such as the same person measured before and after an intervention; it tests whether the average within-pair difference is zero." aria-describedby="glossary-tooltip" data-term="matched pair t-test">Matched Pair t-test</a>.</p>
+<ul>
+<li><strong>Data Gathering and Format:</strong> You measure the same participants twice, or you measure naturally paired subjects like twins. The data format usually features two columns of numbers side-by-side for each participant, allowing the software to calculate the direct difference between those two time points.</li>
+<li><strong>The Research Question:</strong> Did the students who received the healthy food packages see a significant improvement in their depression scores over the three weeks?</li>
+<li><strong>The Application:</strong> We analyze only the students in the Diet group. We compare their Day 1 score (<code>CESD1</code>) to their Day 21 score (<code>CESD21</code>). Because we are tracking within-subject improvements, the software actually calculates the difference between the two scores for every single student (the <code>CESDDiff</code> variable) and tests to see if that average difference is significantly different from zero.</li>
+</ul>
+</section>
+<section id="comparing-two-separate-groups-the-independent-sample-t-test" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="comparing-two-separate-groups-the-independent-sample-t-test"><span class="header-section-number">3.4.3</span> Comparing Two Separate Groups: The Independent Sample t-Test</h3>
+<p>The most common scenario in a randomized controlled experiment is comparing two separate groups of people against each other. Because a participant can only be in one group or the other, the groups have no overlap. For this, we use an <a href="appendix-glossary.html#glossary-term-independent-sample-t-test" class="glossary-link" data-definition="A t-test that compares the means of two separate, unrelated groups to see whether their difference is statistically significant." aria-describedby="glossary-tooltip" data-term="independent sample t-test">Independent Sample t-test</a>.</p>
+<ul>
+<li><strong>Data Gathering and Format:</strong> You collect data from two separate, unrelated groups. A participant can only belong to one group. The data format typically includes one column for the numerical measurement and a separate categorical column indicating which group the participant belongs to.</li>
+<li><strong>The Research Question:</strong> Did the diet intervention group improve significantly more than the control group?</li>
+<li><strong>The Application:</strong> This addresses the primary goal of our study. We take the change in depression scores (<code>CESDDiff</code>) and compare the average for the independent Diet group against the average for the independent Control group.</li>
+</ul>
+<p>Once you understand how your data was gathered, choosing the right test becomes a simple process of elimination. In the next few sections, we will walk through exactly how to interpret the results for each of these three tests.</p>
+</section>
+</section>
+<section id="single-sample-t-tests" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="single-sample-t-tests"><span class="header-section-number">3.5</span> Single Sample <em>t</em>-tests</h2>
+<p>When we start a new research project, we often need to establish a baseline. Before we can evaluate whether our diet intervention improved the students’ mental health, we first need to verify that our sample exhibited elevated depression symptoms to begin with.</p>
+<p>To do this, we use a <a href="appendix-glossary.html#glossary-term-single-sample-t-test" class="glossary-link" data-definition="A t-test that compares the mean of one sample against a known, fixed benchmark, such as a national average or a clinical cutoff." aria-describedby="glossary-tooltip" data-term="single sample t-test">Single Sample t-test</a>. This test compares the average of one single numerical variable from our sample against a known, fixed number. That fixed number is usually a national average, a historical baseline, or a specific clinical threshold.</p>
+<p>For our study, the clinical benchmark for the Center for Epidemiologic Studies Depression Scale (CESD) is a score of 16. Anyone scoring 16 or higher is generally considered to be at risk for clinical depression. We want to test if the baseline Day 1 scores (<code>CESD1</code>) for our 75 students are significantly different from this clinical threshold of 16.</p>
+<section id="the-hypotheses" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="the-hypotheses"><span class="header-section-number">3.5.1</span> The Hypotheses</h3>
+<p>In Chapter 2, we learned that the null hypothesis (<span class="math inline">\(H_0\)</span>) represents the assumption of “no difference.” For a Single Sample t-test, we formally state that the true average of the population our students represent is exactly equal to the benchmark.</p>
+<p>To write this, we use the Greek letter <span class="math inline">\(\mu\)</span> (pronounced “mew”), which represents the true, overarching population mean.</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu = 16\)</span></li>
+<li><span class="math inline">\(H_1: \mu \neq 16\)</span></li>
+</ul>
+<p>Notice that our alternative hypothesis (<span class="math inline">\(H_1\)</span>) simply states that the true average is <em>not equal</em> to 16. In rigorous research, we always use this two-sided approach as our default. We let the data speak for itself regarding whether the students are significantly above or significantly below the benchmark.</p>
+</section>
+<section id="the-mechanics-calculating-the-t-statistic" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="the-mechanics-calculating-the-t-statistic"><span class="header-section-number">3.5.2</span> The Mechanics: Calculating the <em>t</em>-statistic</h3>
+<p>When you run this test in your statistical software, the computer performs a few logical steps behind the scenes to calculate your p-value. At the heart of every statistical test in this chapter is one general, intuitive formula:</p>
+<p><span class="math display">\[\text{Test Statistic} = \frac{\text{Sample Outcome} - \text{Hypothesized Outcome}}{\text{Standard Error}}\]</span></p>
+<p>Let’s break down what this fraction means. The top half (the numerator) represents our raw effect. It is the gap between the sample average we collected (which, based on a calculation of the data, is 20.47) and the benchmark we are testing against (16). This gap of 4.47 points tells us how far off our data was from where we would expect it to be if the null hypothesis were true.</p>
+<p>However, knowing the raw size of that gap is not enough. We have to weigh that gap against the background noise. The bottom half of the fraction (the denominator) is the <a href="appendix-glossary.html#glossary-term-standard-error" class="glossary-link" data-definition="The typical amount by which a sample statistic is expected to vary from sample to sample because of random chance; it is the denominator of the t-statistic." aria-describedby="glossary-tooltip" data-term="standard error">Standard Error</a>. This value represents how far off we would expect a typical sample average to wander just due to normal, random variability. By dividing our raw gap by the Standard Error, we “standardize” our finding.</p>
+<p>The final result of this division is the <a href="appendix-glossary.html#glossary-term-t-statistic" class="glossary-link" data-definition="A signal-to-noise ratio calculated by dividing the gap between a sample result and the hypothesized value by the standard error; software converts it into a p-value." aria-describedby="glossary-tooltip" data-term="t-statistic">t-statistic</a>. You can think of the t-statistic as a signal-to-noise ratio. A large t-statistic (like our calculated 2.69) means the gap between our sample and the benchmark is much larger than the random noise we would typically expect. The software then uses this t-statistic to calculate our precise p-value.</p>
+</section>
+<section id="the-confidence-interval" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="the-confidence-interval"><span class="header-section-number">3.5.3</span> The Confidence Interval</h3>
+<p>While the p-value tells us <em>if</em> we have strong evidence of a difference, it does not tell us exactly what the true population average might be. For that, we use a <a href="appendix-glossary.html#glossary-term-confidence-interval" class="glossary-link" data-definition="A range of plausible values for a true population mean or difference, built from sample data; a 95% confidence interval (CI) comes from a procedure that captures the true value in about 95% of repeated samples." aria-describedby="glossary-tooltip" data-term="confidence interval">Confidence Interval</a>.</p>
+<p>A confidence interval is a range of plausible values for the true population mean. It is like casting a net into a murky lake to catch a fish. You cannot see exactly where the fish (the true population average) is, but based on where you throw your net (your sample data), you are fairly certain you caught it.</p>
+<p>When we report our results, we typically use a 95% confidence interval. But what does that 95% actually mean? It means that if we were to repeat our exact study thousands of times, drawing new samples of 75 students and calculating a new interval every single time, about 95% of those resulting nets would successfully capture the true, overarching population average.</p>
+<p>You might wonder why we do not simply use a 100% confidence interval. The reason is practicality. To be 100% certain that you caught the fish, you would have to cast a net that covers the entire lake. In statistics, a 100% confidence interval would have to be infinitely wide. An interval telling us that the true average is “somewhere between negative infinity and positive infinity” is useless for making decisions. We willingly accept a 5% chance of missing the true average in exchange for a narrower, informative range of numbers.</p>
+<p>For our students, our 95% confidence interval is [17.15, 23.78]. We are 95% confident that the true, overarching average depression score for this specific population of students falls somewhere between 17.15 and 23.78. Because our entire interval sits above the benchmark of 16 (and does not include it), that aligns with a significant p-value (i.e., where our p-value is less than .05).</p>
+</section>
+<section id="reporting-the-results" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="reporting-the-results"><span class="header-section-number">3.5.4</span> Reporting the Results</h3>
+<p>When researchers publish their findings, they follow a strict formatting standard created by the American Psychological Association (APA). This format ensures that anyone reading the paper gets all the necessary context.</p>
+<p>When you write an APA conclusion for a t-test, you must include:</p>
+<ol type="1">
+<li><strong>A plain English summary:</strong> State the finding clearly.</li>
+<li><a href="appendix-glossary.html#glossary-term-descriptive-statistics" class="glossary-link" data-definition="Numerical summaries that describe a dataset, such as the mean, median, standard deviation, and proportion." aria-describedby="glossary-tooltip" data-term="descriptive statistics">Descriptive statistics</a><strong>:</strong> Provide the sample mean (<em>M</em>) and standard deviation (<em>SD</em>) inside parentheses.</li>
+<li><strong>The test statistic:</strong> Write the letter <em>t</em> followed by the <a href="appendix-glossary.html#glossary-term-degrees-of-freedom" class="glossary-link" data-definition="A number tied to sample size that the t-distribution uses when producing a p-value; for a single sample t-test it equals n − 1 and is reported in parentheses after t in APA style." aria-describedby="glossary-tooltip" data-term="degrees of freedom">degrees of freedom</a> in parentheses. Degrees of freedom (often written as df) are directly tied to your sample size; for a Single Sample t-test, it is simply your sample size minus one (n−1).</li>
+<li><strong>The p-value:</strong> The exact p-value (or p&lt;.001 if the number is extremely small).</li>
+<li><strong>The Confidence Interval:</strong> The 95% confidence interval (CI) with the lower and upper bounds.</li>
+</ol>
+<p>Here is how we would formally report the baseline findings for our students:</p>
+<blockquote class="blockquote">
+<p>“At the beginning of the study, the sample of students exhibited depression scores (<em>M</em> = 20.47, <em>SD</em> = 14.40) that were significantly higher than the clinical baseline of 16, <em>t</em>(74) = 2.69, <em>p</em> = .009, 95% CI [17.15, 23.78].”</p>
+</blockquote>
+</section>
+<section id="a-closer-look-at-the-conclusion" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="a-closer-look-at-the-conclusion"><span class="header-section-number">3.5.5</span> A Closer Look at the Conclusion</h3>
+<p>Before we move on, let’s consider two important nuances in how we worded that final conclusion:</p>
+<p><strong>1. The True Meaning of “Significant”</strong></p>
+<p>In everyday English, calling something “significant” usually means it is huge or deeply important. However, in statistical reporting, “statistically <em>significant</em>” simply means our p-value was smaller than our <em>significance</em> level (like .05). It only means we found enough mathematical evidence to prove the difference is real, not necessarily that the difference is large. A “statistically significant” difference can actually be tiny and practically meaningless. This is exactly why we always report descriptive statistics and the confidence interval alongside the p-value. Those extra numbers allow the reader to see the actual size of the effect to decide if it truly matters.</p>
+<p><strong>2. Determining the Direction</strong></p>
+<p>Notice that we wrote the scores were significantly “higher” than 16. Remember that our alternative hypothesis (<span class="math inline">\(H_1\)</span>) only stated that the true average was <em>not equal</em> to 16. The t-test and the resulting p-value only told us that a mathematical difference exists. The test itself is blind to direction. To confidently state that the scores were <em>higher</em>, we had to look back at our sample mean (20.47) and our confidence interval (which sat entirely above 16). The p-value proves the difference is real, but you must always rely on your descriptive statistics to tell you which direction the difference goes.</p>
+</section>
+</section>
+<section id="matched-pair-t-tests" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="matched-pair-t-tests"><span class="header-section-number">3.6</span> Matched Pair <em>t</em>-tests</h2>
+<p>Now that we have established our students were experiencing elevated depression symptoms at the start of the study, we can move to our next research question. Did the students who received the healthy food packages see a significant improvement over the three weeks?</p>
+<p>To answer this, we use a <a href="appendix-glossary.html#glossary-term-matched-pair-t-test" class="glossary-link" data-definition="A t-test for data in which each observation in one group is linked to a specific observation in another, such as the same person measured before and after an intervention; it tests whether the average within-pair difference is zero." aria-describedby="glossary-tooltip" data-term="matched pair t-test">Matched Pair t-test</a>. We use this test whenever our data is paired or linked. In our case, we measured the same students twice (once on Day 1, and again on Day 21). We do not want to just compare the Day 1 average to the Day 21 average; we want to see exactly how much each individual student changed.</p>
+<p>By calculating the difference for every single student (which is already saved in our dataset as the <code>CESDDiff</code> variable), we compress those two timeframes into one single column of change scores. A negative <code>CESDDiff</code> score means a student’s depression symptoms decreased, while a positive score means they got worse.</p>
+<section id="the-hypotheses-1" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="the-hypotheses-1"><span class="header-section-number">3.6.1</span> The Hypotheses</h3>
+<p>For a Matched Pair t-test, our null hypothesis (<span class="math inline">\(H_0\)</span>) represents the assumption that the diet did absolutely nothing. If the diet is useless, we would expect some students to get slightly better and some to get slightly worse due to random daily fluctuations. On average, those random changes should cancel each other out, leaving us with a true average change of exactly zero.</p>
+<p>We use the notation <span class="math inline">\(\mu_{\text{diff}}\)</span> to represent the true, overarching population mean of those differences, leaving us with the following hypotheses:</p>
+<p><span class="math inline">\(H_0: \mu_{\text{diff}} = 0\)</span></p>
+<p><span class="math inline">\(H_1: \mu_{\text{diff}} \neq 0\)</span></p>
+<p>Our alternative hypothesis (<span class="math inline">\(H_1\)</span>) states that the true average change is not zero, meaning the diet had some sort of measurable impact.</p>
+</section>
+<section id="calculating-the-difference-score" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="calculating-the-difference-score"><span class="header-section-number">3.6.2</span> Calculating the Difference Score</h3>
+<p>When researchers calculate difference scores, there is a strict standard we will follow in this book: always subtract the initial baseline measurement from the final post-intervention measurement.</p>
+<p><span class="math display">\[\text{Difference} = \text{Post-Treatment} - \text{Pre-Treatment}\]</span></p>
+<p>Why do we do it this way? It keeps our intuition aligned with the mathematics. If a student’s depression score goes up over the three weeks, subtracting their Day 1 score from their Day 21 score will yield a positive number (an increase). If their depression score drops, the math yields a negative number (a decrease).</p>
+<p>In the context of our study, we are hoping to see negative difference scores. A negative number means the healthy diet intervention successfully reduced clinical depression symptoms.</p>
+</section>
+<section id="the-mechanics-and-confidence-interval" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="the-mechanics-and-confidence-interval"><span class="header-section-number">3.6.3</span> The Mechanics and Confidence Interval</h3>
+<p>Following our rule, the software calculates the difference for every student in the diet group (Day 21 minus Day 1). It then calculates the t-statistic using our signal-to-noise ratio. It takes the average change for our 37 diet group students (a drop of 6.03 points, or -6.03) and subtracts our hypothesized baseline (0). It then standardizes that gap by dividing it by the standard error to calculate the exact p-value.</p>
+<p>The software also gives us a 95% confidence interval for the mean difference. Based on our sample, we are 95% confident that the true average change in depression scores for this specific population falls somewhere between -9.54 points and -2.52 points.</p>
+<p>Because this entire confidence interval sits below zero (and does not include zero), we can confidently say the diet group experienced a real reduction in symptoms. This aligns with our calculated p-value of .001.</p>
+</section>
+<section id="reporting-the-results-1" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="reporting-the-results-1"><span class="header-section-number">3.6.4</span> Reporting the Results</h3>
+<p>When we report a Matched Pair t-test in APA format, we use the same structure as before. We report the descriptive statistics for the difference scores, the t-statistic (with our sample size minus one for the degrees of freedom), the p-value, and the confidence interval. Notice how the negative values in our descriptive statistics instantly tell the reader that the scores went down.</p>
+<p>Here is how we formally report the improvement for the diet group:</p>
+<blockquote class="blockquote">
+<p>“Over the 21-day intervention, students in the healthy diet group experienced a significant reduction in depression symptoms (<em>M</em> = -6.03, <em>SD</em> = 10.53), <em>t</em>(36) = -3.48, <em>p</em> = .001, 95% CI [-9.54, -2.52].”</p>
+</blockquote>
+</section>
+<section id="the-need-for-a-control-group" class="level3" data-number="3.6.5">
+<h3 data-number="3.6.5" class="anchored" data-anchor-id="the-need-for-a-control-group"><span class="header-section-number">3.6.5</span> The Need for a Control Group</h3>
+<p>You might look at that conclusion and think the study is finished. The diet group saw a statistically significant improvement! However, we have to be careful. We know the students’ depression scores went down over the three weeks, but we do not actually know <em>why</em> they went down.</p>
+<p>Perhaps the end of the 21 days simply aligned with the end of midterm exams, meaning everyone on campus felt less depressed. To prove the healthy food packages were the reason behind the improvement, we have to compare the diet group against the control group.</p>
+</section>
+</section>
+<section id="independent-sample-t-tests" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="independent-sample-t-tests"><span class="header-section-number">3.7</span> Independent Sample <em>t</em>-tests</h2>
+<p>At the end of the last section, we faced a critical issue. The diet group saw a significant improvement in their depression scores, but we could not be absolutely certain the healthy food changes <em>caused</em> that improvement. To definitively answer our primary research question, we must compare the improvement in the diet group against the improvement in the control group.</p>
+<p>For this, we use the <a href="appendix-glossary.html#glossary-term-independent-sample-t-test" class="glossary-link" data-definition="A t-test that compares the means of two separate, unrelated groups to see whether their difference is statistically significant." aria-describedby="glossary-tooltip" data-term="independent sample t-test">Independent Sample t-test</a>. We use this test when we want to compare the averages of two separate, unrelated groups. Because a student can only be assigned to either the diet group or the control group, there is no overlap between them.</p>
+<section id="the-hypotheses-human-vs.-software-formatting" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="the-hypotheses-human-vs.-software-formatting"><span class="header-section-number">3.7.1</span> The Hypotheses (Human vs.&nbsp;Software Formatting)</h3>
+<p>When we compare two separate groups, there are two common ways to write the null hypothesis. The most intuitive, “human” way is to state that the true average change for the diet population is exactly equal to the true average change for the control population.</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu_{\text{Diet}} = \mu_{\text{Control}}\)</span></li>
+<li><span class="math inline">\(H_1: \mu_{\text{Diet}} \neq \mu_{\text{Control}}\)</span></li>
+</ul>
+<p>However, the statistical software you use will likely report these hypotheses slightly differently. Software programs usually subtract one group from the other and test if that gap is equal to zero:</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu_{\text{Diet}} - \mu_{\text{Control}} = 0\)</span></li>
+</ul>
+<p>We acknowledge this “software” formatting because it theoretically expands possibilities (like allowing researchers to test if the diet group improved by exactly 5 points more than the control, rather than just testing for any difference). But in the overwhelming majority of cases, researchers just want to know if a difference exists at all. Therefore, we will continue to use the “human” formatting, as it is the clearest way to think about the problem.</p>
+</section>
+<section id="the-mechanics-and-unequal-variances" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="the-mechanics-and-unequal-variances"><span class="header-section-number">3.7.2</span> The Mechanics and Unequal Variances</h3>
+<p>When the software calculates the t-statistic for two independent groups, the general signal-to-noise fraction remains the same. The “signal” is the difference between the two sample averages.</p>
+<p>In our data, the diet group’s average change was -6.03 points, while the control group’s average change was a slight increase of 0.11 points. The raw gap between those two averages is roughly -6.13 points.</p>
+<p>To find the standard error (the “noise”), the software has to combine the natural variability from <em>both</em> groups. This brings up an important assumption. Traditionally, this test assumed that both groups had the same amount of spread (or variance) in their data. In practice, this is rarely true. For example, the control group might have wildly varying scores, while the diet group’s scores might be tightly clustered together.</p>
+<p>To solve this, modern software defaults to a specialized version of this tool called <a href="appendix-glossary.html#glossary-term-welch-s-t-test" class="glossary-link" data-definition="A version of the independent sample t-test that adjusts the degrees of freedom when the two groups have unequal variances, producing a more trustworthy p-value." aria-describedby="glossary-tooltip" data-term="Welch’s t-test">Welch’s t-test</a>. Welch’s test automatically adjusts the degrees of freedom to account for unequal variances between the groups, making the resulting p-value much more reliable.</p>
+</section>
+<section id="reporting-the-results-2" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="reporting-the-results-2"><span class="header-section-number">3.7.3</span> Reporting the Results</h3>
+<p>When we run Welch’s test on our dataset, the software calculates a t-statistic of -2.31 and a p-value of .024. It also provides a 95% confidence interval for the difference between the two groups, which is [-11.42, -0.85].</p>
+<p>Because the entire confidence interval is negative (meaning the diet group’s difference scores were significantly lower, or more improved, than the control group’s scores), we finally have the evidence we need to answer our research question.</p>
+<p>When reporting an independent test in APA format, you must provide the descriptive statistics for <em>both</em> groups so the reader can clearly see the comparison. Notice that because Welch’s test dynamically adjusts the degrees of freedom, that number will often include a decimal.</p>
+<blockquote class="blockquote">
+<p>“A Welch’s independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (<em>M</em> = -6.03, <em>SD</em> = 10.53) than the control group (<em>M</em> = 0.11, <em>SD</em> = 12.38), <em>t</em>(71.72) = -2.31, <em>p</em> = .024, 95% CI [-11.42, -0.85].”</p>
+</blockquote>
+</section>
+<section id="a-note-on-statistical-language-prove-and-cause" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="a-note-on-statistical-language-prove-and-cause"><span class="header-section-number">3.7.4</span> A Note on Statistical Language: “Prove” and “Cause”</h3>
+<p>With this conclusion, we have officially established that the diet intervention works. However, notice the specific words we are carefully choosing, and the words we are strictly avoiding. When you write statistical conclusions, your vocabulary matters immensely.</p>
+<p><strong>Why we never say “Prove”</strong></p>
+<p>You will notice we said the test “established” or “provided evidence” for the intervention’s success, but we never said it “proved” the diet works. In mathematics, a proof guarantees 100% certainty. Statistics, on the other hand, is the science of probability and uncertainty. By setting our significance level (<span class="math inline">\(\alpha\)</span>) at .05, we openly accepted a 5% risk of making a Type I error. Because there is always a tiny chance that our results are just a rare statistical fluke, we never claim to have mathematically proven anything. We simply state that the evidence is strong enough to confidently change our minds.</p>
+<p><strong>When we can say “Caused”</strong></p>
+<p>You have likely heard the phrase “correlation does not imply causation.” Just because two things are connected does not mean one caused the other. So why are we allowed to conclude that the healthy food packages <em>caused</em> the drop in depression scores?</p>
+<p>The secret lies in the study’s design. If the researchers had simply handed out a survey asking students what they usually eat and how depressed they feel, we could only say that diet and depression are “linked” or “correlated.” There could be dozens of invisible variables driving both factors.</p>
+<p>However, this was not a survey. This was a randomized controlled experiment. By randomly assigning students to either the diet group or the control group, the researchers equally distributed all of those invisible variables (like sleep, stress, or academic workload) across both groups. Random assignment strips away the outside noise. Because the only systematic difference between the two groups was the healthy food packages, we earn the rare privilege of using the word “cause.”</p>
+</section>
+</section>
+<section id="beyond-the-p-value-practical-significance-and-effect-sizes" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="beyond-the-p-value-practical-significance-and-effect-sizes"><span class="header-section-number">3.8</span> Beyond the p-value: Practical Significance and Effect Sizes</h2>
+<p>We have successfully used hypothesis testing to establish that the healthy diet intervention works. Our independent sample t-test gave us a p-value of .024, which is smaller than our .05 significance level. Because of this, we say our results are <a href="appendix-glossary.html#glossary-term-statistically-significant" class="glossary-link" data-definition="A result is statistically significant when its p-value is below the chosen significance level, meaning the data provide enough evidence to reject the null hypothesis." aria-describedby="glossary-tooltip" data-term="statistically significant">statistically significant</a>.</p>
+<p>However, “statistically significant” does not mean “practically important.” This is one of the most common misconceptions in statistics.</p>
+<section id="the-limitation-of-the-p-value" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="the-limitation-of-the-p-value"><span class="header-section-number">3.8.1</span> The Limitation of the p-value</h3>
+<p>A p-value only measures the amount of evidence we have against the null hypothesis. To fully grasp what this means, we have to look closely at how sample size influences that evidence.</p>
+<p>Remember from Section 3.5 that our t-statistic is essentially a signal-to-noise ratio. The “signal” is the raw difference we measured, and the “noise” is the natural, random variability in our data (the standard error). When you increase your sample size, you are essentially buying better noise-canceling headphones. Gathering more data from thousands of participants does not magically make the intervention’s actual effect any larger, but it dramatically reduces the random background noise in your math.</p>
+<p>Imagine you run a study with 10,000 students and find that a new therapy reduces depression scores by an average of just 0.1 points. Because your sample is so large, the statistical noise drops to almost zero. With the static gone, the software easily recognizes that this tiny 0.1-point drop is not just random fluctuation; it is a real, mathematically genuine signal. It will give you a remarkably small p-value, and you will declare the results “statistically significant.”</p>
+<p>But does a 0.1-point drop on a 60-point clinical depression scale change a student’s life? Probably not. The mathematical evidence for the effect is strong (because we successfully canceled out all the statistical noise), but the practical effect itself is a mere whisper.</p>
+<p>Hypothesis testing establishes <em>if</em> an effect exists. We need a different set of tools to establish the <em>strength</em> of that effect. This concept is called <a href="appendix-glossary.html#glossary-term-practical-significance" class="glossary-link" data-definition="Whether an effect is large enough to matter in practice, judged from an effect size or confidence interval rather than from a p-value alone." aria-describedby="glossary-tooltip" data-term="practical significance">practical significance</a>.</p>
+</section>
+<section id="measuring-the-impact-effect-sizes" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="measuring-the-impact-effect-sizes"><span class="header-section-number">3.8.2</span> Measuring the Impact: Effect Sizes</h3>
+<p>To understand the practical importance of an intervention, we calculate an <a href="appendix-glossary.html#glossary-term-effect-size" class="glossary-link" data-definition="A standardized number describing how large a difference or relationship is, independent of sample size, used to judge whether a statistically significant result is large enough to matter." aria-describedby="glossary-tooltip" data-term="effect size">effect size</a>. An effect size is a standardized number that tells you how large the difference between two groups is, regardless of the sample size.</p>
+<p>The most common way to measure this for a t-test is a metric called <a href="appendix-glossary.html#glossary-term-cohen-s-d" class="glossary-link" data-definition="A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies." aria-describedby="glossary-tooltip" data-term="Cohen’s d">Cohen’s <span class="math inline">\(d\)</span></a>.</p>
+<p>At a conceptual level, Cohen’s <span class="math inline">\(d\)</span> takes the raw difference between our two groups and divides it by the standard deviation.</p>
+<p><span class="math display">\[d = \frac{\text{Difference between Means}}{\text{Standard Deviation}}\]</span></p>
+<p>Why do we divide by the standard deviation? Imagine I tell you that a new diet pill helps people lose 10. That number is useless unless you know the units. Is it 10 pounds, 10 ounces, or 10 kilograms? Cohen’s <span class="math inline">\(d\)</span> solves this problem by using standard deviations as the unit of measurement. It allows researchers in psychology, economics, and medicine to compare the impact of their studies using one universal scale.</p>
+</section>
+<section id="interpreting-cohens-d" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="interpreting-cohens-d"><span class="header-section-number">3.8.3</span> Interpreting Cohen’s <span class="math inline">\(d\)</span></h3>
+<p>When you read the output from your statistical software, you generally focus on the absolute value of Cohen’s <span class="math inline">\(d\)</span> to judge the size of the effect. While context always matters, social scientists generally use these standard rules of thumb:</p>
+<ul>
+<li><span class="math inline">\(d \approx 0.2\)</span>: A small effect.</li>
+<li><span class="math inline">\(d \approx 0.5\)</span>: A medium effect.</li>
+<li><span class="math inline">\(d \approx 0.8\)</span>: A large effect.</li>
+</ul>
+<p>In our diet intervention, the diet group’s scores dropped by roughly 6.13 points more than the control group’s scores. When our software divides that raw gap by the combined standard deviation for the students (which is roughly 11.50), it calculates a Cohen’s <span class="math inline">\(d\)</span> of 0.53.</p>
+<p>A Cohen’s <span class="math inline">\(d\)</span> of 0.53 represents a medium, practically significant effect. We can now tell our readers that the healthy food packages not only caused a statistically real change, but that the change was large enough to noticeably improve the students’ depression symptoms.</p>
+</section>
+<section id="other-effect-sizes-you-might-see" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="other-effect-sizes-you-might-see"><span class="header-section-number">3.8.4</span> Other Effect Sizes You Might See</h3>
+<p>While Cohen’s <span class="math inline">\(d\)</span> is the standard, your software might offer a few other variations:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-hedges-g" class="glossary-link" data-definition="A version of Cohen’s d with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as d." aria-describedby="glossary-tooltip" data-term="Hedges’ g">Hedges’ <span class="math inline">\(g\)</span></a><strong>:</strong> This is essentially Cohen’s <span class="math inline">\(d\)</span> with a slight mathematical correction for smaller sample sizes (usually when your total group is under 20 people). It is common and interpreted exactly the same way.</li>
+<li><a href="appendix-glossary.html#glossary-term-glass-s-delta" class="glossary-link" data-definition="An effect size that divides the difference between two group means by the control group’s standard deviation, used when the two groups have different spreads." aria-describedby="glossary-tooltip" data-term="Glass’s delta">Glass’s Delta</a><strong>:</strong> This is used when the standard deviations of your two groups are different. Instead of combining the spread of both groups, it only divides the difference by the control group’s standard deviation.</li>
+</ul>
+<p>Regardless of which specific letter your software uses, the goal remains the same. You always want to pair your p-value (to show the effect is real) with an effect size (to show the effect matters).</p>
+</section>
+<section id="best-practices-when-to-emphasize-which-measure" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="best-practices-when-to-emphasize-which-measure"><span class="header-section-number">3.8.5</span> Best Practices: When to Emphasize Which Measure</h3>
+<p>The American Psychological Association strongly recommends reporting both a confidence interval and an effect size for all hypothesis tests. Providing both ensures that future researchers have all the mathematical pieces they need. However, when you are interpreting your findings for a general audience, you will usually want to emphasize one measure over the other. The deciding factor is usually the interpretability of your units.</p>
+<p><strong>When to Focus on the Confidence Interval</strong></p>
+<p>If your variable is measured in concrete, everyday units (like dollars, pounds, or minutes), the confidence interval is usually the most powerful way to explain your practical significance.</p>
+<p>For example, imagine we tested the diet intervention’s impact on body weight. People intuitively understand what a drop of 10 pounds means. If our confidence interval tells us that the diet causes a reliable drop of between 5 and 10 pounds, the reader instantly understands the practical impact. In cases with tangible units, a confidence interval provides an intuitive, practical range.</p>
+<p><strong>When to Focus on Effect Sizes</strong></p>
+<p>If your variable is measured in abstract units, the confidence interval loses much of its communicative power.</p>
+<p>In our study, the confidence interval for the difference between the two groups’ depression scores was [-11.42, -0.85]. To a clinical psychologist who uses the CESD scale every day, a potential 11-point drop might be deeply meaningful. But to the average reader, or even a researcher from a different field, abstract survey points mean very little. Is a 5-point drop a big life change, or barely noticeable?</p>
+<p>When your units are not directly or easily interpretable, <a href="appendix-glossary.html#glossary-term-cohen-s-d" class="glossary-link" data-definition="A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies." aria-describedby="glossary-tooltip" data-term="Cohen’s d">Cohen’s <span class="math inline">\(d\)</span></a> becomes the star of the show. By translating those abstract points into standard deviations, it gives everyone a universal measuring stick. Telling an audience that the diet had a “medium effect” (<span class="math inline">\(d = 0.53\)</span>) instantly communicates the practical value of the intervention, even if they have no idea how the CESD scale is scored.</p>
+</section>
+<section id="the-complete-apa-conclusion" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="the-complete-apa-conclusion"><span class="header-section-number">3.8.6</span> The Complete APA Conclusion</h3>
+<p>When we put all of these pieces together, we get a final conclusion that answers every level of the research question.</p>
+<ol type="1">
+<li><strong>The p-value</strong> proves the signal is mathematically real.</li>
+<li><strong>The descriptive statistics</strong> show the direction of the change.</li>
+<li><strong>The confidence interval</strong> provides a plausible range for the true difference.</li>
+<li><strong>The effect size</strong> confirms the difference is large enough to matter.</li>
+</ol>
+<p>Here is what the fully polished, professional conclusion looks like for our independent sample t-test:</p>
+<blockquote class="blockquote">
+<p>“A Welch’s independent sample t-test was conducted to determine if a healthy diet intervention improved depression symptoms compared to a control group. The diet group experienced a significantly greater reduction in depression scores (<em>M</em> = -6.03, <em>SD</em> = 10.53) than the control group (<em>M</em> = 0.11, <em>SD</em> = 12.38), <em>t</em>(71.72) = -2.31, <em>p</em> = .024, 95% CI [-11.42, -0.85], <em>d</em> = 0.53.”</p>
+</blockquote>
+</section>
+</section>
+<section id="power-analysis" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="power-analysis"><span class="header-section-number">3.9</span> Power Analysis</h2>
+<p>Throughout this chapter, we have analyzed data that was already collected. But what happens before a study begins? How did the researchers in our diet intervention study know they needed exactly 75 students? They did not just guess, and they did not simply recruit as many people as possible. They calculated their required sample size using a process called <a href="appendix-glossary.html#glossary-term-power-analysis" class="glossary-link" data-definition="The process of calculating, before a study begins, the sample size needed to detect an effect of a given size with a chosen level of statistical power." aria-describedby="glossary-tooltip" data-term="power analysis">Power Analysis</a>.</p>
+<section id="the-concept-of-statistical-power" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="the-concept-of-statistical-power"><span class="header-section-number">3.9.1</span> The Concept of Statistical Power</h3>
+<p>To understand power, we have to revisit the Type II error. A Type II error occurs when an intervention actually works in practice, but your specific study fails to find enough mathematical evidence to prove it. In other words, you missed a true signal.</p>
+<p><a href="appendix-glossary.html#glossary-term-statistical-power" class="glossary-link" data-definition="The probability that a study will detect a true effect if one exists; it is the complement of a Type II error, and researchers generally aim for at least 80%." aria-describedby="glossary-tooltip" data-term="statistical power">Statistical Power</a> is the exact opposite of a Type II error. Power is the probability that your study will successfully detect a true effect if one genuinely exists. If a study has 80% power, it means that if the diet intervention truly reduces depression, the study has an 80% chance of successfully calculating a p-value below .05, and a 20% chance of missing the effect. In the social sciences, researchers generally aim for a minimum power of 80% when planning their experiments.</p>
+</section>
+<section id="the-balancing-act" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="the-balancing-act"><span class="header-section-number">3.9.2</span> The Balancing Act</h3>
+<p>Power is not an isolated number. It is part of a delicate balancing act involving three other elements of your study:</p>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-significance-level" class="glossary-link" data-definition="The threshold of evidence, written α and usually set at .05, that a researcher requires before rejecting the null hypothesis." aria-describedby="glossary-tooltip" data-term="significance level">Significance Level (<span class="math inline">\(\alpha\)</span>)</a><strong>:</strong> The threshold of evidence you require (almost always fixed at .05).</li>
+<li><a href="appendix-glossary.html#glossary-term-sample-size" class="glossary-link" data-definition="The number of observations in a sample, usually written n; larger samples reduce random error and increase statistical power." aria-describedby="glossary-tooltip" data-term="sample size">Sample Size (<span class="math inline">\(n\)</span>)</a><strong>:</strong> The number of participants in your study.</li>
+<li><a href="appendix-glossary.html#glossary-term-effect-size" class="glossary-link" data-definition="A standardized number describing how large a difference or relationship is, independent of sample size, used to judge whether a statistically significant result is large enough to matter." aria-describedby="glossary-tooltip" data-term="effect size">Effect Size</a><strong>:</strong> The actual, practical size of the difference you expect to find (like Cohen’s <em>d</em>, or a raw expected difference in averages).</li>
+</ol>
+<p>These four elements are mathematically locked together. If you know three of them, you can always calculate the fourth. Because <span class="math inline">\(\alpha\)</span> is usually locked at .05, and we generally want our Power locked at 80%, the planning process usually becomes a balancing act strictly between Sample Size and Effect Size.</p>
+</section>
+<section id="visualizing-power-curves" class="level3" data-number="3.9.3">
+<h3 data-number="3.9.3" class="anchored" data-anchor-id="visualizing-power-curves"><span class="header-section-number">3.9.3</span> Visualizing Power Curves</h3>
+<p>To see how these elements interact, researchers often use visualizations called <a href="appendix-glossary.html#glossary-term-power-curves" class="glossary-link" data-definition="A graph showing how statistical power rises as sample size increases, with separate curves for different effect sizes." aria-describedby="glossary-tooltip" data-term="power curves">power curves</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_03/fig_03_02_line_power_curves.png" class="img-fluid figure-img" alt="Line chart of statistical power against total sample size for three effect sizes. The large-effect line reaches 80% power near 52 participants, the medium-effect line near 128, and the small-effect line near 788. A dashed horizontal line marks 80% power."></p>
+<figcaption>Figure 3.2: Power curves for a two-sided independent sample t-test at alpha = .05, with equal group sizes. Each line shows how power rises with the total sample size for a small, medium, or large effect. The dashed horizontal line marks the conventional 80% target.</figcaption>
+</figure>
+</div>
+<p>When you look at a power curve, you will notice two universal rules:</p>
+<ul>
+<li><strong>Larger sample sizes yield higher power.</strong> As you move to the right along the horizontal axis, the curve goes up. More participants mean less statistical noise, which makes it much easier to detect a true signal.</li>
+<li><strong>Larger effect sizes are easier to detect.</strong> If a diet pill causes a 50-pound weight loss, you only need a few people to notice it works. If the pill only causes a 1-pound weight loss, you need hundreds of participants to separate that tiny signal from natural weight fluctuations. On the graph, the curve for a “large effect” will reach the 80% power mark much faster than the curve for a “small effect.”</li>
+</ul>
+</section>
+<section id="finding-the-minimum-sample-size" class="level3" data-number="3.9.4">
+<h3 data-number="3.9.4" class="anchored" data-anchor-id="finding-the-minimum-sample-size"><span class="header-section-number">3.9.4</span> Finding the Minimum Sample Size</h3>
+<p>The most common use of power analysis is figuring out how many participants to recruit. To do this, researchers plug their desired power (80%) and their <span class="math inline">\(\alpha\)</span> (.05) into statistical software. The software then asks for one final ingredient: what effect size are you expecting to find?</p>
+<p>This is where the math meets the real world. How can a researcher know the effect size before they run the study? There are generally two ways to answer this:</p>
+<p><strong>1. Relying on Past Research</strong></p>
+<p>Researchers will often review previous, similar studies to see what kind of effect sizes were reported. If three previous studies on dietary interventions all found a Cohen’s <em>d</em> of roughly 0.50, the researcher will plug 0.50 into their software to find out how many students they need to reliably detect that same medium effect.</p>
+<p><strong>2. Defining the “Minimal Practical Outcome”</strong></p>
+<p>Sometimes, researchers set their sample size based entirely on practical significance. They ask themselves, “What is the smallest difference that would matter in practice?”</p>
+<p>For our depression study, researchers might consult with clinicians and decide that a drop of at least 4 points on the CESD scale is required for a patient to feel noticeably better. Anything smaller than 4 points is practically useless. Therefore, they tell their software to calculate the exact sample size needed to detect a 4-point difference. If the true effect is smaller than 4 points, the study will fail to detect it, but the researchers do not mind because an effect that small was not practically meaningful anyway.</p>
+</section>
+<section id="planning-for-precision-margin-of-error" class="level3" data-number="3.9.5">
+<h3 data-number="3.9.5" class="anchored" data-anchor-id="planning-for-precision-margin-of-error"><span class="header-section-number">3.9.5</span> Planning for Precision (Margin of Error)</h3>
+<p>Finally, researchers sometimes plan their sample size around their confidence interval rather than a p-value. Remember that a confidence interval acts like a net. The width of that net is called the <a href="appendix-glossary.html#glossary-term-margin-of-error" class="glossary-link" data-definition="The width of a confidence interval around an estimate; a smaller margin of error means a more precise estimate, and increasing the sample size shrinks it." aria-describedby="glossary-tooltip" data-term="margin of error">Margin of Error</a>.</p>
+<p>If a researcher needs precise results, they want a narrow net. Because larger sample sizes reduce statistical noise, recruiting more participants shrinks the margin of error. A researcher can tell their software, “I want to be 95% confident in my results, and I want my margin of error to be no wider than 2 points.” The software will then calculate the exact sample size needed to guarantee that level of precision.</p>
+</section>
+</section>
+<section id="key-concepts" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">3.10</span> Key Concepts</h2>
+<ol type="1">
+<li><strong>Hypothesis testing separates signal from noise.</strong> It is a formal procedure used to determine if an observed effect in your sample is real (the signal) or just random natural variation (the noise).</li>
+<li><strong>The p-value weighs the evidence.</strong> It tells you how surprising your data would be if the null hypothesis were absolutely true. A remarkably small p-value provides strong evidence that the null hypothesis is false.</li>
+<li><strong>The significance level (<span class="math inline">\(\alpha\)</span>) sets the boundary.</strong> It is the predetermined standard of evidence required to reject the null hypothesis, universally set at .05 in the social sciences.</li>
+<li><strong>Decisions carry the risk of error.</strong> A Type I error occurs when you falsely claim an effect exists (a false positive), while a Type II error occurs when your study misses a real, genuine effect (a false negative).</li>
+<li><strong>The Central Limit Theorem provides flexibility.</strong> Because large sample sizes naturally produce a predictable bell curve of sample averages, a t-test can still produce valid results even if your original data is skewed, provided your sample size is sufficiently large (typically <span class="math inline">\(n \ge 30\)</span>).</li>
+<li><strong>Data collection dictates your tools.</strong> Use a Single Sample t-test to compare one group against a known baseline, a Matched Pair t-test to track changes within the same people over time, and an Independent Sample t-test to compare two separate groups.</li>
+<li><strong>Statistical significance does not equal practical importance.</strong> A p-value only proves that an effect mathematically exists. You must calculate an effect size (like Cohen’s <span class="math inline">\(d\)</span>) or check the confidence interval to determine if the effect is large enough to matter in practice.</li>
+<li><strong>Power Analysis prevents wasted effort.</strong> Researchers use power curves before a study begins to calculate the exact sample size needed to reliably detect a meaningful effect and avoid Type II errors.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">3.11</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 3.1: Notation used in this chapter, with how each symbol is read aloud.</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 33%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>How it is read aloud</strong></th>
+<th><strong>What it represents in plain words</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0\)</span></td>
+<td>“H-naught” or “Null Hypothesis”</td>
+<td>The baseline assumption that there is no relationship, no difference, or no effect.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_1\)</span></td>
+<td>“H-one” or “Alternative Hypothesis”</td>
+<td>The research claim that a meaningful relationship, difference, or effect truly exists.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>“Alpha” or “Significance Level”</td>
+<td>The strict threshold of evidence required to reject the null hypothesis (usually set to .05).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu\)</span></td>
+<td>“Mu”</td>
+<td>The true, overarching average of an entire population.</td>
+</tr>
+<tr class="odd">
+<td><em>t</em></td>
+<td>“t” or “t-statistic”</td>
+<td>The standardized signal-to-noise ratio comparing your observed effect against expected random variation.</td>
+</tr>
+<tr class="even">
+<td><em>df</em></td>
+<td>“Degrees of freedom”</td>
+<td>A mathematical value directly tied to your sample size that software uses to accurately calculate the p-value.</td>
+</tr>
+<tr class="odd">
+<td><em>d</em></td>
+<td>“Cohen’s d”</td>
+<td>A standardized measure of effect size that describes the difference between groups using standard deviations instead of raw units.</td>
+</tr>
+<tr class="even">
+<td><em>p</em></td>
+<td>“p” or “p-value”</td>
+<td>The probability of seeing our results by random chance if the null hypothesis is true. <strong>Note: Context is key!</strong> In formal hypothesis testing conclusions, this denotes the p-value. In other contexts (like in Chapter 2), it can denote a sample proportion.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.12</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">3.12.1</span> Interpretation</h3>
+<p><strong>1.</strong> A researcher conducts a study with 50,000 participants to see if a new study method improves test scores. The software reports a p-value of .001, but the average test score only improved by 0.2 points on a 100-point exam. Explain the difference between statistical significance and practical significance in this context.</p>
+<p><strong>2.</strong> You read a published paper that reports a 95% confidence interval of [2.1, 5.4] for the difference in sleep hours between two groups. A classmate says, “This means we are 95% sure that the true difference is exactly 3.7 hours.” Correct your classmate’s misconception about how confidence intervals work.</p>
+<p><strong>3.</strong> Imagine a school district is deciding whether to implement an expensive new reading program. State what a Type I error and a Type II error would look like in this specific scenario. Which error do you think would be worse for the school district, and why?</p>
+<p><strong>4.</strong> Explain the “noise-canceling headphone” metaphor. Why does increasing your sample size usually lead to a smaller p-value, even if the actual size of the effect remains exactly the same?</p>
+</section>
+<section id="choosing-a-method" class="level3" data-number="3.12.2">
+<h3 data-number="3.12.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">3.12.2</span> Choosing a Method</h3>
+<p><em>For questions 5 through 8, identify which of the three t-tests (Single Sample, Matched Pair, or Independent Sample) is the most appropriate tool for the research scenario.</em></p>
+<p><strong>5.</strong> A psychologist wants to know if mindfulness meditation lowers resting heart rate. They measure the resting heart rate of 40 volunteers, lead them through a 10-minute meditation, and then measure their heart rates again.</p>
+<p><strong>6.</strong> An economist is studying the gender pay gap. They collect salary data from 200 men and 200 women working in the same industry to see if there is a significant difference in their average earnings.</p>
+<p><strong>7.</strong> A sociologist reads a national report stating that the average American commutes 27 minutes to work. They survey 150 residents in their specific city to see if their local average commute differs from the national benchmark.</p>
+<p><strong>8.</strong> A physical therapist recruits 30 pairs of identical twins. One twin is randomly assigned to do yoga, and the other twin is assigned to lift weights. After six months, the therapist compares their flexibility scores to see which routine worked better. (Pay close attention to how the data is linked).</p>
+</section>
+<section id="communicating-results" class="level3" data-number="3.12.3">
+<h3 data-number="3.12.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">3.12.3</span> Communicating Results</h3>
+<p><strong>9.</strong> Identify the missing or incorrect elements in this poorly formatted APA conclusion: “The scores were significantly different, <em>t</em> = 4.12, <em>p</em> = .02. The CI was [1.2, 3.4].”</p>
+<p><strong>10.</strong> You run an independent sample t-test and the software provides a 95% confidence interval of [-8.5, -2.1] for the difference between Group A and Group B. Based solely on this interval, how do you know the finding is statistically significant?</p>
+<p><strong>11.</strong> Translate the following formal APA conclusion into a plain English sentence that a non-statistician could easily understand: “Employees in the four-day workweek pilot reported significantly lower burnout scores (<em>M</em> = 12.4, <em>SD</em> = 3.1) than employees on the standard five-day schedule (<em>M</em> = 18.7, <em>SD</em> = 4.2), <em>t</em>(88.4) = -5.33, <em>p</em> &lt; .001, <em>d</em> = 1.15.”</p>
+<p><strong>12.</strong> You are writing a conclusion for a matched pair t-test where you subtracted the pre-test from the post-test (Post - Pre). The p-value is .04 and the sample mean difference is positive 6.2. Did the scores significantly increase or significantly decrease over time?</p>
+</section>
+<section id="software-application" class="level3" data-number="3.12.4">
+<h3 data-number="3.12.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">3.12.4</span> Software Application</h3>
+<p><em>For the following exercises, use statistical software to analyze the</em> <code>depression_diet_treatment.csv</code> <em>dataset. Do not perform any calculations by hand.</em></p>
+<p><strong>13. Testing a New Baseline:</strong> The researchers want to know if the students’ baseline anxiety levels were significantly different from a clinical benchmark. The DASS anxiety subscale (which is similar to the <code>DASS1</code> depression subscale in your dataset) has a clinical benchmark score of 10.</p>
+<p><strong>a)</strong> Write the formal null and alternative hypotheses for this test using the correct notation.</p>
+<p><strong>b)</strong> Generate a histogram for the <code>DASS1</code> variable. Does the data appear roughly normal, or is it heavily skewed? Based on your sample size, is it safe to proceed with a t-test?</p>
+<p><strong>c)</strong> Run the appropriate t-test to compare <code>DASS1</code> against the benchmark of 10. Record the t-statistic, degrees of freedom, p-value, and confidence interval.</p>
+<p><strong>d)</strong> Write a complete APA-formatted conclusion reporting your results.</p>
+<p><strong>14. Analyzing the Control Group:</strong> We know the diet group’s depression scores improved over the 21 days. But what happened to the control group over that same time period? Did their DASS depression scores naturally change?</p>
+<p><strong>a)</strong> Filter or split your dataset so you are only analyzing the students assigned to the <a href="appendix-glossary.html#glossary-term-control-group" class="glossary-link" data-definition="The group in an experiment that does not receive the treatment being tested, used as a baseline for comparison with the treatment group." aria-describedby="glossary-tooltip" data-term="control group">Control</a> group.</p>
+<p><strong>b)</strong> Run the appropriate t-test to determine if the control group’s <code>DASSDiff</code> scores were significantly different from zero.</p>
+<p><strong>c)</strong> Examine the resulting 95% confidence interval. Does it include zero? How does this align with your calculated p-value?</p>
+<p><strong>d)</strong> Write a complete APA-formatted conclusion reporting your results. Be sure to note the direction of the change (or lack thereof) based on the sample mean.</p>
+<p><strong>15. Comparing Physical Changes:</strong> The researchers also tracked the students’ Body Mass Index (BMI). Did the diet intervention cause a significantly different change in BMI compared to the control group?</p>
+<p><strong>a)</strong> Generate comparative box plots showing <code>BMIDiff</code> separated by <code>Group</code>. Visually, does one group appear to have lost more weight than the other?</p>
+<p><strong>b)</strong> Run a Welch’s independent sample t-test comparing the <code>BMIDiff</code> scores between the Diet and Control groups.</p>
+<p><strong>c)</strong> Calculate Cohen’s <em>d</em> for the difference between the two groups.</p>
+<p><strong>d)</strong> Write a complete APA-formatted conclusion. Include a plain English summary, specifically addressing the practical significance of the physical change using your calculated effect size.</p>
+<p><strong>16. The Reality of Research:</strong> Look back at the results you generated for Exercise 15.</p>
+<p><strong>a)</strong> Based on the p-value, did the diet group experience a statistically significant difference in BMI change compared to the control group?</p>
+<p><strong>b)</strong> Compare the sample means for both groups. In practical terms, how much of a difference did the 21-day diet make on the students’ BMI?</p>
+<p><strong>c)</strong> Write a short paragraph explaining why evaluating both the p-value and the raw descriptive statistics is essential for preventing researchers from making exaggerated claims about their studies.</p>
+<p><strong>17. Planning a Follow-Up Study:</strong> The researchers are applying for a grant to run a large follow-up study across multiple universities to see if their diet intervention works on a national scale. The grant committee requires them to mathematically justify exactly how many students they need to recruit.</p>
+<p><strong>a)</strong> Based on the standard conventions discussed in this chapter, what significance level (<span class="math inline">\(\alpha\)</span>) and statistical power should the researchers plug into their planning software? <strong>b)</strong> In the main text of this chapter, we calculated a Cohen’s <em>d</em> of 0.53 for the difference in <code>CESDDiff</code> scores between the diet and control groups. If the researchers expect to see this same medium effect in their new national study, use your statistical software to calculate the minimum total sample size required for an independent sample t-test. <strong>c)</strong> The grant committee pushes back. They argue that a Cohen’s <em>d</em> of 0.53 is overly optimistic for a nationwide study, and they want to know the required sample size if the diet’s effect is actually much smaller (a Cohen’s <em>d</em> of 0.20). Use your software to calculate the new required sample size using this smaller expected effect. <strong>d)</strong> Compare the two sample sizes you just calculated. In your own words, explain why detecting a smaller effect requires significantly more participants. (Hint: Think back to the noise-canceling headphone metaphor).</p>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-02.html" class="pagination-link" aria-label="From Research Questions to Formal Hypotheses">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-04.html" class="pagination-link" aria-label="Correlation and Simple Linear Regression">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

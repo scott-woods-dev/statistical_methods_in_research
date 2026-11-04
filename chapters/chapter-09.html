@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Logistic Regression – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-10.html" rel="next">
+<link href="../chapters/chapter-08.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-08.html">Unit IV: Categorical Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">9.1</span> Introduction</a></li>
+  <li><a href="#the-core-concept-moving-beyond-2x2-tables" id="toc-the-core-concept-moving-beyond-2x2-tables" class="nav-link" data-scroll-target="#the-core-concept-moving-beyond-2x2-tables"><span class="header-section-number">9.2</span> The Core Concept: Moving Beyond 2x2 Tables</a></li>
+  <li><a href="#the-math-conceptually-the-logit" id="toc-the-math-conceptually-the-logit" class="nav-link" data-scroll-target="#the-math-conceptually-the-logit"><span class="header-section-number">9.3</span> The Math (Conceptually): The Logit</a></li>
+  <li><a href="#interpreting-the-output-slopes-and-odds-ratios" id="toc-interpreting-the-output-slopes-and-odds-ratios" class="nav-link" data-scroll-target="#interpreting-the-output-slopes-and-odds-ratios"><span class="header-section-number">9.4</span> Interpreting the Output: Slopes and Odds Ratios</a></li>
+  <li><a href="#from-odds-to-probabilities" id="toc-from-odds-to-probabilities" class="nav-link" data-scroll-target="#from-odds-to-probabilities"><span class="header-section-number">9.5</span> From Odds to Probabilities</a></li>
+  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression"><span class="header-section-number">9.6</span> Multiple Logistic Regression</a>
+  <ul class="collapse">
+  <li><a href="#evaluating-predictors-p-values-and-vif" id="toc-evaluating-predictors-p-values-and-vif" class="nav-link" data-scroll-target="#evaluating-predictors-p-values-and-vif"><span class="header-section-number">9.6.1</span> Evaluating Predictors: <span class="math inline">\(p\)</span>-values and VIF</a></li>
+  <li><a href="#interpreting-the-odds-ratios" id="toc-interpreting-the-odds-ratios" class="nav-link" data-scroll-target="#interpreting-the-odds-ratios"><span class="header-section-number">9.6.2</span> Interpreting the Odds Ratios</a></li>
+  <li><a href="#predicting-probabilities-for-specific-profiles" id="toc-predicting-probabilities-for-specific-profiles" class="nav-link" data-scroll-target="#predicting-probabilities-for-specific-profiles"><span class="header-section-number">9.6.3</span> Predicting Probabilities for Specific Profiles</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics-and-accuracy-the-confusion-matrix" id="toc-model-diagnostics-and-accuracy-the-confusion-matrix" class="nav-link" data-scroll-target="#model-diagnostics-and-accuracy-the-confusion-matrix"><span class="header-section-number">9.7</span> Model Diagnostics and Accuracy: The Confusion Matrix</a>
+  <ul class="collapse">
+  <li><a href="#adjusting-the-threshold" id="toc-adjusting-the-threshold" class="nav-link" data-scroll-target="#adjusting-the-threshold"><span class="header-section-number">9.7.1</span> Adjusting the Threshold</a></li>
+  <li><a href="#the-illusion-of-p-values-and-thoughtful-modeling" id="toc-the-illusion-of-p-values-and-thoughtful-modeling" class="nav-link" data-scroll-target="#the-illusion-of-p-values-and-thoughtful-modeling"><span class="header-section-number">9.7.2</span> The Illusion of <span class="math inline">\(p\)</span>-values and Thoughtful Modeling</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics-and-accuracy-the-roc-curve-and-the-auc" id="toc-model-diagnostics-and-accuracy-the-roc-curve-and-the-auc" class="nav-link" data-scroll-target="#model-diagnostics-and-accuracy-the-roc-curve-and-the-auc"><span class="header-section-number">9.8</span> Model Diagnostics and Accuracy: The ROC Curve and the AUC</a>
+  <ul class="collapse">
+  <li><a href="#grading-the-model-area-under-the-curve-auc" id="toc-grading-the-model-area-under-the-curve-auc" class="nav-link" data-scroll-target="#grading-the-model-area-under-the-curve-auc"><span class="header-section-number">9.8.1</span> Grading the Model: Area Under the Curve (AUC)</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit" id="toc-model-diagnostics-and-accuracy-deviance-and-goodness-of-fit" class="nav-link" data-scroll-target="#model-diagnostics-and-accuracy-deviance-and-goodness-of-fit"><span class="header-section-number">9.9</span> Model Diagnostics and Accuracy: Deviance and Goodness of Fit</a>
+  <ul class="collapse">
+  <li><a href="#understanding-deviance" id="toc-understanding-deviance" class="nav-link" data-scroll-target="#understanding-deviance"><span class="header-section-number">9.9.1</span> Understanding Deviance</a></li>
+  <li><a href="#deviance-r2-and-adjusted-deviance-r2" id="toc-deviance-r2-and-adjusted-deviance-r2" class="nav-link" data-scroll-target="#deviance-r2-and-adjusted-deviance-r2"><span class="header-section-number">9.9.2</span> Deviance <span class="math inline">\(R^2\)</span> and Adjusted Deviance <span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#the-hosmer-lemeshow-goodness-of-fit-test" id="toc-the-hosmer-lemeshow-goodness-of-fit-test" class="nav-link" data-scroll-target="#the-hosmer-lemeshow-goodness-of-fit-test"><span class="header-section-number">9.9.3</span> The Hosmer-Lemeshow Goodness-of-Fit Test</a></li>
+  </ul></li>
+  <li><a href="#sample-sizes-and-rare-events" id="toc-sample-sizes-and-rare-events" class="nav-link" data-scroll-target="#sample-sizes-and-rare-events"><span class="header-section-number">9.10</span> Sample Sizes and Rare Events</a></li>
+  <li><a href="#beyond-binary-outcomes-ordinal-regression" id="toc-beyond-binary-outcomes-ordinal-regression" class="nav-link" data-scroll-target="#beyond-binary-outcomes-ordinal-regression"><span class="header-section-number">9.11</span> Beyond Binary Outcomes: Ordinal Regression</a></li>
+  <li><a href="#communicating-results-in-apa-format" id="toc-communicating-results-in-apa-format" class="nav-link" data-scroll-target="#communicating-results-in-apa-format"><span class="header-section-number">9.12</span> Communicating Results in APA Format</a></li>
+  <li><a href="#common-mistakes-misconceptions" id="toc-common-mistakes-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-misconceptions"><span class="header-section-number">9.13</span> Common Mistakes / Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">9.14</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">9.15</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9.16</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">9.16.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">9.16.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">9.16.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">9.16.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-08.html">Unit IV: Categorical Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">9.1</span> Introduction</h2>
+<p>Up to this point, we have primarily focused on continuous numerical outcomes. We built models to predict things like life expectancy or birth weight, where the response variable can take on a wide, continuous range of values. But what happens when our research question demands a simple binary answer? In many critical social and medical science applications, the response variable is a categorical event. A candidate wins an election, or they lose. A borrower defaults on a loan, or they pay it back. A patient survives a medical emergency, or they pass away.</p>
+<p>To evaluate these situations, researchers use <a href="appendix-glossary.html#glossary-term-logistic-regression" class="glossary-link" data-definition="A regression model for a binary outcome that estimates how predictors affect the odds of the outcome; the odds ratio is its basic building block." aria-describedby="glossary-tooltip" data-term="logistic regression">logistic regression</a>. Unlike standard linear regression, which tries to fit a straight line to predict a specific numeric value, logistic regression is built to predict the <em>probability</em> that a specific category occurs. It essentially bends our standard straight line into a curve, ensuring that our model’s predictions always make logical sense by staying strictly between 0% and 100%.</p>
+<p>We will explore this method by stepping into a high-stakes clinical environment using the <code>icu_data.csv</code> dataset. An Intensive Care Unit handles the most severe, life-threatening cases in a hospital system, demanding continuous monitoring and rapid clinical intervention. Because critical care environments are high-risk, modeling patient survival alongside admission types and physiological baselines is central to improving triage and hospital resource management.</p>
+<p>Our motivating research question is straightforward: How do physiological indicators and the nature of a hospital admission influence a patient’s probability of surviving to discharge?</p>
+<p>We will rely on a random sample of 200 patients extracted from a larger clinical study to answer this question.</p>
+<ul>
+<li><strong><code>Survive</code></strong>: The patient’s survival status at hospital discharge (<span class="math inline">\(1 = \text{the patient survived to be discharged}\)</span>, <span class="math inline">\(0 = \text{the patient died in the hospital}\)</span>).</li>
+<li><strong><code>Age</code></strong>: The age of the patient in years.</li>
+<li><strong><code>Pulse</code></strong>: The patient’s heart rate measured in beats per minute (bpm).</li>
+<li><strong><code>Emergency</code></strong>: The type of ICU admission (<span class="math inline">\(1 = \text{emergency admission}\)</span>, <span class="math inline">\(0 = \text{elective admission}\)</span>).</li>
+</ul>
+<p>By the end of this chapter, you will understand how software tools manage the complex math behind logistic regression, allowing us to focus entirely on translating the model’s output into interpretable predicted probabilities. Furthermore, we will revisit the confusion matrix you learned about in the previous chapter. Instead of evaluating a simple, arbitrary rule like patient pulse rates, you will learn how to take the precise probabilities generated by a logistic regression model, set a decision threshold, and build a confusion matrix to accurately evaluate the model’s true sensitivity and specificity.</p>
+</section>
+<section id="the-core-concept-moving-beyond-2x2-tables" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="the-core-concept-moving-beyond-2x2-tables"><span class="header-section-number">9.2</span> The Core Concept: Moving Beyond 2x2 Tables</h2>
+<p>In the previous chapter, we analyzed relationships between categorical variables using tables. We could easily compare a patient’s infection status (yes or no) against their survival status (yes or no). But what if we want to predict a <a href="appendix-glossary.html#glossary-term-binary-outcome" class="glossary-link" data-definition="An outcome with exactly two possible categories, such as survived or died." aria-describedby="glossary-tooltip" data-term="binary outcome">binary outcome</a> (an event with exactly two possible categorical results) using a continuous numerical variable?</p>
+<p>Imagine we want to predict the probability of a patient surviving to discharge (<code>Survive</code>) based on their resting heart rate (<code>Pulse</code>). If we plot this data, the survival outcome on the y-axis can only exist at exactly 0 (died) or exactly 1 (survived).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_09/fig_09_01_scatter_survive_vs_pulse.png" class="img-fluid figure-img" alt="Scatterplot of survival status against pulse for 200 ICU patients, with points jittered into two bands at 0 (died) and 1 (survived). A straight regression line runs from 83% predicted survival at pulse 39 down to 76% at pulse 192, staying inside the 0 to 100% range. The line has no floor or ceiling."></p>
+<figcaption>Figure 9.1: Survival status by pulse rate for 200 ICU patients. Each circle is a patient at 0 (died) or 1 (survived), jittered vertically to show overlap. The straight-line fit stays inside the probability range here because pulse is only weakly related to survival, but nothing in a straight line keeps it there.</figcaption>
+</figure>
+</div>
+<p>If we fit a standard linear regression line to this scatterplot, we run into an immediate logical problem. A straight line continues infinitely in both directions. For extremely high or low pulse rates, the straight line will eventually predict survival values greater than 1 or less than 0. Because we want to interpret these predictions as probabilities, a straight line will eventually claim a patient has a -20% or 115% chance of survival. This is mathematically impossible.</p>
+<p>Standard linear regression fails when the outcome is a categorical yes or no result because straight lines do not respect the strict boundaries of probability. To solve this, researchers use a mathematical function that bends the straight line into an S-shaped curve. This curve flattens out as it approaches 0 and 1, ensuring that the model’s predicted probabilities always remain valid, no matter how extreme the patient’s pulse rate becomes.</p>
+</section>
+<section id="the-math-conceptually-the-logit" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="the-math-conceptually-the-logit"><span class="header-section-number">9.3</span> The Math (Conceptually): The Logit</h2>
+<p>To mathematically create that S-shaped probability curve, we need a mathematical bridge. We build this bridge in two conceptual steps.</p>
+<p>First, we translate probabilities into <a href="appendix-glossary.html#glossary-term-odds" class="glossary-link" data-definition="The probability of an event divided by the probability of the event not happening; odds of 4 mean four events for every one non-event." aria-describedby="glossary-tooltip" data-term="odds">odds</a>. Humans naturally think in probabilities, but to model our data, we need to compare the chance of an event happening to the chance of it <em>not</em> happening. If we let <span class="math inline">\(\pi\)</span> represent the true population probability of survival, the formula for odds is:</p>
+<p><span class="math display">\[
+\displaystyle \text{Odds} = \frac{\pi}{1 - \pi}
+\]</span></p>
+<p>For example, if a patient has an 80% probability of surviving (<span class="math inline">\(\pi = 0.80\)</span>), the probability of not surviving is 20% (<span class="math inline">\(1 - 0.80 = 0.20\)</span>). Dividing 0.80 by 0.20 gives us 4. The odds of survival are 4 to 1, or more directly, 4 patients survive for every 1 death.</p>
+<p>While probabilities are neatly bounded between 0 and 1, odds are heavily skewed. Think about the “middle” of a probability scale, which is a 50/50 coin flip. If <span class="math inline">\(\pi = 0.50\)</span>, the odds are exactly 1. This means every event less likely than a coin flip is compressed into the tiny mathematical space between 0 and 1. Meanwhile, every event more likely than a coin flip stretches from 1 all the way out to infinity. We cannot plug something this asymmetrical into a standard straight-line regression model.</p>
+<p>To fix this severe skew, we use a mathematical stretching machine: the natural logarithm. In Chapter 4, you saw logarithms visually scale down heavy-sided economic data. Here, the logarithm acts geometrically. It takes that cramped 0-to-1 odds space and pulls it down toward negative infinity. It also takes the infinite stretch above 1 and scales it back down.</p>
+<p>This transformation centers our entire system perfectly at 0, creating a new, stretched metric called the <a href="appendix-glossary.html#glossary-term-log-odds" class="glossary-link" data-definition="The natural logarithm of the odds of an outcome; a scale centered at zero that can be modeled with a straight line." aria-describedby="glossary-tooltip" data-term="log-odds">log-odds</a>, or the <a href="appendix-glossary.html#glossary-term-logit" class="glossary-link" data-definition="Another name for the log-odds, and the quantity a logistic regression model estimates directly." aria-describedby="glossary-tooltip" data-term="logit">logit</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_09/fig_09_02_diagram_logit_progression.png" class="img-fluid figure-img" alt="Three stacked line charts share a probability axis from 0 to 1. Panel A is the straight line from 0 to 1. Panel B stays near 0, passes even odds at 1, then climbs steeply toward infinity. Panel C is an S-shaped curve through 0, dropping near 0 and rising near 1."></p>
+<figcaption>Figure 9.2: Building the logit in three steps, all plotted against the same probability of survival. Panel A shows probability, bounded between 0 and 1. Panel B shows odds, compressed between 0 and 1 and stretching toward infinity above 1. Panel C shows the log-odds (logit), centered on 0 and extending in both directions.</figcaption>
+</figure>
+</div>
+<p>The logit gives us a canvas suitable for a straight regression line. When you run a logistic regression, the software uses your predictor variables to directly estimate this logit.</p>
+<p>However, nobody communicates clinical risk using abstract log-odds. Because our regression estimates the logit directly, we will eventually have to reverse-transform these numbers to make useful predictions like probabilities. We will not worry about the math for that reverse transformation just yet. Our immediate next step is simply learning how to read the initial software output.</p>
+</section>
+<section id="interpreting-the-output-slopes-and-odds-ratios" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="interpreting-the-output-slopes-and-odds-ratios"><span class="header-section-number">9.4</span> Interpreting the Output: Slopes and Odds Ratios</h2>
+<table class="caption-top table">
+<caption>Table 9.1: Simple logistic regression of survival on age for 200 ICU patients.</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: right;">z-value</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">Odds ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Constant</td>
+<td style="text-align: right;">3.0585</td>
+<td style="text-align: right;">0.6961</td>
+<td style="text-align: right;">4.39</td>
+<td style="text-align: right;">&lt; 0.001</td>
+<td style="text-align: right;">21.2959</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: right;">-0.0275</td>
+<td style="text-align: right;">0.0106</td>
+<td style="text-align: right;">-2.61</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">0.9728</td>
+</tr>
+</tbody>
+</table>
+<p>When you run a logistic regression model, your software will output a familiar-looking table of coefficients. Because our model is predicting the logit, the raw slope we get back tells us how the log-odds change for every one-unit increase in our predictor variable.</p>
+<p>Because log-odds are abstract, researchers typically treat this raw slope strictly as a directional signal. Let’s apply this to the <code>Age</code> variable in our dataset, which measures the patient’s age in years. In our output table, the raw coefficient for age is -0.0275. The negative sign immediately tells us the direction of the relationship: as age increases, the log-odds of survival decrease. Older age is associated with lower survival rates.</p>
+<p>However, telling a doctor that a patient’s log-odds of survival drop by 0.0275 each year is not practically useful. To make these numbers interpretable, statistical software automatically converts these raw slopes into an <a href="appendix-glossary.html#glossary-term-odds-ratio" class="glossary-link" data-definition="The odds of an outcome in one group divided by the odds of the same outcome in a baseline group; the standard measure of risk in case-control studies." aria-describedby="glossary-tooltip" data-term="odds ratio">Odds Ratio</a>.</p>
+<p>If we read our software output, it translates that raw slope of -0.0275 into an Odds Ratio of approximately 0.97. This single number is interpretable. It tells us that for every one-year increase in a patient’s age, their baseline odds of surviving are multiplied by a factor of 0.97.</p>
+<p>Why does multiplying by 0.97 matter? If you retain 100% of your baseline odds, your multiplier is exactly 1.00. By dropping to 0.97, you are retaining 97% of your baseline odds. Mathematically, this means you have lost 3% (1.00 - 0.97 = 0.03). Therefore, we can interpret this Odds Ratio as a 3% decrease in the <em>odds</em> of survival for every additional year of life.</p>
+<p>We must be especially careful here: this is a 3% decrease in the <em>odds</em> of survival, not the <em>probability</em> of survival. Furthermore, because this is a multiplier, the risk compounds like interest on a bank account. A 3% decrease per year does not mean that after 10 years, a patient has lost a flat 30% of their odds. Instead, the odds shrink by 3% of the <em>previous year’s</em> value, curving gently downward rather than dropping in a straight, predictable line. The Odds Ratio allows us to easily understand this compounding, multiplicative risk without ever having to calculate the complex underlying mathematics.</p>
+</section>
+<section id="from-odds-to-probabilities" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="from-odds-to-probabilities"><span class="header-section-number">9.5</span> From Odds to Probabilities</h2>
+<p>Odds ratios are excellent tools for understanding structural risk factors, like seeing how every additional year of age chips away at survival odds. However, humans fundamentally think in percentages, not odds. If you are a triage nurse evaluating a 65-year-old patient, you do not want to calculate compounding odds; you want to know their actual percentage chance of surviving.</p>
+<p>To make our model truly actionable, we must convert our findings back into intuitive predicted probabilities for specific cases. Because our regression line was built using abstract log-odds, calculating the exact probability by hand requires complex mathematics. Instead of wrestling with those complex calculations, we can rely entirely on our statistical software tools to reverse-transform the model’s output into a clean percentage.</p>
+<p>To generate a predicted probability, we simply provide the software with a specific patient profile. Let’s ask our software to predict the survival probability for a 65-year-old patient using our simple model.</p>
+<table class="caption-top table">
+<caption>Table 9.2: Predicted probability of survival for a 65-year-old from the simple logistic regression on age (n = 200).</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Patient profile</th>
+<th style="text-align: right;">Fitted probability</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: left;">95% confidence interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">65 years old</td>
+<td style="text-align: right;">0.7804</td>
+<td style="text-align: right;">0.0310</td>
+<td style="text-align: left;">(0.7138, 0.8351)</td>
+</tr>
+</tbody>
+</table>
+<p>The software takes this specific age, runs it through the log-odds equation, and automatically translates the final result back into a standard probability. Looking at the prediction output, the software gives us a “Fitted Probability” of <span class="math inline">\(0.780442\)</span>. This means our model predicts that a 65-year-old ICU patient has approximately a 78% chance of surviving to discharge.</p>
+<p>Furthermore, the software provides a 95% Confidence Interval of <span class="math inline">\((0.713830, 0.835130)\)</span>. Because our model is built on a sample of 200 patients, there is always some uncertainty. This interval tells us we can be 95% confident that the true population probability of survival for 65-year-old ICU patients falls somewhere between 71.4% and 83.5%.</p>
+<p>This translation is the ultimate practical goal of logistic regression. We rely on the raw slopes and Odds Ratios to understand <em>how</em> variables influence an outcome, but we use the software’s predicted probabilities to <em>apply</em> the model to decision-making. Once we can generate these specific probabilities, we can evaluate how accurate our model is when forced to make a prediction in practice.</p>
+</section>
+<section id="multiple-logistic-regression" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="multiple-logistic-regression"><span class="header-section-number">9.6</span> Multiple Logistic Regression</h2>
+<p>In Chapter 5, we learned that social and medical outcomes are rarely driven by a single isolated factor. We use multiple variables to account for confounding factors and get a more accurate picture of reality. Logistic regression follows this same logic. We can add multiple predictors to our model to control for overlapping influences and generate specific predictions.</p>
+<p>Let’s expand our ICU survival model by including <code>Emergency</code>, a categorical indicator variable where <span class="math inline">\(1\)</span> represents an emergency admission and <span class="math inline">\(0\)</span> represents an elective admission.</p>
+<table class="caption-top table">
+<caption>Table 9.3: Multiple logistic regression of survival on age and emergency admission (1 = emergency, 0 = elective) for 200 ICU patients.</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: left;">95% confidence interval</th>
+<th style="text-align: right;">z-value</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">VIF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Constant</td>
+<td style="text-align: right;">5.5088</td>
+<td style="text-align: right;">1.0335</td>
+<td style="text-align: left;">(3.4831, 7.5344)</td>
+<td style="text-align: right;">5.33</td>
+<td style="text-align: right;">&lt; 0.001</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: right;">-0.0340</td>
+<td style="text-align: right;">0.0107</td>
+<td style="text-align: left;">(-0.0550, -0.0131)</td>
+<td style="text-align: right;">-3.18</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">1.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Emergency admission</td>
+<td style="text-align: right;">-2.4535</td>
+<td style="text-align: right;">0.7526</td>
+<td style="text-align: left;">(-3.9285, -0.9785)</td>
+<td style="text-align: right;">-3.26</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">1.01</td>
+</tr>
+</tbody>
+</table>
+<section id="evaluating-predictors-p-values-and-vif" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="evaluating-predictors-p-values-and-vif"><span class="header-section-number">9.6.1</span> Evaluating Predictors: <span class="math inline">\(p\)</span>-values and VIF</h3>
+<p>The great news about multiple logistic regression is that the diagnostic tools you learned in Chapter 5 work exactly the same way here.</p>
+<p>Looking at our output table, the p-value for both <code>Age</code> and <code>Emergency</code> is <span class="math inline">\(0.001\)</span>. We interpret this just as we did with standard multiple regression: each variable is a statistically significant predictor of survival, even when controlling for the effect of the other.</p>
+<p>Furthermore, whenever we add multiple predictors, we must check for multicollinearity to see what happens when predictors overlap. Our output includes the Variance Inflation Factor (VIF). Both variables have a VIF of <span class="math inline">\(1.01\)</span>. Because this is well below standard warning thresholds, we can confidently conclude that a patient’s age and their admission type are providing unique, non-overlapping information to our model.</p>
+</section>
+<section id="interpreting-the-odds-ratios" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="interpreting-the-odds-ratios"><span class="header-section-number">9.6.2</span> Interpreting the Odds Ratios</h3>
+<table class="caption-top table">
+<caption>Table 9.4: Odds ratios and 95% confidence intervals from the multiple logistic regression of survival on age and emergency admission.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: right;">Odds ratio</th>
+<th style="text-align: left;">95% confidence interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: right;">0.9666</td>
+<td style="text-align: left;">(0.9465, 0.9870)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Emergency admission</td>
+<td style="text-align: right;">0.0860</td>
+<td style="text-align: left;">(0.0197, 0.3759)</td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s turn to the Odds Ratios to understand the practical effect of these variables.</p>
+<ul>
+<li><strong>Age:</strong> The Odds Ratio for <code>Age</code> is <span class="math inline">\(0.9666\)</span>. This means for every additional year of life, a patient retains roughly 96.7% of their baseline odds of survival, assuming their admission type stays the same. This translates to a 3.3% decrease in the odds of survival per year (<span class="math inline">\(1.00 - 0.9666 = 0.0334\)</span>).</li>
+<li><strong>Emergency:</strong> The Odds Ratio for <code>Emergency</code> is <span class="math inline">\(0.0860\)</span>. Because this is an indicator variable, it compares the <span class="math inline">\(1\)</span> group to the baseline <span class="math inline">\(0\)</span> group. This means a patient admitted as an emergency retains only 8.6% of the survival odds compared to a patient of the same age admitted for an elective procedure. Mathematically, an emergency admission is associated with a 91.4% drop in the odds of survival (<span class="math inline">\(1.00 - 0.0860 = 0.914\)</span>).</li>
+</ul>
+</section>
+<section id="predicting-probabilities-for-specific-profiles" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="predicting-probabilities-for-specific-profiles"><span class="header-section-number">9.6.3</span> Predicting Probabilities for Specific Profiles</h3>
+<p>A 91% drop in odds sounds terrifying, but remember that odds are not percentages. To truly understand the clinical impact of these variables, we must use our software tools to reverse-transform the model’s log-odds output into actionable predicted probabilities.</p>
+<p>Let’s generate the predicted probabilities of survival for a 65-year-old patient under both admission scenarios.</p>
+<table class="caption-top table">
+<caption>Table 9.5: Predicted probability of survival for a 65-year-old elective admission from the age and emergency model.</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Patient profile</th>
+<th style="text-align: right;">Fitted probability</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: left;">95% confidence interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">65 years old, elective admission</td>
+<td style="text-align: right;">0.9644</td>
+<td style="text-align: right;">0.0249</td>
+<td style="text-align: left;">(0.8674, 0.9911)</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Table 9.6: Predicted probability of survival for a 65-year-old emergency admission from the age and emergency model.</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Patient profile</th>
+<th style="text-align: right;">Fitted probability</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: left;">95% confidence interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">65 years old, emergency admission</td>
+<td style="text-align: right;">0.6993</td>
+<td style="text-align: right;">0.0417</td>
+<td style="text-align: left;">(0.6119, 0.7743)</td>
+</tr>
+</tbody>
+</table>
+<p>Our model predicts that a 65-year-old admitted for an elective procedure has a high <span class="math inline">\(0.964350\)</span>, or 96.4%, probability of surviving to discharge. However, if that same 65-year-old is rushed in for an emergency, their predicted probability of survival drops to <span class="math inline">\(0.699344\)</span>, or roughly 69.9%.</p>
+<p>This is the power of multiple logistic regression. By controlling for multiple variables simultaneously, we can move beyond generalized risk factors and provide precise, contextual probabilities that can inform decision-making.</p>
+</section>
+</section>
+<section id="model-diagnostics-and-accuracy-the-confusion-matrix" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="model-diagnostics-and-accuracy-the-confusion-matrix"><span class="header-section-number">9.7</span> Model Diagnostics and Accuracy: The Confusion Matrix</h2>
+<p>Our multiple logistic regression model provides precise predicted probabilities for patient survival. However, to evaluate how practically useful this model is in a high-stakes clinical setting, we need to see how well it classifies patients. To do this, researchers pick a probability threshold (commonly 50%) and instruct the software to make a hard prediction. If a patient’s predicted probability of survival is over 50%, the model predicts they will survive. If it is under 50%, the model predicts they will die.</p>
+<p>By cross-tabulating these predictions against what happened to the 200 patients in our sample, we build a confusion matrix.</p>
+<table class="caption-top table">
+<caption>Table 9.7: Confusion matrix cross-tabulating predicted survival against actual survival at the 50% threshold (n = 200).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predicted outcome</th>
+<th style="text-align: center;">Actual death (0)</th>
+<th style="text-align: center;">Actual survival (1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Predicted death (0)</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Predicted survival (1)</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">159</td>
+</tr>
+</tbody>
+</table>
+<p>Using our matrix, we can categorize every patient into one of four groups:</p>
+<ul>
+<li><strong>True Positives (159 patients):</strong> The model predicted they would survive, and they survived.</li>
+<li><strong>True Negatives (2 patients):</strong> The model predicted they would not survive, and they did not survive.</li>
+<li><strong>False Positives (38 patients):</strong> The model predicted they would survive, but they unfortunately died.</li>
+<li><strong>False Negatives (1 patient):</strong> The model predicted they would not survive, but they lived.</li>
+</ul>
+<p>With these counts, we can calculate our model’s accuracy using two metrics introduced in Chapter 8: sensitivity and specificity.</p>
+<p>Sensitivity measures the true positive rate: out of all the patients who <em>actually</em> survived, how many did our model successfully identify? In our sample, 160 patients survived in total (159 True Positives + 1 False Negative). Our model correctly predicted 159 of them. This gives our model a sensitivity of 99.4% (159 / 160).</p>
+<p>Specificity measures the true negative rate: out of all the patients who <em>actually</em> died, how many did our model correctly identify? In our sample, 40 patients died (2 True Negatives + 38 False Positives). Our model correctly flagged only 2 of them. This gives our model an abysmal specificity of 5.0% (2 / 40).</p>
+<p>While our model’s <span class="math inline">\(p\)</span>-values were statistically significant, this confusion matrix reveals a major practical flaw. Because the baseline survival rate in this ICU dataset is relatively high, setting a 50% threshold causes our model to predict that almost <em>everyone</em> will survive. A model that cannot accurately identify high-risk patients (low specificity) is not particularly useful for hospital triage.</p>
+<section id="adjusting-the-threshold" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="adjusting-the-threshold"><span class="header-section-number">9.7.1</span> Adjusting the Threshold</h3>
+<p>Researchers are not permanently locked into a 50% threshold. In a medical setting, the cost of a false positive (predicting a patient will survive when they are actually at high risk of dying) is catastrophic. To fix our model’s poor specificity, we could adjust the probability threshold upward. For instance, we might demand an 85% predicted probability before we classify someone in the “Predicted Survival” category.</p>
+<p>By raising the bar for survival, more patients will fall into the “Predicted Death” bucket. This would correctly flag more high-risk patients, significantly improving our specificity. However, this is always a trade-off. By predicting death more often, we will inevitably flag some patients who would have survived just fine, lowering our sensitivity. Researchers must choose a threshold that carefully balances these ethical and practical stakes.</p>
+</section>
+<section id="the-illusion-of-p-values-and-thoughtful-modeling" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="the-illusion-of-p-values-and-thoughtful-modeling"><span class="header-section-number">9.7.2</span> The Illusion of <span class="math inline">\(p\)</span>-values and Thoughtful Modeling</h3>
+<p>This large gap between our significant <span class="math inline">\(p\)</span>-values and our terrible specificity illustrates a core statistical truth: <span class="math inline">\(p\)</span>-values only measure whether a relationship is better than random chance. A low <span class="math inline">\(p\)</span>-value is strong evidence that a variable has <em>some</em> effect; it is absolutely not a measure of how useful the model is, how accurately it estimates reality, or whether it belongs in a clinical setting.</p>
+<p>That is exactly why we rely on post-hoc diagnostics like the confusion matrix. Our two-variable model failed the practical test because human survival in an ICU is complex. A triage model requires far more than just a patient’s age and emergency status. Researchers must think carefully about the underlying science to select the right variables, perhaps incorporating vital signs like pulse or blood pressure (<code>Pulse</code>, <code>SysBP</code>), or existing infections (<code>Infection</code>), without adding so many variables that the model becomes convoluted overkill. Good modeling is driven by theory and evaluated by practical accuracy, not just by hunting for low <span class="math inline">\(p\)</span>-values.</p>
+</section>
+</section>
+<section id="model-diagnostics-and-accuracy-the-roc-curve-and-the-auc" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="model-diagnostics-and-accuracy-the-roc-curve-and-the-auc"><span class="header-section-number">9.8</span> Model Diagnostics and Accuracy: The ROC Curve and the AUC</h2>
+<p>In the previous section, we saw how manually adjusting our prediction threshold from 50% to 85% changed our model’s sensitivity and specificity. But testing thresholds one by one is tedious. What if we wanted to see the accuracy trade-offs for <em>every</em> possible threshold between 0% and 100% all at once?</p>
+<p>To do this, researchers generate a <a href="appendix-glossary.html#glossary-term-receiver-operating-characteristic-roc-curve" class="glossary-link" data-definition="A plot of sensitivity against the false positive rate across all possible decision thresholds, used to compare classification models." aria-describedby="glossary-tooltip" data-term="receiver operating characteristic (ROC) curve">Receiver Operating Characteristic (ROC) curve</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_09/fig_09_03_roc_roc_auc.png" class="img-fluid figure-img" alt="ROC curve for the age and emergency model. The curve climbs above the dashed diagonal, reaching 40% sensitivity at a 10% false positive rate, 63% at 25%, and 98% at 95%. The area under the curve is 0.749. A triangle at a 95% false positive rate and 99% sensitivity marks the 50% threshold."></p>
+<figcaption>Figure 9.3: ROC curve for the logistic regression of survival on age and emergency admission for 200 ICU patients. The curve plots sensitivity against the false positive rate at every decision threshold. The dashed diagonal is a coin-flip model; the triangle marks the 50% threshold, where the model’s specificity is only 5.0%.</figcaption>
+</figure>
+</div>
+<p>An ROC curve is a visual summary of our model’s performance across all possible decision thresholds. The vertical y-axis plots the Sensitivity (the True Positive Rate). The horizontal x-axis plots the False Positive Rate, which is simply 100% minus the Specificity.</p>
+<p>When you look at an ROC curve, you will typically see a diagonal line cutting straight through the middle of the graph. This diagonal line represents a useless model, one that is effectively just flipping a coin. If our model is learning from the data, its curve will bow upward and away from that diagonal line, pushing toward the top-left corner of the graph. That top-left corner represents the holy grail of classification: 100% sensitivity and 0% false positives.</p>
+<section id="grading-the-model-area-under-the-curve-auc" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="grading-the-model-area-under-the-curve-auc"><span class="header-section-number">9.8.1</span> Grading the Model: Area Under the Curve (AUC)</h3>
+<p>While the ROC curve provides a great visual, researchers usually want a single, standardized number to summarize how well the model distinguishes between categories. We get this by calculating the <a href="appendix-glossary.html#glossary-term-area-under-the-curve-auc" class="glossary-link" data-definition="A summary of a model’s classification performance, equal to the probability that the model ranks a randomly chosen positive case above a randomly chosen negative case; 0.5 is chance and 1.0 is perfect." aria-describedby="glossary-tooltip" data-term="area under the curve (AUC)">Area Under the Curve (AUC)</a>.</p>
+<p>Think of the AUC as a grading scale for your model’s overall accuracy, ranging from 0.5 to 1.0.</p>
+<ul>
+<li><strong>0.50:</strong> The model is guessing blindly (the diagonal line).</li>
+<li><strong>0.70 to 0.80:</strong> The model is acceptable, but leaves significant room for improvement.</li>
+<li><strong>0.80 to 0.90:</strong> The model is excellent.</li>
+<li><strong>1.00:</strong> The model is perfect (which rarely happens practice).</li>
+</ul>
+<p>Conceptually, the AUC tells us the probability that our model will correctly rank two random observations. If we randomly pick one patient who survived and one patient who died, the AUC is the probability that our model assigns a higher predicted survival percentage to the patient who lived.</p>
+<p>Our software output reports an Area Under the ROC Curve of 0.7491 for our two-variable model. This means our model has roughly a 75% chance of correctly distinguishing between a survivor and a non-survivor.</p>
+<p>In a low-stakes social science survey, an AUC of 0.75 might be acceptable. However, in a high-stakes ICU environment, a “C-grade” model is not reliable enough for triage. This AUC value reinforces our conclusion from the confusion matrix: age and emergency status are important pieces of the puzzle, but they are not the entire picture.</p>
+</section>
+</section>
+<section id="model-diagnostics-and-accuracy-deviance-and-goodness-of-fit" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="model-diagnostics-and-accuracy-deviance-and-goodness-of-fit"><span class="header-section-number">9.9</span> Model Diagnostics and Accuracy: Deviance and Goodness of Fit</h2>
+<section id="understanding-deviance" class="level3" data-number="9.9.1">
+<h3 data-number="9.9.1" class="anchored" data-anchor-id="understanding-deviance"><span class="header-section-number">9.9.1</span> Understanding Deviance</h3>
+<p>In Chapters 4 and 5, you learned to evaluate standard regression models by examining residuals, which measure the physical distance between the actual data points and your line of best fit. Because logistic regression uses an S-shaped probability curve rather than a straight line, we cannot calculate standard residuals. Instead, logistic regression measures error using a concept called <a href="appendix-glossary.html#glossary-term-deviance" class="glossary-link" data-definition="A measure of badness of fit in logistic regression, analogous to residual error; lower values mean predictions are closer to the observed outcomes." aria-describedby="glossary-tooltip" data-term="deviance">deviance</a>.</p>
+<p>You can intuitively think of deviance as a measure of “badness of fit.” A model with high deviance is making predictions that are far away from the actual outcomes. A perfect model that predicts every single outcome correctly would have a deviance of zero. When we build a logistic regression model, our software is mathematically working behind the scenes to find the probability curve that results in the lowest possible deviance.</p>
+</section>
+<section id="deviance-r2-and-adjusted-deviance-r2" class="level3" data-number="9.9.2">
+<h3 data-number="9.9.2" class="anchored" data-anchor-id="deviance-r2-and-adjusted-deviance-r2"><span class="header-section-number">9.9.2</span> Deviance <span class="math inline">\(R^2\)</span> and Adjusted Deviance <span class="math inline">\(R^2\)</span></h3>
+<p>With standard linear regression, we used <span class="math inline">\(R^2\)</span> to determine the percentage of variance in our outcome that was explained by our predictor variables. Because logistic regression involves binary outcomes, we cannot calculate variance in the same mathematical way. Instead, software provides a <a href="appendix-glossary.html#glossary-term-deviance-r-2" class="glossary-link" data-definition="A pseudo-R² for logistic regression that measures how much the model reduces deviance compared with a model with no predictors." aria-describedby="glossary-tooltip" data-term="deviance R^2">Deviance <span class="math inline">\(R^2\)</span></a> (sometimes called a pseudo-<span class="math inline">\(R^2\)</span>).</p>
+<p>While the underlying math is different, the conceptual interpretation is similar. Deviance <span class="math inline">\(R^2\)</span> tells us how much our model reduced the total error (the deviance) compared to an empty baseline model that uses no predictors at all.</p>
+<p>Our model output reports a Deviance <span class="math inline">\(R^2\)</span> of 13.53%. This means that adding a patient’s age and emergency admission status reduced the model’s predictive error by roughly 13.5%. While this is an improvement over guessing blindly, it leaves a large amount of deviance unexplained.</p>
+<p>Furthermore, you may recall from Chapter 5 that adding <em>any</em> variable to a model, even a useless one, will mathematically force the standard <span class="math inline">\(R^2\)</span> to increase. To combat this, we use the Adjusted <span class="math inline">\(R^2\)</span>, which applies a mathematical penalty for every variable you add to the model. The <a href="appendix-glossary.html#glossary-term-adjusted-deviance-r-2" class="glossary-link" data-definition="A version of deviance R² that penalizes the model for adding predictors, so it can decrease when useless variables are added." aria-describedby="glossary-tooltip" data-term="adjusted deviance R^2">Adjusted Deviance <span class="math inline">\(R^2\)</span></a> does the same thing for logistic regression. Our Adjusted Deviance <span class="math inline">\(R^2\)</span> drops slightly to 12.65%, reflecting the minor penalty applied for using two predictor variables.</p>
+</section>
+<section id="the-hosmer-lemeshow-goodness-of-fit-test" class="level3" data-number="9.9.3">
+<h3 data-number="9.9.3" class="anchored" data-anchor-id="the-hosmer-lemeshow-goodness-of-fit-test"><span class="header-section-number">9.9.3</span> The Hosmer-Lemeshow Goodness-of-Fit Test</h3>
+<p>As a final structural check, researchers often consult the <a href="appendix-glossary.html#glossary-term-hosmer-lemeshow-goodness-of-fit-test" class="glossary-link" data-definition="A test of whether a logistic model’s predicted probabilities fit the observed outcomes; unlike most tests, a large p-value is the desired result because the null hypothesis says the model fits well." aria-describedby="glossary-tooltip" data-term="Hosmer-Lemeshow goodness-of-fit test">Hosmer-Lemeshow Goodness-of-Fit test</a>. This test formally evaluates whether the model’s predicted probabilities adequately align with the actual observed outcomes. Some software also reports a Deviance Goodness-of-Fit test, but its <span class="math inline">\(p\)</span>-value is unreliable when each combination of predictor values belongs to only a few patients, as happens whenever a predictor like age is measured in exact years. The Hosmer-Lemeshow test holds up in exactly that situation, which is why we use it here.</p>
+<p>We have to be careful interpreting the <span class="math inline">\(p\)</span>-value for this specific test because the hypotheses feel backward compared to what you are used to. In most tests, researchers are hunting for a small <span class="math inline">\(p\)</span>-value to prove an effect exists. However, for a goodness-of-fit test:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: The model is a good fit for the data.</li>
+<li><span class="math inline">\(H_1\)</span>: The model is a poor fit for the data.</li>
+</ul>
+<p>Because the null hypothesis (<span class="math inline">\(H_0\)</span>) assumes the model fits well, we actually <em>want</em> a large <span class="math inline">\(p\)</span>-value here. A large <span class="math inline">\(p\)</span>-value means we fail to reject <span class="math inline">\(H_0\)</span>, indicating that there is no significant evidence that our model is poorly structured.</p>
+<p>In our software output, the Hosmer-Lemeshow test yields a <span class="math inline">\(p\)</span>-value of 0.857. Because 0.857 is much larger than a standard alpha level of 0.05, we fail to reject the null hypothesis. We have no evidence that the model is structurally flawed.</p>
+<p>However, do not confuse a “good fit” with a “highly accurate model.” The goodness-of-fit test only confirms that the mathematical curve is behaving appropriately for the variables we provided. As we saw with our low 13.5% Deviance <span class="math inline">\(R^2\)</span> and our terrible 5% specificity from the confusion matrix, a model can be structurally sound while still missing the broader clinical reality of the intensive care unit.</p>
+</section>
+</section>
+<section id="sample-sizes-and-rare-events" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="sample-sizes-and-rare-events"><span class="header-section-number">9.10</span> Sample Sizes and Rare Events</h2>
+<p>In standard multiple regression, having a small sample size generally just gives us wider confidence intervals. Logistic regression, however, has a stricter requirement. Because we are predicting a categorical event, the total number of subjects (<span class="math inline">\(n\)</span>) in your dataset is actually less important than the frequency of your least common outcome.</p>
+<p>Imagine we have a large dataset of 1,000 ICU patients, but thanks to an excellent medical staff, only two patients died. If we try to build a logistic regression model, the software will mathematically struggle. It simply does not have enough examples of the “death” category to figure out what underlying pattern leads to it. Without enough data on the rare event, the algorithm will likely just guess that every single patient survives, rendering the model practically useless for triage.</p>
+<p>As a general rule of thumb, researchers aim for at least 10 to 15 occurrences of the least common outcome for every predictor variable they include in the model. In our two-variable ICU model (<code>Age</code> and <code>Emergency</code>), we would need a minimum of 20 to 30 patient deaths in our dataset to generate reliable mathematical slopes. If your rare event is too infrequent, you cannot safely add more predictors.</p>
+</section>
+<section id="beyond-binary-outcomes-ordinal-regression" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="beyond-binary-outcomes-ordinal-regression"><span class="header-section-number">9.11</span> Beyond Binary Outcomes: Ordinal Regression</h2>
+<p>We built this chapter around binary outcomes, events with exactly two possibilities. But what happens if your research question involves an outcome with three or more categories that follow a natural sequence?</p>
+<p>In the social sciences, researchers frequently use a <a href="appendix-glossary.html#glossary-term-likert-scale" class="glossary-link" data-definition="An ordinal survey scale, such as disagree, neutral, agree, whose categories have a clear order but unknown distances between them." aria-describedby="glossary-tooltip" data-term="Likert scale">Likert scale</a> (such as “Disagree,” “Neutral,” and “Agree”) to measure human attitudes. This creates an <a href="appendix-glossary.html#glossary-term-ordinal-variable" class="glossary-link" data-definition="A categorical variable whose categories follow a meaningful ranking (e.g., education level, satisfaction rating), though distances between adjacent categories are not necessarily equal." aria-describedby="glossary-tooltip" data-term="ordinal variable">ordinal</a> variable. The categories have a logical, ranked order, but the physical distance between them is unquantifiable. For example, the psychological jump from “Disagree” to “Neutral” might be much smaller than the jump from “Neutral” to “Agree.”</p>
+<p>Because the distances between the ranks are unknown, you cannot treat a single ordinal survey question as a continuous numerical variable in a standard linear regression. You also cannot use it in binary logistic regression because there are more than two possible choices.</p>
+<p>When you encounter this specific scenario in your own research, you need to use a tool called <a href="appendix-glossary.html#glossary-term-ordinal-logistic-regression" class="glossary-link" data-definition="A regression model for an ordinal outcome with three or more ranked categories." aria-describedby="glossary-tooltip" data-term="ordinal logistic regression">ordinal logistic regression</a>. Standard statistical software packages include this tool specifically to handle ranked categories gracefully.</p>
+</section>
+<section id="communicating-results-in-apa-format" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="communicating-results-in-apa-format"><span class="header-section-number">9.12</span> Communicating Results in APA Format</h2>
+<p>When writing up your findings for publication or research reports, you must combine your statistical output with clear, plain-English interpretations. Because logistic regression involves several moving parts, a complete APA-formatted summary needs to address the overall model fit, the significance of the individual predictors, the effect sizes (using Odds Ratios), and the model’s practical predictive accuracy.</p>
+<p><strong>Reporting the Overall Model</strong></p>
+<p>Begin by stating the goal of the analysis and the variables used. Report the Deviance <span class="math inline">\(R^2\)</span> to indicate how much error the model reduced. If you reference the Hosmer-Lemeshow test, report the Chi-Square statistic (<span class="math inline">\(\chi^2\)</span>), the degrees of freedom, and the <span class="math inline">\(p\)</span>-value, reminding the reader that a non-significant <span class="math inline">\(p\)</span>-value indicates a good structural fit.</p>
+<p><strong>Reporting the Predictors</strong></p>
+<p>For each predictor variable, you must report the test statistic (often a <span class="math inline">\(z\)</span>-value in logistic regression) and the <span class="math inline">\(p\)</span>-value to establish statistical significance. More importantly, you must report the Odds Ratio (<span class="math inline">\(OR\)</span>) and its 95% Confidence Interval (CI) to communicate the practical effect size. Always translate the Odds Ratio into a plain-English percentage change or multiplier so the reader understands the practical impact.</p>
+<p><strong>Reporting Practical Accuracy</strong></p>
+<p>Do not let your readers assume that significant <span class="math inline">\(p\)</span>-values guarantee an accurate model. Always include the Area Under the Curve (AUC) to grade the model’s overall discrimination. If you built a confusion matrix, report the threshold you used alongside the resulting sensitivity and specificity to demonstrate the model’s limitations.</p>
+<p><strong>Example Write-Up</strong></p>
+<blockquote class="blockquote">
+<p>A multiple logistic regression was conducted to determine the effects of patient age and emergency admission status on the probability of surviving an ICU stay. The overall model explained 13.53% of the deviance in survival outcomes. The Hosmer-Lemeshow test indicated that the model was structurally sound, <span class="math inline">\(\chi^2(8) = 4.00, p = .857\)</span>.</p>
+<p>Both predictor variables were statistically significant. Increasing age was associated with a decrease in the odds of survival (<span class="math inline">\(z = -3.18, p = .001\)</span>), with an Odds Ratio of 0.97 (95% CI [0.95, 0.99]). This indicates a 3% decrease in the baseline odds of survival for each additional year of life. Furthermore, being admitted for an emergency significantly reduced survival odds compared to an elective admission (<span class="math inline">\(z = -3.26, p = .001\)</span>), yielding an Odds Ratio of 0.09 (95% CI [0.02, 0.38]).</p>
+<p>Despite these significant structural predictors, the model’s practical classification accuracy was mixed. While the Area Under the ROC Curve (AUC = 0.75) indicated acceptable overall discrimination, applying a 50% probability threshold resulted in a model with excellent sensitivity (99.4%) but extremely poor specificity (5.0%). The model accurately identifies patients who will survive but is practically ineffective at identifying high-risk patients who will not.</p>
+</blockquote>
+</section>
+<section id="common-mistakes-misconceptions" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="common-mistakes-misconceptions"><span class="header-section-number">9.13</span> Common Mistakes / Misconceptions</h2>
+<ol type="1">
+<li><p><strong>Interpreting an Odds Ratio as Relative Risk:</strong> We must never say an emergency patient is “four times less likely” to survive based on an Odds Ratio. An Odds Ratio is a multiplier applied strictly to the <em>odds</em>. Conflating odds with standard probability (Relative Risk) is one of the most common errors in published research.</p></li>
+<li><p><strong>Trusting the <span class="math inline">\(p\)</span>-value over the Confusion Matrix:</strong> A highly significant <span class="math inline">\(p\)</span>-value only tells you a predictor is performing better than random chance. It absolutely does not mean the model is practically accurate or useful for classification, as we saw with our model’s terrible specificity.</p></li>
+<li><p><strong>Forgetting to check for outliers:</strong> In standard linear regression, you always start with a scatterplot, which makes extreme outliers on the x-axis or y-axis immediately obvious. Because logistic regression forces the y-axis to be exactly 0 or 1, standard scatterplots look like two parallel horizontal lines of dots. This visual format makes outliers hard to spot. Researchers often forget to check their continuous predictors (like <code>Pulse</code> or <code>SysBP</code>) for extreme values before running the model, allowing a single extreme patient to invisibly warp the S-shaped probability curve.</p></li>
+</ol>
+</section>
+<section id="key-concepts" class="level2" data-number="9.14">
+<h2 data-number="9.14" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">9.14</span> Key Concepts</h2>
+<ol type="1">
+<li><strong>Logistic Regression for Binary Outcomes:</strong> When a response variable has exactly two categorical outcomes (like surviving or dying), standard linear regression fails because its straight line will eventually predict impossible values outside the 0% to 100% probability bounds.</li>
+<li><strong>The Logit Bridge:</strong> To use regression math on a binary outcome, we translate probabilities into odds, and then use the natural logarithm to create the <a href="appendix-glossary.html#glossary-term-logit" class="glossary-link" data-definition="Another name for the log-odds, and the quantity a logistic regression model estimates directly." aria-describedby="glossary-tooltip" data-term="logit">logit</a> (log-odds). This transformation centers the data at zero and stretches it infinitely in both directions, allowing the software to fit a model.</li>
+<li><strong>Interpreting Odds Ratios:</strong> Raw regression slopes tell us the direction of a relationship, but statistical software converts these abstract numbers into interpretable Odds Ratios. An Odds Ratio acts as a compounding multiplicative factor, telling us how a one-unit increase in a predictor shrinks or grows the baseline odds of the outcome.</li>
+<li><strong>Predicted Probabilities:</strong> The ultimate practical goal of a logistic model is translating the abstract logit back into an intuitive percentage. We rely entirely on software to generate these predicted probabilities for specific profiles (e.g., a 65-year-old elective admission).</li>
+<li><strong>Evaluating Practical Accuracy:</strong> A statistically significant <span class="math inline">\(p\)</span>-value only shows a variable is performing better than random chance. To evaluate practical usefulness, we pick a probability threshold, build a confusion matrix, and calculate the model’s true Sensitivity and Specificity.</li>
+<li><strong>ROC Curves and AUC:</strong> The Receiver Operating Characteristic (ROC) curve visualizes a model’s trade-off between Sensitivity and False Positives across all possible decision thresholds. The Area Under the Curve (AUC) provides a single numerical grade (from 0.5 to 1.0) summarizing the model’s overall ability to distinguish between the two outcomes.</li>
+<li><strong>Deviance and Fit:</strong> Logistic regression measures predictive error using deviance rather than standard residuals. Deviance <span class="math inline">\(R^2\)</span> estimates the percentage reduction in error compared to a blind guess, while the Hosmer-Lemeshow test formally evaluates the structural fit of the curve (where a large <span class="math inline">\(p\)</span>-value means we fail to reject the assumption that the model fits well).</li>
+<li><strong>The Rare Events Rule:</strong> Having a large total sample size is not enough for logistic regression. The model specifically requires a sufficient number of occurrences of the least common outcome (roughly 10 to 15 occurrences per predictor variable) to calculate reliable slopes.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="9.15">
+<h2 data-number="9.15" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">9.15</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 9.8: Notation introduced in this chapter.</caption>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 29%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol / Acronym</strong></th>
+<th><strong>How it is read aloud</strong></th>
+<th><strong>What it represents in plain words</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>logit</strong></td>
+<td>“log-it”</td>
+<td>The log-odds. It is the mathematical transformation that stretches bounded, asymmetrical odds into an unbounded metric suitable for straight-line regression.</td>
+</tr>
+<tr class="even">
+<td><strong>ROC</strong></td>
+<td>“R-O-C curve”</td>
+<td>Receiver Operating Characteristic. A visual curve plotting a model’s Sensitivity against its False Positive rate across every possible decision threshold.</td>
+</tr>
+<tr class="odd">
+<td><strong>AUC</strong></td>
+<td>“A-U-C” or “Area Under the Curve”</td>
+<td>A numerical grade ranging from 0.5 to 1.0 that summarizes the overall classification accuracy displayed by the ROC curve.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2" data-number="9.16">
+<h2 data-number="9.16" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.16</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="9.16.1">
+<h3 data-number="9.16.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">9.16.1</span> Interpretation</h3>
+<ol type="1">
+<li>A sociologist builds a standard linear regression model to predict whether a citizen voted in the last election (1 = voted, 0 = did not vote) based on their annual income. The software generates a line of best fit. Explain the fundamental logical problem that will occur if the researcher tries to use this straight line to predict the voting behavior of extremely high-income citizens.</li>
+<li>A public health researcher runs a logistic regression to see how daily hours of sleep impact the odds of catching a cold. The software outputs an Odds Ratio of 0.88 for the sleep variable. Explain in plain English what this number means for a person’s compounding risk for every additional hour of sleep they get.</li>
+<li>You are reviewing a logistic regression model predicting loan defaults. The model calculates the logit (log-odds) internally. Why do researchers and analysts generally rely on statistical software to convert these log-odds into predicted probabilities before presenting their findings to a bank manager?</li>
+<li>A graduate student runs a Hosmer-Lemeshow goodness-of-fit test for their logistic regression model and receives a <span class="math inline">\(p\)</span>-value of 0.72. The student is devastated, assuming their model is useless because the <span class="math inline">\(p\)</span>-value is not below 0.05. Explain the unique hypothesis structure of this specific test and why a large <span class="math inline">\(p\)</span>-value is actually the desired result.</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="9.16.2">
+<h3 data-number="9.16.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">9.16.2</span> Choosing a Method</h3>
+<ol start="5" type="1">
+<li>A medical researcher wants to predict the stage of a patient’s cancer (Stage I, Stage II, Stage III, or Stage IV) using their white blood cell count and age. Explain why a standard binary logistic regression is the wrong tool for this analysis, and state the name of the advanced technique the researcher should seek out in their software.</li>
+<li>An ecologist has a dataset of 5,000 trees in a local forest. They want to predict whether a tree is infected with a rare fungus (1 = infected, 0 = healthy) using four continuous predictors: soil acidity, water proximity, tree height, and trunk diameter. Upon reviewing the data, they realize only 12 trees out of the 5,000 actually have the fungus. Explain the mathematical danger of proceeding with a multiple logistic regression model.</li>
+<li>A university administrator wants to predict whether a student will drop out after their freshman year (yes or no). They want to simultaneously control for the student’s high school GPA, their financial aid amount, and whether they live on campus or off campus. Which specific statistical tool should the administrator use?</li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="9.16.3">
+<h3 data-number="9.16.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">9.16.3</span> Communicating Results</h3>
+<ol start="8" type="1">
+<li>A science journalist reads a medical study indicating that a specific genetic marker has an Odds Ratio of 3.5 for developing a rare autoimmune disease. The journalist publishes an article with the headline: “People with this Gene are 3.5 Times More Likely to Get the Disease!” Explain the fatal linguistic flaw in this headline and the difference between odds and probability.</li>
+<li>A colleague proudly shows you the output for their new logistic regression model predicting employee turnover. All five predictor variables have highly significant <span class="math inline">\(p\)</span>-values (<span class="math inline">\(p &lt; 0.001\)</span>). However, when you check the model’s Area Under the Curve (AUC), it is 0.53. Explain to your colleague why this model, despite its significant <span class="math inline">\(p\)</span>-values, is practically useless for the human resources department.</li>
+<li>A hospital administrator sets a probability threshold of 50% for an ICU survival model, generating a confusion matrix with a sensitivity of 99% and a specificity of 4%. The administrator decides to lower the threshold to 20% to “fix” the model. Explain the inherent trade-off that occurs when shifting this threshold, detailing what will happen to the sensitivity and specificity metrics.</li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="9.16.4">
+<h3 data-number="9.16.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">9.16.4</span> Software Application</h3>
+<p>For this section, you will use statistical software to analyze the <code>icu_data.csv</code> dataset to predict patient outcomes using both physiological and situational variables.</p>
+<ol start="11" type="1">
+<li><strong>Simple Logistic Regression: Evaluating Infection Status</strong>: You want to determine if an infection at the time of admission significantly impacts a patient’s survival status at discharge.</li>
+</ol>
+<ol type="a">
+<li>Run a simple logistic regression predicting <code>Survive</code> using <code>Infection</code>. Does the presence of an infection have a statistically significant effect on survival? Report the <span class="math inline">\(p\)</span>-value.</li>
+<li>Locate the Odds Ratio for <code>Infection</code>. Because this is an indicator variable comparing the infected group to the uninfected baseline group, interpret this Odds Ratio as a percentage decrease in the odds of survival.</li>
+</ol>
+<ol start="12" type="1">
+<li><strong>Multiple Logistic Regression: Adding Physiological Metrics</strong>: You want to see if the patient’s age and their systolic blood pressure provide unique predictive value for survival.</li>
+</ol>
+<ol type="a">
+<li>Run a multiple logistic regression predicting <code>Survive</code> using <code>Age</code> and <code>SysBP</code>. Report the <span class="math inline">\(p\)</span>-values for both predictors. Are they both statistically significant when controlling for the other?</li>
+<li>Check the Variance Inflation Factor (VIF) for both variables. Do you have any concerns about multicollinearity?</li>
+<li>Use your software to generate a predicted probability of survival for a 50-year-old patient with a systolic blood pressure of 120. Report the fitted probability.</li>
+<li>Use your software to generate a predicted probability for an 80-year-old patient with the same systolic blood pressure of 120. Report the fitted probability and compare it to the younger patient.</li>
+<li>Evaluate the Hosmer-Lemeshow goodness-of-fit test for this model. Report the <span class="math inline">\(p\)</span>-value. Do you have any evidence that this model is structurally flawed?</li>
+</ol>
+<ol start="13" type="1">
+<li><strong>Model Diagnostics: The Confusion Matrix and AUC</strong>: You want to evaluate the practical accuracy of the two-variable model you built in Question 12 (predicting <code>Survive</code> using <code>Age</code> and <code>SysBP</code>).</li>
+</ol>
+<ol type="a">
+<li>Instruct your software to generate a classification table (confusion matrix) for this model using a standard 50% probability threshold. How many patients did the model accurately predict would die (True Negatives)?</li>
+<li>Calculate the specificity of this model by dividing the true negatives by the total number of patients who died in the dataset. Does this model perform well at identifying high-risk patients?</li>
+<li>Generate an ROC curve for this model and report the Area Under the Curve (AUC). Based on the grading scale provided in the chapter, how would you classify the overall predictive accuracy of this model?</li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-08.html" class="pagination-link" aria-label="Categorical Data Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-10.html" class="pagination-link" aria-label="Nonparametric Tests">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

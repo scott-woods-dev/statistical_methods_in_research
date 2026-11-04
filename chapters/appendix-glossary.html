@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix A — Glossary – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/appendix-datasets.html" rel="next">
+<link href="../chapters/chapter-13.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix A — Glossary</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This glossary contains definitions for key terms used throughout the textbook.</p>
+<div class="glossary-tools">
+<div class="glossary-filter" id="glossary-filter" hidden="">
+<label for="glossary-search">Filter glossary</label>
+<div class="glossary-filter-row">
+<input type="search" id="glossary-search" placeholder="Type a term or definition" autocomplete="off" spellcheck="false" aria-controls="glossary-table">
+<button type="button" id="glossary-clear" hidden="">Clear</button>
+</div>
+<p class="glossary-status" id="glossary-status" role="status" aria-live="polite" aria-atomic="true"></p>
+</div>
+<nav class="glossary-az" aria-label="Jump to a glossary letter"><span class="glossary-az-label">Jump to:</span><a href="#glossary-letter-a" aria-label="Letter A">A</a><a href="#glossary-letter-b" aria-label="Letter B">B</a><a href="#glossary-letter-c" aria-label="Letter C">C</a><a href="#glossary-letter-d" aria-label="Letter D">D</a><a href="#glossary-letter-e" aria-label="Letter E">E</a><a href="#glossary-letter-f" aria-label="Letter F">F</a><a href="#glossary-letter-g" aria-label="Letter G">G</a><a href="#glossary-letter-h" aria-label="Letter H">H</a><a href="#glossary-letter-i" aria-label="Letter I">I</a><a href="#glossary-letter-j" aria-label="Letter J">J</a><a href="#glossary-letter-k" aria-label="Letter K">K</a><a href="#glossary-letter-l" aria-label="Letter L">L</a><a href="#glossary-letter-m" aria-label="Letter M">M</a><a href="#glossary-letter-n" aria-label="Letter N">N</a><a href="#glossary-letter-o" aria-label="Letter O">O</a><a href="#glossary-letter-p" aria-label="Letter P">P</a><a href="#glossary-letter-q" aria-label="Letter Q">Q</a><a href="#glossary-letter-r" aria-label="Letter R">R</a><a href="#glossary-letter-s" aria-label="Letter S">S</a><a href="#glossary-letter-t" aria-label="Letter T">T</a><a href="#glossary-letter-u" aria-label="Letter U">U</a><a href="#glossary-letter-v" aria-label="Letter V">V</a><a href="#glossary-letter-w" aria-label="Letter W">W</a><a href="#glossary-letter-y" aria-label="Letter Y">Y</a><a href="#glossary-letter-z" aria-label="Letter Z">Z</a></nav>
+</div>
+<table id="glossary-table" class="glossary-table caption-top table">
+<caption>Definitions of key terms used throughout the book.</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span id="glossary-letter-a"></span><span id="glossary-term-adjusted-r-2"></span>adjusted <span class="math inline">\(R^2\)</span></td>
+<td>A version of <span class="math inline">\(R^2\)</span> that penalizes a model for adding predictors that do not improve fit, so it can decrease when useless variables are added; preferred for comparing multiple regression models.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-adjusted-deviance-r-2"></span>adjusted deviance <span class="math inline">\(R^2\)</span></td>
+<td>A version of deviance <span class="math inline">\(R^2\)</span> that penalizes the model for adding predictors, so it can decrease when useless variables are added.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-adjusted-means"></span>adjusted means</td>
+<td>Group averages recalculated by an ANCOVA as if every participant had started at the same covariate value; also called estimated marginal means.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-algorithmic-accountability"></span>algorithmic accountability</td>
+<td>The obligation to hold algorithms and their creators responsible for the outcomes the algorithms produce, including biased or harmful decisions.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-algorithmic-bias"></span>algorithmic bias</td>
+<td>Systematic unfairness produced when an algorithm learns from biased historical data and applies that pattern at scale.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-alternative-hypothesis"></span>alternative hypothesis</td>
+<td>The claim that an effect, a difference, or a relationship exists in the population, written <span class="math inline">\(H_1\)</span>; this is the position the researcher is actually trying to prove, and it is accepted only when the data provide strong enough evidence.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-analytic-integrity"></span>analytic integrity</td>
+<td>The obligation to analyze data honestly, deciding what to test before looking at the data and reporting all results, including null findings.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-ancova"></span>ANCOVA</td>
+<td>Analysis of Covariance: a hybrid of ANOVA and regression that compares group means while adjusting for one or more continuous covariates.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-anonymity"></span>anonymity</td>
+<td>A privacy condition in which no one, not even the researcher, can link data back to the individual.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-anova"></span>ANOVA</td>
+<td>Analysis of Variance: a statistical test that compares the means of three or more independent groups to determine whether at least one pair differs significantly; the natural extension of the independent sample t-test.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-area-under-the-curve-auc"></span>area under the curve (AUC)</td>
+<td>A summary of a model’s classification performance, equal to the probability that the model ranks a randomly chosen positive case above a randomly chosen negative case; 0.5 is chance and 1.0 is perfect.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-arima"></span>ARIMA</td>
+<td>AutoRegressive Integrated Moving Average: a forecasting model that combines recent momentum, removal of trend, and correction for past shocks to project future values.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-association"></span>association</td>
+<td>A systematic connection between two categorical variables, meaning knowing the category of one gives information about the other; the opposite of independence.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-association-metric"></span>association metric</td>
+<td>A standardized measure of the strength of a relationship between categorical variables, the categorical equivalent of an effect size; Phi and Cramér’s V are the two primary examples.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-autocorrelation"></span>autocorrelation</td>
+<td>The correlation of a variable with its own past values, meaning observations that are close in time tend to be related.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-automated-model-selection"></span>automated model selection</td>
+<td>A software procedure that adds or removes predictors automatically based on statistical criteria; useful for screening, but it can override theoretical judgment and should not be used on autopilot.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-autoregressive-ar"></span>autoregressive (AR)</td>
+<td>The ARIMA component that uses a series’ own recent values, or momentum, to help predict the next value.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-b"></span><span id="glossary-term-bar-plot"></span>bar plot</td>
+<td>A graph that displays the frequency or proportion of observations in each category using rectangular bars, with gaps between bars to signal categorical data.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-base-10-logarithm"></span>base-10 logarithm</td>
+<td>A logarithm using base 10, written log10; it compresses large values and is often used to linearize exponential growth.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-baseline-group"></span>baseline group</td>
+<td>The category of a categorical predictor that is left out of the indicator variables and absorbed into the intercept; every other category is interpreted relative to it (also called the reference group).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-between-groups-variation"></span>between-groups variation</td>
+<td>The part of total variation that measures how far the group averages are from one another; in ANOVA it represents the signal, or the effect of the factor.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-between-subjects-design"></span>between-subjects design</td>
+<td>A design in which different participants are assigned to different groups, so comparisons are made between separate people.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-bias"></span>bias</td>
+<td>A systematic error that pushes results away from the truth in a particular direction; unlike random variability, bias does not disappear with larger sample sizes.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-bimodal"></span>bimodal</td>
+<td>A distribution with two distinct peaks, often signaling that two different groups are mixed together in the data.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-bin"></span>bin</td>
+<td>An interval used in a histogram to group values of a numerical variable; each bar represents one bin and its height shows how many observations fall within that range.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-binary-outcome"></span>binary outcome</td>
+<td>An outcome with exactly two possible categories, such as survived or died.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-blocking"></span>blocking</td>
+<td>Converting a known nuisance variable into categorical groups (blocks) so its variation is removed from the error term, improving the comparison.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-bonferroni-correction"></span>Bonferroni correction</td>
+<td>A conservative post hoc method that lowers the threshold for each comparison to control the family-wise error rate; it strongly protects against Type I errors but raises the risk of Type II errors.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-box-plot"></span>box plot</td>
+<td>A graph that summarizes the distribution of a numerical variable using five key values (minimum, first quartile, median, third quartile, maximum), with individual points flagging potential outliers; useful for comparing distributions across categories.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-bubble-plot"></span>bubble plot</td>
+<td>A scatterplot extended to three numerical variables: two define point positions on the axes, and a third determines the size of each bubble.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-c"></span><span id="glossary-term-case-control-study"></span>case-control study</td>
+<td>An observational design that selects people who already have an outcome (cases) and people who do not (controls), then looks back at past exposures; also called a retrospective design.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-categorical-variable"></span>categorical variable</td>
+<td>A variable that places each observation into a group or category; values are labels rather than quantities and do not support arithmetic operations.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-ceiling-effect"></span>ceiling effect</td>
+<td>Occurs when many observations pile up at the maximum possible value, preventing detection of further differences among high performers.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-cell"></span>cell</td>
+<td>A specific subgroup created by crossing the levels of two or more factors in a factorial design.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-censored-data"></span>censored data</td>
+<td>Data in which you know a value exists beyond a certain threshold but do not know its exact amount (e.g., recorded as “40+”).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-central-limit-theorem"></span>central limit theorem</td>
+<td>The theorem that the distribution of sample means approaches a predictable bell curve as sample size grows, regardless of the shape of the original data; this is what allows t-tests to work with skewed data when the sample is large enough.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-chi-square-goodness-of-fit-test"></span>chi-square goodness-of-fit test</td>
+<td>A test that compares the distribution of one categorical variable in a sample against an external baseline distribution, such as a census profile.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-chi-square-statistic"></span>chi-square statistic</td>
+<td>The test statistic for chi-square tests, formed by summing the squared gaps between observed and expected counts, each divided by the expected count; larger values mean the data deviate more from the null expectation.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-chi-square-test-for-homogeneity"></span>chi-square test for homogeneity</td>
+<td>A test that compares the distribution of one categorical variable across two or more separate populations to see whether the proportions are the same.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-chi-square-test-for-independence"></span>chi-square test for independence</td>
+<td>A test that asks whether two categorical variables measured in a single sample are associated, using a cross-tabulation of their counts.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-coefficient-of-determination"></span>coefficient of determination</td>
+<td>The proportion of variability in one variable that is explained by another, written <span class="math inline">\(R^2\)</span> and calculated by squaring the correlation <span class="math inline">\(r\)</span>; often reported as a percentage.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-cohen-s-d"></span>Cohen’s <span class="math inline">\(d\)</span></td>
+<td>A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-communality"></span>communality</td>
+<td>The proportion of a variable’s variation that is shared with other variables because they measure the same underlying factor.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-component"></span>component</td>
+<td>A summary variable produced by PCA, which compresses all variance, including unique variance and measurement error, into a smaller set of dimensions.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-confidence-interval"></span>confidence interval</td>
+<td>A range of plausible values for a true population mean or difference, built from sample data; a 95% confidence interval (CI) comes from a procedure that captures the true value in about 95% of repeated samples.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-confidentiality"></span>confidentiality</td>
+<td>A privacy condition in which the researcher can link data to participants but promises to keep their identities secret.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-confirmatory-factor-analysis-cfa"></span>confirmatory factor analysis (CFA)</td>
+<td>A factor analysis used when the researcher already has a theory and specifies in advance how many factors exist and which variables belong to each, then tests how well that model fits.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-confounding-factor"></span>confounding factor</td>
+<td>A third variable that influences both the predictor and the response variable, distorting the apparent relationship; also called a confounding variable.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-confounding-variable"></span>confounding variable</td>
+<td>A hidden or unmeasured factor that is linked to both the groups you are comparing and the outcome, so it can make two variables appear connected even when one does not cause the other.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-confusion-matrix"></span>confusion matrix</td>
+<td>A 2 by 2 table that compares a prediction rule’s yes/no calls with the actual outcomes, showing true positives, false positives, true negatives, and false negatives.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-continuous-variable"></span>continuous variable</td>
+<td>A numerical variable that can take any value within a range, limited only by measurement precision (e.g., height, weight, time).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-control"></span>control</td>
+<td>The practice of holding outside variables constant in an experiment so they do not interfere with the results.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-control-for"></span>control for</td>
+<td>To mathematically hold a variable constant in a model so that the unique effect of another predictor can be isolated.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-control-group"></span>control group</td>
+<td>The group in an experiment that does not receive the treatment being tested, used as a baseline for comparison with the treatment group.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-cook-s-distance"></span>Cook’s Distance</td>
+<td>A measure of how much a regression model changes when one data point is removed (also called Cook’s D); values above 1.0 are generally treated as highly influential.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-correlation-matrix"></span>correlation matrix</td>
+<td>A table showing the correlation coefficient between every pair of variables in a set.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-covariate"></span>covariate</td>
+<td>A continuous background variable included in a model to adjust for its effect, such as a baseline score.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-cramer-s-v"></span>Cramér’s V</td>
+<td>An association metric for categorical variables used when the cross-tabulation is larger than 2 by 2, ranging from 0 (no association) to 1 (perfect association).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-cronbach-s-alpha"></span>Cronbach’s alpha</td>
+<td>A statistic (written <span class="math inline">\(\alpha\)</span>) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-cross-tabulation"></span>cross-tabulation</td>
+<td>A table that counts observations in each combination of categories for two categorical variables; also called a contingency table.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-cyclical-patterns"></span>cyclical patterns</td>
+<td>Predictable, repeating fluctuations in a time series that occur at regular intervals; in social science this is often called seasonality.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-d"></span><span id="glossary-term-data-governance"></span>data governance</td>
+<td>The overarching rules, policies, and standards that determine how data are collected, stored, and used.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-data-reduction"></span>data reduction</td>
+<td>The goal of summarizing many observed variables with a smaller number of components or factors, without necessarily uncovering hidden constructs.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-data-stewardship"></span>data stewardship</td>
+<td>The day-to-day ethical responsibility of the individual researcher to protect and handle data properly.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-data-transformation"></span>data transformation</td>
+<td>A mathematical change to a variable, such as a log transformation, applied to make its distribution better meet a model’s assumptions.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-data-triage"></span>data triage</td>
+<td>The initial pass through a dataset to decide what to keep, drop, or treat as missing before formal analysis.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-degrees-of-freedom"></span>degrees of freedom</td>
+<td>A number tied to sample size that the t-distribution uses when producing a p-value; for a single sample t-test it equals <span class="math inline">\(n - 1\)</span> and is reported in parentheses after <span class="math inline">\(t\)</span> in APA style.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-de-identification"></span>de-identification</td>
+<td>Removing or masking identifying details from a dataset while keeping a separate key that can link records back to individuals; not the same as anonymity.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-descriptive-statistics"></span>descriptive statistics</td>
+<td>Numerical summaries that describe a dataset, such as the mean, median, standard deviation, and proportion.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-deviance"></span>deviance</td>
+<td>A measure of badness of fit in logistic regression, analogous to residual error; lower values mean predictions are closer to the observed outcomes.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-deviance-r-2"></span>deviance <span class="math inline">\(R^2\)</span></td>
+<td>A pseudo-<span class="math inline">\(R^2\)</span> for logistic regression that measures how much the model reduces deviance compared with a model with no predictors.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-discrete-variable"></span>discrete variable</td>
+<td>A numerical variable that takes on distinct, separate values, typically counts (e.g., number of siblings).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-distribution"></span>distribution</td>
+<td>The pattern of how values of a variable are spread across its range; described by center, spread, shape, and unusual observations.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-dunnett-s-test"></span>Dunnett’s test</td>
+<td>A post hoc test that compares several groups against one designated baseline group, saving power by skipping comparisons among the other groups.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-e"></span><span id="glossary-term-effect-size"></span>effect size</td>
+<td>A standardized number describing how large a difference or relationship is, independent of sample size, used to judge whether a statistically significant result is large enough to matter.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-epsilon-squared-varepsilon-2"></span>epsilon-squared (<span class="math inline">\(\varepsilon^2\)</span>)</td>
+<td>An effect size for the Kruskal-Wallis Test: the share of the variation in the ranks that the groups account for, read like <span class="math inline">\(R^2\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-equal-variance-homoscedasticity"></span>equal variance (homoscedasticity)</td>
+<td>The assumption that the vertical spread of residuals stays roughly constant across the range of the predictor variable; a fan or cone shape signals heteroscedasticity.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-ethics-of-omission"></span>ethics of omission</td>
+<td>The ethical responsibility attached to decisions about which data to keep, drop, or treat as missing, because those choices determine whose experiences count.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-expected-count"></span>expected count</td>
+<td>The count a chi-square test would expect in a cell if the null hypothesis were true; every expected count should be at least 5 for the standard test to be trustworthy.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-experiment"></span>experiment</td>
+<td>A study in which researchers deliberately manipulate one or more variables to observe the direct effect on an outcome, using control and randomization to support a cause-and-effect conclusion.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-exploratory-factor-analysis-efa"></span>exploratory factor analysis (EFA)</td>
+<td>A factor analysis used when the researcher does not know the underlying structure and lets the correlations reveal how many factors exist and which variables belong together.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-extrapolation"></span>extrapolation</td>
+<td>Using a regression model to predict outside the range of predictor values observed in the data, which is risky because the relationship may change.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-f"></span><span id="glossary-term-factor"></span>factor</td>
+<td>The categorical variable that divides a sample into the groups being compared; also called the treatment variable.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-factor-analysis"></span>factor analysis</td>
+<td>A statistical method that explains correlations among observed variables by positing one or more hidden factors, separating shared communality from unique variance.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-factorial-design"></span>factorial design</td>
+<td>A study design that crosses two or more categorical factors so that every combination of levels is represented, allowing main effects and interactions to be estimated.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-factor-level"></span>factor level</td>
+<td>One of the specific categories that make up a factor; also called a treatment level.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-factor-loading"></span>factor loading</td>
+<td>A weight between -1 and 1 that measures the strength and direction of the relationship between an observed variable and a factor; loadings of about 0.40 or higher are usually treated as meaningful.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-factor-matrix"></span>factor matrix</td>
+<td>A table showing each observed variable’s loadings on each extracted factor, often after rotation, along with communality and uniqueness.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-false-negative"></span>false negative</td>
+<td>A missed case: the prediction rule says no when the event happened.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-false-positive"></span>false positive</td>
+<td>A false alarm: the prediction rule says yes when the event did not happen.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-family-wise-error-rate"></span>family-wise error rate</td>
+<td>The overall probability of making at least one Type I error across a family of comparisons; post hoc tests are designed to control it.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-fisher-s-exact-test"></span>Fisher’s Exact Test</td>
+<td>A test for categorical associations designed for small samples, used when an expected count falls below 5.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-floor-effect"></span>floor effect</td>
+<td>Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-forecasting"></span>forecasting</td>
+<td>Predicting future values of a time series from its historical patterns.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-f-statistic"></span>F-statistic</td>
+<td>The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-g"></span><span id="glossary-term-glass-s-delta"></span>Glass’s delta</td>
+<td>An effect size that divides the difference between two group means by the control group’s standard deviation, used when the two groups have different spreads.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-global-anova"></span>global ANOVA</td>
+<td>The overall ANOVA F-test that asks whether any group means differ, before post hoc tests identify which specific pairs differ.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-grouping-variable"></span>grouping variable</td>
+<td>A categorical variable used to divide observations into groups within a plot, often shown through different colors or shapes, so patterns can be compared across categories.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-h"></span><span id="glossary-term-halo-effect"></span>halo effect</td>
+<td>A cognitive bias in which a strong positive impression in one area leads a person to rate a target favorably across unrelated categories, producing a uniform blur of correlations.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-hedges-g"></span>Hedges’ <span class="math inline">\(g\)</span></td>
+<td>A version of Cohen’s <span class="math inline">\(d\)</span> with a small-sample correction, typically used when the total sample is under about 20 people and interpreted the same way as <span class="math inline">\(d\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-histogram"></span>histogram</td>
+<td>A graph for a single numerical variable that groups values into adjacent bins with no gaps between bars; bar heights show how many observations fall in each bin.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-homogeneity-of-regression-slopes"></span>homogeneity of regression slopes</td>
+<td>The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-hosmer-lemeshow-goodness-of-fit-test"></span>Hosmer-Lemeshow goodness-of-fit test</td>
+<td>A test of whether a logistic model’s predicted probabilities fit the observed outcomes; unlike most tests, a large p-value is the desired result because the null hypothesis says the model fits well.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-human-subjects"></span>human subjects</td>
+<td>People who participate in research and whose data or biological material are collected and analyzed.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-hypothesis-testing"></span>hypothesis testing</td>
+<td>A formal procedure for deciding whether an observed effect is real or could plausibly be explained by random variation, by weighing the data against a null hypothesis.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-i"></span><span id="glossary-term-imputation"></span>imputation</td>
+<td>Replacing a missing value with a statistically estimated value so that the observation can be kept in the analysis.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-independence"></span>independence</td>
+<td>In study design, the assumption that observations do not influence one another; in categorical data, the property that knowing one variable’s category gives no information about another (the opposite of association).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-independent-sample-t-test"></span>independent sample t-test</td>
+<td>A t-test that compares the means of two separate, unrelated groups to see whether their difference is statistically significant.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-indicator-variable"></span>indicator variable</td>
+<td>A numerical variable coded 1 or 0 to represent whether an observation belongs to a category, allowing categorical predictors to enter a regression equation; also called a dummy variable.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-influential-point"></span>influential point</td>
+<td>A data point whose removal would noticeably change a model’s slope or intercept, usually because it combines high leverage with a large residual.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-institutional-review-board-irb"></span>institutional review board (IRB)</td>
+<td>An independent committee that evaluates research protocols before a study begins to protect human subjects, keep risk minimal, and safeguard vulnerable populations.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-integrated-i"></span>integrated (I)</td>
+<td>The ARIMA component that temporarily removes the long-term trend, usually by differencing, so cyclical patterns can be analyzed on a stable baseline.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-interaction"></span>interaction</td>
+<td>A situation in which the effect of one predictor on the response variable changes depending on the value of another predictor.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-interaction-effect"></span>interaction effect</td>
+<td>The result of an interaction: the effect of one factor depends on the level of another, so its size or direction changes across groups.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-interaction-plot"></span>interaction plot</td>
+<td>A graph of group means with one line per level of a second factor; parallel lines suggest no interaction, while converging, diverging, or crossing lines suggest one.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-internal-consistency"></span>internal consistency</td>
+<td>How well the different items on a survey hang together, which a researcher must establish before adding the items into a single overall score.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-interquartile-range-iqr"></span>interquartile range (IQR)</td>
+<td>The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-irregular-movements"></span>irregular movements</td>
+<td>Random noise, sudden shocks, or anomalies in a time series that do not repeat.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-j"></span><span id="glossary-term-jitter-plot"></span>jitter plot</td>
+<td>A graph that randomly nudges points sideways so overlapping observations stay visible; used to compare the vertical spread of groups when checking equal variances.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-k"></span><span id="glossary-term-kruskal-wallis-test"></span>Kruskal-Wallis Test</td>
+<td>A nonparametric test that compares three or more independent groups by ranking all observations; the rank-based alternative to a one-way ANOVA.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-l"></span><span id="glossary-term-lag"></span>lag</td>
+<td>The number of time periods by which a series is shifted to compare a value with an earlier value; a lag-1 comparison pairs each week with the week before.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-latent-construct"></span>latent construct</td>
+<td>A hidden concept, such as social appeal or socioeconomic status, that is not measured directly but is inferred from several observed variables.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-law-of-diminishing-returns"></span>law of diminishing returns</td>
+<td>The pattern in which each additional unit of a predictor produces a smaller improvement in the outcome, creating a curve that rises sharply and then flattens.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-left-skewed"></span>left-skewed</td>
+<td>A distribution whose longer tail extends toward lower values; also called negatively skewed.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-levene-s-test"></span>Levene’s test</td>
+<td>A formal hypothesis test for equal group variances; this book recommends visual checks and the 2X rule instead, because using a test to gatekeep another test compounds error.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-leverage"></span>leverage</td>
+<td>The potential a data point has to pull a regression line toward itself, which is greatest when its predictor value sits at the extreme edge of the observed range.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-likert-scale"></span>Likert scale</td>
+<td>An ordinal survey scale, such as disagree, neutral, agree, whose categories have a clear order but unknown distances between them.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-linear-correlation"></span>linear correlation</td>
+<td>A number <span class="math inline">\(r\)</span> between -1 and 1 that measures the direction and strength of a straight-line relationship between two numerical variables; the sign gives the direction and the distance from zero gives the strength.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-linearity"></span>linearity</td>
+<td>The assumption that the true relationship between two numerical variables is a straight line, checked by looking for curves in a residual plot.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-linearize"></span>linearize</td>
+<td>To transform data mathematically so that a curved relationship becomes approximately straight, allowing a linear regression model to be used.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-linear-trend"></span>linear trend</td>
+<td>The straight-line relationship between calendar time and a variable, describing its long-term trajectory rather than short-term momentum.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-listwise-deletion"></span>listwise deletion</td>
+<td>Dropping every observation that has a missing value on any variable in the analysis.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-logarithmic-transformation"></span>logarithmic transformation</td>
+<td>A transformation that takes the logarithm of a variable, compressing large values and stretching small ones; often used to linearize an exponential or diminishing-returns relationship.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-logistic-regression"></span>logistic regression</td>
+<td>A regression model for a binary outcome that estimates how predictors affect the odds of the outcome; the odds ratio is its basic building block.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-logit"></span>logit</td>
+<td>Another name for the log-odds, and the quantity a logistic regression model estimates directly.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-log-odds"></span>log-odds</td>
+<td>The natural logarithm of the odds of an outcome; a scale centered at zero that can be modeled with a straight line.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-longitudinal-data"></span>longitudinal data</td>
+<td>Data collected from the same participants at multiple time points; the repeated observations are dependent, so a standard one-way ANOVA does not apply.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-m"></span><span id="glossary-term-main-effects"></span>main effects</td>
+<td>The individual predictors that make up an interaction term; when an interaction is included in a model, the main effects must also be included.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-mann-whitney-u-test"></span>Mann-Whitney U Test</td>
+<td>A nonparametric test that compares two independent groups by pooling and ranking all observations; requires the two distributions to have roughly the same shape.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-margin-of-error"></span>margin of error</td>
+<td>The width of a confidence interval around an estimate; a smaller margin of error means a more precise estimate, and increasing the sample size shrinks it.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-matched-pair-t-test"></span>matched pair t-test</td>
+<td>A t-test for data in which each observation in one group is linked to a specific observation in another, such as the same person measured before and after an intervention; it tests whether the average within-pair difference is zero.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-maximum-likelihood-ml"></span>maximum likelihood (ML)</td>
+<td>A factor extraction method that assumes multivariate normality and allows formal fit tests and confidence intervals; it can distort loadings when that assumption fails.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-mcnemar-s-test"></span>McNemar’s test</td>
+<td>A test for paired categorical data that compares two dependent proportions by focusing on the pairs where the two responses disagree.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-mean"></span>mean</td>
+<td>The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-measurement-error"></span>measurement error</td>
+<td>Random noise in a measurement caused by imperfect measurement conditions, not by the construct being measured; it is part of unique variance.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-measures-of-center"></span>measures of center</td>
+<td>Numerical summaries that describe a typical or central value in a distribution, such as the mean, median, and mode; the type of data determines which measure is appropriate.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-measures-of-spread"></span>measures of spread</td>
+<td>Numerical summaries that describe how spread out or variable the observations are, such as the range, interquartile range, and standard deviation.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-median"></span>median</td>
+<td>The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-median-difference"></span>median difference</td>
+<td>The median of the within-pair differences in paired data, used as the center that the Wilcoxon Signed-Rank Test evaluates.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-meta-analysis"></span>meta-analysis</td>
+<td>A technique that mathematically combines the results of many independent studies on the same topic, pooling their data to build a stronger argument than any single study can.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-minimal-risk"></span>minimal risk</td>
+<td>The standard that the probability and magnitude of harm in a study are no greater than those encountered in ordinary daily life or routine tests.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-missing-at-random-mar"></span>missing at random (MAR)</td>
+<td>Missingness that depends on other observed variables in the dataset, rather than being purely random or systematically tied to the missing value itself.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-missing-completely-at-random-mcar"></span>missing completely at random (MCAR)</td>
+<td>Missingness that occurs with equal probability for all observations, unrelated to any variable, observed or unobserved.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-missing-not-at-random-mnar"></span>missing not at random (MNAR)</td>
+<td>Missingness that is systematically related to the missing value itself (e.g., low-income students less likely to report income), introducing bias that is difficult to correct.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-modal"></span>modal</td>
+<td>Refers to the number of prominent peaks in a distribution: unimodal (one peak), bimodal (two peaks), or multimodal (three or more peaks).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-mode"></span>mode</td>
+<td>The most frequently occurring value in a dataset; the only measure of center appropriate for nominal data.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-model-diagnostics"></span>model diagnostics</td>
+<td>The checks researchers run to verify a model’s assumptions, such as independence, mutually exclusive factor levels, normal residuals, and equal variances.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-monotonic"></span>monotonic</td>
+<td>A relationship that consistently moves in one direction, either upward or downward, though it may curve; it cannot reverse direction.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-mood-s-median-test"></span>Mood’s Median test</td>
+<td>A nonparametric alternative to ANOVA used when group variances are unequal.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-mosaic-plot"></span>mosaic plot</td>
+<td>A graph that displays the relationship between two categorical variables using rectangles whose areas correspond to the proportions of observations in each combination of categories.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-moving-average-ma"></span>moving average (MA)</td>
+<td>The ARIMA component that adjusts forecasts for recent random shocks or irregular movements.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-multicollinearity"></span>multicollinearity</td>
+<td>Heavy overlap among predictors that makes it hard for a model to tell which variable is driving the change, producing unstable and unreliable slopes.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-multimodal"></span>multimodal</td>
+<td>A distribution with three or more distinct peaks.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-multiple-comparisons"></span>multiple comparisons</td>
+<td>Testing several hypotheses on the same data without adjusting the significance level, which inflates the family-wise error rate.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-multiple-logistic-regression"></span>multiple logistic regression</td>
+<td>A logistic regression model that predicts a binary outcome using two or more predictors at once.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-multiple-regression"></span>multiple regression</td>
+<td>A statistical method that predicts a single continuous response variable using two or more predictors at the same time.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-mutually-exclusive"></span>mutually exclusive</td>
+<td>A requirement that each observation belongs to exactly one level of a factor, with no overlap between groups.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-n"></span><span id="glossary-term-noise"></span>noise</td>
+<td>Random variation among individuals that is unrelated to the factor being studied; in ANOVA it is the within-groups variation.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-nominal-variable"></span>nominal variable</td>
+<td>A categorical variable whose categories have no natural order (e.g., eye color, country of birth).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-nonparametric-tests"></span>nonparametric tests</td>
+<td>Tests that do not require a normal distribution, typically by analyzing ranks instead of raw values; used for small samples, skewed data, or ordinal outcomes.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-non-resistant-measure"></span>non-resistant measure</td>
+<td>A statistical measure that shifts noticeably when extreme values or outliers are present; the mean is an example.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-non-response-bias"></span>non-response bias</td>
+<td>A type of bias that occurs when the people who choose not to complete a survey are different from those who do, so the collected data do not represent the full group.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-normal-curve"></span>normal curve</td>
+<td>The symmetric, bell-shaped curve that describes a normal distribution, with most observations clustered near the center and becoming rarer toward the tails; also called the bell curve.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-normal-distribution"></span>normal distribution</td>
+<td>A specific symmetric, unimodal “bell curve” shape common in nature and measurement data; about 68% of observations fall within one standard deviation of the mean, 95% within two, and 99.7% within three.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-normality"></span>normality</td>
+<td>In regression, the assumption that the residuals form a roughly bell-shaped distribution; the raw predictor and response variables do not need to be normal.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-normality-test"></span>normality test</td>
+<td>A formal hypothesis test, such as Anderson-Darling or Shapiro-Wilk, that checks whether residuals are normally distributed; a low p-value suggests non-normality, but this book uses them only as a tiebreaker.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-nuisance-variable"></span>nuisance variable</td>
+<td>A background variable that affects the outcome but is not the main focus of the study; left uncontrolled, it adds noise to the comparison.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-null-hypothesis"></span>null hypothesis</td>
+<td>The default assumption of no effect, no difference, or no relationship, written <span class="math inline">\(H_0\)</span>; it always uses exact equality (<span class="math inline">\(=\)</span>) and stands unless the data provide strong evidence against it.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-numerical-variable"></span>numerical variable</td>
+<td>A variable that takes on values representing quantities and supports arithmetic operations (e.g., GPA, age, hours studied).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-o"></span><span id="glossary-term-observational-study"></span>observational study</td>
+<td>A study in which researchers observe individuals and measure variables of interest without manipulating the environment, recording the world as it naturally exists.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-observed-variable"></span>observed variable</td>
+<td>A variable that is directly measured, such as a survey item, and used as an indicator of a latent construct.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-odds"></span>odds</td>
+<td>The probability of an event divided by the probability of the event not happening; odds of 4 mean four events for every one non-event.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-odds-ratio"></span>odds ratio</td>
+<td>The odds of an outcome in one group divided by the odds of the same outcome in a baseline group; the standard measure of risk in case-control studies.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-omitted-variable-bias"></span>omitted variable bias</td>
+<td>Bias that occurs when a confounding variable is left out of a model, so the included predictor’s slope absorbs the missing variable’s effect and becomes inaccurate.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-one-sided-test"></span>one-sided test</td>
+<td>A hypothesis test that looks for an effect in only one direction; choosing it after seeing the data or without justification halves the p-value and is a form of p-hacking.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-operationalization"></span>operationalization</td>
+<td>The process of defining exactly how you will measure an abstract concept in your study, bridging a theoretical idea and the concrete data you will eventually analyze.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-ordinal"></span>ordinal</td>
+<td>A categorical variable whose categories have a meaningful order but unknown distances between adjacent categories.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-ordinal-logistic-regression"></span>ordinal logistic regression</td>
+<td>A regression model for an ordinal outcome with three or more ranked categories.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-ordinal-variable"></span>ordinal variable</td>
+<td>A categorical variable whose categories follow a meaningful ranking (e.g., education level, satisfaction rating), though distances between adjacent categories are not necessarily equal.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-outlier"></span>outlier</td>
+<td>A data point that strays far from the pattern set by the rest of the data, often producing a large residual in a regression model.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-overfitting"></span>overfitting</td>
+<td>A modeling failure in which a model becomes so complex that it memorizes random noise in the sample instead of the true underlying pattern.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-p"></span><span id="glossary-term-paired-data"></span>paired data</td>
+<td>Observations that come in linked pairs, such as two people in the same interaction or the same person measured twice; standard chi-square tests assume independent observations, so paired categorical data require McNemar’s test.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-parameter"></span>parameter</td>
+<td>A numerical summary that describes an entire population; usually fixed but unknown, estimated from sample statistics.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-pareto-chart"></span>Pareto chart</td>
+<td>A bar plot for categorical data with bars sorted from most to least frequent, often combining rare categories into a single “Other” bar so the largest categories stand out.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-parsimony"></span>parsimony</td>
+<td>The principle that the simplest model that explains the data well is preferred, avoiding unnecessary complexity.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-partitioning-variation"></span>partitioning variation</td>
+<td>The ANOVA process of splitting total variation into between-groups variation (signal) and within-groups variation (noise).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-percentile"></span>percentile</td>
+<td>The percentage of observations that fall below a given value; for example, scoring at the 90th percentile means you scored higher than 90% of the comparison group.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-p-hacking"></span>p-hacking</td>
+<td>Running many tests or model variations on the same data until a p-value below .05 appears, which inflates the Type I error rate and is an ethical violation.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-phi-phi"></span>Phi (<span class="math inline">\(\phi\)</span>)</td>
+<td>An association metric for a 2 by 2 cross-tabulation, ranging from 0 (no association) to 1 (perfect association).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-point-estimate"></span>point estimate</td>
+<td>A single predicted value produced by plugging a specific predictor value into a regression equation; in regression it estimates the mean response for all observations with that predictor value.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-population"></span>population</td>
+<td>The entire group of individuals or observations you want to draw conclusions about.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-post-hoc-test"></span>post hoc test</td>
+<td>A follow-up comparison run after a significant ANOVA to identify which specific groups differ while controlling the family-wise error rate; also called post hoc analysis.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-power-analysis"></span>power analysis</td>
+<td>The process of calculating, before a study begins, the sample size needed to detect an effect of a given size with a chosen level of statistical power.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-power-curves"></span>power curves</td>
+<td>A graph showing how statistical power rises as sample size increases, with separate curves for different effect sizes.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-practical-significance"></span>practical significance</td>
+<td>Whether an effect is large enough to matter in practice, judged from an effect size or confidence interval rather than from a p-value alone.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-predicted-probability"></span>predicted probability</td>
+<td>The model’s estimated probability that a specific observation has the outcome, produced by converting the logit back to a 0-to-1 scale.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-prediction-interval"></span>prediction interval</td>
+<td>A range that is likely to contain the response value for a single new observation at a given predictor value; it is wider than a confidence interval for the mean because individuals vary more than averages.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-predictor-variable"></span>predictor variable</td>
+<td>A variable used to predict or explain the response variable in a regression model; also called an independent variable.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-principal-axis-factoring-paf"></span>principal axis factoring (PAF)</td>
+<td>A factor extraction method that makes few distributional assumptions and is the usual choice for ordinal survey data in exploratory factor analysis.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-principal-components-analysis-pca"></span>principal components analysis (PCA)</td>
+<td>A data reduction method that compresses all variance, including unique variance and measurement error, into components; it does not separate shared communality from noise.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-proportion"></span>proportion</td>
+<td>The fraction of observations falling into a given category; commonly reported for two-category categorical variables (e.g., 80 out of 200 = 0.40 or 40%).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-proportion-of-variance"></span>proportion of variance</td>
+<td>The share of total variance explained by a factor or component, used to judge how much each one contributes.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-protocol"></span>protocol</td>
+<td>A detailed plan submitted to an Institutional Review Board that describes the research question, participants, consent process, and data protection; approval is required before data collection begins.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-proxy-variable"></span>proxy variable</td>
+<td>A measurable characteristic that stands in for an unobservable or difficult-to-measure concept.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-p-value"></span>p-value</td>
+<td>The probability of seeing data at least as surprising as yours if the null hypothesis were true; a small p-value means the data would be unusual under <span class="math inline">\(H_0\)</span> and counts as evidence against it.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-q"></span><span id="glossary-term-q-q-plot"></span>Q-Q plot</td>
+<td>A plot that compares observed residuals with the values expected under a normal distribution; points that hug the diagonal line support normality, and it is treated as equivalent to a normal probability plot.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-quartile"></span>quartile</td>
+<td>Values that divide a dataset into four equal parts: Q1 (25th percentile), Q2 (the median, 50th percentile), and Q3 (75th percentile).</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-r"></span><span id="glossary-term-randomization"></span>randomization</td>
+<td>The random assignment of subjects or treatments in an experiment so that unavoidable natural differences are spread evenly across groups, keeping hidden biases from skewing the results.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-rare-events-rule"></span>rare events rule</td>
+<td>The guideline that a logistic regression needs roughly 10 to 15 occurrences of the least common outcome for each predictor, so rare outcomes require larger samples.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-receiver-operating-characteristic-roc-curve"></span>receiver operating characteristic (ROC) curve</td>
+<td>A plot of sensitivity against the false positive rate across all possible decision thresholds, used to compare classification models.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-relative-risk"></span>relative risk</td>
+<td>The probability of an outcome in one group divided by the probability of the same outcome in a baseline group; intuitive for cohort studies but not valid for case-control designs.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-reliability"></span>reliability</td>
+<td>The consistency of a measurement: a reliable tool gives you the same result every time you measure the same phenomenon under the same conditions.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-reliable-estimator"></span>reliable estimator</td>
+<td>An estimator whose values cluster close to the true parameter across repeated samples.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-repeated-measures-anova"></span>repeated measures ANOVA</td>
+<td>An ANOVA for a within-subjects design in which the same participants are measured at multiple time points or conditions, so each person serves as their own baseline.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-replication"></span>replication</td>
+<td>Conducting an experiment on a large enough number of subjects so that the results are not just a statistical fluke.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-research-goal"></span>research goal</td>
+<td>A general statement about the phenomenon you want to understand; broad and directional, but usually too abstract to test directly.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-research-question"></span>research question</td>
+<td>A specific, measurable relationship between defined variables that you can observe and record, narrowed down from a broad research goal.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-residual"></span>residual</td>
+<td>The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-residual-plot"></span>residual plot</td>
+<td>A graph with the predictor variable on the horizontal axis and the residuals on the vertical axis, used to check for curves, unequal spread, and structural patterns that a straight-line model would miss.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-resistant-measure"></span>resistant measure</td>
+<td>A statistical measure not strongly influenced by extreme values or outliers; the median is an example.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-response-variable"></span>response variable</td>
+<td>The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-right-skewed"></span>right-skewed</td>
+<td>A distribution whose longer tail extends toward higher values; also called positively skewed.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-rosenthal-s-r"></span>Rosenthal’s <span class="math inline">\(r\)</span></td>
+<td>An effect size for the Wilcoxon Signed-Rank and Mann-Whitney U tests: the absolute <span class="math inline">\(z\)</span>-value divided by the square root of the sample size, read with the same guidelines as a correlation.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-rotation"></span>rotation</td>
+<td>A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying communality.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-s"></span><span id="glossary-term-sample"></span>sample</td>
+<td>A subset of a population, the portion from which you collect data.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-sample-size"></span>sample size</td>
+<td>The number of observations in a sample, usually written <span class="math inline">\(n\)</span>; larger samples reduce random error and increase statistical power.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-scatterplot"></span>scatterplot</td>
+<td>A graph that displays the relationship between two numerical variables by placing each observation as a point; used to assess direction, form, and strength of the relationship.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-scree-chart"></span>scree chart</td>
+<td>A line graph of the variance explained by each successive factor, used to choose how many factors to keep by locating the elbow where the curve flattens.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-segmented-bar-chart"></span>segmented bar chart</td>
+<td>A chart that compares two categorical variables by giving each group a bar of equal height (100%) divided into segments showing the proportion in each category of the second variable; also called a 100% stacked bar chart.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-selective-group-analysis"></span>selective group analysis</td>
+<td>Testing many subgroups and reporting only the significant ones, a form of p-hacking that hides the failed tests.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-sensitivity"></span>sensitivity</td>
+<td>The true positive rate: the percentage of actual events that a prediction rule correctly catches.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-signal"></span>signal</td>
+<td>The portion of variation that reflects the real effect being studied, such as differences between group means; in ANOVA it is the between-groups variation.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-significance-level"></span>significance level</td>
+<td>The threshold of evidence, written <span class="math inline">\(\alpha\)</span> and usually set at .05, that a researcher requires before rejecting the null hypothesis.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-significance-stars"></span>significance stars</td>
+<td>Symbols such as <code>*</code>, <code>**</code>, and <code>***</code> placed next to coefficients in journal tables to mark p-values below common thresholds (.05, .01, and .001).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-sign-test"></span>Sign Test</td>
+<td>A flexible nonparametric test for paired data that compares the direction of within-pair differences; used when the Wilcoxon symmetry assumption fails.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-simple-structure"></span>simple structure</td>
+<td>A clean factor pattern in which each observed variable loads strongly on one factor and weakly on the others.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-single-sample-t-test"></span>single sample t-test</td>
+<td>A t-test that compares the mean of one sample against a known, fixed benchmark, such as a national average or a clinical cutoff.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-skewness"></span>skewness</td>
+<td>The extent to which a distribution is asymmetric, with a longer tail extending toward one side; right-skewed distributions trail toward high values and left-skewed distributions toward low values.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-slope"></span>slope</td>
+<td>The rate of change in a regression model: the predicted change in the response variable for each one-unit increase in the predictor variable.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-spearman-s-rho"></span>Spearman’s Rho</td>
+<td>A nonparametric correlation that ranks both variables before correlating them, measuring the strength of a monotonic relationship; also used for ordinal data.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-specificity"></span>specificity</td>
+<td>The true negative rate: the percentage of actual non-events that a prediction rule correctly ignores.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-specific-variance"></span>specific variance</td>
+<td>Variation that is real and systematic but unique to a single observed variable, not shared with other variables; part of unique variance.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-standard-deviation"></span>standard deviation</td>
+<td>A measure of how much individual values typically deviate from the mean; small values indicate tight clustering, large values indicate wide scattering.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-standard-error"></span>standard error</td>
+<td>The typical amount by which a sample statistic is expected to vary from sample to sample because of random chance; it is the denominator of the t-statistic.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-standardized-residual"></span>standardized residual</td>
+<td>A cell’s contribution to a chi-square test, scaled so that values beyond about plus or minus 2 indicate a significant over- or under-representation.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-statistic"></span>statistic</td>
+<td>A numerical summary calculated from sample data; varies from sample to sample because different samples contain different individuals.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-statistically-significant"></span>statistically significant</td>
+<td>A result is statistically significant when its p-value is below the chosen significance level, meaning the data provide enough evidence to reject the null hypothesis.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-statistical-power"></span>statistical power</td>
+<td>The probability that a study will detect a true effect if one exists; it is the complement of a Type II error, and researchers generally aim for at least 80%.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-statistical-question"></span>statistical question</td>
+<td>A formal question that (1) requires gathering data, (2) accounts for natural variability from sample to sample, and (3) names the specific statistical measure you will use to compare groups.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-summated-scale"></span>summated scale</td>
+<td>A measurement tool that asks several different, targeted questions about the same concept and then combines the responses into a single overall score.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-symmetric"></span>symmetric</td>
+<td>A distribution whose left half mirrors its right half; if folded at the center, both sides would line up closely.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-t"></span><span id="glossary-term-three-way-anova"></span>three-way ANOVA</td>
+<td>An ANOVA that tests three categorical factors at once, producing three main effects, three two-way interactions, and one three-way interaction; powerful but hard to interpret.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-time-series-analysis"></span>time series analysis</td>
+<td>The analysis of data collected in chronological order, breaking it into trend, cyclical patterns, and irregular movements so the series can be understood and forecast.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-time-series-plot"></span>time series plot</td>
+<td>A line chart with time on the horizontal axis and the measured variable on the vertical axis, preserving the chronological order of the data.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-total-variation"></span>total variation</td>
+<td>The overall spread among all observations in a dataset before it is split into between-groups and within-groups parts.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-transparency"></span>transparency</td>
+<td>The practice of openly publishing methods, models, and analytical steps so outside experts can audit and reproduce the work.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-treatment"></span>treatment</td>
+<td>The specific condition or category that distinguishes the groups being compared, whether researchers assign it or it occurs naturally.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-treatment-group"></span>treatment group</td>
+<td>The subset of participants who fall into one particular level of a factor.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-trend"></span>trend</td>
+<td>The long-term, overarching direction of a time series, meaning whether its baseline is generally rising, falling, or stable.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-true-negative"></span>true negative</td>
+<td>A correct rejection: the prediction rule says no and the event did not happen.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-true-positive"></span>true positive</td>
+<td>A hit: the prediction rule says yes and the event happened.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-truncated-data"></span>truncated data</td>
+<td>Data in which observations beyond a certain threshold are excluded entirely and never appear in the dataset (e.g., only enrolling students who scored above 70).</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-t-statistic"></span>t-statistic</td>
+<td>A signal-to-noise ratio calculated by dividing the gap between a sample result and the hypothesized value by the standard error; software converts it into a p-value.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-t-test"></span>t-test</td>
+<td>A family of hypothesis tests for comparing means, including the single sample, matched pair, and independent sample versions.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-tukey-s-hsd"></span>Tukey’s HSD</td>
+<td>A post hoc test that compares every pair of group means while controlling the family-wise error rate; the standard choice when all pairwise comparisons matter.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-t-value"></span>t-value</td>
+<td>A predictor’s slope divided by its standard error, used as a rough measure of signal strength; another name for the t-statistic.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-two-way-anova"></span>two-way ANOVA</td>
+<td>An ANOVA that tests the effects of two categorical factors at once, including their main effects and interaction.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-type-i-error"></span>Type I error</td>
+<td>A false alarm (a false positive): rejecting the null hypothesis when it is actually true; the significance level sets the rate at which this error occurs.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-type-ii-error"></span>Type II error</td>
+<td>A missed signal (a false negative): failing to reject the null hypothesis when a real effect exists, often because the study lacked enough evidence or statistical power to detect it.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-u"></span><span id="glossary-term-unimodal"></span>unimodal</td>
+<td>A distribution with one clear peak; the most common shape encountered in practice.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-unique-variance"></span>unique variance</td>
+<td>The proportion of a variable’s variation that is not shared with other variables, made up of specific variance and measurement error; also called uniqueness.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-v"></span><span id="glossary-term-validity"></span>validity</td>
+<td>Whether a measurement actually captures what you claim it is measuring; a measure can be reliable (consistent) yet still invalid if it is not measuring the intended concept.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-variance"></span>variance</td>
+<td>A measure of spread equal to the average squared deviation from the mean; ANOVA partitions this variability into between-groups and within-groups parts.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-variance-inflation-factor-vif"></span>variance inflation factor (VIF)</td>
+<td>A diagnostic for multicollinearity that measures how much a predictor’s variance is inflated by its overlap with other predictors; values above 5 signal dangerous overlap.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-vulnerable-populations"></span>vulnerable populations</td>
+<td>Groups whose ability to give free and informed consent may be compromised, such as prisoners, children, or students under institutional pressure.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-w"></span><span id="glossary-term-welch-s-t-test"></span>Welch’s t-test</td>
+<td>A version of the independent sample t-test that adjusts the degrees of freedom when the two groups have unequal variances, producing a more trustworthy p-value.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-wilcoxon-signed-rank-test"></span>Wilcoxon Signed-Rank Test</td>
+<td>A nonparametric test for paired data that compares the median difference by ranking the within-pair differences; requires the differences to be roughly symmetric.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-term-within-groups-variation"></span>within-groups variation</td>
+<td>The part of total variation that measures the random differences among individuals inside the same group; in ANOVA it represents the noise.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-term-within-subjects-design"></span>within-subjects design</td>
+<td>A design in which the same participants are measured under multiple conditions or time points, so comparisons are made within each person.</td>
+</tr>
+<tr class="even">
+<td><span id="glossary-letter-y"></span><span id="glossary-term-y-intercept"></span>y-intercept</td>
+<td>The predicted value of the response variable when the predictor variable equals zero; it anchors the regression line as a baseline.</td>
+</tr>
+<tr class="odd">
+<td><span id="glossary-letter-z"></span><span id="glossary-term-zero-inflated"></span>zero-inflated</td>
+<td>A distribution with a large pile of zeros and a small number of high values, so the mean is pulled away from the typical observation.</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-13.html" class="pagination-link" aria-label="Ethics in Statistics and Data Integrity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/appendix-datasets.html" class="pagination-link" aria-label="Datasets">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

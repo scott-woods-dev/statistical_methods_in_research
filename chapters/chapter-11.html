@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; Factor Analysis – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-12.html" rel="next">
+<link href="../chapters/chapter-10.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-10.html">Unit V: Advanced Tools and Ethical Considerations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">11.1</span> Introduction</a></li>
+  <li><a href="#the-purpose-of-factor-analysis-uncovering-latent-constructs" id="toc-the-purpose-of-factor-analysis-uncovering-latent-constructs" class="nav-link" data-scroll-target="#the-purpose-of-factor-analysis-uncovering-latent-constructs"><span class="header-section-number">11.2</span> The Purpose of Factor Analysis: Uncovering Latent Constructs</a>
+  <ul class="collapse">
+  <li><a href="#shared-variance-versus-unique-variance" id="toc-shared-variance-versus-unique-variance" class="nav-link" data-scroll-target="#shared-variance-versus-unique-variance"><span class="header-section-number">11.2.1</span> Shared Variance versus Unique Variance</a></li>
+  </ul></li>
+  <li><a href="#reading-factor-analysis-tables" id="toc-reading-factor-analysis-tables" class="nav-link" data-scroll-target="#reading-factor-analysis-tables"><span class="header-section-number">11.3</span> Reading Factor Analysis Tables</a>
+  <ul class="collapse">
+  <li><a href="#the-correlation-matrix" id="toc-the-correlation-matrix" class="nav-link" data-scroll-target="#the-correlation-matrix"><span class="header-section-number">11.3.1</span> The Correlation Matrix</a></li>
+  <li><a href="#the-factor-matrix" id="toc-the-factor-matrix" class="nav-link" data-scroll-target="#the-factor-matrix"><span class="header-section-number">11.3.2</span> The Factor Matrix</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">11.3.3</span> Putting It All Together</a></li>
+  </ul></li>
+  <li><a href="#the-great-debate-factor-analysis-versus-principal-components-analysis" id="toc-the-great-debate-factor-analysis-versus-principal-components-analysis" class="nav-link" data-scroll-target="#the-great-debate-factor-analysis-versus-principal-components-analysis"><span class="header-section-number">11.4</span> The Great Debate: Factor Analysis versus Principal Components Analysis</a>
+  <ul class="collapse">
+  <li><a href="#the-impact-on-your-data" id="toc-the-impact-on-your-data" class="nav-link" data-scroll-target="#the-impact-on-your-data"><span class="header-section-number">11.4.1</span> The Impact on Your Data</a></li>
+  </ul></li>
+  <li><a href="#choosing-your-tools-extraction-methods-and-analysis-approaches" id="toc-choosing-your-tools-extraction-methods-and-analysis-approaches" class="nav-link" data-scroll-target="#choosing-your-tools-extraction-methods-and-analysis-approaches"><span class="header-section-number">11.5</span> Choosing Your Tools: Extraction Methods and Analysis Approaches</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-versus-confirmatory-analysis" id="toc-exploratory-versus-confirmatory-analysis" class="nav-link" data-scroll-target="#exploratory-versus-confirmatory-analysis"><span class="header-section-number">11.5.1</span> Exploratory versus Confirmatory Analysis</a></li>
+  </ul></li>
+  <li><a href="#visualizing-factors-scree-charts" id="toc-visualizing-factors-scree-charts" class="nav-link" data-scroll-target="#visualizing-factors-scree-charts"><span class="header-section-number">11.6</span> Visualizing Factors: Scree Charts</a></li>
+  <li><a href="#revisiting-cronbachs-alpha-validating-the-scale" id="toc-revisiting-cronbachs-alpha-validating-the-scale" class="nav-link" data-scroll-target="#revisiting-cronbachs-alpha-validating-the-scale"><span class="header-section-number">11.7</span> Revisiting Cronbach’s Alpha: Validating the Scale</a>
+  <ul class="collapse">
+  <li><a href="#a-warning-about-ordinal-survey-data" id="toc-a-warning-about-ordinal-survey-data" class="nav-link" data-scroll-target="#a-warning-about-ordinal-survey-data"><span class="header-section-number">11.7.1</span> A Warning About Ordinal Survey Data</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-misconceptions" id="toc-common-mistakes-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-misconceptions"><span class="header-section-number">11.8</span> Common Mistakes / Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">11.9</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">11.10</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">11.11</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">11.11.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">11.11.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">11.11.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">11.11.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-10.html">Unit V: Advanced Tools and Ethical Considerations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">11.1</span> Introduction</h2>
+<p>Imagine a social psychologist wants to understand what drives human attraction during a first impression. You cannot simply walk up to someone after a date and measure their feelings with a physical ruler. Attraction, compatibility, and romantic appeal are abstract ideas. In the social sciences, we call these hidden, unobservable ideas <a href="appendix-glossary.html#glossary-term-latent-construct" class="glossary-link" data-definition="A hidden concept, such as social appeal or socioeconomic status, that is not measured directly but is inferred from several observed variables." data-term="latent construct" aria-describedby="glossary-tooltip">latent constructs</a> (underlying traits or concepts that cannot be measured directly, such as intelligence, anxiety, or social appeal).</p>
+<p>Because you cannot measure a latent construct directly, you have to measure it indirectly. You ask participants a long list of specific survey questions and hope their answers reflect those deeper, hidden feelings.</p>
+<p>For example, suppose a participant finishes a brief four-minute speed date. You hand them a clipboard and ask them to rate their partner on a 1 to 10 scale across six different traits: physical attractiveness, sincerity, intelligence, how fun they are, their level of ambition, and whether they share common interests.</p>
+<p>As you look at the completed scorecards, a new question emerges. When a participant fills out those six ratings, are they truly making six independent judgments in their head? Or are those six numbers actually being driven by just one or two deeper, subconscious themes?</p>
+<p>Think about how people evaluate a potential partner during a brief conversation. Someone might quickly judge a partner’s immediate, exciting social vibe, which causes their ratings for physical attractiveness, fun, and shared interests to move together. At the same time, they might evaluate the partner’s long-term stability and career potential, causing their ratings for intelligence, ambition, and sincerity to cluster together. If these traits naturally group together in people’s minds, then your six survey questions are really measuring two underlying latent constructs: immediate social appeal and long-term socioeconomic status.</p>
+<p>Discovering these hidden groups within survey data is the exact purpose of <a href="appendix-glossary.html#glossary-term-factor-analysis" class="glossary-link" data-definition="A statistical method that explains correlations among observed variables by positing one or more hidden factors, separating shared communality from unique variance." data-term="factor analysis" aria-describedby="glossary-tooltip">factor analysis</a> (a statistical technique used to identify a small number of hidden, underlying themes among a large set of observed variables). In Chapter 2, you learned how to use Cronbach’s alpha to check if a set of survey questions reliably measures a single concept. However, Cronbach’s alpha assumes you already know which questions belong together. What happens when you design a brand-new survey with dozens of questions and you do not know how many different concepts you are measuring? Factor analysis solves this problem by scanning the patterns in your data and revealing which questions naturally cluster together around shared, hidden themes.</p>
+<p>To explore how researchers uncover these hidden themes, you will analyze the <code>speed_dating.csv</code> dataset from the data subfolder (Gelman &amp; Hill, 2007). You first encountered this dataset in Chapter 8 when we examined paired yes-or-no dating decisions. The data comes from experimental speed-dating events conducted with graduate and professional students at Columbia University. During these events, participants had four-minute conversations with partners of the opposite sex. After each four-minute interaction, both participants privately filled out a scorecard rating their partner on several attributes from 1 to 10. To ensure that every row represents an independent interaction, this file includes only the very first speed date from each session, giving us 276 unique pairs.</p>
+<p>While <code>speed_dating.csv</code> contains 22 variables tracking demographic details and final match decisions, we will omit the unused demographic and outcome variables for this chapter. Instead, you will focus on the twelve specific partner rating variables (six completed by the male participants, and six completed by the female participants - replace F with M at the end of the following variable names for the male participant’s views of the female partner):</p>
+<ul>
+<li><strong><code>AttractiveF</code></strong>: A numerical variable recording the female participant’s rating of the male partner’s physical attractiveness on a 1 to 10 scale.<br>
+</li>
+<li><strong><code>SincereF</code></strong>: A numerical variable recording the female participant’s rating of the male partner’s sincerity on a 1 to 10 scale.<br>
+</li>
+<li><strong><code>IntelligentF</code></strong>: A numerical variable recording the female participant’s rating of the male partner’s intelligence on a 1 to 10 scale.<br>
+</li>
+<li><strong><code>FunF</code></strong>: A numerical variable recording the female participant’s rating of how fun the male partner is on a 1 to 10 scale.<br>
+</li>
+<li><strong><code>AmbitiousF</code></strong>: A numerical variable recording the female participant’s rating of the male partner’s level of ambition on a 1 to 10 scale.<br>
+</li>
+<li><strong><code>SharedInterestsF</code></strong>: A numerical variable recording the female participant’s rating of how much they share common interests with the male partner on a 1 to 10 scale.</li>
+</ul>
+<p>Notice that although these ratings are recorded as numbers from 1 to 10, they originate from ordinal, Likert-style survey scales. As we work through this dataset, you will learn how treating ranked survey items as numerical variables affects our analysis and what to keep in mind when interpreting the results.</p>
+<p>By the end of this chapter, you will know how to use factor analysis to uncover hidden constructs inside complex survey data. You will learn how to avoid a common software trap by distinguishing between true factor analysis and a popular data-compression tool called Principal Components Analysis (PCA). You will also learn how to choose an appropriate factor extraction method, distinguish between exploratory and confirmatory approaches, and use visual tools called Scree charts to decide how many hidden factors exist in your dataset. Finally, you will connect factor analysis directly back to Cronbach’s alpha, giving you a complete workflow for discovering hidden survey themes and verifying that each newly discovered cluster of questions forms a reliable measurement scale.</p>
+</section>
+<section id="the-purpose-of-factor-analysis-uncovering-latent-constructs" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="the-purpose-of-factor-analysis-uncovering-latent-constructs"><span class="header-section-number">11.2</span> The Purpose of Factor Analysis: Uncovering Latent Constructs</h2>
+<p>When researchers design a survey, they often write dozens of questions to capture how people think, feel, or behave. However, individual survey questions are rarely the true target of the research. If a psychologist asks you ten different questions about your sleeping habits, your appetite, and your daily energy levels, they are not actually studying sleep or appetite in isolation. Instead, they care about the broader, hidden concept of clinical depression that sits behind those questions.</p>
+<p>Earlier in this course, you learned how to measure the linear relationship between two numerical variables using the correlation coefficient (<span class="math inline">\(r\)</span>). When you have just two variables, a single correlation is easy to interpret. What happens, however, when you have six, twelve, or fifty variables on a survey?</p>
+<p>Imagine you open <code>speed_dating.csv</code> from the data subfolder and examine the six ratings completed by the female participants after their four-minute speed dates: <code>AttractiveF</code>, <code>SincereF</code>, <code>IntelligentF</code>, <code>FunF</code>, <code>AmbitiousF</code>, and <code>SharedInterestsF</code>. Rather than analyzing just one pair of variables at a time, you can ask your statistical software to calculate the correlation for every possible pair at once. This produces a <a href="appendix-glossary.html#glossary-term-correlation-matrix" class="glossary-link" data-definition="A table showing the correlation coefficient between every pair of variables in a set." data-term="correlation matrix" aria-describedby="glossary-tooltip">correlation matrix</a> (a table that displays the correlation coefficients between every possible pair of variables in a list).</p>
+<p>If people evaluated each of these six traits independently, the correlation matrix would be filled with numbers close to zero. Knowing that a female participant thought her date was intelligent would tell you nothing about whether she also thought he was sincere or ambitious. Similarly, if participants decided within the first ten seconds whether they liked their partner and blindly gave them the same score across all six categories, every correlation in the table would be extremely high across the board.</p>
+<p>When you examine a correlation matrix for the six dating ratings in <code>speed_dating.csv</code>, you find neither of those extremes. Instead, the correlations form distinct neighborhoods. Ratings that capture immediate social chemistry (like how attractive or fun a partner seems) tend to correlate strongly with one another, while ratings that reflect character and long-term potential (like intelligence, ambition, and sincerity) form their own tight-knit cluster. Aside from a few overlapping traits, the correlations <em>between</em> these two neighborhoods are noticeably weaker.</p>
+<p>Why do these scores move together in distinct clusters? Factor analysis operates on a simple, intuitive premise: observable variables correlate with one another because they are being caused by the same hidden <a href="appendix-glossary.html#glossary-term-factor" class="glossary-link" data-definition="The categorical variable that divides a sample into the groups being compared; also called the treatment variable." data-term="factor" aria-describedby="glossary-tooltip">factor</a> (an unobserved variable in a statistical model that represents a latent construct and influences how participants respond to multiple related survey items).</p>
+<p>Think of a hidden factor like a puppeteer holding the strings of several puppets at once. You sit in the audience and watch six puppets on a stage. You cannot see the puppeteers standing hidden above the curtain, just as you cannot directly see a participant’s subconscious evaluation of “Social Appeal” or “Socioeconomic Status.” However, when the first puppeteer pulls their hand up, three specific puppets (<code>AttractiveF</code>, <code>FunF</code>, and <code>SharedInterestsF</code>) all rise at the same time. A moment later, a second puppeteer pulls their hand up, and the other three puppets (<code>IntelligentF</code>, <code>AmbitiousF</code>, and <code>SincereF</code>) rise together. By carefully watching which puppets move in sync on stage, you can deduce how many puppeteers are hiding behind the curtain and which strings each one controls.</p>
+<p>This reveals why factor analysis is such an essential tool in social science research. Without it, a researcher analyzing <code>speed_dating.csv</code> would have to run six separate analyses for the male ratings and six separate analyses for the female ratings, or else arbitrarily guess which variables to average together. If you try to put all six ratings into a multiple regression model at the same time to predict whether someone gets a second date, you will run straight into the problem of multicollinearity that we explored in Chapter 5, because the predictors overlap so heavily.</p>
+<p>Factor analysis solves both problems at once. First, it serves as a tool for psychological discovery, mapping out the hidden mental categories people use when making judgments. Second, it simplifies your dataset. Instead of juggling six overlapping survey items, you can group them into two clean, distinct factors, making your future statistical models much easier to build and interpret.</p>
+<section id="shared-variance-versus-unique-variance" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="shared-variance-versus-unique-variance"><span class="header-section-number">11.2.1</span> Shared Variance versus Unique Variance</h3>
+<p>To figure out which survey questions belong to which hidden factor, factor analysis looks closely at the variability within each variable. Even when three questions are controlled by the same underlying factor, a participant will rarely write down the same number for all three. After a speed date, a female participant might give her partner an 8 for <code>FunF</code>, a 7 for <code>AttractiveF</code>, and a 6 for <code>SharedInterestsF</code>.</p>
+<p>Why are those three numbers slightly different if they are all being driven by the same underlying impression of social appeal? Factor analysis explains this discrepancy by splitting the total variability of every survey question into two separate pieces:</p>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-communality" class="glossary-link" data-definition="The proportion of a variable’s variation that is shared with other variables because they measure the same underlying factor." data-term="communality" aria-describedby="glossary-tooltip">Communality</a>: The proportion of a variable’s variation that is shared with the other variables in the analysis because they all measure the same underlying factor. If a participant feels an immediate spark of social chemistry with her date, that central impression pushes up her ratings for <code>AttractiveF</code>, <code>FunF</code>, and <code>SharedInterestsF</code> simultaneously. That shared upward push is the communality.<br>
+</li>
+<li><a href="appendix-glossary.html#glossary-term-unique-variance" class="glossary-link" data-definition="The proportion of a variable’s variation that is not shared with other variables, made up of specific variance and measurement error; also called uniqueness." data-term="unique variance" aria-describedby="glossary-tooltip">Unique variance</a>: The proportion of a variable’s variation that belongs strictly to that single question and is not shared with any other variable in the dataset.</li>
+</ol>
+<p>To understand unique variance, it helps to recognize that a variable can wander away from its group for two different reasons. Because of this, statisticians further divide unique variance into two sub-categories:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-specific-variance" class="glossary-link" data-definition="Variation that is real and systematic but unique to a single observed variable, not shared with other variables; part of unique variance." data-term="specific variance" aria-describedby="glossary-tooltip">Specific variance</a>: Variation that is genuinely real and systematic, but unique to that exact question. For example, suppose a participant is an avid classical cellist, and during their four-minute date, they discover their partner also plays the cello. That participant might give their partner a 10 on <code>SharedInterestsF</code>, even if they only gave them a 5 on <code>AttractiveF</code> and a 6 on <code>FunF</code>. That spike in <code>SharedInterestsF</code> is not random error; it reflects a genuine evaluation of a shared hobby that has nothing to do with general social appeal.</li>
+<li><a href="appendix-glossary.html#glossary-term-measurement-error" class="glossary-link" data-definition="Random noise in a measurement caused by imperfect measurement conditions, not by the construct being measured; it is part of unique variance." data-term="measurement error" aria-describedby="glossary-tooltip">Measurement error</a>: Random noise caused by the imperfect nature of human surveys. Perhaps a participant is exhausted after talking to several strangers in a noisy room, misreads the 1 to 10 scale on their clipboard, or accidentally circles a 7 when they meant to circle an 8. Just like specific variance, random measurement error cannot be shared with the other variables in the dataset.</li>
+</ul>
+<p>We can summarize how factor analysis views the total variability of any single survey item using a simple conceptual breakdown:</p>
+<blockquote class="blockquote">
+<p><span class="math display">\[\text{Total Variance} = \text{Communality} + \text{Specific Variance} + \text{Measurement Error}\]</span></p>
+</blockquote>
+<p>Separating communality from unique variance (the combined specific variance and measurement error) is the secret behind how true factor analysis works. Think of a sound engineer working in a recording studio. Imagine two singers are standing on a stage, and six microphones are scattered around the room. Each microphone picks up the melodies of the two singers (the communality), but each microphone also picks up localized background noises, like a creaky floorboard right next to microphone three (specific variance) or random static in the microphone cable (measurement error).</p>
+<p>If you want to hear the pure voices of the two singers, you do not want to crank up the volume on all six microphones at once; that would amplify the creaky floorboards and the cable static right along with the music. Instead, a sound engineer isolates the sound waves that all the microphones are picking up in common and filters out the localized noise unique to each individual microphone.</p>
+<p>Factor analysis does the same thing with survey data. Suppose a psychologist wants to isolate the pure concept of “Socioeconomic Status” from the ratings of <code>IntelligentF</code>, <code>AmbitiousF</code>, and <code>SincereF</code>. Each of those three ratings contains a mix of the shared theme (communality) and noisy distractions specific to that single word or moment (unique variance). Factor analysis mathematically strips away the unique variance, leaving behind only the shared communality so you can see the hidden constructs. As you will see in Section 11.3, this step of filtering out unique variance is exactly what separates true factor analysis from simpler data-reduction shortcuts.</p>
+</section>
+</section>
+<section id="reading-factor-analysis-tables" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="reading-factor-analysis-tables"><span class="header-section-number">11.3</span> Reading Factor Analysis Tables</h2>
+<p>Knowing that hidden factors exist in theory is helpful, but as a researcher, you need to know how to spot them in your software output. When you run a factor analysis in a program like SPSS, Minitab, or Stata, the software generates several diagnostic tables. To build your intuition step by step, we will walk through the two most important tables side by side: the correlation matrix and the rotated factor matrix.</p>
+<section id="the-correlation-matrix" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="the-correlation-matrix"><span class="header-section-number">11.3.1</span> The Correlation Matrix</h3>
+<p>Before extracting any hidden factors, your first step is always to inspect the raw correlation matrix for your survey items. Let’s review the actual correlations among the six partner ratings completed by the female participants in <code>speed_dating.csv</code> (Gelman &amp; Hill, 2007).</p>
+<table class="caption-top table">
+<caption>Table 11.1: Correlation matrix for the six female partner ratings in the speed dating dataset.</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 13%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>AttractiveF</strong></th>
+<th><strong>SincereF</strong></th>
+<th><strong>IntelligentF</strong></th>
+<th><strong>FunF</strong></th>
+<th><strong>AmbitiousF</strong></th>
+<th><strong>SharedInterestsF</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>AttractiveF</code></strong></td>
+<td>1.000</td>
+<td>0.246</td>
+<td>0.226</td>
+<td>0.543</td>
+<td>0.209</td>
+<td>0.467</td>
+</tr>
+<tr class="even">
+<td><strong><code>SincereF</code></strong></td>
+<td>0.246</td>
+<td>1.000</td>
+<td>0.563</td>
+<td>0.387</td>
+<td>0.393</td>
+<td>0.222</td>
+</tr>
+<tr class="odd">
+<td><strong><code>IntelligentF</code></strong></td>
+<td>0.226</td>
+<td>0.563</td>
+<td>1.000</td>
+<td>0.368</td>
+<td>0.541</td>
+<td>0.236</td>
+</tr>
+<tr class="even">
+<td><strong><code>FunF</code></strong></td>
+<td>0.543</td>
+<td>0.387</td>
+<td>0.368</td>
+<td>1.000</td>
+<td>0.391</td>
+<td>0.556</td>
+</tr>
+<tr class="odd">
+<td><strong><code>AmbitiousF</code></strong></td>
+<td>0.209</td>
+<td>0.393</td>
+<td>0.541</td>
+<td>0.391</td>
+<td>1.000</td>
+<td>0.187</td>
+</tr>
+<tr class="even">
+<td><strong><code>SharedInterestsF</code></strong></td>
+<td>0.467</td>
+<td>0.222</td>
+<td>0.236</td>
+<td>0.556</td>
+<td>0.187</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that a correlation matrix is symmetric: the numbers above the diagonal line of <span class="math inline">\(1.000\)</span> values are an exact mirror image of the numbers below the diagonal. Every cell tells you the linear correlation (<span class="math inline">\(r\)</span>) between the variable in that row and the variable in that column.</p>
+<p>If you scan across the rows of Table 11.1, you can already see the two neighborhoods we discussed in Section 11.2 beginning to take shape:</p>
+<ul>
+<li><strong>Neighborhood 1 (Character and Intellect):</strong> Look at the row for <code>IntelligentF</code>. When a female participant rates her date highly on intelligence, she also tends to rate him much higher on <code>SincereF</code> (<span class="math inline">\(r = 0.563\)</span>) and <code>AmbitiousF</code> (<span class="math inline">\(r = 0.541\)</span>). Similarly, <code>SincereF</code> and <code>AmbitiousF</code> correlate moderately well with each other (<span class="math inline">\(r = 0.393\)</span>).</li>
+<li><strong>Neighborhood 2 (Immediate Chemistry):</strong> Now consider the row for <code>AttractiveF</code>. A high rating on physical attractiveness connects strongly to <code>FunF</code> (<span class="math inline">\(r = 0.543\)</span>) and <code>SharedInterestsF</code> (<span class="math inline">\(r = 0.467\)</span>). Furthermore, <code>FunF</code> and <code>SharedInterestsF</code> show one of the strongest connections in the entire table (<span class="math inline">\(r = 0.556\)</span>).</li>
+<li><strong>Weak Cross-Neighborhood Connections:</strong> Next, check how these two groups interact with each other. Knowing that a participant rated her date high on <code>AttractiveF</code> tells you very little about whether she thought he was <code>SincereF</code> (<span class="math inline">\(r = 0.246\)</span>), <code>IntelligentF</code> (<span class="math inline">\(r = 0.226\)</span>), or <code>AmbitiousF</code> (<span class="math inline">\(r = 0.209\)</span>). Likewise, <code>SharedInterestsF</code> shows weak correlations with <code>SincereF</code> (<span class="math inline">\(r = 0.222\)</span>), <code>IntelligentF</code> (<span class="math inline">\(r = 0.236\)</span>), and <code>AmbitiousF</code> (<span class="math inline">\(r = 0.187\)</span>).</li>
+</ul>
+<p>However, Table 11.1 also shows why simply eyeballing a correlation matrix is not enough. Look closely at the row for <code>FunF</code>. Even though <code>FunF</code> correlates most strongly with <code>SharedInterestsF</code> (<span class="math inline">\(r = 0.556\)</span>) and <code>AttractiveF</code> (<span class="math inline">\(r = 0.543\)</span>), it also shows moderate correlations with <code>SincereF</code> (<span class="math inline">\(r = 0.387\)</span>), <code>IntelligentF</code> (<span class="math inline">\(r = 0.368\)</span>), and <code>AmbitiousF</code> (<span class="math inline">\(r = 0.391\)</span>). Why does <code>FunF</code> seem to bridge both groups? In a four-minute speed date, witty banter or an engaging story can make someone seem fun, intelligent, and ambitious all at once.</p>
+<p>If you already encounter blurry boundaries like <code>FunF</code> when working with just six variables, imagine trying to untangle a correlation matrix with thirty or forty survey questions. Rather than guessing where the boundaries lie, we need factor analysis to mathematically separate the shared themes from the unique variance.</p>
+</section>
+<section id="the-factor-matrix" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="the-factor-matrix"><span class="header-section-number">11.3.2</span> The Factor Matrix</h3>
+<p>To run a factor analysis, you must first tell your statistical software how many hidden factors to look for. Because our inspection of the correlation matrix suggested two distinct neighborhoods of traits, we instructed the software to extract exactly two factors. (Of course, when you analyze a large survey with dozens of items, you will not be able to guess the number of factors by eye; in Section 11.6, you will learn an objective visual method for deciding exactly how many factors to extract.)</p>
+<p>Once the software extracts the two hidden factors, how do you know which survey questions belong to which factor? You examine a table of <a href="appendix-glossary.html#glossary-term-factor-loading" class="glossary-link" data-definition="A weight between -1 and 1 that measures the strength and direction of the relationship between an observed variable and a factor; loadings of about 0.40 or higher are usually treated as meaningful." data-term="factor loading" aria-describedby="glossary-tooltip">factor loadings</a>, which are numerical weights ranging from <span class="math inline">\(-1\)</span> to <span class="math inline">\(1\)</span> that measure the strength and direction of the relationship between an observed survey variable and a hidden factor.</p>
+<p>Because a factor loading represents the correlation between a specific survey question and the underlying factor, you can interpret it using the same intuition you built for the correlation coefficient (<span class="math inline">\(r\)</span>) in Chapter 4:</p>
+<ul>
+<li>A factor loading close to <span class="math inline">\(1\)</span> (or <span class="math inline">\(-1\)</span>) means the survey question is strongly tied to that hidden factor. Researchers say that the variable “loads heavily” onto that factor.<br>
+</li>
+<li>A factor loading close to <span class="math inline">\(0\)</span> means the survey question has almost nothing to do with that hidden factor.</li>
+<li>Most social scientists use a practical benchmark of <span class="math inline">\(0.40\)</span> (or <span class="math inline">\(-0.40\)</span>) when reading factor tables. If a variable’s loading has a magnitude of <span class="math inline">\(0.40\)</span> or higher, we consider that variable to be a meaningful member of that factor’s cluster.</li>
+</ul>
+<p>Table 11.2 shows the emulated SPSS output, which displays the factor loadings, communalities, and uniqueness values when we extract two factors from the female partner ratings in <code>speed_dating.csv</code>.</p>
+<table class="caption-top table">
+<caption>Table 11.2: Emulated SPSS rotated factor matrix from principal axis factoring with varimax rotation for the female partner ratings.</caption>
+<colgroup>
+<col style="width: 29%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 22%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Observed Variable</strong></th>
+<th><strong>Factor 1</strong></th>
+<th><strong>Factor 2</strong></th>
+<th><strong>Communality (h2)</strong></th>
+<th><strong>Uniqueness (u2)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>IntelligentF</code></strong></td>
+<td><strong>0.853</strong></td>
+<td>0.141</td>
+<td>0.748</td>
+<td>0.252</td>
+</tr>
+<tr class="even">
+<td><strong><code>SincereF</code></strong></td>
+<td><strong>0.611</strong></td>
+<td>0.225</td>
+<td>0.425</td>
+<td>0.575</td>
+</tr>
+<tr class="odd">
+<td><strong><code>AmbitiousF</code></strong></td>
+<td><strong>0.598</strong></td>
+<td>0.197</td>
+<td>0.396</td>
+<td>0.604</td>
+</tr>
+<tr class="even">
+<td><strong><code>FunF</code></strong></td>
+<td>0.341</td>
+<td><strong>0.760</strong></td>
+<td>0.694</td>
+<td>0.306</td>
+</tr>
+<tr class="odd">
+<td><strong><code>SharedInterestsF</code></strong></td>
+<td>0.135</td>
+<td><strong>0.672</strong></td>
+<td>0.469</td>
+<td>0.531</td>
+</tr>
+<tr class="even">
+<td><strong><code>AttractiveF</code></strong></td>
+<td>0.151</td>
+<td><strong>0.655</strong></td>
+<td>0.452</td>
+<td>0.548</td>
+</tr>
+<tr class="odd">
+<td><strong>Proportion of Variance</strong></td>
+<td><strong>0.270</strong></td>
+<td><strong>0.261</strong></td>
+<td><strong>Total = 0.531</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>When you read Table 11.2, start by scanning down the column for Factor 1. Three variables stand out with bold loadings well above our <span class="math inline">\(0.40\)</span> benchmark: <code>IntelligentF</code> (<span class="math inline">\(0.853\)</span>), <code>SincereF</code> (<span class="math inline">\(0.611\)</span>), and <code>AmbitiousF</code> (<span class="math inline">\(0.598\)</span>). Meanwhile, the other three variables sit below the threshold (<span class="math inline">\(0.135\)</span> to <span class="math inline">\(0.341\)</span>). Now scan down the column for Factor 2. Here, the exact opposite pattern appears: <code>FunF</code> (<span class="math inline">\(0.760\)</span>), <code>SharedInterestsF</code> (<span class="math inline">\(0.672\)</span>), and <code>AttractiveF</code> (<span class="math inline">\(0.655\)</span>) load heavily onto Factor 2, while the first three traits drop close to zero (<span class="math inline">\(0.141\)</span> to <span class="math inline">\(0.225\)</span>).</p>
+<p>Notice what happened to <code>FunF</code>. Earlier, in the correlation matrix, <code>FunF</code> seemed to correlate moderately with almost everything. In Table 11.2, we can still see a trace of that overlap: <code>FunF</code> has a secondary loading of <span class="math inline">\(0.341\)</span> on Factor 1. However, because <span class="math inline">\(0.341\)</span> falls below our <span class="math inline">\(0.40\)</span> cutoff and is dwarfed by its primary loading of <span class="math inline">\(0.760\)</span> on Factor 2, the factor analysis places <code>FunF</code> in the second cluster.</p>
+<p>When each survey question loads strongly onto one factor and weakly onto all the others, statisticians say the model has achieved <a href="appendix-glossary.html#glossary-term-simple-structure" class="glossary-link" data-definition="A clean factor pattern in which each observed variable loads strongly on one factor and weakly on the others." data-term="simple structure" aria-describedby="glossary-tooltip">simple structure</a> (a clean pattern of factor loadings where each observed variable belongs to a single factor, making the hidden concepts easy to interpret). Notice that the title of Table 11.2 specifies a “Rotated Factor Matrix.” When statistical software first extracts factors, the initial loadings are often muddled and hard to read. To fix this, the software automatically applies a mathematical adjustment called <a href="appendix-glossary.html#glossary-term-rotation" class="glossary-link" data-definition="A mathematical adjustment of factor axes that maximizes high loadings and minimizes low ones, producing a clearer simple structure without changing the underlying communality." data-term="rotation" aria-describedby="glossary-tooltip">rotation</a> (a procedure that adjusts the axes of the factors to maximize high loadings and minimize low loadings, bringing the table into a clean simple structure without changing the underlying communality). Think of rotation like turning the focus ring on a camera lens: the scenery in front of you does not change at all, but adjusting the lens brings the blurry shapes into sharp, distinct focus.</p>
+</section>
+<section id="putting-it-all-together" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">11.3.3</span> Putting It All Together</h3>
+<p>Once you have confirmed which variables load onto each factor, you are ready to interpret the big picture using the remaining columns and rows of Table 11.2:</p>
+<ol type="1">
+<li><strong>Naming the Latent Constructs:</strong> Notice that the software labels the columns “Factor 1” and “Factor 2” without any explanation of what those labels mean. Statistical software does not understand human psychology; it only sees mathematical clusters. It is your job as the researcher to read the high-loading variables in each column and invent a meaningful name for the latent construct. Looking at Factor 1 (<code>IntelligentF</code>, <code>SincereF</code>, and <code>AmbitiousF</code>), all three traits reflect a partner’s intellect, integrity, and long-term career potential. We can label Factor 1 <strong>“Socioeconomic Status &amp; Character”</strong>. Turning to Factor 2 (<code>FunF</code>, <code>SharedInterestsF</code>, and <code>AttractiveF</code>), all three traits capture immediate chemistry, excitement, and physical spark during the four-minute conversation. We can label Factor 2 <strong>“Social Appeal”</strong>.<br>
+</li>
+<li><strong>Evaluating Communality (<span class="math inline">\(h^2\)</span>) and Uniqueness (<span class="math inline">\(u^2\)</span>):</strong> Look at the two columns on the far right of Table 11.2. In statistical software output, communality is often abbreviated as <span class="math inline">\(h^2\)</span>, and unique variance is abbreviated as <span class="math inline">\(u^2\)</span>. For each variable, the communality tells you the proportion of its total variance that is explained by our two hidden factors combined. For instance, <code>IntelligentF</code> has a communality of <span class="math inline">\(0.748\)</span>, meaning that <span class="math inline">\(74.8\%\)</span> of the variation in intelligence ratings is driven by these two underlying factors, while only <span class="math inline">\(25.2\%\)</span> (<span class="math inline">\(u^2 = 0.252\)</span>) is unique variance and random noise. By contrast, <code>AmbitiousF</code> has a communality of <span class="math inline">\(0.396\)</span> and a uniqueness of <span class="math inline">\(0.604\)</span>. This tells us that while ambition belongs to Factor 1, about <span class="math inline">\(60.4\%\)</span> of how participants judge a partner’s ambition during a four-minute date comes from specific details outside of our two main factors. Notice that for every row in the table, Communality (<span class="math inline">\(h^2\)</span>) plus Uniqueness (<span class="math inline">\(u^2\)</span>) equals <span class="math inline">\(1.000\)</span> (<span class="math inline">\(100\%\)</span> of that variable’s variance).<br>
+</li>
+<li><strong>Assessing Total Variance Explained:</strong> Finally, look at the bottom row labeled “Proportion of Variance.” This row tells you the share of the total variance across the six-item scorecard that each factor accounts for. Factor 1 (“Socioeconomic Status &amp; Character”) captures <span class="math inline">\(27.0\%\)</span> (<span class="math inline">\(0.270\)</span>) of the variance, and Factor 2 (“Social Appeal”) captures <span class="math inline">\(26.1\%\)</span> (<span class="math inline">\(0.261\)</span>). Together, these two hidden concepts explain <span class="math inline">\(53.1\%\)</span> (<span class="math inline">\(0.531\)</span>) of the total variance across all six survey questions. Instead of wrestling with six overlapping ratings, you have successfully distilled the scorecard into two distinct psychological dimensions that capture more than half of the total variation in how female speed-daters evaluate their partners.</li>
+</ol>
+</section>
+</section>
+<section id="the-great-debate-factor-analysis-versus-principal-components-analysis" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="the-great-debate-factor-analysis-versus-principal-components-analysis"><span class="header-section-number">11.4</span> The Great Debate: Factor Analysis versus Principal Components Analysis</h2>
+<p>If you open almost any major statistical software package and look for a drop-down menu labeled “Factor Analysis,” you will encounter one of the most notorious software traps in the social sciences. In many programs, the default extraction method is not actually factor analysis at all. Instead, the default setting is a technique called <a href="appendix-glossary.html#glossary-term-principal-components-analysis-pca" class="glossary-link" data-definition="A data reduction method that compresses all variance, including unique variance and measurement error, into components; it does not separate shared communality from noise." data-term="principal components analysis (PCA)" aria-describedby="glossary-tooltip">Principal Components Analysis (PCA)</a>.</p>
+<p>Because PCA is the default option, thousands of students and researchers accidentally run it every year, believing they are conducting a true factor analysis. However, PCA and factor analysis are fundamentally different tools designed for fundamentally different purposes.</p>
+<p>To understand the debate, recall the variance equation we explored in Section 11.2. We established that the total variation in any survey response is a mix of shared communality and unique variance (which includes random measurement error).</p>
+<p>A true factor analysis believes that hidden psychological constructs cause the survey answers. Because it only cares about those hidden constructs, it acts like a filter. It strips away the unique variance and random noise, isolating only the shared communality.</p>
+<p>PCA makes no such assumptions. PCA is strictly a <a href="appendix-glossary.html#glossary-term-data-reduction" class="glossary-link" data-definition="The goal of summarizing many observed variables with a smaller number of components or factors, without necessarily uncovering hidden constructs." data-term="data reduction" aria-describedby="glossary-tooltip">data reduction</a> technique. It does not believe in hidden psychological constructs, and it does not try to separate communality from unique variance. Instead, PCA takes <span class="math inline">\(100\%\)</span> of the variance in your dataset, including all the random measurement error and specific noise, and forcefully compresses it into a smaller number of summary variables called <a href="appendix-glossary.html#glossary-term-component" class="glossary-link" data-definition="A summary variable produced by PCA, which compresses all variance, including unique variance and measurement error, into a smaller set of dimensions." data-term="component" aria-describedby="glossary-tooltip">components</a>.</p>
+<p>Think of PCA like packing a suitcase for a trip. If you have six bulky sweaters (your six survey variables) that will not fit into your car, you can put them into a vacuum-seal bag and suck all the air out. You have successfully reduced the physical space they take up, but you have not actually discovered anything new about the sweaters. You just compressed them. Factor analysis, on the other hand, is like sorting your wardrobe to discover that three of the sweaters belong to a “winter ski trip” theme and the other three belong to a “fall campfire” theme.</p>
+<section id="the-impact-on-your-data" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="the-impact-on-your-data"><span class="header-section-number">11.4.1</span> The Impact on Your Data</h3>
+<p>To see why this software trap matters, we can run a parallel drop-down analysis on the six female partner ratings from <code>speed_dating.csv</code>, this time leaving the software on its default PCA setting.</p>
+<table class="caption-top table">
+<caption>Table 11.3: Emulated SPSS principal components analysis with varimax rotation for the female partner ratings.</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Observed Variable</strong></th>
+<th><strong>Component 1</strong></th>
+<th><strong>Component 2</strong></th>
+<th><strong>PCA Communality (h2)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>IntelligentF</code></strong></td>
+<td><strong>0.853</strong></td>
+<td>0.145</td>
+<td>0.749</td>
+</tr>
+<tr class="even">
+<td><strong><code>AmbitiousF</code></strong></td>
+<td><strong>0.776</strong></td>
+<td>0.142</td>
+<td>0.622</td>
+</tr>
+<tr class="odd">
+<td><strong><code>SincereF</code></strong></td>
+<td><strong>0.765</strong></td>
+<td>0.190</td>
+<td>0.621</td>
+</tr>
+<tr class="even">
+<td><strong><code>SharedInterestsF</code></strong></td>
+<td>0.085</td>
+<td><strong>0.827</strong></td>
+<td>0.691</td>
+</tr>
+<tr class="odd">
+<td><strong><code>AttractiveF</code></strong></td>
+<td>0.108</td>
+<td><strong>0.812</strong></td>
+<td>0.672</td>
+</tr>
+<tr class="even">
+<td><strong><code>FunF</code></strong></td>
+<td>0.363</td>
+<td><strong>0.773</strong></td>
+<td>0.729</td>
+</tr>
+</tbody>
+</table>
+<p>Compare the results in Table 11.3 back to the true factor analysis in Table 11.2. The groupings look similar, but look closely at the numbers themselves. In the PCA output, almost every loading is artificially higher.</p>
+<p>More importantly, look at the PCA Communality column. In our true factor analysis, we discovered that <code>AmbitiousF</code> had a communality of <span class="math inline">\(0.396\)</span>. In the PCA table, that number has suddenly inflated to <span class="math inline">\(0.622\)</span>. Similarly, the communality for <code>SincereF</code> jumped from <span class="math inline">\(0.425\)</span> to <span class="math inline">\(0.621\)</span>.</p>
+<p>Where did this extra “shared” variance come from? It is an illusion. Because PCA keeps all of the variance, including unique variance and measurement error, that noise ends up inside the new components. This artificially inflates the mathematical weights, making the relationships look much stronger than they actually are.</p>
+<p>If your only goal is to shrink a large database of 1,000 variables down to 50 variables so your computer can process it faster, PCA is a good data reduction tool. However, if your goal is to uncover hidden psychological concepts (like “Social Appeal” or “Socioeconomic Status”), PCA will mislead you by mixing random noise into your latent constructs. When conducting social science research, you should always click into your software’s options menu and change the extraction method from PCA to a true factor analysis method.</p>
+</section>
+</section>
+<section id="choosing-your-tools-extraction-methods-and-analysis-approaches" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="choosing-your-tools-extraction-methods-and-analysis-approaches"><span class="header-section-number">11.5</span> Choosing Your Tools: Extraction Methods and Analysis Approaches</h2>
+<p>Once you move past the Principal Components Analysis software trap, your statistical software will present you with a list of true factor analysis methods. The two most common choices in the social sciences are Principal Axis Factoring and Maximum Likelihood.</p>
+<p><a href="appendix-glossary.html#glossary-term-principal-axis-factoring-paf" class="glossary-link" data-definition="A factor extraction method that makes few distributional assumptions and is the usual choice for ordinal survey data in exploratory factor analysis." data-term="principal axis factoring (PAF)" aria-describedby="glossary-tooltip">Principal Axis Factoring (PAF)</a> is a dependable extraction method that makes very few assumptions about the shape of your data. This makes it the gold standard for analyzing ordinal, Likert-style survey responses, like the 1 to 10 partner ratings in the <code>speed_dating.csv</code> dataset. Because human survey data is rarely perfectly symmetrical and often clumps toward one extreme, Principal Axis Factoring is the safest and most reliable default choice for exploratory research.</p>
+<p><a href="appendix-glossary.html#glossary-term-maximum-likelihood-ml" class="glossary-link" data-definition="A factor extraction method that assumes multivariate normality and allows formal fit tests and confidence intervals; it can distort loadings when that assumption fails." data-term="maximum likelihood (ML)" aria-describedby="glossary-tooltip">Maximum Likelihood (ML)</a> is a more mathematically rigid extraction method that assumes your data follows a strict normal distribution. If your variables are perfectly bell-shaped, Maximum Likelihood is powerful because it allows you to calculate precise confidence intervals and formal hypothesis tests regarding how well your factor model fits the data. However, if your survey responses violate the normality assumption, this method can produce distorted factor loadings.</p>
+<p>In practice, if your hidden constructs are strong and well-defined, both methods will produce nearly identical results. When we ran the female speed dating ratings using Maximum Likelihood behind the scenes, the loading for <code>IntelligentF</code> was <span class="math inline">\(0.857\)</span>, compared to <span class="math inline">\(0.853\)</span> under Principal Axis Factoring. For most introductory survey research, you should select Principal Axis Factoring to avoid assumptions about normal distributions.</p>
+<section id="exploratory-versus-confirmatory-analysis" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="exploratory-versus-confirmatory-analysis"><span class="header-section-number">11.5.1</span> Exploratory versus Confirmatory Analysis</h3>
+<p>In addition to choosing an extraction method, you must also decide how you want to approach the analysis conceptually. Researchers use factor analysis in two distinct ways:</p>
+<p><a href="appendix-glossary.html#glossary-term-exploratory-factor-analysis-efa" class="glossary-link" data-definition="A factor analysis used when the researcher does not know the underlying structure and lets the correlations reveal how many factors exist and which variables belong together." data-term="exploratory factor analysis (EFA)" aria-describedby="glossary-tooltip">Exploratory Factor Analysis (EFA)</a> is used when you do not know the underlying structure of the relationships between your variables before you begin. You hand the software a large pool of survey questions and ask it to explore the correlations, discover the hidden factors, and group the variables together for you. Everything we have done with the <code>speed_dating.csv</code> dataset so far has been exploratory. We did not tell the software which variables belonged to “Social Appeal” and which belonged to “Socioeconomic Status.” We simply provided the data and let the natural correlations guide the groupings.</p>
+<p><a href="appendix-glossary.html#glossary-term-confirmatory-factor-analysis-cfa" class="glossary-link" data-definition="A factor analysis used when the researcher already has a theory and specifies in advance how many factors exist and which variables belong to each, then tests how well that model fits." data-term="confirmatory factor analysis (CFA)" aria-describedby="glossary-tooltip">Confirmatory Factor Analysis (CFA)</a> is used when you already have a firm theory and you want to test whether your new data fits that specific theory. In a confirmatory analysis, you tell the software exactly how many factors exist and precisely which survey questions belong to each factor before you run the test. The software then calculates a mathematical “fit statistic” to confirm whether your proposed model matches reality.</p>
+<p>For example, suppose you want to demonstrate that the female ratings for <code>AttractiveF</code>, <code>FunF</code>, and <code>SharedInterestsF</code> universally measure “Social Appeal” across all contexts. You could collect a brand-new dataset of speed daters, run a Confirmatory Factor Analysis, and intentionally lock those three specific variables to a single factor to see if the structure holds up in a new population.</p>
+<p>Because Confirmatory Factor Analysis is an advanced structural modeling technique, most introductory social science research relies entirely on Exploratory Factor Analysis. However, running an exploratory analysis leaves us with one unanswered question. If we are truly exploring the data from scratch, how did we know to tell the software to look for exactly two factors in Section 11.3?</p>
+</section>
+</section>
+<section id="visualizing-factors-scree-charts" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="visualizing-factors-scree-charts"><span class="header-section-number">11.6</span> Visualizing Factors: Scree Charts</h2>
+<p>When you run an exploratory factor analysis, the software does not inherently know how many hidden concepts exist in your survey. If you do not know the answer either, how do you decide how many factors to extract? You rely on a visual diagnostic tool called a <a href="appendix-glossary.html#glossary-term-scree-chart" class="glossary-link" data-definition="A line graph of the variance explained by each successive factor, used to choose how many factors to keep by locating the elbow where the curve flattens." data-term="scree chart" aria-describedby="glossary-tooltip">scree chart</a> (a line graph that displays the amount of total variation each potential factor explains, allowing researchers to visually identify the optimal number of factors to keep).</p>
+<p>If you give your software a survey with six variables, the software will initially calculate six potential factors. It builds these factors in a specific order:</p>
+<ol type="1">
+<li><strong>Factor 1</strong> is designed to capture the maximum possible amount of shared variation across all the survey items.</li>
+<li><strong>Factor 2</strong> works from whatever variation is left over and captures as much of that remaining chunk as possible.</li>
+<li><strong>Factor 3</strong> scoops up the best of the remaining scraps, and so on.</li>
+</ol>
+<p>By the time the software reaches the fifth or sixth factor, there is almost no shared variation left to capture. Those final factors are essentially just picking up random noise and measurement error.</p>
+<p>A scree chart plots these potential factors on the horizontal axis (from 1 to 6) and the amount of variation they explain on the vertical axis. Because the first factor always grabs the most variation, the line graph always starts high on the left and drops downward as it moves to the right.</p>
+<p>Geologists use the word “scree” to describe the loose rubble and broken rocks that gather at the bottom of a steep cliff. When you look at a scree chart, you are looking for the same geological shape: a steep cliff face that eventually flattens out into a trail of rubble.</p>
+<p>To choose the right number of factors, you look for the “elbow.” This is the exact point where the steep drop sharply bends and turns into a flat, horizontal line. You keep all the factors that make up the steep cliff, and you discard all the factors that make up the flat rubble.</p>
+<p>Figure 11.1 shows the scree chart for the six female partner ratings in <code>speed_dating.csv</code>. The line starts high for Factor 1, falls sharply to Factor 2, keeps dropping to Factor 3, and then flattens out. Because the “elbow” bend occurs at the third point, the third factor and everything after it represent the useless rubble. The cliff itself consists only of the first two points. This visual test provides the objective justification we needed to confidently extract exactly two factors in Section 11.3.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_11/fig_11_01_line_scree_female_ratings.png" class="img-fluid figure-img" alt="Line chart of eigenvalues for six factors from the female ratings. Values are 2.86, 1.22, 0.61, 0.54, 0.42, and 0.35. The line drops steeply through Factor 2 and flattens after Factor 3."></p>
+<figcaption>Figure 11.1: Scree chart for the six female partner ratings (n = 238). The first eigenvalue is 2.86 and the second is 1.22; the line then falls to 0.61 at Factor 3 and flattens across Factors 4 through 6. The elbow falls at Factor 3, so the first two factors are retained.</figcaption>
+</figure>
+</div>
+</section>
+<section id="revisiting-cronbachs-alpha-validating-the-scale" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="revisiting-cronbachs-alpha-validating-the-scale"><span class="header-section-number">11.7</span> Revisiting Cronbach’s Alpha: Validating the Scale</h2>
+<p>Once you use a scree chart to extract your factors and a rotated factor matrix to name them, what do you do with the results?</p>
+<p>The ultimate goal of factor analysis is data reduction with a meaningful, conceptual purpose. Instead of juggling six separate dating ratings in your future statistical models, you want to combine the items within each cluster into two clean, composite scores. You could average <code>AttractiveF</code>, <code>FunF</code>, and <code>SharedInterestsF</code> together to create a single “Social Appeal Index,” and average <code>IntelligentF</code>, <code>AmbitiousF</code>, and <code>SincereF</code> together to create a “Character Index.”</p>
+<p>However, before you are allowed to collapse individual survey questions into a single composite score, you must show that the questions reliably measure the same concept.</p>
+<p>This brings us directly back to Chapter 2. Recall that <a href="appendix-glossary.html#glossary-term-cronbach-s-alpha" class="glossary-link" data-definition="A statistic (written α) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research." data-term="Cronbach’s alpha" aria-describedby="glossary-tooltip">Cronbach’s alpha</a> is a mathematical metric used to evaluate <a href="appendix-glossary.html#glossary-term-internal-consistency" class="glossary-link" data-definition="How well the different items on a survey hang together, which a researcher must establish before adding the items into a single overall score." data-term="internal consistency" aria-describedby="glossary-tooltip">internal consistency</a> (how reliably a set of questions measures the same concept) before you create a <a href="appendix-glossary.html#glossary-term-summated-scale" class="glossary-link" data-definition="A measurement tool that asks several different, targeted questions about the same concept and then combines the responses into a single overall score." data-term="summated scale" aria-describedby="glossary-tooltip">summated scale</a> (a single composite score created by adding or averaging multiple survey items together).</p>
+<p>Factor analysis and Cronbach’s alpha are two halves of the same research workflow:</p>
+<ol type="1">
+<li><strong>Factor analysis explores the data to discover the hidden clusters.</strong> It tells you <em>which</em> variables belong together.<br>
+</li>
+<li><strong>Cronbach’s alpha confirms the measurement quality of those specific clusters.</strong> It shows that combining them into a single score is mathematically reliable.</li>
+</ol>
+<p>To complete our analysis of the female speed-dating evaluations, we would run Cronbach’s alpha twice. First, we compute alpha using only the three variables that loaded onto Factor 1 (<code>IntelligentF</code>, <code>AmbitiousF</code>, and <code>SincereF</code>). Second, we compute a separate alpha using only the three variables that loaded onto Factor 2 (<code>AttractiveF</code>, <code>FunF</code>, <code>SharedInterestsF</code>). Assuming both alpha scores clear the standard threshold for reliability (typically <span class="math inline">\(0.70\)</span> or higher), we have successfully validated our two newly discovered scales.</p>
+<section id="a-warning-about-ordinal-survey-data" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="a-warning-about-ordinal-survey-data"><span class="header-section-number">11.7.1</span> A Warning About Ordinal Survey Data</h3>
+<p>Combining survey items into a validated composite score also solves a major structural problem with Likert-scale data.</p>
+<p>Recall the warning we discussed in Chapter 4 regarding linear regression models. The original ratings in <code>speed_dating.csv</code> are ordinal variables; participants were forced to choose whole numbers from 1 to 10. A single, isolated ordinal question is a mathematically weak variable because the true distance between a rating of “4” and “5” might not mean the same thing as the distance between an “8” and a “9” in the participant’s mind.</p>
+<p>However, once factor analysis identifies a reliable cluster of variables and you verify their consistency with Cronbach’s alpha, you can safely average them together. Averaging three ordinal variables creates a composite score that can take on precise decimal values (like <span class="math inline">\(7.33\)</span> or <span class="math inline">\(8.67\)</span>). This composite scale now behaves like a continuous numerical variable, meaning you can safely plug your new “Social Appeal Index” into <span class="math inline">\(t\)</span>-tests, ANOVAs, and multiple regression models.</p>
+</section>
+</section>
+<section id="common-mistakes-misconceptions" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="common-mistakes-misconceptions"><span class="header-section-number">11.8</span> Common Mistakes / Misconceptions</h2>
+<p>As you begin running your own factor analyses, watch out for these three common pitfalls that often trip up new researchers:</p>
+<p><strong>1. Forcing a Structure When Everything is a Blur (The “Halo Effect”)</strong> Throughout this chapter, we analyzed the female participants’ scorecards because their ratings naturally formed two distinct, clean neighborhoods. But what happens if you run the same analysis on the male participants’ ratings?</p>
+<p>If you look at the correlation matrix for the male ratings (<code>AttractiveM</code>, <code>IntelligentM</code>, <code>FunM</code>, etc.), you will not find distinct clusters. Instead, almost every trait correlates moderately to highly with every other trait. Figure 11.2 sets the female and male matrices side by side. In psychology, this is known as the <a href="appendix-glossary.html#glossary-term-halo-effect" class="glossary-link" data-definition="A cognitive bias in which a strong positive impression in one area leads a person to rate a target favorably across unrelated categories, producing a uniform blur of correlations." data-term="halo effect" aria-describedby="glossary-tooltip">Halo Effect</a>, a cognitive bias where a strong positive impression in one area (like physical attraction) causes a person to rate that partner highly across every other unrelated category.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_11/fig_11_02_heatmap_correlation_heatmaps.png" class="img-fluid figure-img" alt="Two 6 by 6 correlation heatmaps with values printed in each cell. The female panel shows two blocks of correlations near 0.50 to 0.56. The male panel runs from 0.31 to 0.60 with no block pattern."></p>
+<figcaption>Figure 11.2: Correlation heatmaps for the six female and six male partner ratings (female n = 238, male n = 236). Rows and columns are ordered by the female factor clusters: character and intellect first, then social appeal. The female panel forms two blocks of stronger correlations; the male panel has no block structure. Every cell prints its correlation.</figcaption>
+</figure>
+</div>
+<p>When you ask statistical software to extract two factors from the male dataset, it struggles to find a clean mathematical boundary. The variables blur together into one giant “Overall Impression” factor, and traits like <code>IntelligentM</code> end up cross-loading (loading heavily onto multiple factors at the same time). The mistake researchers make is trying to force a clean, multi-factor story onto data that simply does not have one. If the correlation matrix is a uniform blur, your respondents were likely just evaluating a single, overall vibe.</p>
+<p><strong>2. Falling into the PCA Software Trap</strong> Because <a href="appendix-glossary.html#glossary-term-principal-components-analysis-pca" class="glossary-link" data-definition="A data reduction method that compresses all variance, including unique variance and measurement error, into components; it does not separate shared communality from noise." data-term="principal components analysis (PCA)" aria-describedby="glossary-tooltip">Principal Components Analysis (PCA)</a> is the default data-reduction setting in many popular statistical software programs, students often click it assuming it is the same thing as factor analysis. It is not. PCA does not believe in hidden psychological concepts, and it does not filter out measurement error. If you use PCA, your factor loadings and communalities will be artificially inflated because the software is sweeping random noise into your newly created components. Always double-check your software settings to ensure you are using a true extraction method like Principal Axis Factoring.</p>
+<p><strong>3. Treating the Factor Name as Mathematical Truth</strong> When you run a factor analysis, the software shows that a cluster of variables moves together mathematically. It does <em>not</em> prove what that cluster represents. The software just outputs a column labeled “Factor 1” and leaves the naming up to you.</p>
+<p>A common mistake is believing that because the grouping is mathematically valid, the researcher’s chosen name for it is also an unquestionable fact. If a researcher poorly names a cluster of survey items, the entire conclusion of the study can be misleading. Always look closely at the specific survey questions that make up a factor and ask yourself: <em>Does this label genuinely capture what these questions are asking?</em></p>
+</section>
+<section id="key-concepts" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">11.9</span> Key Concepts</h2>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-latent-construct" class="glossary-link" data-definition="A hidden concept, such as social appeal or socioeconomic status, that is not measured directly but is inferred from several observed variables." data-term="latent construct" aria-describedby="glossary-tooltip">Latent Constructs</a><strong>:</strong> Many concepts in the social sciences, such as intelligence or social appeal, are hidden and cannot be measured directly. Researchers must measure them indirectly using multiple survey items.<br>
+</li>
+<li><strong>The Purpose of Factor Analysis:</strong> Factor analysis explores a dataset to uncover how observed survey variables group together based on shared underlying themes. This allows researchers to simplify their data and discover the psychological categories participants use.<br>
+</li>
+<li><strong>Communality vs.&nbsp;Uniqueness:</strong> The total variation of any survey item is a mix of communality (the variation shared with the hidden factor) and uniqueness (the specific variation and random measurement error unique to that item). Factor analysis mathematically strips away the uniqueness to isolate the true hidden construct.<br>
+</li>
+<li><strong>The PCA Trap:</strong> Principal Components Analysis (PCA) is a data reduction tool, not a true factor analysis. PCA compresses data without separating communality from measurement error, which artificially inflates results. For survey research, always use a true extraction method like Principal Axis Factoring.<br>
+</li>
+<li><strong>Visualizing with Scree Charts:</strong> A scree chart plots the variance explained by each potential factor. To determine how many factors to extract, look for the “elbow,” the point where the steep cliff of meaningful factors flattens out into a rubble of random noise.<br>
+</li>
+<li><strong>Validating the Scale:</strong> Factor analysis and Cronbach’s alpha work together. Factor analysis explores the data to group the variables, and Cronbach’s alpha confirms that those specific groupings form a mathematically reliable scale before you average them into a single score.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">11.10</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 11.4: Chapter 11 notation guide.</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>How it is read aloud</strong></th>
+<th><strong>What it represents in plain words</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(h^2\)</span></td>
+<td>“h squared” or “communality”</td>
+<td>The proportion of a variable’s total variation that is shared with the underlying hidden factors.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(u^2\)</span></td>
+<td>“u squared” or “uniqueness”</td>
+<td>The proportion of a variable’s total variation that belongs exclusively to that single survey item, including random measurement error.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="exercises"><span class="header-section-number">11.11</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="11.11.1">
+<h3 data-number="11.11.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">11.11.1</span> Interpretation</h3>
+<ol type="1">
+<li>A survey researcher runs an exploratory factor analysis on a set of workplace satisfaction questions. The software outputs a rotated factor matrix. For a question asking about “salary fairness,” the factor loading on Factor 1 is 0.82. Explain in plain English what this number tells the researcher about the relationship between the survey question and the hidden concept.</li>
+<li>In that same factor analysis table, the question about “salary fairness” has a reported communality (<span class="math inline">\(h^2\)</span>) of 0.74. What percentage of the variance in this specific question is unique or random measurement error, and what does that mean conceptually?</li>
+<li>A student researcher generates a scree chart for a twelve-question survey regarding sleep habits. The line graph starts high for Factor 1, drops steeply to Factor 2, drops again to Factor 3, and then forms a sharp “elbow” bend, becoming flat for Factors 4 through 12. Based on this visual diagnostic, how many factors should the student extract, and why?</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="11.11.2">
+<h3 data-number="11.11.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">11.11.2</span> Choosing a Method</h3>
+<ol start="4" type="1">
+<li>An education researcher wants to discover if there are hidden psychological themes in a 50-question student engagement survey. They leave their statistical software on its default setting, which runs a Principal Components Analysis (PCA). Explain the mathematical danger of using PCA when the goal is to discover latent psychological constructs.</li>
+<li>A psychologist is analyzing a survey where participants rated their daily anxiety on a 1 to 10 scale. Because most people report low anxiety, the data is heavily right-skewed. Should the researcher use Maximum Likelihood or Principal Axis Factoring to extract their factors? Defend your choice based on the assumptions of the methods.</li>
+<li>A clinical research team is developing a brand-new diagnostic tool for burnout. They have no idea how many dimensions of burnout exist, so they throw 80 newly written questions into a software program to see how the variables naturally group together. State whether this is an Exploratory Factor Analysis (EFA) or a Confirmatory Factor Analysis (CFA), and explain why.</li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="11.11.3">
+<h3 data-number="11.11.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">11.11.3</span> Communicating Results</h3>
+<ol start="7" type="1">
+<li>You run a factor analysis on a political survey. The software groups three questions together into “Factor 1.” You decide to name this cluster “Authoritarian Tendencies” in your final report. A colleague argues that because the software proved the math, your chosen name must be scientifically accurate. Explain the logical flaw in your colleague’s argument.</li>
+<li>You have successfully used factor analysis to group four survey questions into a “Life Satisfaction” cluster. You are ready to average those four questions together into a single composite score so you can use it in a multiple regression model. Explain to your research advisor why you must run a Cronbach’s alpha test before calculating that average.</li>
+<li>During a presentation, you project your rotated factor matrix onto the screen. A member of the audience notices that almost every survey question has a high loading (above 0.60) on exactly one factor, and near-zero loadings on all the other factors. The audience member asks what this pattern is called. Name the pattern and explain why it is the ultimate goal of a factor rotation.</li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="11.11.4">
+<h3 data-number="11.11.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">11.11.4</span> Software Application</h3>
+<p>For this section, you will use statistical software to analyze the male partner ratings from the <code>speed_dating.csv</code> dataset. Earlier in this chapter, we saw that the female participants separated their ratings into two distinct concepts: social appeal and socioeconomic character. You will explore whether the male participants evaluated their partners using distinct traits, or if they succumbed to a single “Halo Effect.”</p>
+<ol start="10" type="1">
+<li><strong>The Baseline Correlation Matrix</strong>: You will begin by exploring the raw relationships between the six ratings completed by the male participants.</li>
+</ol>
+<ol type="a">
+<li>Isolate the six male rating variables: <code>AttractiveM</code>, <code>SincereM</code>, <code>IntelligentM</code>, <code>FunM</code>, <code>AmbitiousM</code>, and <code>SharedInterestsM</code>.</li>
+<li>Instruct your software to generate a correlation matrix for these six variables.</li>
+<li>Review the correlations. Do you see two distinct, unconnected “neighborhoods” like we saw in the female ratings, or do the variables generally correlate moderately-to-highly across the entire board?</li>
+</ol>
+<ol start="11" type="1">
+<li><strong>Visualizing Factors with a Scree Chart</strong>: Let’s objectively check how many latent concepts exist in the male dataset.</li>
+</ol>
+<ol type="a">
+<li>Instruct your software to generate a scree chart for the six male rating variables.</li>
+<li>Look at the plot. At which factor number does the steep cliff bend into an “elbow” and flatten out into a trail of rubble?</li>
+<li>Based solely on the scree chart elbow, how many meaningful factors should you extract from this data?</li>
+</ol>
+<ol start="12" type="1">
+<li><strong>Extraction and Simple Structure</strong>: Let’s see what happens if you force the software to extract two factors from the male ratings, mirroring the female rating analysis.</li>
+</ol>
+<ol type="a">
+<li>Run an Exploratory Factor Analysis using Principal Axis Factoring (PAF) with Varimax rotation, and extract exactly two factors. Provide the rotated factor matrix. If the software prints a warning, copy the warning text.</li>
+<li>Report the communality for each variable. A communality is a proportion of variance, so it should fall between 0 and 1. Do any values exceed 1.0, or come so close to 1.0 that almost no unique variance is left? Does the software print a warning? If either occurs, state why that value or warning is a problem for interpreting the solution.</li>
+<li>Rerun the same analysis using Maximum Likelihood with Varimax rotation, again extracting two factors. Provide the rotated factor matrix. For each variable, which factor is it more strongly tied to in each solution? Do the two methods agree on the grouping?</li>
+<li>The chapter defines simple structure as each variable being strongly tied to one factor and weakly tied to the others. Does the PAF solution meet that definition? Does the Maximum Likelihood solution? Name any variable that is strongly tied to both factors.</li>
+<li>Report the proportion of variance for Factor 1 and Factor 2 in each solution. Which factor accounts for more variance? Is the difference large or small?</li>
+<li>Do the male ratings separate into two clear groups of variables the way the female ratings did? Use one result from parts (a) through (e) to support your answer.</li>
+</ol>
+<ol start="13" type="1">
+<li><strong>Data Reduction and Internal Consistency</strong>: Assume the scree chart and the blurry factor loadings convince you that the male participants really only evaluated one underlying construct (a “Halo Effect” or “Overall Impression”).</li>
+</ol>
+<ol type="a">
+<li>If you decide to collapse all six of these variables into a single composite score, what specific statistical test must you run first to show they form a reliable scale?</li>
+<li>Run this reliability test on the six male rating variables. Report the final mathematical metric. Does it clear the standard 0.70 threshold for internal consistency?</li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-10.html" class="pagination-link" aria-label="Nonparametric Tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-12.html" class="pagination-link" aria-label="Time Series Analysis">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Categorical Data Analysis – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-09.html" rel="next">
+<link href="../chapters/chapter-07.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-08.html">Unit IV: Categorical Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">8.1</span> Introduction</a></li>
+  <li><a href="#single-variable-patterns-the-chi-square-goodness-of-fit-test" id="toc-single-variable-patterns-the-chi-square-goodness-of-fit-test" class="nav-link" data-scroll-target="#single-variable-patterns-the-chi-square-goodness-of-fit-test"><span class="header-section-number">8.2</span> Single Variable Patterns: The Chi-Square Goodness-of-Fit Test</a>
+  <ul class="collapse">
+  <li><a href="#formulating-the-hypotheses" id="toc-formulating-the-hypotheses" class="nav-link" data-scroll-target="#formulating-the-hypotheses"><span class="header-section-number">8.2.1</span> Formulating the Hypotheses</a></li>
+  <li><a href="#the-intuition-behind-the-test" id="toc-the-intuition-behind-the-test" class="nav-link" data-scroll-target="#the-intuition-behind-the-test"><span class="header-section-number">8.2.2</span> The Intuition Behind the Test</a></li>
+  </ul></li>
+  <li><a href="#interpreting-the-goodness-of-fit-and-post-hoc-analysis" id="toc-interpreting-the-goodness-of-fit-and-post-hoc-analysis" class="nav-link" data-scroll-target="#interpreting-the-goodness-of-fit-and-post-hoc-analysis"><span class="header-section-number">8.3</span> Interpreting the Goodness-of-Fit and Post Hoc Analysis</a>
+  <ul class="collapse">
+  <li><a href="#post-hoc-analysis-standardized-residuals" id="toc-post-hoc-analysis-standardized-residuals" class="nav-link" data-scroll-target="#post-hoc-analysis-standardized-residuals"><span class="header-section-number">8.3.1</span> Post Hoc Analysis: Standardized Residuals</a></li>
+  <li><a href="#communicating-results-in-apa-format" id="toc-communicating-results-in-apa-format" class="nav-link" data-scroll-target="#communicating-results-in-apa-format"><span class="header-section-number">8.3.2</span> Communicating Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#two-categorical-variable-relationships-the-chi-square-test-for-independence" id="toc-two-categorical-variable-relationships-the-chi-square-test-for-independence" class="nav-link" data-scroll-target="#two-categorical-variable-relationships-the-chi-square-test-for-independence"><span class="header-section-number">8.4</span> Two Categorical Variable Relationships: The Chi-Square Test for Independence</a>
+  <ul class="collapse">
+  <li><a href="#organizing-the-data-the-cross-tabulation" id="toc-organizing-the-data-the-cross-tabulation" class="nav-link" data-scroll-target="#organizing-the-data-the-cross-tabulation"><span class="header-section-number">8.4.1</span> Organizing the Data: The Cross-Tabulation</a></li>
+  <li><a href="#terms-to-know-independence-and-association" id="toc-terms-to-know-independence-and-association" class="nav-link" data-scroll-target="#terms-to-know-independence-and-association"><span class="header-section-number">8.4.2</span> Terms to Know: Independence and Association</a></li>
+  <li><a href="#formulating-the-hypotheses-1" id="toc-formulating-the-hypotheses-1" class="nav-link" data-scroll-target="#formulating-the-hypotheses-1"><span class="header-section-number">8.4.3</span> Formulating the Hypotheses</a></li>
+  <li><a href="#the-intuition-behind-the-test-1" id="toc-the-intuition-behind-the-test-1" class="nav-link" data-scroll-target="#the-intuition-behind-the-test-1"><span class="header-section-number">8.4.4</span> The Intuition Behind the Test</a></li>
+  </ul></li>
+  <li><a href="#interpreting-the-test-for-independence-and-post-hoc-analysis" id="toc-interpreting-the-test-for-independence-and-post-hoc-analysis" class="nav-link" data-scroll-target="#interpreting-the-test-for-independence-and-post-hoc-analysis"><span class="header-section-number">8.5</span> Interpreting the Test for Independence and Post Hoc Analysis</a>
+  <ul class="collapse">
+  <li><a href="#post-hoc-analysis-standardized-residuals-in-a-two-way-table" id="toc-post-hoc-analysis-standardized-residuals-in-a-two-way-table" class="nav-link" data-scroll-target="#post-hoc-analysis-standardized-residuals-in-a-two-way-table"><span class="header-section-number">8.5.1</span> Post Hoc Analysis: Standardized Residuals in a Two-Way Table</a></li>
+  <li><a href="#communicating-results-in-apa-format-1" id="toc-communicating-results-in-apa-format-1" class="nav-link" data-scroll-target="#communicating-results-in-apa-format-1"><span class="header-section-number">8.5.2</span> Communicating Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#comparing-populations-the-chi-square-test-for-homogeneity" id="toc-comparing-populations-the-chi-square-test-for-homogeneity" class="nav-link" data-scroll-target="#comparing-populations-the-chi-square-test-for-homogeneity"><span class="header-section-number">8.6</span> Comparing Populations: The Chi-Square Test for Homogeneity</a>
+  <ul class="collapse">
+  <li><a href="#organizing-the-data" id="toc-organizing-the-data" class="nav-link" data-scroll-target="#organizing-the-data"><span class="header-section-number">8.6.1</span> Organizing the Data</a></li>
+  <li><a href="#formulating-the-hypotheses-2" id="toc-formulating-the-hypotheses-2" class="nav-link" data-scroll-target="#formulating-the-hypotheses-2"><span class="header-section-number">8.6.2</span> Formulating the Hypotheses</a></li>
+  <li><a href="#the-intuition-behind-the-test-2" id="toc-the-intuition-behind-the-test-2" class="nav-link" data-scroll-target="#the-intuition-behind-the-test-2"><span class="header-section-number">8.6.3</span> The Intuition Behind the Test</a></li>
+  </ul></li>
+  <li><a href="#interpreting-the-test-for-homogeneity-and-post-hoc-analysis" id="toc-interpreting-the-test-for-homogeneity-and-post-hoc-analysis" class="nav-link" data-scroll-target="#interpreting-the-test-for-homogeneity-and-post-hoc-analysis"><span class="header-section-number">8.7</span> Interpreting the Test for Homogeneity and Post Hoc Analysis</a>
+  <ul class="collapse">
+  <li><a href="#post-hoc-analysis-standardized-residuals-1" id="toc-post-hoc-analysis-standardized-residuals-1" class="nav-link" data-scroll-target="#post-hoc-analysis-standardized-residuals-1"><span class="header-section-number">8.7.1</span> Post Hoc Analysis: Standardized Residuals</a></li>
+  <li><a href="#communicating-results-in-apa-format-2" id="toc-communicating-results-in-apa-format-2" class="nav-link" data-scroll-target="#communicating-results-in-apa-format-2"><span class="header-section-number">8.7.2</span> Communicating Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#choosing-the-right-chi-square-test-and-checking-assumptions" id="toc-choosing-the-right-chi-square-test-and-checking-assumptions" class="nav-link" data-scroll-target="#choosing-the-right-chi-square-test-and-checking-assumptions"><span class="header-section-number">8.8</span> Choosing the Right Chi-Square Test and Checking Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#the-required-assumption-expected-counts" id="toc-the-required-assumption-expected-counts" class="nav-link" data-scroll-target="#the-required-assumption-expected-counts"><span class="header-section-number">8.8.1</span> The Required Assumption: Expected Counts</a></li>
+  </ul></li>
+  <li><a href="#dependent-categorical-data-mcnemars-test" id="toc-dependent-categorical-data-mcnemars-test" class="nav-link" data-scroll-target="#dependent-categorical-data-mcnemars-test"><span class="header-section-number">8.9</span> Dependent Categorical Data: McNemar’s Test</a>
+  <ul class="collapse">
+  <li><a href="#the-problem-with-independence-a-jargon-trap" id="toc-the-problem-with-independence-a-jargon-trap" class="nav-link" data-scroll-target="#the-problem-with-independence-a-jargon-trap"><span class="header-section-number">8.9.1</span> The Problem with Independence (A Jargon Trap)</a></li>
+  <li><a href="#formulating-the-hypotheses-3" id="toc-formulating-the-hypotheses-3" class="nav-link" data-scroll-target="#formulating-the-hypotheses-3"><span class="header-section-number">8.9.2</span> Formulating the Hypotheses</a></li>
+  <li><a href="#the-intuition-behind-the-test-3" id="toc-the-intuition-behind-the-test-3" class="nav-link" data-scroll-target="#the-intuition-behind-the-test-3"><span class="header-section-number">8.9.3</span> The Intuition Behind the Test</a></li>
+  </ul></li>
+  <li><a href="#interpreting-mcnemars-test" id="toc-interpreting-mcnemars-test" class="nav-link" data-scroll-target="#interpreting-mcnemars-test"><span class="header-section-number">8.10</span> Interpreting McNemar’s Test</a>
+  <ul class="collapse">
+  <li><a href="#post-hoc-analysis-for-mcnemars-test" id="toc-post-hoc-analysis-for-mcnemars-test" class="nav-link" data-scroll-target="#post-hoc-analysis-for-mcnemars-test"><span class="header-section-number">8.10.1</span> Post Hoc Analysis for McNemar’s Test</a></li>
+  <li><a href="#communicating-results-in-apa-format-3" id="toc-communicating-results-in-apa-format-3" class="nav-link" data-scroll-target="#communicating-results-in-apa-format-3"><span class="header-section-number">8.10.2</span> Communicating Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#quantifying-the-relationship-association-metrics" id="toc-quantifying-the-relationship-association-metrics" class="nav-link" data-scroll-target="#quantifying-the-relationship-association-metrics"><span class="header-section-number">8.11</span> Quantifying the Relationship: Association Metrics</a>
+  <ul class="collapse">
+  <li><a href="#phi-and-cramérs-v" id="toc-phi-and-cramérs-v" class="nav-link" data-scroll-target="#phi-and-cramérs-v"><span class="header-section-number">8.11.1</span> Phi and Cramér’s V</a></li>
+  <li><a href="#interpreting-the-metric" id="toc-interpreting-the-metric" class="nav-link" data-scroll-target="#interpreting-the-metric"><span class="header-section-number">8.11.2</span> Interpreting the Metric</a></li>
+  <li><a href="#communicating-results-in-apa-format-4" id="toc-communicating-results-in-apa-format-4" class="nav-link" data-scroll-target="#communicating-results-in-apa-format-4"><span class="header-section-number">8.11.3</span> Communicating Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#quantifying-risk-relative-risk-and-odds-ratios" id="toc-quantifying-risk-relative-risk-and-odds-ratios" class="nav-link" data-scroll-target="#quantifying-risk-relative-risk-and-odds-ratios"><span class="header-section-number">8.12</span> Quantifying Risk: Relative Risk and Odds Ratios</a>
+  <ul class="collapse">
+  <li><a href="#the-intuitive-choice-relative-risk" id="toc-the-intuitive-choice-relative-risk" class="nav-link" data-scroll-target="#the-intuitive-choice-relative-risk"><span class="header-section-number">8.12.1</span> The Intuitive Choice: Relative Risk</a></li>
+  <li><a href="#the-mathematical-workhorse-the-odds-ratio" id="toc-the-mathematical-workhorse-the-odds-ratio" class="nav-link" data-scroll-target="#the-mathematical-workhorse-the-odds-ratio"><span class="header-section-number">8.12.2</span> The Mathematical Workhorse: The Odds Ratio</a></li>
+  <li><a href="#interpreting-the-strength-of-an-odds-ratio" id="toc-interpreting-the-strength-of-an-odds-ratio" class="nav-link" data-scroll-target="#interpreting-the-strength-of-an-odds-ratio"><span class="header-section-number">8.12.3</span> Interpreting the Strength of an Odds Ratio</a></li>
+  <li><a href="#why-use-the-odds-ratio" id="toc-why-use-the-odds-ratio" class="nav-link" data-scroll-target="#why-use-the-odds-ratio"><span class="header-section-number">8.12.4</span> Why Use the Odds Ratio?</a></li>
+  </ul></li>
+  <li><a href="#evaluating-a-classification-sensitivity-and-specificity" id="toc-evaluating-a-classification-sensitivity-and-specificity" class="nav-link" data-scroll-target="#evaluating-a-classification-sensitivity-and-specificity"><span class="header-section-number">8.13</span> Evaluating a Classification: Sensitivity and Specificity</a>
+  <ul class="collapse">
+  <li><a href="#the-confusion-matrix" id="toc-the-confusion-matrix" class="nav-link" data-scroll-target="#the-confusion-matrix"><span class="header-section-number">8.13.1</span> The Confusion Matrix</a></li>
+  <li><a href="#sensitivity-and-specificity" id="toc-sensitivity-and-specificity" class="nav-link" data-scroll-target="#sensitivity-and-specificity"><span class="header-section-number">8.13.2</span> Sensitivity and Specificity</a></li>
+  <li><a href="#applying-the-rule-to-the-icu-data" id="toc-applying-the-rule-to-the-icu-data" class="nav-link" data-scroll-target="#applying-the-rule-to-the-icu-data"><span class="header-section-number">8.13.3</span> Applying the Rule to the ICU Data</a></li>
+  <li><a href="#the-sensitivityspecificity-trade-off-two-stage-testing" id="toc-the-sensitivityspecificity-trade-off-two-stage-testing" class="nav-link" data-scroll-target="#the-sensitivityspecificity-trade-off-two-stage-testing"><span class="header-section-number">8.13.4</span> The Sensitivity/Specificity Trade-off: Two-Stage Testing</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">8.14</span> Common Mistakes and Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">8.15</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">8.16</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.17</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">8.17.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">8.17.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">8.17.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">8.17.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-08.html">Unit IV: Categorical Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
+<p>Our first questions that we’ll tackle in this chapter are simple but profound: Are any racial groups more likely to be involved in a fatal police shooting than others? If so, which ones?</p>
+<p>These are meaningful questions with serious social implications, but how do we answer it objectively? Up until this point, we have largely relied on numerical averages and continuous scatterplots to evaluate our research questions. But you cannot calculate the “average” racial identity of a population. When a social scientist or investigative journalist studies police use of force, the data that matters isn’t always measured on a continuous scale. Instead, it is often categorized into distinct demographic groups, behavioral choices, and binary outcomes.</p>
+<p>To answer questions like the one above, we need a new set of statistical tools designed specifically for categorical data. Instead of asking how much a numerical measurement changes, we will be working with counts and percentages. We will ask whether our observations align with what we would expect by random chance, or if there is a systematic, underlying relationship at play.</p>
+<p>The <code>fatal_police_shootings.csv</code> dataset is derived directly from an ongoing investigative database maintained by <em>The Washington Post</em>, which was launched to address a lack of comprehensive, centralized tracking at the federal level. The database relies on local news reports, public records, and independent verification to log fatal shootings by on-duty police officers in the United States.</p>
+<p>As we work through the chapter, we will analyze several structural variables designed to classify the circumstances of each encounter:</p>
+<ul>
+<li><strong><code>race</code></strong>: A categorical variable noting the racial or ethnic background of the individual.</li>
+<li><strong><code>threat_level</code></strong>: A categorical classification of the immediate threat posed by the individual (e.g., attack, other, undetermined).</li>
+<li><strong><code>armed</code></strong>: A categorical variable indicating the type of weapon or implement the individual possessed that responding officers believed could inflict physical harm.</li>
+<li><strong><code>flee</code></strong>: A categorical variable describing the individual’s movement behavior during the encounter (e.g., foot, car, or not fleeing).</li>
+<li><strong><code>signs_of_mental_illness</code></strong>: A categorical indicator of whether the individual had documented acute mental distress or psychiatric history.</li>
+<li><strong><code>body_camera</code></strong>: A categorical variable indicating whether a responding officer was equipped with an active body-worn camera during the incident.</li>
+</ul>
+<p>We will start this chapter by answering our opening question, learning how to compare our observed categorical counts against known theoretical baselines (like general U.S. Census population weights) to test if a specific group is disproportionately represented. From there, we will expand our scope to analyze two variables at once, allowing you to determine if distinct categorical factors (such as a subject’s behavior and the deployment of a body camera) are associated with one another or operating independently. By the time we finish, you will have moved beyond simply identifying relationships to quantifying the strength of those connections and measuring the specific risks associated with different categorical groups.</p>
+</section>
+<section id="single-variable-patterns-the-chi-square-goodness-of-fit-test" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="single-variable-patterns-the-chi-square-goodness-of-fit-test"><span class="header-section-number">8.2</span> Single Variable Patterns: The Chi-Square Goodness-of-Fit Test</h2>
+<p>At the start of this chapter, we asked a key question: are any racial groups disproportionately involved in fatal police shootings? Before we can answer if something is disproportionate, we first have to define what “proportionate” looks like. If a researcher wants to know if a specific demographic is over-represented, they cannot rely on the raw counts alone. For example, finding that there are 2,919 White individuals in our sample compared to 90 Native American individuals does not inherently prove a specific demographic targeting, because there are significantly more White individuals in the general United States population.</p>
+<p>To determine if the numbers we see are unusual, we have to compare them against a theoretical baseline. In this scenario, our baseline is the demographic breakdown of the U.S. population provided by the Census Bureau. If fatal police encounters were random and unrelated to racial identity, we would expect the racial distribution of the incidents to mirror the general population.</p>
+<p>The statistical tool we use to formally test this relationship is the <a href="appendix-glossary.html#glossary-term-chi-square-goodness-of-fit-test" class="glossary-link" data-definition="A test that compares the distribution of one categorical variable in a sample against an external baseline distribution, such as a census profile." data-term="chi-square goodness-of-fit test" aria-describedby="glossary-tooltip">Chi-Square Goodness-of-Fit Test</a>, which evaluates whether the distribution patterns of a single categorical variable match expected baseline frequencies.</p>
+<section id="formulating-the-hypotheses" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="formulating-the-hypotheses"><span class="header-section-number">8.2.1</span> Formulating the Hypotheses</h3>
+<p>Before running the test, it is critical to understand exactly what we mean by “distribution” in this context. We are tracking the overall percentage breakdown across all the categories of our variable simultaneously.</p>
+<p>According to the 2020 U.S. Census, the baseline population distribution we are using for our test is 57.8% White, 18.7% Hispanic, 12.1% Black, 5.9% Asian, and 0.7% Native American.</p>
+<p>Following our intuitive “human” formatting, we set our null hypothesis to assume that the world is operating exactly as our theoretical baseline predicts. Why do we do this? In research, the null hypothesis (<span class="math inline">\(H_0\)</span>) represents the baseline of “no difference” or “nothing unusual is happening.” By assuming the data perfectly matches the Census, we give ourselves a strict, neutral starting point to test against. Our alternative hypothesis (<span class="math inline">\(H_1\)</span>) assumes there is a deviation from that baseline.</p>
+<ul>
+<li><strong><span class="math inline">\(H_0\)</span></strong>: The population distribution of the <code>race</code> variable in fatal police shootings <span class="math inline">\(=\)</span> the 2020 U.S. Census population distribution.</li>
+<li><strong><span class="math inline">\(H_1\)</span></strong>: The population distribution of the <code>race</code> variable in fatal police shootings <span class="math inline">\(\neq\)</span> the 2020 U.S. Census population distribution.</li>
+</ul>
+</section>
+<section id="the-intuition-behind-the-test" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="the-intuition-behind-the-test"><span class="header-section-number">8.2.2</span> The Intuition Behind the Test</h3>
+<p>Instead of getting bogged down in formulas, let’s think about how this test works. Your statistical software is measuring how far reality deviated from our baseline expectation.</p>
+<p>It does this by calculating the “expected” counts for every category if the null hypothesis were perfectly true, and then comparing them to the “observed” counts we have in our data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_08/fig_08_01_bar_race_observed_expected.png" class="img-fluid figure-img" alt="Grouped bar chart of observed and expected counts for five racial categories. Black observed 1,528 versus expected 725; White 2,919 versus 3,466; Asian 105 versus 354; Hispanic 1,066 versus 1,121; Native American 90 versus 42. The Black bar is much taller than expected, and the White and Asian bars are shorter."></p>
+<figcaption>Figure 8.1: Observed racial distribution of fatal police shootings compared with the expected 2020 U.S. Census distribution. The 5,708 incidents with a known race in the five Census categories are shown. The observed Black count is far above its expected count, while the White and Asian counts are below theirs.</figcaption>
+</figure>
+</div>
+<p>As seen in Figure 8.1 above, the gaps between reality and our baseline expectation are visible:</p>
+<ul>
+<li><strong>Black Individuals:</strong> We observed 1,528 records in the dataset. However, if the total incidents strictly followed the 12.1% Census baseline, we would only expect there to be about 725 records. Reality is noticeably higher than the baseline expectation.</li>
+<li><strong>White Individuals:</strong> We observed 2,919 records. Based on the 57.8% Census baseline, we expected about 3,466 records. Reality is lower than the baseline expectation.</li>
+<li><strong>Asian Individuals:</strong> We observed 105 records, but based on the 5.9% Census baseline, we expected about 354. Reality is lower than the expectation.</li>
+</ul>
+<p>The Goodness-of-Fit test measures the size of the gap between the expected counts and observed counts for every single category, and aggregates those gaps into one overall test statistic. If the observed numbers are close to the expected numbers, the total gap is small, and we can chalk the minor differences up to random noise. However, if the gaps are large, the test recognizes that the data fails to fit our expected baseline.</p>
+</section>
+</section>
+<section id="interpreting-the-goodness-of-fit-and-post-hoc-analysis" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="interpreting-the-goodness-of-fit-and-post-hoc-analysis"><span class="header-section-number">8.3</span> Interpreting the Goodness-of-Fit and Post Hoc Analysis</h2>
+<p>When you run this test, the resulting <span class="math inline">\(p\)</span>-value operates exactly as it did for the numerical tests we learned in previous chapters. A low p-value means there is strong evidence of a difference between the racial distribution of victims of police shootings and the racial distribution of Americans as a whole.</p>
+<p>In the case of our <code>fatal_police_shootings.csv</code> data, the total gap between our observed counts and the expected Census counts is immense. As a result, the software outputs a <span class="math inline">\(p\)</span>-value that is practically zero (<span class="math inline">\(p &lt; 0.0001\)</span>). Because the <span class="math inline">\(p\)</span>-value is so low, we have overwhelming evidence to reject <span class="math inline">\(H_0\)</span>. Our conclusion is that the racial distribution of fatal police shootings is not the same as the demographic distribution of the United States.</p>
+<section id="post-hoc-analysis-standardized-residuals" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="post-hoc-analysis-standardized-residuals"><span class="header-section-number">8.3.1</span> Post Hoc Analysis: Standardized Residuals</h3>
+<p>A significant Goodness-of-Fit test only tells you that the overall distributions do not match. It does not formally isolate which specific racial group is over-represented or under-represented. To determine that, researchers must conduct a <strong>post hoc analysis</strong> (a test done after the fact) to pinpoint exactly where the largest deviations occurred.</p>
+<p>In Chapters 4 and 6, we used <a href="appendix-glossary.html#glossary-term-residual" class="glossary-link" data-definition="The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted." data-term="residual" aria-describedby="glossary-tooltip">residuals</a> to measure the distance between our regression line or ANOVA model and the actual data points. We use the same concept here. For categorical data, statistical software can calculate a <a href="appendix-glossary.html#glossary-term-standardized-residual" class="glossary-link" data-definition="A cell’s contribution to a chi-square test, scaled so that values beyond about plus or minus 2 indicate a significant over- or under-representation." data-term="standardized residual" aria-describedby="glossary-tooltip">standardized residual</a> for every single category. This number tells us exactly how much that specific group contributed to the overall significant result.</p>
+<p>As a general rule of thumb, any standardized residual outside the boundaries of <span class="math inline">\(-2.0\)</span> and <span class="math inline">\(+2.0\)</span> indicates a significant deviation from the expectation.</p>
+<ul>
+<li>A <strong>large positive residual</strong> (greater than <span class="math inline">\(+2.0\)</span>) means the group was significantly over-represented compared to the baseline.</li>
+<li>A <strong>large negative residual</strong> (less than <span class="math inline">\(-2.0\)</span>) means the group was significantly under-represented compared to the baseline.</li>
+</ul>
+<p>When we produce the standardized residuals for our police shooting data, we get the following results:</p>
+<ul>
+<li><strong>Black:</strong> <span class="math inline">\(+31.9\)</span></li>
+<li><strong>Native American:</strong> <span class="math inline">\(+7.4\)</span></li>
+<li><strong>Hispanic:</strong> <span class="math inline">\(-1.84\)</span></li>
+<li><strong>Asian:</strong> <span class="math inline">\(-13.7\)</span></li>
+<li><strong>White:</strong> <span class="math inline">\(-14.8\)</span></li>
+</ul>
+<p>The Hispanic category has a residual of <span class="math inline">\(-1.84\)</span>. Because this falls between <span class="math inline">\(-2.0\)</span> and <span class="math inline">\(+2.0\)</span>, we conclude that the number of Hispanic individuals in the database aligns relatively well with general population expectations.</p>
+<p>However, the residuals for the other four categories fall far outside that range. Black and Native American individuals have large positive residuals, indicating they are significantly over-represented in the database relative to their U.S. Census baselines. Conversely, White and Asian individuals have large negative residuals, indicating they are significantly under-represented compared to their demographic baselines.</p>
+</section>
+<section id="communicating-results-in-apa-format" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="communicating-results-in-apa-format"><span class="header-section-number">8.3.2</span> Communicating Results in APA Format</h3>
+<p>When we write up our findings for publication or formal research reports, we need to communicate both the statistical evidence and the practical takeaway in a clear, standardized way. In the social sciences, this almost always means using APA format.</p>
+<p>A strong APA write-up for a Goodness-of-Fit test does two things: it formally reports the results of the overall test, and it summarizes the findings of the post hoc analysis so the reader knows exactly <em>where</em> the differences occurred.</p>
+<p>To write out the statistical evidence, we need four specific numbers from our software output:</p>
+<ol type="1">
+<li><strong>The Test Statistic:</strong> The actual <span class="math inline">\(\chi^2\)</span> value calculated by the software.</li>
+<li><a href="appendix-glossary.html#glossary-term-degrees-of-freedom" class="glossary-link" data-definition="A number tied to sample size that the t-distribution uses when producing a p-value; for a single sample t-test it equals n − 1 and is reported in parentheses after t in APA style." data-term="degrees of freedom" aria-describedby="glossary-tooltip">Degrees of Freedom (<span class="math inline">\(df\)</span>)</a><strong>:</strong> For this test, it is simply the number of categories minus one. Since we evaluated five racial categories, our <span class="math inline">\(df\)</span> is <span class="math inline">\(4\)</span>.</li>
+<li><a href="appendix-glossary.html#glossary-term-sample-size" class="glossary-link" data-definition="The number of observations in a sample, usually written n; larger samples reduce random error and increase statistical power." data-term="sample size" aria-describedby="glossary-tooltip">Sample Size (<span class="math inline">\(N\)</span>)</a><strong>:</strong> The total number of observations in our analysis. Adding up our observed counts gives us <span class="math inline">\(N = 5708\)</span>.</li>
+<li><strong>The <span class="math inline">\(p\)</span>-value:</strong> Our measure of evidence against the null hypothesis.</li>
+</ol>
+<p>Here is how you would combine all of these elements into a formal APA conclusion:</p>
+<blockquote class="blockquote">
+<p>A Chi-Square Goodness-of-Fit test was conducted to determine whether the racial distribution of fatal police encounters matched the 2020 U.S. Census population baselines. The results indicated that the observed frequencies were significantly different from the expected population distribution, <span class="math inline">\(\chi^2(4, N = 5708) = 1206.50\)</span>, <span class="math inline">\(p &lt; .001\)</span>. A post hoc analysis using standardized residuals revealed that Black and Native American individuals were significantly over-represented compared to baseline expectations, while White and Asian individuals were significantly under-represented.</p>
+</blockquote>
+<p>Notice how the statistics are embedded directly into the narrative sentence. The notation <span class="math inline">\(\chi^2(4, N = 5708) = 1206.50\)</span> tells a fellow researcher exactly which test you used, the size of your dataset, the structure of your categories, and the mathematical result, all without interrupting the plain-English conclusion that answers our initial research question.</p>
+</section>
+</section>
+<section id="two-categorical-variable-relationships-the-chi-square-test-for-independence" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="two-categorical-variable-relationships-the-chi-square-test-for-independence"><span class="header-section-number">8.4</span> Two Categorical Variable Relationships: The Chi-Square Test for Independence</h2>
+<p>We have learned how to evaluate the distribution of a single categorical variable against an outside baseline. But what if we want to know if two distinct categorical variables inside our dataset are connected to one another?</p>
+<p>Consider this research question: Does experiencing acute mental distress alter how an individual reacts during a high-stakes police encounter? To answer this, we will evaluate two variables from our <code>fatal_police_shootings.csv</code> database simultaneously:</p>
+<ul>
+<li><strong><code>flee</code></strong>: The subject’s movement behavior, categorized as “Car,” “Foot,” or “Not fleeing.”</li>
+<li><strong><code>signs_of_mental_illness</code></strong>: A categorical indicator of whether the individual had documented acute mental distress or a psychiatric history.</li>
+</ul>
+<p>When we want to know if a connection exists between two categorical variables drawn from a single sample, we use the <a href="appendix-glossary.html#glossary-term-chi-square-test-for-independence" class="glossary-link" data-definition="A test that asks whether two categorical variables measured in a single sample are associated, using a cross-tabulation of their counts." data-term="chi-square test for independence" aria-describedby="glossary-tooltip">Chi-Square Test for Independence</a>.</p>
+<section id="organizing-the-data-the-cross-tabulation" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="organizing-the-data-the-cross-tabulation"><span class="header-section-number">8.4.1</span> Organizing the Data: The Cross-Tabulation</h3>
+<p>To answer a question involving two categorical variables, we first have to organize our data so we can see the overlaps. We do this by building a <a href="appendix-glossary.html#glossary-term-cross-tabulation" class="glossary-link" data-definition="A table that counts observations in each combination of categories for two categorical variables; also called a contingency table." data-term="cross-tabulation" aria-describedby="glossary-tooltip">cross-tabulation</a> (sometimes called a cross-tab or a contingency table).</p>
+<p>A cross-tabulation takes one variable and places each category across the columns, takes the second variable and places its categories down the rows, and then counts how many observations fall into each intersecting cell.</p>
+<p>Consider the cross-tabulation for our mental illness and fleeing data:</p>
+<table class="caption-top table">
+<caption>Table 8.1: Cross-tabulation of fleeing behavior by documented mental illness status (N = 5,750).</caption>
+<thead>
+<tr class="header">
+<th>Mental illness</th>
+<th style="text-align: left;"><strong>Car</strong></th>
+<th style="text-align: left;"><strong>Foot</strong></th>
+<th style="text-align: left;"><strong>Not Fleeing</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>No Documented Illness</strong></td>
+<td style="text-align: left;">941</td>
+<td style="text-align: left;">727</td>
+<td style="text-align: left;">2700</td>
+</tr>
+<tr class="even">
+<td><strong>Documented Illness</strong></td>
+<td style="text-align: left;">94</td>
+<td style="text-align: left;">105</td>
+<td style="text-align: left;">1183</td>
+</tr>
+</tbody>
+</table>
+<p>Reading this table is intuitive. If we want to know how many subjects with documented mental illness attempted to flee on foot, we find the “Documented Illness” row, move over to the “Foot” column, and find that there were exactly 105 occurrences.</p>
+</section>
+<section id="terms-to-know-independence-and-association" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="terms-to-know-independence-and-association"><span class="header-section-number">8.4.2</span> Terms to Know: Independence and Association</h3>
+<p>Before we establish our hypotheses, we need to clarify a few statistical terms that are often used interchangeably in the social sciences: <a href="appendix-glossary.html#glossary-term-independence" class="glossary-link" data-definition="In study design, the assumption that observations do not influence one another; in categorical data, the property that knowing one variable’s category gives no information about another (the opposite of association)." data-term="independence" aria-describedby="glossary-tooltip">independence</a>, <a href="appendix-glossary.html#glossary-term-association" class="glossary-link" data-definition="A systematic connection between two categorical variables, meaning knowing the category of one gives information about the other; the opposite of independence." data-term="association" aria-describedby="glossary-tooltip">association</a>, and <strong>relationship</strong>.</p>
+<p>In statistics, “independence” is a heavily overloaded word. In previous chapters on experimental design, we talked about independent <em>observations</em>, meaning one participant’s test score did not influence another participant’s test score. Here, however, we are talking about independent <em>variables</em>. Two categorical variables are considered independent if knowing the category of one variable gives you absolutely no information about the other. In other words, the two variables are unrelated.</p>
+<p>If a test shows that the variables are <em>not</em> independent, researchers will say that the variables have an “association” or a “relationship.” For our purposes, “association” and “relationship” mean the same thing: the behavior of one variable is structurally connected to the behavior of the other.</p>
+</section>
+<section id="formulating-the-hypotheses-1" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="formulating-the-hypotheses-1"><span class="header-section-number">8.4.3</span> Formulating the Hypotheses</h3>
+<p>If fleeing behavior and mental illness are truly independent, the percentage of subjects who attempt to flee by car, on foot, or not at all should be roughly the same regardless of their psychiatric history.</p>
+<p>Following our established framework, the null hypothesis represents the baseline of “no relationship.”</p>
+<ul>
+<li><strong><span class="math inline">\(H_0\)</span></strong>: Fleeing behavior is independent of documented signs of mental illness.</li>
+<li><strong><span class="math inline">\(H_1\)</span></strong>: Fleeing behavior is associated with documented signs of mental illness.</li>
+</ul>
+</section>
+<section id="the-intuition-behind-the-test-1" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="the-intuition-behind-the-test-1"><span class="header-section-number">8.4.4</span> The Intuition Behind the Test</h3>
+<p>The mathematical engine underneath the Test for Independence is exactly the same as the Goodness-of-Fit test. Your software calculates an expected baseline, and then measures the “gap” between reality and that expectation.</p>
+<p>The difference lies in how the software calculates the baseline. Since we are no longer comparing our data to an outside source like the U.S. Census, the software uses the cross-tabulation itself to create a hypothetical scenario. It essentially asks, “If these two variables had absolutely zero connection to one another, what would this table look like?” It then compares that hypothetical, perfectly independent table to the counts we observed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_08/fig_08_02_segmented_flee_by_mental_illness.png" class="img-fluid figure-img" alt="100% stacked bar chart of fleeing behavior for two groups. No documented illness: not fleeing 62%, on foot 17%, by car 22%. Documented illness: not fleeing 86%, on foot 8%, by car 7%. The documented-illness bar has a larger not-fleeing segment and smaller fleeing segments."></p>
+<figcaption>Figure 8.2: Fleeing behavior by documented mental illness status. Each bar is scaled to 100% within its group. People with documented illness were more likely to not flee and less likely to flee by car or on foot.</figcaption>
+</figure>
+</div>
+<p>Looking at the graph above, we can visually inspect the relationship. By converting our raw counts into percentages, we create a level playing field. If the variables were perfectly independent, the colored blocks in the “Documented Illness” column would perfectly match the colored blocks in the “No Documented Illness” column. Any visual mismatch is a “gap” that the Chi-Square test will measure.</p>
+</section>
+</section>
+<section id="interpreting-the-test-for-independence-and-post-hoc-analysis" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="interpreting-the-test-for-independence-and-post-hoc-analysis"><span class="header-section-number">8.5</span> Interpreting the Test for Independence and Post Hoc Analysis</h2>
+<p>When we run this test, our statistical software evaluates the total gap between our observed combinations and the mathematically independent expectations. For our data, we get a test statistic of <span class="math inline">\(\chi^2 = 274.08\)</span> and a <span class="math inline">\(p\)</span>-value that is practically zero (<span class="math inline">\(p &lt; 0.001\)</span>). Because the <span class="math inline">\(p\)</span>-value is significantly smaller than the standard <span class="math inline">\(0.05\)</span> threshold, we reject <span class="math inline">\(H_0\)</span>.</p>
+<p>This means the gap between the expected independent counts and our observed counts is simply too large to be a random coincidence. Fleeing behavior and documented signs of mental illness are statistically associated.</p>
+<section id="post-hoc-analysis-standardized-residuals-in-a-two-way-table" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="post-hoc-analysis-standardized-residuals-in-a-two-way-table"><span class="header-section-number">8.5.1</span> Post Hoc Analysis: Standardized Residuals in a Two-Way Table</h3>
+<p>Just like the Goodness-of-Fit test, a significant Test for Independence only tells you that a relationship exists <em>somewhere</em> in the data. It does not tell you exactly which combinations of categories are driving the association. To find out, we return to our standardized residuals.</p>
+<p>Because we are now working with two variables, the software will output a standardized residual for every single <em>combination</em> (or “cell”) in our cross-tabulation. We apply the same rule of thumb we learned in Section 8.3: any residual outside the boundaries of <span class="math inline">\(-2.0\)</span> and <span class="math inline">\(+2.0\)</span> is a significant contributor to the relationship.</p>
+<p>When we check the residuals for individuals with documented signs of mental illness, we find large deviations across the board:</p>
+<ul>
+<li><strong>Mental Illness (Yes) &amp; Fleeing (Car):</strong> A significant negative residual of <span class="math inline">\(-12.43\)</span>.</li>
+<li><strong>Mental Illness (Yes) &amp; Fleeing (Foot):</strong> A significant negative residual of <span class="math inline">\(-8.33\)</span>.</li>
+<li><strong>Mental Illness (Yes) &amp; Fleeing (Not fleeing):</strong> A significant positive residual of <span class="math inline">\(+16.46\)</span>.</li>
+</ul>
+<p>What does this tell us practically? It reveals that individuals experiencing acute mental distress were significantly <em>less</em> likely to flee by car or on foot than we would expect by random chance, and significantly <em>more</em> likely to remain on the scene without fleeing.</p>
+</section>
+<section id="communicating-results-in-apa-format-1" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="communicating-results-in-apa-format-1"><span class="header-section-number">8.5.2</span> Communicating Results in APA Format</h3>
+<p>When writing up the results for a Test for Independence, we format our statistics exactly as we did previously. The software provides the <span class="math inline">\(\chi^2\)</span> test statistic, the degrees of freedom (<span class="math inline">\(df = 2\)</span>), the total sample size (<span class="math inline">\(N\)</span>), and the <span class="math inline">\(p\)</span>-value.</p>
+<blockquote class="blockquote">
+<p>A Chi-Square Test for Independence was conducted to evaluate the relationship between a subject’s fleeing behavior and documented signs of mental illness. The results indicated a significant association between the two variables, <span class="math inline">\(\chi^2(2, N = 5750) = 274.08\)</span>, <span class="math inline">\(p &lt; .001\)</span>. A post hoc analysis of the standardized residuals revealed that subjects with documented signs of mental illness were significantly more likely to not flee, and significantly less likely to flee by car or on foot, than expected under independence.</p>
+</blockquote>
+<p>Again, the purpose here is to make an easily interpretable description of our results, while also giving the reader the statistical context they need to evaluate the significance of our results.</p>
+</section>
+</section>
+<section id="comparing-populations-the-chi-square-test-for-homogeneity" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="comparing-populations-the-chi-square-test-for-homogeneity"><span class="header-section-number">8.6</span> Comparing Populations: The Chi-Square Test for Homogeneity</h2>
+<p>It is easy to confuse the Test for Independence with our next tool, the <a href="appendix-glossary.html#glossary-term-chi-square-test-for-homogeneity" class="glossary-link" data-definition="A test that compares the distribution of one categorical variable across two or more separate populations to see whether the proportions are the same." data-term="chi-square test for homogeneity" aria-describedby="glossary-tooltip">Chi-Square Test for Homogeneity</a>. The mathematical engine calculating the “gap” under the hood is actually identical, but the <em>research design</em> is fundamentally different.</p>
+<p>The Test for Independence uses a single sample and asks if two variables interact. The Test for Homogeneity takes two separate, predefined populations and asks if they share the same categorical profile for a single variable. The word “homogeneous” literally means “of the same kind.”</p>
+<p>To see this design difference, we are going to switch to a new dataset: <code>icu_data.csv</code>. This dataset contains clinical records for 200 patients admitted to a hospital’s Intensive Care Unit.</p>
+<p>Instead of analyzing one big pool of patients, we are going to use the <code>Emergency</code> variable to split our data into two distinct populations: patients admitted for <strong>Elective</strong> procedures (scheduled in advance) and patients admitted for <strong>Emergency</strong> procedures (unexpected traumas). We want to know: Do these two distinct populations share the same age profile?</p>
+<section id="organizing-the-data" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="organizing-the-data"><span class="header-section-number">8.6.1</span> Organizing the Data</h3>
+<p>Just as we did in the previous section, we start by organizing our counts into a cross-tabulation so we can see the exact breakdown of the <code>AgeGroup</code> variable across our two populations.</p>
+<table class="caption-top table">
+<caption>Table 8.2: Cross-tabulation of age group by ICU admission type (N = 200).</caption>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Admission type</th>
+<th style="text-align: left;"><strong>Under 50</strong></th>
+<th style="text-align: left;"><strong>50 to 69</strong></th>
+<th style="text-align: left;"><strong>70 or older</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Elective Admissions</strong></td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">22</td>
+</tr>
+<tr class="even">
+<td><strong>Emergency Admissions</strong></td>
+<td style="text-align: left;">52</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">42</td>
+</tr>
+</tbody>
+</table>
+<p>Looking at the table, we can immediately spot some differences. Out of the 53 elective admissions, only 7 patients were under the age of 50. In the emergency group, the patients under 50 make up a much larger chunk of the total. But as always, we must test whether this visual difference is statistically meaningful.</p>
+</section>
+<section id="formulating-the-hypotheses-2" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="formulating-the-hypotheses-2"><span class="header-section-number">8.6.2</span> Formulating the Hypotheses</h3>
+<p>For this test, our null hypothesis states that the categorical age profile is identical across both populations.</p>
+<p>When we say the distributions are identical, we practically mean that the proportion of people in any given age category is the same across both groups. For example, if we let <span class="math inline">\(\pi_{\text{Elective}}\)</span> represent the true proportion of elective patients who are under 50, and <span class="math inline">\(\pi_{\text{Emergency}}\)</span> represent the true proportion of emergency patients who are under 50, the null hypothesis assumes those two proportions are perfectly equal.</p>
+<p>Our hypotheses should look like this:</p>
+<ul>
+<li><strong><span class="math inline">\(H_0\)</span></strong>: <span class="math inline">\(\pi_{\text{Elective}} = \pi_{\text{Emergency}}\)</span> (The proportions are equal for all age categories).</li>
+<li><strong><span class="math inline">\(H_1\)</span></strong>: <span class="math inline">\(\pi_{\text{Elective}} \neq \pi_{\text{Emergency}}\)</span> (At least one pair of proportions is not equal).</li>
+</ul>
+<p>By writing it this way, we see that the Test for Homogeneity is simply a tool to evaluate if the proportions of a specific trait remain balanced across different populations.</p>
+</section>
+<section id="the-intuition-behind-the-test-2" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="the-intuition-behind-the-test-2"><span class="header-section-number">8.6.3</span> The Intuition Behind the Test</h3>
+<p>If the null hypothesis is true, the percentage breakdown of the three age groups should look essentially identical regardless of whether you are viewing the elective wing or the emergency wing of the ICU.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_08/fig_08_03_bar_icu_age_by_admission.png" class="img-fluid figure-img" alt="Grouped bar chart of age groups within two ICU admission types. Elective: under 50 13%, 50 to 69 45%, 70 or older 42%. Emergency: under 50 35%, 50 to 69 36%, 70 or older 29%. The elective under-50 bar is much shorter."></p>
+<figcaption>Figure 8.3: Age group distribution within elective and emergency ICU admissions. Bars show the percentage of each admission group in each age category. Elective admissions have a much smaller share of patients under 50.</figcaption>
+</figure>
+</div>
+<p>To run the test, the statistical software combines both groups to figure out the “average” age profile for the entire ICU. It then uses that overall average as the expected baseline, applying it to both populations to measure how far reality deviated from that shared, homogeneous expectation.</p>
+</section>
+</section>
+<section id="interpreting-the-test-for-homogeneity-and-post-hoc-analysis" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="interpreting-the-test-for-homogeneity-and-post-hoc-analysis"><span class="header-section-number">8.7</span> Interpreting the Test for Homogeneity and Post Hoc Analysis</h2>
+<p>When our statistical software analyzes the cross-tabulated ICU data, it outputs a test statistic of <span class="math inline">\(\chi^2 = 9.39\)</span> alongside a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.009\)</span>. Because our <span class="math inline">\(p\)</span>-value falls below our standard <span class="math inline">\(0.05\)</span> threshold, we have significant statistical evidence that the age profile for elective ICU admissions is not the same as the age profile for emergency ICU admissions.</p>
+<section id="post-hoc-analysis-standardized-residuals-1" class="level3" data-number="8.7.1">
+<h3 data-number="8.7.1" class="anchored" data-anchor-id="post-hoc-analysis-standardized-residuals-1"><span class="header-section-number">8.7.1</span> Post Hoc Analysis: Standardized Residuals</h3>
+<p>Now we know the age profiles are different, but are <em>all</em> the age groups drastically different, or is the test being driven by one specific anomaly? To find out, we turn to the standardized residuals for our cross-tabulation, using our rule of thumb that any value outside the range of <span class="math inline">\(-2.0\)</span> to <span class="math inline">\(+2.0\)</span> marks a significant deviation.</p>
+<p><strong>Elective Admissions Residuals:</strong></p>
+<ul>
+<li>Under 50: <span class="math inline">\(-3.03\)</span></li>
+<li>50 to 69: <span class="math inline">\(1.18\)</span></li>
+<li>70 or older: <span class="math inline">\(1.73\)</span></li>
+</ul>
+<p><strong>Emergency Admissions Residuals:</strong></p>
+<ul>
+<li>Under 50: <span class="math inline">\(3.03\)</span></li>
+<li>50 to 69: <span class="math inline">\(-1.18\)</span></li>
+<li>70 or older: <span class="math inline">\(-1.73\)</span></li>
+</ul>
+<p>Out of all six cells, only <em>two</em> cross our significance threshold, and both are in the <strong>Under 50</strong> category: the <strong>Elective Admissions</strong> group has a residual of <span class="math inline">\(-3.03\)</span>, and the <strong>Emergency Admissions</strong> group has a residual of <span class="math inline">\(+3.03\)</span>. With only two groups, the residuals in each age column are mirror images: a shortage of young patients in one group is a surplus in the other.</p>
+<p>This tells a fascinating story. The profiles of older patients (those 50 to 69, and 70 or older) align relatively well with baseline expectations across both admission types. The entire significant result is being driven by the fact that the elective admission group has a severe, disproportionate lack of young patients compared to the emergency group.</p>
+</section>
+<section id="communicating-results-in-apa-format-2" class="level3" data-number="8.7.2">
+<h3 data-number="8.7.2" class="anchored" data-anchor-id="communicating-results-in-apa-format-2"><span class="header-section-number">8.7.2</span> Communicating Results in APA Format</h3>
+<p>The formatting rules for the Test for Homogeneity mirror our previous tests. Based on our cross-tabulation, we know we have <span class="math inline">\(N = 200\)</span> total patients in our sample.</p>
+<blockquote class="blockquote">
+<p>A Chi-Square Test for Homogeneity was conducted to compare the age profiles of patients admitted to the ICU for elective versus emergency procedures. The results indicated that the age distributions were significantly different between the two populations, <span class="math inline">\(\chi^2(2, N = 200) = 9.39\)</span>, <span class="math inline">\(p = .009\)</span>. A post hoc analysis of standardized residuals revealed that this difference was primarily driven by a significant under-representation of patients under 50 years old within the elective admissions group and a matching over-representation within the emergency admissions group.</p>
+</blockquote>
+</section>
+</section>
+<section id="choosing-the-right-chi-square-test-and-checking-assumptions" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="choosing-the-right-chi-square-test-and-checking-assumptions"><span class="header-section-number">8.8</span> Choosing the Right Chi-Square Test and Checking Assumptions</h2>
+<p>Before we move on to new methods, let’s take a moment to organize the three Chi-Square tests we have just learned. Because the mathematical engine underneath all three tests is identical, statistical software will happily run whichever test you click. The software does not know how you gathered your data; it relies entirely on you to choose the correct framework.</p>
+<p>To avoid making a critical design error, you can identify the correct test by asking yourself two simple questions about your data structure:</p>
+<p><strong>1. The Chi-Square Goodness-of-Fit Test</strong></p>
+<ul>
+<li><p><strong>How many samples did you collect?</strong> One.</p></li>
+<li><p><strong>What are you comparing it to?</strong> An external, theoretical baseline (like the U.S. Census or a known historical average).</p></li>
+<li><p><strong>The Goal:</strong> To see if a single categorical variable in your sample matches the outside world.</p></li>
+</ul>
+<p><strong>2. The Chi-Square Test for Independence</strong></p>
+<ul>
+<li><p><strong>How many samples did you collect?</strong> One.</p></li>
+<li><p><strong>What are you comparing it to?</strong> You are comparing two different categorical variables <em>inside</em> that same sample against one another.</p></li>
+<li><p><strong>The Goal:</strong> To see if two distinct traits (like fleeing behavior and documented mental illness) overlap in a systematic, associated way.</p></li>
+</ul>
+<p><strong>3. The Chi-Square Test for Homogeneity</strong></p>
+<ul>
+<li><strong>How many samples did you collect?</strong> Two or more distinctly defined populations (like elective vs.&nbsp;emergency ICU patients).</li>
+<li><strong>What are you comparing it to?</strong> You are comparing the populations against each other on a single categorical trait.</li>
+<li><strong>The Goal:</strong> To see if the proportions of that trait are perfectly equal across all the different groups.</li>
+</ul>
+<section id="the-required-assumption-expected-counts" class="level3" data-number="8.8.1">
+<h3 data-number="8.8.1" class="anchored" data-anchor-id="the-required-assumption-expected-counts"><span class="header-section-number">8.8.1</span> The Required Assumption: Expected Counts</h3>
+<p>Throughout this chapter, we have relied on a single mathematical intuition: the Chi-Square test measures the “gap” between what we observed and what we expected, and then divides that gap by the expected count to scale it properly.</p>
+<p>However, that mathematical engine has one major weakness. What happens if your expected count is incredibly tiny, like 1 or 2 people?</p>
+<p>If you observe 5 people but only expected 1, your raw gap is 4. When the software divides that gap by the tiny expected count of 1, it acts like a mathematical magnifying glass, blowing the test statistic out of proportion. This scaling issue tricks the software into thinking there is a highly significant difference when it is actually just a random quirk of a small sample. This directly inflates your risk of making a Type I error (a false positive).</p>
+<p>To prevent this from happening, statisticians use a strict rule of thumb: <strong>every single expected count in your table must be at least 5.</strong> <em>(Note: We are checking the expected counts generated by the software, not the raw observed counts in your data).</em></p>
+<p>If your software alerts you that an expected count has fallen below 5, the standard Chi-Square <span class="math inline">\(p\)</span>-value is no longer trustworthy. When this happens, researchers must pivot to specialized tools designed for small samples, such as <a href="appendix-glossary.html#glossary-term-fisher-s-exact-test" class="glossary-link" data-definition="A test for categorical associations designed for small samples, used when an expected count falls below 5." data-term="Fisher’s Exact Test" aria-describedby="glossary-tooltip">Fisher’s Exact Test</a>, which we will cover in Unit V.</p>
+<blockquote class="blockquote">
+<p><strong>The “Observed Count” Trap:</strong> It is tempting to just rely on your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap! Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.</p>
+</blockquote>
+</section>
+</section>
+<section id="dependent-categorical-data-mcnemars-test" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="dependent-categorical-data-mcnemars-test"><span class="header-section-number">8.9</span> Dependent Categorical Data: McNemar’s Test</h2>
+<p>We are now ready to tackle a slightly more complex question, although just why this is complex needs some explanation: Are men more likely to ask for a second date than women?</p>
+<p>To answer this, we are going to shift our focus to a new dataset: <code>speed_dating.csv</code>. This data was collected during an experiment involving graduate and professional students who engaged in a series of four-minute speed dates. At the end of each round, participants filled out a scorecard rating their partner and, most importantly, indicating whether they would want to go on a real date with that person.</p>
+<p>We will be looking specifically at the binary decisions from these interactions:</p>
+<ul>
+<li><strong><code>DecisionM</code></strong>: A categorical variable indicating the match decision from the male participant (<span class="math inline">\(1 = \text{yes}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</li>
+<li><strong><code>DecisionF</code></strong>: A categorical variable indicating the match decision from the female participant (<span class="math inline">\(1 = \text{yes}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</li>
+</ul>
+<section id="the-problem-with-independence-a-jargon-trap" class="level3" data-number="8.9.1">
+<h3 data-number="8.9.1" class="anchored" data-anchor-id="the-problem-with-independence-a-jargon-trap"><span class="header-section-number">8.9.1</span> The Problem with Independence (A Jargon Trap)</h3>
+<p>If we wanted to compare the overall proportion of “yes” decisions between men and women, you might logically think we could just use a standard Chi-Square Test for Homogeneity. We have two groups (men and women) and one categorical outcome (yes or no). However, there is a major structural catch.</p>
+<p>Earlier in this chapter, we defined “independence” as two categorical variables having no association with one another. But in statistics, the word “independent” is also used to describe <em>how data is gathered</em>. Standard Chi-Square tests require <strong>independent observations</strong>, meaning one person’s data point has absolutely zero connection to any other person’s data point.</p>
+<p>In our speed dating data, the observations are explicitly <strong>paired</strong>. A single four-minute interaction generates two distinct data points: the male’s decision and the female’s decision. Because these two people experienced the same four minutes, their decisions are inherently connected.</p>
+<p>Imagine a specific date goes terribly; perhaps someone spills a drink, or the conversation is awkward. We would fully expect that shared interaction to result in a pair of “no” responses. It isn’t that the male’s “no” directly caused the female’s “no,” but rather that the two decisions were born from the same environment. Standard Chi-Square math falls apart when data points come in dependent pairs like this. To handle paired categorical data, we must use <a href="appendix-glossary.html#glossary-term-mcnemar-s-test" class="glossary-link" data-definition="A test for paired categorical data that compares two dependent proportions by focusing on the pairs where the two responses disagree." data-term="McNemar’s test" aria-describedby="glossary-tooltip">McNemar’s Test</a>.</p>
+</section>
+<section id="formulating-the-hypotheses-3" class="level3" data-number="8.9.2">
+<h3 data-number="8.9.2" class="anchored" data-anchor-id="formulating-the-hypotheses-3"><span class="header-section-number">8.9.2</span> Formulating the Hypotheses</h3>
+<p>Our goal is to compare the overall proportion of men who said “yes” against the overall proportion of women who said “yes” across all the dates. We will define the population parameter <span class="math inline">\(\pi_M\)</span> as the true proportion of “yes” decisions from males, and <span class="math inline">\(\pi_F\)</span> as the true proportion of “yes” decisions from females.</p>
+<p>As usual, the null hypothesis assumes there is no difference between the two dependent groups.</p>
+<ul>
+<li><strong><span class="math inline">\(H_0\)</span></strong>: <span class="math inline">\(\pi_M = \pi_F\)</span></li>
+<li><strong><span class="math inline">\(H_1\)</span></strong>: <span class="math inline">\(\pi_M \neq \pi_F\)</span></li>
+</ul>
+</section>
+<section id="the-intuition-behind-the-test-3" class="level3" data-number="8.9.3">
+<h3 data-number="8.9.3" class="anchored" data-anchor-id="the-intuition-behind-the-test-3"><span class="header-section-number">8.9.3</span> The Intuition Behind the Test</h3>
+<p>McNemar’s test relies on a clever, intuitive trick. When two people go on a date, there are exactly four possible categorical outcomes:</p>
+<ol type="1">
+<li>They both say no.</li>
+<li>They both say yes.</li>
+<li>The man says yes, but the woman says no.</li>
+<li>The woman says yes, but the man says no.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_08/fig_08_04_bar_speed_dating_outcomes.png" class="img-fluid figure-img" alt="Bar chart of four paired dating outcomes. Both said no 66; only male said yes 83; only female said yes 64; both said yes 63. The only-male-yes bar is the tallest. The only-female-yes bar is taller than both-said-yes and slightly shorter than both-said-no."></p>
+<figcaption>Figure 8.4: Outcomes of 276 speed-dating interactions. The two disagreement bars are the ones McNemar’s test compares: 83 interactions where only the man said yes and 64 where only the woman said yes.</figcaption>
+</figure>
+</div>
+<p>If we want to figure out if men say “yes” more often than women, the dates where they both agree (both yes or both no) are useless to us. Those agreements do not shift the overall balance in either direction.</p>
+<p>McNemar’s test essentially ignores all the interactions where the couple agreed. Instead, it looks strictly at the “disagreements.” As seen in Figure 8.4 above, we observe 83 instances where only the man said yes, compared to 64 instances where only the woman said yes. The mathematics our statistical software is doing for us acts as a balancing scale, checking to see if those two disagreement piles are roughly equal. If one group is significantly “heavier” than the other, the test will flag it as a meaningful difference.</p>
+</section>
+</section>
+<section id="interpreting-mcnemars-test" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="interpreting-mcnemars-test"><span class="header-section-number">8.10</span> Interpreting McNemar’s Test</h2>
+<p>When we run McNemar’s test in our statistical software, we evaluate the <span class="math inline">\(p\)</span>-value exactly as we always have.</p>
+<p>In our dataset of 276 interactions, the men did in fact say “yes” unilaterally more often than the women (83 times compared to 64 times). However, in statistics, we must ask if that gap is large enough to rule out random chance. The software outputs a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.138\)</span>. Because this <span class="math inline">\(p\)</span>-value is large (well above the standard <span class="math inline">\(0.05\)</span> threshold), we fail to reject the null hypothesis.</p>
+<p>What does this mean in plain English? Even though we observed a slight imbalance in the disagreement piles, we do not have enough evidence to prove a systemic difference in dating behavior. The variation we saw could easily just be the result of random noise in this specific sample of students.</p>
+<section id="post-hoc-analysis-for-mcnemars-test" class="level3" data-number="8.10.1">
+<h3 data-number="8.10.1" class="anchored" data-anchor-id="post-hoc-analysis-for-mcnemars-test"><span class="header-section-number">8.10.1</span> Post Hoc Analysis for McNemar’s Test</h3>
+<p>Because McNemar’s test addresses a constrained scenario (comparing a simple binary “yes or no” choice between two dependent groups), it operates entirely within a <span class="math inline">\(2 \times 2\)</span> framework.</p>
+<p>When you only have two groups, a significant overall test inherently tells you exactly where the difference lies. There are no extra categories to sort through. Because of this structural simplicity, formal post hoc testing is generally not required for McNemar’s test. If your result is significant, the final step is to compare the raw counts of the two disagreement cells to see which group had the higher rate.</p>
+</section>
+<section id="communicating-results-in-apa-format-3" class="level3" data-number="8.10.2">
+<h3 data-number="8.10.2" class="anchored" data-anchor-id="communicating-results-in-apa-format-3"><span class="header-section-number">8.10.2</span> Communicating Results in APA Format</h3>
+<p>When writing up the results for a paired categorical test, we follow the same general structure as the Goodness-of-Fit test. We state the goal, report the statistics, and provide a clear conclusion.</p>
+<p>For McNemar’s test, our software provides the <span class="math inline">\(\chi^2\)</span> test statistic, the degrees of freedom (which is always one for a <span class="math inline">\(2 \times 2\)</span> table), the total number of paired observations (<span class="math inline">\(N = 276\)</span>), and the <span class="math inline">\(p\)</span>-value.</p>
+<blockquote class="blockquote">
+<p>A McNemar’s test was conducted to determine if there was a significant difference in the proportion of male and female participants who desired a second date following a four-minute interaction. The results indicated that there was no statistically significant difference in the match decision rates between males and females, <span class="math inline">\(\chi^2(1, N = 276) = 2.20\)</span>, <span class="math inline">\(p = .138\)</span>.</p>
+</blockquote>
+</section>
+</section>
+<section id="quantifying-the-relationship-association-metrics" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="quantifying-the-relationship-association-metrics"><span class="header-section-number">8.11</span> Quantifying the Relationship: Association Metrics</h2>
+<p>In Chapter 3, we learned a fundamental lesson about hypothesis testing: a <span class="math inline">\(p\)</span>-value only tells you if an effect exists; it does not tell you how large or important that effect is. A tiny <span class="math inline">\(p\)</span>-value only means we have a mountain of evidence that the variables are connected.</p>
+<p>When working with numerical data, we used effect sizes like Cohen’s <span class="math inline">\(d\)</span> to measure the actual strength of the difference. For categorical data, we need a different set of tools to measure the strength of an association.</p>
+<p>To see why this matters, let’s use two variables from our <code>fatal_police_shootings.csv</code> dataset. We want to evaluate the connection between the type of weapon an individual possessed (<strong><code>armed</code></strong>) and the overall classification of the immediate threat (<strong><code>threat_level</code></strong>).</p>
+<p>Because our dataset contains over 6,000 observations, almost any slight variation from perfect mathematical independence is going to trigger a significant <span class="math inline">\(p\)</span>-value. The <span class="math inline">\(p\)</span>-value will tell us that weapon type and threat level are associated, but it will not answer the practical question: Does knowing the weapon type give us a large amount of information about the resulting threat level, or just a tiny bit?</p>
+<p>To answer the practical question, we calculate an <a href="appendix-glossary.html#glossary-term-association-metric" class="glossary-link" data-definition="A standardized measure of the strength of a relationship between categorical variables, the categorical equivalent of an effect size; Phi and Cramér’s V are the two primary examples." data-term="association metric" aria-describedby="glossary-tooltip">association metric</a> (the categorical equivalent of an effect size).</p>
+<section id="phi-and-cramérs-v" class="level3" data-number="8.11.1">
+<h3 data-number="8.11.1" class="anchored" data-anchor-id="phi-and-cramérs-v"><span class="header-section-number">8.11.1</span> Phi and Cramér’s V</h3>
+<p>There are two primary association metrics used in the social sciences for Chi-Square tests, and you choose between them based entirely on the shape of your cross-tabulation table.</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-phi-phi" class="glossary-link" data-definition="An association metric for a 2 by 2 cross-tabulation, ranging from 0 (no association) to 1 (perfect association)." data-term="Phi (\phi)" aria-describedby="glossary-tooltip">Phi (<span class="math inline">\(\phi\)</span>)</a>: You use Phi strictly when you are analyzing a <span class="math inline">\(2 \times 2\)</span> table. If you are comparing exactly two groups across exactly two outcomes, this is your metric.</li>
+<li><a href="appendix-glossary.html#glossary-term-cramer-s-v" class="glossary-link" data-definition="An association metric for categorical variables used when the cross-tabulation is larger than 2 by 2, ranging from 0 (no association) to 1 (perfect association)." data-term="Cramér’s V" aria-describedby="glossary-tooltip">Cramér’s <span class="math inline">\(V\)</span></a>: If your cross-tabulation is larger than <span class="math inline">\(2 \times 2\)</span>, the mathematical boundaries of Phi begin to break down. Because our <code>armed</code> field has more than two categories and our <code>threat_level</code> variable has three categories (attack, other, undetermined), a cross-tabulation of the two is larger than <span class="math inline">\(2 \times 2\)</span>, so we must use Cramér’s <span class="math inline">\(V\)</span>.</li>
+</ul>
+<p>Both of these metrics operate on a standardized scale from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>:</p>
+<ul>
+<li>A value of <span class="math inline">\(0\)</span> indicates absolutely no association (perfect independence).</li>
+<li>A value of <span class="math inline">\(1\)</span> indicates a perfect association (knowing the weapon category perfectly predicts the threat level every single time).</li>
+</ul>
+</section>
+<section id="interpreting-the-metric" class="level3" data-number="8.11.2">
+<h3 data-number="8.11.2" class="anchored" data-anchor-id="interpreting-the-metric"><span class="header-section-number">8.11.2</span> Interpreting the Metric</h3>
+<p>How do we decide if a number in the middle is meaningful? Fortunately, the statistician Jacob Cohen established a set of standard guidelines for interpreting these metrics.</p>
+<p>If you are using <a href="appendix-glossary.html#glossary-term-phi-phi" class="glossary-link" data-definition="An association metric for a 2 by 2 cross-tabulation, ranging from 0 (no association) to 1 (perfect association)." data-term="Phi (\phi)" aria-describedby="glossary-tooltip">Phi (<span class="math inline">\(\phi\)</span>)</a> for a <span class="math inline">\(2 \times 2\)</span> table, the cutoffs are straightforward:</p>
+<ul>
+<li><strong>Small Effect:</strong> <span class="math inline">\(0.10\)</span></li>
+<li><strong>Medium Effect:</strong> <span class="math inline">\(0.30\)</span></li>
+<li><strong>Large Effect:</strong> <span class="math inline">\(0.50\)</span></li>
+</ul>
+<p>If you are using <a href="appendix-glossary.html#glossary-term-cramer-s-v" class="glossary-link" data-definition="An association metric for categorical variables used when the cross-tabulation is larger than 2 by 2, ranging from 0 (no association) to 1 (perfect association)." data-term="Cramér’s V" aria-describedby="glossary-tooltip">Cramér’s <span class="math inline">\(V\)</span></a>, interpreting the metric requires one extra step. Because adding more categories to a table naturally spreads the data out, the definition of a “strong” relationship shifts depending on the size of your cross-tabulation. To find the right cutoffs, you identify your two variables and count the number of categories in the <em>smaller</em> variable.</p>
+<p>For example, if you are comparing a variable with 3 categories against a variable with 5 categories, you use the “3 Categories” row in the reference table below.</p>
+<table class="caption-top table">
+<caption>Table 8.3: Reference cutoffs for interpreting Cramér’s V by the number of categories in the smaller variable.</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 19%">
+<col style="width: 20%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Smallest Number of Categories</strong></th>
+<th style="text-align: left;"><strong>Small Effect</strong></th>
+<th style="text-align: left;"><strong>Medium Effect</strong></th>
+<th style="text-align: left;"><strong>Large Effect</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>2 Categories</strong> <em>(same as Phi)</em></td>
+<td style="text-align: left;">0.10</td>
+<td style="text-align: left;">0.30</td>
+<td style="text-align: left;">0.50</td>
+</tr>
+<tr class="even">
+<td><strong>3 Categories</strong></td>
+<td style="text-align: left;">0.07</td>
+<td style="text-align: left;">0.21</td>
+<td style="text-align: left;">0.35</td>
+</tr>
+<tr class="odd">
+<td><strong>4 Categories</strong></td>
+<td style="text-align: left;">0.06</td>
+<td style="text-align: left;">0.17</td>
+<td style="text-align: left;">0.29</td>
+</tr>
+<tr class="even">
+<td><strong>5 Categories</strong></td>
+<td style="text-align: left;">0.05</td>
+<td style="text-align: left;">0.15</td>
+<td style="text-align: left;">0.25</td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s return to our police shooting analysis. The raw <code>armed</code> field contains dozens of specific entries, from “gun” and “knife” to “toy weapon” and “vehicle.” Keeping every entry would create a wide table, with many cells holding only a handful of incidents. That matters because the Chi-Square test from Section 8.8 requires every expected count to be at least 5.</p>
+<p>To keep the test trustworthy, we group the field into three meaningful categories: <strong>Gun</strong>, <strong>Unarmed</strong>, and <strong>Other weapon</strong> (any other identified weapon or object). We also set aside incidents coded blank, “undetermined,” or “unknown weapon,” because those entries do not tell us what the person was holding. That leaves 5,963 incidents.</p>
+<p>Here is exactly how the collapse works. The raw field has 99 distinct values when the blank is included, 98 of them nonblank. We set aside the blank, “undetermined,” and “unknown weapon,” which leaves 96 entries. An incident is coded <strong>Gun</strong> only when its entry is exactly “gun” and <strong>Unarmed</strong> only when its entry is exactly “unarmed.” The other 94 entries, including “knife,” “vehicle,” “toy weapon,” “BB gun,” and combination entries such as “gun and knife,” become <strong>Other weapon</strong>. Every incident in the analysis therefore falls into exactly one of the three groups.</p>
+<table class="caption-top table">
+<caption>Table 8.4: Armed group by threat level for fatal police shootings with a known armed status (N = 5,963).</caption>
+<thead>
+<tr class="header">
+<th>Armed group</th>
+<th style="text-align: center;"><strong>Attack</strong></th>
+<th style="text-align: center;"><strong>Other</strong></th>
+<th style="text-align: center;"><strong>Undetermined</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Gun</strong></td>
+<td style="text-align: center;">2931</td>
+<td style="text-align: center;">729</td>
+<td style="text-align: center;">39</td>
+</tr>
+<tr class="even">
+<td><strong>Unarmed</strong></td>
+<td style="text-align: center;">159</td>
+<td style="text-align: center;">214</td>
+<td style="text-align: center;">40</td>
+</tr>
+<tr class="odd">
+<td><strong>Other weapon</strong></td>
+<td style="text-align: center;">912</td>
+<td style="text-align: center;">921</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+<p>Because this table has three rows and three columns, Phi is not an option. We use Cramér’s <span class="math inline">\(V\)</span>, and because the smaller of the two variables has three categories, we read the “3 Categories” row of Table 8.3. Our software reports <span class="math inline">\(\chi^2(4, N = 5963) = 812.74\)</span>, <span class="math inline">\(p &lt; .001\)</span>, and Cramér’s <span class="math inline">\(V = .261\)</span>. The smallest expected count is 6.7, so the expected-count assumption holds. A value of <span class="math inline">\(0.261\)</span> sits above the <span class="math inline">\(0.21\)</span> cutoff for a medium effect but below the <span class="math inline">\(0.35\)</span> cutoff for a large effect, so we describe the association as medium. The pattern is visible in Table 8.4: gun incidents are mostly classified as attacks, while unarmed incidents are more often classified as other threats.</p>
+</section>
+<section id="communicating-results-in-apa-format-4" class="level3" data-number="8.11.3">
+<h3 data-number="8.11.3" class="anchored" data-anchor-id="communicating-results-in-apa-format-4"><span class="header-section-number">8.11.3</span> Communicating Results in APA Format</h3>
+<p>When you write up your final conclusions for a research paper, you should append the association metric to the end of your standard Chi-Square statistical reporting.</p>
+<blockquote class="blockquote">
+<p>A Chi-Square Test for Independence was conducted to evaluate the relationship between weapon group (gun, unarmed, or other weapon) and the immediate threat level of the encounter. The results indicated a significant association between the two variables, <span class="math inline">\(\chi^2(4, N = 5963) = 812.74\)</span>, <span class="math inline">\(p &lt; .001\)</span>, Cramér’s <span class="math inline">\(V = .261\)</span>.</p>
+</blockquote>
+</section>
+</section>
+<section id="quantifying-risk-relative-risk-and-odds-ratios" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="quantifying-risk-relative-risk-and-odds-ratios"><span class="header-section-number">8.12</span> Quantifying Risk: Relative Risk and Odds Ratios</h2>
+<p>In the previous section, we used Cramér’s <span class="math inline">\(V\)</span> to measure the overall strength of an association. However, knowing that a relationship is “strong” does not always give us the practical, directional information we need.</p>
+<p>In fields like medicine, public health, and criminology, researchers do not just want to know if two variables are connected. They want to answer a specific question: <em>How much more likely is a specific outcome if a specific condition is present?</em></p>
+<p>To explore this, we will return to our <code>icu_data.csv</code> dataset. We want to quantify the exact risk of our survival outcome (<code>Survive</code>) based on whether a patient had a suspected infection upon admission (<code>Infection</code>). Because both of these variables are binary (they only have two categories, coded as 0 and 1), we can use two powerful clinical metrics: <a href="appendix-glossary.html#glossary-term-relative-risk" class="glossary-link" data-definition="The probability of an outcome in one group divided by the probability of the same outcome in a baseline group; intuitive for cohort studies but not valid for case-control designs." data-term="relative risk" aria-describedby="glossary-tooltip">Relative Risk</a> and the <a href="appendix-glossary.html#glossary-term-odds-ratio" class="glossary-link" data-definition="The odds of an outcome in one group divided by the odds of the same outcome in a baseline group; the standard measure of risk in case-control studies." data-term="odds ratio" aria-describedby="glossary-tooltip">Odds Ratio</a>.</p>
+<section id="the-intuitive-choice-relative-risk" class="level3" data-number="8.12.1">
+<h3 data-number="8.12.1" class="anchored" data-anchor-id="the-intuitive-choice-relative-risk"><span class="header-section-number">8.12.1</span> The Intuitive Choice: Relative Risk</h3>
+<p>The most natural way for humans to think about chance is through probability. If 20 out of 100 people experience an event, the probability (or “risk”) of that event is 20%.</p>
+<p><a href="appendix-glossary.html#glossary-term-relative-risk" class="glossary-link" data-definition="The probability of an outcome in one group divided by the probability of the same outcome in a baseline group; intuitive for cohort studies but not valid for case-control designs." data-term="relative risk" aria-describedby="glossary-tooltip">Relative Risk (RR)</a> takes the probability of an outcome in one group and divides it by the probability of that same outcome in a baseline group.</p>
+<p>When our statistical software calculates the Relative Risk for our ICU data, it takes the probability of surviving for patients with an infection and divides it by the probability of surviving for patients without an infection. The software outputs a Relative Risk of <span class="math inline">\(0.83\)</span>.</p>
+<p>Because this number is less than <span class="math inline">\(1.0\)</span>, it means the condition (infection) reduces the likelihood of the outcome (survival). We can interpret this in two intuitive ways:</p>
+<ul>
+<li><strong>As a factor:</strong> Patients admitted with a suspected infection are 0.83 times as likely to survive their ICU stay compared to patients admitted without an infection.</li>
+<li><strong>As a percentage:</strong> Patients with an infection are 83% as likely to survive. This represents a 17% decrease in the probability of survival compared to the baseline group.</li>
+</ul>
+<p><strong>The “Flipping” Trick</strong></p>
+<p>When you read published papers in the social sciences, you will notice that researchers almost always report Relative Risk as a number greater than 1.0. Why? Because generally speaking, we intuitively understand “1.2 times more likely” much better than “0.83 times as likely.”</p>
+<p>To get a number greater than 1.0, researchers simply flip the fraction upside down, which changes who serves as the baseline:</p>
+<p><span class="math inline">\(1 / 0.83 = 1.20\)</span></p>
+<p>By flipping the math, we just flip the sentence: <em>Patients admitted WITHOUT an infection are 1.20 times as likely to survive compared to patients WITH an infection.</em> Both sentences are mathematically identical; researchers just pick the one that is easier for their audience to read.</p>
+</section>
+<section id="the-mathematical-workhorse-the-odds-ratio" class="level3" data-number="8.12.2">
+<h3 data-number="8.12.2" class="anchored" data-anchor-id="the-mathematical-workhorse-the-odds-ratio"><span class="header-section-number">8.12.2</span> The Mathematical Workhorse: The Odds Ratio</h3>
+<p>If Relative Risk is so easy to understand, you might be wondering why you constantly see researchers reporting <strong>Odds Ratios (OR)</strong> instead.</p>
+<p>To understand an Odds Ratio, we first have to understand “odds.” While probability compares the number of events to the <em>total</em> number of people, odds compare the number of events to the number of <em>non-events</em>. If you have 5 winning lottery tickets and 95 losing tickets, your probability of winning is 5 out of 100 (5%). But your odds of winning are 5 to 95.</p>
+<p>An Odds Ratio takes the odds of an outcome in one group and divides it by the odds in the baseline group. When we run this for our ICU data, the software outputs an Odds Ratio of <span class="math inline">\(0.40\)</span>.</p>
+<p>We interpret this by saying: <em>The odds of surviving for a patient with an infection are 0.40 times the odds of surviving for a patient without an infection.</em></p>
+</section>
+<section id="interpreting-the-strength-of-an-odds-ratio" class="level3" data-number="8.12.3">
+<h3 data-number="8.12.3" class="anchored" data-anchor-id="interpreting-the-strength-of-an-odds-ratio"><span class="header-section-number">8.12.3</span> Interpreting the Strength of an Odds Ratio</h3>
+<p>Just like Cramér’s <span class="math inline">\(V\)</span>, we can classify the strength of an Odds Ratio. Statisticians have mathematically mapped Jacob Cohen’s famous effect size cutoffs directly onto the Odds Ratio scale.</p>
+<p>However, Odds Ratios have a unique quirk: they are centered around 1 (which means the odds are equal), but below one the odds ratio can only go down to zero, and above one it has no upper limit, leading to a counterintuitive imbalance. An Odds Ratio of 2.0 (doubling the odds) represents the same strength of effect as an Odds Ratio of 0.50 (halving the odds). They are just moving in opposite directions!</p>
+<p>Here are the standard, mapped guidelines for interpreting the strength of an Odds Ratio:</p>
+<table class="caption-top table">
+<caption>Table 8.5: Effect size guidelines for odds ratios.</caption>
+<colgroup>
+<col style="width: 56%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Effect Size</strong></th>
+<th><strong>Odds Ratio &gt; 1.0</strong></th>
+<th><strong>Odds Ratio &lt; 1.0</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Small Effect</strong></td>
+<td>1.50</td>
+<td>0.67</td>
+</tr>
+<tr class="even">
+<td><strong>Medium Effect</strong></td>
+<td>3.50</td>
+<td>0.29</td>
+</tr>
+<tr class="odd">
+<td><strong>Large Effect</strong></td>
+<td>9.00</td>
+<td>0.11</td>
+</tr>
+</tbody>
+</table>
+<p>Our statistical software output an Odds Ratio of <span class="math inline">\(0.40\)</span>. Looking at the “Odds Ratio &lt; 1.0” column in Table 8.5, we can see that <span class="math inline">\(0.40\)</span> falls right between a Small effect (<span class="math inline">\(0.67\)</span>) and a Medium effect (<span class="math inline">\(0.29\)</span>). We can conclude that arriving with an infection has a small-to-moderate negative impact on the odds of ICU survival.</p>
+<p><em>(Note: You can use the “flipping trick” on Odds Ratios, too! <span class="math inline">\(1.0 / 0.40 = 2.50\)</span>. Looking at the left column, <span class="math inline">\(2.50\)</span> also falls exactly between the Small and Medium cutoffs).</em></p>
+</section>
+<section id="why-use-the-odds-ratio" class="level3" data-number="8.12.4">
+<h3 data-number="8.12.4" class="anchored" data-anchor-id="why-use-the-odds-ratio"><span class="header-section-number">8.12.4</span> Why Use the Odds Ratio?</h3>
+<p>To a non-statistician, an Odds Ratio of <span class="math inline">\(0.40\)</span> is deeply confusing. It sounds much more dramatic than the Relative Risk of <span class="math inline">\(0.83\)</span>, and it is hard to visualize a “ratio of odds” in your head. Why do researchers use this less-intuitive metric?</p>
+<p>There are two major reasons, both rooted in the mechanics of research design:</p>
+<p><strong>1. Case-Control Studies and Retrospective Study Designs</strong></p>
+<p>Imagine you want to study a very rare disease. If you take a random sample of 1,000 people, you might not find a single person with the illness. To solve this, researchers use a <em>retrospective</em> design (often called a case-control study). They deliberately go to a hospital and select 50 people who already have the disease, and 50 people who do not, and then look backward to see what risk factors they had in common.</p>
+<p>Because the researcher artificially fixed the total number of sick and healthy people at 50 each, the “total” denominator is rigged. You cannot calculate true probability (and therefore cannot calculate Relative Risk) when you artificially control the totals. However, because of a brilliant mathematical quirk, Odds Ratios hold perfectly stable regardless of how you gathered the data. If you are looking backward in time at data you curated by outcome, you <em>must</em> use an Odds Ratio.</p>
+<p><strong>2. Logistic Regression</strong></p>
+<p>Up until now, we have only analyzed relationships between two categorical variables at a time. But what if we wanted to predict ICU survival using infection status, the patient’s age, and their blood pressure all at the same time?</p>
+<p>To do that, we need a predictive regression model. However, standard linear regression cannot handle a binary categorical outcome like “lived or died.” In advanced statistics, researchers use a tool called <a href="appendix-glossary.html#glossary-term-logistic-regression" class="glossary-link" data-definition="A regression model for a binary outcome that estimates how predictors affect the odds of the outcome; the odds ratio is its basic building block." data-term="logistic regression" aria-describedby="glossary-tooltip">Logistic Regression</a> to solve this. The fundamental mathematical building block of a Logistic Regression model is the odds ratio. By learning to interpret odds now, you are building the exact foundation you will need for advanced predictive modeling later.</p>
+</section>
+</section>
+<section id="evaluating-a-classification-sensitivity-and-specificity" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="evaluating-a-classification-sensitivity-and-specificity"><span class="header-section-number">8.13</span> Evaluating a Classification: Sensitivity and Specificity</h2>
+<p>In the previous section, we measured how much a condition (like infection) <em>impacts</em> the odds of an outcome. Now, we will explore how we can use information to <em>predict</em> an outcome.</p>
+<p>In clinical and social settings, researchers often create simple rules to make rapid decisions. For example, a hospital might implement a protocol that says: “If a patient’s pulse is over 100 beats per minute, we will flag them as an emergency admission.” But is that rule actually accurate? Does a high pulse accurately predict an emergency, or does it lead to a flood of false alarms? To answer this, we use a specialized tool called a <a href="appendix-glossary.html#glossary-term-confusion-matrix" class="glossary-link" data-definition="A 2 by 2 table that compares a prediction rule’s yes/no calls with the actual outcomes, showing true positives, false positives, true negatives, and false negatives." data-term="confusion matrix" aria-describedby="glossary-tooltip">Confusion Matrix</a>.</p>
+<section id="the-confusion-matrix" class="level3" data-number="8.13.1">
+<h3 data-number="8.13.1" class="anchored" data-anchor-id="the-confusion-matrix"><span class="header-section-number">8.13.1</span> The Confusion Matrix</h3>
+<p>A Confusion Matrix is a specific type of <span class="math inline">\(2 \times 2\)</span> table used to see how well a predictive rule aligns with reality. We take our actual observed reality (did the event actually happen?) and compare it against the prediction made by our rule (did the rule flag the event?).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_08/fig_08_05_diagram_confusion_matrix.png" class="img-fluid figure-img" alt="Two-by-two confusion matrix. The top-left cell is true positive, predicted positive and actual positive. The top-right is false positive, predicted positive and actual negative. The bottom-left is false negative, predicted negative and actual positive. The bottom-right is true negative, predicted negative and actual negative."></p>
+<figcaption>Figure 8.5: A confusion matrix. Rows show the rule’s prediction and columns show the actual outcome. The diagonal cells are correct classifications (true positive and true negative); the off-diagonal cells are errors (false positive and false negative).</figcaption>
+</figure>
+</div>
+<p>When we evaluate any predictive rule, we get four distinct general outcomes. Let’s break down what these mean broadly, and how they apply specifically to the 200 patients in <code>icu_data.csv</code>:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-true-positive" class="glossary-link" data-definition="A hit: the prediction rule says yes and the event happened." data-term="true positive" aria-describedby="glossary-tooltip">True Positive (The “Hit”)</a><strong>:</strong> In general research, this means your rule correctly identified an event that occurred. For our ICU data, the patient had an emergency admission, and our pulse rule correctly predicted it.</li>
+<li><a href="appendix-glossary.html#glossary-term-true-negative" class="glossary-link" data-definition="A correct rejection: the prediction rule says no and the event did not happen." data-term="true negative" aria-describedby="glossary-tooltip">True Negative (The “Correct Rejection”)</a><strong>:</strong> Generally, this means your rule correctly ignored something that did not happen. In our dataset, the patient had an elective admission, and our pulse rule correctly predicted it as a non-emergency.</li>
+<li><a href="appendix-glossary.html#glossary-term-false-positive" class="glossary-link" data-definition="A false alarm: the prediction rule says yes when the event did not happen." data-term="false positive" aria-describedby="glossary-tooltip">False Positive (The “False Alarm”)</a><strong>:</strong> Generally, your rule claimed an event happened, but it actually did not. Here, the patient had an elective admission, but our pulse rule incorrectly flagged them as an emergency.</li>
+<li><a href="appendix-glossary.html#glossary-term-false-negative" class="glossary-link" data-definition="A missed case: the prediction rule says no when the event happened." data-term="false negative" aria-describedby="glossary-tooltip">False Negative (The “Missed Case”)</a><strong>:</strong> Generally, an event truly happened, but your rule missed it. For our patients, they truly had an emergency admission, but our pulse rule failed to flag it.</li>
+</ul>
+</section>
+<section id="sensitivity-and-specificity" class="level3" data-number="8.13.2">
+<h3 data-number="8.13.2" class="anchored" data-anchor-id="sensitivity-and-specificity"><span class="header-section-number">8.13.2</span> Sensitivity and Specificity</h3>
+<p>To measure how well our rule works, we use two intuitive percentages: <a href="appendix-glossary.html#glossary-term-sensitivity" class="glossary-link" data-definition="The true positive rate: the percentage of actual events that a prediction rule correctly catches." data-term="sensitivity" aria-describedby="glossary-tooltip">Sensitivity</a> and <a href="appendix-glossary.html#glossary-term-specificity" class="glossary-link" data-definition="The true negative rate: the percentage of actual non-events that a prediction rule correctly ignores." data-term="specificity" aria-describedby="glossary-tooltip">Specificity</a>.</p>
+<p><strong>1. Sensitivity (The True Positive Rate)</strong></p>
+<p>In any research context, sensitivity is your rule’s ability to find the exact thing you are looking for. It asks: <em>Out of all the events that truly happened, what percentage did our rule successfully catch?</em></p>
+<p>For our ICU triage rule, it asks: <em>Of all the people who were actually emergency admissions, what percentage did our rule correctly catch?</em> If a rule has high sensitivity, it is effective at identifying the target cases. A low sensitivity means the rule is missing too many actual events.</p>
+<p><strong>2. Specificity (The True Negative Rate)</strong></p>
+<p>In general usage, specificity is your rule’s ability to leave the non-events alone. It asks: <em>Out of all the non-events, what percentage did our rule correctly ignore?</em></p>
+<p>For our hospital scenario, it asks: <em>Of all the people who were actually elective admissions, what percentage did our rule correctly identify as NOT being an emergency?</em> If a rule has high specificity, it has a low false alarm rate. A low specificity means the rule is constantly flagging cases that do not need attention.</p>
+</section>
+<section id="applying-the-rule-to-the-icu-data" class="level3" data-number="8.13.3">
+<h3 data-number="8.13.3" class="anchored" data-anchor-id="applying-the-rule-to-the-icu-data"><span class="header-section-number">8.13.3</span> Applying the Rule to the ICU Data</h3>
+<p>Let’s apply the pulse rule to our ICU data. When we check our patients against our “Pulse &gt; 100” rule, we get the following Confusion Matrix:</p>
+<table class="caption-top table">
+<caption>Table 8.6: Confusion matrix for the “Pulse &gt; 100” emergency triage rule.</caption>
+<colgroup>
+<col style="width: 59%">
+<col style="width: 19%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rule prediction</th>
+<th style="text-align: center;"><strong>Actual: Elective</strong></th>
+<th style="text-align: center;"><strong>Actual: Emergency</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Predicted: Elective</strong></td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">82</td>
+</tr>
+<tr class="even">
+<td><strong>Predicted: Emergency</strong></td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">65</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-sensitivity" class="glossary-link" data-definition="The true positive rate: the percentage of actual events that a prediction rule correctly catches." data-term="sensitivity" aria-describedby="glossary-tooltip">Sensitivity</a><strong>:</strong> We had 147 actual emergency admissions (<span class="math inline">\(82 + 65\)</span>). Our rule correctly predicted 65 of them. That is a sensitivity of <span class="math inline">\(65 / 147 \approx \mathbf{0.442}\)</span>. This rule only catches about 44% of emergency cases.</li>
+<li><a href="appendix-glossary.html#glossary-term-specificity" class="glossary-link" data-definition="The true negative rate: the percentage of actual non-events that a prediction rule correctly ignores." data-term="specificity" aria-describedby="glossary-tooltip">Specificity</a><strong>:</strong> We had 53 actual elective admissions (<span class="math inline">\(38 + 15\)</span>). Our rule correctly identified 38 of them as elective (meaning it correctly avoided a false alarm). That is a specificity of <span class="math inline">\(38 / 53 \approx \mathbf{0.717}\)</span>. This rule has a specificity of about 72%.</li>
+</ul>
+</section>
+<section id="the-sensitivityspecificity-trade-off-two-stage-testing" class="level3" data-number="8.13.4">
+<h3 data-number="8.13.4" class="anchored" data-anchor-id="the-sensitivityspecificity-trade-off-two-stage-testing"><span class="header-section-number">8.13.4</span> The Sensitivity/Specificity Trade-off: Two-Stage Testing</h3>
+<p>This analysis teaches us a critical lesson about predictive rules: they almost always involve a mathematical trade-off. If we wanted to catch more emergency cases in our ICU (increasing sensitivity), we could lower our pulse threshold to 80. But by doing that, we would inevitably flag many more elective patients as emergencies, lowering our specificity and creating a wave of false alarms.</p>
+<p>In practice, medical professionals and researchers manage this trade-off by using a two-stage testing process. When doctors screen for diseases like cancer, or when employers run initial drug tests, that first test is intentionally designed to have extremely high sensitivity. The primary goal of stage one is to make sure no true cases slip through the cracks.</p>
+<p>Because of this built-in high sensitivity, the first test naturally produces a large number of false positives. If that initial screen comes back positive, clinicians do not immediately jump to conclusions. Instead, they order a second, often more expensive follow-up test. This second test is designed to have extremely high specificity, allowing doctors to correctly weed out all the false alarms generated by the first round. Calculating these metrics gives us a transparent view of exactly how many people a rule is helping, and how many it is unnecessarily alerting.</p>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">8.14</span> Common Mistakes and Misconceptions</h2>
+<ol type="1">
+<li><p><strong>The “Observed Count” Trap</strong></p>
+<p>It is tempting to rely on your raw data and assume that if every group has at least 5 people, your Chi-Square test is valid. This is a mathematical trap. Expected counts are driven by the overall averages, not just your specific group. If you have one group that is much smaller than the others, your expected counts can easily drop below 5 even if your observed counts are fine. Always check the expected counts generated by your software, not just your raw data.</p></li>
+<li><p><strong>Mixing up your table sizes for Cramér’s <span class="math inline">\(V\)</span></strong></p>
+<p>When checking your effect size on Jacob Cohen’s reference table, remember that you are looking for the <em>number of categories</em> in your smallest variable, not the degrees of freedom from your Chi-Square test. If you have a 3 by 4 table, your smaller variable has 3 categories. Do not try to use your test’s degrees of freedom of 6.</p></li>
+<li><p><strong>Letting the software pick your test</strong></p>
+<p>Because the mathematical engine is identical for the Test for Independence and the Test for Homogeneity, your statistical software does not know which one you are actually running. If you feed it a cross-tabulation, it will always output a <span class="math inline">\(p\)</span>-value. It is entirely up to you to consider how the data was gathered (one sample versus two distinct populations) to correctly interpret what that <span class="math inline">\(p\)</span>-value means.</p></li>
+<li><p><strong>Treating Odds Ratios like Relative Risk</strong></p>
+<p>Relative Risk scales with how our brains process percentages, but Odds Ratios do not. An Odds Ratio of 2.0 means the <em>odds</em> are doubled, but that does not necessarily mean the event is twice as likely to happen in terms of raw probability. Never translate an Odds Ratio directly into a percentage chance.</p></li>
+</ol>
+</section>
+<section id="key-concepts" class="level2" data-number="8.15">
+<h2 data-number="8.15" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">8.15</span> Key Concepts</h2>
+<ul>
+<li><strong>Chi-Square Goodness-of-Fit:</strong> A test used to compare a single categorical variable from a single sample against a known external baseline (like a historical average or census data).</li>
+<li><a href="appendix-glossary.html#glossary-term-chi-square-test-for-independence" class="glossary-link" data-definition="A test that asks whether two categorical variables measured in a single sample are associated, using a cross-tabulation of their counts." data-term="chi-square test for independence" aria-describedby="glossary-tooltip">Chi-Square Test for Independence</a><strong>:</strong> A test used to evaluate whether two distinct categorical variables gathered from a single sample overlap in a systematic, associated way.</li>
+<li><a href="appendix-glossary.html#glossary-term-chi-square-test-for-homogeneity" class="glossary-link" data-definition="A test that compares the distribution of one categorical variable across two or more separate populations to see whether the proportions are the same." data-term="chi-square test for homogeneity" aria-describedby="glossary-tooltip">Chi-Square Test for Homogeneity</a><strong>:</strong> A test used to determine if the proportions of a single categorical trait are equal across two or more distinct populations.</li>
+<li><a href="appendix-glossary.html#glossary-term-mcnemar-s-test" class="glossary-link" data-definition="A test for paired categorical data that compares two dependent proportions by focusing on the pairs where the two responses disagree." data-term="McNemar’s test" aria-describedby="glossary-tooltip">McNemar’s Test</a><strong>:</strong> The required test for evaluating categorical outcomes when the data is dependent or comes in matched pairs (like speed dating partners or before-and-after studies).</li>
+<li><a href="appendix-glossary.html#glossary-term-standardized-residual" class="glossary-link" data-definition="A cell’s contribution to a chi-square test, scaled so that values beyond about plus or minus 2 indicate a significant over- or under-representation." data-term="standardized residual" aria-describedby="glossary-tooltip">Standardized Residuals</a><strong>:</strong> The post hoc tool used after a significant Chi-Square test. Any cell with a residual outside the boundaries of <span class="math inline">\(-2.0\)</span> and <span class="math inline">\(+2.0\)</span> is considered a significant contributor to the relationship.</li>
+<li><strong>The Expected Count Rule:</strong> To avoid inflating the risk of a Type I error, every <em>expected</em> count calculated by your software must be at least 5. This is driven by overall averages, not just raw observed counts.</li>
+<li><a href="appendix-glossary.html#glossary-term-association-metric" class="glossary-link" data-definition="A standardized measure of the strength of a relationship between categorical variables, the categorical equivalent of an effect size; Phi and Cramér’s V are the two primary examples." data-term="association metric" aria-describedby="glossary-tooltip">Association Metrics</a><strong>:</strong> Effect sizes for categorical data. Phi (<span class="math inline">\(\phi\)</span>) is strictly for <span class="math inline">\(2 \times 2\)</span> tables, while Cramér’s <span class="math inline">\(V\)</span> is used for any cross-tabulation larger than <span class="math inline">\(2 \times 2\)</span>.</li>
+<li><strong>Relative Risk vs.&nbsp;Odds Ratios:</strong> Relative Risk offers an intuitive comparison of probabilities between two groups. Odds Ratios compare the odds of an event, which is mathematically required for retrospective studies and serves as the foundation for future regression models.</li>
+<li><strong>Sensitivity and Specificity:</strong> Metrics derived from a Confusion Matrix to evaluate predictive rules. Sensitivity measures the true positive rate (successfully catching target cases), while specificity measures the true negative rate (successfully avoiding false alarms).</li>
+</ul>
+</section>
+<section id="new-notation" class="level2" data-number="8.16">
+<h2 data-number="8.16" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">8.16</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 8.7: Notation used in this chapter, with how each symbol is read aloud.</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 25%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Context</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="math inline">\(\chi^2\)</span></strong></td>
+<td>Chi-Square Test Statistic</td>
+<td>The final scaled measurement of the “gap” between the observed data and the expected baseline.</td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(\pi\)</span></strong></td>
+<td>Population Proportion</td>
+<td>Used in our hypotheses to represent the true percentage of a category in the overall population (e.g., <span class="math inline">\(\pi_{\text{Elective}} = \pi_{\text{Emergency}}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td><strong><span class="math inline">\(\phi\)</span></strong></td>
+<td>Phi</td>
+<td>The effect size metric indicating the strength of an association in a <span class="math inline">\(2 \times 2\)</span> cross-tabulation.</td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(V\)</span></strong></td>
+<td>Cramér’s <span class="math inline">\(V\)</span></td>
+<td>The effect size metric indicating the strength of an association in tables larger than <span class="math inline">\(2 \times 2\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong><span class="math inline">\(RR\)</span></strong></td>
+<td>Relative Risk</td>
+<td>A ratio comparing the probability of an outcome between two groups.</td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(OR\)</span></strong></td>
+<td>Odds Ratio</td>
+<td>A ratio comparing the odds of an outcome between two groups.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2" data-number="8.17">
+<h2 data-number="8.17" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.17</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="8.17.1">
+<h3 data-number="8.17.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">8.17.1</span> Interpretation</h3>
+<ol type="1">
+<li>A public health researcher is analyzing a small sample of 40 patients to see if there is an association between a rare dietary supplement and a specific side effect. Looking at the raw cross-tabulation, every single cell has at least 6 people in it. However, when the software runs the Chi-Square Test for Independence, it flags a warning that an assumption has been violated. Explain the “Observed Count” trap and why this mathematical warning occurred.</li>
+<li>A sociologist surveys 500 randomly selected adults in a single city and asks them two questions: their primary news source (Cable, Print, or Social Media) and their voting frequency (Always, Sometimes, Rarely). They want to know if news source and voting frequency are connected. Another researcher takes 250 known Urban residents and 250 known Rural residents and compares their primary news sources. Explain which researcher should use the Test for Independence and which should use the Test for Homogeneity, and justify your answer based on their study designs.</li>
+<li>A criminal justice student wants to know if a police body camera alters a subject’s behavior. They record 100 encounters where a subject interacted with an officer <em>before</em> the officer turned their camera on, and then record the same 100 subjects’ behavior <em>after</em> the camera was activated. The student plans to put the “Before” and “After” behaviors into a standard Chi-Square Test for Homogeneity. Explain why this violates a core assumption, and state which test must be used instead.</li>
+<li>A medical clinic implements a new, highly sensitive screening test for a rare autoimmune disease. A patient tests positive and begins to panic, assuming the positive result has just proven that they have the disease. Using the concepts of the sensitivity/specificity trade-off, explain why the patient should not panic and describe the standard next step in clinical testing.</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="8.17.2">
+<h3 data-number="8.17.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">8.17.2</span> Choosing a Method</h3>
+<ol start="5" type="1">
+<li><p>An education researcher has a database of 10,000 public high school students. They want to compare the distribution of the students’ chosen foreign language classes (Spanish, French, German, or Latin) against the historical averages published by the State Board of Education from ten years ago. Which specific statistical test should the researcher use?</p></li>
+<li><p>A kinesiologist recruits 50 husbands and their 50 wives to participate in a dietary study. At the end of the study, each individual is asked a simple categorical question: “Did you find this diet sustainable? (Yes/No).” The researcher wants to know if the husbands were more likely to say “Yes” than their wives. Identify the research design and select the appropriate statistical test.</p></li>
+<li><p>A marketing firm randomly samples 1,000 consumers and asks them to identify their favorite fast-food burger chain (McDonald’s, Wendy’s, or Burger King) and their primary generation (Boomer, Gen X, Millennial, Gen Z). They want to know if generational cohort and burger preference are associated. Identify the correct statistical test for this analysis.</p></li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="8.17.3">
+<h3 data-number="8.17.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">8.17.3</span> Communicating Results</h3>
+<ol start="8" type="1">
+<li><p>A journalist reads a published study analyzing the relationship between a suspect’s age group and whether a police encounter resulted in an arrest. The study reports a significant Chi-Square Test for Independence (p&lt;.01). The journalist publishes a headline: “Study Proves Every Age Group Experiences Vastly Different Arrest Rates.” Explain the fatal flaw in this communication and identify the post hoc tool the researcher needs to use to see which specific groups differ.</p></li>
+<li><p>A fellow student is presenting their research on the effects of a new study program on passing a difficult licensing exam. They ran an analysis and calculated an Odds Ratio of 3.0 for the students who took the program. On their slide, they write: “Students who take the program are 3.0 times more likely to pass the exam in terms of raw probability.” Explain why this interpretation of an Odds Ratio is incorrect.</p></li>
+<li><p>You are reviewing a research paper draft written by a colleague. They ran a Chi-Square Test for Independence on a 3×5 cross-tabulation table (which has 8 degrees of freedom) and calculated a Cramér’s V of 0.18. Using the Chi-Square degrees of freedom, they consult Jacob Cohen’s reference table and claim this is a “Weak” effect. Explain their mistake and identify exactly how they should have determined the table size for interpreting Cramér’s V.</p></li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="8.17.4">
+<h3 data-number="8.17.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">8.17.4</span> Software Application</h3>
+<p>For this section, you will use your statistical software to analyze the chapter datasets to practice the advanced categorical frameworks we just learned.</p>
+<ol start="11" type="1">
+<li><p><strong>The Test for Independence and Association: Evaluating Body Cameras and Threat Levels</strong>: Using <code>fatal_police_shootings.csv</code>, you want to evaluate if the presence of a police body camera (<code>body_camera</code>: True/False) is associated with the overall threat level of the encounter (<code>threat_level</code>: attack, other, undetermined).</p>
+<ol type="a">
+<li><p>Create a cross-tabulation of these two variables. Visually, does the proportion of attacks seem drastically different when a camera is present?</p></li>
+<li><p>Run the Chi-Square Test for Independence. What are the expected counts for the “True” body camera row? Did this analysis violate the expected count assumption?</p></li>
+<li><p>Report the exact χ2 statistic, degrees of freedom, and p-value. Is there a statistically significant association?</p></li>
+<li><p>Run a post hoc analysis of the standardized residuals. Identify any specific combinations (cells) that significantly deviate from the independent expectation (falling outside −2.0 to +2.0).</p></li>
+<li><p>Calculate Cramér’s V. Using Cohen’s guidelines for this specific table size, how would you classify the strength of this relationship? f) Write a brief, formal APA-formatted conclusion for this analysis.</p></li>
+</ol></li>
+<li><p><strong>Risk, Odds, and Confusion Matrices: Evaluating Previous ICU Admissions</strong>: Using <code>icu_data.csv</code>, you want to determine if having a previous admission within the last 6 months (<code>PreviousAdmission</code>: 0 = No, 1 = Yes) impacts or predicts the patient’s survival (<code>Survive</code>: 0 = No, 1 = Yes).</p>
+<ol type="a">
+<li><p>Generate a 2×2 table with <code>PreviousAdmission</code> on the rows and <code>Survive</code> on the columns.</p></li>
+<li><p>Calculate the Relative Risk of survival. Interpret this number as a percentage (e.g., “Patients with a previous admission are X% as likely to survive…”).</p></li>
+<li><p>Calculate the Odds Ratio. Using the standardized cutoffs in Table 8.5, how would you classify the strength of this effect?</p></li>
+<li><p>Now, treat <code>PreviousAdmission</code> as a predictive triage rule (Rule: “If they have a previous admission, predict that they will NOT survive”). Calculate the Sensitivity of this rule.</p></li>
+<li><p>Calculate the Specificity of this rule. Based on these two percentages, is having a previous admission a useful, accurate rule for predicting mortality?</p></li>
+</ol></li>
+<li><p><strong>Goodness-of-Fit: Evaluating Gender Demographics</strong>: Using <code>fatal_police_shootings.csv</code>, you want to determine if the gender breakdown of the subjects (<code>gender</code>: M, F) matches the overall U.S. Census baseline. According to the Census Bureau, the population is roughly 49% male and 51% female. <em>(Note: You must filter out any missing/unidentified gender rows before running this test).</em></p>
+<ol type="a">
+<li><p>State the null and alternative hypotheses for this analysis.</p></li>
+<li><p>Run the Chi-Square Goodness-of-Fit test comparing the observed sample to the 49/51 baseline expectation. Report the χ2 statistic and the p-value.</p></li>
+<li><p>Based on the standardized residuals, which specific demographic is over-represented, and which is under-represented?</p></li>
+<li><p>Write a brief, formal APA-formatted conclusion for this analysis.</p></li>
+</ol></li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-07.html" class="pagination-link" aria-label="Advanced Experimental Designs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-09.html" class="pagination-link" aria-label="Logistic Regression">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

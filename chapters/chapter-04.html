@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Correlation and Simple Linear Regression – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-05.html" rel="next">
+<link href="../chapters/chapter-03.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-04.html">Unit II: Linear Regression and Transformations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#first-things-first-linear-correlation-and-the-coefficient-of-determination" id="toc-first-things-first-linear-correlation-and-the-coefficient-of-determination" class="nav-link" data-scroll-target="#first-things-first-linear-correlation-and-the-coefficient-of-determination"><span class="header-section-number">4.2</span> First Things First: Linear Correlation and the Coefficient of Determination</a>
+  <ul class="collapse">
+  <li><a href="#measuring-strength-and-direction-linear-correlation-r" id="toc-measuring-strength-and-direction-linear-correlation-r" class="nav-link" data-scroll-target="#measuring-strength-and-direction-linear-correlation-r"><span class="header-section-number">4.2.1</span> Measuring Strength and Direction: Linear Correlation (<span class="math inline">\(r\)</span>)</a></li>
+  <li><a href="#testing-for-correlation-population-vs.-sample-rho" id="toc-testing-for-correlation-population-vs.-sample-rho" class="nav-link" data-scroll-target="#testing-for-correlation-population-vs.-sample-rho"><span class="header-section-number">4.2.2</span> Testing for Correlation: Population vs.&nbsp;Sample (<span class="math inline">\(\rho\)</span>)</a></li>
+  <li><a href="#measuring-practical-impact-the-coefficient-of-determination-r2" id="toc-measuring-practical-impact-the-coefficient-of-determination-r2" class="nav-link" data-scroll-target="#measuring-practical-impact-the-coefficient-of-determination-r2"><span class="header-section-number">4.2.3</span> Measuring Practical Impact: The Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#foundations-of-modeling-the-four-step-process" id="toc-foundations-of-modeling-the-four-step-process" class="nav-link" data-scroll-target="#foundations-of-modeling-the-four-step-process"><span class="header-section-number">4.3</span> Foundations of Modeling: The Four-Step Process</a>
+  <ul class="collapse">
+  <li><a href="#a-warning-on-ordinal-variables" id="toc-a-warning-on-ordinal-variables" class="nav-link" data-scroll-target="#a-warning-on-ordinal-variables"><span class="header-section-number">4.3.1</span> A Warning on Ordinal Variables</a></li>
+  </ul></li>
+  <li><a href="#fitting-the-model-the-regression-line" id="toc-fitting-the-model-the-regression-line" class="nav-link" data-scroll-target="#fitting-the-model-the-regression-line"><span class="header-section-number">4.4</span> Fitting the Model: The Regression Line</a>
+  <ul class="collapse">
+  <li><a href="#interpreting-the-intercept" id="toc-interpreting-the-intercept" class="nav-link" data-scroll-target="#interpreting-the-intercept"><span class="header-section-number">4.4.1</span> Interpreting the Intercept</a></li>
+  <li><a href="#interpreting-the-slope" id="toc-interpreting-the-slope" class="nav-link" data-scroll-target="#interpreting-the-slope"><span class="header-section-number">4.4.2</span> Interpreting the Slope</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics-checking-our-work" id="toc-model-diagnostics-checking-our-work" class="nav-link" data-scroll-target="#model-diagnostics-checking-our-work"><span class="header-section-number">4.5</span> Model Diagnostics: Checking Our Work</a>
+  <ul class="collapse">
+  <li><a href="#the-anatomy-of-an-error-what-is-a-residual" id="toc-the-anatomy-of-an-error-what-is-a-residual" class="nav-link" data-scroll-target="#the-anatomy-of-an-error-what-is-a-residual"><span class="header-section-number">4.5.1</span> The Anatomy of an Error: What is a Residual?</a></li>
+  <li><a href="#the-three-diagnostic-checks" id="toc-the-three-diagnostic-checks" class="nav-link" data-scroll-target="#the-three-diagnostic-checks"><span class="header-section-number">4.5.2</span> The Three Diagnostic Checks</a></li>
+  </ul></li>
+  <li><a href="#the-anomalies-outliers-and-influential-points" id="toc-the-anomalies-outliers-and-influential-points" class="nav-link" data-scroll-target="#the-anomalies-outliers-and-influential-points"><span class="header-section-number">4.6</span> The Anomalies: Outliers and Influential Points</a>
+  <ul class="collapse">
+  <li><a href="#the-seesaw-metaphor-leverage-and-influence" id="toc-the-seesaw-metaphor-leverage-and-influence" class="nav-link" data-scroll-target="#the-seesaw-metaphor-leverage-and-influence"><span class="header-section-number">4.6.1</span> The Seesaw Metaphor: Leverage and Influence</a></li>
+  <li><a href="#finding-the-magnets-in-our-data" id="toc-finding-the-magnets-in-our-data" class="nav-link" data-scroll-target="#finding-the-magnets-in-our-data"><span class="header-section-number">4.6.2</span> Finding the Magnets in Our Data</a></li>
+  <li><a href="#measuring-the-magnet-cooks-distance" id="toc-measuring-the-magnet-cooks-distance" class="nav-link" data-scroll-target="#measuring-the-magnet-cooks-distance"><span class="header-section-number">4.6.3</span> Measuring the Magnet: Cook’s Distance</a></li>
+  <li><a href="#the-ethics-of-anomalies" id="toc-the-ethics-of-anomalies" class="nav-link" data-scroll-target="#the-ethics-of-anomalies"><span class="header-section-number">4.6.4</span> The Ethics of Anomalies</a></li>
+  </ul></li>
+  <li><a href="#handling-curves-logarithmic-transformations" id="toc-handling-curves-logarithmic-transformations" class="nav-link" data-scroll-target="#handling-curves-logarithmic-transformations"><span class="header-section-number">4.7</span> Handling Curves: Logarithmic Transformations</a>
+  <ul class="collapse">
+  <li><a href="#squishing-the-scale-the-log-transformation" id="toc-squishing-the-scale-the-log-transformation" class="nav-link" data-scroll-target="#squishing-the-scale-the-log-transformation"><span class="header-section-number">4.7.1</span> “Squishing” the Scale: The Log Transformation</a></li>
+  <li><a href="#interpreting-a-transformed-model" id="toc-interpreting-a-transformed-model" class="nav-link" data-scroll-target="#interpreting-a-transformed-model"><span class="header-section-number">4.7.2</span> Interpreting a Transformed Model</a></li>
+  </ul></li>
+  <li><a href="#inference-and-predictions" id="toc-inference-and-predictions" class="nav-link" data-scroll-target="#inference-and-predictions"><span class="header-section-number">4.8</span> Inference and Predictions</a>
+  <ul class="collapse">
+  <li><a href="#confidence-intervals-for-the-slope" id="toc-confidence-intervals-for-the-slope" class="nav-link" data-scroll-target="#confidence-intervals-for-the-slope"><span class="header-section-number">4.8.1</span> Confidence Intervals for the Slope</a></li>
+  <li><a href="#point-estimates-predicting-the-mean" id="toc-point-estimates-predicting-the-mean" class="nav-link" data-scroll-target="#point-estimates-predicting-the-mean"><span class="header-section-number">4.8.2</span> Point Estimates: Predicting the Mean</a></li>
+  <li><a href="#predicting-the-average-vs.-predicting-the-individual" id="toc-predicting-the-average-vs.-predicting-the-individual" class="nav-link" data-scroll-target="#predicting-the-average-vs.-predicting-the-individual"><span class="header-section-number">4.8.3</span> Predicting the Average vs.&nbsp;Predicting the Individual</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">4.9</span> Common Mistakes and Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">4.10</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">4.11</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.12</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">4.12.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">4.12.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">4.12.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">4.12.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-04.html">Unit II: Linear Regression and Transformations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Imagine you are a sociologist trying to understand what makes a society genuinely thrive. Does having a large economy automatically guarantee that citizens will live long, happy lives? Or does the environmental cost of that economic engine drag down well-being?</p>
+<p>To explore these broad global questions, we will investigate data from the Happy Planet Index project, which evaluates how efficiently nations use their ecological resources to support long, high-quality lives for their residents. This dataset tracks 147 different countries across a variety of demographic and ecological metrics.</p>
+<p>Before we begin asking questions, we must understand the data we are working with. Here is a dictionary of the specific variables from the dataset that we will analyze in this chapter:</p>
+<ul>
+<li><strong>Country</strong>: A categorical variable identifying the name of the nation.</li>
+<li><strong>Region</strong>: A categorical variable grouping the country into one of eight distinct geographic areas.</li>
+<li><strong>LifeExpectancy</strong>: A numerical variable recording the average life expectancy of a resident in years.</li>
+<li><strong>Footprint</strong>: A numerical variable measuring the ecological footprint per capita, which represents the biological surface area required to support a country’s consumption and absorb its waste.</li>
+<li><strong>LOL</strong>: A numerical variable representing the Ladder of Life score on a 0 to 10 scale, where residents subjectively rate their own overall well-being and life satisfaction.</li>
+<li><strong>GDPperCapita</strong>: A numerical variable representing the Gross Domestic Product per person, adjusted for purchasing power.</li>
+</ul>
+<p>In Unit I, we learned how to visualize relationships between two numerical variables using scatterplots. We also learned how to use hypothesis tests to determine if groups were significantly different from one another. But what if we want to move beyond simply spotting a relationship? What if we want to mathematically measure exactly how strong the connection is between a country’s economic baseline and its health outcomes? Even more powerfully, what if we want to use a country’s ecological footprint to predict its citizens’ happiness scores?</p>
+<p>By the end of this chapter, you will learn how to measure the exact strength of these relationships using linear correlation. You will learn a formal four-step modeling process for building simple linear regression models to make predictions. Finally, you will learn how to check your models for errors, identify extreme country-level outliers, and safely transform heavily skewed social science data so that your mathematical tools remain reliable.</p>
+</section>
+<section id="first-things-first-linear-correlation-and-the-coefficient-of-determination" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="first-things-first-linear-correlation-and-the-coefficient-of-determination"><span class="header-section-number">4.2</span> First Things First: Linear Correlation and the Coefficient of Determination</h2>
+<p>In our initial explorations of data, we learned that scatterplots are the perfect visual tool for exploring the relationship between two numerical variables. For our current analysis, we want to map the raw connection between a country’s economic baseline and its physical strain on the environment. To do this, we will pair <code>GDPperCapita</code> with <code>Footprint</code>.</p>
+<p>If you were to plot these two variables on a scatterplot, you might expect to see a noticeable upward trend. In general, as a nation’s wealth increases, its ecological footprint also tends to increase. But before we start calculating mathematical summaries, we must issue a firm warning: <strong>always look at your scatterplot first</strong>.</p>
+<p>Before you run any calculations, you must visually verify two things: first, that a relationship appears to exist, and second, that the relationship is plausibly linear (meaning the dots follow a roughly straight line). The tools in this chapter only measure straight-line relationships. If your scatterplot shows a clear curve (like a U-shape), you cannot use linear correlation. For curved relationships, researchers use specialized non-parametric tools like Spearman’s rho, which we will cover in Chapter 10.</p>
+<p>Assuming our scatterplot reveals a straight-line pattern, we can move forward. “Tends to increase” is a vague observation. To make rigorous claims, we need to mathematically measure exactly how tight and predictable this relationship is.</p>
+<section id="measuring-strength-and-direction-linear-correlation-r" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="measuring-strength-and-direction-linear-correlation-r"><span class="header-section-number">4.2.1</span> Measuring Strength and Direction: Linear Correlation (<span class="math inline">\(r\)</span>)</h3>
+<p>To put a precise number on the strength of a relationship, statisticians calculate the <a href="appendix-glossary.html#glossary-term-linear-correlation" class="glossary-link" data-term="linear correlation" data-definition="A number r between -1 and 1 that measures the direction and strength of a straight-line relationship between two numerical variables; the sign gives the direction and the distance from zero gives the strength." aria-describedby="glossary-tooltip">linear correlation</a>, which is universally represented by the letter <span class="math inline">\(r\)</span>. Linear correlation measures the exact strength and direction of a straight-line relationship between two numerical variables.</p>
+<p>Mathematically, <span class="math inline">\(r\)</span> is scaled so that it is always between <strong>-1</strong> and <strong>1</strong>.</p>
+<ul>
+<li><strong>The Sign Tells You the Direction:</strong> A positive <span class="math inline">\(r\)</span> means the variables move together (as one goes up, the other goes up, like wealth and lifespan). A negative <span class="math inline">\(r\)</span> means they move in opposite directions (as one goes up, the other goes down, like hours spent watching TV and exam scores).</li>
+<li><strong>The Number Tells You the Strength:</strong> The closer the number is to the extremes (<strong>1</strong> or <strong>-1</strong>), the stronger the relationship. An <span class="math inline">\(r\)</span> of exactly <strong>1</strong> means every single data point forms a mathematically perfect straight line. The closer the number gets to <strong>0</strong>, the weaker the relationship becomes, until it resembles a random, unorganized cloud of dots.</li>
+</ul>
+<p>If we calculate the linear correlation for our dataset, we will find a strong, positive <span class="math inline">\(r\)</span> value. This tells us that higher economic output is reliably associated with longer lifespans in our sample.</p>
+<p><strong>Interpreting the Strength of <span class="math inline">\(r\)</span></strong></p>
+<p>Just like we used Cohen’s <span class="math inline">\(d\)</span> in Chapter 3 to judge the practical size of a difference, researchers use standard rules of thumb created by Jacob Cohen to judge the size of a linear correlation. As a general guide, researchers in the social sciences interpret the absolute value of <span class="math inline">\(r\)</span> (ignoring the positive/negative sign) as follows:</p>
+<ul>
+<li><strong><span class="math inline">\(r \approx 0.10\)</span></strong>: A small relationship.</li>
+<li><strong><span class="math inline">\(r \approx 0.30\)</span></strong>: A medium relationship.</li>
+<li><strong><span class="math inline">\(r \approx 0.50\)</span> or higher</strong>: A large, strong relationship.</li>
+</ul>
+<p>Remember that these specific cutoffs are designed strictly for the behavioral and social sciences. Why? Because the predictability of human behavior, biological growth, and social structures contains large amounts of inherent, natural variability. We rarely see perfectly tight straight lines when studying people.</p>
+<p>However, these same cutoffs would not apply in the physical sciences. The predictability of a cannonball’s trajectory is governed by strict mathematical laws of physics. Because a cannonball has virtually no “free will” or unseen emotional factors influencing its flight, a physicist would expect a correlation incredibly close to 1.0. You must always judge the strength of your correlation based on the natural variability of the field you are studying.</p>
+</section>
+<section id="testing-for-correlation-population-vs.-sample-rho" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="testing-for-correlation-population-vs.-sample-rho"><span class="header-section-number">4.2.2</span> Testing for Correlation: Population vs.&nbsp;Sample (<span class="math inline">\(\rho\)</span>)</h3>
+<p>Just because we calculate a strong <span class="math inline">\(r\)</span> value for our specific sample of 143 countries with a recorded GDP per capita does not automatically guarantee that this relationship holds true for the entire, unmeasured globe. In Unit I, we learned the difference between English letters (which describe our known sample statistics) and Greek letters (which describe the true, unknown population parameters).</p>
+<p>The sample statistic we just calculated is <span class="math inline">\(r\)</span>. Its overarching population parameter is represented by the Greek letter rho (<span class="math inline">\(\rho\)</span>). Before we can confidently rely on this relationship to build models, we must establish that a real linear relationship exists in the broader population. To do this, we run a hypothesis test for linear correlation.</p>
+<p>Our null hypothesis acts as the skeptic, claiming there is absolutely no linear relationship in the population:</p>
+<ul>
+<li><span class="math inline">\(H_0: \rho = 0\)</span></li>
+</ul>
+<p>Our alternative hypothesis claims a real linear relationship does exist:</p>
+<ul>
+<li><span class="math inline">\(H_1: \rho \neq 0\)</span></li>
+</ul>
+<p>If our statistical software gives us a <span class="math inline">\(p\)</span>-value smaller than our significance level (typically .05), we can safely reject the null hypothesis. We must firmly establish that there is a non-zero linear correlation before we attempt to build a linear model.</p>
+</section>
+<section id="measuring-practical-impact-the-coefficient-of-determination-r2" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="measuring-practical-impact-the-coefficient-of-determination-r2"><span class="header-section-number">4.2.3</span> Measuring Practical Impact: The Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</h3>
+<p>While knowing that two variables are connected is helpful, researchers usually want to know how much one variable explains the other. To find this, we use the <a href="appendix-glossary.html#glossary-term-coefficient-of-determination" class="glossary-link" data-term="coefficient of determination" data-definition="The proportion of variability in one variable that is explained by another, written R² and calculated by squaring the correlation r; often reported as a percentage." aria-describedby="glossary-tooltip">coefficient of determination</a>, more commonly known as R-squared (written mathematically as <span class="math inline">\(R^2\)</span>).</p>
+<p>The math behind this tool is simple: to find <span class="math inline">\(R^2\)</span>, you simply take your correlation value (<span class="math inline">\(r\)</span>) and square it by multiplying it by itself. But what does this new number mean in plain English?</p>
+<p>The coefficient of determination tells you the exact percentage of variability in one variable that can be mathematically explained by the other variable. Notice that we are not assigning “cause” or “effect” here; correlation does not care which variable comes first. We are simply measuring how much the two variables overlap in their fluctuations.</p>
+<p>Let’s ground this in our research scenario. A country’s ecological footprint naturally varies from nation to nation. Why does one society require a large biological surface area to support its consumption, while another requires very little? There are dozens of reasons for this variation: local climate, agricultural efficiency, environmental regulations, cultural consumption habits, and the overall economy.</p>
+<p>If we calculate an <span class="math inline">\(R^2\)</span> of <strong>65.12%</strong> for our economic and environmental data, it means that <strong>65.12%</strong> of all the differences in global ecological footprints can be explained by just knowing a country’s GDP per capita. The remaining <strong>34.88%</strong> of the variation is due to all those other outside factors we haven’t measured yet.</p>
+<blockquote class="blockquote">
+<p><strong>A Note on Notation: Why the Capital R?</strong></p>
+<p>You might be wondering why we suddenly switched from a lowercase <span class="math inline">\(r\)</span> to an uppercase <span class="math inline">\(R\)</span>. In statistics, a lowercase <span class="math inline">\(r\)</span> specifically describes the simple relationship between exactly <em>two</em> variables. If you square that specific number, you mathematically get <span class="math inline">\(r^2\)</span>.</p>
+<p>However, statisticians universally use the uppercase R-squared because it is a “future-proof” symbol. In the next chapter, we will build complex models that use several different variables at the same time. The uppercase R-squared is the overarching symbol used to represent the explained variation for those larger models. To keep things consistent, we get into the habit of using the uppercase letter right from the start. For our simple two-variable data, squaring your lowercase <span class="math inline">\(r\)</span> will always get you exactly R-squared.</p>
+</blockquote>
+<p><strong>What is a “Good” R-Squared?</strong></p>
+<p>As a new researcher, you might calculate an <span class="math inline">\(R^2\)</span> of 25% and feel disappointed. You might think, “My model leaves 75% of the variation unexplained; it must be a failure!”</p>
+<p>Context is everything. In physical sciences, where gravity and chemicals behave with strict mathematical precision, researchers expect <span class="math inline">\(R^2\)</span> values well over 90%. But human beings are messy, unpredictable, and influenced by a web of competing factors. If a single economic variable can accurately explain 25% of the variation in global life expectancy, that is a big, valuable finding. While an <span class="math inline">\(R^2\)</span> of 25% might not be strong enough to perfectly <em>predict</em> the exact lifespan of one specific person, it is powerful for <em>explaining</em> broad, systemic trends in human behavior.</p>
+<p>By pairing <span class="math inline">\(r\)</span> and <span class="math inline">\(R^2\)</span>, you give your readers a complete picture. The linear correlation (<span class="math inline">\(r\)</span>) proves the relationship exists and tells you which direction it moves, while the coefficient of determination (<span class="math inline">\(R^2\)</span>) tells you how much that relationship matters in practice.</p>
+</section>
+</section>
+<section id="foundations-of-modeling-the-four-step-process" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="foundations-of-modeling-the-four-step-process"><span class="header-section-number">4.3</span> Foundations of Modeling: The Four-Step Process</h2>
+<p>Knowing that a strong correlation exists between two variables is a good starting point. However, researchers usually want to do more than point out a connection; they want to build a mathematical tool that can make actual predictions. We call this tool a statistical model.</p>
+<p>Building a reliable model requires discipline. To ensure our predictions are trustworthy, we will follow a strict, four-step modeling process:</p>
+<ol type="1">
+<li><strong>Choose a form:</strong> First, we inspect a scatterplot of our data to decide if a straight mathematical line makes logical sense for the shape we see.</li>
+<li><strong>Fit to data:</strong> Next, we rely on our statistical software to calculate the exact mathematical line that best cuts through the center of our data points.</li>
+<li><strong>Assess accuracy:</strong> We then perform diagnostic checks to see how much our data deviates from that perfect line, ensuring our tool does not have any hidden, systematic errors.</li>
+<li><strong>Use for inference:</strong> Finally, if the model passes our checks, we use it to make predictions and draw conclusions about our population.</li>
+</ol>
+<section id="a-warning-on-ordinal-variables" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="a-warning-on-ordinal-variables"><span class="header-section-number">4.3.1</span> A Warning on Ordinal Variables</h3>
+<p>In linear regression, the variable you are trying to predict is called the <a href="appendix-glossary.html#glossary-term-response-variable" class="glossary-link" data-term="response variable" data-definition="The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement." aria-describedby="glossary-tooltip">response variable</a> (traditionally plotted on the y-axis). The math behind linear regression requires this response variable to be a true numerical measurement.</p>
+<p>You cannot use a single, isolated ordinal category as your response variable. For example, if you ask a single survey question where participants rate their happiness as “Low,” “Medium,” or “High,” you cannot build a linear regression model to predict those words. Even if you code those answers as the numbers 1, 2, and 3, they are still just descriptive buckets, not true mathematical quantities.</p>
+<p>However, in the social sciences, researchers often combine many ordinal questions together to create a large composite score. In our dataset, the Ladder of Life (LOL) variable is a subjective well-being score measured on a 0 to 10 scale. Because it spans 11 distinct levels and acts as a broad numerical index, researchers generally treat it as a continuous numerical variable.</p>
+<p>But tread carefully: a broad 10-point scale is not a statistical “get out of jail free” card. As we learned in Chapter 2, before you can safely treat any composite ordinal score as a true numerical variable, you must rigorously establish its <a href="appendix-glossary.html#glossary-term-reliability" class="glossary-link" data-term="reliability" data-definition="The consistency of a measurement: a reliable tool gives you the same result every time you measure the same phenomenon under the same conditions." aria-describedby="glossary-tooltip">reliability</a> and <a href="appendix-glossary.html#glossary-term-validity" class="glossary-link" data-term="validity" data-definition="Whether a measurement actually captures what you claim it is measuring; a measure can be reliable (consistent) yet still invalid if it is not measuring the intended concept." aria-describedby="glossary-tooltip">validity</a>. You must prove that your survey consistently yields the same results under the same conditions (reliability) and that it genuinely measures the abstract concept you claim it measures (validity). Only after those foundational design checks are passed can we safely use a variable like the Ladder of Life as the response variable in our modeling process.</p>
+</section>
+</section>
+<section id="fitting-the-model-the-regression-line" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="fitting-the-model-the-regression-line"><span class="header-section-number">4.4</span> Fitting the Model: The Regression Line</h2>
+<p>Now that we understand the four-step process, let us put it into action. For our primary application, we want to know if the wealth of a society can predict its environmental impact. We will build a model using a country’s GDP per capita (our predictor variable, or <span class="math inline">\(x\)</span>) to predict its ecological footprint (our response variable, or <span class="math inline">\(y\)</span>).</p>
+<p>When you ask your statistical software to fit a simple linear regression model, it will calculate a line of best fit. This line is mathematically positioned to sit as close to every single data point in your scatterplot as physically possible. The software will output a formula for this line that looks something like this:</p>
+<p><span class="math display">\[\text{Predicted Footprint} = \text{Intercept} + (\text{Slope} \times \text{GDPperCapita})\]</span></p>
+<p>This equation might look intimidating, but it only contains two essential pieces of information that you need to interpret: the intercept and the slope. By translating these two numbers into plain English, you connect the abstract mathematics directly to practical outcomes.</p>
+<section id="interpreting-the-intercept" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="interpreting-the-intercept"><span class="header-section-number">4.4.1</span> Interpreting the Intercept</h3>
+<p>The <a href="appendix-glossary.html#glossary-term-y-intercept" class="glossary-link" data-term="y-intercept" data-definition="The predicted value of the response variable when the predictor variable equals zero; it anchors the regression line as a baseline." aria-describedby="glossary-tooltip">y-intercept</a> is your baseline prediction. It tells you exactly what value your model predicts for the response variable (<span class="math inline">\(y\)</span>) when your predictor variable (<span class="math inline">\(x\)</span>) is exactly zero.</p>
+<p>Suppose our software calculates an intercept of <strong>1.672</strong>. In plain English, this means: <em>If a country had a GDP per capita of exactly zero dollars, we would predict an average ecological footprint of 1.672.</em></p>
+<p>As a researcher, you must always pause and ask if the intercept makes logical sense in practice. Can a functioning nation have an economic output of exactly zero dollars? No.&nbsp;In many models, the intercept is just a mathematical anchor for the line and does not represent a realistic, observable scenario.</p>
+</section>
+<section id="interpreting-the-slope" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="interpreting-the-slope"><span class="header-section-number">4.4.2</span> Interpreting the Slope</h3>
+<p>The <a href="appendix-glossary.html#glossary-term-slope" class="glossary-link" data-term="slope" data-definition="The rate of change in a regression model: the predicted change in the response variable for each one-unit increase in the predictor variable." aria-describedby="glossary-tooltip">slope</a> is the most important number in your entire model. It represents the rate of change. Specifically, it tells you exactly how much your predicted response variable (<span class="math inline">\(y\)</span>) is expected to change for every single one-unit increase in your predictor variable (<span class="math inline">\(x\)</span>).</p>
+<p>Suppose our software calculates a slope of <strong>0.000247</strong>. Because this is a positive number, it means the line is pointing upward. In plain English, we interpret it like this: <em>For every one-dollar increase in a country’s GDP per capita, we expect their average ecological footprint to increase by 0.000247 units.</em></p>
+<p>At first glance, a slope of 0.000247 looks weak. However, you must always remember your units! GDP is measured in individual dollars. A single, one-dollar raise in national wealth is practically invisible. But what if a country’s GDP per capita increases by <span class="math inline">\(\$10,000\)</span>? We would simply multiply our slope (<span class="math inline">\(0.000247\)</span>) by <span class="math inline">\(10,000\)</span> to see that the country’s footprint would increase by a noticeable <span class="math inline">\(2.47\)</span> units. This slope directly answers our research question: it tells us that, on average across the globe, heavier economic output is indeed associated with a larger environmental footprint.</p>
+<p>This brings us to a key rule for statistical modeling: <strong>never confuse the size of a slope with the strength of a relationship</strong>. A tiny slope decimal does not automatically mean a weak connection; it usually just means your predictor variable is measured in extremely small units, like individual dollars.</p>
+<p>If you want to know how strong the relationship is, you must check your linear correlation (<span class="math inline">\(r\)</span>). If you want to know how reliable your predictions will be, you must consult your R-squared (<span class="math inline">\(R^2\)</span>).</p>
+</section>
+</section>
+<section id="model-diagnostics-checking-our-work" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="model-diagnostics-checking-our-work"><span class="header-section-number">4.5</span> Model Diagnostics: Checking Our Work</h2>
+<p>We have chosen a linear form, and our software has calculated the exact mathematical line that best fits the relationship between a country’s wealth and its ecological footprint. It is tempting to take our slope and intercept, declare victory, and immediately start making predictions. However, we are only on the third step of our four-step modeling process.</p>
+<p>Before we can trust our model, we must assess its accuracy. Just because statistical software <em>can</em> draw a straight line through a scatterplot does not mean that line is actually a reliable tool. To check for hidden errors, statisticians analyze what the model gets wrong.</p>
+<section id="the-anatomy-of-an-error-what-is-a-residual" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="the-anatomy-of-an-error-what-is-a-residual"><span class="header-section-number">4.5.1</span> The Anatomy of an Error: What is a Residual?</h3>
+<p>No model is perfect. In our dataset, there are undoubtedly countries whose actual ecological footprints are much higher or lower than what our GDP-based line predicts.</p>
+<p>The mathematical difference between a country’s <em>actual</em> data point and the model’s <em>predicted</em> value on the line is called a <a href="appendix-glossary.html#glossary-term-residual" class="glossary-link" data-term="residual" data-definition="The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted." aria-describedby="glossary-tooltip">residual</a>. You can think of a residual as the model’s error for that specific observation.</p>
+<ul>
+<li>If a country’s actual footprint is higher than the line predicts, it has a <strong>positive residual</strong> (the model underestimated the impact).</li>
+<li>If a country’s actual footprint is lower than the line predicts, it has a <strong>negative residual</strong> (the model overestimated the impact).</li>
+<li>If a country lands exactly on the regression line, its residual is exactly <strong>zero</strong>.</li>
+</ul>
+<p>To run diagnostic checks, statistical software will calculate the residual for every single country in the dataset and generate a <a href="appendix-glossary.html#glossary-term-residual-plot" class="glossary-link" data-term="residual plot" data-definition="A graph with the predictor variable on the horizontal axis and the residuals on the vertical axis, used to check for curves, unequal spread, and structural patterns that a straight-line model would miss." aria-describedby="glossary-tooltip">residual plot</a>. This plot places your predictor variable (GDP per capita) on the horizontal axis and the model’s errors (the residuals) on the vertical axis, with a horizontal line drawn at zero to represent perfect predictions.</p>
+<p>When you look at a residual plot, you are hoping to see a boring, unorganized cloud of dots. Random “static” means the model’s errors are just natural, unpredictable background noise. If you see clear patterns in the errors, it means your model is systematically failing.</p>
+</section>
+<section id="the-three-diagnostic-checks" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="the-three-diagnostic-checks"><span class="header-section-number">4.5.2</span> The Three Diagnostic Checks</h3>
+<p>When evaluating a residual plot, researchers look for three specific conditions to ensure their model is mathematically reliable:</p>
+<p><strong>1. Linearity (No Curves)</strong> Even if your initial scatterplot looked somewhat straight, the residual plot acts as a magnifying glass for curves. If the dots in your residual plot form a distinct “U-shape” or a rainbow arch, it means the true relationship is curved, and your straight-line model is consistently predicting too high in the middle and too low on the edges (or vice-versa). If you fail this check, you cannot use a simple linear model.</p>
+<p><strong>2. Equal Variance (Homoscedasticity)</strong> This intimidating statistical word simply means “same scatter” or “same spread.” As you move from left to right across the residual plot, the vertical spread of the dots should remain relatively constant, forming an even band of noise.</p>
+<p>If the dots start tightly clustered on the left but fan out into a wide megaphone or cone shape on the right, you have a violation called <em>heteroscedasticity</em> (unequal spread). In the context of our data, this would mean our model is accurate at predicting the footprints of poorer nations, but its predictions become wildly unreliable and scattered for the wealthiest nations.</p>
+<p><strong>3. Independence (No Structural Patterns)</strong> The model assumes that every data point is an independent event, and that one error doesn’t systematically predict another. While independence is usually ensured by good study design, we can use residual plots to check for structural biases we might have missed.</p>
+<p>Let’s apply this to our dataset. What if we took our residual plot and color-coded all the dots by their geographic <code>Region</code>?</p>
+<p>Suppose we notice that almost all the dots representing Western European countries are clustered tightly together <em>above</em> the zero line (positive residuals), while all the dots representing Sub-Saharan African countries are clustered together <em>below</em> the zero line (negative residuals).</p>
+<p>This is a major red flag. It tells us that our model is structurally biased: it systematically underestimates the environmental impact of Europe and systematically overestimates the impact of Africa. A single, global economic line is too simplistic. This finding reveals that geography and local culture play a distinct structural role in environmental impact that a nation’s wealth alone cannot capture.</p>
+<p>When a model fails this kind of diagnostic check, researchers don’t throw the data away; instead, it is a signal that they need to build a more complex model that includes multiple variables at the same time, a technique we will master in Chapter 5.</p>
+<p><strong>4. Normality (A Bell Curve of Errors)</strong></p>
+<p>The first three checks ensure that your regression line is structurally sound and unbiased. However, as we outlined in our four-step process, drawing the line is usually not the final goal; researchers ultimately want to use that line to make predictions. To do that safely, we must pass one final check: the residuals must be roughly normally distributed.</p>
+<p>We need to be precise about what we are actually checking here. We are <strong>not</strong> requiring your predictor variable (<span class="math inline">\(x\)</span>) or your response variable (<span class="math inline">\(y\)</span>) to form a perfect bell curve. We are only requiring the <em>errors</em> (the residuals) to form a bell curve.</p>
+<p>What does this mean in plain English? It means that most of the time, our model should only make small, routine errors (landing near the center of the bell curve). It should only rarely make catastrophic errors (landing in the extreme tails of the curve).</p>
+<p>If a model’s errors follow this predictable, normal pattern, statisticians can rely on the probability rules from Unit I to build mathematically sound “error bars” (like confidence intervals) around their future predictions. If the errors are wildly skewed (meaning the model routinely makes large overestimations but never makes large underestimations), we can still use the line as a basic summary of the data, but we lose the mathematical right to use it as a reliable tool for forecasting the future.</p>
+<blockquote class="blockquote">
+<p><strong>The L.I.N.E. Checklist</strong></p>
+<p>To remember these four diagnostic checks, researchers often use the simple acronym <strong>L.I.N.E.</strong>:</p>
+<ul>
+<li><strong>L</strong>inearity (No curves in the residual plot)</li>
+<li><a href="appendix-glossary.html#glossary-term-integrated-i" class="glossary-link" data-term="integrated (I)" data-definition="The ARIMA component that temporarily removes the long-term trend, usually by differencing, so cyclical patterns can be analyzed on a stable baseline." aria-describedby="glossary-tooltip">I</a>ndependence (No structural patterns or groupings)</li>
+<li><strong>N</strong>ormality (The errors form a rough bell curve)</li>
+<li><strong>E</strong>qual Variance (The vertical spread of the dots remains constant)</li>
+</ul>
+</blockquote>
+</section>
+</section>
+<section id="the-anomalies-outliers-and-influential-points" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="the-anomalies-outliers-and-influential-points"><span class="header-section-number">4.6</span> The Anomalies: Outliers and Influential Points</h2>
+<p>When we first introduced the concept of outliers in Chapter 1, we defined them simply as data points that were unusually high or low compared to the rest of a single variable. But in linear regression, the definition of an anomaly becomes a bit more complex.</p>
+<p>In a regression model, an <a href="appendix-glossary.html#glossary-term-outlier" class="glossary-link" data-term="outlier" data-definition="A data point that strays far from the pattern set by the rest of the data, often producing a large residual in a regression model." aria-describedby="glossary-tooltip">outlier</a> is a data point that strays far away from the regression line. It doesn’t necessarily have an extreme raw value; rather, it breaks the <em>pattern</em> established by the rest of the data. For example, a country with an average GDP but a high ecological footprint would have a large residual, making it an outlier for our specific model.</p>
+<p>However, not all outliers are equally disruptive. Statisticians are specifically worried about a dangerous sub-category of anomalies known as <a href="appendix-glossary.html#glossary-term-influential-point" class="glossary-link" data-term="influential point" data-definition="A data point whose removal would noticeably change a model’s slope or intercept, usually because it combines high leverage with a large residual." aria-describedby="glossary-tooltip">influential points</a>.</p>
+<section id="the-seesaw-metaphor-leverage-and-influence" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="the-seesaw-metaphor-leverage-and-influence"><span class="header-section-number">4.6.1</span> The Seesaw Metaphor: Leverage and Influence</h3>
+<p>To understand how a single data point can manipulate an entire model, imagine your regression line as a long seesaw balanced on a playground.</p>
+<p>If a child sits perfectly in the middle of the seesaw, their weight doesn’t tilt the board much at all. In our model, the “middle” represents the average GDP per capita. If a country with an average economy has a weirdly high footprint, it will sit far above the line, but it lacks the physical “leverage” to tilt the line upward. It simply exists as a regular outlier with a large error.</p>
+<p>Now, imagine a heavy adult sits on the extreme far edge of the seesaw. Their position gives them immense leverage, and the entire board aggressively tilts toward them.</p>
+<p>In linear regression, if a data point sits at the extreme far edge of the x-axis (meaning it has an exceptionally rare, large predictor value), it has high statistical <a href="appendix-glossary.html#glossary-term-leverage" class="glossary-link" data-term="leverage" data-definition="The potential a data point has to pull a regression line toward itself, which is greatest when its predictor value sits at the extreme edge of the observed range." aria-describedby="glossary-tooltip">leverage</a>. If that point also strays away from the overall pattern, it will act like a magnet, physically dragging the entire regression line toward itself. When a point has enough leverage to significantly alter the model’s slope or intercept, we call it an <a href="appendix-glossary.html#glossary-term-influential-point" class="glossary-link" data-term="influential point" data-definition="A data point whose removal would noticeably change a model’s slope or intercept, usually because it combines high leverage with a large residual." aria-describedby="glossary-tooltip">influential point</a>.</p>
+</section>
+<section id="finding-the-magnets-in-our-data" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="finding-the-magnets-in-our-data"><span class="header-section-number">4.6.2</span> Finding the Magnets in Our Data</h3>
+<p>Let’s look for these anomalies in our global dataset. When modeling ecological footprint based on national wealth, most countries cluster together smoothly. However, if we look at the far right edge of our scatterplot, we might spot a few extreme economic anomalies, such as wealthy micro-states or oil-rich nations like Qatar or Luxembourg.</p>
+<p>Because these specific nations have high GDP per capita (giving them substantial leverage) and unique consumption patterns, they can single-handedly pull the global regression line steeper or flatter than it rightfully should be for the rest of the world.</p>
+</section>
+<section id="measuring-the-magnet-cooks-distance" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="measuring-the-magnet-cooks-distance"><span class="header-section-number">4.6.3</span> Measuring the Magnet: Cook’s Distance</h3>
+<p>You might be wondering, “How much leverage is <em>too much</em> leverage?” Fortunately, statisticians have built a specific tool to answer exactly that question: <a href="appendix-glossary.html#glossary-term-cook-s-distance" class="glossary-link" data-term="Cook’s Distance" data-definition="A measure of how much a regression model changes when one data point is removed (also called Cook’s D); values above 1.0 are generally treated as highly influential." aria-describedby="glossary-tooltip">Cook’s Distance</a> (often abbreviated as Cook’s D).</p>
+<p>Cook’s Distance is a metric that essentially automates the “what if?” scenario. Behind the scenes, your statistical software calculates the regression line with a suspicious point included, then recalculates the entire line with that point removed, and measures exactly how drastically the line shifted. It runs this simulation for every single data point in your dataset.</p>
+<p>As a general rule of thumb in the social sciences, if a single data point has a Cook’s Distance greater than <strong>1.0</strong>, it is universally considered a highly influential point. It is a magnet that is tilting the seesaw so severely that it is warping the mathematical reality for the rest of the population.</p>
+</section>
+<section id="the-ethics-of-anomalies" class="level3" data-number="4.6.4">
+<h3 data-number="4.6.4" class="anchored" data-anchor-id="the-ethics-of-anomalies"><span class="header-section-number">4.6.4</span> The Ethics of Anomalies</h3>
+<p>When a researcher spots an influential point ruining their perfectly straight line, the immediate temptation is to highlight the row and hit the “Delete” key. After all, removing the anomaly will instantly make the <span class="math inline">\(R^2\)</span> look better!</p>
+<p>You must resist the temptation to delete data simply because it makes your model look messy. Extreme data points often hold the most valuable scientific insights. A micro-state with great wealth and a uniquely small footprint isn’t “bad data”; it is an exception that might teach us how to build more sustainable economies.</p>
+<p>However, if you check your diagnostics and find that this micro-state has a Cook’s Distance well over 1.0, you finally have mathematical justification to remove it from your primary model. Doing so will create a much more accurate prediction tool for the other 99% of the world.</p>
+<p>If you make this choice, you must do so with perfect ethical transparency. Standard practice is to run the model twice: once <em>with</em> the influential point, and once <em>without</em> it. In your final report, you must clearly tell your readers that you removed the point, explicitly cite its high Cook’s Distance to justify your decision mathematically, and briefly discuss the anomaly so its unique story is not lost to history.</p>
+</section>
+</section>
+<section id="handling-curves-logarithmic-transformations" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="handling-curves-logarithmic-transformations"><span class="header-section-number">4.7</span> Handling Curves: Logarithmic Transformations</h2>
+<p>Throughout this chapter, we have firmly established that linear regression requires a straight-line relationship. Our first and most important diagnostic check is to verify that the pattern in our scatterplot does not curve.</p>
+<p>But what happens when you have two variables that are closely related, but their relationship is curved? In the social sciences, researchers frequently encounter two specific types of curved relationships:</p>
+<p><strong>1. Exponential Growth and Decay</strong></p>
+<p>Some variables compound over time or scale. For example, population sizes tend to grow exponentially, curving sharply upward like a hockey stick. Conversely, things like memory retention tend to decay exponentially, dropping sharply at first and then slowly leveling out.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_04/fig_04_01_line_exponential_growth_decay.png" class="img-fluid figure-img" alt="Two side-by-side line charts. The left panel shows a curve that rises slowly and then steeply, labeled exponential growth, below a dashed straight line illustrating a linear trend. The right panel shows a curve that drops steeply and then flattens, labeled exponential decay, also below the dashed straight line showing a linear trend."></p>
+<figcaption>Figure 4.1: Illustrative exponential growth and decay curves, each compared with a straight line through its endpoints. Both curves bend away from the straight line, so a straight-line model would fit poorly.</figcaption>
+</figure>
+</div>
+<p><strong>2. The Law of Diminishing Returns</strong></p>
+<p>Other relationships rise quickly but eventually hit a natural ceiling. A classic example of this is comparing a country’s wealth (<code>GDPperCapita</code>) to the average lifespan of its citizens (<code>LifeExpectancy</code>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_04/fig_04_02_scatter_gdp_life_expectancy_curve.png" class="img-fluid figure-img" alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the mid-50s at the lowest incomes and then flatten near 80 years at higher incomes."></p>
+<figcaption>Figure 4.2: GDP per capita and life expectancy for 143 countries. Life expectancy rises steeply at low incomes and then levels off, the pattern called diminishing returns.</figcaption>
+</figure>
+</div>
+<p>This specific curve illustrates a concept known as the <a href="appendix-glossary.html#glossary-term-law-of-diminishing-returns" class="glossary-link" data-term="law of diminishing returns" data-definition="The pattern in which each additional unit of a predictor produces a smaller improvement in the outcome, creating a curve that rises sharply and then flattens." aria-describedby="glossary-tooltip">law of diminishing returns</a>. Think about it in plain English: if a poor nation increases its GDP per capita by <span class="math inline">\(\$5,000\)</span>, that money can build rudimentary hospitals, secure clean water sources, and provide basic vaccines. That single <span class="math inline">\(\$5,000\)</span> increase will cause a dramatic spike in the nation’s average life expectancy.</p>
+<p>However, if an already wealthy nation (like Switzerland or Norway) increases its GDP per capita by that same <span class="math inline">\(\$5,000\)</span>, the impact on health is practically invisible. They already have clean water and modern hospitals.</p>
+<p>A linear regression model assumes a constant rate of change; it assumes <span class="math inline">\(\$5,000\)</span> buys the same amount of health everywhere in the world. Because human health does not work that way, a straight-line model will systematically fail.</p>
+<section id="squishing-the-scale-the-log-transformation" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="squishing-the-scale-the-log-transformation"><span class="header-section-number">4.7.1</span> “Squishing” the Scale: The Log Transformation</h3>
+<p>When researchers encounter a fundamentally curved relationship, they do not throw the data away. Furthermore, they do not need to invent a brand new, complex type of curved regression. Instead, they use a mathematical trick to <a href="appendix-glossary.html#glossary-term-linearize" class="glossary-link" data-term="linearize" data-definition="To transform data mathematically so that a curved relationship becomes approximately straight, allowing a linear regression model to be used." aria-describedby="glossary-tooltip">linearize</a> the data. This means they mathematically filter the data so that the severe curve straightens out, allowing them to safely use the same straight-line linear regression tools we have already learned.</p>
+<p>The most common tool for linearizing data is a <a href="appendix-glossary.html#glossary-term-logarithmic-transformation" class="glossary-link" data-term="logarithmic transformation" data-definition="A transformation that takes the logarithm of a variable, compressing large values and stretching small ones; often used to linearize an exponential or diminishing-returns relationship." aria-describedby="glossary-tooltip">logarithmic transformation</a> (often called a log transform). You do not need to memorize the complex algebra behind logarithms. Conceptually, taking the logarithm of a variable simply “squishes” its scale. It pulls the extreme numbers on the right side of the graph tightly inward, while gently stretching out the smaller numbers on the left.</p>
+<p>If we ask our statistical software to calculate the logarithm for every country’s <code>GDPperCapita</code>, and then we plot those <em>new</em> transformed values against <code>LifeExpectancy</code>, something magical happens: the severe curve disappears, and the dots fall into a beautiful straight line. We have successfully leveled the playing field, and our model now passes its linearity check.</p>
+</section>
+<section id="interpreting-a-transformed-model" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="interpreting-a-transformed-model"><span class="header-section-number">4.7.2</span> Interpreting a Transformed Model</h3>
+<p>Once you transform your predictor variable, your statistical software will give you a new slope, a new intercept, and a new <span class="math inline">\(R^2\)</span>. You evaluate the four-step modeling cycle exactly the same way you normally would.</p>
+<p>Let’s examine the actual output when we apply a <a href="appendix-glossary.html#glossary-term-base-10-logarithm" class="glossary-link" data-term="base-10 logarithm" data-definition="A logarithm using base 10, written log10; it compresses large values and is often used to linearize exponential growth." aria-describedby="glossary-tooltip">Base-10 logarithm</a> (written as <code>log10</code>) to our global health data. By squishing the wealth scale, our model’s accuracy jumps. We achieve an <span class="math inline">\(R^2\)</span> of <strong>77.22%</strong>, meaning over three-quarters of the global variation in lifespan can be explained by our new, linearized economic curve.</p>
+<p>Our software also hands us a new regression equation:</p>
+<p><span class="math display">\[\text{Predicted LifeExpectancy} = 16.28 + 13.54 \times \log_{10}(\text{GDPperCapita})\]</span></p>
+<p>Because we mathematically altered the data, we can no longer interpret the slope in simple, one-dollar steps. A one-dollar increase doesn’t mean the same thing everywhere anymore. Instead, because we used a Base-10 log, our slope now represents the expected change in life expectancy every time a country’s wealth <strong>multiplies by 10</strong>.</p>
+<p>Let’s translate our new slope (<strong>13.54</strong>) into plain English using concrete numbers:</p>
+<ul>
+<li><strong>Scenario A:</strong> Imagine a poor developing nation grows its economy from <strong><span class="math inline">\(\$1,000\)</span></strong> per person to <strong><span class="math inline">\(\$10,000\)</span></strong> per person. Because their wealth just multiplied by 10, our model predicts their average life expectancy will increase by <strong>13.54 years</strong>.</li>
+<li><strong>Scenario B:</strong> Now, imagine an already comfortable, developed nation grows its economy from <strong><span class="math inline">\(\$10,000\)</span></strong> per person to <strong><span class="math inline">\(\$100,000\)</span></strong> per person. Even though this requires an influx of <span class="math inline">\(\$90,000\)</span> per person, they have still only multiplied their wealth by 10. Therefore, our model predicts their average life expectancy will <em>also</em> increase by exactly <strong>13.54 years</strong>.</li>
+</ul>
+<p>These scenarios capture the law of diminishing returns: In Scenario A, it only cost <span class="math inline">\(\$9,000\)</span> to buy 13.5 years of life. In Scenario B, it cost <span class="math inline">\(\$90,000\)</span> to buy that same 13.5 years of life.</p>
+<p>By applying a log transformation to linearize the data, you allow your mathematical tools to understand that wealth operates on a sliding scale of impact. This is one of the most powerful and frequently used techniques in a researcher’s toolkit for handling the natural, curved realities of human societies.</p>
+</section>
+</section>
+<section id="inference-and-predictions" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="inference-and-predictions"><span class="header-section-number">4.8</span> Inference and Predictions</h2>
+<p>If your model has successfully passed the L.I.N.E. diagnostic checks, you are finally ready for the fourth and final step of the modeling process: using the line to make inferences.</p>
+<p>In Chapter 3, we learned that sample statistics are just estimates of the true population parameter. Because every sample naturally varies, we used Confidence Intervals to create a mathematical net that we hope captures the true population average. That same logic applies to linear regression. Our software calculated a specific slope and intercept for our sample of 143 countries with a recorded GDP per capita, but our ultimate goal is to understand the true relationship in the broader world.</p>
+<section id="confidence-intervals-for-the-slope" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="confidence-intervals-for-the-slope"><span class="header-section-number">4.8.1</span> Confidence Intervals for the Slope</h3>
+<p>The single most important number in our model is the slope, as it tells us the rate of change between wealth and environmental impact. For our economic model, the software calculated a sample slope of <strong>0.000247</strong>.</p>
+<p>To infer what the true population slope might be, we generate a 95% Confidence Interval. For the relationship between <code>GDPperCapita</code> and <code>Footprint</code>, our software calculates a 95% interval for the slope of <strong>(0.000217, 0.000277)</strong>.</p>
+<p>Because this entire interval is positive (it does not cross zero), we have strong evidence that the true relationship is positive. We can confidently report: <em>We are 95% confident that in the population, for every one-dollar increase in a country’s GDP per capita, the true average ecological footprint increases by between 0.000217 and 0.000277 units.</em></p>
+<p>Simple scaling is mathematically valid here, so if we wanted to consider a more meaningful $10,000 change in GDP per capita, we simply multiply the confidence interval values by 10,000 as well: <em>We are 95% confident that in the population, for every $10,000 increase in a country’s GDP per capita, the true average ecological footprint increases by between 2.17 and 2.77 units.</em></p>
+</section>
+<section id="point-estimates-predicting-the-mean" class="level3" data-number="4.8.2">
+<h3 data-number="4.8.2" class="anchored" data-anchor-id="point-estimates-predicting-the-mean"><span class="header-section-number">4.8.2</span> Point Estimates: Predicting the Mean</h3>
+<p>When you plug a specific predictor value (<span class="math inline">\(x\)</span>) into your regression equation, the math spits out a single predicted number (<span class="math inline">\(\hat{y}\)</span>). This is called a <a href="appendix-glossary.html#glossary-term-point-estimate" class="glossary-link" data-term="point estimate" data-definition="A single predicted value produced by plugging a specific predictor value into a regression equation; in regression it estimates the mean response for all observations with that predictor value." aria-describedby="glossary-tooltip">point estimate</a>.</p>
+<p>However, there is a common misconception about what this point estimate actually represents. If we plug a GDP of <strong>$70,000</strong> into our equation, the model does not predict exactly what one specific, individual country will do. Instead, it predicts the <a href="appendix-glossary.html#glossary-term-mean" class="glossary-link" data-term="mean" data-definition="The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values." aria-describedby="glossary-tooltip">mean</a> (the average) footprint for <em>all</em> countries that have a GDP of $70,000.</p>
+</section>
+<section id="predicting-the-average-vs.-predicting-the-individual" class="level3" data-number="4.8.3">
+<h3 data-number="4.8.3" class="anchored" data-anchor-id="predicting-the-average-vs.-predicting-the-individual"><span class="header-section-number">4.8.3</span> Predicting the Average vs.&nbsp;Predicting the Individual</h3>
+<p>Just like we built an interval around our slope, we can build intervals around our predictions. But because regression allows us to predict both group averages and individual outcomes, we have two different types of intervals to choose from: Confidence Intervals and Prediction Intervals.</p>
+<p>To see the difference, let’s evaluate a GDP of <strong>$70,000</strong> (roughly the wealth level of the United States).</p>
+<p><strong>1. The Confidence Interval (CI) for the Mean</strong></p>
+<p>If your research question is, “What is the <em>average</em> footprint for all countries with a $70,000 GDP?”, you use a Confidence Interval.</p>
+<ul>
+<li><p><strong>The 95% CI is (17.38, 20.52).</strong></p></li>
+<li><p><strong>Interpretation:</strong> We are 95% confident that the true <em>average</em> ecological footprint for the entire group of nations with a $70,000 GDP falls between 17.38 and 20.52.</p></li>
+</ul>
+<p><strong>2. The Prediction Interval (PI) for an Individual</strong></p>
+<p>If your research question is, “What will the footprint be for <em>one specific, newly observed country</em> that has a $70,000 GDP?”, you use a Prediction Interval.</p>
+<ul>
+<li><strong>The 95% PI is (10.59, 27.31).</strong></li>
+<li><strong>Interpretation:</strong> We are 95% confident that the ecological footprint for a <em>single</em> nation with a $70,000 GDP will fall between 10.59 and 27.31.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_04/fig_04_03_scatter_footprint_regression_intervals.png" class="img-fluid figure-img" alt="Scatterplot of ecological footprint against GDP per capita for 143 countries, with a rising regression line. A narrow shaded band hugs the line and a much wider shaded band surrounds it, widening at higher incomes."></p>
+<figcaption>Figure 4.3: Simple linear regression of ecological footprint on GDP per capita for 143 countries. The dark line is the fitted regression. The narrow band is the 95% confidence interval for the mean footprint; the wide band is the 95% prediction interval for an individual country.</figcaption>
+</figure>
+</div>
+<p>Notice how much wider the Prediction Interval is than the Confidence Interval! This illustrates a core truth of the social sciences: <strong>groups are predictable, but individuals are wildly erratic.</strong></p>
+<p>It is relatively easy for a model to predict the steady, reliable average of a large group of countries. It is mathematically much harder to predict the behavior of one single, unique country with its own distinct culture, politics, and geography. Because predicting an individual carries far more uncertainty, the Prediction Interval must cast a much wider net to maintain that 95% level of confidence.</p>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">4.9</span> Common Mistakes and Misconceptions</h2>
+<p>As you begin applying regression analysis to your own research, keep these common pitfalls in mind:</p>
+<ul>
+<li><strong>The “<span class="math inline">\(r = 0\)</span>” Trap:</strong> If your software tells you that <span class="math inline">\(r = 0\)</span>, do not assume there is <em>no</em> relationship between your variables. An <span class="math inline">\(r\)</span> of 0 only means there is no <em>linear</em> (straight-line) relationship. Your variables might still be strongly connected, but in a curved or complex way that a straight line cannot capture. Always look at your scatterplot!</li>
+<li><strong>Assuming Causation:</strong> Correlation proves that variables move in a predictable, synchronized way. It never proves that one variable <em>causes</em> the other. Unless you are running a strictly controlled, randomized experiment, always use language like “predicts” or “is associated with” rather than “causes.”</li>
+<li><strong>The “Bigger Slope is Better” Fallacy:</strong> New researchers often see a large slope coefficient and assume it represents a stronger influence than a smaller slope. This is incorrect. Slope represents the rate of change based on the units of measurement (e.g., dollars vs.&nbsp;thousands of dollars). To judge the strength of the relationship, use the correlation (<span class="math inline">\(r\)</span>).</li>
+<li><a href="appendix-glossary.html#glossary-term-extrapolation" class="glossary-link" data-term="extrapolation" data-definition="Using a regression model to predict outside the range of predictor values observed in the data, which is risky because the relationship may change." aria-describedby="glossary-tooltip">Extrapolation</a><strong>:</strong> A regression line is only valid within the boundaries of the data you collected. Using that line to predict values far outside your observed range (like predicting the life expectancy of a hypothetical nation with one billion dollars of GDP) is a gamble, not science.</li>
+</ul>
+</section>
+<section id="key-concepts" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">4.10</span> Key Concepts</h2>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-linear-correlation" class="glossary-link" data-term="linear correlation" data-definition="A number r between -1 and 1 that measures the direction and strength of a straight-line relationship between two numerical variables; the sign gives the direction and the distance from zero gives the strength." aria-describedby="glossary-tooltip">Linear Correlation (<span class="math inline">\(r\)</span>)</a><strong>:</strong> Measures the direction and strength of a straight-line relationship between two numerical variables (range: -1 to 1).</li>
+<li><a href="appendix-glossary.html#glossary-term-coefficient-of-determination" class="glossary-link" data-term="coefficient of determination" data-definition="The proportion of variability in one variable that is explained by another, written R² and calculated by squaring the correlation r; often reported as a percentage." aria-describedby="glossary-tooltip">Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a><strong>:</strong> Tells you the percentage of variation in the response variable explained by the predictor variable.</li>
+<li><strong>Four-Step Modeling:</strong> 1) Choose a form, 2) Fit the line, 3) Assess accuracy (diagnostics), 4) Use for inference.</li>
+<li><a href="appendix-glossary.html#glossary-term-residual" class="glossary-link" data-term="residual" data-definition="The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted." aria-describedby="glossary-tooltip">Residuals</a><strong>:</strong> The error in your model, the vertical distance between an actual data point and the regression line.</li>
+<li><strong>Diagnostic Checklist (L.I.N.E.):</strong> <strong>L</strong>inearity, <a href="appendix-glossary.html#glossary-term-integrated-i" class="glossary-link" data-term="integrated (I)" data-definition="The ARIMA component that temporarily removes the long-term trend, usually by differencing, so cyclical patterns can be analyzed on a stable baseline." aria-describedby="glossary-tooltip">I</a>ndependence, <strong>N</strong>ormality of errors, and <strong>E</strong>qual variance.</li>
+<li><a href="appendix-glossary.html#glossary-term-influential-point" class="glossary-link" data-term="influential point" data-definition="A data point whose removal would noticeably change a model’s slope or intercept, usually because it combines high leverage with a large residual." aria-describedby="glossary-tooltip">Influential Points</a><strong>:</strong> Anomalies that have enough leverage (typically at the extreme edges of the x-axis) to “drag” the regression line toward themselves. Cook’s Distance (<span class="math inline">\(&gt;1.0\)</span>) helps identify these.</li>
+<li><strong>Log Transformation:</strong> A method to “linearize” curved (fundamentally exponential) relationships so they can be analyzed using standard linear regression tools.</li>
+<li>Confidence and Prediction Intervals: When making predictions at a particular <span class="math inline">\(x\)</span> value, a Confidence Interval will tell you where you can expect to find the average, and the Prediction Interval will tell you where you can expect to find an new, unobserved individual value.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">4.11</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 4.1: Notation used in this chapter, with how each symbol is read aloud.</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>Read Aloud</strong></th>
+<th><strong>Represents in Plain English</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(r\)</span></td>
+<td>“r”</td>
+<td>The sample linear correlation coefficient.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>“rho”</td>
+<td>The true, unknown population linear correlation.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R^2\)</span></td>
+<td>“R-squared”</td>
+<td>The coefficient of determination; proportion of variance explained.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(y\)</span></td>
+<td>“y”</td>
+<td>The response variable (the outcome we are predicting).</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x\)</span></td>
+<td>“x”</td>
+<td>The predictor variable (the information we use to predict).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{y}\)</span></td>
+<td>“y-hat”</td>
+<td>The value of <span class="math inline">\(y\)</span> predicted by our regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.12</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="4.12.1">
+<h3 data-number="4.12.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">4.12.1</span> Interpretation</h3>
+<ol type="1">
+<li>A researcher studying urbanization and biodiversity calculates an <span class="math inline">\(r\)</span> of -0.85 between the square mileage of paved roads and the number of native bird species per square mile. How would you describe the strength and direction of this relationship in plain English?</li>
+<li>A sociologist builds a model predicting a person’s adult income based on the number of books in their childhood home, calculating an <span class="math inline">\(R^2\)</span> of 12%. A colleague tells her the model is “useless” because it leaves 88% of the variation unexplained. Based on the expectations for social science research, is her colleague right? Why or why not?</li>
+<li>You build a model to predict a college student’s final exam score based on the number of hours they spent studying. Student A has a negative residual, while Student B has a positive residual. In plain English, what does this mean about the model’s predictions for each individual student?</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="4.12.2">
+<h3 data-number="4.12.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">4.12.2</span> Choosing a Method</h3>
+<ol start="4" type="1">
+<li>A political scientist wants to predict voter turnout in a county using a single survey question where residents ranked their trust in local government as “Low,” “Medium,” or “High.” Is it mathematically appropriate to use this isolated category as the response variable (<span class="math inline">\(y\)</span>) in a linear regression model? Explain.</li>
+<li>An agricultural researcher is studying the relationship between the amount of fertilizer applied to a field and the total crop yield. The scatterplot shows a clear curve: crop yield goes up steadily with moderate fertilizer, but drops drastically when too much fertilizer poisons the soil. Should the researcher proceed with building a standard linear regression equation? Why or why not?</li>
+<li>A psychologist measures the correlation between the number of cups of coffee consumed and scores on a memory test for 30 participants. Before attempting to construct a regression equation to predict memory scores, they run a hypothesis test with <span class="math inline">\(H_0: \rho = 0\)</span>. Why is this step necessary before building the model?</li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="4.12.3">
+<h3 data-number="4.12.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">4.12.3</span> Communicating Results</h3>
+<ol start="7" type="1">
+<li>A popular health blog publishes an article titled, “New Study Proves That Eating Organic Blueberries Causes Higher Standardized Test Scores!” The study they cite found a strong linear correlation (<span class="math inline">\(r = 0.72\)</span>) between a school district’s average organic food purchases and their average SAT scores. Based on your knowledge of regression and confounding variables, what is the fundamental flaw in the blog’s claim?</li>
+<li>While modeling the relationship between city population and crime rates, you discover a highly influential point: a tiny resort town that hosts a multi-million-person festival one week a year. The software shows its Cook’s Distance is 2.4. You decide to remove it to better represent normal municipal crime rates. What ethical obligation do you have to your readers when reporting your final results?</li>
+<li>An economist uses data from 1990 to 2010 to build a regression model predicting housing prices based on inflation rates. Next year, they plug in an unprecedented, record-breaking inflation rate (one that is twice as high as anything seen in their dataset) to predict the future housing market. What statistical error are they committing, and why is it dangerous?</li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="4.12.4">
+<h3 data-number="4.12.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">4.12.4</span> Software Application</h3>
+<p><em>Load the <code>happy_planet_index_2024.csv</code> dataset into statistical software to complete these exercises:</em></p>
+<ol start="10" type="1">
+<li><strong>Visualizing the Relationship:</strong> Use a scatterplot to visually check the direction and shape of the relationship before we attempt to calculate any mathematical models.</li>
+</ol>
+<ol type="a">
+<li>Create a scatterplot of <code>GDPperCapita</code> (predictor variable on the x-axis) and <code>LOL</code> (response variable on the y-axis).</li>
+<li>Describe the visual relationship. Does it appear plausibly linear, or is there a severe curve?</li>
+<li>Does the visual trend suggest a positive or negative linear correlation?</li>
+</ol>
+<ol start="11" type="1">
+<li><strong>Quantifying the Connection:</strong> Use the linear correlation and coefficient of determination to measure exactly how strong the relationship is and how much variation our predictor explains.</li>
+</ol>
+<ol type="a">
+<li>Find the linear correlation (<span class="math inline">\(r\)</span>) for <code>GDPperCapita</code> and <code>LOL</code>. Based on standard social science guidelines, is this a small, medium, or large effect?</li>
+<li>Find the coefficient of determination (<span class="math inline">\(R^2\)</span>).</li>
+<li>Interpret the <span class="math inline">\(R^2\)</span> value in a single, plain-English sentence, being sure to name the specific variables involved.</li>
+</ol>
+<ol start="12" type="1">
+<li><strong>Modeling and Diagnostics:</strong> Generate the actual regression equation so we can make point estimates, and to check our residual plot to ensure our model isn’t hiding any structural errors.</li>
+</ol>
+<ol type="a">
+<li>Use your software to fit a simple linear regression model predicting <code>LOL</code> based on <code>GDPperCapita</code>. Report the sample slope and y-intercept.</li>
+<li>Interpret the slope in the context of the data (Remember your units! What happens if GDP goes up by <span class="math inline">\(\$10,000\)</span>?).</li>
+<li>Generate a residual plot for this model. Look at the spread of the dots; does it pass the “Equal Variance” (Homoscedasticity) check, or does it fan out into a megaphone shape? What does this tell you about the model’s accuracy for wealthier nations?</li>
+</ol>
+<ol start="13" type="1">
+<li><strong>Transformation:</strong> Investigate the effect of a log transformation on this non-linear relationship.</li>
+</ol>
+<ol type="a">
+<li>Plot the log transformation of <code>GDPPerCapita</code> as the predictor against <code>LOL</code> as the response. How did the linearity of the plot change?</li>
+<li>Re-run the regression model using the log-transformed variable. Did the <span class="math inline">\(R^2\)</span> improve? Why might that be the case?</li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-03.html" class="pagination-link" aria-label="Hypothesis Testing and Effect Sizes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-05.html" class="pagination-link" aria-label="Multiple Regression for Complex Systems">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

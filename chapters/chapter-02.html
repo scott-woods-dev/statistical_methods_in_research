@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; From Research Questions to Formal Hypotheses – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-03.html" rel="next">
+<link href="../chapters/chapter-01.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#the-scientific-process" id="toc-the-scientific-process" class="nav-link" data-scroll-target="#the-scientific-process"><span class="header-section-number">2.2</span> The Scientific Process</a></li>
+  <li><a href="#operationalization-of-variables-and-proxy-variables" id="toc-operationalization-of-variables-and-proxy-variables" class="nav-link" data-scroll-target="#operationalization-of-variables-and-proxy-variables"><span class="header-section-number">2.3</span> Operationalization of Variables and Proxy Variables</a></li>
+  <li><a href="#measurement-quality-reliability-and-validity" id="toc-measurement-quality-reliability-and-validity" class="nav-link" data-scroll-target="#measurement-quality-reliability-and-validity"><span class="header-section-number">2.4</span> Measurement Quality: Reliability and Validity</a></li>
+  <li><a href="#internal-consistency-and-cronbachs-alpha" id="toc-internal-consistency-and-cronbachs-alpha" class="nav-link" data-scroll-target="#internal-consistency-and-cronbachs-alpha"><span class="header-section-number">2.5</span> Internal Consistency and Cronbach’s Alpha</a>
+  <ul class="collapse">
+  <li><a href="#the-concept-of-internal-consistency" id="toc-the-concept-of-internal-consistency" class="nav-link" data-scroll-target="#the-concept-of-internal-consistency"><span class="header-section-number">2.5.1</span> The Concept of Internal Consistency</a></li>
+  <li><a href="#cronbachs-alpha-alpha" id="toc-cronbachs-alpha-alpha" class="nav-link" data-scroll-target="#cronbachs-alpha-alpha"><span class="header-section-number">2.5.2</span> Cronbach’s Alpha (<span class="math inline">\(\alpha\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#methods-of-data-gathering" id="toc-methods-of-data-gathering" class="nav-link" data-scroll-target="#methods-of-data-gathering"><span class="header-section-number">2.6</span> Methods of Data Gathering</a>
+  <ul class="collapse">
+  <li><a href="#observational-studies" id="toc-observational-studies" class="nav-link" data-scroll-target="#observational-studies"><span class="header-section-number">2.6.1</span> Observational Studies</a></li>
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design"><span class="header-section-number">2.6.2</span> Experimental Design</a></li>
+  </ul></li>
+  <li><a href="#translating-research-questions-into-statistical-questions" id="toc-translating-research-questions-into-statistical-questions" class="nav-link" data-scroll-target="#translating-research-questions-into-statistical-questions"><span class="header-section-number">2.7</span> Translating Research Questions into Statistical Questions</a></li>
+  <li><a href="#formalizing-hypotheses" id="toc-formalizing-hypotheses" class="nav-link" data-scroll-target="#formalizing-hypotheses"><span class="header-section-number">2.8</span> Formalizing Hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#the-null-and-alternative-hypotheses" id="toc-the-null-and-alternative-hypotheses" class="nav-link" data-scroll-target="#the-null-and-alternative-hypotheses"><span class="header-section-number">2.8.1</span> The Null and Alternative Hypotheses</a></li>
+  <li><a href="#the-logic-of-the-null-the-burden-of-proof" id="toc-the-logic-of-the-null-the-burden-of-proof" class="nav-link" data-scroll-target="#the-logic-of-the-null-the-burden-of-proof"><span class="header-section-number">2.8.2</span> The Logic of the Null: The Burden of Proof</a></li>
+  <li><a href="#hypothesis-universals-a-summary" id="toc-hypothesis-universals-a-summary" class="nav-link" data-scroll-target="#hypothesis-universals-a-summary"><span class="header-section-number">2.8.3</span> Hypothesis Universals: A Summary</a></li>
+  <li><a href="#stating-the-hypotheses-with-parameters" id="toc-stating-the-hypotheses-with-parameters" class="nav-link" data-scroll-target="#stating-the-hypotheses-with-parameters"><span class="header-section-number">2.8.4</span> Stating the Hypotheses with Parameters</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">2.9</span> Common Mistakes and Misconceptions</a>
+  <ul class="collapse">
+  <li><a href="#writing-hypotheses-after-gathering-data" id="toc-writing-hypotheses-after-gathering-data" class="nav-link" data-scroll-target="#writing-hypotheses-after-gathering-data"><span class="header-section-number">2.9.1</span> Writing Hypotheses After Gathering Data</a></li>
+  <li><a href="#confusing-reliability-with-validity-in-proxy-variables" id="toc-confusing-reliability-with-validity-in-proxy-variables" class="nav-link" data-scroll-target="#confusing-reliability-with-validity-in-proxy-variables"><span class="header-section-number">2.9.2</span> Confusing Reliability with Validity in Proxy Variables</a></li>
+  <li><a href="#the-causation-illusion-in-observational-studies" id="toc-the-causation-illusion-in-observational-studies" class="nav-link" data-scroll-target="#the-causation-illusion-in-observational-studies"><span class="header-section-number">2.9.3</span> The Causation Illusion in Observational Studies</a></li>
+  </ul></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">2.10</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">2.11</span> New Notation</a></li>
+  <li><a href="#chapter-exercises" id="toc-chapter-exercises" class="nav-link" data-scroll-target="#chapter-exercises"><span class="header-section-number">2.12</span> Chapter Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">2.12.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">2.12.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">2.12.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">2.12.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<p>Suppose you want to investigate whether systemic racial discrimination exists within corporate hiring. This is a serious social question, but how do you reliably measure bias? You cannot simply ask employers if their hiring practices are discriminatory. Instead, you need a measurable, objective signal of their behavior.</p>
+<p>In a landmark field experiment, researchers tackled this exact problem to rigorously study labor market dynamics (Bertrand &amp; Mullainathan, 2004). They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting 4,870 fictitious resumes. While the professional qualifications on the resumes were identical, the researchers randomly assigned different first names to manipulate the perceived race of the applicant. Names like “Emily” and “Greg” were used to signify White applicants, while names like “Lakisha” and “Jamal” signified African-American applicants. The researchers then tracked a single outcome: did the applicant receive a callback for an interview?</p>
+<p>The original study revealed that resumes with White-sounding names received 50% more callbacks for interviews than identical resumes with African-American-sounding names (Bertrand &amp; Mullainathan, 2004). We will use a subset of this data, <code>labor_market_discrimination.csv</code>, to motivate our work.</p>
+<p>While the original experimental data file contains 63 different columns of information, we will focus only on the following specific variables:</p>
+<ul>
+<li><code>first_name</code>: A categorical variable showing the specific first name assigned to the fictitious resume.</li>
+<li><code>race</code>: A categorical variable indicating the perceived racial identity of the applicant based on their assigned first name (‘b’ for Black, ‘w’ for White).</li>
+<li><code>call</code>: A categorical variable acting as our primary outcome measure, indicating whether the applicant received a callback for an interview (1 = yes, 0 = no).</li>
+<li><code>n_jobs</code>: A numerical variable recording the total number of prior jobs listed on the resume.</li>
+<li><code>years_exp</code>: A numerical variable recording the total years of professional work experience listed on the resume.</li>
+</ul>
+<p>In this chapter, you will learn how to take a broad research interest, like evaluating hiring bias, and translate it into a concrete statistical framework. By the end of this chapter, you will know how to transform abstract concepts into measurable variables, evaluate the quality of your data gathering methods, and construct formal null and alternative hypotheses to rigorously evaluate your claims.</p>
+</section>
+<section id="the-scientific-process" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-scientific-process"><span class="header-section-number">2.2</span> The Scientific Process</h2>
+<p>Science begins with curiosity. In the social sciences, this curiosity often starts as a broad <a href="appendix-glossary.html#glossary-term-research-goal" class="glossary-link" data-definition="A general statement about the phenomenon you want to understand; broad and directional, but usually too abstract to test directly." data-term="research goal" aria-describedby="glossary-tooltip">research goal</a>, which we define as a general statement about the phenomenon you want to understand. In our motivating example, the researchers had a clear goal. They wanted to investigate whether systemic racial discrimination manifests within corporate hiring pipelines.</p>
+<p>While a broad goal provides direction, it is usually too abstract to test directly. Statistics requires precision. You cannot simply drop a vague concept like “discrimination” into a spreadsheet and expect a mathematical answer. We have to translate that overarching goal into a specific, measurable <a href="appendix-glossary.html#glossary-term-research-question" class="glossary-link" data-definition="A specific, measurable relationship between defined variables that you can observe and record, narrowed down from a broad research goal." data-term="research question" aria-describedby="glossary-tooltip">research question</a>. A research question narrows the focus to a precise relationship between defined variables that we can observe and record.</p>
+<p>Think of the transition this way: The goal is your destination (understanding hiring bias), and the research question is the exact route you will take to get there. To build that route, you have to ask yourself what physical evidence would prove or disprove your idea. You have to move from an invisible concept to visible, countable data points. For the resume study, the researchers translated their broad goal into a specific question: Do identical resumes receive different interview callback rates depending on whether the applicant’s first name sounds White or African-American?</p>
+<p>This translation process is rarely simple, and there is never just one perfect route to your destination. A single research goal can spawn dozens of valid research questions depending on the creative approach of the researcher and the data available. For example, a team with the same goal of studying corporate hiring bias might decide to ask different questions:</p>
+<ul>
+<li>Do minority candidates receive lower starting salary offers than White candidates with the identical qualifications?</li>
+<li>Are African-American employees promoted to managerial positions at the same rate as their White peers within their first five years of employment?</li>
+<li>Do human resource recruiters spend the same number of seconds reading resumes from Black applicants as they do for White applicants?</li>
+</ul>
+<p>Each of these alternative questions is a valid way to address the main research goal, but each requires different data, different variables, and different statistical tools.</p>
+<p>This is why the transition from a vague interest to a concrete question is the foundation of the scientific process in statistical research. Without a sharply defined question, you will not know what data to collect, and the numbers you do gather will simply be noise. By forcing yourself to state exactly what you are looking for, you create a clear blueprint for the statistical methods that follow.</p>
+</section>
+<section id="operationalization-of-variables-and-proxy-variables" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="operationalization-of-variables-and-proxy-variables"><span class="header-section-number">2.3</span> Operationalization of Variables and Proxy Variables</h2>
+<p>When we have a specific research question, we face a new challenge. How do we measure the things we want to study? Concepts like “racial bias” or “labor market interest” are abstract. You cannot put them on a scale or measure them with a ruler.</p>
+<p>This leads us to <a href="appendix-glossary.html#glossary-term-operationalization" class="glossary-link" data-definition="The process of defining exactly how you will measure an abstract concept in your study, bridging a theoretical idea and the concrete data you will eventually analyze." data-term="operationalization" aria-describedby="glossary-tooltip">operationalization</a>, which is the process of defining exactly how you will measure an abstract concept in your study. It is the bridge between a theoretical idea and the concrete data you will eventually analyze. If your research goal is to study student stress, you might operationalize “stress” as a student’s score on a standardized psychological questionnaire, or perhaps as their resting heart rate during finals week.</p>
+<p>Sometimes, a concept is so abstract or difficult to observe that we cannot measure it directly at all. In these cases, researchers rely on a <a href="appendix-glossary.html#glossary-term-proxy-variable" class="glossary-link" data-definition="A measurable characteristic that stands in for an unobservable or difficult-to-measure concept." data-term="proxy variable" aria-describedby="glossary-tooltip">proxy variable</a>. A proxy variable is a measurable characteristic that stands in for an unobservable or difficult-to-measure concept.</p>
+<p>In our motivating study, the researchers wanted to measure how an applicant’s race affected an employer’s response. However, an employer reviewing a resume does not see the applicant in person. How could the researchers introduce the concept of race onto a piece of paper? They operationalized perceived racial identity using a proxy variable: the applicant’s first name. By randomly assigning names statistically associated with White or African-American individuals (recorded in the <code>first_name</code> variable of our dataset), they created a measurable, observable proxy for the abstract concept of perceived race.</p>
+</section>
+<section id="measurement-quality-reliability-and-validity" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="measurement-quality-reliability-and-validity"><span class="header-section-number">2.4</span> Measurement Quality: Reliability and Validity</h2>
+<p>Once you have operationalized a concept into a measurable variable, you must evaluate the quality of that measurement. Just because you can measure something does not mean you are measuring it well. We judge measurement quality using two foundational concepts: reliability and validity.</p>
+<p><a href="appendix-glossary.html#glossary-term-reliability" class="glossary-link" data-definition="The consistency of a measurement: a reliable tool gives you the same result every time you measure the same phenomenon under the same conditions." data-term="reliability" aria-describedby="glossary-tooltip">Reliability</a> refers to the consistency of your measurement. If you measure the same phenomenon multiple times under the same conditions, a reliable tool will give you the same result every time. Think of a bathroom scale; if you step on it three times in a row and get three wildly different numbers, the scale is not reliable. In a research setting, if a survey designed to measure anxiety gives the same student a different score depending on the day of the week, the survey lacks reliability.</p>
+<p><a href="appendix-glossary.html#glossary-term-validity" class="glossary-link" data-definition="Whether a measurement actually captures what you claim it is measuring; a measure can be reliable (consistent) yet still invalid if it is not measuring the intended concept." data-term="validity" aria-describedby="glossary-tooltip">Validity</a> asks a more critical question: are you actually measuring what you claim to be measuring? A bathroom scale might be perfectly reliable by giving you the same number every time you step on it. However, if the scale is broken and always reads 50 pounds below your actual weight, it is not a valid measure of your body mass.</p>
+<p>Let’s identify the outcome variable in our resume dataset, <code>call</code>. The researchers used this variable (coded as 1 for an interview callback and 0 for no callback) to operationalize employer interest. Is this a valid measure? Yes, an invitation for an interview is a direct, behavioral indicator that an employer is interested in a candidate. It is a valid measure of <em>initial</em> labor market interest.</p>
+<p>However, you must recognize the limits of validity. Is the <code>call</code> variable a valid measure of <em>ultimate hiring rates</em> or <em>starting salary</em>? No.&nbsp;An employer might call a candidate for an interview but harbor hidden biases that prevent them from ultimately offering the job. A measure is only valid for the specific, narrow phenomenon it captures. This is why you must always align your final research conclusions strictly with the variables you actually measured.</p>
+</section>
+<section id="internal-consistency-and-cronbachs-alpha" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="internal-consistency-and-cronbachs-alpha"><span class="header-section-number">2.5</span> Internal Consistency and Cronbach’s Alpha</h2>
+<p>In the previous section, we used the example of a bathroom scale to understand reliability. Physical measurements are usually straightforward. But how do you measure a psychological construct that you cannot physically weigh, like “math anxiety”?</p>
+<p>A researcher could just ask a single question: <em>“On a scale of 1 to 10, how anxious does math make you?”</em> However, human emotions are complicated. A student might not feel anxious about listening to a math lecture, but they might feel terrified about taking a math test. A single question rarely captures the entire picture, making it an unreliable tool on its own.</p>
+<p>To solve this, researchers use a <a href="appendix-glossary.html#glossary-term-summated-scale" class="glossary-link" data-definition="A measurement tool that asks several different, targeted questions about the same concept and then combines the responses into a single overall score." data-term="summated scale" aria-describedby="glossary-tooltip">summated scale</a> (a measurement tool that asks several different, targeted questions about the same overarching concept, and then combines the responses into a single overall score).</p>
+<p>To explore this, we will use a new dataset: <code>amas_math_anxiety.csv</code>. This dataset contains the results of the Abbreviated Math Anxiety Scale (AMAS), administered to 2,200 adults. Instead of one broad question, the AMAS uses nine specific questions (variables <code>item_1</code> through <code>item_9</code>). Participants rated their anxiety from 1 (low anxiety) to 5 (high anxiety) in various scenarios, such as “listening to another student explain a math formula” or “being given a pop quiz.”</p>
+<section id="the-concept-of-internal-consistency" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="the-concept-of-internal-consistency"><span class="header-section-number">2.5.1</span> The Concept of Internal Consistency</h3>
+<p>If these nine questions are truly measuring the same underlying concept (math anxiety), then a person’s answers should be fairly similar across the board. If a student reports a “5” on being anxious about a pop quiz, we would expect them to also report a high number for taking a final exam. If their answers are wildly contradictory, our survey tool is broken.</p>
+<p>This specific type of reliability is called <a href="appendix-glossary.html#glossary-term-internal-consistency" class="glossary-link" data-definition="How well the different items on a survey hang together, which a researcher must establish before adding the items into a single overall score." data-term="internal consistency" aria-describedby="glossary-tooltip">internal consistency</a>. It measures how well the different items on a survey hang together. Before a researcher is allowed to add up the nine items to give a student a final “Math Anxiety Score,” they must prove that the scale has high internal consistency.</p>
+</section>
+<section id="cronbachs-alpha-alpha" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="cronbachs-alpha-alpha"><span class="header-section-number">2.5.2</span> Cronbach’s Alpha (<span class="math inline">\(\alpha\)</span>)</h3>
+<p>To mathematically prove that a survey is internally consistent, researchers use a statistic called <a href="appendix-glossary.html#glossary-term-cronbach-s-alpha" class="glossary-link" data-definition="A statistic (written α) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research." data-term="Cronbach’s alpha" aria-describedby="glossary-tooltip">Cronbach’s alpha</a>, represented by the Greek letter <span class="math inline">\(\alpha\)</span>.</p>
+<p>Cronbach’s alpha gives us a final value that generally ranges from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>.</p>
+<ul>
+<li><strong>0 indicates no internal consistency:</strong> The survey questions have nothing in common; the respondents are essentially answering randomly.</li>
+<li><strong>1 indicates perfect internal consistency:</strong> The questions perfectly align with one another.</li>
+</ul>
+<p>In the social sciences, researchers generally look for a Cronbach’s alpha of <strong>0.70 or higher</strong> before they consider a summated scale to be reliable enough to use in a study. For the math anxiety data, we would find a Cronbach’s alpha well above <span class="math inline">\(0.80\)</span>. Because the scale exceeds the <span class="math inline">\(0.70\)</span> threshold, we have the mathematical green light to sum those nine items into a single, reliable “Math Anxiety” composite score for each participant.</p>
+</section>
+</section>
+<section id="methods-of-data-gathering" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="methods-of-data-gathering"><span class="header-section-number">2.6</span> Methods of Data Gathering</h2>
+<p>Once you have defined your research question and decided exactly how to measure your variables, you face a logistical hurdle. How do you go out into the world and collect the data? In the social sciences, researchers generally choose between two primary methods of data gathering: observational studies and controlled experiments.</p>
+<p>The method you choose dictates what kind of conclusions you are allowed to draw from your data. We will explore both approaches in detail, using our corporate hiring bias scenario as a guide.</p>
+<section id="observational-studies" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="observational-studies"><span class="header-section-number">2.6.1</span> Observational Studies</h3>
+<p>An <a href="appendix-glossary.html#glossary-term-observational-study" class="glossary-link" data-definition="A study in which researchers observe individuals and measure variables of interest without manipulating the environment, recording the world as it naturally exists." data-term="observational study" aria-describedby="glossary-tooltip">observational study</a> is exactly what it sounds like. Researchers observe individuals and measure variables of interest, but they do not attempt to manipulate the environment or influence the responses. The goal is to record the world exactly as it naturally exists.</p>
+<p>Surveys and polls are the most common examples of observational studies. If you want to know about the study habits of college freshmen, you might send out a questionnaire. If an economist wants to study national income trends, they might turn to tax records. In both cases, the researcher is simply a record-keeper.</p>
+<p>If we wanted to study hiring bias using an observational approach, we might partner with a large corporation and ask to see their human resources data for the past five years. We could record the perceived race of all applicants and track whether or not they were hired.</p>
+<p>While observational studies are excellent for gathering large amounts of real data, they come with significant vulnerabilities. The primary issue is <a href="appendix-glossary.html#glossary-term-bias" class="glossary-link" data-definition="A systematic error that pushes results away from the truth in a particular direction; unlike random variability, bias does not disappear with larger sample sizes." data-term="bias" aria-describedby="glossary-tooltip">bias</a>, which is a systematic distortion of the data that pushes results away from the truth. In survey design, bias can sneak in through poorly worded questions that lead respondents toward a specific answer, or through <a href="appendix-glossary.html#glossary-term-non-response-bias" class="glossary-link" data-definition="A type of bias that occurs when the people who choose not to complete a survey are different from those who do, so the collected data do not represent the full group." data-term="non-response bias" aria-describedby="glossary-tooltip">non-response bias</a>, where the people who choose to ignore the survey are fundamentally different from those who fill it out.</p>
+<p>Furthermore, observational studies face a major hurdle when trying to prove a cause-and-effect relationship. Imagine our observational HR study reveals that White applicants were hired at a higher rate than African-American applicants. Can we definitively claim this difference was caused by racial bias?</p>
+<p>We cannot. Because we merely observed existing data, there might be hidden variables we failed to account for. Perhaps the White applicants in that specific data pool happened to have more years of experience, or applied for less competitive entry-level roles, or had degrees from higher-ranking universities. Because we did not control the environment, these hidden factors (often called <a href="appendix-glossary.html#glossary-term-confounding-variable" class="glossary-link" data-definition="A hidden or unmeasured factor that is linked to both the groups you are comparing and the outcome, so it can make two variables appear connected even when one does not cause the other." data-term="confounding variable" aria-describedby="glossary-tooltip">confounding variables</a>) blur the lines of cause and effect. An observational study can prove that two variables are connected, but it cannot definitively prove that one caused the other.</p>
+</section>
+<section id="experimental-design" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="experimental-design"><span class="header-section-number">2.6.2</span> Experimental Design</h3>
+<p>To prove cause and effect, researchers must step out of the role of passive observers and take active control of the environment. An <a href="appendix-glossary.html#glossary-term-experiment" class="glossary-link" data-definition="A study in which researchers deliberately manipulate one or more variables to observe the direct effect on an outcome, using control and randomization to support a cause-and-effect conclusion." data-term="experiment" aria-describedby="glossary-tooltip">experiment</a> involves deliberately manipulating one or more variables to observe the direct effect on an outcome.</p>
+<p>A well-designed experiment relies on three core principles:</p>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-control" class="glossary-link" data-definition="The practice of holding outside variables constant in an experiment so they do not interfere with the results." data-term="control" aria-describedby="glossary-tooltip">Control</a><strong>:</strong> Researchers must hold all outside variables constant so they do not interfere with the results. If you are testing a new plant fertilizer, you ensure all plants get the same amount of sunlight and water.</li>
+<li><a href="appendix-glossary.html#glossary-term-randomization" class="glossary-link" data-definition="The random assignment of subjects or treatments in an experiment so that unavoidable natural differences are spread evenly across groups, keeping hidden biases from skewing the results." data-term="randomization" aria-describedby="glossary-tooltip">Randomization</a><strong>:</strong> Subjects or treatments must be assigned randomly. This ensures that any unavoidable natural differences between subjects are spread evenly across all groups, preventing hidden biases from skewing the results.</li>
+<li><a href="appendix-glossary.html#glossary-term-replication" class="glossary-link" data-definition="Conducting an experiment on a large enough number of subjects so that the results are not just a statistical fluke." data-term="replication" aria-describedby="glossary-tooltip">Replication</a><strong>:</strong> The experiment must be conducted on a large enough number of subjects to ensure that the results are not just a statistical fluke.</li>
+</ol>
+<p>This is where the genius of the Bertrand and Mullainathan (2004) study becomes clear. They knew an observational survey of employment data would be clouded by varying applicant qualifications. Instead, they built a randomized field experiment.</p>
+<p>Here is how they applied the three core principles: First, they applied extreme control by generating fictitious resumes. They ensured that the educational backgrounds, the number of prior jobs (<code>n_jobs</code>), and the years of experience (<code>years_exp</code>) were identical for competing candidates. Second, they used randomization. They took these identical resumes and randomly assigned either a White-sounding name or an African-American-sounding name. Finally, they employed large-scale replication by submitting 4,870 resumes to various employers.</p>
+<p>By designing an experiment, the researchers effectively stripped away all the confounding noise. Because the resumes were identical in every way except for the randomly assigned names, any difference in the interview callback rate (<code>call</code>) could only be caused by one thing: the perceived race of the applicant.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_02/fig_02_01_diagram_observational_vs_experiment.png" class="img-fluid figure-img" alt="Two-panel diagram comparing study designs. In the observational panel, hidden differences such as experience and university rank affect both perceived race and interview callbacks. In the experiment panel, random assignment sets the name and identical resumes hold qualifications constant."></p>
+<figcaption>Figure 2.1: Observational data compared with a randomized experiment. In the observational panel, hidden differences such as experience and university rank can affect both perceived race and interview callbacks. In the experiment, random assignment and identical resumes remove those paths.</figcaption>
+</figure>
+</div>
+<p>This is why randomized, controlled experiments are considered the gold standard in research. While observational studies are restricted to observing associations, a rigorously controlled experiment grants you the power to make confident, causal claims.</p>
+</section>
+</section>
+<section id="translating-research-questions-into-statistical-questions" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="translating-research-questions-into-statistical-questions"><span class="header-section-number">2.7</span> Translating Research Questions into Statistical Questions</h2>
+<p>We have moved from a broad research goal to a specific research question. However, we are still not quite ready to apply our mathematical tools. This next transition is often one of the most challenging steps in the entire research process. We must translate our specific research question into a formal <a href="appendix-glossary.html#glossary-term-statistical-question" class="glossary-link" data-definition="A formal question that (1) requires gathering data, (2) accounts for natural variability from sample to sample, and (3) names the specific statistical measure you will use to compare groups." data-term="statistical question" aria-describedby="glossary-tooltip">statistical question</a>.</p>
+<p>A research question asks about a relationship in the population. A statistical question asks about the numbers that represent that relationship. To qualify as a true statistical question, it must meet three strict requirements:</p>
+<ol type="1">
+<li><strong>It must require gathering data.</strong> You cannot answer a statistical question with a simple web search, a dictionary definition, or a philosophical argument. The only way to find the answer is to go out, collect data, and calculate a result.</li>
+<li><strong>It must account for variability.</strong> The answer to a statistical question will naturally fluctuate from sample to sample. If we ran our resume experiment again next month with a different set of employers, we would not get the same callback rates. A statistical question expects and embraces this natural variation.</li>
+<li><strong>It must identify a specific statistical measure.</strong> The question must explicitly state what mathematical summary you are going to use to compare your groups. In Chapter 1, we learned about measures like the mean, median, and proportion. A statistical question forces you to declare exactly which of these you are hunting for.</li>
+</ol>
+<p>The hardest part is usually that third requirement. How do you know which measure to pick? The secret is to look closely at the outcome variable you are measuring. Let’s walk through a few examples to see this translation process in action.</p>
+<p><strong>Example 1: The Hiring Bias Experiment</strong></p>
+<p>Our research question asks: Do identical resumes receive different interview callback rates depending on whether the applicant’s first name sounds White or African-American?</p>
+<p>To find our statistical measure, we have to start with our outcome variable. We are measuring whether or not an applicant received a callback. This is categorical data (a simple “yes” or “no”). You cannot calculate an “average” of a yes/no question. Instead, we have to count the number of successes (callbacks) and divide by the total number of resumes. Therefore, the only appropriate mathematical measure for this categorical outcome is a proportion. We can now write our final statistical question: <em>Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?</em></p>
+<p><strong>Example 2: Studying Student Health</strong></p>
+<p>Imagine a university health researcher with a new research question: Do collegiate athletes get a different amount of sleep on weeknights compared to non-athletes?</p>
+<p>Here, the outcome variable is hours of sleep. This is numerical data, which means we have to choose between a few different measures of center. If we were to picture a histogram of typical weeknight sleep for young adults, the data usually forms a roughly symmetric, bell-shaped distribution. Most students will cluster around the center (perhaps 7 hours), with roughly equal numbers of students tailing off toward extreme lack of sleep or unusually long sleep. Because the data is symmetric and generally lacks severe outliers pulling in one specific direction, the mean (the mathematical average) is an accurate and standard summary of the group. We can formalize this into a statistical question: <em>Is the mean number of weeknight sleep hours for student athletes different from the mean number of weeknight sleep hours for non-athletes?</em></p>
+<p><strong>Example 3: Analyzing Financial Outcomes</strong></p>
+<p>Finally, suppose a sociologist asks this research question: Do public university graduates carry different amounts of student debt compared to private university graduates?</p>
+<p>The outcome variable here is student debt. Like sleep hours, debt is numerical. However, financial data is almost never symmetric. As we discussed in Chapter 1, financial distributions are usually heavily right-skewed. Most students will have a moderate amount of debt, but a handful of students might have large outliers due to expensive graduate programs or medical school. If we used the mean, those few large outliers would artificially pull the average upward, painting a misleading picture of the typical student. To protect our analysis from those outliers, we need a resistant measure of center. Therefore, the median is the safest and most appropriate choice. Our final statistical question becomes: <em>Is the median student debt of public university graduates different from the median student debt of private university graduates?</em></p>
+<p>By forcing yourself to identify the specific measure (like a mean, median, or proportion) right now, you are doing yourself a big favor. The statistical measure you choose during this step will dictate which statistical method of analysis you must use later in the process.</p>
+</section>
+<section id="formalizing-hypotheses" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="formalizing-hypotheses"><span class="header-section-number">2.8</span> Formalizing Hypotheses</h2>
+<p>We have successfully translated our broad research interest into a specific statistical question: <em>Is the proportion of callbacks for resumes with White-sounding names significantly different from the proportion of callbacks for resumes with African-American-sounding names?</em> The final step before we can analyze any data is to set up a formal framework for testing this question. In statistics, we do this by establishing two competing claims about the population. We call these claims hypotheses.</p>
+<section id="the-null-and-alternative-hypotheses" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="the-null-and-alternative-hypotheses"><span class="header-section-number">2.8.1</span> The Null and Alternative Hypotheses</h3>
+<p>Every statistical test requires two mutually exclusive statements.</p>
+<p>The <a href="appendix-glossary.html#glossary-term-null-hypothesis" class="glossary-link" data-definition="The default assumption of no effect, no difference, or no relationship, written H₀; it always uses exact equality (=) and stands unless the data provide strong evidence against it." data-term="null hypothesis" aria-describedby="glossary-tooltip">Null Hypothesis</a> (denoted as <span class="math inline">\(H_0\)</span>) acts as the default assumption. It is the universal claim of “no effect,” “no difference,” or “no relationship.” For the resume experiment, the null hypothesis states that employers do not care about the perceived race of the applicant, meaning the callback rates are exactly the same for both groups.</p>
+<p>The <a href="appendix-glossary.html#glossary-term-alternative-hypothesis" class="glossary-link" data-definition="The claim that an effect, a difference, or a relationship exists in the population, written H₁; this is the position the researcher is actually trying to prove, and it is accepted only when the data provide strong enough evidence." data-term="alternative hypothesis" aria-describedby="glossary-tooltip">Alternative Hypothesis</a> (denoted as <span class="math inline">\(H_1\)</span>) is the exact opposite. It represents the presence of an effect, a difference, or a relationship in the population. This is usually the claim that you, the researcher, are actually trying to prove. In our hiring bias study, the alternative hypothesis is the claim that perceived race <em>does</em> affect interview callback rates. You might occasionally see this written as <span class="math inline">\(H_a\)</span> in older textbooks or specific disciplines, but <span class="math inline">\(H_1\)</span> is the modern standard across most scientific fields.</p>
+</section>
+<section id="the-logic-of-the-null-the-burden-of-proof" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="the-logic-of-the-null-the-burden-of-proof"><span class="header-section-number">2.8.2</span> The Logic of the Null: The Burden of Proof</h3>
+<p>You might wonder why we need a null hypothesis at all. Why not just test the claim we actually care about?</p>
+<p>Science requires a skeptical baseline. The statistical process operates very much like a criminal trial in the United States justice system. In a courtroom, a defendant is presumed innocent until proven guilty. The prosecutor must provide an overwhelming amount of evidence to reject that presumption of innocence. The defense does not have to prove the defendant is innocent; they just have to show that the prosecutor’s evidence is weak.</p>
+<p>In research, the null hypothesis represents that presumption of innocence. We always assume there is no effect, no difference, and no bias until the data forces us to believe otherwise.</p>
+<p>Consider a medical trial testing a new, experimental drug against a simple sugar pill (a placebo). The ethical and safe approach is to assume the new drug does absolutely nothing (<span class="math inline">\(H_0\)</span>). If we assumed the drug worked without evidence, we might give patients a useless or dangerous chemical. To convince the medical community to adopt the new treatment (<span class="math inline">\(H_1\)</span>), the researchers bear the burden of proof. They must provide overwhelming data that the new drug performs significantly better than the placebo.</p>
+<p>We will discuss the risks of making the wrong decision in the next chapter, but for now, remember this core philosophy: we require overwhelming evidence to abandon the safety of the null hypothesis.</p>
+</section>
+<section id="hypothesis-universals-a-summary" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="hypothesis-universals-a-summary"><span class="header-section-number">2.8.3</span> Hypothesis Universals: A Summary</h3>
+<p>To help keep these concepts straight as we move into actual testing, here is a summary of the universal rules that govern our two hypotheses.</p>
+<table class="caption-top table">
+<caption>Table 2.1: Summary of the universal rules governing the null and alternative hypotheses.</caption>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 41%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong></th>
+<th><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Core Meaning</strong></td>
+<td>No effect, no difference, or no relationship exists.</td>
+<td>An effect, a difference, or a relationship exists.</td>
+</tr>
+<tr class="even">
+<td><strong>Philosophical Stance</strong></td>
+<td>The assumed baseline. It requires zero evidence to maintain.</td>
+<td>The claim requiring evidence. The burden of proof rests entirely here.</td>
+</tr>
+<tr class="odd">
+<td><strong>Mathematical Boundary</strong></td>
+<td>Always uses strict equality (<span class="math inline">\(=\)</span>). It provides an exact mathematical anchor point for our test.</td>
+<td>Always uses “does not equal” (<span class="math inline">\(\neq\)</span>). We look for any significant difference, regardless of direction.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note on two-sided testing: By strictly using the “does not equal” sign (<span class="math inline">\(\neq\)</span>) for our alternative hypothesis, we are conducting a “two-sided” test. This means we are keeping our minds open to the effect moving in either direction. For example, if we only check to see if a treatment is better than a placebo, we would miss the possibility that it’s actually worse than a placebo. Once we prove an effect exists, we will use other tools (like confidence intervals and effect sizes) to talk about the specific direction and magnitude of that effect. Choosing to only look in one direction before the test begins is a discouraged practice in modern research.</em></p>
+</section>
+<section id="stating-the-hypotheses-with-parameters" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="stating-the-hypotheses-with-parameters"><span class="header-section-number">2.8.4</span> Stating the Hypotheses with Parameters</h3>
+<p>To make these conceptual claims mathematically testable, we write them out using the specific parameters we identified in the previous step.</p>
+<p>Remember that parameters are the true, hidden numbers that describe the entire population. To keep things organized, statisticians universally use Greek letters to represent these population parameters. Since we are comparing proportions, we will use the Greek letter pi (<span class="math inline">\(\pi\)</span>) to represent the true population proportion.</p>
+<p>Here are our two parameters for the study:</p>
+<ul>
+<li><span class="math inline">\(\pi_W\)</span> represents the true proportion of callbacks for all identical resumes with White-sounding names.</li>
+<li><span class="math inline">\(\pi_{AA}\)</span> represents the true proportion of callbacks for all identical resumes with African-American-sounding names.</li>
+</ul>
+<p>Now, we can write our hypotheses mathematically. The null hypothesis always anchors on exact equality, meaning there is no difference between the groups. The most intuitive way to write this is to simply set the two parameters equal to one another.</p>
+<ul>
+<li><p><a href="appendix-glossary.html#glossary-term-null-hypothesis" class="glossary-link" data-definition="The default assumption of no effect, no difference, or no relationship, written H₀; it always uses exact equality (=) and stands unless the data provide strong evidence against it." data-term="null hypothesis" aria-describedby="glossary-tooltip">Null Hypothesis (<span class="math inline">\(H_0\)</span>)</a><strong>:</strong> <span class="math inline">\(\pi_W = \pi_{AA}\)</span></p>
+<p><em>(Plain English: There is no difference in the true callback proportions between the two groups.)</em></p></li>
+</ul>
+<p>The alternative hypothesis claims that a significant difference does exist, meaning the two groups are not equal.</p>
+<ul>
+<li><p><a href="appendix-glossary.html#glossary-term-alternative-hypothesis" class="glossary-link" data-definition="The claim that an effect, a difference, or a relationship exists in the population, written H₁; this is the position the researcher is actually trying to prove, and it is accepted only when the data provide strong enough evidence." data-term="alternative hypothesis" aria-describedby="glossary-tooltip">Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</a><strong>:</strong> <span class="math inline">\(\pi_W \neq \pi_{AA}\)</span></p>
+<p><em>(Plain English: There is a significant difference in the true callback proportions between the two groups.)</em></p></li>
+</ul>
+<p><strong>The Software Format</strong></p>
+<p>While setting the parameters equal to each other is how human beings naturally think about the null hypothesis, it is not how computers handle the math. Statistical software programs do not place groups on opposite sides of an equals sign. Instead, they subtract one group from the other.</p>
+<p>If two groups are truly equal (as the null hypothesis claims), then subtracting one from the other must result in exactly zero. Therefore, you will almost always see statistical software output and advanced research papers format these same hypotheses by setting the <em>difference</em> to zero:</p>
+<ul>
+<li><strong>Software Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> <span class="math inline">\(\pi_W - \pi_{AA} = 0\)</span></li>
+<li><strong>Software Alternative Hypothesis (<span class="math inline">\(H_1\)</span>):</strong> <span class="math inline">\(\pi_W - \pi_{AA} \neq 0\)</span></li>
+</ul>
+<p>Both formats are mathematically identical and mean the same thing. We will generally use the intuitive format (<span class="math inline">\(\pi_W = \pi_{AA}\)</span>) when setting up our ideas, but be prepared to read the software format (<span class="math inline">\(\pi_W - \pi_{AA} = 0\)</span>) when interpreting your final results.</p>
+<p>With these formal mathematical statements locked in place, our research blueprint is complete. We are finally ready to calculate the evidence.</p>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">2.9</span> Common Mistakes and Misconceptions</h2>
+<p>As you begin translating your own research ideas into formal statistical frameworks, watch out for these three common traps.</p>
+<section id="writing-hypotheses-after-gathering-data" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="writing-hypotheses-after-gathering-data"><span class="header-section-number">2.9.1</span> Writing Hypotheses After Gathering Data</h3>
+<p>Perhaps the most frequent mistake researchers make when first learning to write formal hypotheses is putting their sample data directly into the mathematical statements. Remember that hypotheses are claims about the invisible, unknown population. We already know exactly what our sample data says; we do not need to form hypotheses about it.</p>
+<p>More importantly, the scientific method strictly requires you to set your hypotheses <em>before</em> you collect or analyze your data. While exploring a dataset to see what interesting patterns emerge (known as exploratory analysis) is a valuable tool for generating future research ideas, it is not hypothesis testing. If you dig through a dataset, find a surprising difference between two groups, and then write a hypothesis pretending you predicted that difference all along, you are violating the scientific process. This practice can lead to unethical research because it tricks the mathematical formulas into finding “significant” results that are actually just random flukes. We will explore the dangers of this practice, often called p-hacking, in our final chapter on statistics and ethics.</p>
+</section>
+<section id="confusing-reliability-with-validity-in-proxy-variables" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="confusing-reliability-with-validity-in-proxy-variables"><span class="header-section-number">2.9.2</span> Confusing Reliability with Validity in Proxy Variables</h3>
+<p>It is easy to mix up these two concepts because we often use them interchangeably in everyday language. In research, they are strictly separated, and this distinction becomes critical whenever you use a proxy variable.</p>
+<p>Remember the broken scale example. A scale that always reads exactly 10 pounds too light is perfectly reliable (it gives the same wrong answer every time), but it is invalid (it does not measure your actual weight). When we measure something abstract like “employer interest” using a proxy variable like “interview callbacks,” validity becomes a primary concern. A measurement must be valid before its reliability even matters. You can reliably record the exact number of seconds an employer spends on a resume, but if that time does not actually indicate their likelihood of hiring the candidate, your reliable proxy is invalid.</p>
+</section>
+<section id="the-causation-illusion-in-observational-studies" class="level3" data-number="2.9.3">
+<h3 data-number="2.9.3" class="anchored" data-anchor-id="the-causation-illusion-in-observational-studies"><span class="header-section-number">2.9.3</span> The Causation Illusion in Observational Studies</h3>
+<p>When researchers find a strong relationship in an observational study, it is tempting to jump straight to cause and effect. Even before we get to the mathematical formulas of testing, you must remember that your study design strictly limits the types of claims you can make.</p>
+<p>Unless you personally controlled the environment and randomly assigned treatments in a formal experiment, you cannot prove causation. There are always hidden, confounding variables at play in practice. Observational studies can only prove that two variables are connected or associated. A helpful way to frame this in your mind is to remember that observational studies describe <em>what</em> is happening, while randomized experiments test <em>why</em> it is happening.</p>
+<p><strong>A Note on Modern Causal Research:</strong> While a single observational study cannot prove causation, modern statistical software has popularized a technique called <a href="appendix-glossary.html#glossary-term-meta-analysis" class="glossary-link" data-definition="A technique that mathematically combines the results of many independent studies on the same topic, pooling their data to build a stronger argument than any single study can." data-term="meta-analysis" aria-describedby="glossary-tooltip">meta-analysis</a>. A meta-analysis mathematically combines the results of dozens or even hundreds of independent studies on the same topic. By pooling large amounts of observational and experimental data together, researchers can sometimes isolate variables well enough to build convincing arguments for cause and effect, even without a single, controlled master experiment.</p>
+</section>
+</section>
+<section id="key-concepts" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">2.10</span> Key Concepts</h2>
+<ol type="1">
+<li>The scientific process requires translating a broad research goal into a specific, measurable research question before gathering any data.</li>
+<li><a href="appendix-glossary.html#glossary-term-operationalization" class="glossary-link" data-definition="The process of defining exactly how you will measure an abstract concept in your study, bridging a theoretical idea and the concrete data you will eventually analyze." data-term="operationalization" aria-describedby="glossary-tooltip">Operationalization</a> is the process of defining exactly how you will measure an abstract concept, often requiring a <a href="appendix-glossary.html#glossary-term-proxy-variable" class="glossary-link" data-definition="A measurable characteristic that stands in for an unobservable or difficult-to-measure concept." data-term="proxy variable" aria-describedby="glossary-tooltip">proxy variable</a> if the concept cannot be observed directly.</li>
+<li>A <strong>valid</strong> measurement accurately captures the intended theoretical concept, while a <strong>reliable</strong> measurement produces consistent results over multiple attempts.</li>
+<li><a href="appendix-glossary.html#glossary-term-cronbach-s-alpha" class="glossary-link" data-definition="A statistic (written α) that measures the internal consistency of a survey, ranging from 0 to 1; values of 0.70 or higher are generally considered acceptable in social science research." data-term="Cronbach’s alpha" aria-describedby="glossary-tooltip">Cronbach’s alpha (<span class="math inline">\(\alpha\)</span>)</a> is a statistic used to measure the internal consistency of a survey or scale, typically ranging from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, with values above <span class="math inline">\(0.70\)</span> considered acceptable in social science research.</li>
+<li><strong>Observational studies</strong> can identify connections between variables, but only randomized, controlled <a href="appendix-glossary.html#glossary-term-experiment" class="glossary-link" data-definition="A study in which researchers deliberately manipulate one or more variables to observe the direct effect on an outcome, using control and randomization to support a cause-and-effect conclusion." data-term="experiment" aria-describedby="glossary-tooltip">experiments</a> can prove a cause-and-effect relationship.</li>
+<li>A statistical question must require data collection, account for natural variation, and identify a specific mathematical measure (like a mean, median, or proportion).</li>
+<li>The <a href="appendix-glossary.html#glossary-term-null-hypothesis" class="glossary-link" data-definition="The default assumption of no effect, no difference, or no relationship, written H₀; it always uses exact equality (=) and stands unless the data provide strong evidence against it." data-term="null hypothesis" aria-describedby="glossary-tooltip">null hypothesis</a> (<span class="math inline">\(H_0\)</span>) represents the default assumption of no effect or no difference. Researchers bear the burden of proof to reject it.</li>
+<li>The <a href="appendix-glossary.html#glossary-term-alternative-hypothesis" class="glossary-link" data-definition="The claim that an effect, a difference, or a relationship exists in the population, written H₁; this is the position the researcher is actually trying to prove, and it is accepted only when the data provide strong enough evidence." data-term="alternative hypothesis" aria-describedby="glossary-tooltip">alternative hypothesis</a> (<span class="math inline">\(H_1\)</span>) represents the claim of a significant effect or difference. It is established only when the data provides overwhelming evidence.</li>
+<li>Modern ethical research expects two-sided hypothesis testing (using <span class="math inline">\(\neq\)</span>), checking for an effect in any direction before determining its specific size.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">2.11</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 2.2: Notation for the null and alternative hypotheses.</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>Read Aloud As</strong></th>
+<th><strong>What it Represents</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0\)</span></td>
+<td>“H-naught” or “H-zero”</td>
+<td>The null hypothesis; the mathematical assumption of no effect, no difference, or exact equality.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_1\)</span></td>
+<td>“H-one”</td>
+<td>The alternative hypothesis; the mathematical claim that a significant effect or difference exists.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chapter-exercises" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="chapter-exercises"><span class="header-section-number">2.12</span> Chapter Exercises</h2>
+<section id="interpretation" class="level3" data-number="2.12.1">
+<h3 data-number="2.12.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">2.12.1</span> Interpretation</h3>
+<p><strong>1.</strong> A psychologist develops a new questionnaire to measure “student resilience” in the face of academic setbacks. A student takes the survey on Monday and receives a high resilience score. They take the same survey again on Tuesday, with no new academic events having occurred, but receive a low resilience score. What measurement property is this new survey lacking? Explain your reasoning.</p>
+<p><strong>2.</strong> An economist wants to study the broad concept of “financial well-being” among young adults. Because well-being is an abstract concept, they operationalize it using a proxy variable: the total number of credit cards a person owns. Why might this be an invalid proxy variable for financial well-being?</p>
+<p><strong>3.</strong> A university researcher reviews five years of registrar records and discovers a strong relationship: students who take early morning classes tend to have higher graduation rates than students who only take afternoon classes. Based entirely on this study design, can the researcher conclude that waking up early causes students to graduate at higher rates? Why or why not?</p>
+<p><strong>4.</strong> In the scenario from Question 3, identify at least one hidden confounding variable that might explain the connection between early morning classes and higher graduation rates, demonstrating why we cannot assume cause and effect.</p>
+</section>
+<section id="choosing-a-method" class="level3" data-number="2.12.2">
+<h3 data-number="2.12.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">2.12.2</span> Choosing a Method</h3>
+<p><strong>5.</strong> A sociologist wants to know if the rate of homeownership differs between millennials living in urban environments versus millennials in rural environments. To answer this, should they compare a mean, a median, or a proportion? Explain your choice based on the type of data being collected.</p>
+<p><strong>6.</strong> A public health official is studying the hospital recovery times (measured in total days) for a specific joint replacement surgery. Most patients recover and are discharged in 3 to 4 days, but a small handful of patients experience severe complications and remain in the hospital for months. Which mathematical measure of center should the official use to summarize the typical recovery time for these patients, and why?</p>
+<p><strong>7.</strong> An economist has a broad research goal: they want to know if a baby’s weight at birth differs between a county with a high median household income and a county with a median household income right at the poverty line. Given that birth weights are symmetric and closely follow a normal distribution curve, translate this broad research interest into a formal statistical question, ensuring you identify the specific mathematical measure of center the economist should compare.</p>
+<p><strong>8.</strong> An education researcher wants to rigorously prove that a newly developed reading curriculum improves standardized test scores for third graders. Describe how they could design a randomized experiment to test this, explicitly mentioning how they would apply the concepts of control and randomization.</p>
+</section>
+<section id="communicating-results" class="level3" data-number="2.12.3">
+<h3 data-number="2.12.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">2.12.3</span> Communicating Results</h3>
+<p><strong>9.</strong> A political scientist is studying local voter turnout. They want to test if the true proportion of registered voters who cast a ballot is different in Natrona County compared to Carbon County. Write the formal null (<span class="math inline">\(H_0\)</span>) and alternative (<span class="math inline">\(H_1\)</span>) hypotheses for this test.</p>
+<p><strong>10.</strong> A medical researcher is running a clinical trial to test whether a new physical therapy routine speeds up injury recovery compared to the standard routine. What is the conceptual null hypothesis in this context, and why does the scientific method require the researcher to assume it is true before beginning the study?</p>
+<p><strong>11.</strong> You are reading a published research paper, and the authors provide the following mathematical statements from their statistical software:</p>
+<ul>
+<li><span class="math inline">\(H_0: \pi_{placebo} - \pi_{treatment} = 0\)</span></li>
+<li><span class="math inline">\(H_1:  \pi_{placebo} - \pi_{treatment} \neq 0\)</span></li>
+</ul>
+<p>Translate these two mathematical statements into a plain English explanation of what the researchers are assuming, and what they are trying to prove.</p>
+<p><strong>12.</strong> A student reads an observational study about the difference in smoking rates between two cities. For their homework, the student writes the following null hypothesis: <span class="math inline">\(H_0: p_1 = p_2\)</span>. What is the critical error in the student’s notation, and how should it be fixed to correctly represent a formal hypothesis?</p>
+</section>
+<section id="software-application" class="level3" data-number="2.12.4">
+<h3 data-number="2.12.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">2.12.4</span> Software Application</h3>
+<p><strong>13.</strong> Open the <code>amas_math_anxiety.csv</code> dataset in your statistical software. We will analyze the internal consistency of the 9-item Abbreviated Math Anxiety Scale using the baseline participant responses.</p>
+<ul>
+<li><ol type="a">
+<li>Use your software to calculate Cronbach’s alpha (<span class="math inline">\(\alpha\)</span>) for the nine items (<code>item_1</code> through <code>item_9</code>). Report the exact value from your output.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Based on the <span class="math inline">\(0.70\)</span> threshold discussed in the chapter, determine if this scale displays acceptable internal consistency. State your conclusion in plain English.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Suppose that, in a different sample, removing <code>item_1</code> would drop the overall alpha value to <span class="math inline">\(0.65\)</span>. Should the researcher remove it? Explain how this change would affect the internal consistency of the remaining items.</li>
+</ol></li>
+</ul>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-01.html" class="pagination-link" aria-label="Understanding Data through Measures and Visualizations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-03.html" class="pagination-link" aria-label="Hypothesis Testing and Effect Sizes">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

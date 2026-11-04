@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; The One-Way ANOVA – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-07.html" rel="next">
+<link href="../chapters/chapter-05.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-06.html">Unit III: Design of Experiments (ANOVA)</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a></li>
+  <li><a href="#what-do-we-mean-by-experimental-design" id="toc-what-do-we-mean-by-experimental-design" class="nav-link" data-scroll-target="#what-do-we-mean-by-experimental-design"><span class="header-section-number">6.2</span> What Do We Mean by Experimental Design?</a></li>
+  <li><a href="#what-is-an-anova" id="toc-what-is-an-anova" class="nav-link" data-scroll-target="#what-is-an-anova"><span class="header-section-number">6.3</span> What is an ANOVA?</a></li>
+  <li><a href="#partitioning-variation" id="toc-partitioning-variation" class="nav-link" data-scroll-target="#partitioning-variation"><span class="header-section-number">6.4</span> Partitioning Variation</a>
+  <ul class="collapse">
+  <li><a href="#the-core-logic-of-anova" id="toc-the-core-logic-of-anova" class="nav-link" data-scroll-target="#the-core-logic-of-anova"><span class="header-section-number">6.4.1</span> The Core Logic of ANOVA</a></li>
+  </ul></li>
+  <li><a href="#why-not-independent-sample-t-tests" id="toc-why-not-independent-sample-t-tests" class="nav-link" data-scroll-target="#why-not-independent-sample-t-tests"><span class="header-section-number">6.5</span> Why Not Independent Sample <span class="math inline">\(t\)</span>-Tests?</a></li>
+  <li><a href="#fitting-the-one-way-model" id="toc-fitting-the-one-way-model" class="nav-link" data-scroll-target="#fitting-the-one-way-model"><span class="header-section-number">6.6</span> Fitting the One-Way Model</a>
+  <ul class="collapse">
+  <li><a href="#formalizing-the-hypotheses" id="toc-formalizing-the-hypotheses" class="nav-link" data-scroll-target="#formalizing-the-hypotheses"><span class="header-section-number">6.6.1</span> Formalizing the Hypotheses</a></li>
+  <li><a href="#a-common-pitfall-different-from-the-others" id="toc-a-common-pitfall-different-from-the-others" class="nav-link" data-scroll-target="#a-common-pitfall-different-from-the-others"><span class="header-section-number">6.6.2</span> A Common Pitfall: “Different from the Others”</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics"><span class="header-section-number">6.7</span> Model Diagnostics</a>
+  <ul class="collapse">
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">6.7.1</span> Independence</a></li>
+  <li><a href="#mutually-exclusive-factor-levels" id="toc-mutually-exclusive-factor-levels" class="nav-link" data-scroll-target="#mutually-exclusive-factor-levels"><span class="header-section-number">6.7.2</span> Mutually Exclusive Factor Levels</a></li>
+  <li><a href="#normality" id="toc-normality" class="nav-link" data-scroll-target="#normality"><span class="header-section-number">6.7.3</span> Normality</a></li>
+  <li><a href="#equal-variances" id="toc-equal-variances" class="nav-link" data-scroll-target="#equal-variances"><span class="header-section-number">6.7.4</span> Equal Variances</a></li>
+  <li><a href="#circling-back" id="toc-circling-back" class="nav-link" data-scroll-target="#circling-back"><span class="header-section-number">6.7.5</span> Circling Back</a></li>
+  </ul></li>
+  <li><a href="#post-hoc-analysis" id="toc-post-hoc-analysis" class="nav-link" data-scroll-target="#post-hoc-analysis"><span class="header-section-number">6.8</span> Post Hoc Analysis</a>
+  <ul class="collapse">
+  <li><a href="#why-are-we-allowed-to-do-this" id="toc-why-are-we-allowed-to-do-this" class="nav-link" data-scroll-target="#why-are-we-allowed-to-do-this"><span class="header-section-number">6.8.1</span> Why Are We Allowed to Do This?</a></li>
+  <li><a href="#a-brief-warning-the-bonferroni-correction" id="toc-a-brief-warning-the-bonferroni-correction" class="nav-link" data-scroll-target="#a-brief-warning-the-bonferroni-correction"><span class="header-section-number">6.8.2</span> A Brief Warning: The Bonferroni Correction</a></li>
+  <li><a href="#tukeys-hsd-honestly-significant-difference" id="toc-tukeys-hsd-honestly-significant-difference" class="nav-link" data-scroll-target="#tukeys-hsd-honestly-significant-difference"><span class="header-section-number">6.8.3</span> Tukey’s HSD (Honestly Significant Difference)</a></li>
+  <li><a href="#dunnetts-test-comparing-to-a-control" id="toc-dunnetts-test-comparing-to-a-control" class="nav-link" data-scroll-target="#dunnetts-test-comparing-to-a-control"><span class="header-section-number">6.8.4</span> Dunnett’s Test: Comparing to a Control</a></li>
+  <li><a href="#the-post-hoc-to-the-post-hoc-practical-significance" id="toc-the-post-hoc-to-the-post-hoc-practical-significance" class="nav-link" data-scroll-target="#the-post-hoc-to-the-post-hoc-practical-significance"><span class="header-section-number">6.8.5</span> The Post Hoc to the Post Hoc: Practical Significance</a></li>
+  </ul></li>
+  <li><a href="#guided-analysis" id="toc-guided-analysis" class="nav-link" data-scroll-target="#guided-analysis"><span class="header-section-number">6.9</span> Guided Analysis</a>
+  <ul class="collapse">
+  <li><a href="#the-research-interest" id="toc-the-research-interest" class="nav-link" data-scroll-target="#the-research-interest"><span class="header-section-number">6.9.1</span> The Research Interest</a></li>
+  <li><a href="#the-research-question" id="toc-the-research-question" class="nav-link" data-scroll-target="#the-research-question"><span class="header-section-number">6.9.2</span> The Research Question</a></li>
+  <li><a href="#data-triage-and-exploratory-analysis" id="toc-data-triage-and-exploratory-analysis" class="nav-link" data-scroll-target="#data-triage-and-exploratory-analysis"><span class="header-section-number">6.9.3</span> Data Triage and Exploratory Analysis</a></li>
+  <li><a href="#formal-analysis-the-global-anova" id="toc-formal-analysis-the-global-anova" class="nav-link" data-scroll-target="#formal-analysis-the-global-anova"><span class="header-section-number">6.9.4</span> Formal Analysis: The Global ANOVA</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6.9.5</span> Conclusion</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">6.10</span> Common Mistakes and Misconceptions</a>
+  <ul class="collapse">
+  <li><a href="#the-significant-vs.-non-significant-trap" id="toc-the-significant-vs.-non-significant-trap" class="nav-link" data-scroll-target="#the-significant-vs.-non-significant-trap"><span class="header-section-number">6.10.1</span> The “Significant vs.&nbsp;Non-Significant” Trap</a></li>
+  <li><a href="#mixing-up-measures-boxplots-vs.-the-math" id="toc-mixing-up-measures-boxplots-vs.-the-math" class="nav-link" data-scroll-target="#mixing-up-measures-boxplots-vs.-the-math"><span class="header-section-number">6.10.2</span> Mixing Up Measures: Boxplots vs.&nbsp;The Math</a></li>
+  <li><a href="#the-myth-that-the-data-must-be-normal" id="toc-the-myth-that-the-data-must-be-normal" class="nav-link" data-scroll-target="#the-myth-that-the-data-must-be-normal"><span class="header-section-number">6.10.3</span> The Myth that “The Data Must Be Normal”</a></li>
+  <li><a href="#viewing-unequal-variances-solely-as-a-failure" id="toc-viewing-unequal-variances-solely-as-a-failure" class="nav-link" data-scroll-target="#viewing-unequal-variances-solely-as-a-failure"><span class="header-section-number">6.10.4</span> Viewing Unequal Variances Solely as a “Failure”</a></li>
+  </ul></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">6.11</span> Key Concepts</a></li>
+  <li><a href="#new-notation" id="toc-new-notation" class="nav-link" data-scroll-target="#new-notation"><span class="header-section-number">6.12</span> New Notation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.13</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">6.13.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">6.13.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">6.13.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">6.13.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-06.html">Unit III: Design of Experiments (ANOVA)</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<p>In our previous chapters, we spent a lot of time exploring how to compare groups. For instance, in Chapter 3, you learned how to use an independent sample <span class="math inline">\(t\)</span>-test to determine if a numerical variable’s average differed significantly between two distinct groups, such as a diet intervention group and a control group. But the social world is rarely limited to simple either-or comparisons. What happens when we want to compare outcomes across three, four, or even more groups at the same time?</p>
+<p>Consider the structure of the American high school system. Many schools use “academic tracking,” placing students into distinct educational programs based on their perceived abilities or career goals. A researcher might ask: Does the choice of program track have a measurable effect on a student’s academic performance?</p>
+<p>To explore this, we will use the <code>hsb.csv</code> dataset, which contains a random sample of 200 high school seniors from the High School and Beyond study, a major national longitudinal study managed by the National Center for Education Statistics.</p>
+<ul>
+<li><strong><code>prog</code></strong>: A categorical variable indicating the academic program track the student is enrolled in (general, academic, or vocational).</li>
+<li><strong><code>write</code></strong>: A numerical variable representing the student’s standardized writing score (scaled to a standardized metric with a mean around 50 and a standard deviation of 10).</li>
+</ul>
+<p><em>(Note: The original dataset contains several other demographic and academic variables, but we are explicitly omitting them here to focus solely on the relationship between program track and writing performance).</em></p>
+<p>By the end of this chapter, you will learn how to partition the variation in a dataset to see if it stems from the program track or just random individual differences. You will also learn how to validate the underlying assumptions of the ANOVA model, and, if a significant difference is found, how to responsibly pinpoint exactly which groups differ from one another using post hoc tests without compromising your standards of evidence.</p>
+</section>
+<section id="what-do-we-mean-by-experimental-design" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="what-do-we-mean-by-experimental-design"><span class="header-section-number">6.2</span> What Do We Mean by Experimental Design?</h2>
+<p>When you hear the phrase “experimental design,” you might picture scientists in white coats mixing chemicals in a sterile laboratory. But in the social sciences, economics, and psychology, experimental design is rarely about test tubes. Instead, it is about how we structure our observations to compare different conditions, interventions, or pre-existing groups.</p>
+<p>To work through these designs, we need to establish a shared vocabulary. When we set up a study to compare groups, we use specific terms to describe our variables:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-response-variable" class="glossary-link" data-definition="The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement." aria-describedby="glossary-tooltip" data-term="response variable">Response variable</a>: This is the numerical outcome we are ultimately trying to measure or predict. In our high school dataset (<code>hsb.csv</code>), the response variable is the student’s standardized writing score (<code>write</code>).</li>
+<li><a href="appendix-glossary.html#glossary-term-factor" class="glossary-link" data-definition="The categorical variable that divides a sample into the groups being compared; also called the treatment variable." aria-describedby="glossary-tooltip" data-term="factor">Factor</a> (or <strong>treatment variable</strong>): This is the categorical variable that divides our sample into the distinct groups we want to compare. In our running example, the factor is the academic program track (<code>prog</code>).</li>
+<li><a href="appendix-glossary.html#glossary-term-factor-level" class="glossary-link" data-definition="One of the specific categories that make up a factor; also called a treatment level." aria-describedby="glossary-tooltip" data-term="factor level">Factor levels</a> (or <strong>treatment levels</strong>): These are the specific, individual categories that make up the factor. Our program track factor has three distinct levels: general, academic, and vocational.</li>
+<li><a href="appendix-glossary.html#glossary-term-treatment-group" class="glossary-link" data-definition="The subset of participants who fall into one particular level of a factor." aria-describedby="glossary-tooltip" data-term="treatment group">Treatment groups</a>: These are the actual subsets of participants who fall into each level. For instance, all the students in our sample who are enrolled in the academic track make up one treatment group.</li>
+</ul>
+<p>Notice how we use the word treatment here. In everyday language, a “treatment” implies a medical intervention, like giving a patient a new diet plan or a specific medication. But in a strict statistical sense, a <a href="appendix-glossary.html#glossary-term-treatment" class="glossary-link" data-definition="The specific condition or category that distinguishes the groups being compared, whether researchers assign it or it occurs naturally." aria-describedby="glossary-tooltip" data-term="treatment">treatment</a> is simply the specific condition or category that distinguishes our groups.</p>
+<p>Sometimes, researchers actively <em>apply</em> a treatment. For example, a psychologist might randomly assign patients to receive either cognitive behavioral therapy, group counseling, or a placebo to measure changes in anxiety. This is a classic, active experimental design.</p>
+<p>Other times, we simply observe pre-existing subgroups. In our high school dataset, we did not force students into different program tracks as an experiment; they were already grouped that way based on their choices or school policies. A sociologist might compare income levels across different geographical regions, or a political scientist might compare voter turnout across different age brackets. These are technically observational designs because we are just comparing existing subgroups.</p>
+<p>Here is the beautiful part about the framework we’ll develop in this chapter: the mathematical machinery behind the scenes does not care whether you actively applied a clinical treatment or simply divided your dataset into naturally occurring subgroups. Whether you are testing an active intervention (like a diet plan) or observing a built-in category (like an academic track), statisticians treat them as the same idea: we are simply comparing means across different categories.</p>
+</section>
+<section id="what-is-an-anova" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="what-is-an-anova"><span class="header-section-number">6.3</span> What is an ANOVA?</h2>
+<p>Now that we have our vocabulary, we can introduce the tool we use to analyze this data: the <a href="appendix-glossary.html#glossary-term-anova" class="glossary-link" data-definition="Analysis of Variance: a statistical test that compares the means of three or more independent groups to determine whether at least one pair differs significantly; the natural extension of the independent sample t-test." aria-describedby="glossary-tooltip" data-term="ANOVA">ANOVA</a>.</p>
+<p>At its core, an <a href="appendix-glossary.html#glossary-term-anova" class="glossary-link" data-definition="Analysis of Variance: a statistical test that compares the means of three or more independent groups to determine whether at least one pair differs significantly; the natural extension of the independent sample t-test." aria-describedby="glossary-tooltip" data-term="ANOVA">ANOVA</a> (which stands for Analysis of Variance) is a statistical test that compares the averages of three or more independent groups to determine if there is a statistically significant difference between them. Think of it as the natural upgrade to the independent sample <span class="math inline">\(t\)</span>-test you learned in Chapter 3. While the <span class="math inline">\(t\)</span>-test is strictly limited to comparing exactly two groups, an ANOVA can handle three, four, or even fifty groups simultaneously. You will use an ANOVA whenever your research question involves a categorical factor with at least three distinct levels and a numerical response variable. For example, determining if mean numerical writing scores differ across the three distinct categorical program tracks (general, academic, and vocational) is a perfect job for an ANOVA.</p>
+<p>If you are paying close attention, that name might sound a bit strange. Why are we talking about “variance” when our goal is to compare <em>averages</em> across different groups? In Chapter 1, we learned that the standard deviation is our primary measure of how spread out, or variable, our data is. <a href="appendix-glossary.html#glossary-term-variance" class="glossary-link" data-definition="A measure of spread equal to the average squared deviation from the mean; ANOVA partitions this variability into between-groups and within-groups parts." aria-describedby="glossary-tooltip" data-term="variance">Variance</a> is simply another mathematical way to measure that same concept of variability. As we will see in the next section, the secret to comparing group averages lies in analyzing how the data’s variability is spread out.</p>
+<p>So, what kinds of research designs lead to an ANOVA? It depends slightly on who you ask:</p>
+<ul>
+<li><strong>The Statistician’s Perspective:</strong> Statisticians typically view an ANOVA as a tool for comparing numerical means across different subgroups. In our dataset, a statistician would ask: <em>Is the mean writing score the same in each of the three program tracks?</em></li>
+<li><strong>The Researcher’s Perspective:</strong> Social science researchers often think of an ANOVA as a way to look for a broader relationship between a categorical variable and a numerical variable. A researcher would ask: <em>Does a student’s choice of program track have a significant effect on their writing scores?</em></li>
+</ul>
+<p>Both perspectives are valid, and both are answered using the same ANOVA framework. If the choice of program track truly affects writing performance, then the mean writing scores across those treatment groups will be significantly different from one another.</p>
+</section>
+<section id="partitioning-variation" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="partitioning-variation"><span class="header-section-number">6.4</span> Partitioning Variation</h2>
+<p>If we want to know whether the academic program track affects a student’s writing score, we have to look closely at how the writing scores differ from one another. Imagine taking all 200 standardized writing scores from our dataset and throwing them into one giant pile. Naturally, you would see a lot of spread. Some students scored very high, some scored very low, and many scored somewhere in the middle. We call this large pile of differences the <a href="appendix-glossary.html#glossary-term-total-variation" class="glossary-link" data-definition="The overall spread among all observations in a dataset before it is split into between-groups and within-groups parts." aria-describedby="glossary-tooltip" data-term="total variation">total variation</a>.</p>
+<p>But where exactly does all that variation come from? Is it because the school’s program tracks are fundamentally different, or is it just because human beings naturally perform differently on tests?</p>
+<p>To answer this, an ANOVA does something quite clever: it splits that giant pile of variation into two distinct, manageable pieces. In statistics, this process is called <a href="appendix-glossary.html#glossary-term-partitioning-variation" class="glossary-link" data-definition="The ANOVA process of splitting total variation into between-groups variation (signal) and within-groups variation (noise)." aria-describedby="glossary-tooltip" data-term="partitioning variation">partitioning variation</a>. We partition, or divide, the total variation into two categories:</p>
+<p><strong>1. Between-Groups Variation</strong></p>
+<p>This piece of the pie measures how much the <em>averages</em> of our three treatment groups (general, academic, and vocational) differ from one another. Imagine calculating the average writing score for the academic track, the average for the general track, and the average for the vocational track, and then comparing the gaps between those three numbers.</p>
+<p>If the program track truly has a major impact on writing performance, these three averages should be pulled far apart from each other. Therefore, we can think of the between-groups variation as our <a href="appendix-glossary.html#glossary-term-signal" class="glossary-link" data-definition="The portion of variation that reflects the real effect being studied, such as differences between group means; in ANOVA it is the between-groups variation." aria-describedby="glossary-tooltip" data-term="signal">signal</a>. It represents the actual effect of the treatment factor we are trying to study.</p>
+<p><strong>2. Within-Groups Variation</strong></p>
+<p>Now, pretend we zoom in and look <em>only</em> at the students in the academic track. Do all of these students have the same writing score? Of course not. Even though they are in the same program, their scores will still bounce around. Some had a good night’s sleep, others have test anxiety, and others simply have a natural talent for writing.</p>
+<p>This is the within-groups variation. It measures the natural, random differences among individuals who are in the same treatment group. Because this variation is caused by background factors we are not explicitly studying, we can think of it as our <a href="appendix-glossary.html#glossary-term-noise" class="glossary-link" data-definition="Random variation among individuals that is unrelated to the factor being studied; in ANOVA it is the within-groups variation." aria-describedby="glossary-tooltip" data-term="noise">noise</a>.</p>
+<section id="the-core-logic-of-anova" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="the-core-logic-of-anova"><span class="header-section-number">6.4.1</span> The Core Logic of ANOVA</h3>
+<p>Once the ANOVA has successfully partitioned the data into these two pieces, it simply compares them.</p>
+<p>Think back to Chapter 3, where we first discussed the idea of separating signal from noise. The ANOVA asks an intuitive question: Is the signal loud enough to be heard over the noise?</p>
+<ul>
+<li><strong>If the between-groups variation is much larger than the within-groups variation</strong>, the differences between the program tracks are large enough to drown out the natural, random differences between individual students. In this case, the ANOVA will produce a very small <span class="math inline">\(p\)</span>-value, providing strong evidence that the program track genuinely affects writing scores.</li>
+<li><strong>If the within-groups variation is larger than the between-groups variation</strong>, the noise drowns out the signal. The students’ scores are bouncing around so randomly that any minor differences we see between the group averages are likely just due to random chance. In this case, we will fail to reject the null hypothesis.</li>
+</ul>
+<p>By simply asking “how much of the spread is caused by the groups versus how much is just random human nature,” the ANOVA gives us a powerful, mathematically rigorous way to evaluate our research question.</p>
+</section>
+</section>
+<section id="why-not-independent-sample-t-tests" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="why-not-independent-sample-t-tests"><span class="header-section-number">6.5</span> Why Not Independent Sample <span class="math inline">\(t\)</span>-Tests?</h2>
+<p>We briefly touched on this in the introduction, but it is a question worth exploring deeply: if we just want to compare group averages, why not use the Welch’s independent sample <span class="math inline">\(t\)</span>-test we covered in Chapter 3?</p>
+<p>In our high school dataset, we want to compare writing scores across three distinct program tracks (general, academic, and vocational). It might seem logical to just run three separate independent sample <span class="math inline">\(t\)</span>-tests:</p>
+<ol type="1">
+<li>General versus Academic</li>
+<li>General versus Vocational</li>
+<li>Academic versus Vocational</li>
+</ol>
+<p>This approach is a statistical trap because it severely inflates our risk of making a Type I error. Recall from Chapter 3 that a Type I error happens when our test produces a false positive, claiming a significant difference exists when it actually does not. We actively control this risk by setting a strict standard of evidence, known as our significance level (<span class="math inline">\(\alpha\)</span>), which is typically set at <span class="math inline">\(0.05\)</span> (or a 5% risk).</p>
+<p>If we run a single Welch’s <span class="math inline">\(t\)</span>-test, we safely cap our chance of a false positive at 5%. But if we run multiple tests on the same dataset, that risk compounds. It is like rolling a 20-sided die; rolling a “1” might be rare on a single toss, but if you roll it three times, your chances of seeing that “1” go up. By running three separate tests to compare our program tracks, our overall risk of a false positive jumps significantly higher than our acceptable 5% threshold.</p>
+<p>An ANOVA solves this problem by acting as a single, overarching umbrella test. It assesses the differences between multiple categorical treatment groups simultaneously in one mathematical step. Because it only runs a single test, our Type I error rate stays locked safely at 5%.</p>
+</section>
+<section id="fitting-the-one-way-model" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="fitting-the-one-way-model"><span class="header-section-number">6.6</span> Fitting the One-Way Model</h2>
+<p>Now that we know the ANOVA is the right tool to avoid inflated error rates, let’s set up the formal statistical framework to assess the structural variation in standardized writing performance scores (<code>write</code>) across our three student tracking programs. When we fit a One-Way ANOVA model, we are essentially building a formal hypothesis test to see if the between-groups variation is significantly larger than the within-groups variation.</p>
+<section id="formalizing-the-hypotheses" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="formalizing-the-hypotheses"><span class="header-section-number">6.6.1</span> Formalizing the Hypotheses</h3>
+<p>Just like the tests in previous chapters, we start with a skeptical baseline. The null hypothesis (<span class="math inline">\(H_0\)</span>) assumes that the categorical factor has zero effect on the numerical response. It claims that any differences we see in our sample are just random noise.</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: The true mean writing score is exactly the same across all three program tracks (<span class="math inline">\(\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}\)</span>).</li>
+</ul>
+<p>The alternative hypothesis (<span class="math inline">\(H_1\)</span>) carries the burden of proof, claiming that an effect exists. Because we are working with three groups simultaneously, getting this wording right matters, and it is the source of a common pitfall.</p>
+<ul>
+<li><span class="math inline">\(H_1\)</span>: At least one pair of program tracks shows a significant difference in their true mean writing scores.</li>
+</ul>
+</section>
+<section id="a-common-pitfall-different-from-the-others" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="a-common-pitfall-different-from-the-others"><span class="header-section-number">6.6.2</span> A Common Pitfall: “Different from the Others”</h3>
+<p>If you read older textbooks or search online, you will frequently see the alternative hypothesis written as: <em>“At least one mean is different from the others.”</em> This is misleading and can lead to a misunderstanding of what the ANOVA actually shows.</p>
+<p>Why is that phrasing wrong? Imagine our academic track scores very high, our vocational track scores very low, and our general track sits perfectly in the middle. It is possible for an ANOVA to find a significant difference between the academic track and the vocational track, while the general track’s middle-ground score is not statistically different from either of them.</p>
+<p>In this scenario, the academic track is <em>not</em> different from “the others” (plural), because it is not different from the general track. It is only different from the vocational track. The ANOVA only requires <strong>one pair</strong> of factor levels to show a significant difference for the entire test to be significant.</p>
+<p>If your statistical software produces a <span class="math inline">\(p\)</span>-value that is smaller than your significance level (typically <span class="math inline">\(\alpha = 0.05\)</span>), you have enough evidence to reject the null hypothesis. You can confidently conclude that the choice of program track does indeed have a significant effect on a student’s writing score.</p>
+<p>However, notice how vague that alternative hypothesis is. A significant ANOVA tells you that a difference exists between at least one pair of groups, but it does not tell you <em>which</em> pair. Is the academic track scoring higher than the general track? Is the vocational track scoring lower than the academic track? The initial ANOVA model cannot answer those questions directly. Before we can pinpoint exactly which pairs differ (a process called post hoc analysis), we first have to pause and make sure our ANOVA model is mathematically valid.</p>
+</section>
+</section>
+<section id="model-diagnostics" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="model-diagnostics"><span class="header-section-number">6.7</span> Model Diagnostics</h2>
+<p>Before we can confidently use an ANOVA to draw conclusions from our data, we have to make sure the data fits the tool. Just as we learned in Chapter 3, statistical tests are built on mathematical foundations that require certain conditions to be met. If we apply a test to data that violates these core rules, our <span class="math inline">\(p\)</span>-values become unreliable and our conclusions fall apart.</p>
+<p>We check these underlying assumptions through a process called <a href="appendix-glossary.html#glossary-term-model-diagnostics" class="glossary-link" data-definition="The checks researchers run to verify a model’s assumptions, such as independence, mutually exclusive factor levels, normal residuals, and equal variances." aria-describedby="glossary-tooltip" data-term="model diagnostics">model diagnostics</a>. For a One-Way ANOVA, there are four primary assumptions we must validate before moving forward.</p>
+<section id="independence" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="independence"><span class="header-section-number">6.7.1</span> Independence</h3>
+<p>The first requirement is that our samples must be independent of one another. This means the numerical score of one participant should have absolutely no influence on, or mathematical connection to, the score of another participant. This is primarily a design issue rather than something we check with a mathematical formula; a well-designed, randomized study usually ensures independence.</p>
+<p><strong>When Independence Fails:</strong> This assumption typically collapses when researchers collect <a href="appendix-glossary.html#glossary-term-longitudinal-data" class="glossary-link" data-definition="Data collected from the same participants at multiple time points; the repeated observations are dependent, so a standard one-way ANOVA does not apply." aria-describedby="glossary-tooltip" data-term="longitudinal data">longitudinal data</a>, which means they measure the same participants multiple times. For example, imagine a researcher wants to evaluate a new writing curriculum. Instead of comparing three different groups of students, they measure the <em>same</em> class of students in September, again in December, and a final time in May.</p>
+<p>Those three sets of writing scores are not independent because they belong to the same individuals. A student who is naturally a strong writer in September will likely still be a strong writer in May. If your research involves repeated measures like this over time, the standard One-Way ANOVA will not provide valid results. You cannot fix this with a data transformation. Instead, you must use a different statistical tool, such as a Repeated Measures ANOVA (which we will introduce in Chapter 7).</p>
+</section>
+<section id="mutually-exclusive-factor-levels" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="mutually-exclusive-factor-levels"><span class="header-section-number">6.7.2</span> Mutually Exclusive Factor Levels</h3>
+<p>The second structural requirement for an ANOVA is that our factor levels must be <a href="appendix-glossary.html#glossary-term-mutually-exclusive" class="glossary-link" data-definition="A requirement that each observation belongs to exactly one level of a factor, with no overlap between groups." aria-describedby="glossary-tooltip" data-term="mutually exclusive">mutually exclusive</a>. This simply means that every observation (or participant) in our dataset must fall into one, and only one, treatment group. There can be no overlap between our categories.</p>
+<p>In our <code>hsb.csv</code> dataset, the educational program tracks are mutually exclusive; a student is classified strictly into either the general, academic, or vocational track, with no blending between them.</p>
+<p><strong>When Mutual Exclusivity Fails:</strong> Imagine a university researcher wants to use an ANOVA to see if a student’s choice of college major affects their starting salary after graduation. They set up three factor levels: “Biology,” “English,” and “Business.” However, they quickly realize several students in their sample are double majors in Biology and Business.</p>
+<p>Because those specific students now belong to two treatment groups simultaneously, the mutually exclusive assumption is violated. Unlike other statistical assumptions where we might have a clever mathematical workaround, there is no simple “fix” for this issue. When this structural check fails, it almost always requires a redesign of the data gathering method or how the categories are defined before any analysis can begin.</p>
+</section>
+<section id="normality" class="level3" data-number="6.7.3">
+<h3 data-number="6.7.3" class="anchored" data-anchor-id="normality"><span class="header-section-number">6.7.3</span> Normality</h3>
+<p>The third assumption focuses on the shape of our distribution, but there is a common misconception here. You will often hear people say, or read in older textbooks, that “the data must follow a normal distribution” or “the data must form a perfect bell curve.” This is technically a much stricter requirement than we actually need. In reality, the ANOVA only strictly requires that the <a href="appendix-glossary.html#glossary-term-residual" class="glossary-link" data-definition="The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted." aria-describedby="glossary-tooltip" data-term="residual">residuals</a> are roughly normal.</p>
+<p>In this context, a residual is simply the difference between an individual student’s score and their specific group’s average. Because we calculate these differences relative to the group’s own average, the residuals for each group naturally center around zero. Once the software calculates all those individual residuals, it pools them together into one big, zero-centered group. We then check that combined pool of residuals for normality.</p>
+<p>How do we check this? This is where many researchers get stuck because the tools we use are notoriously imperfect. Instead of trying to mathematically prove your residuals are perfectly normal, you should ask a simpler question: <em>Is it plausible that these residuals come from a normal distribution?</em> A good rule of thumb is this: <strong>Assume the residuals are normal unless the diagnostics thoroughly convince you that they are not</strong>. Because the ANOVA is forgiving, it can handle mild skewness or slight deviations from a perfect bell shape without breaking.</p>
+<p>To build our case for or against normality, we evaluate three distinct pieces of evidence. Because these tools can sometimes give conflicting results, <strong>you should go with the majority opinion of the three.</strong></p>
+<p><strong>1. Histograms</strong></p>
+<p>In Chapter 1, we learned how to build histograms to visualize shape.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_01_hist_residuals_histogram_concept.png" class="img-fluid figure-img" alt="Histogram of the pooled ANOVA residuals, centered near zero with a roughly bell-shaped distribution and a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."></p>
+<figcaption>Figure 6.1: Distribution of the pooled residuals from the one-way ANOVA of writing scores by program track. The residuals are centered at zero and roughly bell-shaped, with a mild left tail. The smooth curve marks a normal distribution with the same mean and standard deviation.</figcaption>
+</figure>
+</div>
+<p>Histograms give us a quick, intuitive look at the residuals’ shape. However, be careful: changing the software’s bin width (the number of bars) can alter how a histogram looks. For this reason, never rely on a histogram as your only piece of evidence.</p>
+<p><strong>2. Normal Probability Plots</strong></p>
+<p>This is arguably your best diagnostic tool, though it takes a little practice to read. A normal probability plot provides the same visual insights as a closely related mathematical cousin called a <a href="appendix-glossary.html#glossary-term-q-q-plot" class="glossary-link" data-definition="A plot that compares observed residuals with the values expected under a normal distribution; points that hug the diagonal line support normality, and it is treated as equivalent to a normal probability plot." aria-describedby="glossary-tooltip" data-term="Q-Q plot">Q-Q plot</a> (Quantile-Quantile plot). While their underlying formulas are slightly different, they are functionally equivalent for our purposes, and you will often see software and researchers use the terms interchangeably.</p>
+<p>These plots line your actual residuals up against a theoretically perfect normal distribution. If your residuals are reasonably normal, the dots will tightly hug the straight diagonal reference line. If the residuals are not normal, the dots will pull away from the line. To prevent over-analyzing minor bumps, researchers use a simple visual rule of thumb based on how many “bends” the dots make:</p>
+<ul>
+<li><strong>One Bend (A sharp hook or J-shape):</strong> This indicates your residuals are severely skewed. This is a problem, and the normality assumption is violated.</li>
+<li><strong>Two Bends (An S-curve):</strong> This indicates your residuals have heavy tails (lots of extreme outliers) or light tails. This is also a problem that violates the assumption.</li>
+<li><strong>Three or More Bends (A wiggly snake):</strong> Believe it or not, a line that wiggles back and forth across the diagonal three or more times is usually fine! Human brains are good at finding patterns in random noise. A wiggly line that generally tracks the diagonal is just natural variation, not a structural normality failure.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_02_scatter_qq_diagnostic_examples.png" class="img-fluid figure-img" alt="Three side-by-side normal probability plots with a dashed diagonal line. The normal panel shows points hugging the line. The skewed panel shows points curving upward at the top. The heavy-tails panel shows points below the line at the low end and above it at the high end, forming an S-shape."></p>
+<figcaption>Figure 6.2: Simulated normal probability plots for three residual patterns. In the normal panel, points follow the dashed line. In the skewed panel, the points hook away at the upper end. In the heavy-tails panel, the points form an S-curve across the line.</figcaption>
+</figure>
+</div>
+<p><strong>3. Normality Hypothesis Tests (Anderson-Darling or Shapiro-Wilk)</strong></p>
+<p>Most statistical software packages will allow you to run a quick, automated hypothesis test specifically designed to check for normality, such as the Anderson-Darling or Shapiro-Wilk test. These tests provide a simple binary result based on a <span class="math inline">\(p\)</span>-value. A very low <span class="math inline">\(p\)</span>-value suggests the residuals are strongly non-normal. However, a high <span class="math inline">\(p\)</span>-value does <em>not</em> prove the residuals are perfectly normal; it simply means there isn’t enough evidence to confidently call them non-normal.</p>
+<p>In general, running a hypothesis test to see if we’re able to run another hypothesis test is something you should avoid doing. It compounds errors in testing in an unquantifiable and unpredictable way, and it is only included here as a possible tiebreaker if your probability plot and histogram do not make the same conclusion.</p>
+<p><strong>When Diagnostics Fail:</strong> If the majority of your checks convince you that the residuals are severely skewed or non-normal (like a one-bend or two-bend probability plot), you should not run a standard ANOVA. Instead, you will transition to a non-parametric alternative like the Kruskal-Wallis test (which we will cover in Chapter 10).</p>
+<p>Sometimes, you can anticipate a normality failure before you even look at a graph. In Chapter 1, we learned about the <a href="appendix-glossary.html#glossary-term-floor-effect" class="glossary-link" data-definition="Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation." aria-describedby="glossary-tooltip" data-term="floor effect">floor effect</a> and the <a href="appendix-glossary.html#glossary-term-ceiling-effect" class="glossary-link" data-definition="Occurs when many observations pile up at the maximum possible value, preventing detection of further differences among high performers." aria-describedby="glossary-tooltip" data-term="ceiling effect">ceiling effect</a>. Imagine a researcher uses an ANOVA to compare the number of classes skipped (<code>ClassesMissed</code>) across different class years. We already know this data has a hard minimum of zero, and most students will miss zero or one class. This causes the data to pile up on the left side, creating a severe right-skew. Because of this built-in floor effect, the model’s residuals will also be heavily skewed, violating our normality assumption before we even run the math.</p>
+</section>
+<section id="equal-variances" class="level3" data-number="6.7.4">
+<h3 data-number="6.7.4" class="anchored" data-anchor-id="equal-variances"><span class="header-section-number">6.7.4</span> Equal Variances</h3>
+<p>The fourth and final structural assumption for our model focuses on how spread out the data within our groups are. For an ANOVA to work properly, the amount of natural, random noise should be relatively similar across all of our treatment groups. We call this the assumption of <a href="appendix-glossary.html#glossary-term-equal-variance-homoscedasticity" class="glossary-link" data-definition="The assumption that the vertical spread of residuals stays roughly constant across the range of the predictor variable; a fan or cone shape signals heteroscedasticity." aria-describedby="glossary-tooltip" data-term="equal variance (homoscedasticity)">equal variances</a>.</p>
+<p>If one program track has writing scores that are tightly clustered together, but another program track has scores that are wildly spread out from top to bottom, the mathematical machinery of the ANOVA begins to break down.</p>
+<section id="the-hypothesis-test-trap" class="level4" data-number="6.7.4.1">
+<h4 data-number="6.7.4.1" class="anchored" data-anchor-id="the-hypothesis-test-trap"><span class="header-section-number">6.7.4.1</span> The “Hypothesis Test” Trap</h4>
+<p>If you search the internet or look through statistical software menus, you will likely find formal hypothesis tests designed specifically to check for equal variances. It is recommended that you avoid using them.</p>
+<p>Why? Using a hypothesis test to see if you are allowed to run a hypothesis test is deeply problematic. It creates a frustrating logical loop, and these preliminary tests are often overly sensitive. Instead of relying on a rigid p-value to check this assumption, statisticians rely on a mix of visual intuition and a simple mathematical rule of thumb.</p>
+</section>
+<section id="the-visual-check-jitter-plots" class="level4" data-number="6.7.4.2">
+<h4 data-number="6.7.4.2" class="anchored" data-anchor-id="the-visual-check-jitter-plots"><span class="header-section-number">6.7.4.2</span> The Visual Check: Jitter Plots</h4>
+<p>To visually check for equal variances, your best tool is a <a href="appendix-glossary.html#glossary-term-jitter-plot" class="glossary-link" data-definition="A graph that randomly nudges points sideways so overlapping observations stay visible; used to compare the vertical spread of groups when checking equal variances." aria-describedby="glossary-tooltip" data-term="jitter plot">jitter plot</a>. A jitter plot is similar to a scatterplot, but it randomly nudges the data points slightly to the left and right so they do not overlap. This allows you to see every single individual data point in your sample.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_03_scatter_writing_jitter_equal_variances.png" class="img-fluid figure-img" alt="Jitter plot of writing scores for the general, academic, and vocational tracks. Each dot is a student, and black diamonds mark the group means. The academic track sits higher, but the vertical spread of dots is similar across all three columns."></p>
+<figcaption>Figure 6.3: Jitter plot of writing scores by program track. Each dot is one student, and black diamonds mark the group means. The vertical spread is similar across the three tracks, which supports the equal variances assumption.</figcaption>
+</figure>
+</div>
+<p>While you might be tempted to use a boxplot here, boxplots can be misleading for this specific diagnostic. Because a boxplot focuses on the middle 50% of the data (the Interquartile Range), it can obscure the true top-to-bottom spread of the group. A jitter plot shows you the entire picture. You are simply looking for the vertical spread of the dots to be roughly similar across all your groups.</p>
+</section>
+<section id="the-mathematical-check-the-2x-rule-of-thumb" class="level4" data-number="6.7.4.3">
+<h4 data-number="6.7.4.3" class="anchored" data-anchor-id="the-mathematical-check-the-2x-rule-of-thumb"><span class="header-section-number">6.7.4.3</span> The Mathematical Check: The 2X Rule of Thumb</h4>
+<p>Because visual checks can sometimes feel a bit subjective, we pair our jitter plot with a simple mathematical safety check.</p>
+<p>In Chapter 1, we learned that standard deviation is our primary measure of how spread out our data is. The ANOVA is a forgiving tool, meaning it can tolerate some differences in spread without failing. To ensure we are safely within that tolerance, we use the following rule: <strong>Find the standard deviation for each of your groups. If the largest standard deviation is no more than double (2X) the smallest standard deviation, there is likely no cause for concern</strong>.</p>
+<p>For example, if the vocational track has a standard deviation of 8 points, and the academic track has a standard deviation of 12 points, we are safe. The largest (12) is not more than double the smallest (8).</p>
+<p><strong>When Equal Variances Fail:</strong> Just like with normality, you can sometimes predict a failure of this assumption before you even look at a graph by thinking about how your groups were formed. Unequal variances frequently occur when we observe pre-existing groups that have inherent differences in variability, or when an experiment lacks strict randomization.</p>
+<p>For example, imagine a researcher comparing the reading scores of students in a selective magnet program against a general-admissions public school program. Because the magnet program uses strict entrance exams, its students are academically similar, resulting in tightly clustered scores (low variance). The general program, which accepts everyone, will naturally have a much wider mix of abilities (high variance). Whenever one group is restricted or controlled while another is open, the equal variances assumption is highly likely to fail before the math even begins.</p>
+<p>If your conceptual intuition is confirmed by your diagnostics (meaning your jitter plot shows drastically different vertical spreads, and your largest standard deviation is more than double your smallest standard deviation) you cannot trust the <span class="math inline">\(p\)</span>-value from a standard ANOVA. Instead, you will need to use a sturdier alternative specifically designed to handle unequal spread, such as <a href="appendix-glossary.html#glossary-term-mood-s-median-test" class="glossary-link" data-definition="A nonparametric alternative to ANOVA used when group variances are unequal." aria-describedby="glossary-tooltip" data-term="Mood’s Median test">Mood’s Median test</a>.</p>
+</section>
+</section>
+<section id="circling-back" class="level3" data-number="6.7.5">
+<h3 data-number="6.7.5" class="anchored" data-anchor-id="circling-back"><span class="header-section-number">6.7.5</span> Circling Back</h3>
+<p>We have just covered a lot of ground checking the mathematical foundation of our ANOVA. Before we turn to our final results, let’s quickly review what these checks mean for our research.</p>
+<p>First, these four structural requirements (independence, mutually exclusive factor levels, normally distributed residuals, and equal variances) are not optional suggestions. If even one of these requirements is not met, you cannot trust the <span class="math inline">\(p\)</span>-value generated by a standard One-Way ANOVA. When an assumption fails, you must pivot. You will either need to redesign how you gather and categorize your data, or switch to an alternative statistical tool, like a Kruskal-Wallis or Mood’s Median test.</p>
+<p>But let’s assume your data passed all the diagnostic checks with flying colors. Your model is mathematically valid, you run the test, and your software produces a significant <span class="math inline">\(p\)</span>-value. What exactly can you conclude?</p>
+<p>As we discussed when setting up our alternative hypothesis, a significant ANOVA only tells you that at least one pair of factor levels shows a significant difference in means. That is a remarkably vague conclusion!</p>
+<p>If we find a significant result in our <code>hsb.csv</code> dataset, we know the choice of program track matters, but we are left with two major blind spots:</p>
+<ol type="1">
+<li>We do not know <em>which</em> specific groups are different from one another. Does the academic track score significantly higher than the general track, or is the major difference only between the academic and vocational tracks?</li>
+<li>We do not know <em>by how much</em> the scores differ. We may be observing a statistically significant difference that is of no importance in a practical application, so it’s important to find and report the magnitude of the differences as well.</li>
+</ol>
+<p>An ANOVA is an excellent tool for detecting if a signal exists anywhere in your data, but it is blind to the details. To identify exactly which pairs of factor levels show a difference, and to measure the size of those differences, we have to conduct a second round of testing called <strong>post hoc analysis</strong>.</p>
+</section>
+</section>
+<section id="post-hoc-analysis" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="post-hoc-analysis"><span class="header-section-number">6.8</span> Post Hoc Analysis</h2>
+<p>If your ANOVA produces a significant <span class="math inline">\(p\)</span>-value, you know that at least one pair of program tracks has a statistically different mean writing score. To find out exactly which groups differ, we must run a follow-up analysis called a <a href="appendix-glossary.html#glossary-term-post-hoc-test" class="glossary-link" data-definition="A follow-up comparison run after a significant ANOVA to identify which specific groups differ while controlling the family-wise error rate; also called post hoc analysis." aria-describedby="glossary-tooltip" data-term="post hoc test">post hoc test</a> (Latin for “after this”).</p>
+<section id="why-are-we-allowed-to-do-this" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="why-are-we-allowed-to-do-this"><span class="header-section-number">6.8.1</span> Why Are We Allowed to Do This?</h3>
+<p>Before we examine the specific tests, we need to resolve an apparent contradiction. In Section 6.5, we explicitly warned you that running multiple independent <span class="math inline">\(t\)</span>-tests to compare our groups was a statistical trap. We stated that doing so inflates your risk of a Type I error (a false positive).</p>
+<p>So, why are we suddenly allowed to run pairwise tests now?</p>
+<p>The difference lies in the mathematical machinery. Standard <span class="math inline">\(t\)</span>-tests are blind to the broader experiment; they assume they are the only test being run. Post hoc tests, however, are specifically engineered to wear “mathematical armor.” They actively monitor and control the <a href="appendix-glossary.html#glossary-term-family-wise-error-rate" class="glossary-link" data-definition="The overall probability of making at least one Type I error across a family of comparisons; post hoc tests are designed to control it." aria-describedby="glossary-tooltip" data-term="family-wise error rate">family-wise error rate</a>, which is the overall risk of making a Type I error across <em>all</em> the comparisons combined. By adjusting the math behind the scenes, post hoc tests allow us to safely compare our groups while strictly keeping our overall false positive risk capped at our 5% significance level.</p>
+</section>
+<section id="a-brief-warning-the-bonferroni-correction" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="a-brief-warning-the-bonferroni-correction"><span class="header-section-number">6.8.2</span> A Brief Warning: The Bonferroni Correction</h3>
+<p>If you read published research in economics, psychology, or sociology, you will inevitably see researchers use a post hoc method called the <a href="appendix-glossary.html#glossary-term-bonferroni-correction" class="glossary-link" data-definition="A conservative post hoc method that lowers the threshold for each comparison to control the family-wise error rate; it strongly protects against Type I errors but raises the risk of Type II errors." aria-describedby="glossary-tooltip" data-term="Bonferroni correction">Bonferroni correction</a>. It is common because it has historically been the default setting in many statistical software packages.</p>
+<p>While you do not need to know how to calculate it, you should understand its reputation. Bonferroni is considered a conservative test. It is so aggressive at preventing Type I errors (false positives) that it severely inflates your risk of a Type II error, meaning it frequently misses real, meaningful differences. Because it requires an unreasonably high burden of proof, modern researchers generally prefer more balanced tools.</p>
+</section>
+<section id="tukeys-hsd-honestly-significant-difference" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="tukeys-hsd-honestly-significant-difference"><span class="header-section-number">6.8.3</span> Tukey’s HSD (Honestly Significant Difference)</h3>
+<p>For most observational research where you want to compare every single group against every other group, the gold standard is <a href="appendix-glossary.html#glossary-term-tukey-s-hsd" class="glossary-link" data-definition="A post hoc test that compares every pair of group means while controlling the family-wise error rate; the standard choice when all pairwise comparisons matter." aria-describedby="glossary-tooltip" data-term="Tukey’s HSD">Tukey’s HSD</a>.</p>
+<p>If we apply Tukey’s test to our high school dataset, the software will simultaneously run three safe, adjusted comparisons:</p>
+<ol type="1">
+<li>General versus Academic</li>
+<li>General versus Vocational</li>
+<li>Academic versus Vocational</li>
+</ol>
+<p>The software will generate a specific <span class="math inline">\(p\)</span>-value for each pair. If the <span class="math inline">\(p\)</span>-value for the General versus Academic comparison is less than <span class="math inline">\(0.05\)</span>, you can conclude those two specific program tracks have significantly different mean writing scores. If the <span class="math inline">\(p\)</span>-value for General versus Vocational is <span class="math inline">\(0.40\)</span>, you fail to reject the null hypothesis for that specific pair; you do not have evidence that their writing scores differ.</p>
+</section>
+<section id="dunnetts-test-comparing-to-a-control" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="dunnetts-test-comparing-to-a-control"><span class="header-section-number">6.8.4</span> Dunnett’s Test: Comparing to a Control</h3>
+<p>Sometimes, your research question does not require you to compare every single group to each other. Instead, you might have one designated baseline group, and you only care how the other groups compare to that specific baseline. In these scenarios, you should use <a href="appendix-glossary.html#glossary-term-dunnett-s-test" class="glossary-link" data-definition="A post hoc test that compares several groups against one designated baseline group, saving power by skipping comparisons among the other groups." aria-describedby="glossary-tooltip" data-term="Dunnett’s test">Dunnett’s test</a>.</p>
+<p>Let’s consider the “general” academic track to be our standard baseline. We only want to know if the specialized tracks (academic and vocational) perform differently than the baseline. Dunnett’s test will only run two comparisons:</p>
+<ol type="1">
+<li>General (Baseline) versus Academic</li>
+<li>General (Baseline) versus Vocational</li>
+</ol>
+<p>By intentionally skipping the comparison between the academic and vocational tracks, Dunnett’s test saves statistical power (our ability to find differences when they exist). It is efficient and is the preferred post hoc test whenever your experimental design includes a clear control group.</p>
+</section>
+<section id="the-post-hoc-to-the-post-hoc-practical-significance" class="level3" data-number="6.8.5">
+<h3 data-number="6.8.5" class="anchored" data-anchor-id="the-post-hoc-to-the-post-hoc-practical-significance"><span class="header-section-number">6.8.5</span> The Post Hoc to the Post Hoc: Practical Significance</h3>
+<p>There is one final step to a complete analysis. A significant Tukey’s or Dunnett’s test only provides a <span class="math inline">\(p\)</span>-value. Just as we learned in Chapter 3, a <span class="math inline">\(p\)</span>-value is only a measure of evidence; it tells us that a difference exists, but it tells us absolutely nothing about the <em>size</em> of that difference.</p>
+<p>To be a responsible researcher, you must move beyond statistical significance and establish practical significance. Once your post hoc test identifies which pairs differ, you must report:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-confidence-interval" class="glossary-link" data-definition="A range of plausible values for a true population mean or difference, built from sample data; a 95% confidence interval (CI) comes from a procedure that captures the true value in about 95% of repeated samples." aria-describedby="glossary-tooltip" data-term="confidence interval">Confidence Intervals</a><strong>:</strong> Use the confidence interval for the difference between the two means. If the academic track scores higher than the general track, the confidence interval will tell you exactly how many points higher you can expect the population average to be.</li>
+<li><a href="appendix-glossary.html#glossary-term-effect-size" class="glossary-link" data-definition="A standardized number describing how large a difference or relationship is, independent of sample size, used to judge whether a statistically significant result is large enough to matter." aria-describedby="glossary-tooltip" data-term="effect size">Effect Sizes</a><strong>:</strong> Calculate <a href="appendix-glossary.html#glossary-term-cohen-s-d" class="glossary-link" data-definition="A standardized effect size that divides the difference between two means by the standard deviation, expressing the gap in standard-deviation units so results can be compared across studies." aria-describedby="glossary-tooltip" data-term="Cohen’s d">Cohen’s <span class="math inline">\(d\)</span></a> for the specific pair of groups to determine if the difference is small, medium, or large.</li>
+</ul>
+<p>A statistically significant difference is only useful if it represents a meaningful, practical impact.</p>
+</section>
+</section>
+<section id="guided-analysis" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="guided-analysis"><span class="header-section-number">6.9</span> Guided Analysis</h2>
+<section id="the-research-interest" class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="the-research-interest"><span class="header-section-number">6.9.1</span> The Research Interest</h3>
+<p>Educational tracking has been a foundational part of the American high school experience for decades. By dividing students into specialized programs based on their perceived academic abilities or career goals, schools hope to provide tailored instruction. However, fundamental skills like clear written communication are essential for everyone, whether they are heading to a university, entering a skilled trade, or joining the workforce immediately. Educational researchers, policymakers, and sociologists are deeply interested in evaluating these tracking systems. We want to ensure that categorizing students into specific educational paths does not inadvertently create severe disparities in core, foundational competencies.</p>
+</section>
+<section id="the-research-question" class="level3" data-number="6.9.2">
+<h3 data-number="6.9.2" class="anchored" data-anchor-id="the-research-question"><span class="header-section-number">6.9.2</span> The Research Question</h3>
+<p>To translate our broad interest into a formal analysis, we will rely on the step-by-step framework we established in Chapter 2. We must refine our general curiosity into a specific, data-driven framework.</p>
+<p><strong>Step 1: The Research Goal</strong> We start with our overarching objective: <em>We want to understand if a high school’s academic tracking system creates disparities in core educational competencies.</em></p>
+<p><strong>Step 2: The Research Question</strong> Next, we narrow that goal into a specific, measurable relationship using our dataset: <em>Does a student’s choice of academic program track have a significant effect on their standardized writing performance?</em></p>
+<p><strong>Step 3: The Statistical Question</strong> Finally, we must define the exact statistical parameters we will test. Because we have a categorical grouping variable and a numerical outcome, an ANOVA is the right tool. Therefore, our statistical question is: <em>Are the true mean standardized writing scores significantly different across the three academic program tracks?</em></p>
+<section id="defining-our-variables-intuition-and-structure" class="level4" data-number="6.9.2.1">
+<h4 data-number="6.9.2.1" class="anchored" data-anchor-id="defining-our-variables-intuition-and-structure"><span class="header-section-number">6.9.2.1</span> Defining Our Variables: Intuition and Structure</h4>
+<p>To answer this statistical question, we have to formally assign our variables from the High School and Beyond (<code>hsb.csv</code>) dataset. When setting up an ANOVA, think about the relationship as cause and effect, or grouping and outcome.</p>
+<ul>
+<li><strong>The Response Variable (<code>write</code>):</strong> This is our numerical outcome. It is the “response” we are measuring to see if the grouping had any effect. Here, it is the student’s standardized writing score.</li>
+<li><strong>The Factor Variable (<code>prog</code>):</strong> This is our categorical “cause” or grouping mechanism. It is the overarching category we suspect is driving the differences in the response. Here, the factor is the academic program track.</li>
+</ul>
+<p>We need to be able to distinguish between the factor itself, the factor levels, and the treatment groups.</p>
+<ul>
+<li><strong>The Factor Variable</strong> is what we’re using to split our population of students into groups, which is the academic program.</li>
+<li><strong>The Factor Levels</strong> are the specific, mutually exclusive categories that exist within that column: general, academic, and vocational.</li>
+<li><strong>The Treatment Groups</strong> are the actual, living students who fall into those categories. For example, the 105 specific students in our sample who are enrolled in the academic track make up one treatment group.</li>
+</ul>
+</section>
+<section id="a-warning-on-observational-groups" class="level4" data-number="6.9.2.2">
+<h4 data-number="6.9.2.2" class="anchored" data-anchor-id="a-warning-on-observational-groups"><span class="header-section-number">6.9.2.2</span> A Warning on Observational Groups</h4>
+<p>Understanding exactly who makes up our treatment groups gives us a strong hint about how our data might behave.</p>
+<p>Think about how these students ended up in their respective program tracks. The researchers did not randomly assign them like a clinical trial. The students were placed in these tracks based on past academic performance, personal choice, or counselor recommendations. Because this is an <a href="appendix-glossary.html#glossary-term-observational-study" class="glossary-link" data-definition="A study in which researchers observe individuals and measure variables of interest without manipulating the environment, recording the world as it naturally exists." aria-describedby="glossary-tooltip" data-term="observational study">observational study</a> with pre-existing groups, we should immediately suspect that these groups might have inherent structural differences beyond just their averages.</p>
+<p>For example, the academic track often acts as a filtered, selective program. Because of this restriction, we might expect those students to perform similarly to one another, resulting in tightly clustered scores. Conversely, the general track acts as a catch-all for a wide variety of students, meaning their scores might be wildly spread out. Because the students were not randomly assigned, we are at a much higher risk of violating the <a href="appendix-glossary.html#glossary-term-equal-variance-homoscedasticity" class="glossary-link" data-definition="The assumption that the vertical spread of residuals stays roughly constant across the range of the predictor variable; a fan or cone shape signals heteroscedasticity." aria-describedby="glossary-tooltip" data-term="equal variance (homoscedasticity)">equal variances</a> assumption, making our upcoming data triage and diagnostic checks absolutely critical.</p>
+</section>
+</section>
+<section id="data-triage-and-exploratory-analysis" class="level3" data-number="6.9.3">
+<h3 data-number="6.9.3" class="anchored" data-anchor-id="data-triage-and-exploratory-analysis"><span class="header-section-number">6.9.3</span> Data Triage and Exploratory Analysis</h3>
+<p>Before we rush to calculate <span class="math inline">\(p\)</span>-values, we must explore our data to ensure a standard One-Way ANOVA is appropriate.</p>
+<p>We begin with the basic structure of our treatment groups. Our sample of 200 students is split across the three program tracks: academic (<span class="math inline">\(n = 105\)</span>), general (<span class="math inline">\(n = 45\)</span>), and vocational (<span class="math inline">\(n = 50\)</span>). Notice that the groups are not perfectly equal in size. In controlled lab experiments, researchers try to keep group sizes perfectly balanced, but in observational data, uneven groups are normal and acceptable for an ANOVA.</p>
+<p>Next, we generate a side-by-side boxplot to get a preliminary visual feel for the data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_04_box_writing_boxplot_by_program.png" class="img-fluid figure-img" alt="Side-by-side boxplots of writing scores for the general, academic, and vocational tracks. The academic box sits higher and is shorter than the other two, and a single low outlier appears below its lower whisker. The general and vocational boxes overlap."></p>
+<figcaption>Figure 6.4: Side-by-side boxplots of standardized writing scores by program track. The line inside each box is the median, the box is the interquartile range, and the whiskers extend to the non-outlying data. The academic track has the highest median and the narrowest box, with one low outlier.</figcaption>
+</figure>
+</div>
+<p>This boxplot gives us three immediate insights before we ever run a mathematical test. First, the academic track has a low outlier and appears slightly negatively skewed. Standardized tests often suffer from a mild <a href="appendix-glossary.html#glossary-term-ceiling-effect" class="glossary-link" data-definition="Occurs when many observations pile up at the maximum possible value, preventing detection of further differences among high performers." aria-describedby="glossary-tooltip" data-term="ceiling effect">ceiling effect</a> (students can only score so high before they hit the maximum limit), which tends to compress the top of the data and stretch the bottom.</p>
+<p>Second, the “box” for the academic track is noticeably shorter than the others. Because the box represents the Interquartile Range (the middle 50% of the data), this visual difference in spread strongly suggests we need to be careful about our equal variances assumption.</p>
+<p>Finally, look at where the boxes sit vertically. The general and vocational boxes overlap significantly, suggesting their middle 50% of students perform quite similarly. However, the academic box sits noticeably higher and barely overlaps with the vocational box. This builds our visual intuition: if our overarching ANOVA <em>does</em> find a significant difference, we can make an educated guess that the gap between the academic and vocational tracks will be the primary driver of that result.</p>
+<section id="diagnostic-checks" class="level4" data-number="6.9.3.1">
+<h4 data-number="6.9.3.1" class="anchored" data-anchor-id="diagnostic-checks"><span class="header-section-number">6.9.3.1</span> Diagnostic Checks</h4>
+<p>To finalize our data triage, we evaluate the four structural assumptions of the ANOVA model:</p>
+<p><strong>1. Independence:</strong> Because this is an observational study where each student was only tested once, there are no repeated measures or longitudinal overlaps. This assumption is safely met.</p>
+<p><strong>2. Mutually Exclusive Levels:</strong> Every student in our sample is enrolled in one, and only one, program track. There is no overlap between the categories. This assumption is met.</p>
+<p><strong>3. Normality:</strong> We pool the residuals from all three groups and examine their distribution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_05_hist_residuals_histogram_analysis.png" class="img-fluid figure-img" alt="Histogram of the pooled ANOVA residuals, mostly bell-shaped and centered near zero, with a mild left tail. A smooth normal curve is overlaid, and a dashed vertical line marks zero."></p>
+<figcaption>Figure 6.5: Distribution of the pooled residuals from the one-way ANOVA in the guided analysis. The shape is mostly bell-shaped with a mild left tail, consistent with the lowest writing score in the academic track. The smooth curve marks a normal distribution with the same mean and standard deviation.</figcaption>
+</figure>
+</div>
+<p>Our histogram is mostly bell-shaped, but it exhibits that slight left-skew we anticipated from the ceiling effect. In a rigid mathematical sense, this is not a <em>perfect</em> bell curve. However, remember this rule for diagnostics: we are not looking for perfection; we are looking for plausibility. If someone handed you this histogram, it is plausible that it came from a normal distribution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_06_scatter_residuals_qq_analysis.png" class="img-fluid figure-img" alt="Normal Q-Q plot of the pooled residuals. Most points hug the dashed diagonal reference line, with a small dip below the line at the lower end. There is no sharp hook or S-curve."></p>
+<figcaption>Figure 6.6: Normal Q-Q plot of the pooled ANOVA residuals. Points close to the dashed line are consistent with a normal distribution. The points follow the line closely, with a small dip in the lower tail from the lowest writing score.</figcaption>
+</figure>
+</div>
+<p>To confirm, we check our Q-Q plot. The dots track our diagonal reference line closely. The small dip in the lower tail comes from the same low outlier, but the rest of the points follow the line. That is a minor wiggle, not a structural failure like a sharp hook or S-curve. The normality assumption is safely met.</p>
+<p><strong>4. Equal Variances:</strong> Because our boxplot showed different sized boxes, we use a jitter plot to see the true top-to-bottom spread of every single student.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_06/fig_06_07_scatter_writing_jitter_analysis.png" class="img-fluid figure-img" alt="Jitter plot of writing scores for the three program tracks. The academic column sits higher overall, but the total vertical spread of the dots is similar across all three columns. Black diamonds mark the group means."></p>
+<figcaption>Figure 6.7: Jitter plot of writing scores for the three program tracks in the guided analysis. The academic track sits higher, but the full vertical spread of scores is similar across groups. Black diamonds mark the group means.</figcaption>
+</figure>
+</div>
+<p>The jitter plot reveals that the overall vertical spread of the scores is quite even across all three tracks. We confirm this visually with our mathematical rule of thumb. The largest standard deviation belongs to the general track (<span class="math inline">\(SD = 9.40\)</span>), and the smallest belongs to the academic track (<span class="math inline">\(SD = 7.94\)</span>). Because 9.40 is nowhere near double 7.94, we are well within the model’s tolerance limits. The equal variances assumption is safely met.</p>
+<p><strong>Triage Decision:</strong> The data is clean, independent, and passes all mathematical checks for normality and variance. We are cleared to run the formal One-Way ANOVA.</p>
+</section>
+</section>
+<section id="formal-analysis-the-global-anova" class="level3" data-number="6.9.4">
+<h3 data-number="6.9.4" class="anchored" data-anchor-id="formal-analysis-the-global-anova"><span class="header-section-number">6.9.4</span> Formal Analysis: The Global ANOVA</h3>
+<p>With our data triage complete and all structural assumptions met, we can confidently run our primary mathematical test: the One-Way ANOVA.</p>
+<p>Before reading the software output, we ground ourselves by formally stating what we are testing. We start with the skeptical baseline that the program track has absolutely no effect on a student’s writing performance.</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-null-hypothesis" class="glossary-link" data-definition="The default assumption of no effect, no difference, or no relationship, written H₀; it always uses exact equality (=) and stands unless the data provide strong evidence against it." aria-describedby="glossary-tooltip" data-term="null hypothesis">Null Hypothesis (<span class="math inline">\(H_0\)</span>)</a><strong>:</strong> The true mean writing score is exactly the same across all three program tracks (<span class="math inline">\(\mu_{\text{general}} = \mu_{\text{academic}} = \mu_{\text{vocational}}\)</span>).</li>
+<li><a href="appendix-glossary.html#glossary-term-alternative-hypothesis" class="glossary-link" data-definition="The claim that an effect, a difference, or a relationship exists in the population, written H₁; this is the position the researcher is actually trying to prove, and it is accepted only when the data provide strong enough evidence." aria-describedby="glossary-tooltip" data-term="alternative hypothesis">Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</a><strong>:</strong> At least one pair of program tracks shows a significant difference in their true mean writing scores.</li>
+</ul>
+<p>When we instruct our statistical software to run the ANOVA on the <code>hsb.csv</code> dataset, it calculates the variation between the groups (the signal) and the variation within the groups (the noise). The software then produces a summary table. While the exact layout varies depending on the program you use, you are always looking for two specific numbers: the <a href="appendix-glossary.html#glossary-term-f-statistic" class="glossary-link" data-definition="The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value." aria-describedby="glossary-tooltip" data-term="F-statistic"><span class="math inline">\(F\)</span>-statistic</a> and the <a href="appendix-glossary.html#glossary-term-p-value" class="glossary-link" data-definition="The probability of seeing data at least as surprising as yours if the null hypothesis were true; a small p-value means the data would be unusual under H₀ and counts as evidence against it." aria-describedby="glossary-tooltip" data-term="p-value"><span class="math inline">\(p\)</span>-value</a>.</p>
+<p>Here are the formal results from our software:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-f-statistic" class="glossary-link" data-definition="The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value." aria-describedby="glossary-tooltip" data-term="F-statistic"><span class="math inline">\(F\)</span>-statistic</a><strong>:</strong> <span class="math inline">\(21.27\)</span></li>
+<li><a href="appendix-glossary.html#glossary-term-degrees-of-freedom" class="glossary-link" data-definition="A number tied to sample size that the t-distribution uses when producing a p-value; for a single sample t-test it equals n − 1 and is reported in parentheses after t in APA style." aria-describedby="glossary-tooltip" data-term="degrees of freedom">Degrees of Freedom</a><strong>:</strong> 2 (Between-Groups) and 197 (Within-Groups / Residuals)</li>
+<li><a href="appendix-glossary.html#glossary-term-p-value" class="glossary-link" data-definition="The probability of seeing data at least as surprising as yours if the null hypothesis were true; a small p-value means the data would be unusual under H₀ and counts as evidence against it." aria-describedby="glossary-tooltip" data-term="p-value"><span class="math inline">\(p\)</span>-value</a><strong>:</strong> <span class="math inline">\(&lt; .001\)</span></li>
+</ul>
+<section id="interpreting-the-output" class="level4" data-number="6.9.4.1">
+<h4 data-number="6.9.4.1" class="anchored" data-anchor-id="interpreting-the-output"><span class="header-section-number">6.9.4.1</span> Interpreting the Output</h4>
+<p>How do we make sense of these numbers?</p>
+<p>The <a href="appendix-glossary.html#glossary-term-f-statistic" class="glossary-link" data-definition="The ANOVA test statistic, calculated as the ratio of between-groups variation (signal) to within-groups variation (noise); its meaning depends on the degrees of freedom, so it is interpreted through its p-value." aria-describedby="glossary-tooltip" data-term="F-statistic"><span class="math inline">\(F\)</span>-statistic</a> (<span class="math inline">\(21.27\)</span>) represents the mathematical ratio of our between-groups variation (our signal) to our within-groups variation (our noise). However, here is a warning: you should generally avoid trying to interpret a raw <span class="math inline">\(F\)</span>-statistic using your visual intuition.</p>
+<p>With simpler tools, like the independent sample <span class="math inline">\(t\)</span>-test in Chapter 3, you could generally assume that a larger number meant a stronger effect. The <span class="math inline">\(F\)</span>-statistic is much more complex. A raw score of <span class="math inline">\(21.27\)</span> might represent an undeniable signal in one study, but it could be mathematically insignificant in a different study.</p>
+<p>Why? Because an <span class="math inline">\(F\)</span>-statistic’s meaning is entirely tethered to its <a href="appendix-glossary.html#glossary-term-degrees-of-freedom" class="glossary-link" data-definition="A number tied to sample size that the t-distribution uses when producing a p-value; for a single sample t-test it equals n − 1 and is reported in parentheses after t in APA style." aria-describedby="glossary-tooltip" data-term="degrees of freedom">Degrees of Freedom</a>. The degrees of freedom reflect the structural design of your study; specifically, how many treatment groups you are comparing (2 degrees of freedom) and how many total students are in your sample (197 degrees of freedom).</p>
+<p>Since the raw <span class="math inline">\(F\)</span>-statistic is so dependent on the study’s design, we rely entirely on the <a href="appendix-glossary.html#glossary-term-p-value" class="glossary-link" data-definition="The probability of seeing data at least as surprising as yours if the null hypothesis were true; a small p-value means the data would be unusual under H₀ and counts as evidence against it." aria-describedby="glossary-tooltip" data-term="p-value"><span class="math inline">\(p\)</span>-value</a> to interpret it. The <span class="math inline">\(p\)</span>-value takes that raw <span class="math inline">\(F\)</span>-statistic, judges it against our specific degrees of freedom, and translates it into a probability we can understand.</p>
+<p>Our <span class="math inline">\(p\)</span>-value is extremely small (<span class="math inline">\(p &lt; .001\)</span>), which tells us that if the null hypothesis were true (i.e., if program tracks truly had zero effect on writing scores) the probability of seeing a signal this large purely by random chance is less than one in a thousand.</p>
+<p>Because our <span class="math inline">\(p\)</span>-value is far below our standard 5% significance level (<span class="math inline">\(\alpha = 0.05\)</span>), we have overwhelming evidence to <strong>reject the null hypothesis</strong>. We can confidently state that a student’s enrolled program track has a statistically significant effect on their standardized writing score.</p>
+<p><strong>The Next Step:</strong> Our global ANOVA is significant, but remember its limitation: it is blind to the details. We know that at least one pair of program tracks is different, but the <span class="math inline">\(F\)</span>-statistic cannot tell us <em>which</em> ones, nor can it tell us <em>how large</em> those differences are in practical terms. To finish our analysis and answer our research question completely, we must run our post hoc tests and calculate our effect sizes.</p>
+</section>
+</section>
+<section id="conclusion" class="level3" data-number="6.9.5">
+<h3 data-number="6.9.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6.9.5</span> Conclusion</h3>
+<p>Because our overarching ANOVA produced a significant <span class="math inline">\(p\)</span>-value, we must now look closer and find exactly where the differences lie. To do this safely without inflating our risk of a Type I error (a false positive), we rely on <a href="appendix-glossary.html#glossary-term-tukey-s-hsd" class="glossary-link" data-definition="A post hoc test that compares every pair of group means while controlling the family-wise error rate; the standard choice when all pairwise comparisons matter." aria-describedby="glossary-tooltip" data-term="Tukey’s HSD">Tukey’s HSD</a>.</p>
+<p>When we command our software to run Tukey’s test, it simultaneously compares all three possible pairs of program tracks and generates an adjusted <span class="math inline">\(p\)</span>-value for each comparison. It also calculates Cohen’s <span class="math inline">\(d\)</span> to give us the practical effect size for each difference.</p>
+<p>Here is what the post hoc output reveals:</p>
+<ul>
+<li><strong>Academic vs.&nbsp;Vocational:</strong> Our visual intuition from the boxplot was correct! The software confirms a statistically significant difference here (<span class="math inline">\(p &lt; .001\)</span>). The practical significance is exceptionally large (<span class="math inline">\(d = 1.13\)</span>), meaning the average academic student scores more than a full standard deviation higher than the average vocational student.</li>
+<li><strong>Academic vs.&nbsp;General:</strong> The academic track also significantly outperforms the general track (<span class="math inline">\(p = .005\)</span>). This difference represents a moderate practical effect (<span class="math inline">\(d = 0.59\)</span>).</li>
+<li><strong>General vs.&nbsp;Vocational:</strong> When we looked at the initial boxplot, these two groups overlapped quite a bit, making it hard to guess if a difference truly existed. This is exactly why we rely on mathematical testing rather than just our eyes. Tukey’s HSD confirms that the general track does score significantly higher than the vocational track (<span class="math inline">\(p = .029\)</span>), though the practical difference between them is moderate (<span class="math inline">\(d = 0.49\)</span>).</li>
+</ul>
+<p>In a rare and statistically neat outcome, every single program track is significantly different from all the others!</p>
+<section id="the-final-apa-write-up" class="level4" data-number="6.9.5.1">
+<h4 data-number="6.9.5.1" class="anchored" data-anchor-id="the-final-apa-write-up"><span class="header-section-number">6.9.5.1</span> The Final APA Write-Up</h4>
+<p>To complete our research cycle, we must summarize our findings in a formal, professional format that incorporates our descriptive statistics, our global ANOVA results, and our post hoc conclusions.</p>
+<blockquote class="blockquote">
+<p>A One-Way ANOVA was conducted to determine if a high school student’s enrolled academic program track has a significant effect on their standardized writing score. The overall model revealed a statistically significant difference in writing scores across the three program tracks, <em>F</em>(2, 197) = 21.27, <em>p</em> &lt; .001.</p>
+<p>Post hoc comparisons using Tukey’s HSD test indicated that students in the academic track scored significantly higher (<em>M</em> = 56.3, <em>SD</em> = 7.94) than both students in the general track (<em>M</em> = 51.3, <em>SD</em> = 9.40), <em>p</em> = .005, <em>d</em> = 0.59, and students in the vocational track (<em>M</em> = 46.8, <em>SD</em> = 9.32), <em>p</em> &lt; .001, <em>d</em> = 1.13. Furthermore, students in the general track scored significantly higher than those in the vocational track, <em>p</em> = .029, <em>d</em> = 0.49.</p>
+<p>Ultimately, these findings provide strong evidence that educational tracking is significantly associated with disparities in core writing competencies, with the academic track exhibiting the highest proficiency and the vocational track exhibiting the lowest.</p>
+</blockquote>
+<p>Congratulations! You have just completed a full, mathematically rigorous analysis of variance, from the initial exploratory graphs to the final APA-formatted conclusion.</p>
+</section>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">6.10</span> Common Mistakes and Misconceptions</h2>
+<p>As you learn to use the One-Way ANOVA, you will likely encounter a few common conceptual hurdles. Avoiding these traps will make you a much more confident data analyst.</p>
+<section id="the-significant-vs.-non-significant-trap" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="the-significant-vs.-non-significant-trap"><span class="header-section-number">6.10.1</span> The “Significant vs.&nbsp;Non-Significant” Trap</h3>
+<p>When reading your post hoc results, it is tempting to use flawed, everyday logic to compare your groups.</p>
+<p>Imagine you are testing two new clinical treatments (Treatment A and Treatment B) against a standard placebo control. Your post hoc analysis reveals that Treatment A is significantly better than the placebo (<span class="math inline">\(p = .048\)</span>), but Treatment B is not quite significantly better than the placebo (<span class="math inline">\(p = .052\)</span>). A common mistake is to glance at these two results and confidently conclude, “Therefore, Treatment A is significantly better than Treatment B.”</p>
+<p>This is a serious statistical fallacy. Think about how close those two <span class="math inline">\(p\)</span>-values are. Treatment A just barely scraped past the arbitrary 5% finish line, while Treatment B just barely missed it. In reality, the actual physical effects of Treatment A and Treatment B might be virtually indistinguishable from one another.</p>
+<p>To quote a famous statistical maxim: <em>The difference between “significant” and “not significant” is not itself statistically significant.</em></p>
+<p><strong>The Takeaway:</strong> You can never draw a conclusion about the relationship between two groups by comparing their individual relationships to a third group. If you want to know if Treatment A is better than Treatment B, you cannot use the placebo as a middleman. You must use the specific <span class="math inline">\(p\)</span>-value for the direct, head-to-head comparison between Treatment A and Treatment B.</p>
+</section>
+<section id="mixing-up-measures-boxplots-vs.-the-math" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="mixing-up-measures-boxplots-vs.-the-math"><span class="header-section-number">6.10.2</span> Mixing Up Measures: Boxplots vs.&nbsp;The Math</h3>
+<p>This is perhaps the most understandable source of confusion when learning the ANOVA because it stems from the tools we use to visualize our data.</p>
+<p>During our data triage, we used a side-by-side boxplot to get a feel for our treatment groups. As we learned in Chapter 1, a boxplot is built using the <a href="appendix-glossary.html#glossary-term-median" class="glossary-link" data-definition="The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew." aria-describedby="glossary-tooltip" data-term="median">median</a> (the solid line inside the box) and the <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." aria-describedby="glossary-tooltip" data-term="interquartile range (IQR)">Interquartile Range</a> (the box itself, representing the middle 50% of the data). However, remember what ANOVA stands for: Analysis of Variance. The mathematical engine of the ANOVA ignores the median and the IQR. Instead, it tests for differences between the group <a href="appendix-glossary.html#glossary-term-mean" class="glossary-link" data-definition="The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values." aria-describedby="glossary-tooltip" data-term="mean">means</a>, and it measures noise using <a href="appendix-glossary.html#glossary-term-variance" class="glossary-link" data-definition="A measure of spread equal to the average squared deviation from the mean; ANOVA partitions this variability into between-groups and within-groups parts." aria-describedby="glossary-tooltip" data-term="variance">variances</a> (standard deviations).</p>
+<p>This creates a mismatch between what your eyes see on the graph and what the software calculates behind the scenes. Because the mean is sensitive to outliers and the median is not, a boxplot might look perfectly symmetrical while the underlying mean is being pulled by an extreme score.</p>
+<p>Why do researchers still use boxplots for ANOVAs? Because they are efficient at spotting severe skewness, floor/ceiling effects, and extreme outliers all at a single glance. They are fantastic for a quick data health check. However, you must remember that the visual “box” does not align with the mathematical “engine” of the test.</p>
+<p><strong>The Takeaway:</strong> Never rely solely on how the boxes overlap to guess your final results. Treat the boxplot as a preliminary clue, but always trust the final <span class="math inline">\(p\)</span>-value from your ANOVA and post hoc tests to make your actual conclusion.</p>
+</section>
+<section id="the-myth-that-the-data-must-be-normal" class="level3" data-number="6.10.3">
+<h3 data-number="6.10.3" class="anchored" data-anchor-id="the-myth-that-the-data-must-be-normal"><span class="header-section-number">6.10.3</span> The Myth that “The Data Must Be Normal”</h3>
+<p>As we discussed in Section 6.7, this is perhaps the most ubiquitous myth in introductory statistics. You will frequently hear peers, or even see older textbooks, claim that you can only run an ANOVA if your raw dataset forms a perfect bell curve.</p>
+<p>This is simply not true. The mathematical requirement is that the model’s <a href="appendix-glossary.html#glossary-term-residual" class="glossary-link" data-definition="The difference between an observed value and the value predicted by a model, so a positive residual means the model underpredicted and a negative residual means it overpredicted." aria-describedby="glossary-tooltip" data-term="residual">residuals</a> (the individual differences between each observation and its specific group average) are roughly normal. Do not abandon your ANOVA just because the overall raw dataset looks a bit skewed or has multiple peaks. Pool your zero-centered residuals, look at your Normal Q-Q plot, and remember to ask yourself: <em>Is it plausible that these residuals come from a normal distribution?</em></p>
+</section>
+<section id="viewing-unequal-variances-solely-as-a-failure" class="level3" data-number="6.10.4">
+<h3 data-number="6.10.4" class="anchored" data-anchor-id="viewing-unequal-variances-solely-as-a-failure"><span class="header-section-number">6.10.4</span> Viewing Unequal Variances Solely as a “Failure”</h3>
+<p>In Section 6.7, we checked to make sure our treatment groups had a roughly equal spread, warning that unequal variances break the mathematical machinery of a standard ANOVA. It is common for students to view this as a frustrating failure, a roadblock that forces them to use a less familiar alternative tool.</p>
+<p>However, failing the equal variances requirement might actually be the most fascinating outcome of your entire study!</p>
+<p>Think back to the intuition we built regarding our observational high school data. If a selective academic track has a very small variance (everyone scores similarly), and an open-enrollment general track has a large variance (scores are all over the place), that difference in spread is not just a statistical nuisance. It is a profound finding about how educational systems function. Sometimes, discovering that a treatment dramatically alters the <em>consistency</em> of an outcome is much more important than discovering it alters the average.</p>
+<p>When the difference in spread is your actual research interest, you can use a tool called <a href="appendix-glossary.html#glossary-term-levene-s-test" class="glossary-link" data-definition="A formal hypothesis test for equal group variances; this book recommends visual checks and the 2X rule instead, because using a test to gatekeep another test compounds error." aria-describedby="glossary-tooltip" data-term="Levene’s test">Levene’s test</a>. Earlier, we strongly advised against using formal hypothesis tests just to see if you are allowed to run an ANOVA. But if your actual research question is, <em>“Does the variation in writing scores differ significantly between program tracks?”</em>, Levene’s test is the perfect tool. In this scenario, Levene’s test isn’t being used as a diagnostic hurdle. It is the primary analysis answering your question. A significant <span class="math inline">\(p\)</span>-value from Levene’s test can be a meaningful, publishable result in its own right, proving that a categorical factor significantly affects the variability of a population.</p>
+</section>
+</section>
+<section id="key-concepts" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">6.11</span> Key Concepts</h2>
+<ol type="1">
+<li><strong>Vocabulary of Experimental Design:</strong> When comparing groups, the numerical outcome you measure is the <a href="appendix-glossary.html#glossary-term-response-variable" class="glossary-link" data-definition="The variable a regression model is trying to predict, traditionally plotted on the vertical axis; it must be a true numerical measurement." aria-describedby="glossary-tooltip" data-term="response variable">response variable</a>, and the categorical grouping mechanism is the <a href="appendix-glossary.html#glossary-term-factor" class="glossary-link" data-definition="The categorical variable that divides a sample into the groups being compared; also called the treatment variable." aria-describedby="glossary-tooltip" data-term="factor">factor</a> (or treatment variable). The specific categories are the <a href="appendix-glossary.html#glossary-term-factor-level" class="glossary-link" data-definition="One of the specific categories that make up a factor; also called a treatment level." aria-describedby="glossary-tooltip" data-term="factor level">factor levels</a>, and the actual participants in those categories make up the <a href="appendix-glossary.html#glossary-term-treatment-group" class="glossary-link" data-definition="The subset of participants who fall into one particular level of a factor." aria-describedby="glossary-tooltip" data-term="treatment group">treatment groups</a>.</li>
+<li><strong>The Purpose of ANOVA:</strong> An Analysis of Variance (ANOVA) is used to compare the means of a numerical variable across three or more categorical groups. We use a single overarching ANOVA rather than multiple independent <span class="math inline">\(t\)</span>-tests to prevent inflating our risk of a Type I error (a false positive).</li>
+<li><a href="appendix-glossary.html#glossary-term-partitioning-variation" class="glossary-link" data-definition="The ANOVA process of splitting total variation into between-groups variation (signal) and within-groups variation (noise)." aria-describedby="glossary-tooltip" data-term="partitioning variation">Partitioning Variation</a><strong>:</strong> An ANOVA works by splitting the total spread of the data into two pieces. It compares the <a href="appendix-glossary.html#glossary-term-between-groups-variation" class="glossary-link" data-definition="The part of total variation that measures how far the group averages are from one another; in ANOVA it represents the signal, or the effect of the factor." aria-describedby="glossary-tooltip" data-term="between-groups variation">Between-Groups variation</a> (the “signal” caused by the treatment) to the <a href="appendix-glossary.html#glossary-term-within-groups-variation" class="glossary-link" data-definition="The part of total variation that measures the random differences among individuals inside the same group; in ANOVA it represents the noise." aria-describedby="glossary-tooltip" data-term="within-groups variation">Within-Groups variation</a> (the natural “noise” of individual differences). If the signal is significantly louder than the noise, the test produces a small <span class="math inline">\(p\)</span>-value.</li>
+<li><strong>The Hypotheses:</strong> The null hypothesis (<span class="math inline">\(H_0\)</span>) assumes all group means are exactly equal. The alternative hypothesis (<span class="math inline">\(H_1\)</span>) claims that at least <em>one pair</em> of groups has a significant difference. It does not require every group to be different from all the others.</li>
+<li><strong>Structural Assumptions:</strong> A standard One-Way ANOVA requires independent samples, mutually exclusive factor levels, normally distributed residuals, and equal variances across the treatment groups.</li>
+<li><strong>Diagnostics over Perfection:</strong> When checking assumptions, we look for plausibility rather than perfect mathematical proof. We assume residuals are normal unless a Q-Q plot or histogram convinces us otherwise. We assume equal variances if our jitter plot looks relatively even and our largest standard deviation is no more than double our smallest.</li>
+<li><strong>The Global ANOVA is Blind:</strong> A significant <span class="math inline">\(F\)</span>-statistic and <span class="math inline">\(p\)</span>-value from an ANOVA only tell you that a difference exists somewhere in the data. It cannot tell you which specific groups are different, nor can it tell you the size of the effect.</li>
+<li><strong>Post Hoc Analysis:</strong> To find out exactly which groups differ, we run post hoc tests that safely control our overall error rate. <a href="appendix-glossary.html#glossary-term-tukey-s-hsd" class="glossary-link" data-definition="A post hoc test that compares every pair of group means while controlling the family-wise error rate; the standard choice when all pairwise comparisons matter." aria-describedby="glossary-tooltip" data-term="Tukey’s HSD">Tukey’s HSD</a> is the standard for comparing every group to every other group. <a href="appendix-glossary.html#glossary-term-dunnett-s-test" class="glossary-link" data-definition="A post hoc test that compares several groups against one designated baseline group, saving power by skipping comparisons among the other groups." aria-describedby="glossary-tooltip" data-term="Dunnett’s test">Dunnett’s test</a> is used when comparing multiple groups against a single control baseline.</li>
+<li><a href="appendix-glossary.html#glossary-term-practical-significance" class="glossary-link" data-definition="Whether an effect is large enough to matter in practice, judged from an effect size or confidence interval rather than from a p-value alone." aria-describedby="glossary-tooltip" data-term="practical significance">Practical Significance</a><strong>:</strong> Just like a <span class="math inline">\(t\)</span>-test, a significant ANOVA and post hoc test must be followed up with Confidence Intervals or an effect size like Cohen’s <span class="math inline">\(d\)</span> to determine if the statistical difference matters in practice.</li>
+</ol>
+</section>
+<section id="new-notation" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="new-notation"><span class="header-section-number">6.12</span> New Notation</h2>
+<table class="caption-top table">
+<caption>Table 6.1: Notation introduced in this chapter.</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 45%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Symbol</strong></th>
+<th><strong>How it is read aloud</strong></th>
+<th><strong>What it represents in plain words</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ANOVA</td>
+<td>“A-no-va” or “Analysis of Variance”</td>
+<td>The overarching statistical framework used to compare the means of a numerical response variable across three or more categorical treatment groups.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(F\)</span></td>
+<td>“F-statistic” or just “F”</td>
+<td>The mathematical ratio of the between-groups variation (the signal) to the within-groups variation (the noise).</td>
+</tr>
+<tr class="odd">
+<td>Tukey’s HSD</td>
+<td>“Tukey’s H-S-D” or “Tukey’s Honestly Significant Difference”</td>
+<td>The standard post hoc test used to safely determine which specific pairs of groups differ after a significant global ANOVA, without inflating the overall risk of a Type I error.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="exercises" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.13</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">6.13.1</span> Interpretation</h3>
+<ol type="1">
+<li>A sports physiologist is studying the effect of three different recovery drinks on muscle soreness. Instead of running an ANOVA, the researcher decides to run three separate independent samples <span class="math inline">\(t\)</span>-tests to compare the drinks against each other (Drink A vs.&nbsp;B, Drink A vs.&nbsp;C, and Drink B vs.&nbsp;C). Explain the mathematical danger of this approach and how it affects the researcher’s Type I error rate.</li>
+<li>A sociologist runs a One-Way ANOVA comparing the annual income of residents across four different city neighborhoods. The software reports a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(.01\)</span>. The sociologist writes in their report, “The results prove that the mean income of all four neighborhoods are different from one another.” Explain why this interpretation of the alternative hypothesis is incorrect, and provide the accurate interpretation.</li>
+<li>A clinical psychologist is preparing to run an ANOVA to compare anxiety reduction scores across three different therapy types. Before running the model, they check their descriptive statistics. The standard deviations for the three therapy groups are 4, 7, and 11. Apply the mathematical rule of thumb for equal variances to this data. Does this data pass the assumption? If not, what specific alternative test should the psychologist use?</li>
+<li>A marketing analyst finds a significant global ANOVA when comparing customer satisfaction scores across three store locations (North, South, and East). They follow up with a Tukey’s HSD test and receive the following <span class="math inline">\(p\)</span>-values: North vs.&nbsp;South (<span class="math inline">\(p = .02\)</span>), North vs.&nbsp;East (<span class="math inline">\(p = .45\)</span>), and South vs.&nbsp;East (<span class="math inline">\(p = .04\)</span>). Interpret exactly which store locations have significantly different satisfaction scores based on this output.</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="6.13.2">
+<h3 data-number="6.13.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">6.13.2</span> Choosing a Method</h3>
+<ol start="5" type="1">
+<li>A nutritionist is designing a study to see if a patient’s assigned diet impacts their resting heart rate. The study tracks 150 patients who are randomly assigned to one of three diets: Vegan, Keto, or Mediterranean. Identify the response variable, the factor, the factor levels, and the treatment groups in this specific study design.</li>
+<li>A university administrator wants to know if the type of high school a student attended (Public, Private, or Homeschool) affects their first-year college GPA. Should the administrator use an independent samples <span class="math inline">\(t\)</span>-test, a multiple regression, or a One-Way ANOVA? Justify your choice based on the types and number of variables involved.</li>
+<li>A pharmaceutical company is testing three brand-new experimental pain medications. To see if they work, the researchers want to compare the pain reduction scores of the three experimental drugs against a single, standard baseline group that received an over-the-counter aspirin. Which specific post hoc test should the researchers use to maximize their statistical power, and why?</li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="6.13.3">
+<h3 data-number="6.13.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">6.13.3</span> Communicating Results</h3>
+<ol start="8" type="1">
+<li>A fellow student is presenting their research on the physical endurance of athletes playing different sports. They used an ANOVA to compare the stamina scores of runners, swimmers, and cyclists. The student points to an <span class="math inline">\(F\)</span>-statistic of 42.5 on their slide and concludes, “Because the <span class="math inline">\(F\)</span>-statistic is 42.5, we know the actual stamina scores between these groups differ by over 40 points.” Explain the fatal flaw in this communication.</li>
+<li>A journalist reads a published ANOVA study comparing the reading comprehension scores of thousands of elementary students using three different phonics programs. The study reports a highly significant <span class="math inline">\(p\)</span>-value (<span class="math inline">\(p &lt; .001\)</span>), but the Cohen’s <span class="math inline">\(d\)</span> effect sizes for the differences between the programs are all around 0.05. The journalist publishes an article with the headline: “Revolutionary Phonics Program Creates Massive Advantage for Students.” Explain why this headline is flawed.</li>
+<li>You are reviewing a research paper draft written by a colleague. They explain that they threw away their plan to run an ANOVA because they created a histogram of their entire response variable, and it had three distinct peaks instead of a single perfect bell curve. Explain the “myth of raw data normality” to your colleague and tell them exactly what they should have checked instead.</li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="6.13.4">
+<h3 data-number="6.13.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">6.13.4</span> Software Application</h3>
+<p>For this section, you will use statistical software to analyze the High School and Beyond dataset (<code>hsb.csv</code>). While we explored writing scores and program tracks in the chapter, you will now investigate a different dynamic: does a student’s socioeconomic status (<code>ses</code>) have a significant effect on their standardized math scores (<code>math</code>)? The <code>ses</code> variable divides students into three categorical levels: low, middle, and high.</p>
+<ol start="11" type="1">
+<li><strong>Data Triage and Assumptions:</strong> Before trusting a mathematical model, you must check the structural health of your data.</li>
+</ol>
+<ol type="a">
+<li>Generate a side-by-side boxplot predicting <code>math</code> by <code>ses</code>. Do you notice any severe skewness or extreme outliers that might cause concern?</li>
+<li>Calculate the standard deviations for the math scores within each of the three <code>ses</code> groups. Apply the 2X rule of thumb. Is the assumption of equal variances met?</li>
+<li>Run the global ANOVA model in your software and generate a Normal Q-Q plot of the model’s residuals. Do the residuals appear reasonably normal, or do they severely pull away from the reference line with sharp hooks?</li>
+</ol>
+<ol start="12" type="1">
+<li><strong>The Global ANOVA:</strong> With your diagnostic checks complete, evaluate the overarching mathematical model.</li>
+</ol>
+<ol type="a">
+<li>Locate and report the <span class="math inline">\(F\)</span>-statistic, the degrees of freedom (Between and Within), and the overall <span class="math inline">\(p\)</span>-value for the ANOVA.</li>
+<li>Based on the <span class="math inline">\(p\)</span>-value, what is your formal decision regarding the null hypothesis?</li>
+<li>State your conclusion to the global ANOVA in plain English. What does this result tell you about socioeconomic status and math scores, and what does it <em>not</em> tell you?</li>
+</ol>
+<ol start="13" type="1">
+<li><strong>Post Hoc Testing:</strong> Because your global ANOVA was significant, you have permission to investigate the specific pairwise differences.</li>
+</ol>
+<ol type="a">
+<li>Run a Tukey’s HSD test on your model. Report the adjusted <span class="math inline">\(p\)</span>-values for the three specific comparisons: low vs.&nbsp;middle, low vs.&nbsp;high, and middle vs.&nbsp;high.</li>
+<li>Based on these <span class="math inline">\(p\)</span>-values, which specific pairs of socioeconomic groups have significantly different mean math scores?</li>
+<li>Look closely at the low vs.&nbsp;middle comparison. Did it achieve statistical significance?</li>
+</ol>
+<ol start="14" type="1">
+<li><strong>Practical Significance and Reporting:</strong> A complete analysis requires measuring the practical size of the differences and formatting them professionally.</li>
+</ol>
+<ol type="a">
+<li>Calculate the pairwise Cohen’s <span class="math inline">\(d\)</span> effect sizes for your groups. Report the effect size for the difference between the low SES and high SES groups. Is this effect considered small, moderate, or large?</li>
+<li>Write a final, APA-formatted conclusion paragraph summarizing this entire analysis. Be sure to start with a plain English claim, follow it with the global ANOVA results, and conclude with the post hoc findings (including the descriptive means and standard deviations for context).</li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-05.html" class="pagination-link" aria-label="Multiple Regression for Complex Systems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-07.html" class="pagination-link" aria-label="Advanced Experimental Designs">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

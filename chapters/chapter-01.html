@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Understanding Data through Measures and Visualizations – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-02.html" rel="next">
+<link href="../chapters/preface.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
+  <li><a href="#data-basics-categorical-vs.-numerical-variables" id="toc-data-basics-categorical-vs.-numerical-variables" class="nav-link" data-scroll-target="#data-basics-categorical-vs.-numerical-variables"><span class="header-section-number">1.2</span> Data Basics: Categorical vs.&nbsp;Numerical Variables</a></li>
+  <li><a href="#visualizing-single-variables-categorical-data" id="toc-visualizing-single-variables-categorical-data" class="nav-link" data-scroll-target="#visualizing-single-variables-categorical-data"><span class="header-section-number">1.3</span> Visualizing Single Variables: Categorical Data</a></li>
+  <li><a href="#visualizing-single-variables-quantitative-data" id="toc-visualizing-single-variables-quantitative-data" class="nav-link" data-scroll-target="#visualizing-single-variables-quantitative-data"><span class="header-section-number">1.4</span> Visualizing Single Variables: Quantitative Data</a></li>
+  <li><a href="#distribution-shapes-and-the-normal-curve" id="toc-distribution-shapes-and-the-normal-curve" class="nav-link" data-scroll-target="#distribution-shapes-and-the-normal-curve"><span class="header-section-number">1.5</span> Distribution Shapes and The Normal Curve</a></li>
+  <li><a href="#visualizing-relationships-two-numerical-variables" id="toc-visualizing-relationships-two-numerical-variables" class="nav-link" data-scroll-target="#visualizing-relationships-two-numerical-variables"><span class="header-section-number">1.6</span> Visualizing Relationships: Two Numerical Variables</a></li>
+  <li><a href="#visualizing-relationships-two-categorical-variables" id="toc-visualizing-relationships-two-categorical-variables" class="nav-link" data-scroll-target="#visualizing-relationships-two-categorical-variables"><span class="header-section-number">1.7</span> Visualizing Relationships: Two Categorical Variables</a></li>
+  <li><a href="#visualizing-relationships-mixed-and-complex-data" id="toc-visualizing-relationships-mixed-and-complex-data" class="nav-link" data-scroll-target="#visualizing-relationships-mixed-and-complex-data"><span class="header-section-number">1.8</span> Visualizing Relationships: Mixed and Complex Data</a></li>
+  <li><a href="#describing-data-numerically-measures-of-center" id="toc-describing-data-numerically-measures-of-center" class="nav-link" data-scroll-target="#describing-data-numerically-measures-of-center"><span class="header-section-number">1.9</span> Describing Data Numerically: Measures of Center</a>
+  <ul class="collapse">
+  <li><a href="#choosing-the-right-measure-of-center" id="toc-choosing-the-right-measure-of-center" class="nav-link" data-scroll-target="#choosing-the-right-measure-of-center"><span class="header-section-number">1.9.1</span> Choosing the Right Measure of Center</a></li>
+  </ul></li>
+  <li><a href="#measures-of-spread-and-position" id="toc-measures-of-spread-and-position" class="nav-link" data-scroll-target="#measures-of-spread-and-position"><span class="header-section-number">1.10</span> Measures of Spread and Position</a></li>
+  <li><a href="#matching-the-measure-to-the-shape" id="toc-matching-the-measure-to-the-shape" class="nav-link" data-scroll-target="#matching-the-measure-to-the-shape"><span class="header-section-number">1.11</span> Matching the Measure to the Shape</a>
+  <ul class="collapse">
+  <li><a href="#the-reliability-of-the-mean" id="toc-the-reliability-of-the-mean" class="nav-link" data-scroll-target="#the-reliability-of-the-mean"><span class="header-section-number">1.11.1</span> The Reliability of the Mean</a></li>
+  <li><a href="#reporting-numerical-summaries" id="toc-reporting-numerical-summaries" class="nav-link" data-scroll-target="#reporting-numerical-summaries"><span class="header-section-number">1.11.2</span> Reporting Numerical Summaries</a></li>
+  </ul></li>
+  <li><a href="#populations-and-samples-the-source-of-our-data" id="toc-populations-and-samples-the-source-of-our-data" class="nav-link" data-scroll-target="#populations-and-samples-the-source-of-our-data"><span class="header-section-number">1.12</span> Populations and Samples: The Source of Our Data</a>
+  <ul class="collapse">
+  <li><a href="#parameters-vs.-statistics" id="toc-parameters-vs.-statistics" class="nav-link" data-scroll-target="#parameters-vs.-statistics"><span class="header-section-number">1.12.1</span> Parameters vs.&nbsp;Statistics</a></li>
+  <li><a href="#notation-for-samples-and-populations" id="toc-notation-for-samples-and-populations" class="nav-link" data-scroll-target="#notation-for-samples-and-populations"><span class="header-section-number">1.12.2</span> Notation for Samples and Populations</a></li>
+  </ul></li>
+  <li><a href="#complications-of-messy-real-data" id="toc-complications-of-messy-real-data" class="nav-link" data-scroll-target="#complications-of-messy-real-data"><span class="header-section-number">1.13</span> Complications of Messy, Real Data</a>
+  <ul class="collapse">
+  <li><a href="#missing-data-and-bias" id="toc-missing-data-and-bias" class="nav-link" data-scroll-target="#missing-data-and-bias"><span class="header-section-number">1.13.1</span> Missing Data and Bias</a></li>
+  <li><a href="#floor-and-ceiling-effects" id="toc-floor-and-ceiling-effects" class="nav-link" data-scroll-target="#floor-and-ceiling-effects"><span class="header-section-number">1.13.2</span> Floor and Ceiling Effects</a></li>
+  <li><a href="#censored-and-truncated-data" id="toc-censored-and-truncated-data" class="nav-link" data-scroll-target="#censored-and-truncated-data"><span class="header-section-number">1.13.3</span> Censored and Truncated Data</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">1.14</span> Common Mistakes and Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">1.15</span> Key Concepts</a></li>
+  <li><a href="#guided-analysis-putting-it-all-together" id="toc-guided-analysis-putting-it-all-together" class="nav-link" data-scroll-target="#guided-analysis-putting-it-all-together"><span class="header-section-number">1.16</span> Guided Analysis: Putting It All Together</a>
+  <ul class="collapse">
+  <li><a href="#the-research-interest" id="toc-the-research-interest" class="nav-link" data-scroll-target="#the-research-interest"><span class="header-section-number">1.16.1</span> The Research Interest</a></li>
+  <li><a href="#the-research-question" id="toc-the-research-question" class="nav-link" data-scroll-target="#the-research-question"><span class="header-section-number">1.16.2</span> The Research Question</a></li>
+  <li><a href="#data-triage-and-exploratory-analysis" id="toc-data-triage-and-exploratory-analysis" class="nav-link" data-scroll-target="#data-triage-and-exploratory-analysis"><span class="header-section-number">1.16.3</span> Data Triage and Exploratory Analysis</a></li>
+  <li><a href="#numerical-summaries" id="toc-numerical-summaries" class="nav-link" data-scroll-target="#numerical-summaries"><span class="header-section-number">1.16.4</span> Numerical Summaries</a></li>
+  <li><a href="#translating-to-apa-style" id="toc-translating-to-apa-style" class="nav-link" data-scroll-target="#translating-to-apa-style"><span class="header-section-number">1.16.5</span> Translating to APA Style</a></li>
+  <li><a href="#report-center-and-spread-together" id="toc-report-center-and-spread-together" class="nav-link" data-scroll-target="#report-center-and-spread-together"><span class="header-section-number">1.16.6</span> <strong>Report Center and Spread Together</strong></a></li>
+  <li><a href="#preliminary-conclusion" id="toc-preliminary-conclusion" class="nav-link" data-scroll-target="#preliminary-conclusion"><span class="header-section-number">1.16.7</span> Preliminary Conclusion</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">1.17</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">1.17.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">1.17.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">1.17.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">1.17.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-01.html">Unit I: Foundations of Data Analysis</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
+<p>Imagine you are a university researcher investigating student well-being. You want to understand how sleep, stress, and lifestyle choices impact academic performance. To answer this, you collect data from 253 college students over a single semester. You record their average weekday and weekend sleep hours, semester GPA, and classes missed. You also give them standard psychological screenings to measure depression, anxiety, and stress levels.</p>
+<p>Now you have a spreadsheet filled with hundreds of rows and columns. Looking at the raw numbers can feel overwhelming. How do you make sense of it all? Where do you even begin?</p>
+<p>This chapter shows you how to take that first step in any research project: getting to know your data. Before we can answer complex questions about whether high anxiety causes lower GPAs, we need to understand what our data looks like.</p>
+<p>The dataset <code>student_lifestyle_sleep.csv</code> included with this text has all this raw data from a real study. If you open it in software, you’ll see it is filled with hundreds of rows and columns. To help you make sense of this information, here is a dictionary of the specific variables we will analyze in this chapter. (Note that while the full dataset contains many more survey responses, a good researcher isolates and defines only the variables necessary for their current questions).</p>
+<ul>
+<li><strong><code>WeekdaySleep</code></strong>: A numerical variable recording the average number of hours the student sleeps on a typical school night.</li>
+<li><strong><code>WeekendSleep</code></strong>: A numerical variable recording the average number of hours the student sleeps on a typical non-school night.</li>
+<li><strong><code>GPA</code></strong>: A numerical variable recording the student’s cumulative Grade Point Average at the end of the semester.</li>
+<li><strong><code>ClassesMissed</code></strong>: A numerical variable recording the total number of class lectures the student missed during the semester.</li>
+<li><strong><code>ClassYear</code></strong>: A categorical variable indicating the student’s current academic standing (<span class="math inline">\(1 = \text{First Year}\)</span>, <span class="math inline">\(2 = \text{Sophomore}\)</span>, <span class="math inline">\(3 = \text{Junior}\)</span>, <span class="math inline">\(4 = \text{Senior}\)</span>).</li>
+<li><strong><code>DepressionStatus</code></strong>: A categorical variable showing the student’s classification based on a standard psychological screening (with levels of <strong>normal</strong>, <strong>moderate</strong>, or <strong>severe</strong>).</li>
+<li><strong><code>AnxietyStatus</code></strong>: A categorical variable showing the student’s classification based on a standard psychological screening (with levels of <strong>normal</strong>, <strong>moderate</strong>, or <strong>severe</strong>).</li>
+</ul>
+<p>By the end of this chapter, you will learn how to identify different types of variables, from descriptive categories to numerical measurements, build visual summaries, understand numerical summaries to find the typical student experience and how much students differ, describe the physical shape of your data, like the famous bell curve, and spot data problems, like missing responses or heavily skewed results.</p>
+</section>
+<section id="data-basics-categorical-vs.-numerical-variables" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="data-basics-categorical-vs.-numerical-variables"><span class="header-section-number">1.2</span> Data Basics: Categorical vs.&nbsp;Numerical Variables</h2>
+<p>When you open <code>student_lifestyle_sleep.csv</code>, you will see a large grid of information. Each row represents a single student in the study. Each column represents a specific piece of information we recorded about them.</p>
+<table class="caption-top table">
+<caption>Table 1.1: The first five rows of <code>student_lifestyle_sleep.csv</code>.</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 3%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ClassYear</th>
+<th style="text-align: right;">GPA</th>
+<th style="text-align: right;">ClassesMissed</th>
+<th style="text-align: left;">DepressionStatus</th>
+<th style="text-align: left;">AnxietyStatus</th>
+<th style="text-align: right;">WeekdaySleep</th>
+<th style="text-align: right;">WeekendSleep</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: right;">7.70</td>
+<td style="text-align: right;">5.88</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">3.24</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: right;">6.80</td>
+<td style="text-align: right;">7.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2.97</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">severe</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">10.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">3.76</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: right;">6.77</td>
+<td style="text-align: right;">7.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">severe</td>
+<td style="text-align: right;">6.09</td>
+<td style="text-align: right;">7.00</td>
+</tr>
+</tbody>
+</table>
+<p>We call these columns <strong>variables</strong> because the information they hold naturally varies from person to person. However, not all variables record the same type of information. Recognizing the different types of data is your first essential step in any analysis.</p>
+<p>To illustrate this, let’s focus on the student in the third row of the table. They are a senior (ClassYear=4), their GPA is a bit low compared to the other students at 2.97, and they seem to be missing more classes than the other students here at 12 classes missed. We can also see they have moderate depression, severe anxiety, and their sleep patterns differ sharply from the other peers in this short sampling from the dataset. Just this little bit of information can give us potential clues about the relationship between a student’s psychological status, student performance, and sleep habits.</p>
+<p>Some variables describe a trait, group, or status. We call these <a href="appendix-glossary.html#glossary-term-categorical-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A variable that places each observation into a group or category; values are labels rather than quantities and do not support arithmetic operations." data-term="categorical variable">categorical variables</a>. They place each student into a specific category or bucket. For example, <em>Stress</em> is a categorical variable that groups students into either “normal” or “high” categories.</p>
+<p>Sometimes, these categories have a natural, logical order. We call these <a href="appendix-glossary.html#glossary-term-ordinal-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A categorical variable whose categories follow a meaningful ranking (e.g., education level, satisfaction rating), though distances between adjacent categories are not necessarily equal." data-term="ordinal variable">ordinal variables</a>. <code>ClassYear</code> is a great example, ordering students from first-years up to seniors. <code>AlcoholUse</code> is also ordinal, progressing from Abstain to Heavy. While they are still descriptive categories (you cannot calculate a true mathematical average for them), their built-in order is important to remember when we start making graphs. If the categories do not have any natural ranking (like choosing a college major or a favorite color), they are simply called <a href="appendix-glossary.html#glossary-term-nominal-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A categorical variable whose categories have no natural order (e.g., eye color, country of birth)." data-term="nominal variable">nominal variables</a>.</p>
+<p>Other variables record a measurable quantity or exact amount. We call these <a href="appendix-glossary.html#glossary-term-numerical-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A variable that takes on values representing quantities and supports arithmetic operations (e.g., GPA, age, hours studied)." data-term="numerical variable">numerical variables</a>. These are numbers where doing math makes logical sense. In our dataset, <code>GPA</code> and <code>WeekdaySleep</code> are numerical variables. They tell us exactly “how much” or “how many.” Because they represent true quantities, you can calculate meaningful summaries, like the average sleep time for the entire group.</p>
+<p>Why does this distinction matter? Because the type of variable you have entirely dictates what you can do with it. The statistical tools you use to explore a categorical variable like <code>DepressionStatus</code> will be different from the tools you use to analyze a numerical variable like <code>ClassesMissed</code>. We will see exactly how this works as we start building visual summaries in the next section.</p>
+<hr>
+</section>
+<section id="visualizing-single-variables-categorical-data" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="visualizing-single-variables-categorical-data"><span class="header-section-number">1.3</span> Visualizing Single Variables: Categorical Data</h2>
+<p>Suppose you want to understand the baseline mental health of the students in our study. Before exploring how mental health affects grades, you first need to know how prevalent different levels of depression are among the 253 participants.</p>
+<p>To answer this, let’s turn to the <code>DepressionStatus</code> variable. This categorical variable records each student’s clinical screening result as one of three distinct groups: normal, moderate, or severe. Counting how many students fall into each group gives you a summary, but a visual representation is often much faster to interpret.</p>
+<p>To visualize a single categorical variable, we use a <a href="appendix-glossary.html#glossary-term-bar-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph that displays the frequency or proportion of observations in each category using rectangular bars, with gaps between bars to signal categorical data." data-term="bar plot">bar plot</a>. A bar plot draws a rectangular bar for each category. The height of the bar tells you the frequency, which is exactly how many students belong to that group.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_02_bar_depression_status.png" class="img-fluid figure-img" alt="Bar chart of depression screening status for 253 students. The normal bar is tallest at 209 students, moderate is 34, and severe is 10. Bars are ordered normal, moderate, severe."></p>
+<figcaption>Figure 1.2: Depression screening status among 253 students, ordered from normal to severe.</figcaption>
+</figure>
+</div>
+<p>When interpreting a bar plot, you are primarily looking for the most common and least common outcomes. The tallest bar represents the mode, or the most frequent category in your data. In a well-made bar plot, there are gaps between the bars. These gaps serve as a visual reminder that the categories are distinct, separate groups, rather than a continuous numerical measurement.</p>
+<p>Notice that because <code>DepressionStatus</code> is an ordinal variable, we keep the bars in their natural progression (normal <span class="math inline">\(\rightarrow\)</span> moderate <span class="math inline">\(\rightarrow\)</span> severe). Sorting them by height would scramble the meaning!</p>
+<p>However, what if you are working with a nominal variable that has a large number of categories? Imagine reviewing data from a college’s tutoring and STEM resource center, tracking the “reason for visit” across dozens of different subjects. A standard bar plot would be wide, cluttered, and hard to read.</p>
+<p>To make sense of this, we use a variation called a <a href="appendix-glossary.html#glossary-term-pareto-chart" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A bar plot for categorical data with bars sorted from most to least frequent, often combining rare categories into a single “Other” bar so the largest categories stand out." data-term="Pareto chart">Pareto chart</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_03_bar_pareto_tutoring.png" class="img-fluid figure-img" alt="Pareto chart of illustrative tutoring and STEM center visits, sorted from most to least common. Math Help has the most visits, followed by Computer Use, Statistics Help, Writing Help, and Other, which combines the least common reasons."></p>
+<figcaption>Figure 1.3: An illustrative Pareto chart of reasons for visiting a tutoring and STEM resource center.</figcaption>
+</figure>
+</div>
+<p>A Pareto chart is a bar chart for nominal data where the bars are sorted in descending order. The tallest bar is placed on the far left, and the shortest bar is on the far right. Often, to save space, the many rare categories at the tail end are combined into a single “Other” bar. This sorting forces the most common reasons to the front, making it effortless to see exactly where the majority of students are seeking help.</p>
+</section>
+<section id="visualizing-single-variables-quantitative-data" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="visualizing-single-variables-quantitative-data"><span class="header-section-number">1.4</span> Visualizing Single Variables: Quantitative Data</h2>
+<p>Now that we can visualize categories, how do we handle numbers? Suppose we want to know how much sleep our 253 students get on average during the week. If we examine the <code>WeekdaySleep</code> variable, we see exact measurements like 6.5 hours, 7.2 hours, and 8.0 hours.</p>
+<p>Because these are numerical measurements, we cannot just make a bar for every single unique number. Instead, we group the data into continuous ranges, or “bins,” and count how many students fall into each bin. For instance, we might count how many students sleep between 6.0 and 6.9 hours, then between 7.0 and 7.9 hours, and so on.</p>
+<p>We visualize this grouping using a <a href="appendix-glossary.html#glossary-term-histogram" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph for a single numerical variable that groups values into adjacent bins with no gaps between bars; bar heights show how many observations fall in each bin." data-term="histogram">histogram</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_04_hist_weekday_sleep.png" class="img-fluid figure-img" alt="Histogram of weekday sleep hours in one-hour bins. The distribution is centered near 8 hours, with the tallest bins at 7 to 8 and 8 to 9 hours, and few students below 5 or above 10 hours."></p>
+<figcaption>Figure 1.4: Distribution of weekday sleep hours for 253 students, binned in one-hour intervals.</figcaption>
+</figure>
+</div>
+<p>At first glance, a histogram looks a lot like a bar chart. But notice one major visual difference: there are no gaps between the bars. In a bar chart, the gaps remind us that categories are separate. In a histogram, the bars touch because they represent a continuous number line. Where one bin ends, the next bin immediately begins.</p>
+</section>
+<section id="distribution-shapes-and-the-normal-curve" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="distribution-shapes-and-the-normal-curve"><span class="header-section-number">1.5</span> Distribution Shapes and The Normal Curve</h2>
+<p>When you look at a histogram, you are looking at the <a href="appendix-glossary.html#glossary-term-distribution" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The pattern of how values of a variable are spread across its range; described by center, spread, shape, and unusual observations." data-term="distribution">distribution</a> of your data. The distribution tells you what values are common, what values are rare, and how the data is spread out from lowest to highest. We often describe distributions by their physical shape.</p>
+<p>If you trace an imaginary line over the top of the histogram bars, you might see a single, distinct peak. We call this a <a href="appendix-glossary.html#glossary-term-unimodal" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A distribution with one clear peak; the most common shape encountered in practice." data-term="unimodal">unimodal</a> shape. If there are two distinct peaks, it is <a href="appendix-glossary.html#glossary-term-bimodal" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A distribution with two distinct peaks, often signaling that two different groups are mixed together in the data." data-term="bimodal">bimodal</a>.</p>
+<p>Often, that single peak sits right in the middle, and the left and right sides roughly mirror each other. This is a <a href="appendix-glossary.html#glossary-term-symmetric" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A distribution whose left half mirrors its right half; if folded at the center, both sides would line up closely." data-term="symmetric">symmetric</a> distribution. The most famous symmetric shape in statistics is the <a href="appendix-glossary.html#glossary-term-normal-curve" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The symmetric, bell-shaped curve that describes a normal distribution, with most observations clustered near the center and becoming rarer toward the tails; also called the bell curve." data-term="normal curve">normal curve</a>, often referred to as the “bell curve.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_05_hist_sleep_normal_overlay.png" class="img-fluid figure-img" alt="Histogram of weekday sleep hours with a smooth bell-shaped normal curve overlaid. The histogram is roughly symmetric, peaks at 7 to 9 hours, and the curve follows the same shape."></p>
+<figcaption>Figure 1.5: Weekday sleep hours with a fitted normal curve. The histogram is roughly symmetric and centered near 8 hours.</figcaption>
+</figure>
+</div>
+<p>When data follows a normal curve, it implies a specific concentration: the vast majority of your data is clustered right around the center. As you move further away from the center in either direction, outcomes become increasingly rare. Many natural human traits, like height and baseline sleep needs, follow this predictable shape.</p>
+<p>However, messy, real data often leans heavily to one side. We call this <a href="appendix-glossary.html#glossary-term-skewness" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The extent to which a distribution is asymmetric, with a longer tail extending toward one side; right-skewed distributions trail toward high values and left-skewed distributions toward low values." data-term="skewness">skewness</a>.</p>
+<p>Consider the <code>ClassesMissed</code> variable. In the histogram of this numerical data, we see a large peak at zero, with a long “tail” stretching out to the right for the few students who missed 10 to 20 classes. Because the tail stretches to the right, we call this <a href="appendix-glossary.html#glossary-term-right-skewed" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A distribution whose longer tail extends toward higher values; also called positively skewed." data-term="right-skewed">right-skewed</a> (or positively skewed). The data has a strong <a href="appendix-glossary.html#glossary-term-floor-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation." data-term="floor effect">floor effect</a>, meaning it hits a hard lower limit (you cannot miss fewer than zero classes) and piles up there.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_06_hist_classes_missed.png" class="img-fluid figure-img" alt="Right-skewed histogram of classes missed. The tallest bars are at 0 and 1 classes missed, with 94 and 49 students, and a long thin tail extends to the right toward 20."></p>
+<figcaption>Figure 1.6: Distribution of classes missed, showing a strong right skew and a floor at zero.</figcaption>
+</figure>
+</div>
+<p>Conversely, if the tail stretches to the left, the data is <a href="appendix-glossary.html#glossary-term-left-skewed" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A distribution whose longer tail extends toward lower values; also called negatively skewed." data-term="left-skewed">left-skewed</a> (or negatively skewed). This often happens when data hits an upper limit, in which case we would be observing a <a href="appendix-glossary.html#glossary-term-ceiling-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Occurs when many observations pile up at the maximum possible value, preventing detection of further differences among high performers." data-term="ceiling effect">ceiling effect</a>. This frequently occurs with exam scores, where students can’t score higher than 100%.</p>
+<p>While we typically use these shape terms for continuous numerical data, the concept of shape can also offer profound intuition for ordinal variables. Imagine asking your friends about the course grades in two different sections of a challenging history class. Grades are ordinal (A, B, C, D, F). If the distribution of grades in Professor Strict’s class is strongly right-skewed, the “tail” stretches toward the higher grades (A and B), meaning the biggest peak of the class is piled up at the lower end (D and F). If Professor Kuhlman’s class is strongly left-skewed, the tail stretches toward the failing grades, but the vast majority of students are piled up at the A and B level. Which class would you rather take? Visualizing this shape instantly tells you the story of the classroom without needing a single calculation.</p>
+</section>
+<section id="visualizing-relationships-two-numerical-variables" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="visualizing-relationships-two-numerical-variables"><span class="header-section-number">1.6</span> Visualizing Relationships: Two Numerical Variables</h2>
+<p>Up to this point, we have only studied variables in isolation. We know how many students have severe depression, and we know the shape of the GPA distribution. But most research questions are about relationships. A single number can tell us what happened; a relationship helps explain why. Does missing class lead to lower grades?</p>
+<p>We can ask a similar question about countries: does a country’s wealth relate to how long its residents live? The <code>happy_planet_index_2024.csv</code> dataset records country-level measures, including <code>GDPperCapita</code> and <code>LifeExpectancy</code>. Because both of these are numbers, we can plot them on a standard two-dimensional grid using a <a href="appendix-glossary.html#glossary-term-scatterplot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph that displays the relationship between two numerical variables by placing each observation as a point; used to assess direction, form, and strength of the relationship." data-term="scatterplot">scatterplot</a>. In a scatterplot, each country is represented by a single dot. The dot’s horizontal position (the x-axis) shows its GDP per capita, and its vertical position (the y-axis) shows its life expectancy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_07_scatter_gdp_life_expectancy.png" class="img-fluid figure-img" alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Points rise steeply from the low 50s at the lowest incomes and then flatten near 80 years at higher incomes."></p>
+<figcaption>Figure 1.7: GDP per capita and life expectancy for 143 of the 147 countries in the Happy Planet Index data. The trend rises steeply at low incomes and then levels off.</figcaption>
+</figure>
+</div>
+<p>When you look at a scatterplot, you are looking for a trend. Do the dots form a cloud that drifts upward? Downward? Or is it just a random, shotgun blast of dots with no discernible pattern? By simply mapping one number against another, we can instantly see if a relationship exists and how strong it appears to be.</p>
+<p>The cloud here drifts upward: countries with higher GDP per capita tend to have higher life expectancy. If we look closely, we can see that life expectancy rises steeply at low GDP per capita, then levels off. This “bend” in the relationship makes our analysis later in Chapter 4 slightly more complex, but the point here is that we can immediately recognize that shape of the relationship in the scatterplot. For now, just keep in mind that a trend does not have to be a straight line to be a trend.</p>
+</section>
+<section id="visualizing-relationships-two-categorical-variables" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="visualizing-relationships-two-categorical-variables"><span class="header-section-number">1.7</span> Visualizing Relationships: Two Categorical Variables</h2>
+<p>What if the relationship we want to explore doesn’t involve numbers at all? Suppose we want to see if there is a connection between a student’s <code>Stress</code> level (normal or high) and their <code>AlcoholUse</code> (Abstain, Light, Moderate, Heavy).</p>
+<p>To explore this, we need to compare how drinking habits differ between the two stress groups. A common tool you will see in research articles and news media is the <a href="appendix-glossary.html#glossary-term-segmented-bar-chart" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A chart that compares two categorical variables by giving each group a bar of equal height (100%) divided into segments showing the proportion in each category of the second variable; also called a 100% stacked bar chart." data-term="segmented bar chart">segmented bar chart</a> (often called a 100% stacked bar chart).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_08_segmented_alcohol_by_stress.png" class="img-fluid figure-img" alt="Segmented bar chart of alcohol use within stress groups. In the High stress group, Moderate drinkers are 41%, Light 36%, Abstain 14%, and Heavy 9%. In the Normal stress group, Moderate is 49%, Light 32%, Abstain 13%, and Heavy 6%."></p>
+<figcaption>Figure 1.8: Alcohol use within each stress group. Each bar is scaled to 100%, so the actual group sizes are hidden.</figcaption>
+</figure>
+</div>
+<p>In a segmented bar chart, every group gets a single vertical bar that is stretched to be exactly the same height, representing 100% of the people in that group. We then slice the bar into segments based on our second variable.</p>
+<p>To interpret this chart, you simply compare the sizes of the segments across the different bars. For example, the “Heavy drinking” segment is taller inside the “High stress” bar than it is inside the “Normal stress” bar: 9% versus 6%. That difference is noticeable, and it suggests a relationship worth investigating further.</p>
+<p>However, segmented bar charts have a major hidden drawback: they hide the actual size of the groups. Looking at the chart, the “Normal” and “High” stress bars take up the same amount of space. But in reality, one group might have 200 students while the other only has 53. By forcing both bars to an artificial 100%, we lose the context of how many people make up each group.</p>
+<p>To solve this problem, we use a clearer visualization called a <a href="appendix-glossary.html#glossary-term-mosaic-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph that displays the relationship between two categorical variables using rectangles whose areas correspond to the proportions of observations in each combination of categories." data-term="mosaic plot">mosaic plot</a>. A mosaic plot is essentially a segmented bar chart that adjusts itself to show you the true size of every group.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_09_mosaic_stress_alcohol.png" class="img-fluid figure-img" alt="Mosaic plot of stress level and alcohol use. The Normal stress column is much wider, showing 197 students versus 56 under High stress. Within each column, Moderate drinkers form the largest block; the Heavy block is 6% under Normal stress and 9% under High stress."></p>
+<figcaption>Figure 1.9: Mosaic plot of stress level and alcohol use. Column width shows group size; block height shows the share within each group.</figcaption>
+</figure>
+</div>
+<p>Because mosaic plots convey a lot of information at once, they can feel intimidating at first glance. The easiest way to read them is to break them down into two steps. Think of a mosaic plot like a large rectangular cake that represents all 253 students in our study.</p>
+<p>First, look at the <em>width</em>. We slice the cake vertically based on <code>Stress</code>. The width of these columns tells you exactly how many people are in each group. If the “Normal” stress column is three times wider than the “High” stress column, you instantly know that normal stress is much more common in your overall sample.</p>
+<p>Second, look at the <em>height</em>. We slice those vertical columns horizontally based on <code>AlcoholUse</code>. The height of these new blocks tells you the rate of drinking within that specific stress group, exactly like the segments in our stacked bar chart.</p>
+<p>By combining width (group size) and height (group rate), the total <em>area</em> of each resulting block tells you the exact proportion of your total sample that falls into that specific combination. While mosaic plots take a little more time to read than a simple bar chart, they are worth the effort because they show every group’s size and rate without hiding any data.</p>
+</section>
+<section id="visualizing-relationships-mixed-and-complex-data" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="visualizing-relationships-mixed-and-complex-data"><span class="header-section-number">1.8</span> Visualizing Relationships: Mixed and Complex Data</h2>
+<p>In reality, research questions are rarely confined to just two simple variables of the same type. You will often need to mix categorical and numerical data, or compare three variables at once, to uncover the true story in your dataset.</p>
+<p><strong>Categorical vs.&nbsp;Numerical: Box Plots</strong></p>
+<p>Suppose you want to know if mental health affects academic performance. You are comparing <code>DepressionStatus</code> (a categorical variable with three groups) against <code>GPA</code> (a numerical variable). You can’t use a scatterplot, and a mosaic plot only works for categories.</p>
+<p>The best tool for this job is a <a href="appendix-glossary.html#glossary-term-box-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph that summarizes the distribution of a numerical variable using five key values (minimum, first quartile, median, third quartile, maximum), with individual points flagging potential outliers; useful for comparing distributions across categories." data-term="box plot">box plot</a> (sometimes called a box-and-whisker plot).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_09b_box_gpa_by_depression.png" class="img-fluid figure-img" alt="Side-by-side box plots of GPA for the normal, moderate, and severe depression groups. Median GPA is 3.25 in the normal group, 3.33 in the moderate group, and 3.04 in the severe group. The third quartile is 3.50, 3.60, and 3.35. The moderate group has the widest middle 50%."></p>
+<figcaption>Figure 1.9b: GPA by depression screening status for 253 students. The severe group has the lowest median and third quartile.</figcaption>
+</figure>
+</div>
+<p>A box plot takes a numerical distribution and boils it down to its most essential parts: a box that contains the middle 50% of the students, a line inside the box for the median (the exact center value when data is placed in numerical order), and lines (whiskers) reaching out to the extremes. By placing a box plot for “normal,” “moderate,” and “severe” right next to each other, you can easily compare the typical GPA across different mental health statuses.</p>
+<p>In this sample, the severe group has the lowest median GPA (3.04, compared with 3.25 for normal and 3.33 for moderate), so there may be a relationship there worth investigating. The moderate group’s median is slightly above the normal group’s, so the pattern is not a steady decline from normal to moderate to severe.</p>
+<p><strong>Grouping Variables in Scatterplots</strong></p>
+<p>Sometimes, a categorical variable quietly shapes a numerical relationship. Let’s return to the scatterplot of <code>GDPperCapita</code> and <code>LifeExpectancy</code>. What if a country’s region changes that relationship?</p>
+<p>We can add a simplified <code>Region</code> variable as a <a href="appendix-glossary.html#glossary-term-grouping-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A categorical variable used to divide observations into groups within a plot, often shown through different colors or shapes, so patterns can be compared across categories." data-term="grouping variable">grouping variable</a> by changing the color and shape of the dots. Here, countries in Region 5 (Sub-Saharan Africa) are orange triangles, countries in Region 3 (Western Europe) are blue circles, and all other regions are green squares.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_10_scatter_gdp_lifeexp_by_region.png" class="img-fluid figure-img" alt="Scatterplot of GDP per capita versus life expectancy for 143 countries. Sub-Saharan Africa is shown as triangles at low GDP per capita and low life expectancy, Western Europe as circles at high values of both, and other regions as squares in between."></p>
+<figcaption>Figure 1.10: GDP per capita and life expectancy for 143 countries, grouped by region. Sub-Saharan Africa clusters at low values of both, and Western Europe at high values of both.</figcaption>
+</figure>
+</div>
+<p>By doing this, you are viewing three variables at once. The groups fall into distinct bands: Sub-Saharan Africa sits at low GDP per capita and low life expectancy, Western Europe sits at high values of both, and other regions span the range between. The grouping reveals a more granular look at the relationship than the original plot showed.</p>
+<p><strong>Three Numerical Variables: Bubble Plots</strong></p>
+<p>Finally, what if you have three numerical variables? We can return to the country data and use <code>GDPperCapita</code> (x-axis), <code>LifeExpectancy</code> (y-axis), and <code>Footprint</code> (bubble size), the ecological footprint per person.</p>
+<p>Because a piece of paper (or a computer screen) is flat, we can’t easily add a 3D z-axis. Instead, we use a <a href="appendix-glossary.html#glossary-term-bubble-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A scatterplot extended to three numerical variables: two define point positions on the axes, and a third determines the size of each bubble." data-term="bubble plot">bubble plot</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_11_bubble_gdp_lifeexp_footprint.png" class="img-fluid figure-img" alt="Bubble plot of GDP per capita versus life expectancy for 143 countries. Bubble size shows the ecological footprint. Most bubbles are small and cluster at low GDP per capita. The largest bubbles, including Qatar and Luxembourg, sit at higher GDP per capita."></p>
+<figcaption>Figure 1.11: GDP per capita, life expectancy, and ecological footprint for 143 countries. Bubble size encodes the ecological footprint.</figcaption>
+</figure>
+</div>
+<p>A bubble plot is just a scatterplot where the size of the dot changes based on a third numerical variable. A country with a footprint of 42.2, such as Qatar, is drawn as a large bubble, while a country with a footprint near 0.2, such as Ethiopia, is a tiny speck. This allows you to hunt for complex patterns, like checking whether the largest bubbles cluster at high GDP per capita and high life expectancy. In this figure, the largest bubbles sit at higher GDP per capita, but their life expectancies are not the highest in the dataset.</p>
+</section>
+<section id="describing-data-numerically-measures-of-center" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="describing-data-numerically-measures-of-center"><span class="header-section-number">1.9</span> Describing Data Numerically: Measures of Center</h2>
+<p>Visualizing your data is fantastic for seeing the big picture. However, eventually, you need to report exact numbers in your research paper. We call these numerical summaries <a href="appendix-glossary.html#glossary-term-descriptive-statistics" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Numerical summaries that describe a dataset, such as the mean, median, standard deviation, and proportion." data-term="descriptive statistics">descriptive statistics</a>.</p>
+<p>When researchers want to describe a typical student in their study, they use <a href="appendix-glossary.html#glossary-term-measures-of-center" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Numerical summaries that describe a typical or central value in a distribution, such as the mean, median, and mode; the type of data determines which measure is appropriate." data-term="measures of center">measures of center</a>. The type of data you have dictates which measure of center you should use.</p>
+<p>For categorical variables, you cannot calculate a mathematical average. Instead, we use a <a href="appendix-glossary.html#glossary-term-proportion" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The fraction of observations falling into a given category; commonly reported for two-category categorical variables (e.g., 80 out of 200 = 0.40 or 40%)." data-term="proportion">proportion</a>, which is the fraction or percentage of the total group that falls into a specific category. A proportion is simply the “part” divided by the “whole.”</p>
+<p>For example, suppose 38 out of the 253 students in our study screened for severe depression. You calculate the proportion like this:</p>
+<p><span class="math display">\[\text{Proportion} = \frac{38}{253} = 0.15\]</span></p>
+<p>This tells you that 15% of the sample experiences severe depression. Notice that a proportion will always be a number between 0 and 1 (or 0% and 100%). Why? Because the “part” can never be smaller than zero people, and it can never be larger than the entire group of 253 students!</p>
+<p>If you simply want to state the single most common category, you report the <a href="appendix-glossary.html#glossary-term-mode" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The most frequently occurring value in a dataset; the only measure of center appropriate for nominal data." data-term="mode">mode</a>. For categorical data, this can be an useful metric for understanding what the most common outcome is, or what we can expect to see most often. In general, the mode is not as useful for numerical data, as it usually is just the value that happened to appear more than once in the data set.</p>
+<p>For numerical variables, you have two primary choices: the median and the mean. The <a href="appendix-glossary.html#glossary-term-median" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew." data-term="median">median</a> is the exact middle value when you line up all your data from smallest to largest. Half the students scored above the median, and half scored below. The median is particularly useful in data sets with outliers or skew because those unusual values far from the typical values in the data don’t really affect it. If we check the <code>Drinks</code> variable, most students drank 5 or fewer drinks in a week, with some extreme outliers reporting triple that or more. A few students reporting 20 drinks a week will not affect the median. The median simply tells you what the perfectly middle-of-the-pack student is doing.</p>
+<p>The <a href="appendix-glossary.html#glossary-term-mean" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values." data-term="mean">mean</a> is what most people think of when they hear the word “average.” It is the same calculation you learned in grade school: you add up all the values and divide by the total number of observations. For instance, if you tracked a single student’s <code>WeekdaySleep</code> over 5 weeknights and recorded 7, 6, 8, 7, and 7 hours, you calculate their mean sleep like this:</p>
+<p><span class="math display">\[\text{Mean} = \frac{7 + 6 + 8 + 7 + 7}{5} = \frac{35}{5} = 7 \text{ hours}\]</span></p>
+<p>You will often hear that the mean is “flawed” because it gets pulled in the direction of skew or outliers, making the median the better choice for skewed data. While this is true when trying to describe a “typical” individual, the mean is the better choice when your goal is to understand the <em>total</em> impact of a group.</p>
+<p>Consider a town council studying resident income to forecast tax revenue. Income is notoriously right-skewed, with a few large outliers pulling the mean significantly higher than the median. If the council wants to know what a “typical” middle-class family earns, they should use the median.</p>
+<p>But suppose the council knows the <em>mean</em> tax revenue is $2,000 per person. If 1,000 new people move to the town, the council can confidently plan for $2,000,000 in new revenue ($2,000 multiplied by 1,000 people). You cannot do this math with a median! The mean mathematically accounts for the total sum of the data. Those ultra-wealthy outliers who pay large taxes provide real money that the town gets to spend. The mean’s “smoothing out” effect spreads those extreme values across everyone. When you need to calculate totals or aggregates, its sensitivity to outliers is a feature, not a bug.</p>
+<section id="choosing-the-right-measure-of-center" class="level3" data-number="1.9.1">
+<h3 data-number="1.9.1" class="anchored" data-anchor-id="choosing-the-right-measure-of-center"><span class="header-section-number">1.9.1</span> Choosing the Right Measure of Center</h3>
+<table class="caption-top table">
+<caption>Table 1.2: A guide to choosing a measure of center from the data type and the question you are asking.</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 30%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Measure</th>
+<th style="text-align: left;">Best For (Data Type)</th>
+<th style="text-align: left;">What it tells us</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Mean</strong></td>
+<td style="text-align: left;">Numerical (Symmetric)</td>
+<td style="text-align: left;">The mathematical balancing point of the data. It is sensitive to extreme outliers, making it excellent for understanding the <em>total</em> impact or aggregate of a group, but sometimes misleading for describing a single “typical” individual.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Median</strong></td>
+<td style="text-align: left;">Numerical (Skewed or Outliers)</td>
+<td style="text-align: left;">The exact middle position of the data. Half the values are higher, and half are lower. It is resistant to extreme outliers, making it the best choice for describing the “typical” everyday experience of an individual.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Mode</strong></td>
+<td style="text-align: left;">Categorical (Nominal or Ordinal)</td>
+<td style="text-align: left;">The single most frequent outcome or common category in your dataset.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Proportion</strong></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The fraction or percentage of the total group that belongs to a specific category. It tells you the “part” compared to the “whole” and is always a value between 0 and 1 (or 0% and 100%).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="measures-of-spread-and-position" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="measures-of-spread-and-position"><span class="header-section-number">1.10</span> Measures of Spread and Position</h2>
+<p>Knowing the center of your data is only half the story. Imagine two students who both have a mean <code>WeekdaySleep</code> of 7 hours. Student A gets exactly 7 hours of sleep every single night. Student B gets 4 hours one night, 10 hours the next, and 7 hours the night after.</p>
+<p>They have the same center, but their sleep habits are different! We measure this inconsistency using <a href="appendix-glossary.html#glossary-term-measures-of-spread" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Numerical summaries that describe how spread out or variable the observations are, such as the range, interquartile range, and standard deviation." data-term="measures of spread">measures of spread</a>.</p>
+<p>If you chose to use the mean to describe your center, you should pair it with the <a href="appendix-glossary.html#glossary-term-standard-deviation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A measure of how much individual values typically deviate from the mean; small values indicate tight clustering, large values indicate wide scattering." data-term="standard deviation">standard deviation</a>. The standard deviation measures the typical, everyday distance that your data points fall from the mean. * A <em>small</em> standard deviation means the data is tightly clustered around the mean (like Student A). * A <em>large</em> standard deviation means the data is widely scattered (like Student B).</p>
+<p>If you chose to use the median, you should describe your spread using <a href="appendix-glossary.html#glossary-term-percentile" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The percentage of observations that fall below a given value; for example, scoring at the 90th percentile means you scored higher than 90% of the comparison group." data-term="percentile">percentiles</a>. A percentile tells you the exact position of a value relative to the rest of the group. If a student’s <code>GPA</code> is at the 90th percentile, it means they scored higher than 90% of the students in the sample.</p>
+<p>We often cut our data into quarters, called <a href="appendix-glossary.html#glossary-term-quartile" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Values that divide a dataset into four equal parts: Q1 (25th percentile), Q2 (the median, 50th percentile), and Q3 (75th percentile)." data-term="quartile">quartiles</a>. * The First Quartile (Q1) is the 25th percentile. * The Second Quartile is the 50th percentile (which is exactly the median!). * The Third Quartile (Q3) is the 75th percentile.</p>
+<p>Because the first and third quartiles mark the boundaries of the middle 50% of your data, the distance between them gives us a useful measure of spread called the <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." data-term="interquartile range (IQR)">Interquartile Range</a> (or <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." data-term="interquartile range (IQR)">IQR</a>). You calculate it by subtracting the first quartile from the third quartile:</p>
+<p><span class="math display">\[\text{IQR} = Q3 - Q1\]</span></p>
+<p>Just as the median is the resistant counterpart to the mean, the IQR is the resistant counterpart to the standard deviation. Because the IQR only measures the core middle of the data, it ignores any extreme outliers or heavy skewness out at the tails.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_12_diagram_iqr_boxplot.png" class="img-fluid figure-img" alt="Diagram of a box plot. The left edge of the box is labeled Q1, the 25th percentile; the center line is the median, the 50th percentile; and the right edge is Q3, the 75th percentile. A bracket above the box spans Q1 to Q3 and is labeled IQR equals Q3 minus Q1."></p>
+<figcaption>Figure 1.12: Quartiles and the interquartile range on a box plot.</figcaption>
+</figure>
+</div>
+<p>Do you remember the box plots we used to visualize the <code>GPA</code> of different depression groups? A box plot is just a visual drawing of these exact numbers. The physical box spans from Q1 to Q3, meaning the visible length of the box <em>is</em> the IQR! By reporting the median and the IQR, you give your reader a complete, reliable map of where the middle 50% of your data lives, ignoring the messy extremes.</p>
+</section>
+<section id="matching-the-measure-to-the-shape" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="matching-the-measure-to-the-shape"><span class="header-section-number">1.11</span> Matching the Measure to the Shape</h2>
+<p>Now that you have a complete toolkit of numerical summaries, how do you know which ones to use in your research paper? You usually do not report all of them. Instead, the physical shape of your data dictates which measures are appropriate.</p>
+<p>Because the mean and standard deviation mathematically use every single data point, they act like a physical balancing point. This makes them sensitive to extreme values. In our right-skewed <code>ClassesMissed</code> data, the few students who missed 15 classes will pull the mean significantly higher. Those extreme numbers will also artificially inflate the standard deviation. If you report the mean and standard deviation here, it will look like the “typical” student missed far more classes than they actually did!</p>
+<p>Instead, we rely on our resistant measures: the median and the IQR. Because they only care about the position of the middle 50% of the data, they ignore the extreme values at the ends of the tails.</p>
+<p>To choose the right summary, look at your histogram and follow this rule:</p>
+<ul>
+<li><strong>If your data is strongly skewed or has extreme outliers:</strong> The mean and standard deviation will be aggressively pulled toward the tail. You should pair the <a href="appendix-glossary.html#glossary-term-median" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew." data-term="median">median</a> with the <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." data-term="interquartile range (IQR)">IQR</a> to accurately describe the everyday experience of the group.</li>
+<li><strong>If your data is roughly symmetric (like a bell curve):</strong> The mean and median will be nearly identical. You should pair the <a href="appendix-glossary.html#glossary-term-mean" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values." data-term="mean">mean</a> with the <a href="appendix-glossary.html#glossary-term-standard-deviation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A measure of how much individual values typically deviate from the mean; small values indicate tight clustering, large values indicate wide scattering." data-term="standard deviation">standard deviation</a> to describe the center and spread.</li>
+</ul>
+<section id="the-reliability-of-the-mean" class="level3" data-number="1.11.1">
+<h3 data-number="1.11.1" class="anchored" data-anchor-id="the-reliability-of-the-mean"><span class="header-section-number">1.11.1</span> The Reliability of the Mean</h3>
+<p>You might be wondering: if the median resists messy outliers so well, why don’t we just use it all the time? Why ever risk using the sensitive mean?</p>
+<p>The answer comes down to <a href="appendix-glossary.html#glossary-term-reliability" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The consistency of a measurement: a reliable tool gives you the same result every time you measure the same phenomenon under the same conditions." data-term="reliability">reliability</a> and how much information each measure uses. Think about how we find the median for <code>WeekdaySleep</code>. We line up all 253 students in order and find the person exactly in the middle. We ignore the actual sleep hours of the other 252 students. We don’t care if the lowest value was 2 hours or 5 hours; the median only cares about their rank in line. By doing this, we are throwing away a large amount of information.</p>
+<p>The mean, on the other hand, uses every single drop of data. Every student’s exact sleep hours are added into the total. Every single number gets a “vote” in determining the final center.</p>
+<p>In research, we are almost always taking a small sample (like our 253 students) to make an educated guess about a much larger population (like every student at the university). Because the mean uses all the available information, it is a “better,” more <a href="appendix-glossary.html#glossary-term-reliable-estimator" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An estimator whose values cluster close to the true parameter across repeated samples." data-term="reliable estimator">reliable estimator</a> than the median.</p>
+<p>If you took twenty different samples of 253 students, their sample means would all cluster tightly around the true university average. The sample medians would also cluster around the true middle, but they would “wobble” and vary a bit more from sample to sample because they are built on less information.</p>
+<p>Because the mean is mathematically more stable and consistent, we always prefer to use the mean and standard deviation whenever our data is symmetric enough to allow it. We only switch to the median and IQR when extreme skew or outliers either force our hand, or if that true “exact middle” idea of the median is our main interest.</p>
+</section>
+<section id="reporting-numerical-summaries" class="level3" data-number="1.11.2">
+<h3 data-number="1.11.2" class="anchored" data-anchor-id="reporting-numerical-summaries"><span class="header-section-number">1.11.2</span> Reporting Numerical Summaries</h3>
+<table class="caption-top table">
+<caption>Table 1.3: A guide to reporting center and spread from the shape of the distribution.</caption>
+<colgroup>
+<col style="width: 48%">
+<col style="width: 21%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Shape of Distribution</th>
+<th style="text-align: left;">Report this Center</th>
+<th style="text-align: left;">Report this Spread</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Roughly Symmetric</strong> (like a bell curve)</td>
+<td style="text-align: left;">Mean</td>
+<td style="text-align: left;">Standard Deviation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Strongly Skewed or has Outliers</strong></td>
+<td style="text-align: left;">Median</td>
+<td style="text-align: left;">Interquartile Range (IQR)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="populations-and-samples-the-source-of-our-data" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="populations-and-samples-the-source-of-our-data"><span class="header-section-number">1.12</span> Populations and Samples: The Source of Our Data</h2>
+<p>Let’s return to our <code>student_lifestyle_sleep.csv</code> dataset. Why did the researchers only study 253 students? If they want to understand how sleep affects college academic performance, wouldn’t it be better to study <em>every</em> college student? Of course it would! But tracking down millions of students, securing their consent, and monitoring their sleep for two weeks is physically and financially impossible.</p>
+<p>This reality introduces the most fundamental division in statistics: the <a href="appendix-glossary.html#glossary-term-population" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The entire group of individuals or observations you want to draw conclusions about." data-term="population">population</a> versus the <a href="appendix-glossary.html#glossary-term-sample" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A subset of a population, the portion from which you collect data." data-term="sample">sample</a>. The <a href="appendix-glossary.html#glossary-term-population" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The entire group of individuals or observations you want to draw conclusions about." data-term="population">population</a> is the entire, overarching group of individuals you actually want to learn about. Depending on the exact research question, the population for our study might be “all undergraduate college students in the United States.” Because we cannot measure the entire population, we select a smaller, manageable subset to actually study. This smaller group is our <a href="appendix-glossary.html#glossary-term-sample" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A subset of a population, the portion from which you collect data." data-term="sample">sample</a>. Our 253 students represent the sample.</p>
+<section id="parameters-vs.-statistics" class="level3" data-number="1.12.1">
+<h3 data-number="1.12.1" class="anchored" data-anchor-id="parameters-vs.-statistics"><span class="header-section-number">1.12.1</span> Parameters vs.&nbsp;Statistics</h3>
+<p>When we calculate a numerical summary (like a mean or a standard deviation), we have to be clear about who we are summarizing.</p>
+<p>If a number describes the entire population, we call it a <a href="appendix-glossary.html#glossary-term-parameter" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A numerical summary that describes an entire population; usually fixed but unknown, estimated from sample statistics." data-term="parameter">parameter</a>. For example, the true, exact average sleep time of every single college student in the country is a parameter. Because we can never measure everyone, parameters are almost always unknown values.</p>
+<p>If a number describes only the individuals in our sample, we call it a <a href="appendix-glossary.html#glossary-term-statistic" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A numerical summary calculated from sample data; varies from sample to sample because different samples contain different individuals." data-term="statistic">statistic</a>. When we calculate the mean sleep time of our 253 students, that resulting number is a statistic. We know this number exactly because we have the data right in front of us.</p>
+<p>A helpful memory trick is to match the first letters: <strong>S</strong>amples produce <strong>S</strong>tatistics, while <strong>P</strong>opulations have <strong>P</strong>arameters.</p>
+<p>The entire mathematical field of inferential statistics is built on this relationship. Researchers calculate a known statistic from a small sample, and they use that statistic to make an educated guess about the unknown parameter in the much larger population.</p>
+</section>
+<section id="notation-for-samples-and-populations" class="level3" data-number="1.12.2">
+<h3 data-number="1.12.2" class="anchored" data-anchor-id="notation-for-samples-and-populations"><span class="header-section-number">1.12.2</span> Notation for Samples and Populations</h3>
+<p>Because populations and samples are different concepts, we use different mathematical symbols to keep them separate. In statistics, we generally use Greek letters for unknown population parameters, and standard English letters for known sample statistics.</p>
+<table class="caption-top table">
+<caption>Table 1.4: Notation for populations and samples.</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Read Aloud As</th>
+<th style="text-align: left;">What It Represents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(N\)</span></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">The total number of individuals in the <strong>population</strong>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">The total number of individuals in the <strong>sample</strong> (e.g., <span class="math inline">\(n = 253\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: left;">“mu” (mew)</td>
+<td style="text-align: left;">The mean of the <strong>population</strong> (a parameter).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\bar{x}\)</span></td>
+<td style="text-align: left;">“x-bar”</td>
+<td style="text-align: left;">The mean of the <strong>sample</strong> (a statistic).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: left;">“sigma”</td>
+<td style="text-align: left;">The standard deviation of the <strong>population</strong> (a parameter).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">The standard deviation of the <strong>sample</strong> (a statistic).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\pi\)</span></td>
+<td style="text-align: left;">“pi”</td>
+<td style="text-align: left;">A proportion of the <strong>population</strong> (a parameter).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">A proportion of the <strong>sample</strong> (a statistic).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="complications-of-messy-real-data" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="complications-of-messy-real-data"><span class="header-section-number">1.13</span> Complications of Messy, Real Data</h2>
+<p>When you read a polished research paper, the data often seems perfect and neatly organized. However, in practice, data collection is messy. Human beings forget to answer questions, measuring tools hit their limits, and participants sometimes hide the truth. Before you can trust the numerical summaries or visualizations you just learned to create, you must triage your data. This means actively hunting for complications that might distort your findings.</p>
+<section id="missing-data-and-bias" class="level3" data-number="1.13.1">
+<h3 data-number="1.13.1" class="anchored" data-anchor-id="missing-data-and-bias"><span class="header-section-number">1.13.1</span> Missing Data and Bias</h3>
+<p>Imagine opening <code>student_lifestyle_sleep.csv</code> and finding that several students have empty cells in the <code>GPA</code> column. Your first instinct might be to just delete those rows and analyze the rest. But before you do, you must ask: <em>why</em> is that data missing?</p>
+<p>If a student simply skipped the question by accident, the missing data is random. Deleting it shrinks your sample size, but it probably won’t ruin your study. However, what if the data is missing for a specific reason? Suppose students with failing grades felt embarrassed and intentionally left the GPA question blank. If you only calculate the mean for the students who <em>did</em> answer, your resulting average will be artificially high.</p>
+<p>This introduces <a href="appendix-glossary.html#glossary-term-bias" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A systematic error that pushes results away from the truth in a particular direction; unlike random variability, bias does not disappear with larger sample sizes." data-term="bias">bias</a>, which occurs when your data systematically distorts the truth. We see this often with income surveys. Extremely wealthy individuals and individuals living in poverty are both less likely to report their income than middle-class earners. If you ignore <em>why</em> the data is missing, your sample statistic will misrepresent the true population parameter.</p>
+</section>
+<section id="floor-and-ceiling-effects" class="level3" data-number="1.13.2">
+<h3 data-number="1.13.2" class="anchored" data-anchor-id="floor-and-ceiling-effects"><span class="header-section-number">1.13.2</span> Floor and Ceiling Effects</h3>
+<p>Sometimes the numbers are accurately recorded, but they hit a hard physical or artificial boundary.</p>
+<p>We already saw a <a href="appendix-glossary.html#glossary-term-floor-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation." data-term="floor effect">floor effect</a> with the <code>ClassesMissed</code> variable. A student cannot miss fewer than zero classes. When a large portion of your sample hits this absolute minimum, the data piles up on the left side of the histogram, creating a strongly right-skewed distribution.</p>
+<p>The opposite is a <a href="appendix-glossary.html#glossary-term-ceiling-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Occurs when many observations pile up at the maximum possible value, preventing detection of further differences among high performers." data-term="ceiling effect">ceiling effect</a>, which happens when data hits an absolute maximum limit. Check the <code>GPA</code> variable. A student cannot score higher than a 4.0. If you give an easy exam where half the class scores 100%, the data piles up against the right wall of the graph, creating a left-skewed distribution.</p>
+<p>When you see these effects, remember that a resistant measure of center, like the median, is usually your best choice.</p>
+</section>
+<section id="censored-and-truncated-data" class="level3" data-number="1.13.3">
+<h3 data-number="1.13.3" class="anchored" data-anchor-id="censored-and-truncated-data"><span class="header-section-number">1.13.3</span> Censored and Truncated Data</h3>
+<p>Sometimes our measuring tools simply give up. Suppose our lifestyle survey didn’t ask students to type in their exact number of weekly drinks, but instead gave them multiple-choice checkboxes. The final box simply said “10 or more.” If a student checks that box, we have <a href="appendix-glossary.html#glossary-term-censored-data" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Data in which you know a value exists beyond a certain threshold but do not know its exact amount (e.g., recorded as “40+”)." data-term="censored data">censored data</a>. We know the student drinks, and we know the minimum amount, but the exact number is hidden from us. We do not know if they had 10 drinks, 15 drinks, or 30 drinks. We only know they crossed a specific threshold.</p>
+<p>Similarly, we might face <a href="appendix-glossary.html#glossary-term-truncated-data" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Data in which observations beyond a certain threshold are excluded entirely and never appear in the dataset (e.g., only enrolling students who scored above 70)." data-term="truncated data">truncated data</a>, where certain values are entirely cut off and excluded from the dataset before you even see them. For example, if our sleep study required students to sign a consent form during an early morning baseline test, students who sleep in until noon are missing from our sample. Our data is truncated because the “heavy sleeper” population was cut out by the study design itself.</p>
+<p>Understanding these realities ensures you don’t blindly trust a mean or a median without first considering the human element behind the numbers.</p>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">1.14</span> Common Mistakes and Misconceptions</h2>
+<p>As you begin working with real data, there are a few common traps that trip up almost every new researcher. Keep these in mind as you start your own analyses:</p>
+<ul>
+<li><strong>Averaging numerical labels:</strong> Sometimes, categories are recorded using numbers just to make data entry easier. For example, suppose a study records a student’s college major using arbitrary codes: <span class="math inline">\(1\)</span> for Biology, <span class="math inline">\(2\)</span> for English, <span class="math inline">\(3\)</span> for Psychology, and <span class="math inline">\(4\)</span> for Business. Because these look like numbers, statistical software will happily let you calculate a mean. But what happens if you average a Biology major (<span class="math inline">\(1\)</span>) and a Psychology major (<span class="math inline">\(3\)</span>)? You get a <span class="math inline">\(2\)</span>. Does that mean they combine to form an English major? No! The result is complete nonsense. Always check your variable dictionary before calculating summaries. If the number is just a placeholder for a label, you must use proportions or a bar plot, not a mean.</li>
+<li><strong>Confusing bar plots with histograms:</strong> They look similar, but they tell different stories. A bar plot is for <em>categorical</em> data, and the bars should have gaps between them to show that the categories are distinct buckets. A histogram is for <em>numerical</em> data, and the bars must touch to show that the numbers flow continuously along a number line.</li>
+<li><strong>Blindly trusting the mean:</strong> It is tempting to calculate the mean and standard deviation for every numerical variable because they are the most famous statistics. However, if your data is heavily skewed (like <code>ClassesMissed</code>), the mean will not represent the “typical” student. Always look at the shape of your distribution in a histogram <em>before</em> you decide to report the mean or the median.</li>
+</ul>
+</section>
+<section id="key-concepts" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">1.15</span> Key Concepts</h2>
+<ol type="1">
+<li><strong>Variables come in two main types.</strong> Categorical variables place individuals into descriptive groups (nominal or ordinal). Numerical variables record measurable quantities where math makes logical sense.</li>
+<li><strong>Visualizations must match the data type.</strong> Use bar plots and Pareto charts for single categorical variables. Use histograms to see the shape and spread of single numerical variables.</li>
+<li><strong>Relationships require specific plots.</strong> Use scatterplots to compare two numerical variables, mosaic plots to compare two categorical variables, and box plots to compare a numerical variable across different categories.</li>
+<li><strong>The shape dictates the summary.</strong> If a distribution is roughly symmetric (bell-shaped), report the mean and standard deviation. If it is skewed or has extreme outliers, report the median and the Interquartile Range (IQR).</li>
+<li><strong>Statistics estimate parameters.</strong> We calculate known statistics (like a sample mean, <span class="math inline">\(\bar{x}\)</span>) from our small, manageable sample to make educated guesses about the unknown parameters (like a population mean, <span class="math inline">\(\mu\)</span>) of the large population.</li>
+<li><strong>Real data is messy.</strong> Always check for missing data, bias, and physical limits (floor and ceiling effects) before you trust the story your numbers are telling you.</li>
+</ol>
+</section>
+<section id="guided-analysis-putting-it-all-together" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="guided-analysis-putting-it-all-together"><span class="header-section-number">1.16</span> Guided Analysis: Putting It All Together</h2>
+<p>We have covered a lot of ground in this chapter. To see how these tools work together, let’s walk through a complete, preliminary analysis using our dataset of 253 college students.</p>
+<section id="the-research-interest" class="level3" data-number="1.16.1">
+<h3 data-number="1.16.1" class="anchored" data-anchor-id="the-research-interest"><span class="header-section-number">1.16.1</span> The Research Interest</h3>
+<p>Student well-being is a major focus for universities. We know that college can be stressful, and we want to understand how mental health impacts academic behavior. Specifically, we might wonder if students who are struggling with anxiety find it more difficult to attend their classes. Behind these numbers are real students facing challenging circumstances, so exploring this relationship could help universities better allocate support resources.</p>
+</section>
+<section id="the-research-question" class="level3" data-number="1.16.2">
+<h3 data-number="1.16.2" class="anchored" data-anchor-id="the-research-question"><span class="header-section-number">1.16.2</span> The Research Question</h3>
+<p>Can we translate that broad interest into a specific question we can answer with our data? * <strong>Question:</strong> In our sample of 253 students, do those who screen for severe anxiety miss more classes on average than those with normal screening results? * <strong>The Variables:</strong> We are comparing <code>AnxietyStatus</code> (a categorical variable) against <code>ClassesMissed</code> (a numerical variable).</p>
+</section>
+<section id="data-triage-and-exploratory-analysis" class="level3" data-number="1.16.3">
+<h3 data-number="1.16.3" class="anchored" data-anchor-id="data-triage-and-exploratory-analysis"><span class="header-section-number">1.16.3</span> Data Triage and Exploratory Analysis</h3>
+<p>Before we calculate any averages, we must inspect the shape of our data. If we were to plot a histogram of <code>ClassesMissed</code> for all 253 students, we would immediately see a strong <a href="appendix-glossary.html#glossary-term-floor-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Occurs when many observations cluster at the minimum possible value, compressing the range of observable variation." data-term="floor effect">floor effect</a>. Most students miss zero, one, or two classes, causing the data to pile up on the left side of the graph. However, a long right tail stretches out for the few students who missed 10 or more classes.</p>
+<p>Because our numerical data is strongly right-skewed, we know immediately that the mean and standard deviation will be misleading. We must use the <a href="appendix-glossary.html#glossary-term-median" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew." data-term="median">median</a> and the <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." data-term="interquartile range (IQR)">IQR</a>.</p>
+<p>To visualize the relationship between a categorical variable and a numerical variable, we use side-by-side box plots.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_01/fig_01_13_box_classes_missed_by_anxiety.png" class="img-fluid figure-img" alt="Side-by-side box plots of classes missed for the normal, moderate, and severe anxiety groups. Median classes missed is 1 in the normal group, 1 in the moderate group, and 4.5 in the severe group. The severe group also has the widest middle 50%, from 1.5 to 6.25."></p>
+<figcaption>Figure 1.13: Classes missed by anxiety screening status for 253 students. The severe group has a higher median and a wider middle 50%.</figcaption>
+</figure>
+</div>
+<p>The box plot shows where the groups differ: the normal and moderate groups both have a median of 1 class missed, and their boxes overlap heavily. The severe group is different. Its median is 4.5 classes missed, and its middle 50% runs from 1.5 to 6.25, so both the center and the spread are larger. The severe group has only 16 students, so this comparison describes our sample and is not a precise estimate for all students with severe anxiety.</p>
+</section>
+<section id="numerical-summaries" class="level3" data-number="1.16.4">
+<h3 data-number="1.16.4" class="anchored" data-anchor-id="numerical-summaries"><span class="header-section-number">1.16.4</span> Numerical Summaries</h3>
+<table class="caption-top table">
+<caption>Table 1.5: Numerical summaries of classes missed by anxiety status.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Anxiety Status</th>
+<th style="text-align: left;">Median Classes Missed</th>
+<th style="text-align: left;">Interquartile Range (IQR)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>normal</strong></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">3.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>moderate</strong></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">2.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>severe</strong></td>
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;">4.75</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="translating-to-apa-style" class="level3" data-number="1.16.5">
+<h3 data-number="1.16.5" class="anchored" data-anchor-id="translating-to-apa-style"><span class="header-section-number">1.16.5</span> Translating to APA Style</h3>
+<p>Before we write our final conclusion, we need to address a small quirk of the research world. In your statistics class, we use standard mathematical notation, like <span class="math inline">\(\bar{x}\)</span> for the sample mean and <span class="math inline">\(s\)</span> for the sample standard deviation.</p>
+<p>However, if you are reading research journals in psychology, sociology, or economics, those publications usually follow the formatting rules of the American Psychological Association (APA). APA style generally avoids mathematical symbols in written paragraphs and instead uses standard, italicized English letters.</p>
+<p>To read and write confidently in your field, you need to know this basic translation: * <a href="appendix-glossary.html#glossary-term-mean" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The average: add all values together and divide by the number of observations; uses every value, making it informative but sensitive to extreme values." data-term="mean">Mean</a><strong>:</strong> <span class="math inline">\(\bar{x}\)</span> becomes <em>M</em> * <a href="appendix-glossary.html#glossary-term-standard-deviation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A measure of how much individual values typically deviate from the mean; small values indicate tight clustering, large values indicate wide scattering." data-term="standard deviation">Standard Deviation</a><strong>:</strong> <span class="math inline">\(s\)</span> becomes <em>SD</em> * <a href="appendix-glossary.html#glossary-term-median" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The middle value when all observations are ordered from smallest to largest; half the data fall above it and half below, and it is resistant to outliers and skew." data-term="median">Median</a><strong>:</strong> becomes <em>Mdn</em> * <a href="appendix-glossary.html#glossary-term-interquartile-range-iqr" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The spread of the middle 50 percent of data, calculated as Q3 minus Q1; resistant to outliers and paired naturally with the median for skewed distributions." data-term="interquartile range (IQR)">Interquartile Range</a><strong>:</strong> becomes <em>IQR</em></p>
+<p>When researchers write their conclusions, they state their findings in plain English and place these statistical abbreviations in parentheses right next to the claim to provide the exact mathematical proof.</p>
+</section>
+<section id="report-center-and-spread-together" class="level3" data-number="1.16.6">
+<h3 data-number="1.16.6" class="anchored" data-anchor-id="report-center-and-spread-together"><span class="header-section-number">1.16.6</span> <strong>Report Center and Spread Together</strong></h3>
+<p>Notice that in the translation guide above, we paired the Mean with the Standard Deviation, and the Median with the Interquartile Range. In professional research, you must <strong>never report a measure of center without its matching measure of spread.</strong> Imagine two students who both have a mean GPA of 3.0. The first student earns exactly a B in every single class. The second student earns A’s in half their classes and C’s in the rest. They have the same center, but their academic experiences are different! If you only report the center, you hide that reality. When you write a conclusion, the center tells your reader what the typical experience was, and the spread tells them how closely the rest of the group matched that typical experience. You will see this pairing in every APA-formatted conclusion.</p>
+</section>
+<section id="preliminary-conclusion" class="level3" data-number="1.16.7">
+<h3 data-number="1.16.7" class="anchored" data-anchor-id="preliminary-conclusion"><span class="header-section-number">1.16.7</span> Preliminary Conclusion</h3>
+<p>Now, we translate our statistical findings back into plain English (using APA formatting) to answer our research question.</p>
+<blockquote class="blockquote">
+<p><strong>Conclusion:</strong> Within our sample, students with severe anxiety missed more classes (<em>Mdn</em> = 4.5, <em>IQR</em> = 4.75) than students with normal screenings (<em>Mdn</em> = 1.0, <em>IQR</em> = 3.0).</p>
+</blockquote>
+<p>Notice two things about this conclusion. First, it uses the data to tell a clear, human story, supporting that story immediately with the exact numbers. Second, it strictly limits the claim to <em>our sample</em>. We have not proven that anxiety causes absenteeism for all college students everywhere. To make grand claims about the entire population, we need formal tools called hypothesis tests and confidence intervals, which we will begin building in the next chapter.</p>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="1.17">
+<h2 data-number="1.17" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.17</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="1.17.1">
+<h3 data-number="1.17.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">1.17.1</span> Interpretation</h3>
+<p><strong>1.</strong> A university health center publishes a report stating that the mean number of alcoholic drinks consumed per week by undergraduate students is 4.2, with a median of 1.0. What does the large difference between the mean and the median tell you about the shape of this data? Why is the median so much lower?</p>
+<p><strong>2.</strong> You are reviewing a mosaic plot that compares student housing (On-Campus vs.&nbsp;Off-Campus) and anxiety levels (normal, moderate, severe). The vertical block for “On-Campus” is twice as wide as the block for “Off-Campus.” Within the “On-Campus” block, the segment for “severe” anxiety is relatively small. What do the width of the blocks and the height of the segments tell you?</p>
+<p><strong>3.</strong> Two professors teach different sections of the same introductory psychology course. Professor A’s final exam grades have a mean of 75 and a standard deviation of 4. Professor B’s final exam grades have a mean of 75 and a standard deviation of 12. If a student wants a predictable, consistent classroom environment, which professor should they choose and why?</p>
+<p><strong>4.</strong> A researcher wants to know the average student loan debt for all seniors graduating from public universities in the United States. They survey 500 graduating seniors from a local state college and find an average debt of $28,500. Identify the population, the sample, the parameter, and the statistic in this scenario.</p>
+</section>
+<section id="choosing-a-method" class="level3" data-number="1.17.2">
+<h3 data-number="1.17.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">1.17.2</span> Choosing a Method</h3>
+<p><strong>5.</strong> A sociologist is studying the starting salaries of recent graduates. They know that while most graduates start around $45,000, a few land lucrative tech jobs paying over $150,000. Which measure of center (mean or median) and which measure of spread (standard deviation or IQR) should they report to accurately describe the typical graduate’s experience?</p>
+<p><strong>6.</strong> You have collected data on the number of hours students spend studying per week and their preferred study location (Library, Dorm, Coffee Shop). You want to see if study hours differ depending on the location. Which visualization tool is the most appropriate for this comparison?</p>
+<p><strong>7.</strong> A biology researcher is measuring the wingspans of a specific, common species of butterfly. They expect the wingspans to naturally cluster around a central size, with very large or very small butterflies being equally rare. What shape do they expect the distribution to have, and what measures of center and spread would be most appropriate?</p>
+<p><strong>8.</strong> You are working with a dataset of hospital patients and want to show the breakdown of their primary insurance types (Medicare, Medicaid, Private, Uninsured). The hospital administrator wants to quickly see which insurance type is the most and least common. Should you use a histogram, a scatterplot, or a Pareto chart?</p>
+</section>
+<section id="communicating-results" class="level3" data-number="1.17.3">
+<h3 data-number="1.17.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">1.17.3</span> Communicating Results</h3>
+<p><strong>9.</strong> You are writing a summary report for the dean of students regarding a recent campus survey on “The number of times students used the campus food pantry this semester.” The data has a strong floor effect. In plain English, explain to the dean what a floor effect means in this specific context and why it happened.</p>
+<p><strong>10.</strong> A local newspaper publishes an article claiming that “The average household in our county pays $4,500 in property taxes, but the typical family only pays $2,100.” The reporter is confused by their own numbers. Write a short explanation to the reporter clarifying how both numbers can be true at the same time, using the concepts of mean, median, and skewness.</p>
+<p><strong>11.</strong> You are designing a survey to measure how much time students spend watching streaming services. If you ask students to select a box (“0-2 hours,” “3-5 hours,” “6-8 hours,” “9+ hours”), you will create censored data. Explain the drawback of censored data to your research team and propose a better way to ask the question.</p>
+</section>
+<section id="software-application" class="level3" data-number="1.17.4">
+<h3 data-number="1.17.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">1.17.4</span> Software Application</h3>
+<p><em>For the following exercises, load the <code>student_lifestyle_sleep.csv</code> dataset into your statistical software.</em></p>
+<p><strong>12.</strong> Create a histogram of the <code>WeekdaySleep</code> variable and a separate histogram for the <code>ClassesMissed</code> variable. Describe the physical shape of both distributions. Do you notice any floor or ceiling effects?</p>
+<p><strong>13.</strong> Calculate the mean and the median for the <code>GPA</code> variable. Are the numbers similar or different? Based on the rule for matching measures to shapes, does the relationship between this mean and median make sense for a variable capped at 4.0?</p>
+<p><strong>14.</strong> Generate side-by-side box plots to compare <code>GPA</code> across the different categories of <code>ClassYear</code> (1 = First Year, 2 = Sophomore, 3 = Junior, 4 = Senior). Which class year appears to have the highest median GPA? Which class year shows the widest spread (IQR) in their grades?</p>
+<p><strong>15.</strong> We want to know if missing class is associated with lower grades. Create a scatterplot placing <code>ClassesMissed</code> on the horizontal axis (x-axis) and <code>GPA</code> on the vertical axis (y-axis). Look at the pattern of the dots. In plain English, how would you describe the relationship between missing class and academic performance for this sample of students?</p>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-02.html" class="pagination-link" aria-label="From Research Questions to Formal Hypotheses">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Logistic Regression – R Companion</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-10.html" rel="next">
+<link href="./chapter-08.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4f61501b4ff1dad6f581cb7ca27a68a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Companion</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Set Up</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Graphs and Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proportions and Reliability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-Tests, Effect Sizes, and Power</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Two-Way ANOVA, ANCOVA, and Repeated Measures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data"><span class="header-section-number">9.1</span> The data</a></li>
+  <li><a href="#load-the-packages-and-the-data" id="toc-load-the-packages-and-the-data" class="nav-link" data-scroll-target="#load-the-packages-and-the-data"><span class="header-section-number">9.2</span> Load the packages and the data</a></li>
+  <li><a href="#simple-logistic-regression" id="toc-simple-logistic-regression" class="nav-link" data-scroll-target="#simple-logistic-regression"><span class="header-section-number">9.3</span> Simple logistic regression</a></li>
+  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression"><span class="header-section-number">9.4</span> Multiple logistic regression</a></li>
+  <li><a href="#predicted-probabilities" id="toc-predicted-probabilities" class="nav-link" data-scroll-target="#predicted-probabilities"><span class="header-section-number">9.5</span> Predicted probabilities</a></li>
+  <li><a href="#deviance-r-squared" id="toc-deviance-r-squared" class="nav-link" data-scroll-target="#deviance-r-squared"><span class="header-section-number">9.6</span> Deviance R-squared</a></li>
+  <li><a href="#hosmer-lemeshow-goodness-of-fit-test" id="toc-hosmer-lemeshow-goodness-of-fit-test" class="nav-link" data-scroll-target="#hosmer-lemeshow-goodness-of-fit-test"><span class="header-section-number">9.7</span> Hosmer-Lemeshow goodness-of-fit test</a>
+  <ul class="collapse">
+  <li><a href="#a-large-sample-makes-small-differences-significant" id="toc-a-large-sample-makes-small-differences-significant" class="nav-link" data-scroll-target="#a-large-sample-makes-small-differences-significant"><span class="header-section-number">9.7.1</span> A large sample makes small differences significant</a></li>
+  </ul></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="header-section-number">9.8</span> Confusion matrix</a></li>
+  <li><a href="#roc-curve-and-auc" id="toc-roc-curve-and-auc" class="nav-link" data-scroll-target="#roc-curve-and-auc"><span class="header-section-number">9.9</span> ROC curve and AUC</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch09" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This chapter fits the logistic regression models from <a href="../chapters/chapter-09.html">Chapter 9 of the textbook</a> and gets the values the textbook uses to judge them: odds ratios with confidence intervals, VIF, predicted probabilities, deviance <span class="math inline">\(R^2\)</span>, the Hosmer-Lemeshow goodness-of-fit test, a confusion matrix, and an ROC curve with its AUC. The function is <code>glm()</code>, which works almost exactly like <code>lm()</code> from Chapters 4 and 5.</p>
+<p><strong>Get the script:</strong> <a href="scripts/chapter_09.R">Download the Chapter 9 script, <code>chapter_09.R</code></a>, and save it in the same folder as your data.</p>
+<section id="the-data" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="the-data"><span class="header-section-number">9.1</span> The data</h2>
+<p><a href="../data/youth_risk_2007.csv">Download <code>youth_risk_2007.csv</code></a> into the same folder as the script. It holds answers from 13,387 high school students to the 2007 Youth Risk Behavior Survey, which you used in Chapter 2. The question in this chapter: which students are more likely to have tried smoking?</p>
+<p>The variables used in this chapter:</p>
+<table class="caption-top table">
+<caption>Variables from <code>youth_risk_2007.csv</code> used in this chapter</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 17%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">What it records</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>smoke</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Lifetime tobacco experimentation indicator (<span class="math inline">\(1 = \text{yes, has tried smoking cigarettes (even a few puffs)}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ride.alc.driver</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Riding with a Drunk Driver (RDD) indicator within the past 30 days (<span class="math inline">\(1 = \text{yes, rode with a driver who had been drinking}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>age4</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The respondent’s age in years, restricted to adolescent age brackets (<strong>14</strong>, <strong>15</strong>, <strong>16</strong>, <strong>17</strong>, or <strong>18</strong> years old).</td>
+</tr>
+</tbody>
+</table>
+<p><code>age4</code> holds ages in whole years, so the models below use it as a number: each slope is the change for one more year of age.</p>
+</section>
+<section id="load-the-packages-and-the-data" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="load-the-packages-and-the-data"><span class="header-section-number">9.2</span> Load the packages and the data</h2>
+<p>This chapter uses four packages: <code>ggplot2</code> for the ROC curve’s look, <code>car</code> for VIF, <code>pROC</code> for the ROC curve and its AUC, and <code>DescTools</code> for the Hosmer-Lemeshow test. If any is not installed yet, go back to <a href="./chapter-00.html#sec-packages">Install and load packages</a> in Getting Set Up.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2 styles the ROC curve, car calculates VIF, and pROC</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># makes the ROC curve and its AUC.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type 'citation("pROC")' for a citation.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'pROC'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    cov, smooth, var</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Messages when car and pROC load
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>car</code> loads its companion package of example datasets, as in Chapter 5. <code>pROC</code> prints a citation note and says that some of its functions are “masked from ‘package:stats’.” That means <code>pROC</code> has its own versions of three functions with the same names. Nothing in this companion uses them, so you can ignore the message.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: the file name of your dataset, inside the quotes.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>youth <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"youth_risk_2007.csv"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome must be coded 0 and 1, with 1 for the event you are</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># predicting. useNA = "ifany" also counts any missing values.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your outcome variable</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(youth<span class="sc">$</span>smoke, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   0    1 &lt;NA&gt; 
+6053 6946  388 </code></pre>
+</div>
+</div>
+<p>The outcome is coded 0 and 1, as logistic regression needs, and 388 students did not answer the question (<code>&lt;NA&gt;</code>).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common error: y values must be 0 &lt;= y &lt;= 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What you see</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pressure <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"smoking_bmi_bp.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Smoker <span class="sc">~</span> BMI, <span class="at">data =</span> pressure, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! y values must be 0 &lt;= y &lt;= 1</code></pre>
+</div>
+</div>
+<p><strong>What it means:</strong> the outcome is stored as words (<code>Yes</code> and <code>No</code>), not as 0 and 1.</p>
+<p><strong>How to fix it:</strong> create a 0/1 version of the outcome with <code>ifelse()</code> from Chapter 8, with 1 for the event you are predicting, and use the new column in <code>glm()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pressure<span class="sc">$</span>SmokerYes <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pressure<span class="sc">$</span>Smoker <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="simple-logistic-regression" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="simple-logistic-regression"><span class="header-section-number">9.3</span> Simple logistic regression</h2>
+<p><code>glm()</code> takes the outcome before the <code>~</code> and the predictor after it, like <code>lm()</code>. Two extra arguments make it a logistic regression that handles missing values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. SIMPLE LOGISTIC REGRESSION.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    glm() is written like lm(): the outcome before the ~, the</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      predictor after it.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    family = binomial makes it a logistic regression (for a 0/1</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      outcome). Leave it as is.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    na.action = na.exclude skips rows with missing values but</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      keeps their places, so the predictions line up with the</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      dataset later. Leave it as is.</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your outcome, your predictor, your dataset, and a</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#              name for your model</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>age_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(smoke <span class="sc">~</span> age4, <span class="at">data =</span> youth, <span class="at">family =</span> binomial,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(age_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = smoke ~ age4, family = binomial, data = youth, 
+    na.action = na.exclude)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -3.68798    0.24027  -15.35   &lt;2e-16 ***
+age4         0.23686    0.01485   15.95   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17890  on 12947  degrees of freedom
+Residual deviance: 17631  on 12946  degrees of freedom
+  (439 observations deleted due to missingness)
+AIC: 17635
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The odds ratios: exp() turns each slope into an odds ratio.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(age_model))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)        age4 
+ 0.02502241  1.26726184 </code></pre>
+</div>
+</div>
+<p>The <code>Coefficients</code> table has the same columns as <a href="../chapters/chapter-09.html#interpreting-the-output-slopes-and-odds-ratios">the textbook’s Table 9.1</a>, apart from the odds ratios, which come next. Read it in two steps:</p>
+<ol type="1">
+<li><strong>The slope’s sign and p-value.</strong> The <code>Estimate</code> for <code>age4</code> is 0.237, a log-odds slope: positive, so older students were more likely to have tried smoking, <em>p</em> &lt; .001.</li>
+<li><strong>The odds ratio.</strong> <code>exp(coef())</code> turns each slope into an odds ratio. For <code>age4</code> it is 1.267: each extra year of age multiplies the odds of having tried smoking by 1.27, a 26.7% increase in the odds. Ignore the <code>(Intercept)</code> odds ratio.</li>
+</ol>
+<p>The line <code>(439 observations deleted due to missingness)</code> tells you how many students were left out because they were missing the outcome or the predictor.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Check: the family line
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look for <code>(Dispersion parameter for binomial family taken to be 1)</code> near the bottom of the output. If it says <code>gaussian</code> instead, you left out <code>family = binomial</code>, and R fit an ordinary regression without any error or warning. Add the argument and run the model again.</p>
+</div>
+</div>
+</section>
+<section id="multiple-logistic-regression" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="multiple-logistic-regression"><span class="header-section-number">9.4</span> Multiple logistic regression</h2>
+<p>List the predictors after the <code>~</code>, joined with <code>+</code> signs, as in Chapter 5:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. MULTIPLE LOGISTIC REGRESSION: list the predictors after the</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    ~, joined with + signs, as in Chapter 5.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your outcome, your predictors, and your dataset</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>youth_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(smoke <span class="sc">~</span> ride.alc.driver <span class="sc">+</span> age4, <span class="at">data =</span> youth,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> binomial, <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(youth_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = smoke ~ ride.alc.driver + age4, family = binomial, 
+    data = youth, na.action = na.exclude)
+
+Coefficients:
+                Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)     -3.92948    0.24858  -15.81   &lt;2e-16 ***
+ride.alc.driver  1.15835    0.04153   27.89   &lt;2e-16 ***
+age4             0.23080    0.01533   15.05   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17890  on 12947  degrees of freedom
+Residual deviance: 16795  on 12945  degrees of freedom
+  (439 observations deleted due to missingness)
+AIC: 16801
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>Both predictors are significant, <em>p</em> &lt; .001, each while holding the other constant. For the odds ratios with their 95% confidence intervals, in the layout of <a href="../chapters/chapter-09.html#interpreting-the-odds-ratios">the textbook’s Table 9.4</a>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Odds ratios with their 95% confidence intervals, side by side.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    confint.default() gives the confidence intervals for the</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      slopes; exp() turns everything into odds ratios.</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    cbind() puts the columns side by side; OR = names the first.</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    round(..., 4) rounds to 4 decimal places.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name, in both places</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">OR =</span> <span class="fu">coef</span>(youth_model),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">confint.default</span>(youth_model))), <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    OR  2.5 % 97.5 %
+(Intercept)     0.0197 0.0121 0.0320
+ride.alc.driver 3.1847 2.9357 3.4547
+age4            1.2596 1.2223 1.2980</code></pre>
+</div>
+</div>
+<ul>
+<li><strong><code>ride.alc.driver</code>:</strong> students who had ridden with a driver who had been drinking had 3.18 times the odds of having tried smoking, 95% CI [2.94, 3.45], compared with students of the same age who had not.</li>
+<li><strong><code>age4</code>:</strong> each extra year of age multiplies the odds by 1.26 (a 26% increase), 95% CI [1.22, 1.30], for students with the same answer about riding with a drinking driver.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># VIF, as in Chapter 5.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(youth_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ride.alc.driver            age4 
+       1.000369        1.000369 </code></pre>
+</div>
+</div>
+<p>Both VIFs are 1.00, so the predictors do not overlap.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>confint() or confint.default()?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>confint.default()</code> gives Wald intervals, the kind most statistics programs report (and the textbook uses). You may see <code>confint()</code> in other R guides. It uses a different method that refits the model many times to find each interval’s ends; the message <code>Waiting for profiling to be done...</code> only means R is doing that work. Its intervals are a little more accurate in small samples. With a large sample, the two agree closely; use <code>confint.default()</code> to match the textbook.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>With your own data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the outcome, the predictors, the dataset, and the model’s name. Use the model’s name in the odds ratio and VIF lines too. A categorical predictor stored as words works as in Chapter 5: R makes the indicator variables and names each row after its group.</p>
+</div>
+</div>
+</section>
+<section id="predicted-probabilities" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="predicted-probabilities"><span class="header-section-number">9.5</span> Predicted probabilities</h2>
+<p>To predict the probability for specific people, build a small table of profiles with <code>data.frame()</code>. It needs one column for each predictor, named exactly as in the model:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. PREDICTED PROBABILITIES for specific profiles.</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    data.frame() builds a small table of profiles: one column per</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      predictor, spelled exactly as in the model, one row per</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#      profile. Here: two 16-year-olds, one who did not ride with</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      a drinking driver (0) and one who did (1).</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your predictors and the values for each profile</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>profiles <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ride.alc.driver =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">age4 =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">16</span>))</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    type = "response" gives probabilities (0 to 1) instead of</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    log-odds. Leave it as is.</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(youth_model, <span class="at">newdata =</span> profiles, <span class="at">type =</span> <span class="st">"response"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2 
+0.4410983 0.7153773 </code></pre>
+</div>
+</div>
+<p>A 16-year-old who had not ridden with a drinking driver has a predicted probability of 0.44 (44%) of having tried smoking; a 16-year-old who had has a probability of 0.72 (72%). The <code>1</code> and <code>2</code> above the probabilities are the row numbers of the profiles.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>With your own data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Give <code>data.frame()</code> one column per predictor, using the predictor names from your model, and list one value per profile inside each <code>c()</code>. Every column needs the same number of values. For a categorical predictor stored as words, type the group name in quotes, such as <code>Group = c("Control", "Treatment")</code>.</p>
+</div>
+</div>
+</section>
+<section id="deviance-r-squared" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="deviance-r-squared"><span class="header-section-number">9.6</span> Deviance R-squared</h2>
+<p>R does not print the deviance <span class="math inline">\(R^2\)</span>, but it stores the pieces needed to calculate it. The first line gives the deviance <span class="math inline">\(R^2\)</span>, and the second the adjusted deviance <span class="math inline">\(R^2\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. DEVIANCE R-SQUARED: how much the model reduced the deviance,</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    compared with a model with no predictors.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    $deviance is the model's deviance; $null.deviance is the</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#      deviance with no predictors.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    $df.residual and $df.null are their degrees of freedom,</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#      which the adjusted version uses.</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name (in every place on both lines)</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> youth_model<span class="sc">$</span>deviance <span class="sc">/</span> youth_model<span class="sc">$</span>null.deviance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06125779</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> (youth_model<span class="sc">$</span>deviance <span class="sc">/</span> youth_model<span class="sc">$</span>df.residual) <span class="sc">/</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  (youth_model<span class="sc">$</span>null.deviance <span class="sc">/</span> youth_model<span class="sc">$</span>df.null)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06111275</code></pre>
+</div>
+</div>
+<p>The model reduced the deviance by 6.1% compared with a model with no predictors (adjusted deviance <span class="math inline">\(R^2\)</span> also 6.1%, since the sample is large). The predictors are significant, but they leave most of the deviance unexplained, <a href="../chapters/chapter-09.html#deviance-r2-and-adjusted-deviance-r2">the same pattern the textbook describes for its ICU model</a>.</p>
+</section>
+<section id="hosmer-lemeshow-goodness-of-fit-test" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="hosmer-lemeshow-goodness-of-fit-test"><span class="header-section-number">9.7</span> Hosmer-Lemeshow goodness-of-fit test</h2>
+<p>The Hosmer-Lemeshow test sorts the people into groups by their predicted probability and compares how many 1s each group actually had with how many the model predicted. Some software also reports a deviance goodness-of-fit test, but its p-value is unreliable when each combination of predictor values belongs to only a few people; grouping lets Hosmer-Lemeshow hold up in that situation. As the textbook explains, <a href="../chapters/chapter-09.html#the-hosmer-lemeshow-goodness-of-fit-test">its hypotheses run backward</a>: a large p-value means you have no evidence that the model fits poorly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. HOSMER-LEMESHOW </span><span class="al">TEST</span><span class="co">, from the DescTools package.</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    DescTools:: tells R which package the function comes from,</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      so you do not need a library() line for it.</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    fit = the predicted probabilities, and obs = the actual 0/1</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      outcomes, for the people the model used. The model stores</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#      both: $fitted.values and $y.</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    $C keeps the standard version of the test (the function also</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      calculates a second version, $H).</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your model's name (in both places), and a name for</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#              the result</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>hl <span class="ot">&lt;-</span> DescTools<span class="sc">::</span><span class="fu">HosmerLemeshowTest</span>(<span class="at">fit =</span> youth_model<span class="sc">$</span>fitted.values,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">obs =</span> youth_model<span class="sc">$</span>y)<span class="sc">$</span>C</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in DescTools::HosmerLemeshowTest(fit =
+youth_model$fitted.values, : Found only 8 different groups for
+Hosmer-Lemesho C statistic.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Hosmer-Lemeshow C statistic
+
+data:  youth_model$fitted.values and youth_model$y
+X-squared = 12.715, df = 6, p-value = 0.0478</code></pre>
+</div>
+</div>
+<p>The result: <span class="math inline">\(\chi^2(6) = 12.72\)</span>, <em>p</em> = .048. Taken alone, that p-value is just below .05, evidence that the model does not fit well.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Warning: Found only 8 different groups
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The test normally uses 10 groups. This model has only two predictors with few values (0 or 1, and five ages), so it gives only 10 different predicted probabilities, and some of them are too close together to split into 10 groups. R uses the 8 groups it can make, lowers the degrees of freedom to match (8 − 2 = 6), and tells you so. The warning does not mean anything went wrong. (The misspelling “Hosmer-Lemesho” is R’s.)</p>
+</div>
+</div>
+<section id="a-large-sample-makes-small-differences-significant" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="a-large-sample-makes-small-differences-significant"><span class="header-section-number">9.7.1</span> A large sample makes small differences significant</h3>
+<p>Before you conclude that the model fits badly, look at how big the differences are. The first line gives the share of students in each group who actually had tried smoking, and the second the share the model predicted:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The share of 1s in each group: what actually happened, then what</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the model predicted.</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    prop.table(..., margin = 1) turns each row into proportions,</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#      as in Chapter 2; [, 2] keeps the column for the 1s.</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your result's name, in both lines</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(hl<span class="sc">$</span>observed, <span class="at">margin =</span> <span class="dv">1</span>)[, <span class="dv">2</span>], <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.332,0.385] (0.385,0.441] (0.441,0.499] (0.499,0.556] 
+         0.37          0.46          0.50          0.53 
+(0.556,0.613] (0.613,0.715]  (0.715,0.76]    (0.76,0.8] 
+         0.57          0.69          0.78          0.79 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(hl<span class="sc">$</span>expected, <span class="at">margin =</span> <span class="dv">1</span>)[, <span class="dv">2</span>], <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.332,0.385] (0.385,0.441] (0.441,0.499] (0.499,0.556] 
+         0.37          0.44          0.50          0.56 
+(0.556,0.613] (0.613,0.715]  (0.715,0.76]    (0.76,0.8] 
+         0.61          0.69          0.76          0.80 </code></pre>
+</div>
+</div>
+<p>Each label is the range of predicted probabilities in that group, such as <code>(0.499,0.556]</code> for students the model gave a 50% to 56% chance. In every group, the model’s prediction is within about 4 percentage points of what happened (for example, 0.53 actual and 0.56 predicted in the fourth group). With 12,948 students, the test is powerful enough to call even differences this small significant. This is <a href="../chapters/chapter-03.html#the-limitation-of-the-p-value">the textbook’s warning about sample size and practical significance</a>: a p-value measures the strength of the evidence, not the size of the problem. With a large sample, report the test, and judge the fit by comparing the two lines as well.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>With your own data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the model’s name in both places in the <code>HosmerLemeshowTest()</code> line. If your model has a continuous predictor (as the textbook’s ICU model has age), you will get the full 10 groups and 8 degrees of freedom, and no warning.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="confusion-matrix" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="confusion-matrix"><span class="header-section-number">9.8</span> Confusion matrix</h2>
+<p><code>fitted()</code> gives each student’s predicted probability. Store it as a new column, turn it into a 0/1 prediction with a 50% threshold, and cross-tabulate the predictions against what actually happened:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. CONFUSION MATRIX.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    fitted() gives each person's predicted probability; store it</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      as a new column.</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    ifelse(... &gt; 0.5, 1, 0) predicts 1 when the probability is</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      over 50% (the threshold), and 0 otherwise.</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your dataset, your model, and (if you want a</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co">#              different threshold) the 0.5</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>youth<span class="sc">$</span>prob <span class="ot">&lt;-</span> <span class="fu">fitted</span>(youth_model)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>youth<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(youth<span class="sc">$</span>prob <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions in the rows, what actually happened in the columns.</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your dataset and your outcome</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>confusion <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Predicted =</span> youth<span class="sc">$</span>predicted,</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Actual =</span> youth<span class="sc">$</span>smoke)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>confusion</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Actual
+Predicted    0    1
+        0 4295 3298
+        1 1741 3614</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sensitivity and specificity, as in Chapter 8. You do not need</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to change these lines if your outcome is coded 0 and 1.</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>confusion[<span class="st">"1"</span>, <span class="st">"1"</span>] <span class="sc">/</span> <span class="fu">sum</span>(confusion[, <span class="st">"1"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5228588</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>confusion[<span class="st">"0"</span>, <span class="st">"0"</span>] <span class="sc">/</span> <span class="fu">sum</span>(confusion[, <span class="st">"0"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7115639</code></pre>
+</div>
+</div>
+<p>At the 50% threshold, the model’s sensitivity is 0.52 (it caught 52% of the students who had tried smoking) and its specificity is 0.71 (it correctly identified 71% of those who had not). <a href="../chapters/chapter-09.html#adjusting-the-threshold">To try a different threshold</a>, as the textbook describes, change the <code>0.5</code> in the <code>ifelse()</code> line and run the lines below it again.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common error: replacement has 12948 rows, data has 13387
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What you see</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>no_exclude <span class="ot">&lt;-</span> <span class="fu">glm</span>(smoke <span class="sc">~</span> ride.alc.driver <span class="sc">+</span> age4, <span class="at">data =</span> youth,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> binomial)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>youth<span class="sc">$</span>prob <span class="ot">&lt;-</span> <span class="fu">fitted</span>(no_exclude)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `$&lt;-.data.frame`:
+! replacement has 12948 rows, data has 13387</code></pre>
+</div>
+</div>
+<p><strong>What it means:</strong> without <code>na.action = na.exclude</code>, the model leaves out the rows with missing values completely, so it has fewer predictions than the dataset has rows.</p>
+<p><strong>How to fix it:</strong> add <code>na.action = na.exclude</code> inside <code>glm()</code> and fit the model again. The missing rows then get <code>NA</code> as their prediction, and the column fits.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common error: subscript out of bounds
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What you see</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>strict <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Predicted =</span> <span class="fu">ifelse</span>(youth<span class="sc">$</span>prob <span class="sc">&gt;</span> <span class="fl">0.9</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">Actual =</span> youth<span class="sc">$</span>smoke)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>strict</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Actual
+Predicted    0    1
+        0 6036 6912</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>strict[<span class="st">"1"</span>, <span class="st">"1"</span>] <span class="sc">/</span> <span class="fu">sum</span>(strict[, <span class="st">"1"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `[.default`:
+! subscript out of bounds</code></pre>
+</div>
+</div>
+<p><strong>What it means:</strong> no student has a predicted probability over 0.9, so every prediction is 0 and the table has no row named <code>1</code>. The same thing happens at the 50% threshold when the outcome is rare or very common, as with the textbook’s ICU model, where nearly everyone is predicted to survive.</p>
+<p><strong>How to fix it:</strong> print the confusion matrix before calculating. If it has only one row, the rule never predicts the other outcome; try a threshold closer to the middle of the predicted probabilities.</p>
+</div>
+</div>
+</section>
+<section id="roc-curve-and-auc" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="roc-curve-and-auc"><span class="header-section-number">9.9</span> ROC curve and AUC</h2>
+<p><code>roc()</code> compares the actual outcomes with the predicted probabilities at every possible threshold, and <code>auc()</code> gives the area under the curve:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. ROC CURVE AND AUC.</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    roc(actual, predicted) compares what happened with the</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      predicted probabilities, at every possible threshold.</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your outcome and your predicted probabilities</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>youth_roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(youth<span class="sc">$</span>smoke, youth<span class="sc">$</span>prob)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(youth_roc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.6598</code></pre>
+</div>
+</div>
+<p>The AUC is 0.66. On <a href="../chapters/chapter-09.html#grading-the-model-area-under-the-curve-auc">the common grading scale</a>, that is above 0.50 (guessing) but below the 0.70 that counts as acceptable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Messages: Setting levels and Setting direction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>roc()</code> reports which outcome it treated as the event (<code>case = 1</code>) and that the event should have the higher predicted probabilities. Both are what you want for a 0/1 outcome, so you can ignore the messages.</p>
+</div>
+</div>
+<p>Draw the ROC curve with <code>ggroc()</code>, which makes a ggplot:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The ROC curve.</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    ggroc() draws it as a ggplot, so the usual + layers work.</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    legacy.axes = TRUE puts the false positive rate (1 minus</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co">#      specificity) along the bottom, the usual way to draw an ROC</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      curve. Leave it as is.</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    geom_abline() adds the diagonal "coin flip" line: intercept</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      = 0 and slope = 1 start it at the corner and run it at 45</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      degrees. linetype = "dashed" makes it dashed.</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THIS: your ROC object's name and your title</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggroc</span>(youth_roc, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#0072B2"</span>,</span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ROC Curve: Predicting Ever Smoking"</span>,</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"False positive rate (1 - specificity)"</span>,</span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Sensitivity"</span>) <span class="sc">+</span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chapter-09_files/figure-html/roc-plot-1.png" class="img-fluid figure-img" alt="ROC curve with the false positive rate along the bottom and sensitivity up the side, both from 0 to 1. A solid curve bows up and to the left of a dashed diagonal line that runs from the lower left corner to the upper right. The curve stays modestly above the diagonal the whole way, matching an AUC of 0.66." width="672"></p>
+<figcaption>ROC curve for the logistic regression of ever smoking on riding with a drinking driver and age.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The curve bows above the dashed “coin flip” diagonal, but not far toward the top-left corner, which matches the modest AUC.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>With your own data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Put your outcome and your predicted probability column inside <code>roc()</code>, then change the name inside <code>auc()</code> and <code>ggroc()</code>, and update the title.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter-08.html" class="pagination-link" aria-label="Categorical Data Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-10.html" class="pagination-link" aria-label="Nonparametric Tests">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

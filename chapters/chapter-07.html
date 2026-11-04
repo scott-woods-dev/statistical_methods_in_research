@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Advanced Experimental Designs – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/chapter-08.html" rel="next">
+<link href="../chapters/chapter-06.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-06.html">Unit III: Design of Experiments (ANOVA)</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
+  <li><a href="#the-evolution-of-experimental-design" id="toc-the-evolution-of-experimental-design" class="nav-link" data-scroll-target="#the-evolution-of-experimental-design"><span class="header-section-number">7.2</span> The Evolution of Experimental Design</a></li>
+  <li><a href="#the-two-way-anova-expanding-the-model" id="toc-the-two-way-anova-expanding-the-model" class="nav-link" data-scroll-target="#the-two-way-anova-expanding-the-model"><span class="header-section-number">7.3</span> The Two-Way ANOVA: Expanding the Model</a></li>
+  <li><a href="#two-way-anova-visualizing-and-understanding-interactions" id="toc-two-way-anova-visualizing-and-understanding-interactions" class="nav-link" data-scroll-target="#two-way-anova-visualizing-and-understanding-interactions"><span class="header-section-number">7.4</span> Two-Way ANOVA: Visualizing and Understanding Interactions</a></li>
+  <li><a href="#two-way-anova-assumptions-and-output-interpretation" id="toc-two-way-anova-assumptions-and-output-interpretation" class="nav-link" data-scroll-target="#two-way-anova-assumptions-and-output-interpretation"><span class="header-section-number">7.5</span> Two-Way ANOVA: Assumptions and Output Interpretation</a>
+  <ul class="collapse">
+  <li><a href="#the-stop-sign" id="toc-the-stop-sign" class="nav-link" data-scroll-target="#the-stop-sign"><span class="header-section-number">7.5.1</span> The Stop Sign</a></li>
+  <li><a href="#interpreting-the-output" id="toc-interpreting-the-output" class="nav-link" data-scroll-target="#interpreting-the-output"><span class="header-section-number">7.5.2</span> Interpreting the Output</a></li>
+  </ul></li>
+  <li><a href="#the-ancova-introducing-continuous-covariates" id="toc-the-ancova-introducing-continuous-covariates" class="nav-link" data-scroll-target="#the-ancova-introducing-continuous-covariates"><span class="header-section-number">7.6</span> The ANCOVA: Introducing Continuous Covariates</a></li>
+  <li><a href="#ancova-crucial-assumptions" id="toc-ancova-crucial-assumptions" class="nav-link" data-scroll-target="#ancova-crucial-assumptions"><span class="header-section-number">7.7</span> ANCOVA: Crucial Assumptions</a></li>
+  <li><a href="#ancova-output-interpretation-and-adjusted-means" id="toc-ancova-output-interpretation-and-adjusted-means" class="nav-link" data-scroll-target="#ancova-output-interpretation-and-adjusted-means"><span class="header-section-number">7.8</span> ANCOVA: Output Interpretation and Adjusted Means</a>
+  <ul class="collapse">
+  <li><a href="#what-did-the-ancova-do-adjusted-means" id="toc-what-did-the-ancova-do-adjusted-means" class="nav-link" data-scroll-target="#what-did-the-ancova-do-adjusted-means"><span class="header-section-number">7.8.1</span> What did the ANCOVA do? Adjusted Means</a></li>
+  </ul></li>
+  <li><a href="#repeated-measures-anova-the-within-subjects-design" id="toc-repeated-measures-anova-the-within-subjects-design" class="nav-link" data-scroll-target="#repeated-measures-anova-the-within-subjects-design"><span class="header-section-number">7.9</span> Repeated Measures ANOVA: The Within-Subjects Design</a>
+  <ul class="collapse">
+  <li><a href="#the-independence-violation" id="toc-the-independence-violation" class="nav-link" data-scroll-target="#the-independence-violation"><span class="header-section-number">7.9.1</span> The Independence Violation</a></li>
+  <li><a href="#the-fix-the-within-subjects-design" id="toc-the-fix-the-within-subjects-design" class="nav-link" data-scroll-target="#the-fix-the-within-subjects-design"><span class="header-section-number">7.9.2</span> The Fix: The Within-Subjects Design</a></li>
+  <li><a href="#a-note-on-longitudinal-studies" id="toc-a-note-on-longitudinal-studies" class="nav-link" data-scroll-target="#a-note-on-longitudinal-studies"><span class="header-section-number">7.9.3</span> A Note on Longitudinal Studies</a></li>
+  </ul></li>
+  <li><a href="#repeated-measures-anova-output-interpretation" id="toc-repeated-measures-anova-output-interpretation" class="nav-link" data-scroll-target="#repeated-measures-anova-output-interpretation"><span class="header-section-number">7.10</span> Repeated Measures ANOVA: Output Interpretation</a>
+  <ul class="collapse">
+  <li><a href="#the-interaction-effect-cond-time" id="toc-the-interaction-effect-cond-time" class="nav-link" data-scroll-target="#the-interaction-effect-cond-time"><span class="header-section-number">7.10.1</span> The Interaction Effect (<code>Cond * Time</code>)</a></li>
+  <li><a href="#the-main-effect-of-time-time" id="toc-the-main-effect-of-time-time" class="nav-link" data-scroll-target="#the-main-effect-of-time-time"><span class="header-section-number">7.10.2</span> The Main Effect of Time (<code>Time</code>)</a></li>
+  <li><a href="#the-main-effect-of-condition-cond" id="toc-the-main-effect-of-condition-cond" class="nav-link" data-scroll-target="#the-main-effect-of-condition-cond"><span class="header-section-number">7.10.3</span> The Main Effect of Condition (<code>Cond</code>)</a></li>
+  <li><a href="#the-final-conclusion" id="toc-the-final-conclusion" class="nav-link" data-scroll-target="#the-final-conclusion"><span class="header-section-number">7.10.4</span> The Final Conclusion</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together-summary-and-apa-reporting" id="toc-putting-it-all-together-summary-and-apa-reporting" class="nav-link" data-scroll-target="#putting-it-all-together-summary-and-apa-reporting"><span class="header-section-number">7.11</span> Putting It All Together: Summary and APA Reporting</a>
+  <ul class="collapse">
+  <li><a href="#the-story-of-the-data" id="toc-the-story-of-the-data" class="nav-link" data-scroll-target="#the-story-of-the-data"><span class="header-section-number">7.11.1</span> The Story of the Data</a></li>
+  <li><a href="#writing-the-results-in-apa-format" id="toc-writing-the-results-in-apa-format" class="nav-link" data-scroll-target="#writing-the-results-in-apa-format"><span class="header-section-number">7.11.2</span> Writing the Results in APA Format</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-misconceptions" id="toc-common-mistakes-and-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-and-misconceptions"><span class="header-section-number">7.12</span> Common Mistakes and Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">7.13</span> Key Concepts</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.14</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">7.14.1</span> Interpretation</a></li>
+  <li><a href="#choosing-a-method" id="toc-choosing-a-method" class="nav-link" data-scroll-target="#choosing-a-method"><span class="header-section-number">7.14.2</span> Choosing a Method</a></li>
+  <li><a href="#communicating-results" id="toc-communicating-results" class="nav-link" data-scroll-target="#communicating-results"><span class="header-section-number">7.14.3</span> Communicating Results</a></li>
+  <li><a href="#software-application" id="toc-software-application" class="nav-link" data-scroll-target="#software-application"><span class="header-section-number">7.14.4</span> Software Application</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-06.html">Unit III: Design of Experiments (ANOVA)</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
+<p>In 2007, researchers at Harvard University asked an intriguing question: Can your mindset alone change your objective physical health? To find out, they designed a psychological experiment involving 75 female hotel maids (Crum &amp; Langer, 2007).</p>
+<p>Hotel room attendants experience high levels of physical exertion every day, but because it is their job, many do not perceive their labor as actual “exercise.” The researchers randomly split the maids into two groups. The “informed” group was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General’s recommendations for an active lifestyle, and they were shown exactly how vacuuming and scrubbing translated into rigorous exercise. The “uninformed” control group received no such information. The researchers did not ask the maids to change their diets or join a gym; they simply changed how the maids thought about the work they were already doing.</p>
+<p>To evaluate whether this intervention worked, the researchers collected physiological markers at the beginning of the study and again four weeks later. We will be using a subset of this data, <code>maid_mindset.csv</code>, throughout this chapter.</p>
+<ul>
+<li><strong><code>Cond</code></strong>: A categorical variable indicating the experimental condition (<span class="math inline">\(1\)</span> = informed group, <span class="math inline">\(0\)</span> = uninformed control group).</li>
+<li><strong><code>Age</code></strong>: A numerical variable representing the participant’s age in years.</li>
+<li><strong><code>Syst</code></strong>: A numerical variable recording the participant’s baseline systolic blood pressure at the start of the study, measured in mmHg.</li>
+<li><strong><code>Syst2</code></strong>: A numerical variable recording the participant’s systolic blood pressure at the conclusion of the study four weeks later.</li>
+<li><strong><code>BMI</code></strong>: A numerical variable representing the participant’s baseline Body Mass Index.</li>
+<li><strong><code>BMI2</code></strong>: A numerical variable representing the participant’s Body Mass Index four weeks later.</li>
+</ul>
+<p>We know from Chapter 6 that a standard One-Way ANOVA is a great tool for comparing groups. But human bodies are noisy data sources. A person’s post-intervention blood pressure is heavily influenced by their age, their genetics, and their baseline resting health, not just our psychological intervention. If we run a basic One-Way ANOVA, all of that natural, pre-existing human variation gets dumped directly into our “within-groups variation” bucket. As we learned previously, that within-groups variation acts as our statistical noise. If the background noise is too loud, we will never be able to hear the signal of our intervention.</p>
+<p>In this chapter, you will learn how to use advanced experimental designs to strategically filter out that noise. By the end of this chapter, you will understand how to categorize participants to control for nuisance variables, how to use continuous baseline measurements to mathematically level the playing field, and how to measure participants against themselves to maximize your statistical power to observe real effects in your experiments.</p>
+</section>
+<section id="the-evolution-of-experimental-design" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-evolution-of-experimental-design"><span class="header-section-number">7.2</span> The Evolution of Experimental Design</h2>
+<p>Before we introduce our new methods, let’s take a moment to survey the big picture. In Chapter 6, you learned that a standard ANOVA works by a process called partitioning variation. It takes all the chaotic differences in your dataset and splits them into two specific buckets: the signal and the noise.</p>
+<p>The signal is the <a href="appendix-glossary.html#glossary-term-between-groups-variation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The part of total variation that measures how far the group averages are from one another; in ANOVA it represents the signal, or the effect of the factor." data-term="between-groups variation">between-groups variation</a>. This represents the differences in the response variable that are directly caused by your experimental treatment, like the shift in blood pressure caused by our mindset intervention. The noise is the <a href="appendix-glossary.html#glossary-term-within-groups-variation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The part of total variation that measures the random differences among individuals inside the same group; in ANOVA it represents the noise." data-term="within-groups variation">within-groups variation</a>. This is a catch-all bucket that holds every single difference your model cannot explain. It includes the natural, pre-existing differences among individuals inside the same treatment group, such as their age, baseline fitness, genetics, and daily stress levels.</p>
+<p>When human bodies are involved, that noise bucket fills up fast. If the background noise becomes too loud, it will drown out the signal of your intervention. You might look at your data, see a high <span class="math inline">\(p\)</span>-value, and falsely conclude that the intervention failed. As you learned in Chapter 3, this is a Type II error, and missing a real, impactful discovery is a major setback in research. The advanced designs in this chapter share one common goal: they allow you to scoop specific, known variation out of the “noise” bucket and give it a proper label. By identifying and controlling the noise, we make our primary signal much easier to detect. Here is how we will do it:</p>
+<p><strong>The Two-Way ANOVA</strong></p>
+<p>What if we know that a categorical variable, like age brackets, is causing a large share of that background noise? A Two-Way ANOVA allows us to pull that second categorical factor out of the noise bucket and measure it directly. By organizing our participants into distinct blocks (such as comparing only the under-40 maids to other under-40 maids), we ensure we are comparing apples to apples. This shrinks the unexplained noise and lets us see whether the intervention works differently for different types of people.</p>
+<p><strong>The ANCOVA (Analysis of Covariance)</strong></p>
+<p>But what if our nuisance variable isn’t a category, but a precise continuous number, like exact baseline blood pressure? Chopping exact numbers into arbitrary categories destroys valuable information. An ANCOVA solves this by mathematically blending the grouping power of an ANOVA with the continuous tracking of a multiple regression model. It uses that continuous baseline score to artificially level the playing field, mathematically calculating what the treatment group averages would look like if every single participant had started the study with the same blood pressure.</p>
+<p><a href="appendix-glossary.html#glossary-term-repeated-measures-anova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An ANOVA for a within-subjects design in which the same participants are measured at multiple time points or conditions, so each person serves as their own baseline." data-term="repeated measures ANOVA">Repeated Measures ANOVA</a></p>
+<p>Finally, what if the biggest source of noise is simply the large, uncontrollable biological differences between human beings? The ultimate way to control for human variation is to stop comparing different people to each other. A Repeated Measures ANOVA fixes this by treating every individual participant as their own baseline. By measuring the same person before and after the intervention, we filter out their pre-existing biological noise. This gives researchers substantial statistical power to detect true changes, even with small sample sizes, an ethical advantage when asking human subjects to participate in a study.</p>
+</section>
+<section id="the-two-way-anova-expanding-the-model" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="the-two-way-anova-expanding-the-model"><span class="header-section-number">7.3</span> The Two-Way ANOVA: Expanding the Model</h2>
+<p>In Chapter 6, we used a One-Way ANOVA to evaluate our data. It is called “one-way” because it tests the effect of just <em>one</em> categorical grouping variable at a time. But human biology and behavior are rarely that simple. What if we want to study two grouping variables at the same time? That is exactly what a <a href="appendix-glossary.html#glossary-term-two-way-anova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An ANOVA that tests the effects of two categorical factors at once, including their main effects and interaction." data-term="two-way ANOVA">Two-Way ANOVA</a> does.</p>
+<p>Let’s think about the design of our hotel maid study. We want to know if the mindset intervention (<code>Cond</code>) lowered the maids’ post-intervention systolic blood pressure (<code>Syst2</code>). However, basic biology tells us that age also has a large impact on blood pressure. If we ignore age, the natural blood pressure difference between a 22-year-old and a 60-year-old gets dumped straight into our statistical noise bucket. This background noise makes the true signal of our psychological intervention much harder to detect.</p>
+<p>To fix this, researchers use a technique called <a href="appendix-glossary.html#glossary-term-blocking" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Converting a known nuisance variable into categorical groups (blocks) so its variation is removed from the error term, improving the comparison." data-term="blocking">blocking</a>. Blocking takes a known background issue (often called a nuisance variable) and converts it into specific categorical groups. For example, we can split our maids into two distinct age blocks: those under 40, and those 40 and older. We will call this new variable <code>Age_Group</code>.</p>
+<p>By adding this second factor to our model, we pull age out of the noise bucket. Our model can now compare younger maids in the informed group directly against younger maids in the control group. Blocking ensures we are finally comparing apples to apples.</p>
+<p>When a study categorizes participants using two or more factors at the same time, we call it a <a href="appendix-glossary.html#glossary-term-factorial-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A study design that crosses two or more categorical factors so that every combination of levels is represented, allowing main effects and interactions to be estimated." data-term="factorial design">factorial design</a>. In a factorial design, you cross your categories to examine every possible combination. For our maids, we have two conditions (Informed vs.&nbsp;Control) and two age blocks (Under 40 vs.&nbsp;40 and older). This creates four unique, overlapping subgroups of participants to compare.</p>
+<p>Because we now have two factors interacting in our model, a Two-Way ANOVA gives us two different types of results to interpret:</p>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-main-effects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The individual predictors that make up an interaction term; when an interaction is included in a model, the main effects must also be included." data-term="main effects">Main Effects</a>: A <a href="appendix-glossary.html#glossary-term-main-effects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The individual predictors that make up an interaction term; when an interaction is included in a model, the main effects must also be included." data-term="main effects">main effect</a> is the independent, isolated impact of just <em>one</em> variable, temporarily pretending the other variable does not exist. For example, if we ignore their age, did the informed maids have lower blood pressure than the control maids? That is the main effect of the experimental condition.</li>
+<li><a href="appendix-glossary.html#glossary-term-interaction-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The result of an interaction: the effect of one factor depends on the level of another, so its size or direction changes across groups." data-term="interaction effect">Interaction Effects</a>: Human traits rarely exist in a vacuum. An <a href="appendix-glossary.html#glossary-term-interaction-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The result of an interaction: the effect of one factor depends on the level of another, so its size or direction changes across groups." data-term="interaction effect">interaction effect</a> occurs when the impact of one variable <em>depends</em> on the value of the other variable. What if the psychological intervention worked beautifully to lower blood pressure for the younger maids, but had absolutely no effect on the older maids? You cannot see that nuance if you only look at the main effects. You need to measure how the two variables mix.</li>
+</ol>
+<p>Here is the main warning for factorial designs: if an interaction effect exists, it changes how you interpret your main effects. In fact, a strong interaction can make a main effect misleading.</p>
+<p>Imagine if our mindset intervention was wildly successful for the younger maids, dropping their blood pressure by an average of 10 points. However, imagine the older maids felt stressed by the intervention, and their blood pressure actually <em>increased</em> by 10 points. What happens if we ignore age and only analyze the main effect of the intervention? The 10-point drop and the 10-point increase average out to zero.</p>
+<p>If you relied only on the main effect, you would mistakenly conclude that the intervention did absolutely nothing. In reality, the intervention did a lot; it just acted differently depending on the participant’s age. Because of this, researchers follow a strict rule: if a significant interaction exists, you can rarely trust the main effects on their own. The answer to “did the intervention work?” becomes “it depends on their age.”</p>
+<p>Because interactions complicate our interpretations, you might be wondering what happens if we add even more variables. What if we also categorized the maids by whether they work the day shift or the night shift?</p>
+<p>Adding a third factor creates a <a href="appendix-glossary.html#glossary-term-three-way-anova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An ANOVA that tests three categorical factors at once, producing three main effects, three two-way interactions, and one three-way interaction; powerful but hard to interpret." data-term="three-way ANOVA">Three-Way ANOVA</a>. While software can easily calculate this, it is a serious struggle to interpret it. A Three-Way ANOVA generates three separate main effects, three separate two-way interactions, and one three-way interaction. To interpret a three-way interaction, you have to answer a dizzying question: <em>Does the interaction between age and mindset change depending on the shift the maid is working?</em></p>
+<p>This level of complexity is usually a nightmare to untangle and explain to an audience. To avoid this, statisticians rely on a concept called <a href="appendix-glossary.html#glossary-term-parsimony" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The principle that the simplest model that explains the data well is preferred, avoiding unnecessary complexity." data-term="parsimony">parsimony</a>. Parsimony is the principle that the simplest model that accurately explains the data is usually the best one. While you can technically build a model with four, five, or six categorical factors, you should only include variables that you strongly suspect will clarify the noise. In statistics, keeping things simple is a virtue.</p>
+</section>
+<section id="two-way-anova-visualizing-and-understanding-interactions" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="two-way-anova-visualizing-and-understanding-interactions"><span class="header-section-number">7.4</span> Two-Way ANOVA: Visualizing and Understanding Interactions</h2>
+<p>When we run a Two-Way ANOVA, the very first thing we want to do is look at a picture of our data. Our brains are much better at spotting patterns in shapes than in tables of numbers. To do this, we use a specific graph called an <a href="appendix-glossary.html#glossary-term-interaction-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph of group means with one line per level of a second factor; parallel lines suggest no interaction, while converging, diverging, or crossing lines suggest one." data-term="interaction plot">interaction plot</a>.</p>
+<p>An interaction plot maps out the averages for every possible combination of our subgroups. The horizontal x-axis usually shows the main experimental treatment (like our informed versus control groups). The vertical y-axis shows our numerical response variable (post-intervention systolic blood pressure). Finally, we draw separate, color-coded lines for each of our blocks (our age groups).</p>
+<p>Here is how to read an interaction plot: look at the lines. If the lines are perfectly parallel, there is no interaction. The treatment does the same thing to everyone, regardless of their block. If the lines are not parallel (if they converge, diverge, or cross), an interaction is happening.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_07/fig_07_01_line_interaction_syst2_condition_age.png" class="img-fluid figure-img" alt="Interaction plot with condition on the x-axis and post-intervention systolic blood pressure on the y-axis. The Under 40 line falls from control to informed, the 40+ line rises, and a single NA point appears near the informed position. The 40+ line stays above the Under 40 line."></p>
+<figcaption>Figure 7.1: Interaction plot of post-intervention systolic blood pressure by condition and age group. The Under 40 line slopes down from control to informed, while the 40+ line slopes up, so the lines are not parallel. The single NA point marks the maid whose age was missing.</figcaption>
+</figure>
+</div>
+<p>Let’s view the interaction plot for our hotel maids. First, follow the line for the “Under 40” age group. Notice that their average blood pressure is lower in the informed condition than in the control condition. For the younger maids, the mindset intervention worked exactly as the researchers hoped!</p>
+<p>Now, look at the line for the “40+” age group. Their line actually goes in the opposite direction. For the older maids, being in the informed group resulted in a <em>higher</em> average blood pressure than being in the control group. Why might this happen? Perhaps suddenly being told that their daily labor was a rigorous, Surgeon General-approved workout caused unexpected anxiety or stress for the older participants.</p>
+<p>Notice that the lines for our two age groups do not physically cross on the graph. Because the older maids started out with a higher baseline blood pressure across the board, their line hovers safely above the younger maids’ line. However, crossing lines are not required for an interaction. Because one line points up and the other points down, they are not parallel. This diverging behavior is the visual hallmark of an interaction effect. The intervention’s success heavily depends on the participant’s age.</p>
+<p>When you look at Figure 7.1, you will notice a third element floating on the plot labeled “NA.” This stands for “Not Available.” One maid is missing her age, so she does not belong to either age block. Her post-intervention blood pressure is still known (116 mmHg), so she appears as a single point in the informed condition. Separately, 9 maids are missing their post-intervention systolic blood pressure, so they cannot appear on this plot at all.</p>
+<p>When researchers see missing values disrupting their clean age categories, the immediate temptation is to delete the affected participants so the graph looks perfect. However, throwing away data is a dangerous habit. The 9 maids without a final blood pressure reading still have other valid readings, like weight and baseline BMI, that can be used in other parts of the analysis. The maid without an age still has a final blood pressure reading, and deleting her would remove a real observation from the condition comparison.</p>
+<p>Real data is messy. People skip survey questions, leave fields blank, and forget to write things down. Learning to leave missing data intact instead of hiding it to make a chart look prettier is a core part of ethical research.</p>
+</section>
+<section id="two-way-anova-assumptions-and-output-interpretation" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="two-way-anova-assumptions-and-output-interpretation"><span class="header-section-number">7.5</span> Two-Way ANOVA: Assumptions and Output Interpretation</h2>
+<p>Before we can trust the results of a Two-Way ANOVA, we must ensure our data fits the tool. The required assumptions are the same as the One-Way ANOVA you learned in Chapter 6: independent samples, mutually exclusive groups, normality of residuals, and equal variances.</p>
+<p>However, there is one structural difference that matters here. In a Two-Way ANOVA, we check these assumptions at the <a href="appendix-glossary.html#glossary-term-cell" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A specific subgroup created by crossing the levels of two or more factors in a factorial design." data-term="cell">cell</a> level. A cell is a specific, unique subgroup created by crossing your two factors. In our <code>maid_mindset.csv</code> dataset, we have four cells:</p>
+<ol type="1">
+<li>Under 40 / Control</li>
+<li>Under 40 / Informed</li>
+<li>40+ / Control</li>
+<li>40+ / Informed</li>
+</ol>
+<p>When checking for equal variances, we generate a jitter dot plot and compare the vertical spread across all four of these distinct cells, ensuring the largest spread is no more than double the smallest. When checking for normality, we generate a single probability plot (or Q-Q plot) of the model’s pooled residuals, just as we did previously. Remember our rule from Chapter 6: avoid running formal statistical tests to check these assumptions. Rely on your visual plots and your intuition.</p>
+<section id="the-stop-sign" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="the-stop-sign"><span class="header-section-number">7.5.1</span> The Stop Sign</h3>
+<p>Once your diagnostic plots look safe, you can run the Two-Way ANOVA and read the output table. Statistical software will generate an Analysis of Variance table that provides Degrees of Freedom, <span class="math inline">\(F\)</span>-statistics, and <span class="math inline">\(p\)</span>-values for three distinct things: the main effect of your first factor, the main effect of your second factor, and the interaction effect between them.</p>
+<p>When you interpret this table, you must follow one rule: always check the interaction <span class="math inline">\(p\)</span>-value first. Treat it like a stop sign.</p>
+<p>Why? Because if the interaction is statistically significant (if its <span class="math inline">\(p\)</span>-value is less than our <span class="math inline">\(\alpha = 0.05\)</span> threshold), the main effects are fundamentally compromised. As we discussed in Section 7.3, a strong interaction means the treatment acts differently depending on the subgroup. If you try to interpret a main effect while a significant interaction is happening, you are reporting a deceptive, watered-down average.</p>
+</section>
+<section id="interpreting-the-output" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="interpreting-the-output"><span class="header-section-number">7.5.2</span> Interpreting the Output</h3>
+<p>Let’s review the output generated for our hotel maids. To see a mix of statistical results, we will use the model predicting their baseline systolic blood pressure (<code>Syst</code>).</p>
+<table class="caption-top table">
+<caption>Table 7.1: Two-way ANOVA of baseline systolic blood pressure by condition and age group (n = 65).</caption>
+<colgroup>
+<col style="width: 48%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Source</strong></th>
+<th><strong>df</strong></th>
+<th><strong>F-statistic</strong></th>
+<th><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cond (Condition)</td>
+<td>1</td>
+<td>1.81</td>
+<td>0.184</td>
+</tr>
+<tr class="even">
+<td>Age_Group</td>
+<td>1</td>
+<td>6.04</td>
+<td>0.017</td>
+</tr>
+<tr class="odd">
+<td>Cond * Age_Group (Interaction)</td>
+<td>1</td>
+<td>0.05</td>
+<td>0.829</td>
+</tr>
+<tr class="even">
+<td>Residuals (Error)</td>
+<td>61</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Following that rule, we stop and look entirely at the interaction row (<code>Cond * Age_Group</code>) first. The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.829\)</span>.</p>
+<p>This is a useful lesson in why we never rely <em>only</em> on a graph. In the previous section, we examined the interaction plot and saw the lines pointing in different directions. However, a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.829\)</span> is nowhere near our <span class="math inline">\(0.05\)</span> standard of evidence. The math tells us that the visual divergence we saw was just random background noise. We do not have sufficient evidence to claim that an interaction exists.</p>
+<p>Table 7.1 models baseline blood pressure, while Figure 7.1 plots post-intervention blood pressure. The post-intervention model gives an interaction <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.771\)</span>, also far from <span class="math inline">\(0.05\)</span>, so the visual divergence is consistent with noise either way.</p>
+<p>Because the interaction is <strong>not</strong> statistically significant, the stop sign turns green. We are now mathematically allowed to interpret the main effects:</p>
+<ul>
+<li><strong>Main Effect of Condition (<code>Cond</code>):</strong> The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.184\)</span>. When controlling for age blocks, the experimental condition does not have a statistically significant effect. (This makes perfect logical sense here, as we are analyzing baseline blood pressure measured <em>before</em> the psychological intervention even started!)</li>
+<li><strong>Main Effect of Age (<code>Age_Group</code>):</strong> The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.017\)</span>. This is well below our threshold! This tells us that age has a statistically significant main effect on blood pressure.</li>
+</ul>
+<p>This output demonstrates why we use a Two-Way ANOVA. By chopping the maids into age blocks, we successfully identified a major source of variation. We scooped that age-related variance out of the catch-all noise bucket and proved that it genuinely impacts blood pressure.</p>
+<p>However, chopping a precise number like age into broad, arbitrary categories (like “Under 40” and “40+”) is not always the best strategy. In the next section, we will explore a method that allows us to control for background noise without throwing away our exact numbers.</p>
+<blockquote class="blockquote">
+<p><strong>A Practical Warning: When Assumptions Fail</strong></p>
+<p>If you were to generate a probability plot of the residuals for this model, you would see a distinct curve rather than a straight line. The baseline blood pressure data for our older maids is skewed.</p>
+<p>In published academic research, you cannot simply ignore a failed assumption. Because the normality of our residuals is suspect, the <span class="math inline">\(p\)</span>-values we just calculated are also suspect. If the foundation of a house is cracked, you cannot trust the walls.</p>
+<p>So, what do researchers do when their data refuses to cooperate? Often, they reach for a tool you learned back in Chapter 4: <a href="appendix-glossary.html#glossary-term-data-transformation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A mathematical change to a variable, such as a log transformation, applied to make its distribution better meet a model’s assumptions." data-term="data transformation">data transformation</a>. By applying a logarithmic transformation to the blood pressure variable, researchers can pull the right-skewed data closer to a normal bell curve. Once the transformed data passes the diagnostic checks, they can safely run the Two-Way ANOVA. For now, simply recognize that real data is messy, and checking your assumptions is what keeps your science honest.</p>
+</blockquote>
+</section>
+</section>
+<section id="the-ancova-introducing-continuous-covariates" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="the-ancova-introducing-continuous-covariates"><span class="header-section-number">7.6</span> The ANCOVA: Introducing Continuous Covariates</h2>
+<p>Let’s take a step back and consider what the researchers are trying to achieve. In our hotel maid study, the primary research interest is not age. The Harvard psychologists did not run this experiment to prove that older people have different blood pressure than younger people; that is already a well-known biological fact. Their true goal is to find out if the mindset intervention (<code>Cond</code>) significantly changed the maids’ physical health.</p>
+<p>In this context, a factor like age or baseline blood pressure is what researchers call a <a href="appendix-glossary.html#glossary-term-nuisance-variable" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A background variable that affects the outcome but is not the main focus of the study; left uncontrolled, it adds noise to the comparison." data-term="nuisance variable">nuisance variable</a>. It is a background factor that affects the outcome, but it is not the main focus of the study. If we do not account for it, it acts as a thick fog that obscures the true effect of our psychological intervention. We want to isolate the effect of the intervention from the nuisance.</p>
+<p>In the previous sections, we tried to clear that fog using a Two-Way ANOVA. We controlled for the nuisance of age by chopping the maids into two distinct blocks: “Under 40” and “40+.” While this successfully identified age as a source of noise, blocking is a blunt instrument with a major mathematical flaw.</p>
+<p>Imagine two maids in our “Under 40” block: one is 21 years old, and the other is 39 years old. Biologically, their resting cardiovascular systems are different. But because of how we drew our categorical lines, the Two-Way ANOVA treats them as exactly the same. When we take a precise, continuous variable like exact age or exact baseline blood pressure and chop it into broad categories, we destroy valuable information. We are throwing away precision.</p>
+<p>To solve this issue with information loss, statisticians use an <a href="appendix-glossary.html#glossary-term-ancova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Analysis of Covariance: a hybrid of ANOVA and regression that compares group means while adjusting for one or more continuous covariates." data-term="ANCOVA">ANCOVA</a> (Analysis of Covariance). An ANCOVA is a hybrid tool. It mathematically blends the categorical group comparisons of an ANOVA with the continuous tracking power of multiple regression. Instead of forcing our nuisance variable into arbitrary blocks, an ANCOVA allows us to plug the exact, continuous numbers directly into the model. We call this continuous background variable a <a href="appendix-glossary.html#glossary-term-covariate" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A continuous background variable included in a model to adjust for its effect, such as a baseline score." data-term="covariate">covariate</a>.</p>
+<p>Let’s revisit our mindset intervention using a precise nuisance variable: baseline systolic blood pressure (<code>Syst</code>). We know that a maid’s blood pressure at the end of the month is going to be heavily tethered to whatever her blood pressure was at the beginning of the month.</p>
+<p>Instead of organizing the maids into “high baseline” and “low baseline” categories, an ANCOVA uses their exact baseline blood pressure as a continuous covariate. The mathematics of the ANCOVA use that exact baseline score to artificially level the playing field. It calculates what the final treatment group averages would look like if every single maid had started the study with the same baseline blood pressure. By smoothly filtering out the baseline noise, the ANCOVA isolates our primary research interest, giving us a clear look at the true effect of our psychological intervention.</p>
+</section>
+<section id="ancova-crucial-assumptions" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="ancova-crucial-assumptions"><span class="header-section-number">7.7</span> ANCOVA: Crucial Assumptions</h2>
+<p>Because an ANCOVA is a hybrid tool that blends an ANOVA with linear regression, it inherits the rules from both methods.</p>
+<p>First, it requires the standard ANOVA assumptions we have already discussed: independent samples, mutually exclusive groups, roughly normal residuals, and equal variances. You check these exactly as you did in Chapter 6, using your visual diagnostic plots.</p>
+<p>However, because we are introducing a continuous covariate into the mix, we must check two brand new assumptions.</p>
+<p><a href="appendix-glossary.html#glossary-term-linearity" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The assumption that the true relationship between two numerical variables is a straight line, checked by looking for curves in a residual plot." data-term="linearity">Linearity</a></p>
+<p>For an ANCOVA to work, your continuous covariate must have a straight-line relationship with your response variable. If you create a scatterplot of baseline blood pressure (<code>Syst</code>) versus post-intervention blood pressure (<code>Syst2</code>), the dots should generally form a straight diagonal band. If the dots form a U-shape or a strange curve, our linear ANCOVA math will not be able to properly filter out the noise.</p>
+<p><a href="appendix-glossary.html#glossary-term-homogeneity-of-regression-slopes" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction." data-term="homogeneity of regression slopes">Homogeneity of Regression Slopes</a></p>
+<p>This is the most critical new assumption for an ANCOVA, and its name sounds far more intimidating than it actually is.</p>
+<p>Think about what an ANCOVA is trying to do: it wants to apply a single mathematical adjustment to level the playing field for everyone based on their starting baseline score. For that single mathematical adjustment to be fair, the covariate must behave the same way across all of your experimental groups.</p>
+<p>Imagine if, for the control group, a high baseline blood pressure strongly predicted a high final blood pressure. But, what if our psychological intervention was so powerful that it shattered that biological pattern for the informed group? What if, for the informed maids, their baseline blood pressure suddenly did not matter at all?</p>
+<p>If the baseline covariate behaves differently depending on which group you are in, the ANCOVA cannot apply a single, fair adjustment. This requirement is called <a href="appendix-glossary.html#glossary-term-homogeneity-of-regression-slopes" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction." data-term="homogeneity of regression slopes">homogeneity of regression slopes</a> (“homogeneity” simply means “the same”).</p>
+<p>To check this assumption, statisticians look for an interaction between the continuous covariate and the categorical experimental condition. We want to ensure that the relationship between the baseline and final blood pressure is parallel across both groups.</p>
+<p>Let’s inspect the preliminary assumption check generated by our statistical software for the hotel maids:</p>
+<table class="caption-top table">
+<caption>Table 7.2: Homogeneity of regression slopes check for the ANCOVA of post-intervention systolic blood pressure (n = 66).</caption>
+<colgroup>
+<col style="width: 48%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Source</strong></th>
+<th><strong>df</strong></th>
+<th><strong>F-statistic</strong></th>
+<th><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Syst (Covariate)</td>
+<td>1</td>
+<td>76.12</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>Cond (Condition)</td>
+<td>1</td>
+<td>1.06</td>
+<td>0.307</td>
+</tr>
+<tr class="odd">
+<td>Syst * Cond (Assumption Check)</td>
+<td>1</td>
+<td>1.70</td>
+<td>0.198</td>
+</tr>
+<tr class="even">
+<td>Residuals (Error)</td>
+<td>62</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>To check this assumption, we are strictly focusing on the interaction row (<code>Syst * Cond</code>) to see if the covariate behaves differently across our two conditions. The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.198\)</span>.</p>
+<p>Because <span class="math inline">\(0.198\)</span> is well above our <span class="math inline">\(\alpha = 0.05\)</span> threshold, we do not have evidence of a significant interaction. The relationship between baseline and final blood pressure is effectively parallel across both the informed and control groups.</p>
+<p>That means we have successfully passed the homogeneity of regression slopes assumption, and we are now mathematically cleared to run the actual ANCOVA model and interpret our final results.</p>
+</section>
+<section id="ancova-output-interpretation-and-adjusted-means" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="ancova-output-interpretation-and-adjusted-means"><span class="header-section-number">7.8</span> ANCOVA: Output Interpretation and Adjusted Means</h2>
+<p>Now that we have verified our covariate behaves fairly across both groups, we can confidently move on to the final ANCOVA results.</p>
+<p>Statistical software will generate a standard Analysis of Variance table, but it will look slightly different than the ones you saw in Chapter 6. Alongside our experimental condition, the table now includes a dedicated row for our continuous covariate.</p>
+<p>Let’s read the ANCOVA output for our hotel maids, predicting their final post-intervention blood pressure (<code>Syst2</code>) while controlling for their exact baseline blood pressure (<code>Syst</code>).</p>
+<table class="caption-top table">
+<caption>Table 7.3: ANCOVA of post-intervention systolic blood pressure controlling for baseline systolic blood pressure (n = 66).</caption>
+<thead>
+<tr class="header">
+<th><strong>Source</strong></th>
+<th><strong>df</strong></th>
+<th><strong>F-statistic</strong></th>
+<th><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Syst (Covariate)</td>
+<td>1</td>
+<td>80.00</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>Cond (Condition)</td>
+<td>1</td>
+<td>2.67</td>
+<td>0.107</td>
+</tr>
+<tr class="odd">
+<td>Residuals (Error)</td>
+<td>63</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>To read this table, we simply take each row one at a time.</p>
+<p><strong>1. Did the covariate help?</strong></p>
+<p>First, we find the row for our baseline covariate (<code>Syst</code>). The <span class="math inline">\(p\)</span>-value is exceptionally small (<span class="math inline">\(p &lt; .001\)</span>). This confirms what we suspected: a maid’s baseline blood pressure is a statistically significant predictor of her final blood pressure. This is a huge win for our experimental design! It means we successfully identified a large source of background noise, scooped it out of the catch-all error bucket, and accounted for it mathematically.</p>
+<p><strong>2. Did the psychological intervention work?</strong></p>
+<p>Next, we move to the row for our primary research interest: the experimental condition (<code>Cond</code>). We want to know if the mindset intervention changed their final blood pressure, <em>after</em> controlling for their baselines.</p>
+<p>The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.107\)</span>. Because this is larger than our standard <span class="math inline">\(\alpha = 0.05\)</span> threshold, we fail to reject the null hypothesis. Even after using advanced mathematics to level the playing field, we do not have enough evidence to prove that simply informing the maids about their exercise levels significantly lowered their systolic blood pressure.</p>
+<section id="what-did-the-ancova-do-adjusted-means" class="level3" data-number="7.8.1">
+<h3 data-number="7.8.1" class="anchored" data-anchor-id="what-did-the-ancova-do-adjusted-means"><span class="header-section-number">7.8.1</span> What did the ANCOVA do? Adjusted Means</h3>
+<p>You might be wondering: if the result was not significant, what exactly did the ANCOVA mathematics do behind the scenes?</p>
+<p>An ANCOVA also recalculates the averages for your groups. We call these new averages <a href="appendix-glossary.html#glossary-term-adjusted-means" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Group averages recalculated by an ANCOVA as if every participant had started at the same covariate value; also called estimated marginal means." data-term="adjusted means">adjusted means</a> (many software programs refer to them as “Estimated Marginal Means”).</p>
+<p>Remember, the goal of an ANCOVA is to simulate what would have happened if every single participant had started at the same baseline. The software calculates the overall average baseline blood pressure for the 66 maids with both a baseline and a final reading. Then, it mathematically adjusts every maid’s final blood pressure score based on how far away they were from that starting average.</p>
+<p>Here are the adjusted means for our two groups:</p>
+<ul>
+<li><strong>Control Group Adjusted Mean:</strong> 125 mmHg</li>
+<li><strong>Informed Group Adjusted Mean:</strong> 120 mmHg</li>
+</ul>
+<p>If every maid had started the month with the same baseline blood pressure, the model estimates that the informed group would finish the month 5 points lower than the control group.</p>
+<p>A 5-point drop in blood pressure sounds great in a doctor’s office! So why did our ANCOVA give us a non-significant <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.107\)</span>?</p>
+<p>This brings us all the way back to Chapter 3: the difference between a sample and a population. While our specific <em>sample</em> of informed maids saw a 5-point adjusted drop, our sample size is relatively small, and there is still a lot of biological noise left in the “Residuals” bucket that we haven’t controlled for. The <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.107\)</span> is the math warning us: <em>Do not trust this 5-point gap.</em> There is roughly an <span class="math inline">\(11\%\)</span> chance we would see a gap this large entirely due to random human variation.</p>
+<p>To prove our intervention works, we need to reduce that random human variation even further. In the next section, we will cover the ultimate design for eliminating individual biological noise: the Repeated Measures ANOVA.</p>
+</section>
+</section>
+<section id="repeated-measures-anova-the-within-subjects-design" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="repeated-measures-anova-the-within-subjects-design"><span class="header-section-number">7.9</span> Repeated Measures ANOVA: The Within-Subjects Design</h2>
+<p>Before we introduce our final model, we need to address a shift in our data. So far, we have looked exclusively at the maids’ systolic blood pressure. For this next analysis, we are going to evaluate a different health metric: Body Mass Index, tracking the change from their baseline (<code>BMI</code>) to their post-intervention score (<code>BMI2</code>).</p>
+<p>Seeing this shift, a skeptical researcher might pause and ask an important question: <em>If our first test on blood pressure failed to show a significant result, are we just allowed to keep running tests on the dataset until we find a result we like?</em></p>
+<p>The short answer is absolutely not. If a researcher runs test after test on the same variables, desperately swapping out different statistical tools just hoping to stumble across a <span class="math inline">\(p\)</span>-value under 0.05, they are artificially inflating their risk of a Type I error (a false positive). This dangerous practice is called <a href="appendix-glossary.html#glossary-term-p-hacking" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Running many tests or model variations on the same data until a p-value below .05 appears, which inflates the Type I error rate and is an ethical violation." data-term="p-hacking"><span class="math inline">\(p\)</span>-hacking</a>, and it is a major ethical violation in modern research. We will explore the mechanics and consequences of <span class="math inline">\(p\)</span>-hacking extensively in Chapter 13.</p>
+<p>So, why is it acceptable for us to shift to BMI here? Because we are not re-testing the same blood pressure data with a new tool just to fish for a better <span class="math inline">\(p\)</span>-value. Instead, we are examining a different, unanalyzed biological variable to build a broader understanding of the maids’ overall health. Analyzing a new metric to answer a valid research question is an ethical, standard scientific practice.</p>
+<section id="the-independence-violation" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="the-independence-violation"><span class="header-section-number">7.9.1</span> The Independence Violation</h3>
+<p>Now, let’s see how BMI changed over the four weeks of the study. If we want to compare baseline <code>BMI</code> to final <code>BMI2</code>, our first instinct might be to toss both columns into a standard ANOVA.</p>
+<p>However, think back to the core assumptions of a standard ANOVA from Chapter 6. The very first requirement is <a href="appendix-glossary.html#glossary-term-independence" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="In study design, the assumption that observations do not influence one another; in categorical data, the property that knowing one variable’s category gives no information about another (the opposite of association)." data-term="independence">independence</a>. The score of one participant cannot be mathematically connected to the score of another participant.</p>
+<p>If we measure the same hotel maid twice (once at baseline and once four weeks later), those two data points are intrinsically linked. They share the same genetics, the same resting metabolic rate, and the same lifestyle habits. If we put both of her scores into a standard ANOVA, we violently break the independence assumption.</p>
+</section>
+<section id="the-fix-the-within-subjects-design" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="the-fix-the-within-subjects-design"><span class="header-section-number">7.9.2</span> The Fix: The Within-Subjects Design</h3>
+<p>To solve this, researchers use a <a href="appendix-glossary.html#glossary-term-repeated-measures-anova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An ANOVA for a within-subjects design in which the same participants are measured at multiple time points or conditions, so each person serves as their own baseline." data-term="repeated measures ANOVA">Repeated Measures ANOVA</a>.</p>
+<p>Everything we have done in this textbook so far has relied on <a href="appendix-glossary.html#glossary-term-between-subjects-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A design in which different participants are assigned to different groups, so comparisons are made between separate people." data-term="between-subjects design">between-subjects designs</a>. In a between-subjects design, we compare different people to each other (e.g., comparing the informed group against the control group).</p>
+<p>A Repeated Measures ANOVA uses a <a href="appendix-glossary.html#glossary-term-within-subjects-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A design in which the same participants are measured under multiple conditions or time points, so comparisons are made within each person." data-term="within-subjects design">within-subjects design</a>. Instead of comparing different people, it measures the same person across multiple time points or conditions.</p>
+<p>Think about why this is so powerful. When we compare different people, we have to deal with substantial biological noise. One maid might naturally have a much higher BMI than another due to genetics. But in a within-subjects design, a participant acts as her own baseline control. The math tracks the <em>change</em> inside each specific person, filtering out the background noise of their baseline genetics.</p>
+<p>Because a Repeated Measures ANOVA filters out so much individual biological noise, it is efficient. It allows researchers to achieve a considerable amount of statistical power with much smaller sample sizes. This is a meaningful ethical advantage. Recruiting human subjects for an experiment is expensive, time-consuming, and asks people to assume personal risk. If a researcher can show strong evidence that their psychological intervention works using 73 people with complete before-and-after data, rather than needing 300 different people measured once, it is their ethical obligation to use the Repeated Measures design.</p>
+</section>
+<section id="a-note-on-longitudinal-studies" class="level3" data-number="7.9.3">
+<h3 data-number="7.9.3" class="anchored" data-anchor-id="a-note-on-longitudinal-studies"><span class="header-section-number">7.9.3</span> A Note on Longitudinal Studies</h3>
+<p>Our hotel maid study is relatively simple because it only measures the participants twice: once at the beginning and once at the end. This before-and-after setup is the most basic form of a Repeated Measures ANOVA. But what if the researchers wanted to track the maids’ health over a longer period, measuring their BMI at baseline, week 4, and week 8? When a study tracks the same participants across three or more time points, we are dealing with <a href="appendix-glossary.html#glossary-term-longitudinal-data" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Data collected from the same participants at multiple time points; the repeated observations are dependent, so a standard one-way ANOVA does not apply." data-term="longitudinal data">longitudinal data</a>.</p>
+<p>Analyzing longitudinal data introduces new statistical complexities because the model now has to balance the physiological changes across multiple different time gaps (such as the jump from baseline to week 4 versus the jump from week 4 to week 8). While the core concept of using participants as their own baseline remains exactly the same, there will be quite a bit more mathematical heavy lifting behind the scenes to ensure the comparisons remain fair across the entire timeline.</p>
+</section>
+</section>
+<section id="repeated-measures-anova-output-interpretation" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="repeated-measures-anova-output-interpretation"><span class="header-section-number">7.10</span> Repeated Measures ANOVA: Output Interpretation</h2>
+<p>Now that we understand how a within-subjects design uses participants as their own baseline, let’s turn to the final results for our hotel maids. We want to know if the mindset intervention (<code>Cond</code>) caused a change in Body Mass Index over the four-week period (<code>Time</code>).</p>
+<p>When you run a Repeated Measures ANOVA, the statistical software will generate a table that looks quite similar to a Two-Way ANOVA. It will include a row for the between-subjects grouping variable (<code>Cond</code>), a row for the within-subjects passing of time (<code>Time</code>), and most importantly, a row for the interaction between the two (<code>Cond * Time</code>).</p>
+<p>Here is the simplified output for our analysis:</p>
+<table class="caption-top table">
+<caption>Table 7.4: Repeated measures ANOVA of BMI by condition and time (n = 73).</caption>
+<thead>
+<tr class="header">
+<th><strong>Source</strong></th>
+<th><strong>df</strong></th>
+<th><strong>F-statistic</strong></th>
+<th><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cond (Condition)</td>
+<td>1</td>
+<td>1.00</td>
+<td>0.321</td>
+</tr>
+<tr class="even">
+<td>Time (Baseline vs.&nbsp;Week 4)</td>
+<td>1</td>
+<td>14.15</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td>Cond * Time (Interaction)</td>
+<td>1</td>
+<td>9.66</td>
+<td>0.003</td>
+</tr>
+<tr class="even">
+<td>Residuals (Error)</td>
+<td>71</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>To interpret this table, we follow the same rule you learned in Section 7.5: <strong>always check the interaction first</strong>.</p>
+<section id="the-interaction-effect-cond-time" class="level3" data-number="7.10.1">
+<h3 data-number="7.10.1" class="anchored" data-anchor-id="the-interaction-effect-cond-time"><span class="header-section-number">7.10.1</span> The Interaction Effect (<code>Cond * Time</code>)</h3>
+<p>Look at the interaction row. The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.003\)</span>. Because this is well below our <span class="math inline">\(\alpha = 0.05\)</span> standard of evidence, we have a statistically significant interaction!</p>
+<p>In a Repeated Measures design, a significant interaction between time and condition is the ultimate prize. It means that the <em>change over time</em> was fundamentally different depending on which group the participant was in. The informed maids’ BMI did not follow the same timeline trajectory as the control maids’ BMI. This interaction provides the mathematical proof that our psychological intervention did something.</p>
+</section>
+<section id="the-main-effect-of-time-time" class="level3" data-number="7.10.2">
+<h3 data-number="7.10.2" class="anchored" data-anchor-id="the-main-effect-of-time-time"><span class="header-section-number">7.10.2</span> The Main Effect of Time (<code>Time</code>)</h3>
+<p>Because we have a strong interaction, we already know that the effect of time depends on the experimental condition. However, we can still glance at the main effect of time to understand the overall dataset. The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(&lt; 0.001\)</span>. This tells us that, if we ignored the intervention and lumped all 73 maids with both BMI readings together, their average BMI changed significantly over the four weeks. But thanks to our interaction term, we know that this change was heavily driven by the informed group.</p>
+</section>
+<section id="the-main-effect-of-condition-cond" class="level3" data-number="7.10.3">
+<h3 data-number="7.10.3" class="anchored" data-anchor-id="the-main-effect-of-condition-cond"><span class="header-section-number">7.10.3</span> The Main Effect of Condition (<code>Cond</code>)</h3>
+<p>Finally, look at the main effect for the experimental condition. The <span class="math inline">\(p\)</span>-value is <span class="math inline">\(0.321\)</span>. This tells us that, if we ignored the four-week timeline and just averaged everyone’s baseline and final scores together, the informed group and the control group did not have significantly different BMIs overall.</p>
+<p>This non-significant <span class="math inline">\(p\)</span>-value is actually a good thing! It confirms that our two groups started the experiment on relatively equal footing. If the control group was fundamentally much heavier than the informed group overall, we might worry that our initial randomization failed.</p>
+</section>
+<section id="the-final-conclusion" class="level3" data-number="7.10.4">
+<h3 data-number="7.10.4" class="anchored" data-anchor-id="the-final-conclusion"><span class="header-section-number">7.10.4</span> The Final Conclusion</h3>
+<p>By using a Repeated Measures design, we successfully filtered out the strong biological noise of human genetics by treating every maid as her own baseline. Once that noise was removed, the signal of the intervention was easy to see.</p>
+<p>We can formally conclude that simply informing hotel maids that their daily labor constitutes rigorous exercise resulted in a statistically significant decrease in Body Mass Index over a four-week period. Changing their mindset literally changed their bodies.</p>
+</section>
+</section>
+<section id="putting-it-all-together-summary-and-apa-reporting" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="putting-it-all-together-summary-and-apa-reporting"><span class="header-section-number">7.11</span> Putting It All Together: Summary and APA Reporting</h2>
+<p>We just worked through the hotel maid study using three different advanced statistical designs. Before we wrap up the chapter, let’s summarize exactly what we found, how the models performed, and how a researcher would formally report these findings in a published paper.</p>
+<section id="the-story-of-the-data" class="level3" data-number="7.11.1">
+<h3 data-number="7.11.1" class="anchored" data-anchor-id="the-story-of-the-data"><span class="header-section-number">7.11.1</span> The Story of the Data</h3>
+<p>Our core research question was simple: Can changing a person’s mindset about their daily labor physically alter their health? To answer this, we had to fight through the background noise of human biology.</p>
+<ol type="1">
+<li><p><strong>The Two-Way ANOVA:</strong> We first tried to control for age by blocking the maids into two groups (“Under 40” and “40+”) to see if age and experimental condition interacted to affect baseline systolic blood pressure. We found a significant main effect for age, but no significant interaction. <strong>However</strong>, our diagnostic checks revealed that the residuals for the older maids were severely skewed. The data failed the normality assumption. While we still report these results for scientific transparency, we cannot confidently trust them.</p></li>
+<li><p><strong>The ANCOVA:</strong> Next, we upgraded our tool. Instead of chopping age into blocks, we used exact baseline systolic blood pressure as a continuous covariate to predict post-intervention blood pressure. The ANCOVA successfully leveled the playing field, proving that baseline blood pressure is a strong predictor of final blood pressure. However, even after filtering out that noise, the 5-point adjusted drop for the informed group was not statistically significant (<span class="math inline">\(p = 0.107\)</span>). We could not confidently prove the intervention changed blood pressure.</p></li>
+<li><p><strong>The Repeated Measures ANOVA:</strong> Finally, we shifted our focus to Body Mass Index and used the ultimate noise-reduction tool: the within-subjects design. By measuring the same maids twice, we filtered out their baseline genetics. Here, we found our prize: a statistically significant interaction between time and the experimental condition (<span class="math inline">\(p = 0.003\)</span>). The informed maids’ BMI dropped significantly over the four weeks, while the control group’s BMI remained relatively static.</p></li>
+</ol>
+<p>The Harvard researchers ultimately proved their hypothesis: changing your mindset can literally change your body.</p>
+</section>
+<section id="writing-the-results-in-apa-format" class="level3" data-number="7.11.2">
+<h3 data-number="7.11.2" class="anchored" data-anchor-id="writing-the-results-in-apa-format"><span class="header-section-number">7.11.2</span> Writing the Results in APA Format</h3>
+<p>When you read or write academic journal articles, you will rarely see raw software output tables. Instead, researchers translate those tables into structured, plain-English paragraphs using guidelines from the American Psychological Association (APA).</p>
+<p>Notice how these write-ups always start with a plain-English translation of the finding, followed by the exact statistics (including the <em>F</em>-statistic, its pair of Degrees of Freedom, and the exact <span class="math inline">\(p\)</span>-value).</p>
+<p><strong>Example 1: Reporting a Model with Failed Assumptions (Two-Way ANOVA)</strong></p>
+<p>In scientific research, honesty is paramount. If you run a test and it fails its structural assumptions, you do not hide the test. You report exactly what you found, but you explicitly warn the reader that the results are suspect.</p>
+<blockquote class="blockquote">
+<p>A two-way ANOVA was conducted to evaluate the effects of a mindset intervention and age group on baseline systolic blood pressure. Diagnostic checks revealed that the data violated the assumption of normality. Noting that issue, the analysis indicated no significant interaction between the intervention and age group, <em>F</em>(1, 61) = 0.05, <em>p</em> = .829. There was a significant main effect of age group, <em>F</em>(1, 61) = 6.04, <em>p</em> = .017. Due to the violation of normality, these findings are considered suspect and should be interpreted with extreme caution.</p>
+</blockquote>
+<p><strong>Example 2: Reporting the ANCOVA</strong></p>
+<blockquote class="blockquote">
+<p>A one-way analysis of covariance (ANCOVA) was conducted to determine if a psychological mindset intervention significantly lowered post-intervention systolic blood pressure while controlling for baseline blood pressure. The baseline covariate was significantly related to post-intervention blood pressure, <em>F</em>(1, 63) = 80.00, <em>p</em> &lt; .001. After controlling for baseline levels, there was no statistically significant effect of the mindset intervention on final systolic blood pressure, <em>F</em>(1, 63) = 2.67, <em>p</em> = .107.</p>
+</blockquote>
+<p><strong>Example 3: Reporting the Repeated Measures ANOVA</strong></p>
+<blockquote class="blockquote">
+<p>A repeated measures ANOVA was conducted to evaluate the effect of a psychological mindset intervention on Body Mass Index (BMI) over a four-week period. The results revealed a statistically significant interaction between the passage of time and the experimental condition, <em>F</em>(1, 71) = 9.66, <em>p</em> = .003. While there was no significant main effect of the experimental condition between the groups overall, <em>F</em>(1, 71) = 1.00, <em>p</em> = .321, the informed group experienced a significantly different trajectory in BMI over the four weeks compared to the uninformed control group.</p>
+</blockquote>
+</section>
+</section>
+<section id="common-mistakes-and-misconceptions" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="common-mistakes-and-misconceptions"><span class="header-section-number">7.12</span> Common Mistakes and Misconceptions</h2>
+<p>Advanced experimental designs are powerful tools, but with that power comes a higher risk of user error. When researchers transition from basic tests to complex models, they often fall into a few predictable traps. Here are the most common mistakes to watch out for:</p>
+<p><strong>1. Blowing Past the “Stop Sign” (Ignoring Interactions)</strong></p>
+<p>The single most common error in a Two-Way ANOVA is interpreting the main effects while ignoring a statistically significant interaction. Remember the rule: always check the interaction <span class="math inline">\(p\)</span>-value first. If it is significant, the treatment works <em>differently</em> depending on the subgroup. If you ignore this and broadly claim “the treatment worked overall” based on the main effect, you are reporting a deceptive average and hiding the true pattern in your data.</p>
+<p><strong>2. Forcing Continuous Numbers into Categories (Blocking Errors)</strong></p>
+<p>When researchers realize a background variable is creating noise, their first instinct is often to build blocks for a Two-Way ANOVA. However, if that background variable is a precise, continuous number (like exact age, exact income, or exact baseline blood pressure), chopping it into arbitrary “high” and “low” categories is a mistake. It destroys valuable data and artificially reduces your statistical power. If you have continuous background numbers, use an ANCOVA to treat them as a covariate instead.</p>
+<p><strong>3. Treating “Before and After” Data as Independent Samples</strong></p>
+<p>If you measure a participant’s anxiety on Tuesday and measure that same participant’s anxiety again on Thursday, those are not two independent people. They share the same brain, genetics, and baseline stress levels. Tossing “Pre-Test” and “Post-Test” columns into a standard One-Way ANOVA violently violates the assumption of independence. You must use a Repeated Measures ANOVA to tell the software that the data points are biologically linked.</p>
+<p><strong>4. “Model Shopping” (The Fishing Expedition)</strong></p>
+<p>As we discussed in Section 7.9, having access to advanced tools can tempt researchers to behave unethically. A researcher might run a Two-Way ANOVA on blood pressure, see a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.08\)</span>, and think: <em>“What if I swap this to an ANCOVA? What if I add a different covariate? What if I drop a group?”</em> Running multiple different models on the same response variable just to hunt for a <span class="math inline">\(p\)</span>-value under <span class="math inline">\(0.05\)</span> is a form of <span class="math inline">\(p\)</span>-hacking. Your experimental design should be chosen <em>before</em> you look at the results, not adjusted afterward to manufacture a success.</p>
+<p><strong>5. Assuming “Controlling For” Fixes Bad Data</strong></p>
+<p>An ANCOVA is mathematically brilliant, but it is not magic. Controlling for a baseline covariate mathematically levels the playing field, but it cannot fix a fundamentally broken experiment. If your initial sample was terribly biased, or if your measurement tools were wildly inaccurate (poor validity), an ANCOVA will simply give you a sophisticated, mathematically adjusted wrong answer.</p>
+</section>
+<section id="key-concepts" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">7.13</span> Key Concepts</h2>
+<ol type="1">
+<li><a href="appendix-glossary.html#glossary-term-factorial-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A study design that crosses two or more categorical factors so that every combination of levels is represented, allowing main effects and interactions to be estimated." data-term="factorial design">Factorial Design</a><strong>:</strong> An experimental design that categorizes participants by two or more categorical factors at the same time (e.g., condition and age group).</li>
+<li><a href="appendix-glossary.html#glossary-term-main-effects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The individual predictors that make up an interaction term; when an interaction is included in a model, the main effects must also be included." data-term="main effects">Main Effect</a><strong>:</strong> The independent, isolated impact of just <em>one</em> variable in a factorial design, temporarily pretending the other variable does not exist.</li>
+<li><a href="appendix-glossary.html#glossary-term-interaction-effect" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The result of an interaction: the effect of one factor depends on the level of another, so its size or direction changes across groups." data-term="interaction effect">Interaction Effect</a><strong>:</strong> Occurs when the impact of one variable fundamentally <em>depends</em> on the value of the other variable. If a significant interaction exists, you cannot safely interpret the main effects on their own.</li>
+<li><a href="appendix-glossary.html#glossary-term-interaction-plot" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A graph of group means with one line per level of a second factor; parallel lines suggest no interaction, while converging, diverging, or crossing lines suggest one." data-term="interaction plot">Interaction Plot</a><strong>:</strong> A visual graph used to spot interactions. If the lines are parallel, there is no interaction. If the lines converge, diverge, or cross, an interaction is occurring.</li>
+<li><a href="appendix-glossary.html#glossary-term-blocking" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Converting a known nuisance variable into categorical groups (blocks) so its variation is removed from the error term, improving the comparison." data-term="blocking">Blocking</a><strong>:</strong> The practice of taking a known background nuisance variable and converting it into categorical groups (blocks) to reduce unexplained statistical noise.</li>
+<li><a href="appendix-glossary.html#glossary-term-ancova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Analysis of Covariance: a hybrid of ANOVA and regression that compares group means while adjusting for one or more continuous covariates." data-term="ANCOVA">ANCOVA (Analysis of Covariance)</a><strong>:</strong> A hybrid statistical tool that blends an ANOVA with multiple regression. It allows researchers to control for a continuous nuisance variable (a <a href="appendix-glossary.html#glossary-term-covariate" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A continuous background variable included in a model to adjust for its effect, such as a baseline score." data-term="covariate">covariate</a>) without destroying its precision by chopping it into blocks.</li>
+<li><a href="appendix-glossary.html#glossary-term-adjusted-means" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Group averages recalculated by an ANCOVA as if every participant had started at the same covariate value; also called estimated marginal means." data-term="adjusted means">Adjusted Means</a><strong>:</strong> Also called Estimated Marginal Means. In an ANCOVA, these are the recalculated group averages representing what the outcomes would look like if every single participant had started the study with the same baseline covariate score.</li>
+<li><a href="appendix-glossary.html#glossary-term-homogeneity-of-regression-slopes" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The ANCOVA assumption that the relationship between the covariate and the response is parallel across groups, checked by testing the covariate-by-group interaction." data-term="homogeneity of regression slopes">Homogeneity of Regression Slopes</a><strong>:</strong> A required assumption for an ANCOVA. It requires that the continuous baseline covariate behaves the same way (has parallel slopes) across all of your different experimental groups.</li>
+<li><a href="appendix-glossary.html#glossary-term-between-subjects-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A design in which different participants are assigned to different groups, so comparisons are made between separate people." data-term="between-subjects design">Between-Subjects Design</a><strong>:</strong> An experimental setup where different groups of people are compared against one another (e.g., an informed group versus a control group).</li>
+<li><a href="appendix-glossary.html#glossary-term-within-subjects-design" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A design in which the same participants are measured under multiple conditions or time points, so comparisons are made within each person." data-term="within-subjects design">Within-Subjects Design</a><strong>:</strong> An experimental setup where the same participants are measured across multiple time points or conditions. Because participants act as their own baseline, this design filters out large amounts of biological and genetic noise.</li>
+<li><a href="appendix-glossary.html#glossary-term-repeated-measures-anova" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An ANOVA for a within-subjects design in which the same participants are measured at multiple time points or conditions, so each person serves as their own baseline." data-term="repeated measures ANOVA">Repeated Measures ANOVA</a><strong>:</strong> The statistical test used to analyze a within-subjects design.</li>
+<li><a href="appendix-glossary.html#glossary-term-longitudinal-data" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Data collected from the same participants at multiple time points; the repeated observations are dependent, so a standard one-way ANOVA does not apply." data-term="longitudinal data">Longitudinal Data</a><strong>:</strong> Data collected by tracking the same participants across three or more specific points in time.</li>
+</ol>
+</section>
+<section id="exercises" class="level2" data-number="7.14">
+<h2 data-number="7.14" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.14</span> Exercises</h2>
+<section id="interpretation" class="level3" data-number="7.14.1">
+<h3 data-number="7.14.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">7.14.1</span> Interpretation</h3>
+<ol type="1">
+<li>A psychologist runs a Two-Way ANOVA to evaluate the effects of a new study technique and a student’s grade level (Freshman vs.&nbsp;Senior) on exam scores. The software output shows a statistically significant interaction (<span class="math inline">\(p = .01\)</span>). However, the psychologist ignores the interaction row and publishes a paper claiming, “The study technique significantly improves exam scores for all students” based entirely on the main effect. Explain the mathematical and logical danger of this approach.</li>
+<li>A researcher is preparing to run an ANCOVA to test a new diet’s effect on cholesterol. They plan to use the participants’ exact baseline cholesterol as the continuous covariate. Before running the main model, they check the homogeneity of regression slopes assumption and find a significant interaction between the baseline cholesterol and the diet condition (<span class="math inline">\(p = .02\)</span>). Can the researcher proceed with the standard ANCOVA? Why or why not? Explain what this failed assumption means in plain English.</li>
+<li>A sports physiologist wants to test if a new training program improves marathon times. They measure the 5K running times of 50 athletes at the start of the season, put them all through the training program, and measure their 5K times again at the end of the season. A research assistant suggests putting the “Before” and “After” times into a standard One-Way ANOVA. Explain why this violently violates a core assumption, and state which test must be used instead.</li>
+<li>A sociologist wants to control for annual income while comparing happiness scores across three different cities. Instead of plugging the exact dollar amounts into their model, they divide the participants into three arbitrary blocks: “Low Income,” “Middle Income,” and “High Income,” and run a Two-Way ANOVA. Explain the mathematical flaw in this approach (what are they losing?) and identify the advanced statistical tool that would solve this problem.</li>
+</ol>
+</section>
+<section id="choosing-a-method" class="level3" data-number="7.14.2">
+<h3 data-number="7.14.2" class="anchored" data-anchor-id="choosing-a-method"><span class="header-section-number">7.14.2</span> Choosing a Method</h3>
+<ol start="5" type="1">
+<li>A political scientist is designing a study to see if a voter’s preferred news source (Cable News, Social Media, or Print) and their geographic region (Urban, Suburban, or Rural) impact their score on a political polarization scale. Identify the response variable, the two factors, and determine how many unique “cells” (treatment groups) exist in this factorial design.</li>
+<li>A kinesiologist wants to know if a specific physical therapy routine increases joint mobility. Because human flexibility varies wildly due to genetics, the researcher measures the same 30 patients at baseline, after week 2, after week 4, and after week 6. Should the researcher use a Two-Way ANOVA, an ANCOVA, or a Repeated Measures ANOVA? Justify your choice based on the study design.</li>
+<li>An educational researcher is testing three different tutoring methods (Method A, B, and C) to see which one yields the highest final exam scores. However, they know that a student’s baseline GPA heavily influences their final exam performance. They want to mathematically level the playing field using the exact numerical GPA of every student. Which specific statistical test should the researcher use?</li>
+</ol>
+</section>
+<section id="communicating-results" class="level3" data-number="7.14.3">
+<h3 data-number="7.14.3" class="anchored" data-anchor-id="communicating-results"><span class="header-section-number">7.14.3</span> Communicating Results</h3>
+<ol start="8" type="1">
+<li>A journalist reads a published Two-Way ANOVA study comparing the effects of a new antidepressant across biological sexes. The study found a statistically significant interaction: the drug vastly improved symptoms for men, but severely worsened symptoms for women. Because the positive and negative effects averaged out, the main effect for the drug was not significant (<span class="math inline">\(p = .54\)</span>). The journalist publishes an article with the headline: “New Antidepressant Proven Useless.” Explain the fatal flaw in this communication.</li>
+<li>A fellow student is presenting their research on the effects of a new sleep medication. They ran an ANCOVA, controlling for the participants’ baseline sleep hours. Pointing to the Adjusted Means (Estimated Marginal Means) table on their slide, they state, “As you can see, the actual, raw average sleep time for the medication group was exactly 8.2 hours.” Explain why this interpretation of an Adjusted Mean is incorrect.</li>
+<li>You are reviewing a research paper draft written by a colleague. They ran a Two-Way ANOVA and found a non-significant <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.08\)</span>. Frustrated, they tell you: <em>“I’m just going to delete the age categories, plug exact age back in as a continuous covariate, and run an ANCOVA instead to see if that gets my <span class="math inline">\(p\)</span>-value under <span class="math inline">\(0.05\)</span>.”</em> Explain why this practice is unethical and what this “fishing expedition” behavior is formally called.</li>
+</ol>
+</section>
+<section id="software-application" class="level3" data-number="7.14.4">
+<h3 data-number="7.14.4" class="anchored" data-anchor-id="software-application"><span class="header-section-number">7.14.4</span> Software Application</h3>
+<p>For this section, you will use statistical software to analyze the <code>maid_mindset.csv</code> dataset to practice all three advanced experimental designs covered in this chapter to evaluate the physical effects of the psychological intervention.</p>
+<ol start="11" type="1">
+<li><p><strong>The Two-Way ANOVA: Evaluating Baseline Body Fat</strong>: To ensure the initial randomization was fair, you want to see if baseline body fat (<code>Fat</code>) differed significantly based on the experimental condition (<code>Cond</code>) and the participant’s age block (<code>Age_Group</code>: Under 40 vs.&nbsp;40+).</p>
+<ol type="a">
+<li><p>Create a single probability plot (or Q-Q plot) of the model’s pooled residuals. Do they appear reasonably normal?</p></li>
+<li><p>Generate an interaction plot for this data. Visually, do the lines appear perfectly parallel, or is there some deviation?</p></li>
+<li><p>Run the Two-Way ANOVA. What is the exact <span class="math inline">\(p\)</span>-value for the interaction term and its interpretation?</p></li>
+<li><p>Following the “Stop Sign” rule, are you mathematically permitted to interpret the main effects? If so, report the <span class="math inline">\(p\)</span>-values for the main effect of <code>Cond</code> and the main effect of <code>Age_Group</code> and interpret those results.</p></li>
+<li><p>Write a brief, formal APA-formatted conclusion for this analysis. Be sure to include a plain-English claim followed by the exact statistics for the interaction term.</p></li>
+</ol></li>
+<li><p><strong>The ANCOVA: Evaluating Post-Intervention Weight</strong>: You want to determine if the intervention (<code>Cond</code>) significantly impacted the maids’ final weight (<code>Wt2</code>), while mathematically leveling the playing field using their precise baseline weight (<code>Wt</code>) as a continuous covariate.</p>
+<ol type="a">
+<li><p><em>Assumption Check:</em> Run a preliminary model testing the interaction between the covariate and the condition (<code>Wt * Cond</code>). Locate the <span class="math inline">\(p\)</span>-value for this interaction. Does the covariate baseline weight behave differently across the control and intervention groups?</p></li>
+<li><p><em>The Main Model:</em> Run the standard ANCOVA (predicting <code>Wt2</code> using <code>Wt</code> and <code>Cond</code>). Look at the row for your covariate (<code>Wt</code>). Did baseline weight significantly predict final weight?</p></li>
+<li><p>Find the row for your experimental condition (<code>Cond</code>). Report its <span class="math inline">\(F\)</span>-statistic and <span class="math inline">\(p\)</span>-value. Did the mindset intervention significantly change physical weight?</p></li>
+<li><p>Generate the Estimated Marginal Means (Adjusted Means). Report the adjusted means for both groups, and explain in plain English what these specific numbers represent.</p></li>
+<li><p>Write a brief, formal APA-formatted conclusion for this analysis. Be sure to include a plain-English claim followed by the exact statistics for the interaction term.</p></li>
+</ol></li>
+<li><p><strong>Repeated Measures ANOVA: Evaluating Change in BMI</strong>: You want to know if the intervention (<code>Cond</code>) changed Body Mass Index over the 4-week study, tracking the participants from baseline (<code>BMI</code>) to post-intervention (<code>BMI2</code>).</p>
+<ol type="a">
+<li><p>In your own words, explain why you must use a Repeated Measures ANOVA instead of a standard One-Way ANOVA for this specific question.</p></li>
+<li><p>Run the Repeated Measures model. Check the interaction row between Time and Condition (<code>Time * Cond</code>). Is it statistically significant?</p></li>
+<li><p>What does a significant interaction mean in the context of this specific within-subjects design?</p></li>
+<li><p>Write a brief, formal APA-formatted conclusion for this analysis. Be sure to include a plain-English claim followed by the exact statistics for the interaction term.</p></li>
+</ol></li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-06.html" class="pagination-link" aria-label="The One-Way ANOVA">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/chapter-08.html" class="pagination-link" aria-label="Categorical Data Analysis">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

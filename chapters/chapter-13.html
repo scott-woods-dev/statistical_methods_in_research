@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Ethics in Statistics and Data Integrity – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/appendix-glossary.html" rel="next">
+<link href="../chapters/chapter-12.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-10.html">Unit V: Advanced Tools and Ethical Considerations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">13.1</span> Introduction</a></li>
+  <li><a href="#the-infrastructure-of-ethics" id="toc-the-infrastructure-of-ethics" class="nav-link" data-scroll-target="#the-infrastructure-of-ethics"><span class="header-section-number">13.2</span> The Infrastructure of Ethics</a></li>
+  <li><a href="#the-institutional-review-board" id="toc-the-institutional-review-board" class="nav-link" data-scroll-target="#the-institutional-review-board"><span class="header-section-number">13.3</span> The Institutional Review Board</a></li>
+  <li><a href="#data-security-and-privacy" id="toc-data-security-and-privacy" class="nav-link" data-scroll-target="#data-security-and-privacy"><span class="header-section-number">13.4</span> Data Security and Privacy</a></li>
+  <li><a href="#algorithmic-accountability" id="toc-algorithmic-accountability" class="nav-link" data-scroll-target="#algorithmic-accountability"><span class="header-section-number">13.5</span> Algorithmic Accountability</a></li>
+  <li><a href="#the-ethics-of-omission" id="toc-the-ethics-of-omission" class="nav-link" data-scroll-target="#the-ethics-of-omission"><span class="header-section-number">13.6</span> The Ethics of Omission</a></li>
+  <li><a href="#analytic-integrity-and-p-hacking" id="toc-analytic-integrity-and-p-hacking" class="nav-link" data-scroll-target="#analytic-integrity-and-p-hacking"><span class="header-section-number">13.7</span> Analytic Integrity and p-Hacking</a></li>
+  <li><a href="#common-mistakes-misconceptions" id="toc-common-mistakes-misconceptions" class="nav-link" data-scroll-target="#common-mistakes-misconceptions"><span class="header-section-number">13.8</span> Common Mistakes / Misconceptions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">13.9</span> Key Concepts</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13.10</span> References</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.11</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#section-a-vocabulary-and-concept-application" id="toc-section-a-vocabulary-and-concept-application" class="nav-link" data-scroll-target="#section-a-vocabulary-and-concept-application"><span class="header-section-number">13.11.1</span> Section A: Vocabulary and Concept Application</a></li>
+  <li><a href="#section-b-spot-the-violation" id="toc-section-b-spot-the-violation" class="nav-link" data-scroll-target="#section-b-spot-the-violation"><span class="header-section-number">13.11.2</span> Section B: Spot the Violation</a></li>
+  <li><a href="#section-c-irb-protocol-review" id="toc-section-c-irb-protocol-review" class="nav-link" data-scroll-target="#section-c-irb-protocol-review"><span class="header-section-number">13.11.3</span> Section C: IRB Protocol Review</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter-10.html">Unit V: Advanced Tools and Ethical Considerations</a></li><li class="breadcrumb-item"><a href="../chapters/chapter-13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">13.1</span> Introduction</h2>
+<p>In 2014, Amazon built an experimental artificial intelligence system to review job applicant resumes (Dastin, 2018). The goal was to automate the hiring pipeline to quickly find the absolute best talent. They fed the algorithm ten years of resumes submitted to the company so the model could learn what a “successful” candidate looked like. However, the company soon realized they had a serious problem. Because the tech industry has historically been male-dominated, the algorithm “learned” that male candidates were mathematically preferable. It actively penalized resumes that included the word “women’s” (such as a “women’s chess club” or “women’s track team”) and systematically downgraded graduates of two all-women’s colleges.</p>
+<p>The algorithm was operating exactly as it was mathematically designed to, but it was ethically broken. Amazon ultimately scrapped the project when they realized the bias could not be entirely programmed out of the system. The fallout from this case highlighted a terrifying reality: algorithms inherit the historical biases of the humans who build them.</p>
+<p>Up to this point in our textbook, we have focused entirely on the mechanics of finding answers. You have learned how to structure research, visualize relationships, and run complex tests to measure statistical significance. We have often treated data as an abstract tool to solve puzzles. But in practice, data represents real people and can have a profound impact on their lives.</p>
+<p>When a statistical model decides who gets a job interview, who is approved for a mortgage, or how a clinical depression protocol is managed, the math ceases to be an academic exercise. It becomes a mechanism of power. Every time you gather information, build a regression model, or test a hypothesis, you are making decisions about how to represent someone’s reality. If you choose to ignore missing survey responses, are you silencing a vulnerable demographic? If you run an analysis a dozen different ways just to find a statistically significant <span class="math inline">\(p\)</span>-value, are you pushing a false narrative into the scientific record? A calculated test statistic means absolutely nothing if the data was gathered without consent, stored without privacy, or analyzed with an algorithm that amplifies human bias.</p>
+<p>This is why statistical analysis requires a strict ethical infrastructure. Before a single survey is distributed or a measurement taken, there must be a mechanism to protect the human beings who provide the data. Once the data is collected, the analyst must be held accountable for how they handle the truth.</p>
+<p>By the end of this chapter, you will understand the critical role of an <a href="appendix-glossary.html#glossary-term-institutional-review-board-irb" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An independent committee that evaluates research protocols before a study begins to protect human subjects, keep risk minimal, and safeguard vulnerable populations." data-term="institutional review board (IRB)">Institutional Review Board</a> (IRB) in safeguarding human subjects. We will take a behind-the-curtain look at how research protocols are evaluated for risk, equity, and compliance before a study ever begins. You will learn the strict difference between anonymity and confidentiality in data security. Finally, we will examine algorithmic accountability and the ethical dangers of analytical manipulation, exploring how practices like p-hacking, selective reporting, and unjustified one-sided tests betray the integrity of the scientific process.</p>
+</section>
+<section id="the-infrastructure-of-ethics" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="the-infrastructure-of-ethics"><span class="header-section-number">13.2</span> The Infrastructure of Ethics</h2>
+<p>In 2016, a team of researchers scraped the personal profiles of 70,000 users on the dating website OkCupid. They collected usernames, ages, genders, sexual orientations, political beliefs, and intimate answers to thousands of personal survey questions. The researchers then uploaded the entire dataset to an open, public repository for anyone to download and analyze. When confronted by outraged users and ethicists, the lead researcher defended the decision by arguing that the information was already accessible on the internet, so it was fair game for statistical analysis (Resnick, 2016).</p>
+<p>This case highlights a catastrophic failure in the ethical handling of information. The researchers confused <em>accessible</em> data with <em>ethical</em> data. They treated personal human experiences as free raw materials to be mined, ignoring the basic responsibilities researchers owe to the people they study. This brings us to the two pillars of responsible research: data governance and data stewardship.</p>
+<p><a href="appendix-glossary.html#glossary-term-data-governance" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The overarching rules, policies, and standards that determine how data are collected, stored, and used." data-term="data governance">Data governance</a> is the overarching framework of rules, policies, and standards that dictate how data should be collected, stored, and used. You can think of governance as the “law of the land.” In an academic or corporate setting, these rules are established by federal regulations, institutional policies, and legal frameworks that dictate who is allowed to access certain types of information. Governance determines exactly what is permitted and what is forbidden.</p>
+<p>Good data governance looks like a clear, institutional blueprint. It means a college or research facility has transparent rules stating exactly who owns the gathered information, how long it must be retained, and what technical security measures (like encrypted servers or restricted network access) are strictly required. It ensures that everyone in the organization understands the legal boundaries of data collection and that a formal response protocol exists to protect subjects if a data breach ever occurs.</p>
+<p><a href="appendix-glossary.html#glossary-term-data-stewardship" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The day-to-day ethical responsibility of the individual researcher to protect and handle data properly." data-term="data stewardship">Data stewardship</a>, on the other hand, is the active, day-to-day enforcement of those rules. If governance is the law, stewardship is the ethical responsibility of the individual researcher holding the data. A data steward is essentially a caretaker. When participants trust you with their information (especially sensitive details like their academic records, dietary habits, or mental health status), you assume a moral and professional obligation to protect them from harm.</p>
+<p>Good data stewardship looks like the everyday, deliberate actions of a responsible researcher. It is the act of meticulously stripping names, birthdates, and identifying details from a spreadsheet before sharing it with a colleague. It is the decision to store sensitive survey responses on a secure, approved network drive rather than downloading them to a personal laptop that could be lost or stolen. Ultimately, a good data steward treats the data with the same respect and care they would offer the human beings it represents.</p>
+<p>The OkCupid researchers operated outside of strict data governance, and they failed in their duty of data stewardship. They broke the trust of the individuals who generated the data, causing permanent reputational damage to their field and proving that technical skill does not equal ethical competence.</p>
+<table class="caption-top table">
+<caption>Table 13.1: Data governance and data stewardship compared.</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Dimension</strong></th>
+<th style="text-align: left;"><strong>Data governance</strong></th>
+<th style="text-align: left;"><strong>Data stewardship</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">What it is</td>
+<td style="text-align: left;">The institutional framework of rules, policies, and standards for collecting, storing, and using data</td>
+<td style="text-align: left;">The researcher’s active, day-to-day enforcement of those rules</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Who is responsible</td>
+<td style="text-align: left;">Institutions, regulators, and legal frameworks</td>
+<td style="text-align: left;">The individual researcher or data steward who holds the data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">What it covers</td>
+<td style="text-align: left;">Ownership, access, retention, required security, and breach response</td>
+<td style="text-align: left;">De-identification, secure storage, careful sharing, and breach prevention</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Example</td>
+<td style="text-align: left;">A university requires encrypted servers and restricted network access</td>
+<td style="text-align: left;">A researcher strips names before sharing a file and stores responses on an approved drive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">In the OkCupid case</td>
+<td style="text-align: left;">The researchers operated outside institutional rules</td>
+<td style="text-align: left;">They failed to protect the people behind the profiles</td>
+</tr>
+</tbody>
+</table>
+<p>Before we can calculate a single mean or build a regression model, we must establish a strong foundation of governance and stewardship. In the academic and medical communities, the primary mechanism for enforcing this infrastructure is a specialized committee designed specifically to evaluate research risk and protect human subjects.</p>
+</section>
+<section id="the-institutional-review-board" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="the-institutional-review-board"><span class="header-section-number">13.3</span> The Institutional Review Board</h2>
+<p>In 2014, researchers published the results of a large experiment conducted on nearly 700,000 Facebook users. Without asking for permission or informing anyone they were part of a study, the company intentionally manipulated users’ news feeds. Some users were shown mostly positive posts, while others were flooded with negative and sad content. The goal was to see if emotions were contagious online. When the paper was published, the academic community and the public were horrified (Meyer, 2014). Because Facebook was operating as a private tech company rather than an academic institution, they had bypassed the strict ethical review processes that universities rely on to protect people.</p>
+<p>To prevent these kinds of ethical bypasses, universities, hospitals, and research institutions rely on an <a href="appendix-glossary.html#glossary-term-institutional-review-board-irb" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="An independent committee that evaluates research protocols before a study begins to protect human subjects, keep risk minimal, and safeguard vulnerable populations." data-term="institutional review board (IRB)">Institutional Review Board</a> (IRB). An IRB is a formal, independent committee composed of scientists, non-scientists, and community members. Their primary job is to review, approve, and monitor research plans before a single piece of data is ever collected.</p>
+<p>Many student researchers assume the IRB is just a bureaucratic hurdle designed to slow down their timeline. In reality, the board acts as an ethical safety net. When you want to conduct research, you cannot just start handing out surveys. You must first submit a <a href="appendix-glossary.html#glossary-term-protocol" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A detailed plan submitted to an Institutional Review Board that describes the research question, participants, consent process, and data protection; approval is required before data collection begins." data-term="protocol">protocol</a>, a comprehensive document detailing exactly what your research question is, who you will recruit, how you will secure their consent, and how you will protect their data. The board evaluates this protocol to ensure the potential benefits of the study justify the methods being used.</p>
+<p>When an IRB evaluates a protocol, they are specifically weighing three major concepts:</p>
+<ul>
+<li><a href="appendix-glossary.html#glossary-term-human-subjects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="People who participate in research and whose data or biological material are collected and analyzed." data-term="human subjects">Human Subjects</a><strong>:</strong> The IRB is only concerned with research involving <a href="appendix-glossary.html#glossary-term-human-subjects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="People who participate in research and whose data or biological material are collected and analyzed." data-term="human subjects">human subjects</a>. This means the researcher is either interacting directly with living individuals (like conducting an interview or a diet intervention) or analyzing identifiable private information (like reviewing identifiable student academic records). If you are analyzing a public dataset where all identities have been stripped away, like the global economic data from Chapter 4, the IRB generally does not need to intervene.</li>
+<li><a href="appendix-glossary.html#glossary-term-minimal-risk" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The standard that the probability and magnitude of harm in a study are no greater than those encountered in ordinary daily life or routine tests." data-term="minimal risk">Minimal Risk</a><strong>:</strong> The board’s job is to protect participants from harm. The baseline they use is called <a href="appendix-glossary.html#glossary-term-minimal-risk" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The standard that the probability and magnitude of harm in a study are no greater than those encountered in ordinary daily life or routine tests." data-term="minimal risk">minimal risk</a>, which means the probability and magnitude of harm in the study are no greater than what a person would encounter in their normal, everyday life. An anonymous survey about favorite study habits is minimal risk. A study tracking illegal drug use or a clinical trial for depression medication exceeds minimal risk, requiring the IRB to demand much stricter safety and data stewardship protocols.</li>
+<li><a href="appendix-glossary.html#glossary-term-vulnerable-populations" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Groups whose ability to give free and informed consent may be compromised, such as prisoners, children, or students under institutional pressure." data-term="vulnerable populations">Vulnerable Populations</a><strong>:</strong> The foundation of ethical research is voluntary informed consent. However, some groups have a compromised ability to freely say “no.” The IRB strictly protects <a href="appendix-glossary.html#glossary-term-vulnerable-populations" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Groups whose ability to give free and informed consent may be compromised, such as prisoners, children, or students under institutional pressure." data-term="vulnerable populations">vulnerable populations</a>, which legally include children, prisoners, pregnant women, and individuals with cognitive impairments. In a college setting, even students can be considered vulnerable if they feel pressured to participate in a professor’s study out of fear that refusing might impact their grades.</li>
+</ul>
+<p>A behind-the-curtain look at an IRB reveals that they are not looking to block research; they are looking to calibrate safety. If you submit a protocol for an anonymous, harmless survey, the IRB might quickly issue an “exempt determination,” allowing you to proceed with your work right away. But if your research touches on sensitive topics or vulnerable people, the board will step in to help you redesign your study so that the humans behind the numbers are treated with the respect they deserve.</p>
+</section>
+<section id="data-security-and-privacy" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="data-security-and-privacy"><span class="header-section-number">13.4</span> Data Security and Privacy</h2>
+<p>In 2006, the internet provider AOL released a dataset of 20 million internet search queries from 650,000 users to help academic researchers. To protect users, AOL replaced all usernames with random identification numbers. They assumed the data was completely anonymous. However, journalists quickly noticed that user No.&nbsp;4417749 frequently searched for landscapes in Lilburn, Georgia, along with several people who had the last name Arnold. Within days, they identified the user as a 62-year-old widow and published her identity (Barbaro &amp; Zeller, 2006).</p>
+<p>The AOL incident is a textbook failure in data security. Simply deleting a name column does not guarantee privacy. When researchers collect information from human subjects, they are legally and ethically responsible for protecting that privacy. To do this correctly, we must understand the strict difference between two frequently confused terms: anonymity and confidentiality.</p>
+<p><a href="appendix-glossary.html#glossary-term-anonymity" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A privacy condition in which no one, not even the researcher, can link data back to the individual." data-term="anonymity">Anonymity</a> means that absolutely no one, not even the researcher, can link the data back to the individual who provided it. If a student fills out a paper survey on campus and drops it into a locked box without writing their name, the data is anonymous. If you do not collect names, email addresses, or specific demographic details, there is no way to figure out who provided the answers. Because the data cannot be traced, the risk to the participant is low.</p>
+<p><a href="appendix-glossary.html#glossary-term-confidentiality" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A privacy condition in which the researcher can link data to participants but promises to keep their identities secret." data-term="confidentiality">Confidentiality</a> means the researcher can link the data to the participant. However, the researcher legally and ethically promises to keep that identity a secret from the public. For example, recall the diet and depression study from Chapter 3. We tracked the same students over a period of three weeks. We had to know who they were to match their baseline depression scores to their final scores. This data was not anonymous. Instead, it was kept confidential.</p>
+<table class="caption-top table">
+<caption>Table 13.2: Anonymity and confidentiality compared.</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Question</strong></th>
+<th style="text-align: left;"><strong>Anonymity</strong></th>
+<th style="text-align: left;"><strong>Confidentiality</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Can the researcher link the data to a person?</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Can anyone outside the research team link it?</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No, if the safeguards hold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">What identifying information is collected?</td>
+<td style="text-align: left;">None, including names, emails, and specific demographics</td>
+<td style="text-align: left;">Identifying information is collected but protected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Example</td>
+<td style="text-align: left;">An unsigned paper survey dropped into a locked box</td>
+<td style="text-align: left;">A diet and depression study matched by participant code, with the master key stored separately</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Promise to participants</td>
+<td style="text-align: left;">No one, including the researcher, can identify you</td>
+<td style="text-align: left;">The researcher can identify you but will not disclose your identity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Main risk</td>
+<td style="text-align: left;">Re-identification from combined details</td>
+<td style="text-align: left;">A lost key or a data breach</td>
+</tr>
+</tbody>
+</table>
+<p>To understand what good confidentiality looks like in practice, let’s walk through a common research scenario. Imagine you are conducting in-person interviews to study math anxiety among college freshmen. You sit in a room, have them sign a paper consent form, and record their answers on a digital audio recorder.</p>
+<p>How do you keep this sensitive information safe? In the past, an Institutional Review Board might have required you to lock the paper forms in a heavy filing cabinet and store the audio files on an “air-gapped” USB drive kept in a safe. However, physical drives are easily lost, stolen, or corrupted. Today, review boards generally prefer that you use an institutionally authenticated cloud provider, such as a secure university Google Drive or Dropbox account. These platforms offer enterprise-level encryption, require strict password authentication, and track exactly who logs in to view the files.</p>
+<p>A secure data workflow requires you to actively protect the information at every step:</p>
+<ul>
+<li><strong>Gathering:</strong> You collect the signed paper consent forms and record the audio. At this moment, the data is vulnerable because it exists on physical, easily accessible media.</li>
+<li><strong>Transferring:</strong> As soon as the interview ends, you scan the paper forms and upload the audio files directly to your secure cloud folder. You immediately delete the raw audio from the portable recorder so it cannot be found if you drop the device on your way home.</li>
+<li><a href="appendix-glossary.html#glossary-term-de-identification" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Removing or masking identifying details from a dataset while keeping a separate key that can link records back to individuals; not the same as anonymity." data-term="de-identification">De-identification</a><strong>:</strong> You type out the interview transcripts. Instead of using the student’s name, you <strong>de-identify</strong> the data by assigning them a random code (e.g., “Participant 04”). You create a separate “master key” document that links “Participant 04” to the student’s real name.</li>
+<li><strong>Storage:</strong> You store this master key in a different, restricted cloud folder from the transcripts. Finally, you lock the original paper consent forms in a secure campus office, or securely shred them if your institutional policy allows for digital-only records.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_13/fig_13_01_diagram_secure_data_workflow.png" class="img-fluid figure-img" alt="Flow chart of four steps: gather consent forms and audio, transfer them to a secure cloud folder, de-identify transcripts and create a master key, then store transcripts and forms. A dashed branch shows the master key in a separate restricted folder."></p>
+<figcaption>Figure 13.1: A secure workflow for confidential interview data. Consent forms and audio are gathered, then transferred to an institutional cloud folder. The raw audio is deleted, transcripts are de-identified with a code such as Participant 04, and the master key that links the code to the participant’s name is stored in a separate restricted folder. Paper forms are locked or shredded.</figcaption>
+</figure>
+</div>
+<p>Conflating anonymity and confidentiality is a dangerous ethical mistake. If you promise participants anonymity but collect their email addresses to send a follow-up survey, you have violated their trust. True data security requires knowing exactly what kind of privacy you are promising and building the strict technical walls needed to enforce it.</p>
+</section>
+<section id="algorithmic-accountability" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="algorithmic-accountability"><span class="header-section-number">13.5</span> Algorithmic Accountability</h2>
+<p>In 2016, the investigative journalism organization ProPublica analyzed a widely used risk assessment algorithm called COMPAS. Judges across the United States used this software to predict the likelihood that a criminal defendant would re-offend. The program assigned each defendant a risk score from 1 to 10. ProPublica evaluated the scores of over 10,000 defendants in Florida. They then tracked what actually happened to these individuals over the next two years.</p>
+<p>The journalists discovered a large racial disparity. The algorithm falsely flagged Black defendants as future criminals at almost twice the rate of white defendants. Simultaneously, it frequently mislabeled white defendants as low risk even when they later committed new crimes (Angwin et al., 2016).</p>
+<p>This case is a stark example of a failure in <a href="appendix-glossary.html#glossary-term-algorithmic-accountability" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The obligation to hold algorithms and their creators responsible for the outcomes the algorithms produce, including biased or harmful decisions." data-term="algorithmic accountability">algorithmic accountability</a>. Computer programs frequently make high-stakes decisions. They predict criminal recidivism, score credit applications, and decide who gets a job interview. When they do, we need a mechanism to hold both the algorithm and its creators accountable for the outcomes.</p>
+<p><strong>Bias in Algorithms</strong></p>
+<p>Many people mistakenly believe that because a computer relies on math, its decisions are perfectly objective. However, algorithms do not fall from the sky. They are built by humans and trained on historical data. If that data comes from a system that historically over-policed minority neighborhoods, the algorithm learns that bias. It will mathematically “prove” that minority defendants are a higher risk purely because they historically faced higher arrest rates.</p>
+<p>As a researcher, you cannot hide behind the defense that “the computer did it.” If you build a regression model that inadvertently discriminates against a specific group, the mathematical accuracy of your model is irrelevant. The ethical failure is entirely yours.</p>
+<p><strong>The Promotion of Transparency</strong></p>
+<p>The only way to achieve algorithmic accountability is through absolute transparency. In the case of the COMPAS algorithm, the software was proprietary. The company that built it considered the exact mathematical formulas to be a corporate trade secret. When the software produced biased results, the public and the judges using the scores were not allowed to look under the hood to see how the math worked.</p>
+<p>In modern statistical research, secret algorithms are an ethical red flag. Good researchers promote transparency by openly publishing their methodologies. They share their statistical models and the exact analytical steps they used to reach their conclusions. They invite outside experts to audit their work to check for biases or errors. If you cannot explain exactly how your model reached a conclusion, or if you refuse to let others verify your work, you have broken the fundamental trust required in science.</p>
+</section>
+<section id="the-ethics-of-omission" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="the-ethics-of-omission"><span class="header-section-number">13.6</span> The Ethics of Omission</h2>
+<p>In the early months of the COVID-19 pandemic in 2020, the Centers for Disease Control and Prevention (CDC) published surveillance data to track the spread of the virus. However, public health researchers soon noticed a serious problem: nearly half of the confirmed case reports were missing demographic information about race and ethnicity. Because early analyses simply omitted any patient with incomplete data, the official reports drastically underestimated the severity of the outbreak in Black and Hispanic communities (Labgold et al., 2021). The missing data was not just a clerical error; it actively hid a public health crisis and delayed targeted medical interventions.</p>
+<p>This brings us to the <a href="appendix-glossary.html#glossary-term-ethics-of-omission" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The ethical responsibility attached to decisions about which data to keep, drop, or treat as missing, because those choices determine whose experiences count." data-term="ethics of omission">ethics of omission</a>. When you gather real data, it is rarely perfectly clean. Participants skip survey questions, drop out of studies, or refuse to answer sensitive questions. The process of cleaning up this messy dataset before analysis is called <a href="appendix-glossary.html#glossary-term-data-triage" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The initial pass through a dataset to decide what to keep, drop, or treat as missing before formal analysis." data-term="data triage">data triage</a>. Triage forces you to make decisions about what information to keep and what to throw away. Because you are deciding whose voice gets included and whose gets silenced, those decisions carry profound ethical weight.</p>
+<p>The most common way beginners handle missing responses is through <a href="appendix-glossary.html#glossary-term-listwise-deletion" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Dropping every observation that has a missing value on any variable in the analysis." data-term="listwise deletion">listwise deletion</a>. This means that if a participant leaves even one question blank on a survey, you delete their entire row from your dataset. It feels like a safe, mathematical way to clean your data. However, what if the missing data is not random? What if low-income students are systematically skipping a survey question about their family’s total wealth? If you use listwise deletion, you will inadvertently erase an entire demographic from your study. Your final analysis will look mathematically perfect, but it will be biased because you threw away the very people who needed to be counted.</p>
+<p>Instead of just throwing incomplete records away, ethical researchers explore safer ways to handle missing data. One advanced technique is <a href="appendix-glossary.html#glossary-term-imputation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Replacing a missing value with a statistically estimated value so that the observation can be kept in the analysis." data-term="imputation">imputation</a>. Imputation uses statistical models to estimate what the missing value likely would have been, based on the participant’s answers to other related questions. While we will not calculate imputations in this textbook, you should understand the concept: replacing a missing value with a carefully calculated estimate is often much more ethical than completely deleting a human being’s experience from the scientific record.</p>
+</section>
+<section id="analytic-integrity-and-p-hacking" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="analytic-integrity-and-p-hacking"><span class="header-section-number">13.7</span> Analytic Integrity and p-Hacking</h2>
+<p>In 2018, a prominent food researcher at Cornell University, famous for studies showing how plate size affects appetite, resigned after an investigation into his research practices. Leaked emails revealed that when a study’s initial results failed to show statistical significance, the researcher instructed his lab to “deep dive” into the data. He told them to break the participants into smaller groups (men versus women, lunch versus dinner, or specific age brackets) and run tests until they found a result that was mathematically significant. This practice ultimately led to the retraction of over 50 published scientific papers (Resnick, &amp; Belluz, 2018).</p>
+<p>This is a classic example of a failure in <a href="appendix-glossary.html#glossary-term-analytic-integrity" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The obligation to analyze data honestly, deciding what to test before looking at the data and reporting all results, including null findings." data-term="analytic integrity">analytic integrity</a>. Once your data is collected and safely stored, you must analyze it honestly. Modern statistical software makes it easy to run hundreds of tests in a matter of seconds. When a researcher abuses this power to hunt for a “successful” result, they are engaging in <a href="appendix-glossary.html#glossary-term-p-hacking" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Running many tests or model variations on the same data until a p-value below .05 appears, which inflates the Type I error rate and is an ethical violation." data-term="p-hacking">p-hacking</a>. P-hacking is the unethical practice of manipulating your analysis until you artificially push a <span class="math inline">\(p\)</span>-value below the 0.05 significance level.</p>
+<p>P-hacking rarely involves inventing fake data. Instead, it relies on deceptive analytical mechanics:</p>
+<ul>
+<li><strong>Unjustified One-Sided Tests:</strong> In this textbook, we have established that a rigorous alternative hypothesis (<span class="math inline">\(H_1\)</span>) always uses the does not equal symbol (<span class="math inline">\(\neq\)</span>). This two-sided test is the strict default in ethical research. However, a one-sided test will mathematically cut your <span class="math inline">\(p\)</span>-value in half. If a researcher runs a two-sided test and gets a non-significant <span class="math inline">\(p\)</span>-value of 0.08, they might secretly switch to a one-sided test to drop the <span class="math inline">\(p\)</span>-value to a “significant” 0.04. Unless this was explicitly planned before the study began, this is analytical cheating.<br>
+</li>
+<li><a href="appendix-glossary.html#glossary-term-selective-group-analysis" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Testing many subgroups and reporting only the significant ones, a form of p-hacking that hides the failed tests." data-term="selective group analysis">Selective Group Analysis</a><strong>:</strong> This is exactly what the Cornell lab did. If a diet intervention shows no overall effect, a p-hacker will divide the data into smaller and smaller subgroups. They might test just the men, then just the women, then just women who eat out frequently. Eventually, random noise in the data will produce a statistically significant result. Reporting that isolated finding while hiding all the failed tests creates a false narrative.<br>
+</li>
+<li><strong>Failing to Adjust for Multiple Comparisons:</strong> Our standard significance level (<span class="math inline">\(\alpha\)</span>) is 0.05, meaning we accept a 5% chance of making a Type I error (a false positive). But if you test 20 different relationships in a single dataset, math dictates that at least one test will likely trigger a false positive by pure chance. Ethical researchers use mathematical adjustments to lower their significance level when running multiple tests. P-hackers ignore this rule and publish the random noise as a major discovery.<br>
+</li>
+<li><strong>Equating Sample Size with Practical Effect:</strong> Remember that a <span class="math inline">\(p\)</span>-value only measures the strength of evidence, not the size of the effect. If you have a huge sample size of 500,000 people, even a microscopic difference (like a diet plan that causes someone to lose two ounces over a year) might generate a highly significant <span class="math inline">\(p\)</span>-value of 0.001. A researcher lacking integrity will weaponize that huge sample size to “find” non-existent practical effects, intentionally confusing statistical significance with practical impact.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/chapter_13/fig_13_02_bar_false_positive_probability.png" class="img-fluid figure-img" alt="Bar chart of false-positive probability by number of independent tests. Bars rise from 5% for 1 test to 23% for 5, 40% for 10, 64% for 20, and 92% for 50. The 20-test bar passes the 50% line."></p>
+<figcaption>Figure 13.2: Probability of at least one false positive when testing independent hypotheses with no real effect, at an alpha level of 0.05. The probability rises from 5% with one test to 23% with five, 40% with ten, 64% with twenty, and 92% with fifty. The dashed line marks 50%.</figcaption>
+</figure>
+</div>
+<p>Ultimately, analytic integrity requires discipline. You must decide exactly what you are going to test before you look at the data, and you must honestly report the results you find, even if those results are boring.</p>
+</section>
+<section id="common-mistakes-misconceptions" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="common-mistakes-misconceptions"><span class="header-section-number">13.8</span> Common Mistakes / Misconceptions</h2>
+<p>As you conduct your first real research projects or critically evaluate other researchers’ work, keep these misconceptions in mind:</p>
+<ul>
+<li><strong>“The review board is an adversary trying to block my research.”</strong> New researchers often view the ethics review process as a bureaucratic hurdle or a policing body looking for reasons to reject their work. The reality is that review boards are collaborative. Their goal is to help researchers redesign their methods to ensure human subjects are safe so the study <em>can</em> proceed ethically. The board is there to calibrate safety, often issuing rapid exempt determinations for harmless, anonymous surveys so you can get to work quickly, while reserving strict oversight for protocols that involve vulnerable populations or exceed minimal risk.</li>
+<li><strong>“If I delete the names, the data is completely anonymous.”</strong> Never confuse de-identification with true anonymity. Don’t assume that if you strip names from a dataset but keep email addresses, zip codes, or IP addresses, the subjects are anonymous. In reality, this data is merely <em>confidential</em>. If you or anyone else can theoretically trace the information back to the individual (even if it requires a separate master key), the data is not anonymous, and you must treat it with a much higher level of security.</li>
+<li><strong>“Math is objective, so algorithms cannot be biased.”</strong> Beginners often assume that because computers run on numbers, they are immune to prejudice. It is a common mistake to trust an algorithm implicitly without questioning its training data. An algorithm does not invent its own morality; it will efficiently scale whatever human biases were present in the historical data it was fed. Treating an algorithm’s output as unquestionable truth is an ethical failure.</li>
+<li><strong>“Research ethics only matters if you are completely faking the data.”</strong> When people think of scientific misconduct, they usually imagine researchers fabricating spreadsheets out of thin air. They often do not realize that deceptive analytical mechanics are just as damaging to the scientific record. Quietly dropping “messy” participants from the dataset through listwise deletion, hiding failed tests, or running a dozen analyses until a <span class="math inline">\(p\)</span>-value dips below 0.05 are severe ethical violations. Integrity means reporting the truth of the data, even when the results are boring.</li>
+</ul>
+</section>
+<section id="key-concepts" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">13.9</span> Key Concepts</h2>
+<ol type="1">
+<li><strong>Data Governance and Stewardship:</strong> <a href="appendix-glossary.html#glossary-term-data-governance" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The overarching rules, policies, and standards that determine how data are collected, stored, and used." data-term="data governance">Data governance</a> is the institutional framework of rules dictating how data is collected and stored, while <a href="appendix-glossary.html#glossary-term-data-stewardship" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The day-to-day ethical responsibility of the individual researcher to protect and handle data properly." data-term="data stewardship">data stewardship</a> is the individual researcher’s active, ethical responsibility to protect that data and the people it represents.<br>
+</li>
+<li><strong>The Institutional Review Board (IRB):</strong> An IRB is an independent committee that evaluates research protocols before a study begins. Their primary goal is to protect <a href="appendix-glossary.html#glossary-term-human-subjects" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="People who participate in research and whose data or biological material are collected and analyzed." data-term="human subjects">human subjects</a>, ensure the study does not exceed <a href="appendix-glossary.html#glossary-term-minimal-risk" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The standard that the probability and magnitude of harm in a study are no greater than those encountered in ordinary daily life or routine tests." data-term="minimal risk">minimal risk</a>, and safeguard <a href="appendix-glossary.html#glossary-term-vulnerable-populations" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Groups whose ability to give free and informed consent may be compromised, such as prisoners, children, or students under institutional pressure." data-term="vulnerable populations">vulnerable populations</a> who may not be able to freely give consent.<br>
+</li>
+<li><strong>Anonymity vs.&nbsp;Confidentiality:</strong> <a href="appendix-glossary.html#glossary-term-anonymity" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A privacy condition in which no one, not even the researcher, can link data back to the individual." data-term="anonymity">Anonymity</a> means absolutely no one can link the data back to the participant. <a href="appendix-glossary.html#glossary-term-confidentiality" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="A privacy condition in which the researcher can link data to participants but promises to keep their identities secret." data-term="confidentiality">Confidentiality</a> means the researcher can identify the participant but uses strict security measures to keep that identity a secret from the public.<br>
+</li>
+<li><a href="appendix-glossary.html#glossary-term-algorithmic-accountability" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The obligation to hold algorithms and their creators responsible for the outcomes the algorithms produce, including biased or harmful decisions." data-term="algorithmic accountability">Algorithmic Accountability</a><strong>:</strong> Algorithms are not perfectly objective; they inherit the historical biases present in their training data. Ethical researchers promote transparency so that models can be openly audited for bias.<br>
+</li>
+<li><strong>The Ethics of Omission:</strong> Cleaning a dataset requires careful <a href="appendix-glossary.html#glossary-term-data-triage" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="The initial pass through a dataset to decide what to keep, drop, or treat as missing before formal analysis." data-term="data triage">data triage</a>. Using <a href="appendix-glossary.html#glossary-term-listwise-deletion" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Dropping every observation that has a missing value on any variable in the analysis." data-term="listwise deletion">listwise deletion</a> to throw away incomplete records can severely bias your results by silencing specific demographics. Advanced techniques like <a href="appendix-glossary.html#glossary-term-imputation" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Replacing a missing value with a statistically estimated value so that the observation can be kept in the analysis." data-term="imputation">imputation</a> offer more ethical ways to handle missing responses.<br>
+</li>
+<li><strong>Analytic Integrity and P-Hacking:</strong> <a href="appendix-glossary.html#glossary-term-p-hacking" class="glossary-link" aria-describedby="glossary-tooltip" data-definition="Running many tests or model variations on the same data until a p-value below .05 appears, which inflates the Type I error rate and is an ethical violation." data-term="p-hacking">P-hacking</a> is the unethical practice of manipulating your analysis to artificially push a <span class="math inline">\(p\)</span>-value below the 0.05 significance level. This includes using unjustified one-sided tests, selectively analyzing subgroups, failing to adjust for multiple comparisons, and weaponizing large sample sizes to claim non-existent practical effects.</li>
+</ol>
+</section>
+<section id="references" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="references"><span class="header-section-number">13.10</span> References</h2>
+<p>Angwin, J., Larson, J., Mattu, S., &amp; Kirchner, L. (2016, May 23). Machine bias. <em>ProPublica</em>. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing</p>
+<p>Barbaro, M., &amp; Zeller, T. (2006, August 9). A face is exposed for AOL searcher No.&nbsp;4417749. <em>The New York Times</em>. <a href="https://www.google.com/search?q=https://www.nytimes.com/2006/08/09/technology/09aol.html&amp;authuser=1">https://www.nytimes.com/2006/08/09/technology/09aol.html</a></p>
+<p>Dastin, J. (2018, October 10). Amazon scraps secret AI recruiting tool that showed bias against women. <em>Reuters</em>. https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G</p>
+<p>Labgold, K., Hamid, S., Shah, S., Gandhi, N. R., Chamberlain, A., Khan, F., Khan, S., Smith, S., Williams, S., Lash, T. L., &amp; Lash, L. J. (2021). Estimating the unknown: Greater racial and ethnic disparities in COVID-19 burden after accounting for missing race and ethnicity data. <em>Epidemiology</em>, <em>32</em>(2), 157–161. <a href="https://www.google.com/search?q=https://doi.org/10.1097/EDE.0000000000001314&amp;authuser=1">https://doi.org/10.1097/EDE.0000000000001314</a></p>
+<p>Meyer, R. (2014, June 28). Everything we know about Facebook’s secret mood manipulation experiment. <em>The Atlantic</em>. https://www.theatlantic.com/technology/archive/2014/06/everything-we-know-about-facebooks-secret-mood-manipulation-experiment/373648/</p>
+<p>Resnick, B. (2016, May 12). Researchers just released profile data on 70,000 OkCupid users without permission. <em>Vox</em>. <a href="https://www.google.com/search?q=https://www.vox.com/2016/5/12/11666116/70000-okcupid&amp;authuser=1">https://www.vox.com/2016/5/12/11666116/70000-okcupid</a></p>
+<p>Resnick, B., &amp; Belluz, J. (2018, September 20). A top Cornell food researcher has had 15 studies retracted. That’s a lot. <em>Vox</em>. https://www.vox.com/science-and-health/2018/9/19/17879102/brian-wansink-cornell-food-brand-lab-retractions-jama</p>
+</section>
+<section id="exercises" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.11</span> Exercises</h2>
+<section id="section-a-vocabulary-and-concept-application" class="level3" data-number="13.11.1">
+<h3 data-number="13.11.1" class="anchored" data-anchor-id="section-a-vocabulary-and-concept-application"><span class="header-section-number">13.11.1</span> Section A: Vocabulary and Concept Application</h3>
+<p>These questions test your understanding of the core ethical frameworks and definitions introduced in this chapter.</p>
+<ol type="1">
+<li>Explain the difference between data governance and data stewardship using a hypothetical example of a university research lab.</li>
+<li>A researcher promises participants anonymity on a survey but asks them to provide their student ID numbers so she can track their academic progress over four years. Explain why this is a violation of anonymity and state what privacy term the researcher should have used.</li>
+<li>Define “minimal risk” in your own words. Give an example of a study that would be considered minimal risk, and an example of a study that would exceed minimal risk.</li>
+<li>Why is listwise deletion potentially unethical if the missing data is not missing randomly? What is the conceptual alternative to simply deleting incomplete records?</li>
+</ol>
+</section>
+<section id="section-b-spot-the-violation" class="level3" data-number="13.11.2">
+<h3 data-number="13.11.2" class="anchored" data-anchor-id="section-b-spot-the-violation"><span class="header-section-number">13.11.2</span> Section B: Spot the Violation</h3>
+<p>Read the following research scenarios. Identify the specific ethical or analytical violation occurring in each situation.</p>
+<ol start="5" type="1">
+<li>A researcher studying diet and energy levels runs an independent <span class="math inline">\(t\)</span>-test comparing men and women and finds a <span class="math inline">\(p\)</span>-value of 0.08. He then decides to analyze only women under 30, and finds a <span class="math inline">\(p\)</span>-value of 0.04. He publishes the second finding without mentioning the first. What specific analytical violation has he committed?</li>
+<li>A hospital uses a machine learning algorithm to predict which patients will require intensive care. The algorithm was trained exclusively on data from the 1990s, when the hospital served a primarily wealthy, fully insured demographic. What is the ethical danger of deploying this algorithm on today’s general population?</li>
+<li>A professor requires her introductory psychology students to participate in her clinical trial for a new anxiety medication, stating that anyone who refuses will automatically fail the course. Which specific Institutional Review Board guideline is the professor violating?</li>
+<li>A researcher collects data on college binge drinking. She stores the spreadsheet containing the students’ names, dorm rooms, and drinking habits on her personal laptop and frequently works on the data at a public coffee shop. Is this a failure of data governance or data stewardship? Explain your reasoning.</li>
+<li>A researcher studying a new weight-loss pill uses a sample size of 400,000 participants. The test returns a <span class="math inline">\(p\)</span>-value of 0.001. However, the average weight loss was only 0.1 pounds over six months. Explain how the researcher might weaponize this <span class="math inline">\(p\)</span>-value to mislead the public.</li>
+</ol>
+</section>
+<section id="section-c-irb-protocol-review" class="level3" data-number="13.11.3">
+<h3 data-number="13.11.3" class="anchored" data-anchor-id="section-c-irb-protocol-review"><span class="header-section-number">13.11.3</span> Section C: IRB Protocol Review</h3>
+<p>For these questions, imagine you sit on a university Institutional Review Board. Read the brief protocol and identify the primary ethical concern (e.g., vulnerable populations, exceeding minimal risk, data security, or lack of consent).</p>
+<ol start="10" type="1">
+<li>Protocol 1: A researcher wants to study the reading habits of inmates at a state prison. To boost participation, they plan to offer the inmates a reduction in their sentence if they complete the study.</li>
+<li>Protocol 2: A student wants to observe how people react to uncomfortable situations by standing uncomfortably close to strangers in a public park and secretly recording their reactions and faces on a smartphone to post in a public research repository.</li>
+<li>Protocol 3: A researcher wants to interview pregnant women about their prenatal care. They plan to publish the full transcripts of the interviews online with the women’s names attached so the public can read their unedited stories.</li>
+<li>Protocol 4: An economics professor wants to study the relationship between cumulative GPA and future income. They plan to use their faculty access to download the full academic transcripts of all 5,000 current students without asking the students’ permission.</li>
+</ol>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/chapter-12.html" class="pagination-link" aria-label="Time Series Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/appendix-glossary.html" class="pagination-link" aria-label="Glossary">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

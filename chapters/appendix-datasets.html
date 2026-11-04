@@ -1,0 +1,2877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix B — Datasets – Statistical Methods in Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/appendix-index.html" rel="next">
+<link href="../chapters/appendix-glossary.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a7d60fdd767dc6e1b43b5d76979fa7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistical Methods in Research</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../companion/index.html"> 
+<span class="menu-text">R Companion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-datasets.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Methods in Research</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Unit I: Foundations of Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding Data through Measures and Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">From Research Questions to Formal Hypotheses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Unit II: Linear Regression and Transformations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Regression for Complex Systems</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Unit III: Design of Experiments (ANOVA)</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The One-Way ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced Experimental Designs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Unit IV: Categorical Data Analysis</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Data Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Unit V: Advanced Tools and Ethical Considerations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Nonparametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Factor Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics in Statistics and Data Integrity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-datasets.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Index</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#acs_2023.csv" id="toc-acs_2023.csv" class="nav-link active" data-scroll-target="#acs_2023.csv"><span class="header-section-number">B.1</span> <code>acs_2023.csv</code></a></li>
+  <li><a href="#amas_math_anxiety.csv" id="toc-amas_math_anxiety.csv" class="nav-link" data-scroll-target="#amas_math_anxiety.csv"><span class="header-section-number">B.2</span> <code>amas_math_anxiety.csv</code></a></li>
+  <li><a href="#births_2014.csv" id="toc-births_2014.csv" class="nav-link" data-scroll-target="#births_2014.csv"><span class="header-section-number">B.3</span> <code>births_2014.csv</code></a></li>
+  <li><a href="#cc_risk.csv" id="toc-cc_risk.csv" class="nav-link" data-scroll-target="#cc_risk.csv"><span class="header-section-number">B.4</span> <code>cc_risk.csv</code></a></li>
+  <li><a href="#census_at_school.csv" id="toc-census_at_school.csv" class="nav-link" data-scroll-target="#census_at_school.csv"><span class="header-section-number">B.5</span> <code>census_at_school.csv</code></a></li>
+  <li><a href="#college_backpacks.csv" id="toc-college_backpacks.csv" class="nav-link" data-scroll-target="#college_backpacks.csv"><span class="header-section-number">B.6</span> <code>college_backpacks.csv</code></a></li>
+  <li><a href="#college_teacher_salary_2023.csv" id="toc-college_teacher_salary_2023.csv" class="nav-link" data-scroll-target="#college_teacher_salary_2023.csv"><span class="header-section-number">B.7</span> <code>college_teacher_salary_2023.csv</code></a></li>
+  <li><a href="#depression_diet_treatment.csv" id="toc-depression_diet_treatment.csv" class="nav-link" data-scroll-target="#depression_diet_treatment.csv"><span class="header-section-number">B.8</span> <code>depression_diet_treatment.csv</code></a></li>
+  <li><a href="#fatal_police_shootings.csv" id="toc-fatal_police_shootings.csv" class="nav-link" data-scroll-target="#fatal_police_shootings.csv"><span class="header-section-number">B.9</span> <code>fatal_police_shootings.csv</code></a></li>
+  <li><a href="#gym_membership_searches.csv" id="toc-gym_membership_searches.csv" class="nav-link" data-scroll-target="#gym_membership_searches.csv"><span class="header-section-number">B.10</span> <code>gym_membership_searches.csv</code></a></li>
+  <li><a href="#happy_planet_index_2024.csv" id="toc-happy_planet_index_2024.csv" class="nav-link" data-scroll-target="#happy_planet_index_2024.csv"><span class="header-section-number">B.11</span> <code>happy_planet_index_2024.csv</code></a></li>
+  <li><a href="#hsb.csv" id="toc-hsb.csv" class="nav-link" data-scroll-target="#hsb.csv"><span class="header-section-number">B.12</span> <code>hsb.csv</code></a></li>
+  <li><a href="#icu_data.csv" id="toc-icu_data.csv" class="nav-link" data-scroll-target="#icu_data.csv"><span class="header-section-number">B.13</span> <code>icu_data.csv</code></a></li>
+  <li><a href="#labor_market_discrimination.csv" id="toc-labor_market_discrimination.csv" class="nav-link" data-scroll-target="#labor_market_discrimination.csv"><span class="header-section-number">B.14</span> <code>labor_market_discrimination.csv</code></a></li>
+  <li><a href="#maid_mindset.csv" id="toc-maid_mindset.csv" class="nav-link" data-scroll-target="#maid_mindset.csv"><span class="header-section-number">B.15</span> <code>maid_mindset.csv</code></a></li>
+  <li><a href="#smoking_bmi_bp.csv" id="toc-smoking_bmi_bp.csv" class="nav-link" data-scroll-target="#smoking_bmi_bp.csv"><span class="header-section-number">B.16</span> <code>smoking_bmi_bp.csv</code></a></li>
+  <li><a href="#speed_dating.csv" id="toc-speed_dating.csv" class="nav-link" data-scroll-target="#speed_dating.csv"><span class="header-section-number">B.17</span> <code>speed_dating.csv</code></a></li>
+  <li><a href="#student_lifestyle_sleep.csv" id="toc-student_lifestyle_sleep.csv" class="nav-link" data-scroll-target="#student_lifestyle_sleep.csv"><span class="header-section-number">B.18</span> <code>student_lifestyle_sleep.csv</code></a></li>
+  <li><a href="#sunscreen_searches.csv" id="toc-sunscreen_searches.csv" class="nav-link" data-scroll-target="#sunscreen_searches.csv"><span class="header-section-number">B.19</span> <code>sunscreen_searches.csv</code></a></li>
+  <li><a href="#textbook_prices.csv" id="toc-textbook_prices.csv" class="nav-link" data-scroll-target="#textbook_prices.csv"><span class="header-section-number">B.20</span> <code>textbook_prices.csv</code></a></li>
+  <li><a href="#weight_loss_incentive.csv" id="toc-weight_loss_incentive.csv" class="nav-link" data-scroll-target="#weight_loss_incentive.csv"><span class="header-section-number">B.21</span> <code>weight_loss_incentive.csv</code></a></li>
+  <li><a href="#youth_risk_2007.csv" id="toc-youth_risk_2007.csv" class="nav-link" data-scroll-target="#youth_risk_2007.csv"><span class="header-section-number">B.22</span> <code>youth_risk_2007.csv</code></a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-datasets.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Datasets</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix B — Datasets</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- Generated by tools/datasets/build_appendix.R from the per-dataset keys in data/. Do not edit by hand. -->
+<p>Every dataset used in this book is available as a CSV file, with one row per observation and one column per variable. Each section below names the file, describes it, lists its variables in a table, explains how the data were collected, and cites the source. Data files as of November 4, 2026.</p>
+<p>Download any file from its section, or get all 22 files and this key together as <a href="../data/statmethods-datasets.zip">one ZIP archive</a>.</p>
+<section id="acs_2023.csv" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="acs_2023.csv"><span class="header-section-number">B.1</span> <code>acs_2023.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains demographic, economic, and lifestyle information from a sample of individuals living in the United States, drawn from the 2023 American Community Survey.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>10,000 observations</strong> (rows) and <strong>9 variables</strong> (columns).</p>
+<p><a href="../data/acs_2023.csv">Download acs_2023.csv (CSV file, 248 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>acs_2023.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description and Coding Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The individual’s sex (<span class="math inline">\(1 = \text{male}\)</span>, <span class="math inline">\(0 = \text{female}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The individual’s age in years.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Married</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Marital status (<span class="math inline">\(1 = \text{married}\)</span>, <span class="math inline">\(0 = \text{not married}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Income</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Total wages and salary earned over the past 12 months, recorded in thousands of dollars (e.g., a value of <span class="math inline">\(50\)</span> means <span class="math inline">\(\$50,000\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>HoursWk</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The average number of hours the individual works per week.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Race</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The individual’s racial identity (<strong>Asian</strong>, <strong>Black</strong>, <strong>White</strong>, or <strong>Other</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>USCitizen</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Citizenship status (<span class="math inline">\(1 = \text{citizen}\)</span>, <span class="math inline">\(0 = \text{noncitizen}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>HealthInsurance</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Health insurance coverage status (<span class="math inline">\(1 = \text{have health insurance}\)</span>, <span class="math inline">\(0 = \text{no health insurance}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Language</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Primary language spoken at home (<span class="math inline">\(1 = \text{English spoken at home}\)</span>, <span class="math inline">\(0 = \text{other}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The American Community Survey (ACS) is an ongoing demographics survey administered by the United States Census Bureau. It is distributed annually to a random sample of approximately 3.5 million households, representing about 3% of all U.S. households. The Census Bureau eventually makes a heavily anonymized 1% random sample of all U.S. residents available to the public. To create this specific dataset, a random sub-sample of <span class="math inline">\(n = 10,000\)</span> individuals was drawn directly from the publicly available 2023 ACS data.</p>
+<p><strong>Source.</strong> United States Census Bureau. (2023). <em>American Community Survey</em>. https://www.census.gov/programs-surveys/acs</p>
+</section>
+<section id="amas_math_anxiety.csv" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="amas_math_anxiety.csv"><span class="header-section-number">B.2</span> <code>amas_math_anxiety.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains individual item-level responses measuring mathematics anxiety using the 9-item Abbreviated Mathematics Anxiety Scale (AMAS). The subjects are a large sample of adult workers evaluating their subjective tension and anxiety across various academic and testing scenarios.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>2,200 observations</strong> (rows) and <strong>9 variables</strong> (columns).</p>
+<p><a href="../data/amas_math_anxiety.csv">Download amas_math_anxiety.csv (CSV file, 39 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>amas_math_anxiety.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>item_1</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when having to use the tables in the back of a math book, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>item_2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when thinking about an upcoming math test one day before, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>item_3</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when watching a teacher work an algebraic equation on the blackboard, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>item_4</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when taking an examination in a math course, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>item_5</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when being given a homework assignment of many difficult problems due the next class meeting, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>item_6</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when listening to a lecture in a math class, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>item_7</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when listening to another student explain a math formula, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>item_8</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when being given a “pop” quiz in a math class, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>item_9</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Subjective anxiety rating when starting a new chapter in a math book, recorded on a <span class="math inline">\(1 \text{ to } 5\)</span> scale where a value of <span class="math inline">\(1\)</span> indicates low anxiety and <span class="math inline">\(5\)</span> indicates high anxiety.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> This dataset represents baseline psychological profiling measurements collected as part of a major within-study comparison research project conducted by academic researchers in 2022. A sample of <span class="math inline">\(n = 2,200\)</span> participants was recruited via the Amazon Mechanical Turk crowdsourcing platform. The primary purpose of the original study was to create a high-quality empirical benchmark database to evaluate how well non-experimental causal effect estimation methods replicate the findings of randomized controlled trials within educational training settings. Before participating in any educational intervention exercises, respondents completed the full 9-item Abbreviated Mathematics Anxiety Scale (AMAS) to capture variations in baseline quantitative anxiety. The AMAS is widely implemented in psychometric literature because it efficiently captures two distinct but correlated dimensions of quantitative stress: math evaluation anxiety (items 2, 4, 5, and 8) and math learning anxiety (items 1, 3, 6, 7, and 9).</p>
+<p><strong>Source.</strong> Hopko, D. R., Mahadevan, R., Bare, R. L., &amp; Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. <em>Assessment</em>, 10(2), 178–182. <a href="https://doi.org/10.1177/1073191103010002008">https://doi.org/10.1177/1073191103010002008</a></p>
+<p>Keller, B., Park, S., &amp; Zhang, J. (2022). <em>A new four-arm within-study comparison: Design, implementation, and data</em>. Working paper/dataset documentation.</p>
+</section>
+<section id="births_2014.csv" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="births_2014.csv"><span class="header-section-number">B.3</span> <code>births_2014.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains physical, demographic, and behavioral health metrics for a sample of infants and their expectant mothers, extracted from national birth registry records compiled across the United States in 2014.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>1,000 observations</strong> (rows) and <strong>13 variables</strong> (columns). Each row tracks a single live birth event.</p>
+<p><a href="../data/births_2014.csv">Download births_2014.csv (CSV file, 79 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>births_2014.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>fage</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The biological father’s age in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mage</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The biological mother’s age in years.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mature</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical maturity status classification of the mother (e.g., <strong>younger mom</strong> or <strong>mature mom</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>weeks</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Total gestational length of the pregnancy recorded in weeks.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>premie</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Gestational maturity classification of the infant at birth (<strong>full term</strong> or <strong>premie</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>visits</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of prenatal medical or hospital visits made by the mother during the pregnancy.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>gained</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Total physical weight gained by the mother during the pregnancy, measured in pounds.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>weight</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The final birth weight of the infant, measured in pounds.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>lowbirthweight</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical birth weight classification (<strong>low</strong> or <strong>not low</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The biological sex assigned to the infant at birth (<strong>female</strong> or <strong>male</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>habit</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Tobacco smoking status of the mother during pregnancy (<strong>nonsmoker</strong> or <strong>smoker</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>marital</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Marital status of the mother at the time of delivery (<strong>married</strong> or <strong>not married</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>whitemom</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Racial identity classification of the mother (<strong>white</strong> or <strong>not white</strong>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Every year, the United States government compiles and releases an extensive administrative database detailing every recorded birth nationwide. This repository serves as a foundational resource for epidemiological and medical researchers studying how parental demographics, maternal healthcare utilization, and behavioral choices (such as tobacco use) correlate with neonatal outcomes like gestational duration and infant birth weight.</p>
+<p>This dataset represents a random sample of <span class="math inline">\(n = 1,000\)</span> cases extracted from the massive 2014 national natality public-use file.</p>
+<p><strong>Source.</strong> United States Department of Health and Human Services, Centers for Disease Control and Prevention, National Center for Health Statistics. (2016). <em>Natality Detail File, 2014 United States</em> (ICPSR 36461-v1). Inter-university Consortium for Political and Social Research. <a href="https://doi.org/10.3886/ICPSR36461.v1">https://doi.org/10.3886/ICPSR36461.v1</a></p>
+</section>
+<section id="cc_risk.csv" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="cc_risk.csv"><span class="header-section-number">B.4</span> <code>cc_risk.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains academic survey data from a sample of undergraduate students, focusing on the intersection of risky behavioral habits and problematic personal financial decisions.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>437 observations</strong> (rows) and <strong>4 variables</strong> (columns).</p>
+<p><a href="../data/cc_risk.csv">Download cc_risk.csv (CSV file, 5 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>cc_risk.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s age in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s biological sex (<span class="math inline">\(1 = \text{female}\)</span>, <span class="math inline">\(0 = \text{male}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DaysDrink</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The number of days the student consumed alcohol within the past 30 days.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Overdrawn</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Financial risk marker indicating whether the student overdrew their checking account within the past year (<span class="math inline">\(1 = \text{yes}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The data was collected via a comprehensive, 150-question survey distributed to 437 undergraduate students enrolled in large introductory courses at either Mississippi State University or the University of Mississippi.</p>
+<p>The primary objective of the original study was to examine the relationships between psychological sensation-seeking traits, behavioral risk-taking (such as alcohol consumption habits), and problematic financial management behaviors among young adults (such as credit card misuse and bank account mismanagement).</p>
+<p><strong>Source.</strong> Worthy, S. L., Jonkman, J. N., &amp; Blinn-Pike, L. (2010). Sensation-seeking, risk-taking, and problematic financial behaviors of college students. <em>Journal of Family and Economic Issues</em>, 31(2), 161–170. <a href="https://doi.org/10.1007/s10834-010-9183-2">https://doi.org/10.1007/s10834-010-9183-2</a></p>
+</section>
+<section id="census_at_school.csv" class="level2" data-number="B.5">
+<h2 data-number="B.5" class="anchored" data-anchor-id="census_at_school.csv"><span class="header-section-number">B.5</span> <code>census_at_school.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains a wide range of physical, behavioral, and demographic measurements from a sample of high school seniors in the state of Pennsylvania, collected during the 2023 and 2024 academic years.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>500 observations</strong> (rows) and <strong>35 variables</strong> (columns).</p>
+<p><a href="../data/census_at_school.csv">Download census_at_school.csv (CSV file, 89 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>census_at_school.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Year</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The year the student submitted their data (<strong>2023</strong> or <strong>2024</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Gender</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The individual’s gender (<strong>Female</strong> or <strong>Male</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s age in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Hand</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s dominant hand (<strong>Left</strong>, <strong>Right</strong>, or <strong>Both</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Height</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s height measured in centimeters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Foot</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s foot length measured in centimeters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Armspan</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s armspan measured in centimeters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Languages</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The number of languages the student speaks fluently.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>GetToSchool</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Main mode of transportation used to get to school (<strong>Bus</strong>, <strong>Car</strong>, or <strong>Walk</strong>, where Walk includes bicycles and skateboards).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>TravelTime</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The time it takes the student to travel to school, recorded in minutes.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>ReactionTime</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The time, in seconds, it takes the student to click a button when a visual color changes during an online test.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>MemoryScore</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The score achieved by the student in a standard online memory card-matching game.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Activity</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s self-reported favorite physical activity or sport.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Music</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s favorite genre of music.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>BirthMonth</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The month the student was born.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Season</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s favorite season (<strong>Fall</strong>, <strong>Spring</strong>, <strong>Summer</strong>, or <strong>Winter</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Allergies</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Whether the student has known allergies (<strong>Yes</strong> or <strong>No</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Vegetarian</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Whether the student follows a vegetarian diet (<strong>Yes</strong> or <strong>No</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FavFood</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s favorite food category.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>FavDrink</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The beverage the student consumes most often during the day.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FavSubject</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s favorite academic subject in school.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Sleep1</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The typical number of hours of sleep the student gets on a school night.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Sleep2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The typical number of hours of sleep the student gets on a non-school night (weekends/holidays).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Occupants</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of people living in the student’s primary home.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Communicate</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The method the student uses most often to communicate with friends (<strong>Cell phone</strong>, <strong>In person</strong>, <strong>Internet Chat/Message</strong>, <strong>Social Media</strong>, <strong>Telephone</strong>, <strong>Text messaging</strong>, or <strong>Other</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>TextsSent</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The estimated number of text messages the student sent during the previous day.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>HangHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent hanging out with friends over the last week.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>HWHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent doing homework over the last week.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>VideoGameHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent playing video/computer games over the last week.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ComputerHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent using a computer for non-gaming purposes over the last week.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>TVHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent watching TV/streaming services over the last week.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>WorkHours</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of hours the student spent working at a paid job over the last week.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SchoolPressure</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s subjective assessment of the amount of pressure they feel due to schoolwork (<strong>None</strong>, <strong>Very little</strong>, <strong>Some</strong>, or <strong>A lot</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Superpower</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The superpower the student desires most (<strong>Fly</strong>, <strong>Freeze time</strong>, <strong>Invisibility</strong>, <strong>Super strength</strong>, or <strong>Telepathy</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Preference</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The life outcome the student would prefer most if they could only choose one (<strong>Famous</strong>, <strong>Happy</strong>, <strong>Healthy</strong>, or <strong>Rich</strong>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Census at School is an ongoing, international classroom project hosted in the United States by the American Statistical Association (ASA). The initiative is designed to engage students in grades 4 through 12 in statistical problem-solving by having them securely submit their own anonymous data to a national database, which can then be sampled for educational use.</p>
+<p>This specific dataset represents a random sample of <span class="math inline">\(n = 500\)</span> high school seniors from the state of Pennsylvania who participated in the program across the 2023 and 2024 collection periods. It provides an excellent real-world playground for analyzing multivariate data, exploring outliers, and comparing categorical preferences against numerical lifestyle choices.</p>
+<p><strong>Source.</strong> American Statistical Association. (2024). <em>U.S. Census at School Program</em>. Retrieved from https://ww2.amstat.org/censusatschool/</p>
+</section>
+<section id="college_backpacks.csv" class="level2" data-number="B.6">
+<h2 data-number="B.6" class="anchored" data-anchor-id="college_backpacks.csv"><span class="header-section-number">B.6</span> <code>college_backpacks.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains physical and academic measurements from a sample of college students, collected to investigate the relationship between backpack weights, student body weights, and the prevalence of self-reported back problems.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>100 observations</strong> (rows) and <strong>9 variables</strong> (columns).</p>
+<p><a href="../data/college_backpacks.csv">Download college_backpacks.csv (CSV file, 5 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>college_backpacks.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>BackpackWeight</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The weight of the student’s backpack, measured in pounds.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>BodyWeight</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The body weight of the student, measured in pounds.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Ratio</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The weight of the backpack divided by the student’s body weight (e.g., a value of <span class="math inline">\(0.10\)</span> means the backpack weighs exactly 10% of the student’s body weight).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>BackProblems</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Self-reported history of back issues or discomfort (<span class="math inline">\(1 = \text{experiences back problems}\)</span>, <span class="math inline">\(0 = \text{no back problems}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Major</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s academic major field of study.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Year</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The number of years of college the student has completed.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The biological sex of the student (<strong>Female</strong> or <strong>Male</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Status</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The academic enrollment level of the student (<strong>G</strong> = Graduate student, <strong>U</strong> = Undergraduate student).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Units</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of academic credits/units the student is currently enrolled in for the semester.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Are heavy text books, laptops, and binders physically harming college students? To explore this question, a team of researchers conducted a campus-wide survey at California Polytechnic State University (San Luis Obispo) in 2002. They sampled 100 students, recording both the physical strain variables (backpack weight, body weight, and back health status) and relevant academic covariates (units taken, major, and class standing).</p>
+<p>The data was originally published to provide statistics students with a realistic, multivariate playground for studying proportions, analyzing correlation between continuous physical traits, and evaluating whether a higher backpack-to-bodyweight ratio is significantly associated with health complaints like chronic back pain.</p>
+<p><strong>Source.</strong> Mintz, J., Mintz, J., Moore, K., &amp; Schuh, K. (2002). Oh, my aching back! A statistical analysis of backpack weights. <em>Stats: The Magazine for Students of Statistics</em>, 32, 17–19.</p>
+</section>
+<section id="college_teacher_salary_2023.csv" class="level2" data-number="B.7">
+<h2 data-number="B.7" class="anchored" data-anchor-id="college_teacher_salary_2023.csv"><span class="header-section-number">B.7</span> <code>college_teacher_salary_2023.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains annual salary, demographic, and educational data for a sample of postsecondary educators in the United States, extracted from the 2023 American Community Survey.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>200 observations</strong> (rows) and <strong>4 variables</strong> (columns).</p>
+<p><a href="../data/college_teacher_salary_2023.csv">Download college_teacher_salary_2023.csv (CSV file, 3 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>college_teacher_salary_2023.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Salary</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The individual’s annual salary from teaching, recorded in thousands of dollars (e.g., a value of <span class="math inline">\(85\)</span> means <span class="math inline">\(\$85,000\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The individual’s biological sex (<span class="math inline">\(1 = \text{male}\)</span>, <span class="math inline">\(0 = \text{female}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The individual’s age in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>PhD</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Doctoral degree attainment status (<span class="math inline">\(1 = \text{holds a PhD or equivalent terminal degree}\)</span>, <span class="math inline">\(0 = \text{does not hold a PhD}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> This dataset is a random sample of <span class="math inline">\(n = 200\)</span> postsecondary teachers subsetted from the 2023 American Community Survey (ACS) 1-year Public Use Microdata Sample (PUMS), which is compiled and managed by the United States Census Bureau.</p>
+<p><strong>Source.</strong> United States Census Bureau. (2023). <em>American Community Survey 1-Year Public Use Microdata Sample (PUMS)</em>. Retrieved from https://www.census.gov/programs-surveys/acs/data/pums.html</p>
+</section>
+<section id="depression_diet_treatment.csv" class="level2" data-number="B.8">
+<h2 data-number="B.8" class="anchored" data-anchor-id="depression_diet_treatment.csv"><span class="header-section-number">B.8</span> <code>depression_diet_treatment.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains results from a randomized controlled experiment tracking the impact of a short-term, three-week healthy diet intervention on depression symptoms and body mass index (BMI) among young adults.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>75 observations</strong> (rows) and <strong>10 variables</strong> (columns).</p>
+<p><a href="../data/depression_diet_treatment.csv">Download depression_diet_treatment.csv (CSV file, 3 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>depression_diet_treatment.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Group</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The experimental group assignment for the student (<strong>Control</strong> or <strong>Diet</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>CESD1</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Center for Epidemiologic Studies Depression Scale (CESD) score measured at baseline on Day 1. High scores indicate greater depression severity.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>CESD21</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Center for Epidemiologic Studies Depression Scale (CESD) score measured at the conclusion of the study on Day 21.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>CESDDiff</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The change in the CESD depression score over the 21 days (<span class="math inline">\(\text{Day 21} - \text{Day 1}\)</span>). A negative value indicates an improvement in symptoms.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DASS1</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at baseline on Day 1. High scores indicate greater self-reported depression severity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>DASS21</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Depression, Anxiety, and Stress Scale (DASS) depression subscale score measured at the conclusion of the study on Day 21.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DASSDiff</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The change in the DASS depression score over the 21 days (<span class="math inline">\(\text{Day 21} - \text{Day 1}\)</span>). A negative value indicates an improvement in symptoms.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>BMI1</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s Body Mass Index (BMI) measured at baseline on Day 1.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>BMI21</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s Body Mass Index (BMI) measured at the conclusion of the study on Day 21.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>BMIDiff</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The change in the participant’s Body Mass Index (BMI) over the 21 days (<span class="math inline">\(\text{Day 21} - \text{Day 1}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> A group of researchers in Australia conducted a short, three-week dietary intervention using a randomized controlled experimental design. The study sample consisted of 75 college-age students who initially exhibited both elevated depression symptoms and relatively poor dietary habits. Participants were randomly assigned to either a healthy diet intervention group (which received healthy food hampers and dietary guidance) or a control group (which maintained their normal eating habits).</p>
+<p>To track changes in mental health, the researchers recorded scores across two distinct numerical depression metrics at the start and end of the 21-day period: the CESD scale, which leans more heavily toward clinical observations of depression, and the DASS depression subscale, which relies primarily on subjective, self-reported symptom frequency. Physical changes were also monitored by calculating each participant’s Body Mass Index (BMI) on Day 1 and Day 21.</p>
+<p><strong>Source.</strong> Francis, H. M., Stevenson, R. J., Chambers, J. R., Joint, D., Dickie, E. W., &amp; Burger, C. (2019). A brief diet intervention can reduce symptoms of depression in young adults: A randomised controlled trial. <em>PLoS ONE</em>, 14(10), e0222768. <a href="https://doi.org/10.1371/journal.pone.0222768">https://doi.org/10.1371/journal.pone.0222768</a></p>
+</section>
+<section id="fatal_police_shootings.csv" class="level2" data-number="B.9">
+<h2 data-number="B.9" class="anchored" data-anchor-id="fatal_police_shootings.csv"><span class="header-section-number">B.9</span> <code>fatal_police_shootings.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains a subset of records documenting fatal shootings by on-duty law enforcement officers across the United States, compiled to track demographics, threat levels, and incident characteristics.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>6,421 observations</strong> (rows) and <strong>12 variables</strong> (columns).</p>
+<p><a href="../data/fatal_police_shootings.csv">Download fatal_police_shootings.csv (CSV file, 436 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>fatal_police_shootings.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>date</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The exact calendar date when the fatal shooting occurred (<span class="math inline">\(YYYY-MM-DD\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>manner_of_death</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical manner of death specification (<strong>shot</strong> or <strong>shot and Tasered</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>armed</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Indicates the type of weapon or implement the individual possessed that responding officers believed could inflict physical harm (e.g., gun, knife, unarmed, undetermined).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The age of the individual in years.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>gender</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The gender identity of the individual (<strong>M</strong> = Male or <strong>F</strong> = Female).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>race</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The racial or ethnic background of the individual, coded as: <strong>W</strong> = White, non-Hispanic <strong>B</strong> = Black, non-Hispanic <strong>H</strong> = Hispanic <strong>A</strong> = Asian <strong>N</strong> = Native American <strong>O</strong> = Other / Unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>city</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The municipality or county where the fatal shooting took place.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>state</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The two-letter postal abbreviation for the U.S. state where the incident occurred.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>signs_of_mental_illness</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Indicator of acute mental distress or psychiatric history (<strong>True</strong> = documented signs or history of mental illness, <strong>False</strong> = no documented signs).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>threat_level</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Classification of the immediate threat posed by the individual: <strong>attack</strong> = Highest threat level (e.g., firing a weapon, direct physical assault) <strong>other</strong> = Significant threat but not a direct assault <strong>undetermined</strong> = Insufficient data to evaluate threat</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>flee</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The individual’s movement behavior during the encounter (<strong>Car</strong>, <strong>Foot</strong>, <strong>Not fleeing</strong>, or <strong>Other</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>body_camera</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Indicates whether a responding officer was equipped with an active body-worn camera during the incident (<strong>True</strong> or <strong>False</strong>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> This dataset is derived directly from an ongoing investigative database maintained by <em>The Washington Post</em>, which tracks every fatal shooting by an on-duty police officer in the United States. Launched to address a lack of comprehensive, centralized tracking at the federal level, the database relies on local news reports, public records, social media, and independent verification platforms to log incidents.</p>
+<p>The dataset includes structural variables designed to classify the circumstances surrounding each fatal encounter, including demographic markers, geographic locations, whether body cameras were deployed, and behavioral risk profiles (such as active flight attempts or visible indicators of psychological crisis).</p>
+<p><strong>Source.</strong> The Washington Post. (2024). <em>Fatal Force: National archive of police-involved shootings</em>. Retrieved from https://github.com/washingtonpost/data-police-shootings</p>
+</section>
+<section id="gym_membership_searches.csv" class="level2" data-number="B.10">
+<h2 data-number="B.10" class="anchored" data-anchor-id="gym_membership_searches.csv"><span class="header-section-number">B.10</span> <code>gym_membership_searches.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains weekly Google search popularity data for the term “gym membership” in the United States over a five-year period, capturing real-world consumer behavior and health-related seasonality.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>262 observations</strong> (rows) and <strong>2 variables</strong> (columns).</p>
+<p><a href="../data/gym_membership_searches.csv">Download gym_membership_searches.csv (CSV file, 4 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>gym_membership_searches.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Week</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The starting date for the week of data collection, recorded in MM-DD-YY format (ranging from 05-16-21 to 05-17-26).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>gym membership</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The normalized search interest index for the phrase “gym membership.” Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Google Trends isolates a random sample of search traffic to calculate how frequently a specific term is searched relative to the total number of searches conducted during that exact time window. This relative frequency approach prevents raw population growth or shifting internet access rates from artificially inflating the data over time.</p>
+<p>Spanning from May 2021 to May 2026, this dataset provides an excellent foundation to transition from traditional histograms to basic time-series analysis using line graphs. The data displays highly predictable, recurring seasonal trends.</p>
+<p><strong>Source.</strong> Google LLC. (2026). <em>Google Trends Search Interest for “gym membership”</em>. Retrieved October 20, 2026, from <a href="https://trends.google.com">https://trends.google.com</a></p>
+</section>
+<section id="happy_planet_index_2024.csv" class="level2" data-number="B.11">
+<h2 data-number="B.11" class="anchored" data-anchor-id="happy_planet_index_2024.csv"><span class="header-section-number">B.11</span> <code>happy_planet_index_2024.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains country-level measurements from the Happy Planet Index (HPI) project, tracking indicators of sustainable well-being, ecological impact, and demographic metrics across 147 nations.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>147 observations</strong> (rows) and <strong>9 variables</strong> (columns).</p>
+<p><a href="../data/happy_planet_index_2024.csv">Download happy_planet_index_2024.csv (CSV file, 7 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>happy_planet_index_2024.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Country</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The name of the country.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Region</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The geographic region of the country, coded as: <span class="math inline">\(1 = \text{Latin America}\)</span> <span class="math inline">\(2 = \text{North America and Oceania}\)</span> <span class="math inline">\(3 = \text{Western Europe}\)</span> <span class="math inline">\(4 = \text{Middle East and North Africa}\)</span> <span class="math inline">\(5 = \text{Sub-Saharan Africa}\)</span> <span class="math inline">\(6 = \text{South Asia}\)</span> <span class="math inline">\(7 = \text{Eastern Europe and Central Asia}\)</span> <span class="math inline">\(8 = \text{East Asia}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>HPI</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Happy Planet Index score, measured on a <span class="math inline">\(0 \text{ to } 100\)</span> scale. Higher scores represent higher efficiency at delivering long, happy lives with a sustainable ecological footprint.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>HPIRank</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The global ranking of the country based on its HPI score.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>LifeExpectancy</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The average life expectancy of a resident in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Footprint</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Ecological footprint per capita. This measures the biological surface area required to support a country’s consumption and absorb its waste.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>LOL</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Ladder of Life score, measured on a <span class="math inline">\(0 \text{ to } 10\)</span> scale. This is a subjective metric where residents rate their own overall well-being and life satisfaction.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>GDPperCapita</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Gross Domestic Product per person, adjusted for purchasing power.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Population</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total population of the country, recorded in millions.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The Happy Planet Index is an ongoing global project designed to measure how efficiently nations use their ecological resources to support long, high-quality lives for their residents. Unlike traditional economic metrics like GDP, the HPI places ecological limits and human well-being at the center of its calculation.</p>
+<p>The index combines three primary pillars: subjective well-being (measured by the “Ladder of Life” survey metric), objective health outcomes (measured by life expectancy), and ecological sustainability (measured by the ecological footprint). This specific dataset represents a global snapshot of 147 countries compiled during the 2024 index report cycle.</p>
+<p><strong>Source.</strong> Abdallah, S., &amp; Hoffman, A. (2024). <em>The Happy Planet Index 2024 Data File</em>. Happy Planet Index Project. Retrieved from http://www.happyplanetindex.org</p>
+</section>
+<section id="hsb.csv" class="level2" data-number="B.12">
+<h2 data-number="B.12" class="anchored" data-anchor-id="hsb.csv"><span class="header-section-number">B.12</span> <code>hsb.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains demographic records, school characteristics, and standardized test scores for a sample of high school seniors, originally collected as part of a major national longitudinal study on education.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>200 observations</strong> (rows) and <strong>11 variables</strong> (columns).</p>
+<p><a href="../data/hsb.csv">Download hsb.csv (CSV file, 11 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>hsb.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">A unique identification number assigned to each student.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>gender</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s gender identity (<strong>female</strong> or <strong>male</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>race</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s racial identity (<strong>african american</strong>, <strong>asian</strong>, <strong>hispanic</strong>, or <strong>white</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ses</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The socioeconomic status of the student’s family, classified as <strong>low</strong>, <strong>middle</strong>, or <strong>high</strong>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>schtyp</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The type of school the student attends (<strong>public</strong> or <strong>private</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>prog</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The academic program track the student is enrolled in (<strong>general</strong>, <strong>academic</strong>, or <strong>vocational</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>read</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s standardized reading score.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>write</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s standardized writing score.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>math</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s standardized mathematics score.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>science</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s standardized science score.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>socst</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The student’s standardized social studies score.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The High School and Beyond (HS&amp;B) survey is a foundational national longitudinal study managed by the National Center for Education Statistics (NCES). The study was launched to track the educational, vocational, and personal development of American high school students as they transition into higher education and the workforce.</p>
+<p>This specific dataset is a random sample of <span class="math inline">\(n = 200\)</span> seniors taken from the broader baseline cohort. All five subject-area test variables (<code>read</code>, <code>write</code>, <code>math</code>, <code>science</code>, and <code>socst</code>) are scaled to a standardized metric (typically with a mean around 50 and a standard deviation of 10).</p>
+<p><strong>Source.</strong> UCLA Institute for Digital Research &amp; Education. (n.d.). <em>High School and Beyond (HS&amp;B) Dataset</em>. Statistical Consulting Archive. Retrieved from <a href="https://stats.oas.ucla.edu/">https://stats.oas.ucla.edu/</a></p>
+</section>
+<section id="icu_data.csv" class="level2" data-number="B.13">
+<h2 data-number="B.13" class="anchored" data-anchor-id="icu_data.csv"><span class="header-section-number">B.13</span> <code>icu_data.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains clinical, demographic, and admission records for a sample of patients admitted to a hospital’s Intensive Care Unit (ICU), with a primary focus on tracking patient survival and critical health indicators.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>200 observations</strong> (rows) and <strong>9 variables</strong> (columns).</p>
+<p><a href="../data/icu_data.csv">Download icu_data.csv (CSV file, 5 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>icu_data.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ID</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">A unique identification number assigned to each patient.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Survive</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The patient’s survival status at hospital discharge (<span class="math inline">\(1 = \text{the patient survived to be discharged}\)</span>, <span class="math inline">\(0 = \text{the patient died in the hospital}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The age of the patient in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AgeGroup</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The patient’s age category, coded as: <span class="math inline">\(1 = \text{Under 50 years old}\)</span> <span class="math inline">\(2 = 50 \text{ to } 69 \text{ years old}\)</span> <span class="math inline">\(3 = \text{70 years or older}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The biological sex of the patient (<span class="math inline">\(1 = \text{female}\)</span>, <span class="math inline">\(0 = \text{male}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Infection</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Infection status at the time of admission (<span class="math inline">\(1 = \text{an infection is suspected}\)</span>, <span class="math inline">\(0 = \text{no infection is suspected}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SysBP</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The patient’s systolic blood pressure measured in millimeters of mercury (mmHg).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Pulse</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The patient’s heart rate measured in beats per minute (bpm).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Emergency</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The type of ICU admission (<span class="math inline">\(1 = \text{emergency admission}\)</span>, <span class="math inline">\(0 = \text{elective admission}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> An Intensive Care Unit (ICU) handles the most severe, life-threatening cases in a hospital system, demanding continuous monitoring and rapid clinical intervention. Because critical care environments are high-risk, modeling patient survival alongside admission types and physiological baselines is crucial for improving triage and hospital resource management.</p>
+<p>This dataset consists of a random sample of <span class="math inline">\(n = 200\)</span> patients extracted from a larger, comprehensive clinical study conducted within an ICU.</p>
+<p><strong>Source.</strong> The Data and Story Library (DASL). (n.d.). <em>ICU Datafile</em>. Carnegie Mellon University. Retrieved from http://lib.stat.cmu.edu/DASL/Datafiles/ICU.html</p>
+</section>
+<section id="labor_market_discrimination.csv" class="level2" data-number="B.14">
+<h2 data-number="B.14" class="anchored" data-anchor-id="labor_market_discrimination.csv"><span class="header-section-number">B.14</span> <code>labor_market_discrimination.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains a subset of records from a landmark 2004 field experiment investigating racial discrimination in the United States labor market by measuring callback rates for fictitious resumes assigned distinctly African-American or White-sounding names.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>4,870 observations</strong> (rows) and <strong>7 variables</strong> (columns), a selection of the 63 variables in the original data that introductory analyses use most often.</p>
+<p><a href="../data/labor_market_discrimination.csv">Download labor_market_discrimination.csv (CSV file, 91 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>labor_market_discrimination.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>education</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The highest level of education reported on the resume, coded as: <span class="math inline">\(0 = \text{not reported}\)</span> <span class="math inline">\(1 = \text{high school diploma}\)</span> <span class="math inline">\(2 = \text{high school graduate}\)</span> <span class="math inline">\(3 = \text{some college}\)</span> <span class="math inline">\(4 = \text{college or more}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>n_jobs</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of prior jobs listed on the applicant’s resume.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>years_exp</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of years of professional work experience listed on the resume.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>first_name</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The first name assigned to the fictitious resume (used to manipulate perceived race and gender).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>sex</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Perceived biological sex based on the resume’s first name (<span class="math inline">\(\text{'f'} = \text{female}\)</span>, <span class="math inline">\(\text{'m'} = \text{male}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>race</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Perceived racial identity based on the resume’s first name (<span class="math inline">\(\text{'b'} = \text{Black}\)</span>, <span class="math inline">\(\text{'w'} = \text{White}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>call</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Interview callback indicator (<span class="math inline">\(1 = \text{the applicant received a callback for an interview}\)</span>, <span class="math inline">\(0 = \text{no callback received}\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> To rigorously study racial bias in employment practices, researchers Marianne Bertrand and Sendhil Mullainathan conducted a massive randomized field experiment in the early 2000s. They responded to help-wanted advertisements in Boston and Chicago newspapers by submitting approximately <span class="math inline">\(4,800\)</span> fictitious resumes.</p>
+<p>The key experimental manipulation involved randomly assigning first names to identical resumes to vary perceived race. Names like “Emily” and “Greg” were used to signify White applicants, while names like “Lakisha” and “Jamal” were used to signify African-American applicants.</p>
+<p>The original study’s primary finding revealed that resumes with White-sounding names received 50% more callbacks for interviews than identical resumes with African-American-sounding names.</p>
+<p><strong>Source.</strong> Bertrand, M., &amp; Mullainathan, S. (2004). Replication data for: Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. <em>American Economic Review</em>, 94(4), 991–1013. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/JG939E">https://doi.org/10.7910/DVN/JG939E</a></p>
+</section>
+<section id="maid_mindset.csv" class="level2" data-number="B.15">
+<h2 data-number="B.15" class="anchored" data-anchor-id="maid_mindset.csv"><span class="header-section-number">B.15</span> <code>maid_mindset.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains results from a landmark 2007 psychological study exploring the mind-body connection, specifically tracking whether changing an individual’s perception of their daily physical labor could trigger measurable, objective health improvements.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>75 observations</strong> (rows) and <strong>14 variables</strong> (columns).</p>
+<p><a href="../data/maid_mindset.csv">Download maid_mindset.csv (CSV file, 5 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>maid_mindset.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Cond</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Experimental treatment condition (<span class="math inline">\(1 = \text{informed group}\)</span>, <span class="math inline">\(0 = \text{uninformed control group}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Age</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s age in years.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Wt</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline weight at the start of the study, measured in pounds.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Wt2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s weight at the conclusion of the study (4 weeks later), measured in pounds.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>BMI</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline Body Mass Index at the start of the study.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>BMI2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s Body Mass Index at the conclusion of the study (4 weeks later).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Fat</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline body fat percentage at the start of the study.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Fat2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s body fat percentage at the conclusion of the study (4 weeks later).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>WHR</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline waist-to-hip ratio at the start of the study.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>WHR2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s waist-to-hip ratio at the conclusion of the study (4 weeks later).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Syst</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline systolic blood pressure at the start of the study, measured in mmHg.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Syst2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s systolic blood pressure at the conclusion of the study (4 weeks later), measured in mmHg.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Diast</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s baseline diastolic blood pressure at the start of the study, measured in mmHg.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Diast2</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The participant’s diastolic blood pressure at the conclusion of the study (4 weeks later), measured in mmHg.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> In 2007, a Harvard University psychologist conducted an experiment involving 75 female hotel maids. While hotel room attendants experience high levels of physical exertion every day, many do not perceive their labor as actual “exercise.” To test the physiological power of mindset, the researcher randomly split the maids into two experimental conditions.</p>
+<p>The <strong>informed group</strong> (<span class="math inline">\(n = 41\)</span>) was explicitly told that their daily workplace routines satisfied the U.S. Surgeon General’s recommendations for a healthy, active lifestyle. They were provided with specific examples showing how activities like changing linens, vacuuming, and scrubbing tubs translated into significant physical exercise. The <strong>uninformed group</strong> (<span class="math inline">\(n = 34\)</span>) served as a control and received no such information.</p>
+<p>Biometric and physiological markers (including weight, body mass index, body fat percentage, waist-to-hip ratio, and blood pressure) were recorded at baseline and again four weeks later. No physical behavior changes (such as diet or outside gym habits) were introduced; the intervention relied entirely on changing the perception of existing behavior. Participants with missing values for weight change have been omitted from this version of the dataset.</p>
+<p><strong>Source.</strong> Crum, A. J., &amp; Langer, E. J. (2007). Mind-set matters: Exercise and the placebo effect. <em>Psychological Science</em>, 18(2), 165–171. <a href="https://doi.org/10.1111/j.1467-9280.2007.01867.x">https://doi.org/10.1111/j.1467-9280.2007.01867.x</a></p>
+</section>
+<section id="smoking_bmi_bp.csv" class="level2" data-number="B.16">
+<h2 data-number="B.16" class="anchored" data-anchor-id="smoking_bmi_bp.csv"><span class="header-section-number">B.16</span> <code>smoking_bmi_bp.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains physical, behavioral, and demographic measurements for a sample of adults in the United States, focused on exploring how lifestyle choices and physiological markers correlate with systolic blood pressure.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>500 observations</strong> (rows) and <strong>3 variables</strong> (columns).</p>
+<p><a href="../data/smoking_bmi_bp.csv">Download smoking_bmi_bp.csv (CSV file, 8 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>smoking_bmi_bp.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>SystolicBP</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The individual’s systolic blood pressure, measured in millimeters of mercury (mmHg).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Smoker</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Tobacco cigarette smoking status (<strong>Yes</strong> or <strong>No</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>BMI</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Body Mass Index weight classification category based on clinical ranges (<strong>Normal</strong>, <strong>Overweight</strong>, or <strong>Obese</strong>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> An individual’s systolic blood pressure serves as a vital clinical metric and a primary diagnostic signal for potential underlying cardiovascular issues, including hypertension and chronic heart disease.</p>
+<p>This dataset tracks 500 randomly selected adults from the United States, capturing their exact blood pressure reading alongside their self-reported smoking status and calculated BMI classification. The data was compiled as part of an academic case study presentation for the 2003 Annual Meeting of the Statistical Society of Canada (SSC).</p>
+<p><strong>Source.</strong> Statistical Society of Canada. (2003). <em>Blood Pressure Case Studies for the 2003 Annual Meeting</em>. Archived Case Studies. Retrieved from <a href="http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure">http://www.ssc.ca/en/education/archived-case-studies/case-studies-for-the-2003-annual-meeting-blood-pressure</a></p>
+</section>
+<section id="speed_dating.csv" class="level2" data-number="B.17">
+<h2 data-number="B.17" class="anchored" data-anchor-id="speed_dating.csv"><span class="header-section-number">B.17</span> <code>speed_dating.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains results and ratings from a series of four-minute speed dates between graduate and professional students, tracking romantic decisions alongside subjective ratings of attraction, personality, and compatibility.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>276 observations</strong> (rows) and <strong>22 variables</strong> (columns). Each observation represents a single interaction between a unique male-female pair.</p>
+<p><a href="../data/speed_dating.csv">Download speed_dating.csv (CSV file, 17 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>speed_dating.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>DecisionM</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Match decision from the male participant (<span class="math inline">\(1 = \text{yes, wants another date}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>DecisionF</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Match decision from the female participant (<span class="math inline">\(1 = \text{yes, wants another date}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>LikeM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Overall liking of the partner by the male participant, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>LikeF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Overall liking of the partner by the female participant, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>PartnerYesM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s subjective estimate of the probability that the female wants to see him again, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>PartnerYesF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s subjective estimate of the probability that the male wants to see her again, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>AgeM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Age of the male participant in years.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AgeF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Age of the female participant in years.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>RaceM</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Racial identity of the male participant (<strong>Asian</strong>, <strong>Black</strong>, <strong>Caucasian</strong>, <strong>Latino</strong>, or <strong>Other</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>RaceF</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Racial identity of the female participant (<strong>Asian</strong>, <strong>Black</strong>, <strong>Caucasian</strong>, <strong>Latino</strong>, or <strong>Other</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>AttractiveM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of the female’s physical attractiveness, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AttractiveF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of the male’s physical attractiveness, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SincereM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of the female’s sincerity, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SincereF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of the male’s sincerity, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>IntelligentM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of the female’s intelligence, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>IntelligentF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of the male’s intelligence, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FunM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of how fun the female is, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>FunF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of how fun the male is, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>AmbitiousM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of the female’s level of ambition, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AmbitiousF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of the male’s level of ambition, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SharedInterestsM</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The male’s rating of how much they share common interests, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SharedInterestsF</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The female’s rating of how much they share common interests, rated on a <span class="math inline">\(1 \text{ to } 10\)</span> scale.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The data was originally collected from experimental speed-dating events involving graduate and professional students at Columbia University. Participants were recruited via mass email listservs, flyers posted across campus, and flyers handed out directly by research assistants.</p>
+<p>During an event, participants engaged in individual, four-minute “speed dates” with every attendee of the opposite sex, with the pairing sequence and table assignments randomly determined. At the end of each four-minute round, participants filled out a scorecard evaluation rating their date on an integer scale from 1 to 10 across an array of attributes, as well as reporting whether they would want to go on a real date with that person. To simplify the data structure for introductory analysis while preserving independence, this specific file isolates only the very first date that occurred within each testing session.</p>
+<p><strong>Source.</strong> Gelman, A., &amp; Hill, J. (2007). <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511790942">https://doi.org/10.1017/CBO9780511790942</a></p>
+</section>
+<section id="student_lifestyle_sleep.csv" class="level2" data-number="B.18">
+<h2 data-number="B.18" class="anchored" data-anchor-id="student_lifestyle_sleep.csv"><span class="header-section-number">B.18</span> <code>student_lifestyle_sleep.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains real-world data from a study investigating the relationships between sleep patterns, psychological well-being, lifestyle choices, and academic performance among college students.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>253 observations</strong> (rows) and <strong>11 variables</strong> (columns).</p>
+<p><a href="../data/student_lifestyle_sleep.csv">Download student_lifestyle_sleep.csv (CSV file, 13 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>student_lifestyle_sleep.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Gender</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s self-reported gender (<span class="math inline">\(1 = \text{male}\)</span>, <span class="math inline">\(0 = \text{female}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ClassYear</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The student’s year in school (<span class="math inline">\(1 = \text{first year}\)</span>, <span class="math inline">\(2 = \text{sophomore}\)</span>, <span class="math inline">\(3 = \text{junior}\)</span>, <span class="math inline">\(4 = \text{senior}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>GPA</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Cumulative semester grade point average (measured on a <span class="math inline">\(0.0 \text{ to } 4.0\)</span> scale).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ClassesMissed</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The total number of classes the student missed during the semester.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DepressionStatus</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical screening result for depression (<strong>normal</strong>, <strong>moderate</strong>, or <strong>severe</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AnxietyStatus</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical screening result for anxiety (<strong>normal</strong>, <strong>moderate</strong>, or <strong>severe</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Stress</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Clinical screening result for general stress level (<strong>normal</strong> or <strong>high</strong>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AlcoholUse</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Self-reported frequency of alcohol consumption (<strong>Abstain</strong>, <strong>Light</strong>, <strong>Moderate</strong>, or <strong>Heavy</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Drinks</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The average number of alcoholic drinks consumed per week.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>WeekdaySleep</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The average number of hours of sleep the student gets on weekday nights.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>WeekendSleep</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The average number of hours of sleep the student gets on weekend nights.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> The data were obtained from a sample of undergraduate students who participated in a comprehensive study on sleep and cognitive health. Students completed a battery of baseline skills tests to measure cognitive function and filled out a detailed lifestyle survey tracking their personal habits, mental health status, and attitudes toward school. Additionally, participants maintained a daily sleep diary over a continuous two-week period to accurately record the timing, duration, and subjective quality of their sleep.</p>
+<p><strong>Source.</strong> Onyper, S. V., Thacher, P. V., Gilbert, J. W., &amp; Gradess, S. G. (2012). Class start times, sleep, and academic performance in college: A path analysis. <em>Chronobiology International: The Journal of Biological and Medical Rhythm Research</em>, 29(3), 318–335. <a href="https://doi.org/10.3109/07420528.2012.659144">https://doi.org/10.3109/07420528.2012.659144</a></p>
+</section>
+<section id="sunscreen_searches.csv" class="level2" data-number="B.19">
+<h2 data-number="B.19" class="anchored" data-anchor-id="sunscreen_searches.csv"><span class="header-section-number">B.19</span> <code>sunscreen_searches.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains monthly Google search popularity data for the term “sunscreen” in the United States over a five-year period, capturing seasonal interest in sun protection.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>61 observations</strong> (rows) and <strong>2 variables</strong> (columns).</p>
+<p><a href="../data/sunscreen_searches.csv">Download sunscreen_searches.csv (CSV file, 1 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>sunscreen_searches.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Month</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The starting date for the month of data collection, recorded in MM-DD-YY format (ranging from 10-01-21 to 10-01-26).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>sunscreen</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The normalized search interest index for the phrase “sunscreen.” Google scales these values from 0 to 100, where 100 represents the absolute peak search volume during the five-year window, and other values represent a percentage of that peak.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Google Trends isolates a random sample of search traffic to calculate how frequently a specific term is searched relative to the total number of searches conducted during that exact time window. This relative frequency approach prevents raw population growth or shifting internet access rates from artificially inflating the data over time.</p>
+<p>Because Google Trends now reports this term at monthly resolution, this file is monthly rather than weekly. It spans October 2021 to October 2026 and is used alongside the weekly <code>gym_membership_searches.csv</code> in the Chapter 12 exercises.</p>
+<p><strong>Source.</strong> Google LLC. (2026). <em>Google Trends Search Interest for “sunscreen”</em>. Retrieved October 20, 2026, from <a href="https://trends.google.com">https://trends.google.com</a></p>
+</section>
+<section id="textbook_prices.csv" class="level2" data-number="B.20">
+<h2 data-number="B.20" class="anchored" data-anchor-id="textbook_prices.csv"><span class="header-section-number">B.20</span> <code>textbook_prices.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains price comparisons for a random sample of required course textbooks, evaluating the cost difference between an online retailer (Amazon) and a local campus bookstore.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>16 observations</strong> (rows) and <strong>4 variables</strong> (columns).</p>
+<p><a href="../data/textbook_prices.csv">Download textbook_prices.csv (CSV file, 1 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>textbook_prices.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Amazon</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The retail price of the textbook on Amazon (in U.S. dollars).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>College Bookstore</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">The retail price of the textbook at the campus bookstore (in U.S. dollars).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Department</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The specific academic department requiring the textbook (e.g., MATH, PHIL, RUSS).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>School</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The broader academic division housing the department (<strong>Business</strong>, <strong>Liberal Arts</strong>, <strong>Natural Science</strong>, or <strong>Social Science</strong>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> To evaluate whether the campus bookstore charges significantly more than online retailers, a random sample of 16 required course textbooks was collected across four major academic divisions. Because each specific textbook’s price is recorded at both Amazon and the campus bookstore, this creates naturally paired, within-subject data.</p>
+<p><strong>Source.</strong> Woods, S. (2026). <em>Textbook price comparison across academic departments</em> [Dataset]. Prepared for <em>Statistical Methods in Research</em>.</p>
+</section>
+<section id="weight_loss_incentive.csv" class="level2" data-number="B.21">
+<h2 data-number="B.21" class="anchored" data-anchor-id="weight_loss_incentive.csv"><span class="header-section-number">B.21</span> <code>weight_loss_incentive.csv</code></h2>
+<p><strong>Description.</strong> This dataset contains behavioral and physical measurements from a randomized controlled experiment designed to evaluate whether offering financial rewards significantly boosts weight-loss success and helps maintain weight reduction over time.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>38 observations</strong> (rows) and <strong>3 variables</strong> (columns). Each row tracks the progress of a single study participant.</p>
+<p><a href="../data/weight_loss_incentive.csv">Download weight_loss_incentive.csv (CSV file, 1 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>weight_loss_incentive.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>WeightLoss</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Net weight change measured at the end of the active 4-month treatment period (<span class="math inline">\(\text{Baseline Weight} - \text{Month 4 Weight}\)</span> in pounds). Positive values indicate weight loss; negative values indicate weight gain.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Group</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The experimental group assignment for the participant (<strong>Control</strong> or <strong>Incentive</strong>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Month7Loss</code></td>
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Net weight change measured at the 7-month mark, which includes a 3-month unmonitored follow-up phase (<span class="math inline">\(\text{Baseline Weight} - \text{Month 7 Weight}\)</span> in pounds). Positive values indicate weight loss; negative values indicate weight gain.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Obesity management is a major public health focus, but sustaining motivation for lifestyle modification remains a substantial barrier to long-term success. To explore behavioral economics as a tool for clinical compliance, researchers conducted a randomized controlled trial tracking individuals over an extended period. Participants were randomly split into an <strong>Incentive group</strong> (eligible for cash rewards if they met predetermined weight reduction milestones) and a <a href="appendix-glossary.html#glossary-term-control-group" class="glossary-link" aria-describedby="glossary-tooltip" data-term="control group" data-definition="The group in an experiment that does not receive the treatment being tested, used as a baseline for comparison with the treatment group.">Control group</a> (enrolled in the same weight-loss program but given no financial compensation).</p>
+<p>The trial was divided into two structural phases to test both intervention efficacy and behavioral habituation. The first phase lasted 4 months under active monitoring and intervention. After the Month 4 check, the structural incentives were removed, and participants were left unmonitored for an additional 3 months. At the 7-month mark, researchers conducted a follow-up assessment.</p>
+<p><strong>Source.</strong> Volpp, K. G., John, L. K., Troxel, A. B., Norton, L., Fassbender, J., &amp; Loewenstein, G. (2008). Financial incentive–based approaches for weight loss. <em>JAMA</em>, 300(22), 2631–2637. <a href="https://doi.org/10.1001/jama.2008.804">https://doi.org/10.1001/jama.2008.804</a></p>
+</section>
+<section id="youth_risk_2007.csv" class="level2" data-number="B.22">
+<h2 data-number="B.22" class="anchored" data-anchor-id="youth_risk_2007.csv"><span class="header-section-number">B.22</span> <code>youth_risk_2007.csv</code></h2>
+<p><strong>Description.</strong> This dataset isolates demographic and behavioral responses from a sample of American high school students, focusing on the prevalence and risk factors associated with adolescents riding in a vehicle with an intoxicated driver.</p>
+<p><strong>File.</strong> A comma-separated values (<code>.csv</code>) file containing <strong>13,387 observations</strong> (rows) and <strong>6 variables</strong> (columns). Each row represents the anonymous survey responses of a single high school student.</p>
+<p><a href="../data/youth_risk_2007.csv">Download youth_risk_2007.csv (CSV file, 192 KB)</a></p>
+<table class="caption-top table">
+<caption>Variables in <code>youth_risk_2007.csv</code>, with data type and coding key.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable Name</strong></th>
+<th style="text-align: left;"><strong>Data Type</strong></th>
+<th style="text-align: left;"><strong>Description and Coding Keys</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ride.alc.driver</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Riding with a Drunk Driver (RDD) indicator within the past 30 days (<span class="math inline">\(1 = \text{yes, rode with a driver who had been drinking}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>female</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The respondent’s biological sex (<span class="math inline">\(1 = \text{female}\)</span>, <span class="math inline">\(0 = \text{male}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>grade</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The respondent’s academic grade standing in high school (<strong>9</strong> = 9th grade/Freshman, <strong>10</strong> = 10th grade/Sophomore, <strong>11</strong> = 11th grade/Junior, <strong>12</strong> = 12th grade/Senior).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>age4</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">The respondent’s age in years, restricted to adolescent age brackets (<strong>14</strong>, <strong>15</strong>, <strong>16</strong>, <strong>17</strong>, or <strong>18</strong> years old).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>smoke</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Lifetime tobacco experimentation indicator (<span class="math inline">\(1 = \text{yes, has tried smoking cigarettes (even a few puffs)}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>DriverLicense</code></td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Whether the respondent has a driver’s license (<span class="math inline">\(1 = \text{yes}\)</span>, <span class="math inline">\(0 = \text{no}\)</span>); 54 values are missing.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Details.</strong> Public safety campaigns frequently focus on the catastrophic dangers of driving under the influence. However, an equally devastating and overlooked vector for youth traffic fatalities is Riding with a Drunk Driver (RDD). To design effective public health interventions and target safety messaging, researchers must identify which adolescent subgroups are most vulnerable to accepting these rides and explore underlying behavioral correlations.</p>
+<p>The data in this file is a smaller subset derived from the 2007 Youth Risk Behavior Surveillance System (YRBSS), a massive national survey monitored biennially by the Centers for Disease Control and Prevention (CDC). The YRBSS focuses on tracking the prevalence of health-risk behaviors that contribute to the leading causes of death, disability, and social complications among youth in the United States.</p>
+<p><strong>Source.</strong> Brooks-Russell, A., Simons-Morton, B., Haynie, D., Farhat, T., &amp; Litvak, E. (2009). Which young people accept a lift from a drunk or drugged driver? <em>Accident Analysis &amp; Prevention</em>, 41(4), 703–709. <a href="https://doi.org/10.1016/j.aap.2009.03.004">https://doi.org/10.1016/j.aap.2009.03.004</a></p>
+<p>Centers for Disease Control and Prevention. (2007). <em>Youth Risk Behavior Surveillance System (YRBSS) Data and Documentation</em>. https://www.cdc.gov/yrbs/data/index.html</p>
+
+
+<div id="glossary-tooltip" class="glossary-tooltip" role="tooltip" hidden=""></div>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  ready(function () {
+    initTooltips();
+    initGlossaryPage();
+  });
+
+  function initTooltips() {
+    var links = document.querySelectorAll('a.glossary-link[data-definition]');
+    if (!links.length) {
+      return;
+    }
+
+    var tooltip = document.getElementById('glossary-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'glossary-tooltip';
+      tooltip.className = 'glossary-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+    }
+    if (tooltip.parentElement !== document.body) {
+      document.body.appendChild(tooltip);
+    }
+
+    var current = null;
+    var hideTimer = null;
+
+    function clearHideTimer() {
+      if (hideTimer !== null) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function position(link) {
+      var rect = link.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        hide();
+        return;
+      }
+
+      var gap = 8;
+      var pad = 8;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+
+      var box = tooltip.getBoundingClientRect();
+      var left = rect.left + (rect.width / 2) - (box.width / 2);
+      left = Math.max(pad, Math.min(left, window.innerWidth - box.width - pad));
+
+      var top = rect.bottom + gap;
+      if (top + box.height > window.innerHeight - pad) {
+        top = rect.top - box.height - gap;
+      }
+      if (top < pad) {
+        top = pad;
+      }
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function show(link) {
+      clearHideTimer();
+      current = link;
+      tooltip.textContent = link.getAttribute('data-definition') || '';
+      tooltip.hidden = false;
+      link.setAttribute('aria-describedby', 'glossary-tooltip');
+      position(link);
+    }
+
+    function hide() {
+      clearHideTimer();
+      if (current) {
+        current.removeAttribute('aria-describedby');
+      }
+      current = null;
+      tooltip.hidden = true;
+      tooltip.textContent = '';
+    }
+
+    function scheduleHide() {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 180);
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('mouseenter', function () {
+        show(link);
+      });
+      link.addEventListener('mouseleave', scheduleHide);
+      link.addEventListener('focus', function () {
+        show(link);
+      });
+      link.addEventListener('blur', hide);
+      link.addEventListener('click', hide);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', clearHideTimer);
+    tooltip.addEventListener('mouseleave', scheduleHide);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !tooltip.hidden) {
+        hide();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (current && !tooltip.hidden) {
+        position(current);
+      }
+    });
+  }
+
+  function initGlossaryPage() {
+    var table = document.getElementById('glossary-table');
+    var input = document.getElementById('glossary-search');
+    var clear = document.getElementById('glossary-clear');
+    var status = document.getElementById('glossary-status');
+    var panel = document.getElementById('glossary-filter');
+
+    if (table && input && clear && status && panel) {
+      initFilter(table, input, clear, status, panel);
+    }
+
+    highlightTarget();
+    window.addEventListener('hashchange', highlightTarget);
+  }
+
+  function initFilter(table, input, clear, status, panel) {
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var total = rows.length;
+    if (!total) {
+      return;
+    }
+
+    panel.hidden = false;
+
+    function normalize(value) {
+      value = value.toLowerCase();
+      if (value.normalize) {
+        value = value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+      }
+      return value;
+    }
+
+    function apply() {
+      var query = normalize(input.value.trim());
+      var shown = 0;
+
+      rows.forEach(function (row) {
+        var match = !query || normalize(row.textContent).indexOf(query) !== -1;
+        row.hidden = !match;
+        if (match) {
+          shown += 1;
+        }
+      });
+
+      clear.hidden = query === '';
+      if (query === '') {
+        status.textContent = 'Showing all ' + total + ' terms.';
+      } else {
+        status.textContent = 'Showing ' + shown + ' of ' + total + ' terms for "' + input.value.trim() + '".';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        input.value = '';
+        apply();
+      }
+    });
+
+    clear.addEventListener('click', function () {
+      input.value = '';
+      apply();
+      input.focus();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.glossary-az a'), function (link) {
+      link.addEventListener('click', function () {
+        if (input.value !== '') {
+          input.value = '';
+          apply();
+        }
+      });
+    });
+
+    apply();
+  }
+
+  function highlightTarget() {
+    var identifier = window.location.hash.slice(1);
+    if (!identifier) {
+      return;
+    }
+
+    var anchor = document.getElementById(identifier);
+    if (!anchor || !anchor.closest) {
+      return;
+    }
+
+    var row = anchor.closest('tr');
+    if (!row) {
+      return;
+    }
+
+    row.classList.add('glossary-target');
+    window.setTimeout(function () {
+      row.classList.remove('glossary-target');
+    }, 2500);
+  }
+})();
+</script>
+<script>
+/*
+ * Accessibility shims for the Quarto book theme.
+ *
+ * axe-core flags four problems that come from Quarto's generated
+ * markup, not from the chapter sources:
+ *   1. Two unlabeled <nav> landmarks on every page, so neither is distinguishable.
+ *   2. Section toggles that all share the name "Toggle section".
+ *   3. Pagination and sidebar links whose aria-label does not contain their
+ *      visible text (WCAG 2.5.3, Label in Name).
+ *   4. Code blocks that scroll sideways at narrow widths but cannot take
+ *      keyboard focus (WCAG 2.1.1).
+ * This script repairs the names after the page loads. If Quarto starts
+ * emitting these labels itself, delete this file.
+ */
+(function () {
+  'use strict';
+
+  function ready(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function clean(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function labelLandmarks() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (sidebar && !sidebar.getAttribute('aria-label')) {
+      sidebar.setAttribute('aria-label', 'Book sections');
+    }
+
+    var secondary = document.querySelector('nav.quarto-secondary-nav');
+    if (secondary && !secondary.getAttribute('aria-label')) {
+      secondary.setAttribute('aria-label', 'Secondary navigation');
+    }
+  }
+
+  /*
+   * The right-hand table of contents and the previous/next pager are both
+   * unnamed navigation landmarks. Quarto builds the TOC after the document
+   * loads, so keep checking until it exists.
+   */
+  function labelPageNav() {
+    var pager = document.querySelector('nav.page-navigation');
+    if (pager && !pager.getAttribute('aria-label')) {
+      pager.setAttribute('aria-label', 'Page navigation');
+    }
+
+    var toc = document.getElementById('TOC');
+    if (toc && !toc.getAttribute('aria-label')) {
+      toc.setAttribute('aria-label', 'On this page');
+    }
+    return Boolean(toc);
+  }
+
+  function labelToggles() {
+    var toggles = document.querySelectorAll('a.sidebar-item-toggle[aria-label]');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      var item = toggle.closest('li, .sidebar-item');
+      var text = item ? item.querySelector('.sidebar-item-text') : null;
+      var name = text ? clean(text.textContent) : '';
+      toggle.setAttribute(
+        'aria-label',
+        name ? 'Toggle section: ' + name : 'Toggle section'
+      );
+    });
+  }
+
+  /*
+   * Quarto puts role="navigation" on the section links themselves. Landmark
+   * roles cannot take their name from their contents, so axe reads every one
+   * of them as unnamed and reports a duplicate landmark. Give each one the
+   * section title as its name.
+   */
+  function labelSidebarSections() {
+    var sections = document.querySelectorAll('#quarto-sidebar a[role="navigation"]');
+    Array.prototype.forEach.call(sections, function (link) {
+      if (link.getAttribute('aria-label')) {
+        return;
+      }
+      var name = clean(link.textContent);
+      if (name) {
+        link.setAttribute('aria-label', 'Section: ' + name);
+      }
+    });
+  }
+
+  /*
+   * Quarto gives the navbar's collapse button role="menu", which a button may
+   * not take. The button already has a name and aria-expanded, so drop the
+   * role and let it be a plain button.
+   */
+  function fixNavbarToggler() {
+    var togglers = document.querySelectorAll('button.navbar-toggler[role="menu"]');
+    Array.prototype.forEach.call(togglers, function (button) {
+      button.removeAttribute('role');
+    });
+  }
+
+  function matchVisibleNames() {
+    var sidebarLinks = document.querySelectorAll('a.sidebar-link[aria-label]');
+    Array.prototype.forEach.call(sidebarLinks, function (link) {
+      var text = clean(link.textContent);
+      if (text) {
+        link.setAttribute('aria-label', text);
+      }
+    });
+
+    var pagerLinks = document.querySelectorAll('a.pagination-link[aria-label]');
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      var text = clean(link.textContent);
+      var base = link.getAttribute('aria-label');
+      if (text) {
+        link.setAttribute('aria-label', base + ': ' + text);
+      }
+    });
+  }
+
+  /*
+   * A code block wider than its box scrolls, and a scrolling region must be
+   * reachable by keyboard. Add tabindex="0" to the blocks that overflow, and
+   * recheck on resize because overflow depends on the window width.
+   */
+  function focusScrollableCode() {
+    var blocks = document.querySelectorAll('pre');
+    Array.prototype.forEach.call(blocks, function (block) {
+      if (block.scrollWidth > block.clientWidth) {
+        block.setAttribute('tabindex', '0');
+      } else if (block.getAttribute('tabindex') === '0') {
+        block.removeAttribute('tabindex');
+      }
+    });
+  }
+
+  ready(function () {
+    focusScrollableCode();
+    window.addEventListener('resize', focusScrollableCode);
+    labelLandmarks();
+    labelToggles();
+    labelSidebarSections();
+    fixNavbarToggler();
+    matchVisibleNames();
+
+    if (!labelPageNav()) {
+      var observer = new MutationObserver(function () {
+        if (labelPageNav()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/appendix-glossary.html" class="pagination-link" aria-label="Glossary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/appendix-index.html" class="pagination-link" aria-label="Index">
+        <span class="nav-page-text">Index</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
