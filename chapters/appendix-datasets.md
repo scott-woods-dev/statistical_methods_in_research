@@ -2,7 +2,7 @@
 
 # Datasets
 
-Every dataset used in this book is available as a CSV file, with one row per observation and one column per variable. Each section below names the file, describes it, lists its variables in a table, explains how the data were collected, and cites the source. Data files as of November 3, 2026.
+Every dataset used in this book is available as a CSV file, with one row per observation and one column per variable. Each section below names the file, describes it, lists its variables in a table, explains how the data were collected, and cites the source. Data files as of November 4, 2026.
 
 ::: {.content-visible when-format="html"}
 Download any file from its section, or get all 22 files and this key together as [one ZIP archive](../data/statmethods-datasets.zip).
