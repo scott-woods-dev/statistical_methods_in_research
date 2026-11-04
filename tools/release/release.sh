@@ -9,7 +9,7 @@
 # 5 render, 6 companion render, 7 companion links, 8 accessibility,
 # 9 summary. WARN hits from the style check are counted and reported; they
 # never fail the release.
-# Step 8 needs playwright, @axe-core/playwright, and Chromium (see FIGURES.md).
+# Step 8 needs playwright, @axe-core/playwright, and Chromium (see tools/a11y/scan.cjs for the install steps).
 
 cd "$(dirname "$0")/../.." || exit 2
 

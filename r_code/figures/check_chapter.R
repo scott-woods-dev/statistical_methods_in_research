@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # =============================================================================
-# Validate one chapter's figures against FIGURES.md.
+# Validate one chapter's figures against its figures.yml registry.
 #
 # Usage (from the project root):
 #   Rscript r_code/figures/check_chapter.R 01
