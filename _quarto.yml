@@ -13,7 +13,13 @@ book:
   subtitle: "A Conceptual Approach"
   author: "Scott Woods"
   date: today
+  # Search is a box in the sidebar, as in the companion, not an icon in the navbar.
+  search:
+    type: textbox
+  sidebar:
+    search: true
   navbar:
+    search: false
     right:
       - text: "R Companion"
         href: companion/index.html

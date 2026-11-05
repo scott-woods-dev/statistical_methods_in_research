@@ -14,3 +14,13 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+/* The title block labels (Author, Published) are Quarto's small uppercase
+   headings. At that size the letter heights round unevenly on some screens, so
+   set them in normal case and bold, the same size as the text under them. */
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
+  text-transform: none;
+  font-size: .9em;
+  font-weight: 700;
+  opacity: 1;
+}
